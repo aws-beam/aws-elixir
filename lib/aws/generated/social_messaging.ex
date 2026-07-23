@@ -62,598 +62,6 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
-      get_linked_whats_app_business_account_output() :: %{
-        "account" => linked_whats_app_business_account()
-      }
-
-  """
-  @type get_linked_whats_app_business_account_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_whats_app_message_output() :: %{
-        "messageId" => [String.t() | atom()]
-      }
-
-  """
-  @type send_whats_app_message_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_whats_app_business_account_output() :: %{
-        "signupCallbackResult" => whats_app_signup_callback_result(),
-        "statusCode" => [integer()]
-      }
-
-  """
-  @type associate_whats_app_business_account_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_whats_app_message_media_output() :: %{
-        "fileSize" => [float()],
-        "mimeType" => [String.t() | atom()]
-      }
-
-  """
-  @type get_whats_app_message_media_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dependency_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type dependency_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_whats_app_message_template_input() :: %{
-        optional("ctaUrlLinkTrackingOptedOut") => boolean(),
-        optional("parameterFormat") => String.t() | atom(),
-        optional("templateCategory") => String.t() | atom(),
-        optional("templateComponents") => binary(),
-        required("id") => String.t() | atom(),
-        required("metaTemplateId") => String.t() | atom()
-      }
-
-  """
-  @type update_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_whats_app_message_template_input() :: %{
-        optional("deleteAllLanguages") => boolean(),
-        optional("metaTemplateId") => String.t() | atom(),
-        required("id") => String.t() | atom(),
-        required("templateName") => String.t() | atom()
-      }
-
-  """
-  @type delete_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      whats_app_signup_callback_result() :: %{
-        "associateInProgressToken" => String.t() | atom(),
-        "linkedAccountsWithIncompleteSetup" => map()
-      }
-
-  """
-  @type whats_app_signup_callback_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_linked_whats_app_business_account_phone_number_output() :: %{
-        "linkedWhatsAppBusinessAccountId" => String.t() | atom(),
-        "phoneNumber" => whats_app_phone_number_detail()
-      }
-
-  """
-  @type get_linked_whats_app_business_account_phone_number_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_by_meta_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_by_meta_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_whats_app_message_media_input() :: %{
-        required("mediaId") => String.t() | atom(),
-        required("originationPhoneNumberId") => String.t() | atom()
-      }
-
-  """
-  @type delete_whats_app_message_media_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_whats_app_business_account_event_destinations_input() :: %{
-        required("eventDestinations") => list(whats_app_business_account_event_destination()),
-        required("id") => String.t() | atom()
-      }
-
-  """
-  @type put_whats_app_business_account_event_destinations_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_whats_app_message_template_input() :: %{
-        required("id") => String.t() | atom(),
-        required("metaTemplateId") => String.t() | atom()
-      }
-
-  """
-  @type get_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_whats_app_message_template_output() :: %{
-        "template" => String.t() | atom()
-      }
-
-  """
-  @type get_whats_app_message_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      linked_whats_app_business_account_summary() :: %{
-        "arn" => String.t() | atom(),
-        "eventDestinations" => list(whats_app_business_account_event_destination()),
-        "id" => String.t() | atom(),
-        "linkDate" => non_neg_integer(),
-        "registrationStatus" => list(any()),
-        "wabaId" => String.t() | atom(),
-        "wabaName" => String.t() | atom()
-      }
-
-  """
-  @type linked_whats_app_business_account_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_linked_whats_app_business_accounts_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_linked_whats_app_business_accounts_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "statusCode" => [integer()],
-        "tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_whats_app_business_account_input() :: %{
-        optional("setupFinalization") => whats_app_setup_finalization(),
-        optional("signupCallback") => whats_app_signup_callback()
-      }
-
-  """
-  @type associate_whats_app_business_account_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_file() :: %{
-        "bucketName" => [String.t() | atom()],
-        "key" => [String.t() | atom()]
-      }
-
-  """
-  @type s3_file() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_whats_app_business_account_input() :: %{
-        required("id") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_whats_app_business_account_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_whats_app_message_template_from_library_output() :: %{
-        "category" => String.t() | atom(),
-        "metaTemplateId" => String.t() | atom(),
-        "templateStatus" => [String.t() | atom()]
-      }
-
-  """
-  @type create_whats_app_message_template_from_library_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_whats_app_message_template_output() :: %{}
-
-  """
-  @type update_whats_app_message_template_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_whats_app_template_library_output() :: %{
-        "metaLibraryTemplates" => list(meta_library_template_definition()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_whats_app_template_library_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_whats_app_message_template_output() :: %{
-        "category" => String.t() | atom(),
-        "metaTemplateId" => String.t() | atom(),
-        "templateStatus" => [String.t() | atom()]
-      }
-
-  """
-  @type create_whats_app_message_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_linked_whats_app_business_account_input() :: %{
-        required("id") => String.t() | atom()
-      }
-
-  """
-  @type get_linked_whats_app_business_account_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      library_template_body_inputs() :: %{
-        "addContactNumber" => boolean(),
-        "addLearnMoreLink" => boolean(),
-        "addSecurityRecommendation" => boolean(),
-        "addTrackPackageLink" => boolean(),
-        "codeExpirationMinutes" => integer()
-      }
-
-  """
-  @type library_template_body_inputs() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      linked_whats_app_business_account() :: %{
-        "arn" => String.t() | atom(),
-        "eventDestinations" => list(whats_app_business_account_event_destination()),
-        "id" => String.t() | atom(),
-        "linkDate" => non_neg_integer(),
-        "phoneNumbers" => list(whats_app_phone_number_summary()),
-        "registrationStatus" => list(any()),
-        "wabaId" => String.t() | atom(),
-        "wabaName" => String.t() | atom()
-      }
-
-  """
-  @type linked_whats_app_business_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "key" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      waba_phone_number_setup_finalization() :: %{
-        "dataLocalizationRegion" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "tags" => list(tag()),
-        "twoFactorPin" => String.t() | atom()
-      }
-
-  """
-  @type waba_phone_number_setup_finalization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttled_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttled_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_summary() :: %{
-        "metaTemplateId" => String.t() | atom(),
-        "templateCategory" => String.t() | atom(),
-        "templateLanguage" => String.t() | atom(),
-        "templateName" => String.t() | atom(),
-        "templateQualityScore" => String.t() | atom(),
-        "templateStatus" => String.t() | atom()
-      }
-
-  """
-  @type template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_whats_app_message_template_media_input() :: %{
-        optional("sourceS3File") => s3_file(),
-        required("id") => String.t() | atom()
-      }
-
-  """
-  @type create_whats_app_message_template_media_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_whats_app_message_template_from_library_input() :: %{
-        required("id") => String.t() | atom(),
-        required("metaLibraryTemplate") => meta_library_template()
-      }
-
-  """
-  @type create_whats_app_message_template_from_library_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_whats_app_message_templates_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "templates" => list(template_summary())
-      }
-
-  """
-  @type list_whats_app_message_templates_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameters_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameters_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_whats_app_message_input() :: %{
-        required("message") => binary(),
-        required("metaApiVersion") => [String.t() | atom()],
-        required("originationPhoneNumberId") => String.t() | atom()
-      }
-
-  """
-  @type send_whats_app_message_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      whats_app_setup_finalization() :: %{
-        "associateInProgressToken" => String.t() | atom(),
-        "phoneNumberParent" => String.t() | atom(),
-        "phoneNumbers" => list(waba_phone_number_setup_finalization()),
-        "waba" => waba_setup_finalization()
-      }
-
-  """
-  @type whats_app_setup_finalization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      library_template_button_input() :: %{
-        "otpType" => String.t() | atom(),
-        "phoneNumber" => String.t() | atom(),
-        "supportedApps" => list(map()),
-        "type" => String.t() | atom(),
-        "url" => map(),
-        "zeroTapTermsAccepted" => boolean()
-      }
-
-  """
-  @type library_template_button_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      post_whats_app_message_media_output() :: %{
-        "mediaId" => String.t() | atom()
-      }
-
-  """
-  @type post_whats_app_message_media_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_whats_app_business_account_event_destinations_output() :: %{}
-
-  """
-  @type put_whats_app_business_account_event_destinations_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_whats_app_message_media_input() :: %{
-        optional("destinationS3File") => s3_file(),
-        optional("destinationS3PresignedUrl") => s3_presigned_url(),
-        optional("metadataOnly") => [boolean()],
-        required("mediaId") => String.t() | atom(),
-        required("originationPhoneNumberId") => String.t() | atom()
-      }
-
-  """
-  @type get_whats_app_message_media_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_whats_app_template_library_input() :: %{
-        optional("filters") => map(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("id") => String.t() | atom()
-      }
-
-  """
-  @type list_whats_app_template_library_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{
-        "statusCode" => [integer()]
-      }
-
-  """
-  @type tag_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_whats_app_message_media_output() :: %{
-        "success" => [boolean()]
-      }
-
-  """
-  @type delete_whats_app_message_media_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       library_template_button_list() :: %{
         "otpType" => String.t() | atom(),
         "phoneNumber" => String.t() | atom(),
@@ -666,137 +74,6 @@ defmodule AWS.SocialMessaging do
 
   """
   @type library_template_button_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_whats_app_business_account_output() :: %{}
-
-  """
-  @type disassociate_whats_app_business_account_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_whats_app_message_template_output() :: %{}
-
-  """
-  @type delete_whats_app_message_template_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_whats_app_message_templates_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("id") => String.t() | atom()
-      }
-
-  """
-  @type list_whats_app_message_templates_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{
-        "statusCode" => [integer()]
-      }
-
-  """
-  @type untag_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_whats_app_message_template_input() :: %{
-        required("id") => String.t() | atom(),
-        required("templateDefinition") => binary()
-      }
-
-  """
-  @type create_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      linked_whats_app_business_account_id_meta_data() :: %{
-        "accountName" => String.t() | atom(),
-        "registrationStatus" => list(any()),
-        "unregisteredWhatsAppPhoneNumbers" => list(whats_app_phone_number_detail()),
-        "wabaId" => String.t() | atom()
-      }
-
-  """
-  @type linked_whats_app_business_account_id_meta_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      whats_app_phone_number_detail() :: %{
-        "arn" => String.t() | atom(),
-        "dataLocalizationRegion" => String.t() | atom(),
-        "displayPhoneNumber" => String.t() | atom(),
-        "displayPhoneNumberName" => String.t() | atom(),
-        "metaPhoneNumberId" => String.t() | atom(),
-        "phoneNumber" => String.t() | atom(),
-        "phoneNumberId" => String.t() | atom(),
-        "qualityRating" => String.t() | atom()
-      }
-
-  """
-  @type whats_app_phone_number_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,73 +97,23 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
-      whats_app_business_account_event_destination() :: %{
-        "eventDestinationArn" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type whats_app_business_account_event_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
+      validation_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      whats_app_signup_callback() :: %{
-        "accessToken" => [String.t() | atom()],
-        "callbackUrl" => [String.t() | atom()]
+      delete_whats_app_message_media_output() :: %{
+        "success" => [boolean()]
       }
 
   """
-  @type whats_app_signup_callback() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      post_whats_app_message_media_input() :: %{
-        optional("sourceS3File") => s3_file(),
-        optional("sourceS3PresignedUrl") => s3_presigned_url(),
-        required("originationPhoneNumberId") => String.t() | atom()
-      }
-
-  """
-  @type post_whats_app_message_media_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_linked_whats_app_business_accounts_output() :: %{
-        "linkedAccounts" => list(linked_whats_app_business_account_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_linked_whats_app_business_accounts_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_presigned_url() :: %{
-        "headers" => map(),
-        "url" => [String.t() | atom()]
-      }
-
-  """
-  @type s3_presigned_url() :: %{(String.t() | atom()) => any()}
+  @type delete_whats_app_message_media_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -913,14 +140,72 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
-      get_linked_whats_app_business_account_phone_number_input() :: %{
-        required("id") => String.t() | atom()
+      update_whats_app_message_template_input() :: %{
+        optional("ctaUrlLinkTrackingOptedOut") => boolean(),
+        required("id") => String.t() | atom(),
+        optional("metaTemplateId") => String.t() | atom(),
+        optional("parameterFormat") => String.t() | atom(),
+        optional("templateCategory") => String.t() | atom(),
+        optional("templateComponents") => binary(),
+        optional("templateLanguageCode") => String.t() | atom(),
+        optional("templateName") => String.t() | atom()
       }
 
   """
-  @type get_linked_whats_app_business_account_phone_number_input() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type update_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_application_info() :: %{
+        "id" => String.t() | atom(),
+        "link" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type meta_flow_application_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      library_template_button_input() :: %{
+        "otpType" => String.t() | atom(),
+        "phoneNumber" => String.t() | atom(),
+        "supportedApps" => list(map()),
+        "type" => String.t() | atom(),
+        "url" => map(),
+        "zeroTapTermsAccepted" => boolean()
+      }
+
+  """
+  @type library_template_button_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_whats_app_message_media_input() :: %{
+        required("originationPhoneNumberId") => String.t() | atom(),
+        optional("sourceS3File") => s3_file(),
+        optional("sourceS3PresignedUrl") => s3_presigned_url()
+      }
+
+  """
+  @type post_whats_app_message_media_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,12 +227,941 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
-      create_whats_app_message_template_media_output() :: %{
-        "metaHeaderHandle" => [String.t() | atom()]
+      list_whats_app_message_templates_input() :: %{
+        required("id") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type create_whats_app_message_template_media_output() :: %{(String.t() | atom()) => any()}
+  @type list_whats_app_message_templates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_from_library_output() :: %{
+        "category" => String.t() | atom(),
+        "metaTemplateId" => String.t() | atom(),
+        "templateStatus" => [String.t() | atom()]
+      }
+
+  """
+  @type create_whats_app_message_template_from_library_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      send_whats_app_message_output() :: %{
+        "messageId" => [String.t() | atom()]
+      }
+
+  """
+  @type send_whats_app_message_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_input() :: %{
+        required("id") => String.t() | atom(),
+        required("templateDefinition") => binary()
+      }
+
+  """
+  @type create_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_whats_app_flow_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type delete_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linked_whats_app_business_account_id_meta_data() :: %{
+        "accountName" => String.t() | atom(),
+        "registrationStatus" => list(any()),
+        "unregisteredWhatsAppPhoneNumbers" => list(whats_app_phone_number_detail()),
+        "wabaId" => String.t() | atom()
+      }
+
+  """
+  @type linked_whats_app_business_account_id_meta_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_whats_app_flow_assets_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("flowJson") => binary(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type update_whats_app_flow_assets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_whats_app_business_account_output() :: %{
+        "linkedWhatsAppBusinessAccountId" => String.t() | atom(),
+        "signupCallbackResult" => whats_app_signup_callback_result(),
+        "statusCode" => [integer()]
+      }
+
+  """
+  @type associate_whats_app_business_account_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_asset() :: %{
+        "assetType" => String.t() | atom(),
+        "downloadUrl" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type meta_flow_asset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_linked_whats_app_business_account_phone_number_input() :: %{
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type get_linked_whats_app_business_account_phone_number_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_health_entity() :: %{
+        "canSendMessage" => String.t() | atom(),
+        "entityType" => String.t() | atom(),
+        "id" => [String.t() | atom()]
+      }
+
+  """
+  @type meta_flow_health_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_message_templates_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "templates" => list(template_summary())
+      }
+
+  """
+  @type list_whats_app_message_templates_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_business_account_event_destination() :: %{
+        "eventDestinationArn" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type whats_app_business_account_event_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameters_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameters_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_message_template_output() :: %{
+        "template" => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_message_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_whats_app_message_media_input() :: %{
+        required("mediaId") => String.t() | atom(),
+        required("originationPhoneNumberId") => String.t() | atom()
+      }
+
+  """
+  @type delete_whats_app_message_media_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linked_whats_app_business_account() :: %{
+        "arn" => String.t() | atom(),
+        "eventDestinations" => list(whats_app_business_account_event_destination()),
+        "id" => String.t() | atom(),
+        "linkDate" => non_neg_integer(),
+        "marketingMessagesOnboardingStatus" => String.t() | atom(),
+        "phoneNumbers" => list(whats_app_phone_number_summary()),
+        "registrationStatus" => list(any()),
+        "wabaId" => String.t() | atom(),
+        "wabaName" => String.t() | atom()
+      }
+
+  """
+  @type linked_whats_app_business_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttled_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type dependency_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_whats_app_message_template_input() :: %{
+        optional("deleteAllLanguages") => boolean(),
+        required("id") => String.t() | atom(),
+        optional("metaTemplateId") => String.t() | atom(),
+        required("templateName") => String.t() | atom()
+      }
+
+  """
+  @type delete_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_from_library_input() :: %{
+        required("id") => String.t() | atom(),
+        required("metaLibraryTemplate") => meta_library_template()
+      }
+
+  """
+  @type create_whats_app_message_template_from_library_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_by_meta_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_by_meta_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      waba_phone_number_setup_finalization() :: %{
+        "dataLocalizationRegion" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "tags" => list(tag()),
+        "twoFactorPin" => String.t() | atom()
+      }
+
+  """
+  @type waba_phone_number_setup_finalization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "statusCode" => [integer()],
+        "tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_flow_preview_output() :: %{
+        "flowId" => String.t() | atom(),
+        "preview" => meta_flow_preview_info()
+      }
+
+  """
+  @type get_whats_app_flow_preview_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_summary() :: %{
+        "metaTemplateId" => String.t() | atom(),
+        "templateCategory" => String.t() | atom(),
+        "templateLanguage" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
+        "templateQualityScore" => String.t() | atom(),
+        "templateStatus" => String.t() | atom()
+      }
+
+  """
+  @type template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_flow_preview_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom(),
+        optional("invalidate") => [boolean()]
+      }
+
+  """
+  @type get_whats_app_flow_preview_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_message_media_input() :: %{
+        optional("destinationS3File") => s3_file(),
+        optional("destinationS3PresignedUrl") => s3_presigned_url(),
+        required("mediaId") => String.t() | atom(),
+        optional("metadataOnly") => [boolean()],
+        required("originationPhoneNumberId") => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_message_media_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{
+        "statusCode" => [integer()]
+      }
+
+  """
+  @type untag_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "key" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linked_whats_app_business_accounts_output() :: %{
+        "linkedAccounts" => list(linked_whats_app_business_account_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_linked_whats_app_business_accounts_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linked_whats_app_business_account_summary() :: %{
+        "arn" => String.t() | atom(),
+        "eventDestinations" => list(whats_app_business_account_event_destination()),
+        "id" => String.t() | atom(),
+        "linkDate" => non_neg_integer(),
+        "marketingMessagesOnboardingStatus" => String.t() | atom(),
+        "registrationStatus" => list(any()),
+        "wabaId" => String.t() | atom(),
+        "wabaName" => String.t() | atom()
+      }
+
+  """
+  @type linked_whats_app_business_account_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      library_template_body_inputs() :: %{
+        "addContactNumber" => boolean(),
+        "addLearnMoreLink" => boolean(),
+        "addSecurityRecommendation" => boolean(),
+        "addTrackPackageLink" => boolean(),
+        "codeExpirationMinutes" => integer()
+      }
+
+  """
+  @type library_template_body_inputs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linked_whats_app_business_accounts_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_linked_whats_app_business_accounts_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_health_status() :: %{
+        "canSendMessage" => String.t() | atom(),
+        "entities" => list(meta_flow_health_entity())
+      }
+
+  """
+  @type meta_flow_health_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_linked_whats_app_business_account_input() :: %{
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type get_linked_whats_app_business_account_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_whats_app_message_template_output() :: %{}
+
+  """
+  @type delete_whats_app_message_template_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_whats_app_business_account_output() :: %{}
+
+  """
+  @type disassociate_whats_app_business_account_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{
+        "statusCode" => [integer()]
+      }
+
+  """
+  @type tag_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_whats_app_message_input() :: %{
+        required("message") => binary(),
+        required("metaApiVersion") => [String.t() | atom()],
+        required("originationPhoneNumberId") => String.t() | atom()
+      }
+
+  """
+  @type send_whats_app_message_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_whats_app_business_account_input() :: %{
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_whats_app_business_account_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_media_input() :: %{
+        required("id") => String.t() | atom(),
+        optional("sourceS3File") => s3_file()
+      }
+
+  """
+  @type create_whats_app_message_template_media_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_flow_assets_output() :: %{
+        "flowAssets" => list(meta_flow_asset()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_flow_assets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_whats_app_business_account_input() :: %{
+        optional("setupFinalization") => whats_app_setup_finalization(),
+        optional("signupCallback") => whats_app_signup_callback()
+      }
+
+  """
+  @type associate_whats_app_business_account_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_signup_callback() :: %{
+        "accessToken" => [String.t() | atom()],
+        "callbackUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type whats_app_signup_callback() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_template_library_input() :: %{
+        optional("filters") => map(),
+        required("id") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_template_library_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_setup_finalization() :: %{
+        "associateInProgressToken" => String.t() | atom(),
+        "phoneNumberParent" => String.t() | atom(),
+        "phoneNumbers" => list(waba_phone_number_setup_finalization()),
+        "waba" => waba_setup_finalization()
+      }
+
+  """
+  @type whats_app_setup_finalization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_flow_assets_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_flow_assets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_whats_app_flow_output() :: %{}
+
+  """
+  @type delete_whats_app_flow_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_whats_app_business_account_event_destinations_output() :: %{}
+
+  """
+  @type put_whats_app_business_account_event_destinations_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_flow_output() :: %{
+        "flowId" => String.t() | atom(),
+        "validationErrors" => list(String.t() | atom())
+      }
+
+  """
+  @type create_whats_app_flow_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_presigned_url() :: %{
+        "headers" => map(),
+        "url" => [String.t() | atom()]
+      }
+
+  """
+  @type s3_presigned_url() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_message_media_output() :: %{
+        "fileSize" => [float()],
+        "mimeType" => [String.t() | atom()]
+      }
+
+  """
+  @type get_whats_app_message_media_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_message_template_input() :: %{
+        required("id") => String.t() | atom(),
+        optional("metaTemplateId") => String.t() | atom(),
+        optional("templateLanguageCode") => String.t() | atom(),
+        optional("templateName") => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_message_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_flow_input() :: %{
+        required("categories") => list(list(any())()),
+        optional("cloneFlowId") => String.t() | atom(),
+        optional("flowJson") => binary(),
+        required("flowName") => String.t() | atom(),
+        required("id") => String.t() | atom(),
+        optional("publish") => [boolean()]
+      }
+
+  """
+  @type create_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_flows_output() :: %{
+        "flows" => list(meta_flow_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_flows_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deprecate_whats_app_flow_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type deprecate_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_whats_app_flow_output() :: %{}
+
+  """
+  @type publish_whats_app_flow_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_template_library_output() :: %{
+        "metaLibraryTemplates" => list(meta_library_template_definition()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_template_library_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_preview_info() :: %{
+        "expiresAt" => String.t() | atom(),
+        "previewUrl" => String.t() | atom()
+      }
+
+  """
+  @type meta_flow_preview_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_whats_app_business_account_event_destinations_input() :: %{
+        required("eventDestinations") => list(whats_app_business_account_event_destination()),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type put_whats_app_business_account_event_destinations_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_whats_app_flow_input() :: %{
+        optional("categories") => list(list(any())()),
+        required("flowId") => String.t() | atom(),
+        optional("flowName") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type update_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deprecate_whats_app_flow_output() :: %{}
+
+  """
+  @type deprecate_whats_app_flow_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_summary() :: %{
+        "flowCategories" => list(list(any())()),
+        "flowId" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
+        "flowStatus" => String.t() | atom(),
+        "validationErrors" => list(String.t() | atom())
+      }
+
+  """
+  @type meta_flow_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_flows_input() :: %{
+        required("id") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_whats_app_flows_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_whats_app_message_media_output() :: %{
+        "mediaId" => String.t() | atom()
+      }
+
+  """
+  @type post_whats_app_message_media_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_signup_callback_result() :: %{
+        "associateInProgressToken" => String.t() | atom(),
+        "linkedAccountsWithIncompleteSetup" => map()
+      }
+
+  """
+  @type whats_app_signup_callback_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_whats_app_flow_assets_output() :: %{
+        "validationErrors" => list(String.t() | atom())
+      }
+
+  """
+  @type update_whats_app_flow_assets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_output() :: %{
+        "category" => String.t() | atom(),
+        "metaTemplateId" => String.t() | atom(),
+        "templateStatus" => [String.t() | atom()]
+      }
+
+  """
+  @type create_whats_app_message_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_linked_whats_app_business_account_output() :: %{
+        "account" => linked_whats_app_business_account()
+      }
+
+  """
+  @type get_linked_whats_app_business_account_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -962,144 +1176,366 @@ defmodule AWS.SocialMessaging do
   """
   @type waba_setup_finalization() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_flow_output() :: %{
+        "application" => meta_flow_application_info(),
+        "categories" => list(list(any())()),
+        "dataApiVersion" => String.t() | atom(),
+        "endpointUri" => String.t() | atom(),
+        "flowId" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
+        "flowStatus" => String.t() | atom(),
+        "healthStatus" => meta_flow_health_status(),
+        "jsonVersion" => String.t() | atom(),
+        "preview" => meta_flow_preview_info(),
+        "validationErrors" => list(String.t() | atom()),
+        "whatsAppBusinessAccount" => meta_flow_whats_app_business_account_info()
+      }
+
+  """
+  @type get_whats_app_flow_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_phone_number_detail() :: %{
+        "arn" => String.t() | atom(),
+        "dataLocalizationRegion" => String.t() | atom(),
+        "displayPhoneNumber" => String.t() | atom(),
+        "displayPhoneNumberName" => String.t() | atom(),
+        "metaPhoneNumberId" => String.t() | atom(),
+        "phoneNumber" => String.t() | atom(),
+        "phoneNumberId" => String.t() | atom(),
+        "qualityRating" => String.t() | atom()
+      }
+
+  """
+  @type whats_app_phone_number_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_flow_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type get_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_flow_whats_app_business_account_info() :: %{
+        "currency" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "messageTemplateNamespace" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "timezoneId" => String.t() | atom()
+      }
+
+  """
+  @type meta_flow_whats_app_business_account_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_whats_app_flow_input() :: %{
+        required("flowId") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type publish_whats_app_flow_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_linked_whats_app_business_account_phone_number_output() :: %{
+        "linkedWhatsAppBusinessAccountId" => String.t() | atom(),
+        "phoneNumber" => whats_app_phone_number_detail()
+      }
+
+  """
+  @type get_linked_whats_app_business_account_phone_number_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_media_output() :: %{
+        "metaHeaderHandle" => [String.t() | atom()]
+      }
+
+  """
+  @type create_whats_app_message_template_media_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_whats_app_message_template_output() :: %{}
+
+  """
+  @type update_whats_app_message_template_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_file() :: %{
+        "bucketName" => [String.t() | atom()],
+        "key" => [String.t() | atom()]
+      }
+
+  """
+  @type s3_file() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_whats_app_flow_output() :: %{}
+
+  """
+  @type update_whats_app_flow_output() :: %{}
+
   @type associate_whats_app_business_account_errors() ::
           limit_exceeded_exception()
-          | invalid_parameters_exception()
-          | throttled_request_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+
+  @type create_whats_app_flow_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type create_whats_app_message_template_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type create_whats_app_message_template_from_library_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type create_whats_app_message_template_media_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type delete_whats_app_flow_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type delete_whats_app_message_media_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
           | access_denied_by_meta_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type delete_whats_app_message_template_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
-          | dependency_exception()
-
-  @type disassociate_whats_app_business_account_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | dependency_exception()
-
-  @type get_linked_whats_app_business_account_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
-          | dependency_exception()
-
-  @type get_linked_whats_app_business_account_phone_number_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
-          | dependency_exception()
-
-  @type get_whats_app_message_media_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
           | access_denied_by_meta_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type deprecate_whats_app_flow_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type disassociate_whats_app_business_account_errors() ::
+          resource_not_found_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+
+  @type get_linked_whats_app_business_account_errors() ::
+          resource_not_found_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type get_linked_whats_app_business_account_phone_number_errors() ::
+          resource_not_found_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type get_whats_app_flow_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type get_whats_app_flow_preview_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type get_whats_app_message_media_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type get_whats_app_message_template_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type list_linked_whats_app_business_accounts_errors() ::
-          invalid_parameters_exception()
+          resource_not_found_exception()
           | throttled_request_exception()
-          | resource_not_found_exception()
+          | invalid_parameters_exception()
           | internal_service_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_parameters_exception()
+          throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type list_whats_app_flow_assets_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
           | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type list_whats_app_flows_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
           | internal_service_exception()
 
   @type list_whats_app_message_templates_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
-          | dependency_exception()
-
-  @type list_whats_app_template_library_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
-          | dependency_exception()
-
-  @type post_whats_app_message_media_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
           | access_denied_by_meta_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type list_whats_app_template_library_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type post_whats_app_message_media_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type publish_whats_app_flow_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type put_whats_app_business_account_event_destinations_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
+          throttled_request_exception()
+          | invalid_parameters_exception()
           | internal_service_exception()
 
   @type send_whats_app_message_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   @type tag_resource_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
+          throttled_request_exception()
+          | invalid_parameters_exception()
           | internal_service_exception()
 
   @type untag_resource_errors() ::
-          invalid_parameters_exception()
+          throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type update_whats_app_flow_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
           | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
+
+  @type update_whats_app_flow_assets_errors() ::
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
+          | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
           | internal_service_exception()
 
   @type update_whats_app_message_template_errors() ::
-          invalid_parameters_exception()
-          | throttled_request_exception()
-          | resource_not_found_exception()
-          | internal_service_exception()
+          resource_not_found_exception()
+          | access_denied_by_meta_exception()
           | dependency_exception()
+          | throttled_request_exception()
+          | invalid_parameters_exception()
+          | internal_service_exception()
 
   def metadata do
     %{
@@ -1132,6 +1568,41 @@ defmodule AWS.SocialMessaging do
           | {:error, associate_whats_app_business_account_errors()}
   def associate_whats_app_business_account(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/signup"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new WhatsApp Flow.
+
+  Flows enable businesses to create rich, interactive forms and experiences
+  that users can complete without leaving WhatsApp. The Flow is created in DRAFT
+  status. If `publish`
+  is set to `true` and a valid `flowJson` is provided, the Flow is published
+  immediately.
+  """
+  @spec create_whats_app_flow(map(), create_whats_app_flow_input(), list()) ::
+          {:ok, create_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_whats_app_flow_errors()}
+  def create_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/create"
     headers = []
     custom_headers = []
     query_params = []
@@ -1255,6 +1726,44 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
+  Deletes a WhatsApp Flow permanently.
+
+  Only Flows in DRAFT status can be deleted. Published or deprecated Flows cannot
+  be deleted.
+  """
+  @spec delete_whats_app_flow(map(), delete_whats_app_flow_input(), list()) ::
+          {:ok, delete_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_whats_app_flow_errors()}
+  def delete_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"id", "id"},
+        {"flowId", "flowId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete a media object from the WhatsApp service.
 
   If the object is still in an Amazon S3 bucket you should delete it from there
@@ -1272,8 +1781,8 @@ defmodule AWS.SocialMessaging do
 
     {query_params, input} =
       [
-        {"mediaId", "mediaId"},
-        {"originationPhoneNumberId", "originationPhoneNumberId"}
+        {"originationPhoneNumberId", "originationPhoneNumberId"},
+        {"mediaId", "mediaId"}
       ]
       |> Request.build_params(input)
 
@@ -1311,10 +1820,10 @@ defmodule AWS.SocialMessaging do
 
     {query_params, input} =
       [
-        {"deleteAllLanguages", "deleteAllTemplates"},
-        {"id", "id"},
+        {"templateName", "templateName"},
         {"metaTemplateId", "metaTemplateId"},
-        {"templateName", "templateName"}
+        {"id", "id"},
+        {"deleteAllLanguages", "deleteAllTemplates"}
       ]
       |> Request.build_params(input)
 
@@ -1324,6 +1833,38 @@ defmodule AWS.SocialMessaging do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deprecates a published WhatsApp Flow, marking it as no longer recommended for
+  use.
+
+  The Flow must be in PUBLISHED status. This is an irreversible operation.
+  """
+  @spec deprecate_whats_app_flow(map(), deprecate_whats_app_flow_input(), list()) ::
+          {:ok, deprecate_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, deprecate_whats_app_flow_errors()}
+  def deprecate_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/deprecate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -1424,6 +1965,92 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
+  Retrieves the metadata and status of a WhatsApp Flow, including validation
+  errors, preview information, and health status.
+  """
+  @spec get_whats_app_flow(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_whats_app_flow_errors()}
+  def get_whats_app_flow(%Client{} = client, id, flow_id, options \\ []) do
+    url_path = "/v1/whatsapp/flow"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(flow_id) do
+        [{"flowId", flow_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Generates a web preview URL for testing a WhatsApp Flow before publishing.
+
+  Preview URLs expire in 30 days and can be shared with stakeholders for review.
+  """
+  @spec get_whats_app_flow_preview(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_whats_app_flow_preview_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_whats_app_flow_preview_errors()}
+  def get_whats_app_flow_preview(
+        %Client{} = client,
+        invalidate \\ nil,
+        id,
+        flow_id,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/flow/preview"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(flow_id) do
+        [{"flowId", flow_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(invalidate) do
+        [{"invalidate", invalidate} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Get a media file from the WhatsApp service.
 
   On successful completion the media file is
@@ -1461,15 +2088,36 @@ defmodule AWS.SocialMessaging do
   @doc """
   Retrieves a specific WhatsApp message template.
   """
-  @spec get_whats_app_message_template(map(), String.t() | atom(), String.t() | atom(), list()) ::
+  @spec get_whats_app_message_template(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_whats_app_message_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_whats_app_message_template_errors()}
-  def get_whats_app_message_template(%Client{} = client, id, meta_template_id, options \\ []) do
+  def get_whats_app_message_template(
+        %Client{} = client,
+        template_name \\ nil,
+        template_language_code \\ nil,
+        meta_template_id \\ nil,
+        id,
+        options \\ []
+      ) do
     url_path = "/v1/whatsapp/template"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(meta_template_id) do
@@ -1479,8 +2127,15 @@ defmodule AWS.SocialMessaging do
       end
 
     query_params =
-      if !is_nil(id) do
-        [{"id", id} | query_params]
+      if !is_nil(template_language_code) do
+        [{"templateLanguageCode", template_language_code} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(template_name) do
+        [{"templateName", template_name} | query_params]
       else
         query_params
       end
@@ -1505,8 +2160,8 @@ defmodule AWS.SocialMessaging do
           | {:error, list_linked_whats_app_business_accounts_errors()}
   def list_linked_whats_app_business_accounts(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/v1/whatsapp/waba/list"
@@ -1514,15 +2169,15 @@ defmodule AWS.SocialMessaging do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1558,33 +2213,45 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
-  Lists WhatsApp message templates for a specific WhatsApp Business Account.
+  Lists the assets (Flow JSON definition) of a WhatsApp Flow with presigned
+  download URLs.
+
+  Download URLs are generated by Meta and expire after a short period.
   """
-  @spec list_whats_app_message_templates(
+  @spec list_whats_app_flow_assets(
           map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
-          {:ok, list_whats_app_message_templates_output(), any()}
+          {:ok, list_whats_app_flow_assets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
-          | {:error, list_whats_app_message_templates_errors()}
-  def list_whats_app_message_templates(
+          | {:error, list_whats_app_flow_assets_errors()}
+  def list_whats_app_flow_assets(
         %Client{} = client,
-        id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        id,
+        flow_id,
         options \\ []
       ) do
-    url_path = "/v1/whatsapp/template/list"
+    url_path = "/v1/whatsapp/flow/assets"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(flow_id) do
+        [{"flowId", flow_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
       else
         query_params
       end
@@ -1597,8 +2264,112 @@ defmodule AWS.SocialMessaging do
       end
 
     query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all WhatsApp Flows for a WhatsApp Business Account.
+
+  Returns summary information including Flow ID, name, status, and categories.
+  """
+  @spec list_whats_app_flows(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_whats_app_flows_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_whats_app_flows_errors()}
+  def list_whats_app_flows(
+        %Client{} = client,
+        next_token \\ nil,
+        max_results \\ nil,
+        id,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/flow/list"
+    headers = []
+    query_params = []
+
+    query_params =
       if !is_nil(id) do
         [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists WhatsApp message templates for a specific WhatsApp Business Account.
+  """
+  @spec list_whats_app_message_templates(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_whats_app_message_templates_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_whats_app_message_templates_errors()}
+  def list_whats_app_message_templates(
+        %Client{} = client,
+        next_token \\ nil,
+        max_results \\ nil,
+        id,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/template/list"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1661,6 +2432,38 @@ defmodule AWS.SocialMessaging do
           | {:error, post_whats_app_message_media_errors()}
   def post_whats_app_message_media(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/media"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Publishes a WhatsApp Flow, making it available for use in template messages.
+
+  The Flow must be in DRAFT status with valid Flow JSON that passes Meta's
+  validation. This is an irreversible operation.
+  """
+  @spec publish_whats_app_flow(map(), publish_whats_app_flow_input(), list()) ::
+          {:ok, publish_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, publish_whats_app_flow_errors()}
+  def publish_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/publish"
     headers = []
     custom_headers = []
     query_params = []
@@ -1795,6 +2598,71 @@ defmodule AWS.SocialMessaging do
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags/untag-resource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the metadata of a WhatsApp Flow, such as its name or categories.
+
+  This does not update the Flow JSON definition. Use
+  [UpdateWhatsAppFlowAssets](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_UpdateWhatsAppFlowAssets.html)
+  to update the Flow JSON.
+  """
+  @spec update_whats_app_flow(map(), update_whats_app_flow_input(), list()) ::
+          {:ok, update_whats_app_flow_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_whats_app_flow_errors()}
+  def update_whats_app_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/update"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the Flow JSON definition (assets) of a WhatsApp Flow.
+
+  Updating a published Flow's assets reverts it to DRAFT status, requiring
+  re-publishing.
+  """
+  @spec update_whats_app_flow_assets(map(), update_whats_app_flow_assets_input(), list()) ::
+          {:ok, update_whats_app_flow_assets_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_whats_app_flow_assets_errors()}
+  def update_whats_app_flow_assets(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/flow/assets/update"
     headers = []
     custom_headers = []
     query_params = []

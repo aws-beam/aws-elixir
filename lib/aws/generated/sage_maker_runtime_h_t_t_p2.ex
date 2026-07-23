@@ -49,10 +49,10 @@ defmodule AWS.SageMakerRuntimeHTTP2 do
   ## Example:
 
       invoke_endpoint_with_bidirectional_stream_input() :: %{
+        required("Body") => list(),
         optional("ModelInvocationPath") => [String.t() | atom()],
         optional("ModelQueryString") => [String.t() | atom()],
-        optional("TargetVariant") => [String.t() | atom()],
-        required("Body") => list()
+        optional("TargetVariant") => [String.t() | atom()]
       }
 
   """
@@ -212,9 +212,9 @@ defmodule AWS.SageMakerRuntimeHTTP2 do
 
     {headers, input} =
       [
-        {"ModelInvocationPath", "X-Amzn-SageMaker-Model-Invocation-Path"},
+        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"},
         {"ModelQueryString", "X-Amzn-SageMaker-Model-Query-String"},
-        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
+        {"ModelInvocationPath", "X-Amzn-SageMaker-Model-Invocation-Path"}
       ]
       |> Request.build_params(input)
 

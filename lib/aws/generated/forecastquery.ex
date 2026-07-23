@@ -71,10 +71,10 @@ defmodule AWS.Forecastquery do
       
       query_forecast_request() :: %{
         optional("EndDate") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartDate") => String.t() | atom(),
         required("Filters") => map(),
-        required("ForecastArn") => String.t() | atom()
+        required("ForecastArn") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartDate") => String.t() | atom()
       }
       
   """
@@ -97,9 +97,9 @@ defmodule AWS.Forecastquery do
       
       query_what_if_forecast_request() :: %{
         optional("EndDate") => String.t() | atom(),
+        required("Filters") => map(),
         optional("NextToken") => String.t() | atom(),
         optional("StartDate") => String.t() | atom(),
-        required("Filters") => map(),
         required("WhatIfForecastArn") => String.t() | atom()
       }
       
@@ -195,7 +195,8 @@ defmodule AWS.Forecastquery do
           | {:error, term()}
           | {:error, query_forecast_errors()}
   def query_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QueryForecast", input, options)
   end
@@ -209,7 +210,8 @@ defmodule AWS.Forecastquery do
           | {:error, term()}
           | {:error, query_what_if_forecast_errors()}
   def query_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QueryWhatIfForecast", input, options)
   end

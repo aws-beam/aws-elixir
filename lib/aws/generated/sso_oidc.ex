@@ -70,6 +70,131 @@ defmodule AWS.SSOOIDC do
 
   ## Example:
 
+      internal_server_exception() :: %{
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_client_response() :: %{
+        "authorizationEndpoint" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientIdIssuedAt" => float(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretExpiresAt" => float(),
+        "tokenEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type register_client_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_redirect_uri_exception() :: %{
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
+      }
+
+  """
+  @type invalid_redirect_uri_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_device_authorization_response() :: %{
+        "deviceCode" => String.t() | atom(),
+        "expiresIn" => integer(),
+        "interval" => integer(),
+        "userCode" => String.t() | atom(),
+        "verificationUri" => String.t() | atom(),
+        "verificationUriComplete" => String.t() | atom()
+      }
+
+  """
+  @type start_device_authorization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expired_token_exception() :: %{
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
+      }
+
+  """
+  @type expired_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_client_metadata_exception() :: %{
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
+      }
+
+  """
+  @type invalid_client_metadata_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_token_with_iam_response() :: %{
+        "accessToken" => String.t() | atom(),
+        "awsAdditionalDetails" => aws_additional_details(),
+        "expiresIn" => integer(),
+        "idToken" => String.t() | atom(),
+        "issuedTokenType" => String.t() | atom(),
+        "refreshToken" => String.t() | atom(),
+        "scope" => list(String.t() | atom()),
+        "tokenType" => String.t() | atom()
+      }
+
+  """
+  @type create_token_with_iam_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_scope_exception() :: %{
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
+      }
+
+  """
+  @type invalid_scope_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_token_response() :: %{
+        "accessToken" => String.t() | atom(),
+        "expiresIn" => integer(),
+        "idToken" => String.t() | atom(),
+        "refreshToken" => String.t() | atom(),
+        "tokenType" => String.t() | atom()
+      }
+
+  """
+  @type create_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "error" => String.t() | atom(),
         "error_description" => String.t() | atom(),
@@ -95,109 +220,15 @@ defmodule AWS.SSOOIDC do
 
   ## Example:
 
-      aws_additional_details() :: %{
-        "identityContext" => String.t() | atom()
-      }
-
-  """
-  @type aws_additional_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_token_request() :: %{
-        optional("code") => String.t() | atom(),
-        optional("codeVerifier") => String.t() | atom(),
-        optional("deviceCode") => String.t() | atom(),
-        optional("redirectUri") => String.t() | atom(),
-        optional("refreshToken") => String.t() | atom(),
-        optional("scope") => list(String.t() | atom()),
-        required("clientId") => String.t() | atom(),
-        required("clientSecret") => String.t() | atom(),
-        required("grantType") => String.t() | atom()
-      }
-
-  """
-  @type create_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_token_response() :: %{
-        "accessToken" => String.t() | atom(),
-        "expiresIn" => integer(),
-        "idToken" => String.t() | atom(),
-        "refreshToken" => String.t() | atom(),
-        "tokenType" => String.t() | atom()
-      }
-
-  """
-  @type create_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_token_with_iam_request() :: %{
-        optional("assertion") => String.t() | atom(),
-        optional("code") => String.t() | atom(),
-        optional("codeVerifier") => String.t() | atom(),
-        optional("redirectUri") => String.t() | atom(),
-        optional("refreshToken") => String.t() | atom(),
-        optional("requestedTokenType") => String.t() | atom(),
-        optional("scope") => list(String.t() | atom()),
-        optional("subjectToken") => String.t() | atom(),
-        optional("subjectTokenType") => String.t() | atom(),
-        required("clientId") => String.t() | atom(),
-        required("grantType") => String.t() | atom()
-      }
-
-  """
-  @type create_token_with_iam_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_token_with_iam_response() :: %{
-        "accessToken" => String.t() | atom(),
-        "awsAdditionalDetails" => aws_additional_details(),
-        "expiresIn" => integer(),
-        "idToken" => String.t() | atom(),
-        "issuedTokenType" => String.t() | atom(),
-        "refreshToken" => String.t() | atom(),
-        "scope" => list(String.t() | atom()),
-        "tokenType" => String.t() | atom()
-      }
-
-  """
-  @type create_token_with_iam_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      expired_token_exception() :: %{
+      invalid_request_region_exception() :: %{
+        "endpoint" => String.t() | atom(),
         "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
+        "error_description" => String.t() | atom(),
+        "region" => String.t() | atom()
       }
 
   """
-  @type expired_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_request_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,42 +241,6 @@ defmodule AWS.SSOOIDC do
 
   """
   @type invalid_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_client_metadata_exception() :: %{
-        "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
-      }
-
-  """
-  @type invalid_client_metadata_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_grant_exception() :: %{
-        "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
-      }
-
-  """
-  @type invalid_grant_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_redirect_uri_exception() :: %{
-        "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
-      }
-
-  """
-  @type invalid_redirect_uri_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -264,60 +259,33 @@ defmodule AWS.SSOOIDC do
 
   ## Example:
 
-      invalid_request_region_exception() :: %{
-        "endpoint" => String.t() | atom(),
-        "error" => String.t() | atom(),
-        "error_description" => String.t() | atom(),
-        "region" => String.t() | atom()
+      aws_additional_details() :: %{
+        "identityContext" => String.t() | atom()
       }
 
   """
-  @type invalid_request_region_exception() :: %{(String.t() | atom()) => any()}
+  @type aws_additional_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_scope_exception() :: %{
-        "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
+      create_token_with_iam_request() :: %{
+        optional("assertion") => String.t() | atom(),
+        required("clientId") => String.t() | atom(),
+        optional("code") => String.t() | atom(),
+        optional("codeVerifier") => String.t() | atom(),
+        required("grantType") => String.t() | atom(),
+        optional("redirectUri") => String.t() | atom(),
+        optional("refreshToken") => String.t() | atom(),
+        optional("requestedTokenType") => String.t() | atom(),
+        optional("scope") => list(String.t() | atom()),
+        optional("subjectToken") => String.t() | atom(),
+        optional("subjectTokenType") => String.t() | atom()
       }
 
   """
-  @type invalid_scope_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_client_request() :: %{
-        optional("entitledApplicationArn") => String.t() | atom(),
-        optional("grantTypes") => list(String.t() | atom()),
-        optional("issuerUrl") => String.t() | atom(),
-        optional("redirectUris") => list(String.t() | atom()),
-        optional("scopes") => list(String.t() | atom()),
-        required("clientName") => String.t() | atom(),
-        required("clientType") => String.t() | atom()
-      }
-
-  """
-  @type register_client_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_client_response() :: %{
-        "authorizationEndpoint" => String.t() | atom(),
-        "clientId" => String.t() | atom(),
-        "clientIdIssuedAt" => float(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretExpiresAt" => float(),
-        "tokenEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type register_client_response() :: %{(String.t() | atom()) => any()}
+  @type create_token_with_iam_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -330,6 +298,66 @@ defmodule AWS.SSOOIDC do
 
   """
   @type slow_down_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_grant_exception() :: %{
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
+      }
+
+  """
+  @type invalid_grant_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_token_request() :: %{
+        required("clientId") => String.t() | atom(),
+        required("clientSecret") => String.t() | atom(),
+        optional("code") => String.t() | atom(),
+        optional("codeVerifier") => String.t() | atom(),
+        optional("deviceCode") => String.t() | atom(),
+        required("grantType") => String.t() | atom(),
+        optional("redirectUri") => String.t() | atom(),
+        optional("refreshToken") => String.t() | atom(),
+        optional("scope") => list(String.t() | atom())
+      }
+
+  """
+  @type create_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_client_request() :: %{
+        required("clientName") => String.t() | atom(),
+        required("clientType") => String.t() | atom(),
+        optional("entitledApplicationArn") => String.t() | atom(),
+        optional("grantTypes") => list(String.t() | atom()),
+        optional("issuerUrl") => String.t() | atom(),
+        optional("redirectUris") => list(String.t() | atom()),
+        optional("scopes") => list(String.t() | atom())
+      }
+
+  """
+  @type register_client_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_grant_type_exception() :: %{
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
+      }
+
+  """
+  @type unsupported_grant_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -348,22 +376,6 @@ defmodule AWS.SSOOIDC do
 
   ## Example:
 
-      start_device_authorization_response() :: %{
-        "deviceCode" => String.t() | atom(),
-        "expiresIn" => integer(),
-        "interval" => integer(),
-        "userCode" => String.t() | atom(),
-        "verificationUri" => String.t() | atom(),
-        "verificationUriComplete" => String.t() | atom()
-      }
-
-  """
-  @type start_device_authorization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       unauthorized_client_exception() :: %{
         "error" => String.t() | atom(),
         "error_description" => String.t() | atom()
@@ -372,52 +384,40 @@ defmodule AWS.SSOOIDC do
   """
   @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      unsupported_grant_type_exception() :: %{
-        "error" => String.t() | atom(),
-        "error_description" => String.t() | atom()
-      }
-
-  """
-  @type unsupported_grant_type_exception() :: %{(String.t() | atom()) => any()}
-
   @type create_token_errors() ::
-          unsupported_grant_type_exception()
-          | unauthorized_client_exception()
-          | slow_down_exception()
-          | invalid_scope_exception()
-          | invalid_request_exception()
+          unauthorized_client_exception()
+          | unsupported_grant_type_exception()
           | invalid_grant_exception()
+          | slow_down_exception()
+          | invalid_request_exception()
           | invalid_client_exception()
-          | internal_server_exception()
-          | expired_token_exception()
           | authorization_pending_exception()
           | access_denied_exception()
+          | invalid_scope_exception()
+          | expired_token_exception()
+          | internal_server_exception()
 
   @type create_token_with_iam_errors() ::
-          unsupported_grant_type_exception()
-          | unauthorized_client_exception()
-          | slow_down_exception()
-          | invalid_scope_exception()
-          | invalid_request_region_exception()
-          | invalid_request_exception()
+          unauthorized_client_exception()
+          | unsupported_grant_type_exception()
           | invalid_grant_exception()
+          | slow_down_exception()
+          | invalid_request_exception()
           | invalid_client_exception()
-          | internal_server_exception()
-          | expired_token_exception()
+          | invalid_request_region_exception()
           | authorization_pending_exception()
           | access_denied_exception()
+          | invalid_scope_exception()
+          | expired_token_exception()
+          | internal_server_exception()
 
   @type register_client_errors() ::
           unsupported_grant_type_exception()
           | slow_down_exception()
-          | invalid_scope_exception()
           | invalid_request_exception()
-          | invalid_redirect_uri_exception()
+          | invalid_scope_exception()
           | invalid_client_metadata_exception()
+          | invalid_redirect_uri_exception()
           | internal_server_exception()
 
   @type start_device_authorization_errors() ::

@@ -34,152 +34,56 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      cancel_batch_import_job_request() :: %{
-        required("jobId") => String.t() | atom()
+      get_delete_events_by_event_type_status_result() :: %{
+        "eventTypeName" => String.t() | atom(),
+        "eventsDeletionStatus" => list(any())
       }
       
   """
-  @type cancel_batch_import_job_request() :: %{(String.t() | atom()) => any()}
+  @type get_delete_events_by_event_type_status_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_variable_request() :: %{
-        required("names") => list(String.t() | atom())
+      rule() :: %{
+        "detectorId" => String.t() | atom(),
+        "ruleId" => String.t() | atom(),
+        "ruleVersion" => String.t() | atom()
       }
       
   """
-  @type batch_get_variable_request() :: %{(String.t() | atom()) => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      external_model() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "inputConfiguration" => model_input_configuration(),
-        "invokeModelEndpointRoleArn" => String.t() | atom(),
-        "lastUpdatedTime" => String.t() | atom(),
+      put_outcome_result() :: %{}
+      
+  """
+  @type put_outcome_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      external_model_summary() :: %{
         "modelEndpoint" => String.t() | atom(),
-        "modelEndpointStatus" => list(any()),
-        "modelSource" => list(any()),
-        "outputConfiguration" => model_output_configuration()
+        "modelSource" => list(any())
       }
       
   """
-  @type external_model() :: %{(String.t() | atom()) => any()}
+  @type external_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_rule_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("detectorId") => String.t() | atom(),
-        required("expression") => String.t() | atom(),
-        required("language") => list(any()),
-        required("outcomes") => list(String.t() | atom()),
-        required("ruleId") => String.t() | atom()
-      }
+      put_event_type_result() :: %{}
       
   """
-  @type create_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_list_result() :: %{}
-      
-  """
-  @type update_list_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_variable_error() :: %{
-        "code" => integer(),
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type batch_create_variable_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      field_validation_message() :: %{
-        "content" => String.t() | atom(),
-        "fieldName" => String.t() | atom(),
-        "identifier" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type field_validation_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      a_t_i_training_metrics_value() :: %{
-        "metricDataPoints" => list(a_t_i_metric_data_point()),
-        "modelPerformance" => a_t_i_model_performance()
-      }
-      
-  """
-  @type a_t_i_training_metrics_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_model_version_result() :: %{
-        "modelId" => String.t() | atom(),
-        "modelType" => list(any()),
-        "modelVersionNumber" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type create_model_version_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceARN") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_variable_result() :: %{}
-      
-  """
-  @type update_variable_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_model_result() :: %{}
-      
-  """
-  @type create_model_result() :: %{}
+  @type put_event_type_result() :: %{}
 
   @typedoc """
 
@@ -188,9 +92,9 @@ defmodule AWS.FraudDetector do
       create_list_request() :: %{
         optional("description") => String.t() | atom(),
         optional("elements") => list(String.t() | atom()),
+        required("name") => String.t() | atom(),
         optional("tags") => list(tag()),
-        optional("variableType") => String.t() | atom(),
-        required("name") => String.t() | atom()
+        optional("variableType") => String.t() | atom()
       }
       
   """
@@ -200,354 +104,127 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      update_model_version_request() :: %{
-        optional("externalEventsDetail") => external_events_detail(),
-        optional("ingestedEventsDetail") => ingested_events_detail(),
-        optional("tags") => list(tag()),
-        required("majorVersionNumber") => String.t() | atom(),
-        required("modelId") => String.t() | atom(),
-        required("modelType") => list(any())
+      get_detector_version_result() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "detectorId" => String.t() | atom(),
+        "detectorVersionId" => String.t() | atom(),
+        "externalModelEndpoints" => list(String.t() | atom()),
+        "lastUpdatedTime" => String.t() | atom(),
+        "modelVersions" => list(model_version()),
+        "ruleExecutionMode" => list(any()),
+        "rules" => list(rule()),
+        "status" => list(any())
       }
       
   """
-  @type update_model_version_request() :: %{(String.t() | atom()) => any()}
+  @type get_detector_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_entity_type_request() :: %{
-        required("name") => String.t() | atom()
+      delete_batch_prediction_job_request() :: %{
+        required("jobId") => String.t() | atom()
       }
       
   """
-  @type delete_entity_type_request() :: %{(String.t() | atom()) => any()}
+  @type delete_batch_prediction_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      metric_data_point() :: %{
-        "fpr" => float(),
-        "precision" => float(),
-        "threshold" => float(),
-        "tpr" => float()
-      }
+      put_detector_result() :: %{}
       
   """
-  @type metric_data_point() :: %{(String.t() | atom()) => any()}
+  @type put_detector_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      get_list_elements_request() :: %{
+      t_f_i_model_performance() :: %{
+        "auc" => float(),
+        "uncertaintyRange" => uncertainty_range()
+      }
+      
+  """
+  @type t_f_i_model_performance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_detector_version_status_result() :: %{}
+      
+  """
+  @type update_detector_version_status_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_type() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "entityTypes" => list(String.t() | atom()),
+        "eventIngestion" => list(any()),
+        "eventOrchestration" => event_orchestration(),
+        "eventVariables" => list(String.t() | atom()),
+        "ingestedEventStatistics" => ingested_event_statistics(),
+        "labels" => list(String.t() | atom()),
+        "lastUpdatedTime" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type event_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lists_metadata_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("name") => String.t() | atom()
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_list_elements_request() :: %{(String.t() | atom()) => any()}
+  @type get_lists_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      filter_condition() :: %{
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type filter_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      model_version_evaluation() :: %{
-        "evaluationScore" => String.t() | atom(),
-        "outputVariableName" => String.t() | atom(),
-        "predictionExplanations" => prediction_explanations()
-      }
-      
-  """
-  @type model_version_evaluation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_outcome_result() :: %{}
-      
-  """
-  @type delete_outcome_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_model_version_result() :: %{}
-      
-  """
-  @type delete_model_version_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_kms_encryption_key_result() :: %{
-        "kmsKey" => kms_key()
-      }
-      
-  """
-  @type get_kms_encryption_key_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      t_f_i_metric_data_point() :: %{
-        "fpr" => float(),
-        "precision" => float(),
-        "threshold" => float(),
-        "tpr" => float()
-      }
-      
-  """
-  @type t_f_i_metric_data_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_batch_prediction_job_request() :: %{
-        optional("detectorVersion") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("detectorName") => String.t() | atom(),
+      get_event_prediction_request() :: %{
+        required("detectorId") => String.t() | atom(),
+        optional("detectorVersionId") => String.t() | atom(),
+        required("entities") => list(entity()),
+        required("eventId") => String.t() | atom(),
+        required("eventTimestamp") => String.t() | atom(),
         required("eventTypeName") => String.t() | atom(),
-        required("iamRoleArn") => String.t() | atom(),
-        required("inputPath") => String.t() | atom(),
-        required("jobId") => String.t() | atom(),
-        required("outputPath") => String.t() | atom()
+        required("eventVariables") => map(),
+        optional("externalModelEndpointDataBlobs") => map()
       }
       
   """
-  @type create_batch_prediction_job_request() :: %{(String.t() | atom()) => any()}
+  @type get_event_prediction_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_lists_metadata_result() :: %{
-        "lists" => list(allow_deny_list()),
+      get_labels_result() :: %{
+        "labels" => list(label()),
         "nextToken" => String.t() | atom()
       }
       
   """
-  @type get_lists_metadata_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_result() :: %{}
-      
-  """
-  @type untag_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_event_result() :: %{
-        "event" => event()
-      }
-      
-  """
-  @type get_event_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      model_version() :: %{
-        "arn" => String.t() | atom(),
-        "modelId" => String.t() | atom(),
-        "modelType" => list(any()),
-        "modelVersionNumber" => String.t() | atom()
-      }
-      
-  """
-  @type model_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_label_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type put_label_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      entity() :: %{
-        "entityId" => String.t() | atom(),
-        "entityType" => String.t() | atom()
-      }
-      
-  """
-  @type entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rule_version_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("expression") => String.t() | atom(),
-        required("language") => list(any()),
-        required("outcomes") => list(String.t() | atom()),
-        required("rule") => rule()
-      }
-      
-  """
-  @type update_rule_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ingested_event_statistics() :: %{
-        "eventDataSizeInBytes" => float(),
-        "lastUpdatedTime" => String.t() | atom(),
-        "leastRecentEvent" => String.t() | atom(),
-        "mostRecentEvent" => String.t() | atom(),
-        "numberOfEvents" => float()
-      }
-      
-  """
-  @type ingested_event_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      model_input_configuration() :: %{
-        "csvInputTemplate" => String.t() | atom(),
-        "eventTypeName" => String.t() | atom(),
-        "format" => list(any()),
-        "jsonInputTemplate" => String.t() | atom(),
-        "useEventVariables" => boolean()
-      }
-      
-  """
-  @type model_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_variable_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("variableType") => String.t() | atom(),
-        required("dataSource") => list(any()),
-        required("dataType") => list(any()),
-        required("defaultValue") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_variable_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      o_f_i_training_metrics_value() :: %{
-        "metricDataPoints" => list(o_f_i_metric_data_point()),
-        "modelPerformance" => o_f_i_model_performance()
-      }
-      
-  """
-  @type o_f_i_training_metrics_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      model_version_detail() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "externalEventsDetail" => external_events_detail(),
-        "ingestedEventsDetail" => ingested_events_detail(),
-        "lastUpdatedTime" => String.t() | atom(),
-        "modelId" => String.t() | atom(),
-        "modelType" => list(any()),
-        "modelVersionNumber" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "trainingDataSchema" => training_data_schema(),
-        "trainingDataSource" => list(any()),
-        "trainingResult" => training_result(),
-        "trainingResultV2" => training_result_v2()
-      }
-      
-  """
-  @type model_version_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_event_label_result() :: %{}
-      
-  """
-  @type update_event_label_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_list_result() :: %{}
-      
-  """
-  @type create_list_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      allow_deny_list() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updatedTime" => String.t() | atom(),
-        "variableType" => String.t() | atom()
-      }
-      
-  """
-  @type allow_deny_list() :: %{(String.t() | atom()) => any()}
+  @type get_labels_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -566,167 +243,6 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      create_batch_import_job_result() :: %{}
-      
-  """
-  @type create_batch_import_job_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_model_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("eventTypeName") => String.t() | atom(),
-        required("modelId") => String.t() | atom(),
-        required("modelType") => list(any())
-      }
-      
-  """
-  @type create_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_model_request() :: %{
-        optional("description") => String.t() | atom(),
-        required("modelId") => String.t() | atom(),
-        required("modelType") => list(any())
-      }
-      
-  """
-  @type update_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_batch_import_job_result() :: %{}
-      
-  """
-  @type cancel_batch_import_job_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_detector_result() :: %{
-        "arn" => String.t() | atom(),
-        "detectorId" => String.t() | atom(),
-        "detectorVersionSummaries" => list(detector_version_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_detector_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_outcomes_request() :: %{
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_outcomes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_entity_type_result() :: %{}
-      
-  """
-  @type delete_entity_type_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_variable_request() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_variable_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      training_result_v2() :: %{
-        "aggregatedVariablesImportanceMetrics" => aggregated_variables_importance_metrics(),
-        "dataValidationMetrics" => data_validation_metrics(),
-        "trainingMetricsV2" => training_metrics_v2(),
-        "variableImportanceMetrics" => variable_importance_metrics()
-      }
-      
-  """
-  @type training_result_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_batch_import_job_request() :: %{
-        required("jobId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_batch_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_batch_import_job_result() :: %{}
-      
-  """
-  @type delete_batch_import_job_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_delete_events_by_event_type_status_request() :: %{
-        required("eventTypeName") => String.t() | atom()
-      }
-      
-  """
-  @type get_delete_events_by_event_type_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_import() :: %{
-        "arn" => String.t() | atom(),
-        "completionTime" => String.t() | atom(),
-        "eventTypeName" => String.t() | atom(),
-        "failedRecordsCount" => integer(),
-        "failureReason" => String.t() | atom(),
-        "iamRoleArn" => String.t() | atom(),
-        "inputPath" => String.t() | atom(),
-        "jobId" => String.t() | atom(),
-        "outputPath" => String.t() | atom(),
-        "processedRecordsCount" => integer(),
-        "startTime" => String.t() | atom(),
-        "status" => list(any()),
-        "totalRecordsCount" => integer()
-      }
-      
-  """
-  @type batch_import() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       untag_resource_request() :: %{
         required("resourceARN") => String.t() | atom(),
         required("tagKeys") => list(String.t() | atom())
@@ -734,198 +250,6 @@ defmodule AWS.FraudDetector do
       
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      a_t_i_metric_data_point() :: %{
-        "adr" => float(),
-        "atodr" => float(),
-        "cr" => float(),
-        "threshold" => float()
-      }
-      
-  """
-  @type a_t_i_metric_data_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluated_external_model() :: %{
-        "inputVariables" => map(),
-        "modelEndpoint" => String.t() | atom(),
-        "outputVariables" => map(),
-        "useEventVariables" => boolean()
-      }
-      
-  """
-  @type evaluated_external_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_model_version_request() :: %{
-        required("modelId") => String.t() | atom(),
-        required("modelType") => list(any()),
-        required("modelVersionNumber") => String.t() | atom()
-      }
-      
-  """
-  @type get_model_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_variables_request() :: %{
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_variables_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_detail() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "detectorId" => String.t() | atom(),
-        "expression" => String.t() | atom(),
-        "language" => list(any()),
-        "lastUpdatedTime" => String.t() | atom(),
-        "outcomes" => list(String.t() | atom()),
-        "ruleId" => String.t() | atom(),
-        "ruleVersion" => String.t() | atom()
-      }
-      
-  """
-  @type rule_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_list_request() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_detector_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("detectorId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_variable_summary() :: %{
-        "name" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type event_variable_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      training_data_schema() :: %{
-        "labelSchema" => label_schema(),
-        "modelVariables" => list(String.t() | atom())
-      }
-      
-  """
-  @type training_data_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_model_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("modelId") => String.t() | atom(),
-        optional("modelType") => list(any()),
-        optional("modelVersionNumber") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_model_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_request() :: %{
-        required("rule") => rule()
-      }
-      
-  """
-  @type delete_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_detector_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("detectorId") => String.t() | atom(),
-        required("eventTypeName") => String.t() | atom()
-      }
-      
-  """
-  @type put_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_event_types_result() :: %{
-        "eventTypes" => list(event_type()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_event_types_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_event_request() :: %{
-        optional("assignedLabel") => String.t() | atom(),
-        optional("labelTimestamp") => String.t() | atom(),
-        required("entities") => list(entity()),
-        required("eventId") => String.t() | atom(),
-        required("eventTimestamp") => String.t() | atom(),
-        required("eventTypeName") => String.t() | atom(),
-        required("eventVariables") => map()
-      }
-      
-  """
-  @type send_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -956,780 +280,22 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      delete_variable_result() :: %{}
+      send_event_result() :: %{}
       
   """
-  @type delete_variable_result() :: %{}
+  @type send_event_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      entity_type() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "lastUpdatedTime" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type entity_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      model_output_configuration() :: %{
-        "csvIndexToVariableMap" => map(),
-        "format" => list(any()),
-        "jsonKeyToVariableMap" => map()
-      }
-      
-  """
-  @type model_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_detector_version_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("modelVersions") => list(model_version()),
-        optional("ruleExecutionMode") => list(any()),
-        required("detectorId") => String.t() | atom(),
-        required("detectorVersionId") => String.t() | atom(),
-        required("externalModelEndpoints") => list(String.t() | atom()),
-        required("rules") => list(rule())
-      }
-      
-  """
-  @type update_detector_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      o_f_i_metric_data_point() :: %{
-        "fpr" => float(),
-        "precision" => float(),
-        "threshold" => float(),
-        "tpr" => float()
-      }
-      
-  """
-  @type o_f_i_metric_data_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_detector_version_result() :: %{}
-      
-  """
-  @type update_detector_version_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      t_f_i_model_performance() :: %{
-        "auc" => float(),
-        "uncertaintyRange" => uncertainty_range()
-      }
-      
-  """
-  @type t_f_i_model_performance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rule_version_result() :: %{
-        "rule" => rule()
-      }
-      
-  """
-  @type update_rule_version_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_model_version_request() :: %{
-        optional("externalEventsDetail") => external_events_detail(),
-        optional("ingestedEventsDetail") => ingested_events_detail(),
-        optional("tags") => list(tag()),
+      delete_model_request() :: %{
         required("modelId") => String.t() | atom(),
-        required("modelType") => list(any()),
-        required("trainingDataSchema") => training_data_schema(),
-        required("trainingDataSource") => list(any())
+        required("modelType") => list(any())
       }
       
   """
-  @type create_model_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_batch_prediction_job_result() :: %{}
-      
-  """
-  @type create_batch_prediction_job_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_batch_import_job_request() :: %{
-        optional("tags") => list(tag()),
-        required("eventTypeName") => String.t() | atom(),
-        required("iamRoleArn") => String.t() | atom(),
-        required("inputPath") => String.t() | atom(),
-        required("jobId") => String.t() | atom(),
-        required("outputPath") => String.t() | atom()
-      }
-      
-  """
-  @type create_batch_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_variable_result() :: %{
-        "errors" => list(batch_get_variable_error()),
-        "variables" => list(variable())
-      }
-      
-  """
-  @type batch_get_variable_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      prediction_explanations() :: %{
-        "aggregatedVariablesImpactExplanations" => list(aggregated_variables_impact_explanation()),
-        "variableImpactExplanations" => list(variable_impact_explanation())
-      }
-      
-  """
-  @type prediction_explanations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      outcome() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "lastUpdatedTime" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type outcome() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_detector_result() :: %{}
-      
-  """
-  @type put_detector_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      detector_version_summary() :: %{
-        "description" => String.t() | atom(),
-        "detectorVersionId" => String.t() | atom(),
-        "lastUpdatedTime" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type detector_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rule_metadata_request() :: %{
-        required("description") => String.t() | atom(),
-        required("rule") => rule()
-      }
-      
-  """
-  @type update_rule_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      prediction_time_range() :: %{
-        "endTime" => String.t() | atom(),
-        "startTime" => String.t() | atom()
-      }
-      
-  """
-  @type prediction_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_detectors_request() :: %{
-        optional("detectorId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_detectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      variable_importance_metrics() :: %{
-        "logOddsMetrics" => list(log_odds_metric())
-      }
-      
-  """
-  @type variable_importance_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_label_request() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_label_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_kms_encryption_key_result() :: %{}
-      
-  """
-  @type put_kms_encryption_key_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_external_model_result() :: %{}
-      
-  """
-  @type put_external_model_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_event_request() :: %{
-        required("eventId") => String.t() | atom(),
-        required("eventTypeName") => String.t() | atom()
-      }
-      
-  """
-  @type get_event_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ingested_events_time_window() :: %{
-        "endTime" => String.t() | atom(),
-        "startTime" => String.t() | atom()
-      }
-      
-  """
-  @type ingested_events_time_window() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_labels_request() :: %{
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_labels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      model_scores() :: %{
-        "modelVersion" => model_version(),
-        "scores" => map()
-      }
-      
-  """
-  @type model_scores() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_variable_result() :: %{}
-      
-  """
-  @type create_variable_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_orchestration() :: %{
-        "eventBridgeEnabled" => boolean()
-      }
-      
-  """
-  @type event_orchestration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_validation_metrics() :: %{
-        "fieldLevelMessages" => list(field_validation_message()),
-        "fileLevelMessages" => list(file_validation_message())
-      }
-      
-  """
-  @type data_validation_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_batch_import_jobs_request() :: %{
-        optional("jobId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_batch_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      t_f_i_training_metrics_value() :: %{
-        "metricDataPoints" => list(t_f_i_metric_data_point()),
-        "modelPerformance" => t_f_i_model_performance()
-      }
-      
-  """
-  @type t_f_i_training_metrics_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_label_result() :: %{}
-      
-  """
-  @type delete_label_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_variable_request() :: %{
-        optional("defaultValue") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("variableType") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type update_variable_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_detectors_result() :: %{
-        "detectors" => list(detector()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_detectors_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_list_elements_result() :: %{
-        "elements" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_list_elements_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_external_model_result() :: %{}
-      
-  """
-  @type delete_external_model_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      variable_entry() :: %{
-        "dataSource" => String.t() | atom(),
-        "dataType" => String.t() | atom(),
-        "defaultValue" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "variableType" => String.t() | atom()
-      }
-      
-  """
-  @type variable_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_entity_type_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type put_entity_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      training_metrics() :: %{
-        "auc" => float(),
-        "metricDataPoints" => list(metric_data_point())
-      }
-      
-  """
-  @type training_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_variable_result() :: %{
-        "errors" => list(batch_create_variable_error())
-      }
-      
-  """
-  @type batch_create_variable_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_model_version_status_request() :: %{
-        required("modelId") => String.t() | atom(),
-        required("modelType") => list(any()),
-        required("modelVersionNumber") => String.t() | atom(),
-        required("status") => list(any())
-      }
-      
-  """
-  @type update_model_version_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_detector_version_metadata_request() :: %{
-        required("description") => String.t() | atom(),
-        required("detectorId") => String.t() | atom(),
-        required("detectorVersionId") => String.t() | atom()
-      }
-      
-  """
-  @type update_detector_version_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_event_prediction_result() :: %{
-        "externalModelOutputs" => list(external_model_outputs()),
-        "modelScores" => list(model_scores()),
-        "ruleResults" => list(rule_result())
-      }
-      
-  """
-  @type get_event_prediction_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_labels_result() :: %{
-        "labels" => list(label()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_labels_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_detector_version_request() :: %{
-        required("detectorId") => String.t() | atom(),
-        required("detectorVersionId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_detector_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_entity_types_result() :: %{
-        "entityTypes" => list(entity_type()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_entity_types_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      file_validation_message() :: %{
-        "content" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type file_validation_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      external_events_detail() :: %{
-        "dataAccessRoleArn" => String.t() | atom(),
-        "dataLocation" => String.t() | atom()
-      }
-      
-  """
-  @type external_events_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      variable() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "dataSource" => list(any()),
-        "dataType" => list(any()),
-        "defaultValue" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "lastUpdatedTime" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "variableType" => String.t() | atom()
-      }
-      
-  """
-  @type variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_odds_metric() :: %{
-        "variableImportance" => float(),
-        "variableName" => String.t() | atom(),
-        "variableType" => String.t() | atom()
-      }
-      
-  """
-  @type log_odds_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_outcome_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type put_outcome_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_event_type_result() :: %{}
-      
-  """
-  @type delete_event_type_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      o_f_i_model_performance() :: %{
-        "auc" => float(),
-        "uncertaintyRange" => uncertainty_range()
-      }
-      
-  """
-  @type o_f_i_model_performance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_model_version_result() :: %{
-        "arn" => String.t() | atom(),
-        "externalEventsDetail" => external_events_detail(),
-        "ingestedEventsDetail" => ingested_events_detail(),
-        "modelId" => String.t() | atom(),
-        "modelType" => list(any()),
-        "modelVersionNumber" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "trainingDataSchema" => training_data_schema(),
-        "trainingDataSource" => list(any())
-      }
-      
-  """
-  @type get_model_version_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_model_version_status_result() :: %{}
-      
-  """
-  @type update_model_version_status_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule() :: %{
-        "detectorId" => String.t() | atom(),
-        "ruleId" => String.t() | atom(),
-        "ruleVersion" => String.t() | atom()
-      }
-      
-  """
-  @type rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_event_request() :: %{
-        optional("deleteAuditHistory") => boolean(),
-        required("eventId") => String.t() | atom(),
-        required("eventTypeName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_event_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_detector_version_result() :: %{}
-      
-  """
-  @type delete_detector_version_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_batch_prediction_job_result() :: %{}
-      
-  """
-  @type cancel_batch_prediction_job_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_outcome_request() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_outcome_request() :: %{(String.t() | atom()) => any()}
+  @type delete_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1748,277 +314,86 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      aggregated_variables_importance_metrics() :: %{
-        "logOddsMetrics" => list(aggregated_log_odds_metric())
+      model_version_evaluation() :: %{
+        "evaluationScore" => String.t() | atom(),
+        "outputVariableName" => String.t() | atom(),
+        "predictionExplanations" => prediction_explanations()
       }
       
   """
-  @type aggregated_variables_importance_metrics() :: %{(String.t() | atom()) => any()}
+  @type model_version_evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_models_result() :: %{
-        "models" => list(model()),
-        "nextToken" => String.t() | atom()
+      get_delete_events_by_event_type_status_request() :: %{
+        required("eventTypeName") => String.t() | atom()
       }
       
   """
-  @type get_models_result() :: %{(String.t() | atom()) => any()}
+  @type get_delete_events_by_event_type_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_rules_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("ruleId") => String.t() | atom(),
-        optional("ruleVersion") => String.t() | atom(),
-        required("detectorId") => String.t() | atom()
+      filter_condition() :: %{
+        "value" => String.t() | atom()
       }
       
   """
-  @type get_rules_request() :: %{(String.t() | atom()) => any()}
+  @type filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      internal_server_exception() :: %{
+      conflict_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_create_variable_request() :: %{
-        optional("tags") => list(tag()),
-        required("variableEntries") => list(variable_entry())
+      log_odds_metric() :: %{
+        "variableImportance" => float(),
+        "variableName" => String.t() | atom(),
+        "variableType" => String.t() | atom()
       }
       
   """
-  @type batch_create_variable_request() :: %{(String.t() | atom()) => any()}
+  @type log_odds_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_external_model_request() :: %{
-        required("modelEndpoint") => String.t() | atom()
-      }
-      
-  """
-  @type delete_external_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_batch_prediction_jobs_request() :: %{
-        optional("jobId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_batch_prediction_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      external_model_summary() :: %{
-        "modelEndpoint" => String.t() | atom(),
-        "modelSource" => list(any())
-      }
-      
-  """
-  @type external_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_event_type_result() :: %{}
-      
-  """
-  @type put_event_type_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluated_model_version() :: %{
-        "evaluations" => list(model_version_evaluation()),
-        "modelId" => String.t() | atom(),
-        "modelType" => String.t() | atom(),
-        "modelVersion" => String.t() | atom()
-      }
-      
-  """
-  @type evaluated_model_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_entity_type_result() :: %{}
-      
-  """
-  @type put_entity_type_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_model_versions_result() :: %{
-        "modelVersionDetails" => list(model_version_detail()),
+      describe_detector_result() :: %{
+        "arn" => String.t() | atom(),
+        "detectorId" => String.t() | atom(),
+        "detectorVersionSummaries" => list(detector_version_summary()),
         "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_model_versions_result() :: %{(String.t() | atom()) => any()}
+  @type describe_detector_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      event() :: %{
-        "currentLabel" => String.t() | atom(),
-        "entities" => list(entity()),
-        "eventId" => String.t() | atom(),
-        "eventTimestamp" => String.t() | atom(),
-        "eventTypeName" => String.t() | atom(),
-        "eventVariables" => map(),
-        "labelTimestamp" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("resourceARN") => String.t() | atom(),
+        required("tags") => list(tag())
       }
       
   """
-  @type event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_model_version_request() :: %{
-        required("modelId") => String.t() | atom(),
-        required("modelType") => list(any()),
-        required("modelVersionNumber") => String.t() | atom()
-      }
-      
-  """
-  @type delete_model_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      model_endpoint_data_blob() :: %{
-        "byteBuffer" => binary(),
-        "contentType" => String.t() | atom()
-      }
-      
-  """
-  @type model_endpoint_data_blob() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_model_request() :: %{
-        required("modelId") => String.t() | atom(),
-        required("modelType") => list(any())
-      }
-      
-  """
-  @type delete_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_detector_version_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("externalModelEndpoints") => list(String.t() | atom()),
-        optional("modelVersions") => list(model_version()),
-        optional("ruleExecutionMode") => list(any()),
-        optional("tags") => list(tag()),
-        required("detectorId") => String.t() | atom(),
-        required("rules") => list(rule())
-      }
-      
-  """
-  @type create_detector_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_variable_error() :: %{
-        "code" => integer(),
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type batch_get_variable_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_external_models_result() :: %{
-        "externalModels" => list(external_model()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_external_models_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_detector_version_status_request() :: %{
-        required("detectorId") => String.t() | atom(),
-        required("detectorVersionId") => String.t() | atom(),
-        required("status") => list(any())
-      }
-      
-  """
-  @type update_detector_version_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_models_request() :: %{
-        optional("maxResults") => integer(),
-        optional("modelId") => String.t() | atom(),
-        optional("modelType") => list(any()),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_models_request() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2049,121 +424,28 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregated_log_odds_metric() :: %{
-        "aggregatedVariablesImportance" => float(),
-        "variableNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type aggregated_log_odds_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_detector_version_request() :: %{
-        required("detectorId") => String.t() | atom(),
-        required("detectorVersionId") => String.t() | atom()
-      }
-      
-  """
-  @type get_detector_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_result() :: %{
-        "outcomes" => list(String.t() | atom()),
-        "ruleId" => String.t() | atom()
-      }
-      
-  """
-  @type rule_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_delete_events_by_event_type_status_result() :: %{
-        "eventTypeName" => String.t() | atom(),
-        "eventsDeletionStatus" => list(any())
-      }
-      
-  """
-  @type get_delete_events_by_event_type_status_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_events_by_event_type_result() :: %{
-        "eventTypeName" => String.t() | atom(),
-        "eventsDeletionStatus" => String.t() | atom()
-      }
-      
-  """
-  @type delete_events_by_event_type_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_model_version_result() :: %{
-        "modelId" => String.t() | atom(),
-        "modelType" => list(any()),
-        "modelVersionNumber" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type update_model_version_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rule_result() :: %{
-        "rule" => rule()
-      }
-      
-  """
-  @type create_rule_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_list_request() :: %{
+      update_rule_version_request() :: %{
         optional("description") => String.t() | atom(),
-        optional("elements") => list(String.t() | atom()),
-        optional("updateMode") => list(any()),
-        optional("variableType") => String.t() | atom(),
-        required("name") => String.t() | atom()
+        required("expression") => String.t() | atom(),
+        required("language") => list(any()),
+        required("outcomes") => list(String.t() | atom()),
+        required("rule") => rule(),
+        optional("tags") => list(tag())
       }
       
   """
-  @type update_list_request() :: %{(String.t() | atom()) => any()}
+  @type update_rule_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_list_result() :: %{}
+      batch_get_variable_request() :: %{
+        required("names") => list(String.t() | atom())
+      }
       
   """
-  @type delete_list_result() :: %{}
+  @type batch_get_variable_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2180,14 +462,41 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("resourceARN") => String.t() | atom()
+      put_detector_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("detectorId") => String.t() | atom(),
+        required("eventTypeName") => String.t() | atom(),
+        optional("tags") => list(tag())
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type put_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_detector_version_status_request() :: %{
+        required("detectorId") => String.t() | atom(),
+        required("detectorVersionId") => String.t() | atom(),
+        required("status") => list(any())
+      }
+      
+  """
+  @type update_detector_version_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_result() :: %{
+        "dataValidationMetrics" => data_validation_metrics(),
+        "trainingMetrics" => training_metrics(),
+        "variableImportanceMetrics" => variable_importance_metrics()
+      }
+      
+  """
+  @type training_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2202,14 +511,165 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      get_event_types_request() :: %{
+      put_external_model_result() :: %{}
+      
+  """
+  @type put_external_model_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_model_version_request() :: %{
+        optional("externalEventsDetail") => external_events_detail(),
+        optional("ingestedEventsDetail") => ingested_events_detail(),
+        required("modelId") => String.t() | atom(),
+        required("modelType") => list(any()),
+        optional("tags") => list(tag()),
+        required("trainingDataSchema") => training_data_schema(),
+        required("trainingDataSource") => list(any())
+      }
+      
+  """
+  @type create_model_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_event_result() :: %{}
+      
+  """
+  @type delete_event_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_outcome_request() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_outcome_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_batch_prediction_jobs_request() :: %{
+        optional("jobId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
         optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_event_types_request() :: %{(String.t() | atom()) => any()}
+  @type get_batch_prediction_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_f_i_metric_data_point() :: %{
+        "fpr" => float(),
+        "precision" => float(),
+        "threshold" => float(),
+        "tpr" => float()
+      }
+      
+  """
+  @type t_f_i_metric_data_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_batch_prediction_job_result() :: %{}
+      
+  """
+  @type delete_batch_prediction_job_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_orchestration() :: %{
+        "eventBridgeEnabled" => boolean()
+      }
+      
+  """
+  @type event_orchestration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_models_result() :: %{
+        "models" => list(model()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_models_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_variable_error() :: %{
+        "code" => integer(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type batch_create_variable_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      external_events_detail() :: %{
+        "dataAccessRoleArn" => String.t() | atom(),
+        "dataLocation" => String.t() | atom()
+      }
+      
+  """
+  @type external_events_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_key() :: %{
+        "kmsEncryptionKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type kms_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2230,21 +690,83 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
+      get_entity_types_result() :: %{
+        "entityTypes" => list(entity_type()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type get_entity_types_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_batch_prediction_job_result() :: %{}
+      resource_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
       
   """
-  @type delete_batch_prediction_job_result() :: %{}
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_batch_import_job_request() :: %{
+        required("jobId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_batch_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_output_configuration() :: %{
+        "csvIndexToVariableMap" => map(),
+        "format" => list(any()),
+        "jsonKeyToVariableMap" => map()
+      }
+      
+  """
+  @type model_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_result() :: %{
+        "outcomes" => list(String.t() | atom()),
+        "ruleId" => String.t() | atom()
+      }
+      
+  """
+  @type rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prediction_explanations() :: %{
+        "aggregatedVariablesImpactExplanations" => list(aggregated_variables_impact_explanation()),
+        "variableImpactExplanations" => list(variable_impact_explanation())
+      }
+      
+  """
+  @type prediction_explanations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2261,48 +783,199 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      delete_event_result() :: %{}
-      
-  """
-  @type delete_event_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluated_rule() :: %{
-        "evaluated" => boolean(),
-        "expression" => String.t() | atom(),
-        "expressionWithValues" => String.t() | atom(),
-        "matched" => boolean(),
-        "outcomes" => list(String.t() | atom()),
-        "ruleId" => String.t() | atom(),
-        "ruleVersion" => String.t() | atom()
+      get_model_version_request() :: %{
+        required("modelId") => String.t() | atom(),
+        required("modelType") => list(any()),
+        required("modelVersionNumber") => String.t() | atom()
       }
       
   """
-  @type evaluated_rule() :: %{(String.t() | atom()) => any()}
+  @type get_model_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_batch_prediction_jobs_result() :: %{
-        "batchPredictions" => list(batch_prediction()),
-        "nextToken" => String.t() | atom()
+      uncertainty_range() :: %{
+        "lowerBoundValue" => float(),
+        "upperBoundValue" => float()
       }
       
   """
-  @type get_batch_prediction_jobs_result() :: %{(String.t() | atom()) => any()}
+  @type uncertainty_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_result() :: %{}
+      delete_external_model_request() :: %{
+        required("modelEndpoint") => String.t() | atom()
+      }
       
   """
-  @type tag_resource_result() :: %{}
+  @type delete_external_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_detector_result() :: %{}
+      
+  """
+  @type delete_detector_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_batch_import_job_request() :: %{
+        required("eventTypeName") => String.t() | atom(),
+        required("iamRoleArn") => String.t() | atom(),
+        required("inputPath") => String.t() | atom(),
+        required("jobId") => String.t() | atom(),
+        required("outputPath") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_batch_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregated_variables_importance_metrics() :: %{
+        "logOddsMetrics" => list(aggregated_log_odds_metric())
+      }
+      
+  """
+  @type aggregated_variables_importance_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_variable_result() :: %{}
+      
+  """
+  @type create_variable_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_list_result() :: %{}
+      
+  """
+  @type delete_list_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_event_type_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("entityTypes") => list(String.t() | atom()),
+        optional("eventIngestion") => list(any()),
+        optional("eventOrchestration") => event_orchestration(),
+        required("eventVariables") => list(String.t() | atom()),
+        optional("labels") => list(String.t() | atom()),
+        required("name") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type put_event_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_batch_import_job_result() :: %{}
+      
+  """
+  @type delete_batch_import_job_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_model_result() :: %{}
+      
+  """
+  @type create_model_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_batch_prediction_job_request() :: %{
+        required("detectorName") => String.t() | atom(),
+        optional("detectorVersion") => String.t() | atom(),
+        required("eventTypeName") => String.t() | atom(),
+        required("iamRoleArn") => String.t() | atom(),
+        required("inputPath") => String.t() | atom(),
+        required("jobId") => String.t() | atom(),
+        required("outputPath") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_batch_prediction_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_variable_request() :: %{
+        optional("defaultValue") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("variableType") => String.t() | atom()
+      }
+      
+  """
+  @type update_variable_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_model_version_result() :: %{
+        "modelId" => String.t() | atom(),
+        "modelType" => list(any()),
+        "modelVersionNumber" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type update_model_version_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_detector_version_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("detectorId") => String.t() | atom(),
+        required("detectorVersionId") => String.t() | atom(),
+        required("externalModelEndpoints") => list(String.t() | atom()),
+        optional("modelVersions") => list(model_version()),
+        optional("ruleExecutionMode") => list(any()),
+        required("rules") => list(rule())
+      }
+      
+  """
+  @type update_detector_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_list_result() :: %{}
+      
+  """
+  @type update_list_result() :: %{}
 
   @typedoc """
 
@@ -2322,67 +995,34 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      event_type() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "entityTypes" => list(String.t() | atom()),
-        "eventIngestion" => list(any()),
-        "eventOrchestration" => event_orchestration(),
-        "eventVariables" => list(String.t() | atom()),
-        "ingestedEventStatistics" => ingested_event_statistics(),
-        "labels" => list(String.t() | atom()),
-        "lastUpdatedTime" => String.t() | atom(),
-        "name" => String.t() | atom()
+      delete_event_type_request() :: %{
+        required("name") => String.t() | atom()
       }
       
   """
-  @type event_type() :: %{(String.t() | atom()) => any()}
+  @type delete_event_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_outcome_result() :: %{}
+      delete_outcome_result() :: %{}
       
   """
-  @type put_outcome_result() :: %{}
+  @type delete_outcome_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      training_result() :: %{
-        "dataValidationMetrics" => data_validation_metrics(),
-        "trainingMetrics" => training_metrics(),
-        "variableImportanceMetrics" => variable_importance_metrics()
+      get_event_types_request() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type training_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_variables_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "variables" => list(variable())
-      }
-      
-  """
-  @type get_variables_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      a_t_i_model_performance() :: %{
-        "asi" => float()
-      }
-      
-  """
-  @type a_t_i_model_performance() :: %{(String.t() | atom()) => any()}
+  @type get_event_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2400,60 +1040,102 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      get_lists_metadata_request() :: %{
+      data_validation_metrics() :: %{
+        "fieldLevelMessages" => list(field_validation_message()),
+        "fileLevelMessages" => list(file_validation_message())
+      }
+      
+  """
+  @type data_validation_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_detector_request() :: %{
+        required("detectorId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rule_metadata_request() :: %{
+        required("description") => String.t() | atom(),
+        required("rule") => rule()
+      }
+      
+  """
+  @type update_rule_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_model_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
+        optional("modelId") => String.t() | atom(),
+        optional("modelType") => list(any()),
+        optional("modelVersionNumber") => String.t() | atom(),
         optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_lists_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_event_result() :: %{}
-      
-  """
-  @type send_event_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_key() :: %{
-        "kmsEncryptionKeyArn" => String.t() | atom()
-      }
-      
-  """
-  @type kms_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_detector_version_status_result() :: %{}
-      
-  """
-  @type update_detector_version_status_result() :: %{}
+  @type describe_model_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_external_model_request() :: %{
-        optional("tags") => list(tag()),
         required("inputConfiguration") => model_input_configuration(),
         required("invokeModelEndpointRoleArn") => String.t() | atom(),
         required("modelEndpoint") => String.t() | atom(),
         required("modelEndpointStatus") => list(any()),
         required("modelSource") => list(any()),
-        required("outputConfiguration") => model_output_configuration()
+        required("outputConfiguration") => model_output_configuration(),
+        optional("tags") => list(tag())
       }
       
   """
   @type put_external_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_detectors_request() :: %{
+        optional("detectorId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_detectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_batch_import_job_result() :: %{}
+      
+  """
+  @type cancel_batch_import_job_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_lists_metadata_result() :: %{
+        "lists" => list(allow_deny_list()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_lists_metadata_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2472,21 +1154,123 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      delete_events_by_event_type_request() :: %{
-        required("eventTypeName") => String.t() | atom()
+      send_event_request() :: %{
+        optional("assignedLabel") => String.t() | atom(),
+        required("entities") => list(entity()),
+        required("eventId") => String.t() | atom(),
+        required("eventTimestamp") => String.t() | atom(),
+        required("eventTypeName") => String.t() | atom(),
+        required("eventVariables") => map(),
+        optional("labelTimestamp") => String.t() | atom()
       }
       
   """
-  @type delete_events_by_event_type_request() :: %{(String.t() | atom()) => any()}
+  @type send_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_model_result() :: %{}
+      prediction_time_range() :: %{
+        "endTime" => String.t() | atom(),
+        "startTime" => String.t() | atom()
+      }
       
   """
-  @type update_model_result() :: %{}
+  @type prediction_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_labels_request() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_labels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_metrics() :: %{
+        "auc" => float(),
+        "metricDataPoints" => list(metric_data_point())
+      }
+      
+  """
+  @type training_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      variable_entry() :: %{
+        "dataSource" => String.t() | atom(),
+        "dataType" => String.t() | atom(),
+        "defaultValue" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "variableType" => String.t() | atom()
+      }
+      
+  """
+  @type variable_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      o_f_i_model_performance() :: %{
+        "auc" => float(),
+        "uncertaintyRange" => uncertainty_range()
+      }
+      
+  """
+  @type o_f_i_model_performance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_prediction_result() :: %{
+        "externalModelOutputs" => list(external_model_outputs()),
+        "modelScores" => list(model_scores()),
+        "ruleResults" => list(rule_result())
+      }
+      
+  """
+  @type get_event_prediction_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rules_request() :: %{
+        required("detectorId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("ruleId") => String.t() | atom(),
+        optional("ruleVersion") => String.t() | atom()
+      }
+      
+  """
+  @type get_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity() :: %{
+        "entityId" => String.t() | atom(),
+        "entityType" => String.t() | atom()
+      }
+      
+  """
+  @type entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2508,104 +1292,222 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      list_event_predictions_result() :: %{
-        "eventPredictionSummaries" => list(event_prediction_summary()),
-        "nextToken" => String.t() | atom()
-      }
+      update_event_label_result() :: %{}
       
   """
-  @type list_event_predictions_result() :: %{(String.t() | atom()) => any()}
+  @type update_event_label_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      delete_event_type_request() :: %{
+      get_rules_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "ruleDetails" => list(rule_detail())
+      }
+      
+  """
+  @type get_rules_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_variable_request() :: %{
+        required("dataSource") => list(any()),
+        required("dataType") => list(any()),
+        required("defaultValue") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("variableType") => String.t() | atom()
+      }
+      
+  """
+  @type create_variable_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregated_log_odds_metric() :: %{
+        "aggregatedVariablesImportance" => float(),
+        "variableNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type aggregated_log_odds_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_detector_version_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("detectorId") => String.t() | atom(),
+        optional("externalModelEndpoints") => list(String.t() | atom()),
+        optional("modelVersions") => list(model_version()),
+        optional("ruleExecutionMode") => list(any()),
+        required("rules") => list(rule()),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_detector_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_detector_version_request() :: %{
+        required("detectorId") => String.t() | atom(),
+        required("detectorVersionId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_detector_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_variable_error() :: %{
+        "code" => integer(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type batch_get_variable_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_list_result() :: %{}
+      
+  """
+  @type create_list_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rule_metadata_result() :: %{}
+      
+  """
+  @type update_rule_metadata_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_result() :: %{}
+      
+  """
+  @type tag_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_model_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("eventTypeName") => String.t() | atom(),
+        required("modelId") => String.t() | atom(),
+        required("modelType") => list(any()),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_entity_type_request() :: %{
         required("name") => String.t() | atom()
       }
       
   """
-  @type delete_event_type_request() :: %{(String.t() | atom()) => any()}
+  @type delete_entity_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_event_predictions_request() :: %{
-        optional("detectorId") => filter_condition(),
-        optional("detectorVersionId") => filter_condition(),
-        optional("eventId") => filter_condition(),
-        optional("eventType") => filter_condition(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("predictionTimeRange") => prediction_time_range()
+      label_schema() :: %{
+        "labelMapper" => map(),
+        "unlabeledEventsTreatment" => list(any())
       }
       
   """
-  @type list_event_predictions_request() :: %{(String.t() | atom()) => any()}
+  @type label_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      uncertainty_range() :: %{
-        "lowerBoundValue" => float(),
-        "upperBoundValue" => float()
+      get_model_version_result() :: %{
+        "arn" => String.t() | atom(),
+        "externalEventsDetail" => external_events_detail(),
+        "ingestedEventsDetail" => ingested_events_detail(),
+        "modelId" => String.t() | atom(),
+        "modelType" => list(any()),
+        "modelVersionNumber" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "trainingDataSchema" => training_data_schema(),
+        "trainingDataSource" => list(any())
       }
       
   """
-  @type uncertainty_range() :: %{(String.t() | atom()) => any()}
+  @type get_model_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cancel_batch_prediction_job_request() :: %{
-        required("jobId") => String.t() | atom()
+      a_t_i_training_metrics_value() :: %{
+        "metricDataPoints" => list(a_t_i_metric_data_point()),
+        "modelPerformance" => a_t_i_model_performance()
       }
       
   """
-  @type cancel_batch_prediction_job_request() :: %{(String.t() | atom()) => any()}
+  @type a_t_i_training_metrics_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_event_prediction_request() :: %{
-        optional("detectorVersionId") => String.t() | atom(),
-        optional("externalModelEndpointDataBlobs") => map(),
-        required("detectorId") => String.t() | atom(),
-        required("entities") => list(entity()),
-        required("eventId") => String.t() | atom(),
-        required("eventTimestamp") => String.t() | atom(),
-        required("eventTypeName") => String.t() | atom(),
-        required("eventVariables") => map()
+      a_t_i_model_performance() :: %{
+        "asi" => float()
       }
       
   """
-  @type get_event_prediction_request() :: %{(String.t() | atom()) => any()}
+  @type a_t_i_model_performance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_detector_version_result() :: %{
-        "detectorId" => String.t() | atom(),
-        "detectorVersionId" => String.t() | atom(),
-        "status" => list(any())
-      }
+      delete_model_version_result() :: %{}
       
   """
-  @type create_detector_version_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_detector_version_metadata_result() :: %{}
-      
-  """
-  @type update_detector_version_metadata_result() :: %{}
+  @type delete_model_version_result() :: %{}
 
   @typedoc """
 
@@ -2628,14 +1530,257 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      get_entity_types_request() :: %{
+      update_model_version_status_result() :: %{}
+      
+  """
+  @type update_model_version_status_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_result() :: %{
+        "event" => event()
+      }
+      
+  """
+  @type get_event_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_data_point() :: %{
+        "fpr" => float(),
+        "precision" => float(),
+        "threshold" => float(),
+        "tpr" => float()
+      }
+      
+  """
+  @type metric_data_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_batch_prediction_job_result() :: %{}
+      
+  """
+  @type create_batch_prediction_job_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_result() :: %{}
+      
+  """
+  @type delete_rule_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      label() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "lastUpdatedTime" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type label() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_event_predictions_request() :: %{
+        optional("detectorId") => filter_condition(),
+        optional("detectorVersionId") => filter_condition(),
+        optional("eventId") => filter_condition(),
+        optional("eventType") => filter_condition(),
         optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("predictionTimeRange") => prediction_time_range()
+      }
+      
+  """
+  @type list_event_predictions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_batch_import_jobs_request() :: %{
+        optional("jobId") => String.t() | atom(),
+        optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_entity_types_request() :: %{(String.t() | atom()) => any()}
+  @type get_batch_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_events_by_event_type_request() :: %{
+        required("eventTypeName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_events_by_event_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_variable_request() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_variable_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_request() :: %{
+        required("eventId") => String.t() | atom(),
+        required("eventTypeName") => String.t() | atom()
+      }
+      
+  """
+  @type get_event_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_outcome_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type put_outcome_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_import() :: %{
+        "arn" => String.t() | atom(),
+        "completionTime" => String.t() | atom(),
+        "eventTypeName" => String.t() | atom(),
+        "failedRecordsCount" => integer(),
+        "failureReason" => String.t() | atom(),
+        "iamRoleArn" => String.t() | atom(),
+        "inputPath" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "outputPath" => String.t() | atom(),
+        "processedRecordsCount" => integer(),
+        "startTime" => String.t() | atom(),
+        "status" => list(any()),
+        "totalRecordsCount" => integer()
+      }
+      
+  """
+  @type batch_import() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_list_request() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event() :: %{
+        "currentLabel" => String.t() | atom(),
+        "entities" => list(entity()),
+        "eventId" => String.t() | atom(),
+        "eventTimestamp" => String.t() | atom(),
+        "eventTypeName" => String.t() | atom(),
+        "eventVariables" => map(),
+        "labelTimestamp" => String.t() | atom()
+      }
+      
+  """
+  @type event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_result_v2() :: %{
+        "aggregatedVariablesImportanceMetrics" => aggregated_variables_importance_metrics(),
+        "dataValidationMetrics" => data_validation_metrics(),
+        "trainingMetricsV2" => training_metrics_v2(),
+        "variableImportanceMetrics" => variable_importance_metrics()
+      }
+      
+  """
+  @type training_result_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_types_result() :: %{
+        "eventTypes" => list(event_type()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_event_types_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_kms_encryption_key_result() :: %{
+        "kmsKey" => kms_key()
+      }
+      
+  """
+  @type get_kms_encryption_key_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_f_i_training_metrics_value() :: %{
+        "metricDataPoints" => list(t_f_i_metric_data_point()),
+        "modelPerformance" => t_f_i_model_performance()
+      }
+      
+  """
+  @type t_f_i_training_metrics_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2650,36 +1795,222 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      label_schema() :: %{
-        "labelMapper" => map(),
-        "unlabeledEventsTreatment" => list(any())
+      allow_deny_list() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updatedTime" => String.t() | atom(),
+        "variableType" => String.t() | atom()
       }
       
   """
-  @type label_schema() :: %{(String.t() | atom()) => any()}
+  @type allow_deny_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_outcomes_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "outcomes" => list(outcome())
+      training_data_schema() :: %{
+        "labelSchema" => label_schema(),
+        "modelVariables" => list(String.t() | atom())
       }
       
   """
-  @type get_outcomes_result() :: %{(String.t() | atom()) => any()}
+  @type training_data_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ingested_events_detail() :: %{
-        "ingestedEventsTimeWindow" => ingested_events_time_window()
+      create_detector_version_result() :: %{
+        "detectorId" => String.t() | atom(),
+        "detectorVersionId" => String.t() | atom(),
+        "status" => list(any())
       }
       
   """
-  @type ingested_events_detail() :: %{(String.t() | atom()) => any()}
+  @type create_detector_version_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_events_by_event_type_result() :: %{
+        "eventTypeName" => String.t() | atom(),
+        "eventsDeletionStatus" => String.t() | atom()
+      }
+      
+  """
+  @type delete_events_by_event_type_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_outcomes_request() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_outcomes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_version() :: %{
+        "arn" => String.t() | atom(),
+        "modelId" => String.t() | atom(),
+        "modelType" => list(any()),
+        "modelVersionNumber" => String.t() | atom()
+      }
+      
+  """
+  @type model_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_model_versions_result() :: %{
+        "modelVersionDetails" => list(model_version_detail()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_model_versions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_endpoint_data_blob() :: %{
+        "byteBuffer" => binary(),
+        "contentType" => String.t() | atom()
+      }
+      
+  """
+  @type model_endpoint_data_blob() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_version_detail() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "externalEventsDetail" => external_events_detail(),
+        "ingestedEventsDetail" => ingested_events_detail(),
+        "lastUpdatedTime" => String.t() | atom(),
+        "modelId" => String.t() | atom(),
+        "modelType" => list(any()),
+        "modelVersionNumber" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "trainingDataSchema" => training_data_schema(),
+        "trainingDataSource" => list(any()),
+        "trainingResult" => training_result(),
+        "trainingResultV2" => training_result_v2()
+      }
+      
+  """
+  @type model_version_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingested_event_statistics() :: %{
+        "eventDataSizeInBytes" => float(),
+        "lastUpdatedTime" => String.t() | atom(),
+        "leastRecentEvent" => String.t() | atom(),
+        "mostRecentEvent" => String.t() | atom(),
+        "numberOfEvents" => float()
+      }
+      
+  """
+  @type ingested_event_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_t_i_metric_data_point() :: %{
+        "adr" => float(),
+        "atodr" => float(),
+        "cr" => float(),
+        "threshold" => float()
+      }
+      
+  """
+  @type a_t_i_metric_data_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_detector_version_result() :: %{}
+      
+  """
+  @type delete_detector_version_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_entity_type_result() :: %{}
+      
+  """
+  @type delete_entity_type_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_detector_version_metadata_request() :: %{
+        required("description") => String.t() | atom(),
+        required("detectorId") => String.t() | atom(),
+        required("detectorVersionId") => String.t() | atom()
+      }
+      
+  """
+  @type update_detector_version_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_model_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("modelId") => String.t() | atom(),
+        required("modelType") => list(any())
+      }
+      
+  """
+  @type update_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      o_f_i_training_metrics_value() :: %{
+        "metricDataPoints" => list(o_f_i_metric_data_point()),
+        "modelPerformance" => o_f_i_model_performance()
+      }
+      
+  """
+  @type o_f_i_training_metrics_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_event_type_result() :: %{}
+      
+  """
+  @type delete_event_type_result() :: %{}
 
   @typedoc """
 
@@ -2697,28 +2028,284 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      put_event_type_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("eventIngestion") => list(any()),
-        optional("eventOrchestration") => event_orchestration(),
-        optional("labels") => list(String.t() | atom()),
-        optional("tags") => list(tag()),
-        required("entityTypes") => list(String.t() | atom()),
-        required("eventVariables") => list(String.t() | atom()),
-        required("name") => String.t() | atom()
+      delete_event_request() :: %{
+        optional("deleteAuditHistory") => boolean(),
+        required("eventId") => String.t() | atom(),
+        required("eventTypeName") => String.t() | atom()
       }
       
   """
-  @type put_event_type_request() :: %{(String.t() | atom()) => any()}
+  @type delete_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_detector_result() :: %{}
+      model_input_configuration() :: %{
+        "csvInputTemplate" => String.t() | atom(),
+        "eventTypeName" => String.t() | atom(),
+        "format" => list(any()),
+        "jsonInputTemplate" => String.t() | atom(),
+        "useEventVariables" => boolean()
+      }
       
   """
-  @type delete_detector_result() :: %{}
+  @type model_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_result() :: %{
+        "rule" => rule()
+      }
+      
+  """
+  @type create_rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_batch_import_job_request() :: %{
+        required("jobId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_batch_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_metrics_v2() :: %{
+        "ati" => a_t_i_training_metrics_value(),
+        "ofi" => o_f_i_training_metrics_value(),
+        "tfi" => t_f_i_training_metrics_value()
+      }
+      
+  """
+  @type training_metrics_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_type() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "lastUpdatedTime" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type entity_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_detector_version_result() :: %{}
+      
+  """
+  @type update_detector_version_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_entity_type_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type put_entity_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_kms_encryption_key_result() :: %{}
+      
+  """
+  @type put_kms_encryption_key_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluated_external_model() :: %{
+        "inputVariables" => map(),
+        "modelEndpoint" => String.t() | atom(),
+        "outputVariables" => map(),
+        "useEventVariables" => boolean()
+      }
+      
+  """
+  @type evaluated_external_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_label_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type put_label_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_request() :: %{
+        required("rule") => rule()
+      }
+      
+  """
+  @type delete_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_model_version_result() :: %{
+        "modelId" => String.t() | atom(),
+        "modelType" => list(any()),
+        "modelVersionNumber" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type create_model_version_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rule_version_result() :: %{
+        "rule" => rule()
+      }
+      
+  """
+  @type update_rule_version_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_variable_result() :: %{
+        "errors" => list(batch_get_variable_error()),
+        "variables" => list(variable())
+      }
+      
+  """
+  @type batch_get_variable_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_batch_prediction_job_result() :: %{}
+      
+  """
+  @type cancel_batch_prediction_job_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_entity_type_result() :: %{}
+      
+  """
+  @type put_entity_type_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_variable_summary() :: %{
+        "name" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type event_variable_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_variables_request() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_variables_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_variable_result() :: %{}
+      
+  """
+  @type update_variable_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_list_elements_request() :: %{
+        optional("maxResults") => integer(),
+        required("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_list_elements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_batch_prediction_job_request() :: %{
+        required("jobId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_batch_prediction_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2740,38 +2327,485 @@ defmodule AWS.FraudDetector do
 
   ## Example:
       
-      update_rule_metadata_result() :: %{}
-      
-  """
-  @type update_rule_metadata_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_result() :: %{}
-      
-  """
-  @type delete_rule_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      training_metrics_v2() :: %{
-        "ati" => a_t_i_training_metrics_value(),
-        "ofi" => o_f_i_training_metrics_value(),
-        "tfi" => t_f_i_training_metrics_value()
+      rule_detail() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "detectorId" => String.t() | atom(),
+        "expression" => String.t() | atom(),
+        "language" => list(any()),
+        "lastUpdatedTime" => String.t() | atom(),
+        "outcomes" => list(String.t() | atom()),
+        "ruleId" => String.t() | atom(),
+        "ruleVersion" => String.t() | atom()
       }
       
   """
-  @type training_metrics_v2() :: %{(String.t() | atom()) => any()}
+  @type rule_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      label() :: %{
+      ingested_events_detail() :: %{
+        "ingestedEventsTimeWindow" => ingested_events_time_window()
+      }
+      
+  """
+  @type ingested_events_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_result() :: %{}
+      
+  """
+  @type untag_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_entity_types_request() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_entity_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_variable_request() :: %{
+        optional("tags") => list(tag()),
+        required("variableEntries") => list(variable_entry())
+      }
+      
+  """
+  @type batch_create_variable_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      variable() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "dataSource" => list(any()),
+        "dataType" => list(any()),
+        "defaultValue" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "lastUpdatedTime" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "variableType" => String.t() | atom()
+      }
+      
+  """
+  @type variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_variable_result() :: %{}
+      
+  """
+  @type delete_variable_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_list_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("elements") => list(String.t() | atom()),
+        required("name") => String.t() | atom(),
+        optional("updateMode") => list(any()),
+        optional("variableType") => String.t() | atom()
+      }
+      
+  """
+  @type update_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluated_rule() :: %{
+        "evaluated" => boolean(),
+        "expression" => String.t() | atom(),
+        "expressionWithValues" => String.t() | atom(),
+        "matched" => boolean(),
+        "outcomes" => list(String.t() | atom()),
+        "ruleId" => String.t() | atom(),
+        "ruleVersion" => String.t() | atom()
+      }
+      
+  """
+  @type evaluated_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      o_f_i_metric_data_point() :: %{
+        "fpr" => float(),
+        "precision" => float(),
+        "threshold" => float(),
+        "tpr" => float()
+      }
+      
+  """
+  @type o_f_i_metric_data_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_validation_message() :: %{
+        "content" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type file_validation_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_scores() :: %{
+        "modelVersion" => model_version(),
+        "scores" => map()
+      }
+      
+  """
+  @type model_scores() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_detector_version_request() :: %{
+        required("detectorId") => String.t() | atom(),
+        required("detectorVersionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_detector_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detector_version_summary() :: %{
+        "description" => String.t() | atom(),
+        "detectorVersionId" => String.t() | atom(),
+        "lastUpdatedTime" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type detector_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_list_elements_result() :: %{
+        "elements" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_list_elements_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_detector_request() :: %{
+        required("detectorId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_label_request() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_label_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_variable_result() :: %{
+        "errors" => list(batch_create_variable_error())
+      }
+      
+  """
+  @type batch_create_variable_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_model_version_request() :: %{
+        optional("externalEventsDetail") => external_events_detail(),
+        optional("ingestedEventsDetail") => ingested_events_detail(),
+        required("majorVersionNumber") => String.t() | atom(),
+        required("modelId") => String.t() | atom(),
+        required("modelType") => list(any()),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type update_model_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_outcomes_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "outcomes" => list(outcome())
+      }
+      
+  """
+  @type get_outcomes_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_batch_prediction_jobs_result() :: %{
+        "batchPredictions" => list(batch_prediction()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_batch_prediction_jobs_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluated_model_version() :: %{
+        "evaluations" => list(model_version_evaluation()),
+        "modelId" => String.t() | atom(),
+        "modelType" => String.t() | atom(),
+        "modelVersion" => String.t() | atom()
+      }
+      
+  """
+  @type evaluated_model_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_detectors_result() :: %{
+        "detectors" => list(detector()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_detectors_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      external_model() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => String.t() | atom(),
+        "inputConfiguration" => model_input_configuration(),
+        "invokeModelEndpointRoleArn" => String.t() | atom(),
+        "lastUpdatedTime" => String.t() | atom(),
+        "modelEndpoint" => String.t() | atom(),
+        "modelEndpointStatus" => list(any()),
+        "modelSource" => list(any()),
+        "outputConfiguration" => model_output_configuration()
+      }
+      
+  """
+  @type external_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("modelId") => String.t() | atom(),
+        optional("modelType") => list(any()),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_detector_version_metadata_result() :: %{}
+      
+  """
+  @type update_detector_version_metadata_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_model_result() :: %{}
+      
+  """
+  @type update_model_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      field_validation_message() :: %{
+        "content" => String.t() | atom(),
+        "fieldName" => String.t() | atom(),
+        "identifier" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type field_validation_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_model_version_request() :: %{
+        required("modelId") => String.t() | atom(),
+        required("modelType") => list(any()),
+        required("modelVersionNumber") => String.t() | atom()
+      }
+      
+  """
+  @type delete_model_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_external_model_result() :: %{}
+      
+  """
+  @type delete_external_model_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_batch_import_job_result() :: %{}
+      
+  """
+  @type create_batch_import_job_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_event_predictions_result() :: %{
+        "eventPredictionSummaries" => list(event_prediction_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_event_predictions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_model_version_status_request() :: %{
+        required("modelId") => String.t() | atom(),
+        required("modelType") => list(any()),
+        required("modelVersionNumber") => String.t() | atom(),
+        required("status") => list(any())
+      }
+      
+  """
+  @type update_model_version_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("detectorId") => String.t() | atom(),
+        required("expression") => String.t() | atom(),
+        required("language") => list(any()),
+        required("outcomes") => list(String.t() | atom()),
+        required("ruleId") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingested_events_time_window() :: %{
+        "endTime" => String.t() | atom(),
+        "startTime" => String.t() | atom()
+      }
+      
+  """
+  @type ingested_events_time_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      variable_importance_metrics() :: %{
+        "logOddsMetrics" => list(log_odds_metric())
+      }
+      
+  """
+  @type variable_importance_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_external_models_result() :: %{
+        "externalModels" => list(external_model()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_external_models_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      outcome() :: %{
         "arn" => String.t() | atom(),
         "createdTime" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -2780,573 +2814,539 @@ defmodule AWS.FraudDetector do
       }
       
   """
-  @type label() :: %{(String.t() | atom()) => any()}
+  @type outcome() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_rules_result() :: %{
+      delete_label_result() :: %{}
+      
+  """
+  @type delete_label_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_variables_result() :: %{
         "nextToken" => String.t() | atom(),
-        "ruleDetails" => list(rule_detail())
+        "variables" => list(variable())
       }
       
   """
-  @type get_rules_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_detector_request() :: %{
-        required("detectorId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_batch_prediction_job_request() :: %{
-        required("jobId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_batch_prediction_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_detector_version_result() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "detectorId" => String.t() | atom(),
-        "detectorVersionId" => String.t() | atom(),
-        "externalModelEndpoints" => list(String.t() | atom()),
-        "lastUpdatedTime" => String.t() | atom(),
-        "modelVersions" => list(model_version()),
-        "ruleExecutionMode" => list(any()),
-        "rules" => list(rule()),
-        "status" => list(any())
-      }
-      
-  """
-  @type get_detector_version_result() :: %{(String.t() | atom()) => any()}
+  @type get_variables_result() :: %{(String.t() | atom()) => any()}
 
   @type batch_create_variable_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type batch_get_variable_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type cancel_batch_import_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type cancel_batch_prediction_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_batch_import_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_batch_prediction_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_detector_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_list_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type create_model_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type create_model_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type create_variable_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type delete_batch_import_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type delete_batch_prediction_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type delete_detector_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_detector_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_entity_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_event_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type delete_event_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_events_by_event_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_external_model_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_label_errors() ::
           throttling_exception()
-          | validation_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_list_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_model_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_model_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_outcome_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_variable_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type describe_detector_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type describe_model_versions_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_batch_import_jobs_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_batch_prediction_jobs_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_delete_events_by_event_type_status_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_detector_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_detectors_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_entity_types_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_event_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_event_prediction_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
           | resource_unavailable_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | conflict_exception()
 
   @type get_event_prediction_metadata_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_event_types_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_external_models_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_kms_encryption_key_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
 
   @type get_labels_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_list_elements_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_lists_metadata_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_model_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_models_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_outcomes_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_rules_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_variables_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type list_event_predictions_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type put_detector_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type put_entity_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type put_event_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type put_external_model_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type put_kms_encryption_key_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type put_label_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type put_outcome_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type send_event_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type update_detector_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_detector_version_metadata_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_detector_version_status_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_event_label_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_list_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_model_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_model_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_model_version_status_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_rule_metadata_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_rule_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type update_variable_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   def metadata do
@@ -3374,7 +3374,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, batch_create_variable_errors()}
   def batch_create_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreateVariable", input, options)
   end
@@ -3388,7 +3389,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, batch_get_variable_errors()}
   def batch_get_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetVariable", input, options)
   end
@@ -3402,7 +3404,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, cancel_batch_import_job_errors()}
   def cancel_batch_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelBatchImportJob", input, options)
   end
@@ -3416,7 +3419,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, cancel_batch_prediction_job_errors()}
   def cancel_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelBatchPredictionJob", input, options)
   end
@@ -3430,7 +3434,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_batch_import_job_errors()}
   def create_batch_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchImportJob", input, options)
   end
@@ -3444,7 +3449,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_batch_prediction_job_errors()}
   def create_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchPredictionJob", input, options)
   end
@@ -3460,7 +3466,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_detector_version_errors()}
   def create_detector_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDetectorVersion", input, options)
   end
@@ -3480,7 +3487,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_list_errors()}
   def create_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateList", input, options)
   end
@@ -3494,7 +3502,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModel", input, options)
   end
@@ -3508,7 +3517,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_model_version_errors()}
   def create_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelVersion", input, options)
   end
@@ -3522,7 +3532,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
@@ -3536,7 +3547,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_variable_errors()}
   def create_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVariable", input, options)
   end
@@ -3552,7 +3564,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_batch_import_job_errors()}
   def delete_batch_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBatchImportJob", input, options)
   end
@@ -3566,7 +3579,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_batch_prediction_job_errors()}
   def delete_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBatchPredictionJob", input, options)
   end
@@ -3586,7 +3600,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_detector_errors()}
   def delete_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDetector", input, options)
   end
@@ -3605,7 +3620,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_detector_version_errors()}
   def delete_detector_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDetectorVersion", input, options)
   end
@@ -3624,7 +3640,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_entity_type_errors()}
   def delete_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEntityType", input, options)
   end
@@ -3643,7 +3660,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_event_errors()}
   def delete_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEvent", input, options)
   end
@@ -3662,7 +3680,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_event_type_errors()}
   def delete_event_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventType", input, options)
   end
@@ -3676,7 +3695,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_events_by_event_type_errors()}
   def delete_events_by_event_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventsByEventType", input, options)
   end
@@ -3694,7 +3714,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_external_model_errors()}
   def delete_external_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExternalModel", input, options)
   end
@@ -3717,7 +3738,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_label_errors()}
   def delete_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLabel", input, options)
   end
@@ -3735,7 +3757,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_list_errors()}
   def delete_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteList", input, options)
   end
@@ -3755,7 +3778,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModel", input, options)
   end
@@ -3775,7 +3799,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_model_version_errors()}
   def delete_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelVersion", input, options)
   end
@@ -3794,7 +3819,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_outcome_errors()}
   def delete_outcome(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOutcome", input, options)
   end
@@ -3814,7 +3840,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -3838,7 +3865,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_variable_errors()}
   def delete_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVariable", input, options)
   end
@@ -3852,7 +3880,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, describe_detector_errors()}
   def describe_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDetector", input, options)
   end
@@ -3869,7 +3898,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, describe_model_versions_errors()}
   def describe_model_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelVersions", input, options)
   end
@@ -3890,7 +3920,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_batch_import_jobs_errors()}
   def get_batch_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBatchImportJobs", input, options)
   end
@@ -3910,7 +3941,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_batch_prediction_jobs_errors()}
   def get_batch_prediction_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBatchPredictionJobs", input, options)
   end
@@ -3928,7 +3960,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_delete_events_by_event_type_status_errors()}
   def get_delete_events_by_event_type_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeleteEventsByEventTypeStatus", input, options)
   end
@@ -3942,7 +3975,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_detector_version_errors()}
   def get_detector_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDetectorVersion", input, options)
   end
@@ -3963,7 +3997,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_detectors_errors()}
   def get_detectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDetectors", input, options)
   end
@@ -3984,7 +4019,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_entity_types_errors()}
   def get_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEntityTypes", input, options)
   end
@@ -4000,7 +4036,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_event_errors()}
   def get_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEvent", input, options)
   end
@@ -4016,7 +4053,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_event_prediction_errors()}
   def get_event_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEventPrediction", input, options)
   end
@@ -4033,7 +4071,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_event_prediction_metadata_errors()}
   def get_event_prediction_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEventPredictionMetadata", input, options)
   end
@@ -4054,7 +4093,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_event_types_errors()}
   def get_event_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEventTypes", input, options)
   end
@@ -4076,7 +4116,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_external_models_errors()}
   def get_external_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExternalModels", input, options)
   end
@@ -4091,7 +4132,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_kms_encryption_key_errors()}
   def get_kms_encryption_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKMSEncryptionKey", input, options)
   end
@@ -4112,7 +4154,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_labels_errors()}
   def get_labels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLabels", input, options)
   end
@@ -4127,7 +4170,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_list_elements_errors()}
   def get_list_elements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetListElements", input, options)
   end
@@ -4143,7 +4187,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_lists_metadata_errors()}
   def get_lists_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetListsMetadata", input, options)
   end
@@ -4157,7 +4202,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_model_version_errors()}
   def get_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetModelVersion", input, options)
   end
@@ -4183,7 +4229,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_models_errors()}
   def get_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetModels", input, options)
   end
@@ -4205,7 +4252,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_outcomes_errors()}
   def get_outcomes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOutcomes", input, options)
   end
@@ -4229,7 +4277,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_rules_errors()}
   def get_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRules", input, options)
   end
@@ -4250,7 +4299,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_variables_errors()}
   def get_variables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVariables", input, options)
   end
@@ -4285,7 +4335,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, list_event_predictions_errors()}
   def list_event_predictions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEventPredictions", input, options)
   end
@@ -4304,7 +4355,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4318,7 +4370,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_detector_errors()}
   def put_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDetector", input, options)
   end
@@ -4337,7 +4390,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_entity_type_errors()}
   def put_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEntityType", input, options)
   end
@@ -4358,7 +4412,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_event_type_errors()}
   def put_event_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEventType", input, options)
   end
@@ -4375,7 +4430,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_external_model_errors()}
   def put_external_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutExternalModel", input, options)
   end
@@ -4389,7 +4445,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_kms_encryption_key_errors()}
   def put_kms_encryption_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutKMSEncryptionKey", input, options)
   end
@@ -4407,7 +4464,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_label_errors()}
   def put_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLabel", input, options)
   end
@@ -4421,7 +4479,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_outcome_errors()}
   def put_outcome(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutOutcome", input, options)
   end
@@ -4439,7 +4498,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, send_event_errors()}
   def send_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendEvent", input, options)
   end
@@ -4453,7 +4513,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4467,7 +4528,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4485,7 +4547,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_detector_version_errors()}
   def update_detector_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDetectorVersion", input, options)
   end
@@ -4506,7 +4569,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_detector_version_metadata_errors()}
   def update_detector_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDetectorVersionMetadata", input, options)
   end
@@ -4524,7 +4588,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_detector_version_status_errors()}
   def update_detector_version_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDetectorVersionStatus", input, options)
   end
@@ -4538,7 +4603,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_event_label_errors()}
   def update_event_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEventLabel", input, options)
   end
@@ -4553,7 +4619,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_list_errors()}
   def update_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateList", input, options)
   end
@@ -4567,7 +4634,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_model_errors()}
   def update_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModel", input, options)
   end
@@ -4587,7 +4655,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_model_version_errors()}
   def update_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelVersion", input, options)
   end
@@ -4612,7 +4681,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_model_version_status_errors()}
   def update_model_version_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelVersionStatus", input, options)
   end
@@ -4628,7 +4698,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_rule_metadata_errors()}
   def update_rule_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleMetadata", input, options)
   end
@@ -4644,7 +4715,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_rule_version_errors()}
   def update_rule_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleVersion", input, options)
   end
@@ -4658,7 +4730,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_variable_errors()}
   def update_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVariable", input, options)
   end

@@ -15,23 +15,37 @@ defmodule AWS.KendraRanking do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      capacity_units_configuration() :: %{
-        "RescoreCapacityUnits" => integer()
+      list_rescore_execution_plans_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SummaryItems" => list(rescore_execution_plan_summary())
       }
       
   """
-  @type capacity_units_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_rescore_execution_plans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -48,16 +62,22 @@ defmodule AWS.KendraRanking do
 
   ## Example:
       
-      create_rescore_execution_plan_request() :: %{
-        optional("CapacityUnits") => capacity_units_configuration(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom()
+      rescore_result_item() :: %{
+        "DocumentId" => String.t() | atom(),
+        "Score" => float()
       }
       
   """
-  @type create_rescore_execution_plan_request() :: %{(String.t() | atom()) => any()}
+  @type rescore_result_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -75,38 +95,12 @@ defmodule AWS.KendraRanking do
 
   ## Example:
       
-      delete_rescore_execution_plan_request() :: %{}
-      
-  """
-  @type delete_rescore_execution_plan_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rescore_execution_plan_request() :: %{}
-      
-  """
-  @type describe_rescore_execution_plan_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rescore_execution_plan_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CapacityUnits" => capacity_units_configuration(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type describe_rescore_execution_plan_response() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,12 +123,32 @@ defmodule AWS.KendraRanking do
 
   ## Example:
       
-      internal_server_exception() :: %{
+      describe_rescore_execution_plan_request() :: %{}
+      
+  """
+  @type describe_rescore_execution_plan_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -152,24 +166,13 @@ defmodule AWS.KendraRanking do
 
   ## Example:
       
-      list_rescore_execution_plans_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SummaryItems" => list(rescore_execution_plan_summary())
+      rescore_result() :: %{
+        "RescoreId" => String.t() | atom(),
+        "ResultItems" => list(rescore_result_item())
       }
       
   """
-  @type list_rescore_execution_plans_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type rescore_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,37 +204,30 @@ defmodule AWS.KendraRanking do
 
   ## Example:
       
-      rescore_request() :: %{
-        required("Documents") => list(document()),
-        required("SearchQuery") => String.t() | atom()
-      }
+      delete_rescore_execution_plan_request() :: %{}
       
   """
-  @type rescore_request() :: %{(String.t() | atom()) => any()}
+  @type delete_rescore_execution_plan_request() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      rescore_result() :: %{
-        "RescoreId" => String.t() | atom(),
-        "ResultItems" => list(rescore_result_item())
+      capacity_units_configuration() :: %{
+        "RescoreCapacityUnits" => integer()
       }
       
   """
-  @type rescore_result() :: %{(String.t() | atom()) => any()}
+  @type capacity_units_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rescore_result_item() :: %{
-        "DocumentId" => String.t() | atom(),
-        "Score" => float()
-      }
+      tag_resource_response() :: %{}
       
   """
-  @type rescore_result_item() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -248,88 +244,12 @@ defmodule AWS.KendraRanking do
 
   ## Example:
       
-      resource_unavailable_exception() :: %{
+      internal_server_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -348,79 +268,159 @@ defmodule AWS.KendraRanking do
 
   ## Example:
       
-      validation_exception() :: %{
+      describe_rescore_execution_plan_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CapacityUnits" => capacity_units_configuration(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type describe_rescore_execution_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rescore_request() :: %{
+        required("Documents") => list(document()),
+        required("SearchQuery") => String.t() | atom()
+      }
+      
+  """
+  @type rescore_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rescore_execution_plan_request() :: %{
+        optional("CapacityUnits") => capacity_units_configuration(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_rescore_execution_plan_request() :: %{(String.t() | atom()) => any()}
 
   @type create_rescore_execution_plan_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | service_quota_exceeded_exception()
+          | throttling_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type delete_rescore_execution_plan_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type describe_rescore_execution_plan_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          access_denied_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_rescore_execution_plans_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_unavailable_exception()
-          | internal_server_exception()
+          resource_unavailable_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type rescore_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_unavailable_exception()
-          | internal_server_exception()
+          resource_unavailable_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_unavailable_exception()
-          | internal_server_exception()
+          resource_unavailable_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_rescore_execution_plan_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | service_quota_exceeded_exception()
+          | throttling_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   def metadata do
     %{
@@ -459,7 +459,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, create_rescore_execution_plan_errors()}
   def create_rescore_execution_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRescoreExecutionPlan", input, options)
   end
@@ -477,7 +478,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, delete_rescore_execution_plan_errors()}
   def delete_rescore_execution_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRescoreExecutionPlan", input, options)
   end
@@ -495,7 +497,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, describe_rescore_execution_plan_errors()}
   def describe_rescore_execution_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRescoreExecutionPlan", input, options)
   end
@@ -513,7 +516,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, list_rescore_execution_plans_errors()}
   def list_rescore_execution_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRescoreExecutionPlans", input, options)
   end
@@ -530,7 +534,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -549,7 +554,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, rescore_errors()}
   def rescore(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Rescore", input, options)
   end
@@ -569,7 +575,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -588,7 +595,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -609,7 +617,8 @@ defmodule AWS.KendraRanking do
           | {:error, term()}
           | {:error, update_rescore_execution_plan_errors()}
   def update_rescore_execution_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRescoreExecutionPlan", input, options)
   end

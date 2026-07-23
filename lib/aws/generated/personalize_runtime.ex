@@ -9,16 +9,15 @@ defmodule AWS.PersonalizeRuntime do
 
   ## Example:
 
-      get_action_recommendations_request() :: %{
-        optional("campaignArn") => String.t() | atom(),
-        optional("filterArn") => String.t() | atom(),
-        optional("filterValues") => map(),
-        optional("numResults") => integer(),
-        optional("userId") => String.t() | atom()
+      promotion() :: %{
+        "filterArn" => String.t() | atom(),
+        "filterValues" => map(),
+        "name" => String.t() | atom(),
+        "percentPromotedItems" => integer()
       }
 
   """
-  @type get_action_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type promotion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36,13 +35,51 @@ defmodule AWS.PersonalizeRuntime do
 
   ## Example:
 
+      predicted_action() :: %{
+        "actionId" => String.t() | atom(),
+        "score" => float()
+      }
+
+  """
+  @type predicted_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_input_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      predicted_item() :: %{
+        "itemId" => String.t() | atom(),
+        "metadata" => map(),
+        "promotionName" => String.t() | atom(),
+        "reason" => list(String.t() | atom()),
+        "score" => float()
+      }
+
+  """
+  @type predicted_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_personalized_ranking_request() :: %{
+        required("campaignArn") => String.t() | atom(),
         optional("context") => map(),
         optional("filterArn") => String.t() | atom(),
         optional("filterValues") => map(),
-        optional("metadataColumns") => map(),
-        required("campaignArn") => String.t() | atom(),
         required("inputList") => list(String.t() | atom()),
+        optional("metadataColumns") => map(),
         required("userId") => String.t() | atom()
       }
 
@@ -53,13 +90,24 @@ defmodule AWS.PersonalizeRuntime do
 
   ## Example:
 
-      get_personalized_ranking_response() :: %{
-        "personalizedRanking" => list(predicted_item()),
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommendations_response() :: %{
+        "itemList" => list(predicted_item()),
         "recommendationId" => String.t() | atom()
       }
 
   """
-  @type get_personalized_ranking_response() :: %{(String.t() | atom()) => any()}
+  @type get_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,76 +133,28 @@ defmodule AWS.PersonalizeRuntime do
 
   ## Example:
 
-      get_recommendations_response() :: %{
-        "itemList" => list(predicted_item()),
+      get_personalized_ranking_response() :: %{
+        "personalizedRanking" => list(predicted_item()),
         "recommendationId" => String.t() | atom()
       }
 
   """
-  @type get_recommendations_response() :: %{(String.t() | atom()) => any()}
+  @type get_personalized_ranking_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_input_exception() :: %{
-        "message" => String.t() | atom()
+      get_action_recommendations_request() :: %{
+        optional("campaignArn") => String.t() | atom(),
+        optional("filterArn") => String.t() | atom(),
+        optional("filterValues") => map(),
+        optional("numResults") => integer(),
+        optional("userId") => String.t() | atom()
       }
 
   """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      predicted_action() :: %{
-        "actionId" => String.t() | atom(),
-        "score" => float()
-      }
-
-  """
-  @type predicted_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      predicted_item() :: %{
-        "itemId" => String.t() | atom(),
-        "metadata" => map(),
-        "promotionName" => String.t() | atom(),
-        "reason" => list(String.t() | atom()),
-        "score" => float()
-      }
-
-  """
-  @type predicted_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      promotion() :: %{
-        "filterArn" => String.t() | atom(),
-        "filterValues" => map(),
-        "name" => String.t() | atom(),
-        "percentPromotedItems" => integer()
-      }
-
-  """
-  @type promotion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type get_action_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @type get_action_recommendations_errors() ::
           resource_not_found_exception() | invalid_input_exception()

@@ -29,10 +29,10 @@ defmodule AWS.KinesisVideoSignaling do
   ## Example:
 
       get_ice_server_config_request() :: %{
+        required("ChannelARN") => String.t() | atom(),
         optional("ClientId") => String.t() | atom(),
         optional("Service") => list(any()),
-        optional("Username") => String.t() | atom(),
-        required("ChannelARN") => String.t() | atom()
+        optional("Username") => String.t() | atom()
       }
 
   """

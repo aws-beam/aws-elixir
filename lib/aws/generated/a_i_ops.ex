@@ -22,6 +22,38 @@ defmodule AWS.AIOps do
 
   ## Example:
 
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_investigation_group_policy_request() :: %{
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_investigation_group_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_investigation_groups_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_investigation_groups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -33,92 +65,12 @@ defmodule AWS.AIOps do
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_investigation_group_input() :: %{
-        optional("chatbotNotificationChannel") => map(),
-        optional("crossAccountConfigurations") => list(cross_account_configuration()),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("isCloudTrailEventHistoryEnabled") => [boolean()],
-        optional("retentionInDays") => float(),
-        optional("tagKeyBoundaries") => list(String.t() | atom()),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_investigation_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_investigation_group_output() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type create_investigation_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cross_account_configuration() :: %{
-        "sourceRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type cross_account_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_investigation_group_policy_output() :: %{}
-
-  """
-  @type delete_investigation_group_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_investigation_group_policy_request() :: %{}
-
-  """
-  @type delete_investigation_group_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_investigation_group_request() :: %{}
-
-  """
-  @type delete_investigation_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_configuration() :: %{
-        "kmsKeyId" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,31 +87,32 @@ defmodule AWS.AIOps do
 
   ## Example:
 
-      get_investigation_group_policy_request() :: %{}
-
-  """
-  @type get_investigation_group_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_investigation_group_policy_response() :: %{
-        "investigationGroupArn" => String.t() | atom(),
-        "policy" => String.t() | atom()
+      cross_account_configuration() :: %{
+        "sourceRoleArn" => String.t() | atom()
       }
 
   """
-  @type get_investigation_group_policy_response() :: %{(String.t() | atom()) => any()}
+  @type cross_account_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_investigation_group_request() :: %{}
+      delete_investigation_group_policy_request() :: %{}
 
   """
-  @type get_investigation_group_request() :: %{}
+  @type delete_investigation_group_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,176 +141,10 @@ defmodule AWS.AIOps do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
+      delete_investigation_group_request() :: %{}
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_investigation_groups_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_investigation_groups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_investigation_groups_model() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type list_investigation_groups_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_investigation_groups_output() :: %{
-        "investigationGroups" => list(list_investigation_groups_model()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_investigation_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_investigation_group_policy_request() :: %{
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_investigation_group_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_investigation_group_policy_response() :: %{
-        "investigationGroupArn" => String.t() | atom()
-      }
-
-  """
-  @type put_investigation_group_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_investigation_group_output() :: %{}
-
-  """
-  @type update_investigation_group_output() :: %{}
+  @type delete_investigation_group_request() :: %{}
 
   @typedoc """
 
@@ -379,6 +166,219 @@ defmodule AWS.AIOps do
 
   ## Example:
 
+      get_investigation_group_policy_response() :: %{
+        "investigationGroupArn" => String.t() | atom(),
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type get_investigation_group_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_investigation_group_request() :: %{}
+
+  """
+  @type get_investigation_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_investigation_groups_model() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type list_investigation_groups_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_investigation_group_policy_output() :: %{}
+
+  """
+  @type delete_investigation_group_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_investigation_group_policy_response() :: %{
+        "investigationGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type put_investigation_group_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_investigation_groups_output() :: %{
+        "investigationGroups" => list(list_investigation_groups_model()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_investigation_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_investigation_group_input() :: %{
+        optional("chatbotNotificationChannel") => map(),
+        optional("crossAccountConfigurations") => list(cross_account_configuration()),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("isCloudTrailEventHistoryEnabled") => [boolean()],
+        required("name") => String.t() | atom(),
+        optional("retentionInDays") => float(),
+        required("roleArn") => String.t() | atom(),
+        optional("tagKeyBoundaries") => list(String.t() | atom()),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_investigation_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_investigation_group_output() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type create_investigation_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_investigation_group_output() :: %{}
+
+  """
+  @type update_investigation_group_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_configuration() :: %{
+        "kmsKeyId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_investigation_group_policy_request() :: %{}
+
+  """
+  @type get_investigation_group_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -388,36 +388,36 @@ defmodule AWS.AIOps do
 
   @type create_investigation_group_errors() ::
           validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | throttling_exception()
           | conflict_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type delete_investigation_group_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
   @type delete_investigation_group_policy_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
   @type get_investigation_group_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
   @type get_investigation_group_policy_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -426,42 +426,42 @@ defmodule AWS.AIOps do
 
   @type list_tags_for_resource_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type put_investigation_group_policy_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type untag_resource_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type update_investigation_group_errors() ::
           validation_exception()
-          | throttling_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   def metadata do
@@ -668,8 +668,8 @@ defmodule AWS.AIOps do
           | {:error, list_investigation_groups_errors()}
   def list_investigation_groups(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/investigationGroups"
@@ -677,15 +677,15 @@ defmodule AWS.AIOps do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

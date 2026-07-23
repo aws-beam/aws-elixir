@@ -25,12 +25,14 @@ defmodule AWS.FreeTier do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      upgrade_account_plan_response() :: %{
+        "accountId" => String.t() | atom(),
+        "accountPlanStatus" => list(any()),
+        "accountPlanType" => list(any())
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type upgrade_account_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,60 +52,27 @@ defmodule AWS.FreeTier do
 
   ## Example:
       
-      dimension_values() :: %{
-        "Key" => list(any()),
-        "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type dimension_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expression() :: %{
-        "And" => list(expression()),
-        "Dimensions" => dimension_values(),
-        "Not" => expression(),
-        "Or" => list(expression())
-      }
-      
-  """
-  @type expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      free_tier_usage() :: %{
-        "actualUsageAmount" => float(),
-        "description" => String.t() | atom(),
-        "forecastedUsageAmount" => float(),
-        "freeTierType" => String.t() | atom(),
-        "limit" => float(),
-        "operation" => String.t() | atom(),
-        "region" => String.t() | atom(),
-        "service" => String.t() | atom(),
-        "unit" => String.t() | atom(),
-        "usageType" => String.t() | atom()
-      }
-      
-  """
-  @type free_tier_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_account_activity_request() :: %{
+      list_account_activities_request() :: %{
+        optional("filterActivityStatuses") => list(list(any())()),
         optional("languageCode") => list(any()),
-        required("activityId") => String.t() | atom()
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_account_activity_request() :: %{(String.t() | atom()) => any()}
+  @type list_account_activities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_activities_response() :: %{
+        "activities" => list(activity_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_account_activities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,10 +98,60 @@ defmodule AWS.FreeTier do
 
   ## Example:
       
-      get_account_plan_state_request() :: %{}
+      get_free_tier_usage_response() :: %{
+        "freeTierUsages" => list(free_tier_usage()),
+        "nextToken" => String.t() | atom()
+      }
       
   """
-  @type get_account_plan_state_request() :: %{}
+  @type get_free_tier_usage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expression() :: %{
+        "And" => list(expression()),
+        "Dimensions" => dimension_values(),
+        "Not" => expression(),
+        "Or" => list(expression())
+      }
+      
+  """
+  @type expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upgrade_account_plan_request() :: %{
+        required("accountPlanType") => list(any())
+      }
+      
+  """
+  @type upgrade_account_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,55 +185,6 @@ defmodule AWS.FreeTier do
 
   ## Example:
       
-      get_free_tier_usage_response() :: %{
-        "freeTierUsages" => list(free_tier_usage()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_free_tier_usage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_activities_request() :: %{
-        optional("filterActivityStatuses") => list(list(any())()),
-        optional("languageCode") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_account_activities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_account_activities_response() :: %{
-        "activities" => list(activity_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_account_activities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       monetary_amount() :: %{
         "amount" => float(),
         "unit" => list(any())
@@ -227,12 +197,14 @@ defmodule AWS.FreeTier do
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      dimension_values() :: %{
+        "Key" => list(any()),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type dimension_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,62 +221,90 @@ defmodule AWS.FreeTier do
 
   ## Example:
       
-      upgrade_account_plan_request() :: %{
-        required("accountPlanType") => list(any())
+      free_tier_usage() :: %{
+        "actualUsageAmount" => float(),
+        "description" => String.t() | atom(),
+        "forecastedUsageAmount" => float(),
+        "freeTierType" => String.t() | atom(),
+        "limit" => float(),
+        "operation" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "service" => String.t() | atom(),
+        "unit" => String.t() | atom(),
+        "usageType" => String.t() | atom()
       }
       
   """
-  @type upgrade_account_plan_request() :: %{(String.t() | atom()) => any()}
+  @type free_tier_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      upgrade_account_plan_response() :: %{
-        "accountId" => String.t() | atom(),
-        "accountPlanStatus" => list(any()),
-        "accountPlanType" => list(any())
+      get_account_activity_request() :: %{
+        required("activityId") => String.t() | atom(),
+        optional("languageCode") => list(any())
       }
       
   """
-  @type upgrade_account_plan_response() :: %{(String.t() | atom()) => any()}
+  @type get_account_activity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      validation_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_plan_state_request() :: %{}
+      
+  """
+  @type get_account_plan_state_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_account_activity_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_account_plan_state_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type get_free_tier_usage_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+          internal_server_exception() | throttling_exception() | validation_exception()
 
   @type list_account_activities_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+          internal_server_exception() | throttling_exception() | validation_exception()
 
   @type upgrade_account_plan_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -331,7 +331,8 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, get_account_activity_errors()}
   def get_account_activity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountActivity", input, options)
   end
@@ -346,7 +347,8 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, get_account_plan_state_errors()}
   def get_account_plan_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountPlanState", input, options)
   end
@@ -360,7 +362,8 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, get_free_tier_usage_errors()}
   def get_free_tier_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFreeTierUsage", input, options)
   end
@@ -376,7 +379,8 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, list_account_activities_errors()}
   def list_account_activities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccountActivities", input, options)
   end
@@ -390,7 +394,8 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, upgrade_account_plan_errors()}
   def upgrade_account_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpgradeAccountPlan", input, options)
   end

@@ -30,12 +30,161 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      cache_parameter_group_name_message() :: %{
-        "CacheParameterGroupName" => String.t() | atom()
+      security_group_membership() :: %{
+        "SecurityGroupId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type cache_parameter_group_name_message() :: %{(String.t() | atom()) => any()}
+  @type security_group_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_engine_version() :: %{
+        "CacheEngineDescription" => String.t() | atom(),
+        "CacheEngineVersionDescription" => String.t() | atom(),
+        "CacheParameterGroupFamily" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom()
+      }
+      
+  """
+  @type cache_engine_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_snapshot_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_users_result() :: %{
+        "Marker" => String.t() | atom(),
+        "Users" => list(user())
+      }
+      
+  """
+  @type describe_users_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_quota_per_resource_exceeded() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type tag_quota_per_resource_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
+  """
+  @type create_global_replication_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_groups_per_replication_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type node_groups_per_replication_group_quota_exceeded_fault() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_replication_group_message() :: %{
+        optional("ApplyImmediately") => boolean(),
+        optional("AuthToken") => String.t() | atom(),
+        optional("AuthTokenUpdateStrategy") => list(any()),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("AutomaticFailoverEnabled") => boolean(),
+        optional("CacheNodeType") => String.t() | atom(),
+        optional("CacheParameterGroupName") => String.t() | atom(),
+        optional("CacheSecurityGroupNames") => list(String.t() | atom()),
+        optional("ClusterMode") => list(any()),
+        optional("Durability") => list(any()),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("IpDiscovery") => list(any()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
+        optional("MultiAZEnabled") => boolean(),
+        optional("NodeGroupId") => String.t() | atom(),
+        optional("NotificationTopicArn") => String.t() | atom(),
+        optional("NotificationTopicStatus") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("PrimaryClusterId") => String.t() | atom(),
+        optional("RemoveUserGroups") => boolean(),
+        optional("ReplicationGroupDescription") => String.t() | atom(),
+        required("ReplicationGroupId") => String.t() | atom(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SnapshotWindow") => String.t() | atom(),
+        optional("SnapshottingClusterId") => String.t() | atom(),
+        optional("TransitEncryptionEnabled") => boolean(),
+        optional("TransitEncryptionMode") => list(any()),
+        optional("UserGroupIdsToAdd") => list(String.t() | atom()),
+        optional("UserGroupIdsToRemove") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_group_pending_changes() :: %{
+        "UserIdsToAdd" => list(String.t() | atom()),
+        "UserIdsToRemove" => list(String.t() | atom())
+      }
+      
+  """
+  @type user_group_pending_changes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_quota_for_customer_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -52,259 +201,76 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      batch_apply_update_action_message() :: %{
+      replication_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type replication_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authentication_mode() :: %{
+        "Passwords" => list(String.t() | atom()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type authentication_mode() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_configuration() :: %{
+        "Engine" => String.t() | atom(),
+        "MajorEngineVersion" => String.t() | atom(),
+        "ServerlessCacheName" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_stop_update_action_message() :: %{
         optional("CacheClusterIds") => list(String.t() | atom()),
         optional("ReplicationGroupIds") => list(String.t() | atom()),
         required("ServiceUpdateName") => String.t() | atom()
       }
       
   """
-  @type batch_apply_update_action_message() :: %{(String.t() | atom()) => any()}
+  @type batch_stop_update_action_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_update_actions_message() :: %{
-        optional("CacheClusterIds") => list(String.t() | atom()),
-        optional("Engine") => String.t() | atom(),
+      delete_cache_cluster_message() :: %{
+        required("CacheClusterId") => String.t() | atom(),
+        optional("FinalSnapshotIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cache_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_global_replication_groups_message() :: %{
+        optional("GlobalReplicationGroupId") => String.t() | atom(),
         optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("ReplicationGroupIds") => list(String.t() | atom()),
-        optional("ServiceUpdateName") => String.t() | atom(),
-        optional("ServiceUpdateStatus") => list(list(any())()),
-        optional("ServiceUpdateTimeRange") => time_range_filter(),
-        optional("ShowNodeLevelUpdateStatus") => boolean(),
-        optional("UpdateActionStatus") => list(list(any())())
+        optional("ShowMemberInfo") => boolean()
       }
       
   """
-  @type describe_update_actions_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unprocessed_update_action() :: %{
-        "CacheClusterId" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "ErrorType" => String.t() | atom(),
-        "ReplicationGroupId" => String.t() | atom(),
-        "ServiceUpdateName" => String.t() | atom()
-      }
-      
-  """
-  @type unprocessed_update_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type node_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_cache_node() :: %{
-        "CacheNodeCount" => integer(),
-        "CacheNodeType" => String.t() | atom(),
-        "Duration" => integer(),
-        "FixedPrice" => float(),
-        "OfferingType" => String.t() | atom(),
-        "ProductDescription" => String.t() | atom(),
-        "RecurringCharges" => list(recurring_charge()),
-        "ReservationARN" => String.t() | atom(),
-        "ReservedCacheNodeId" => String.t() | atom(),
-        "ReservedCacheNodesOfferingId" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "State" => String.t() | atom(),
-        "UsagePrice" => float()
-      }
-      
-  """
-  @type reserved_cache_node() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_cache_nodes_offering_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type reserved_cache_nodes_offering_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_global_replication_group_result() :: %{
-        "GlobalReplicationGroup" => global_replication_group()
-      }
-      
-  """
-  @type disassociate_global_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cache_engine_versions_message() :: %{
-        optional("CacheParameterGroupFamily") => String.t() | atom(),
-        optional("DefaultOnly") => boolean(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
-      }
-      
-  """
-  @type describe_cache_engine_versions_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_storage() :: %{
-        "Maximum" => integer(),
-        "Minimum" => integer(),
-        "Unit" => list(any())
-      }
-      
-  """
-  @type data_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      e_c_p_u_per_second() :: %{
-        "Maximum" => integer(),
-        "Minimum" => integer()
-      }
-      
-  """
-  @type e_c_p_u_per_second() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_parameter_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_security_group_message() :: %{
-        "CacheSecurityGroups" => list(cache_security_group()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type cache_security_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_usage_limits() :: %{
-        "DataStorage" => data_storage(),
-        "ECPUPerSecond" => e_c_p_u_per_second()
-      }
-      
-  """
-  @type cache_usage_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_groups_message() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("UserGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_user_groups_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_groups_result() :: %{
-        "Marker" => String.t() | atom(),
-        "UserGroups" => list(user_group())
-      }
-      
-  """
-  @type describe_user_groups_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_node_type_specific_parameter() :: %{
-        "AllowedValues" => String.t() | atom(),
-        "CacheNodeTypeSpecificValues" => list(cache_node_type_specific_value()),
-        "ChangeType" => list(any()),
-        "DataType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IsModifiable" => boolean(),
-        "MinimumEngineVersion" => String.t() | atom(),
-        "ParameterName" => String.t() | atom(),
-        "Source" => String.t() | atom()
-      }
-      
-  """
-  @type cache_node_type_specific_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_global_replication_groups_result() :: %{
-        "GlobalReplicationGroups" => list(global_replication_group()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type describe_global_replication_groups_result() :: %{(String.t() | atom()) => any()}
+  @type describe_global_replication_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -327,6 +293,7 @@ defmodule AWS.ElastiCache do
         "ServerlessCacheName" => String.t() | atom(),
         "SnapshotRetentionLimit" => integer(),
         "Status" => String.t() | atom(),
+        "StorageEncryptionType" => list(any()),
         "SubnetIds" => list(String.t() | atom()),
         "UserGroupId" => String.t() | atom()
       }
@@ -338,1756 +305,24 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      cache_parameter_groups_message() :: %{
-        "CacheParameterGroups" => list(cache_parameter_group()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type cache_parameter_groups_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_subnet_group_quota_exceeded_fault() :: %{
+      node_quota_for_customer_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type cache_subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      availability_zone() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type availability_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_replication_group_result() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type modify_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      allowed_node_type_modifications_message() :: %{
-        "ScaleDownModifications" => list(String.t() | atom()),
-        "ScaleUpModifications" => list(String.t() | atom())
-      }
-      
-  """
-  @type allowed_node_type_modifications_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_replication_group_shard_configuration_message() :: %{
-        optional("NodeGroupsToRemove") => list(String.t() | atom()),
-        optional("NodeGroupsToRetain") => list(String.t() | atom()),
-        optional("ReshardingConfiguration") => list(resharding_configuration()),
-        required("ApplyImmediately") => boolean(),
-        required("NodeGroupCount") => integer(),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type modify_replication_group_shard_configuration_message() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_user_group_message() :: %{
-        optional("Engine") => String.t() | atom(),
-        optional("UserIdsToAdd") => list(String.t() | atom()),
-        optional("UserIdsToRemove") => list(String.t() | atom()),
-        required("UserGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type modify_user_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_node_group() :: %{
-        "GlobalNodeGroupId" => String.t() | atom(),
-        "Slots" => String.t() | atom()
-      }
-      
-  """
-  @type global_node_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_cache_cluster_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_cache_cluster_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_replication_group_result() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type delete_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reset_cache_parameter_group_message() :: %{
-        optional("ParameterNameValues") => list(parameter_name_value()),
-        optional("ResetAllParameters") => boolean(),
-        required("CacheParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type reset_cache_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_delivery_configuration_request() :: %{
-        "DestinationDetails" => destination_details(),
-        "DestinationType" => list(any()),
-        "Enabled" => boolean(),
-        "LogFormat" => list(any()),
-        "LogType" => list(any())
-      }
-      
-  """
-  @type log_delivery_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_snapshot() :: %{
-        "CacheClusterId" => String.t() | atom(),
-        "CacheNodeCreateTime" => non_neg_integer(),
-        "CacheNodeId" => String.t() | atom(),
-        "CacheSize" => String.t() | atom(),
-        "NodeGroupConfiguration" => node_group_configuration(),
-        "NodeGroupId" => String.t() | atom(),
-        "SnapshotCreateTime" => non_neg_integer()
-      }
-      
-  """
-  @type node_snapshot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_group() :: %{
-        optional("ARN") => String.t() | atom(),
-        optional("Engine") => String.t() | atom(),
-        optional("MinimumEngineVersion") => String.t() | atom(),
-        optional("PendingChanges") => user_group_pending_changes(),
-        optional("ReplicationGroups") => list(String.t() | atom()),
-        optional("ServerlessCaches") => list(String.t() | atom()),
-        optional("Status") => String.t() | atom(),
-        optional("UserGroupId") => String.t() | atom(),
-        optional("UserIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type user_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_update_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_update_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      engine_defaults() :: %{
-        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()),
-        "CacheParameterGroupFamily" => String.t() | atom(),
-        "Marker" => String.t() | atom(),
-        "Parameters" => list(parameter())
-      }
-      
-  """
-  @type engine_defaults() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revoke_cache_security_group_ingress_result() :: %{
-        "CacheSecurityGroup" => cache_security_group()
-      }
-      
-  """
-  @type revoke_cache_security_group_ingress_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_group_message() :: %{
-        required("UserGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_cache_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type serverless_cache_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_parameter_group_details() :: %{
-        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()),
-        "Marker" => String.t() | atom(),
-        "Parameters" => list(parameter())
-      }
-      
-  """
-  @type cache_parameter_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_global_replication_groups_message() :: %{
-        optional("GlobalReplicationGroupId") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("ShowMemberInfo") => boolean()
-      }
-      
-  """
-  @type describe_global_replication_groups_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      security_group_membership() :: %{
-        "SecurityGroupId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type security_group_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_security_group() :: %{
-        "EC2SecurityGroupName" => String.t() | atom(),
-        "EC2SecurityGroupOwnerId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type ec2_security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_replication_group_message() :: %{
-        optional("FinalSnapshotIdentifier") => String.t() | atom(),
-        optional("RetainPrimaryCluster") => boolean(),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_replication_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recurring_charge() :: %{
-        "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t() | atom()
-      }
-      
-  """
-  @type recurring_charge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_cache_nodes_offering() :: %{
-        "CacheNodeType" => String.t() | atom(),
-        "Duration" => integer(),
-        "FixedPrice" => float(),
-        "OfferingType" => String.t() | atom(),
-        "ProductDescription" => String.t() | atom(),
-        "RecurringCharges" => list(recurring_charge()),
-        "ReservedCacheNodesOfferingId" => String.t() | atom(),
-        "UsagePrice" => float()
-      }
-      
-  """
-  @type reserved_cache_nodes_offering() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_serverless_cache_snapshot_request() :: %{
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ServerlessCacheName") => String.t() | atom(),
-        required("ServerlessCacheSnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type create_serverless_cache_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      increase_node_groups_in_global_replication_group_message() :: %{
-        optional("RegionalConfigurations") => list(regional_configuration()),
-        required("ApplyImmediately") => boolean(),
-        required("GlobalReplicationGroupId") => String.t() | atom(),
-        required("NodeGroupCount") => integer()
-      }
-      
-  """
-  @type increase_node_groups_in_global_replication_group_message() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_serverless_caches_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ServerlessCaches" => list(serverless_cache())
-      }
-      
-  """
-  @type describe_serverless_caches_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_kms_key_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_kms_key_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      complete_migration_message() :: %{
-        optional("Force") => boolean(),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type complete_migration_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_group_message() :: %{
-        optional("Tags") => list(tag()),
-        optional("UserIds") => list(String.t() | atom()),
-        required("Engine") => String.t() | atom(),
-        required("UserGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type create_user_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet() :: %{
-        "SubnetAvailabilityZone" => availability_zone(),
-        "SubnetIdentifier" => String.t() | atom(),
-        "SubnetOutpost" => subnet_outpost(),
-        "SupportedNetworkTypes" => list(list(any())())
-      }
-      
-  """
-  @type subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_subnet() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_parameter_group() :: %{
-        "ARN" => String.t() | atom(),
-        "CacheParameterGroupFamily" => String.t() | atom(),
-        "CacheParameterGroupName" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IsGlobal" => boolean()
-      }
-      
-  """
-  @type cache_parameter_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_name_value() :: %{
-        "ParameterName" => String.t() | atom(),
-        "ParameterValue" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_name_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_message() :: %{
-        required("ResourceName") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_parameter_group_status() :: %{
-        "CacheNodeIdsToReboot" => list(String.t() | atom()),
-        "CacheParameterGroupName" => String.t() | atom(),
-        "ParameterApplyStatus" => String.t() | atom()
-      }
-      
-  """
-  @type cache_parameter_group_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_group_pending_changes() :: %{
-        "UserIdsToAdd" => list(String.t() | atom()),
-        "UserIdsToRemove" => list(String.t() | atom())
-      }
-      
-  """
-  @type user_group_pending_changes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_replication_group_info() :: %{
-        "GlobalReplicationGroupId" => String.t() | atom(),
-        "GlobalReplicationGroupMemberRole" => String.t() | atom()
-      }
-      
-  """
-  @type global_replication_group_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resharding_status() :: %{
-        "SlotMigration" => slot_migration()
-      }
-      
-  """
-  @type resharding_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_serverless_cache_snapshots_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ServerlessCacheSnapshots" => list(serverless_cache_snapshot())
-      }
-      
-  """
-  @type describe_serverless_cache_snapshots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rebalance_slots_in_global_replication_group_result() :: %{
-        "GlobalReplicationGroup" => global_replication_group()
-      }
-      
-  """
-  @type rebalance_slots_in_global_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      decrease_replica_count_result() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type decrease_replica_count_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_parameter_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cache_parameter_group_message() :: %{
-        required("CacheParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cache_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_group() :: %{
-        "NodeGroupId" => String.t() | atom(),
-        "NodeGroupMembers" => list(node_group_member()),
-        "PrimaryEndpoint" => endpoint(),
-        "ReaderEndpoint" => endpoint(),
-        "Slots" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type node_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_engine_default_parameters_message() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        required("CacheParameterGroupFamily") => String.t() | atom()
-      }
-      
-  """
-  @type describe_engine_default_parameters_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_allowed_node_type_modifications_message() :: %{
-        optional("CacheClusterId") => String.t() | atom(),
-        optional("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type list_allowed_node_type_modifications_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      decrease_node_groups_in_global_replication_group_result() :: %{
-        "GlobalReplicationGroup" => global_replication_group()
-      }
-      
-  """
-  @type decrease_node_groups_in_global_replication_group_result() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logs_destination_details() :: %{
-        "LogGroup" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logs_destination_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revoke_cache_security_group_ingress_message() :: %{
-        required("CacheSecurityGroupName") => String.t() | atom(),
-        required("EC2SecurityGroupName") => String.t() | atom(),
-        required("EC2SecurityGroupOwnerId") => String.t() | atom()
-      }
-      
-  """
-  @type revoke_cache_security_group_ingress_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_serverless_cache_snapshot_response() :: %{
-        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
-      }
-      
-  """
-  @type copy_serverless_cache_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_cache_node_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type reserved_cache_node_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_action_results_message() :: %{
-        optional("ProcessedUpdateActions") => list(processed_update_action()),
-        optional("UnprocessedUpdateActions") => list(unprocessed_update_action())
-      }
-      
-  """
-  @type update_action_results_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_cluster_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type tag_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cache_cluster_message() :: %{
-        optional("AZMode") => list(any()),
-        optional("AuthToken") => String.t() | atom(),
-        optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("CacheNodeType") => String.t() | atom(),
-        optional("CacheParameterGroupName") => String.t() | atom(),
-        optional("CacheSecurityGroupNames") => list(String.t() | atom()),
-        optional("CacheSubnetGroupName") => String.t() | atom(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("IpDiscovery") => list(any()),
-        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
-        optional("NetworkType") => list(any()),
-        optional("NotificationTopicArn") => String.t() | atom(),
-        optional("NumCacheNodes") => integer(),
-        optional("OutpostMode") => list(any()),
-        optional("Port") => integer(),
-        optional("PreferredAvailabilityZone") => String.t() | atom(),
-        optional("PreferredAvailabilityZones") => list(String.t() | atom()),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("PreferredOutpostArn") => String.t() | atom(),
-        optional("PreferredOutpostArns") => list(String.t() | atom()),
-        optional("ReplicationGroupId") => String.t() | atom(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("SnapshotArns") => list(String.t() | atom()),
-        optional("SnapshotName") => String.t() | atom(),
-        optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("TransitEncryptionEnabled") => boolean(),
-        required("CacheClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type create_cache_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cache_subnet_group_result() :: %{
-        "CacheSubnetGroup" => cache_subnet_group()
-      }
-      
-  """
-  @type create_cache_subnet_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_security_group_membership() :: %{
-        "CacheSecurityGroupName" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type cache_security_group_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_cache_parameter_group_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_cache_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_failover_result() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type test_failover_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_combination_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_cache_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type serverless_cache_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_cache_node_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type reserved_cache_node_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_cache_nodes_offering_message() :: %{
-        "Marker" => String.t() | atom(),
-        "ReservedCacheNodesOfferings" => list(reserved_cache_nodes_offering())
-      }
-      
-  """
-  @type reserved_cache_nodes_offering_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_vpc_network_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_quota_per_resource_exceeded() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type tag_quota_per_resource_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_user_group_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_user_group_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_cache_snapshot() :: %{
-        "ARN" => String.t() | atom(),
-        "BytesUsedForCache" => String.t() | atom(),
-        "CreateTime" => non_neg_integer(),
-        "ExpiryTime" => non_neg_integer(),
-        "KmsKeyId" => String.t() | atom(),
-        "ServerlessCacheConfiguration" => serverless_cache_configuration(),
-        "ServerlessCacheSnapshotName" => String.t() | atom(),
-        "SnapshotType" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type serverless_cache_snapshot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_not_allowed_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_not_allowed_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_cluster_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_serverless_cache_response() :: %{
-        "ServerlessCache" => serverless_cache()
-      }
-      
-  """
-  @type create_serverless_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      decrease_replica_count_message() :: %{
-        optional("NewReplicaCount") => integer(),
-        optional("ReplicaConfiguration") => list(configure_shard()),
-        optional("ReplicasToRemove") => list(String.t() | atom()),
-        required("ApplyImmediately") => boolean(),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type decrease_replica_count_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_cache_subnet_group_result() :: %{
-        "CacheSubnetGroup" => cache_subnet_group()
-      }
-      
-  """
-  @type modify_cache_subnet_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_global_replication_group_result() :: %{
-        "GlobalReplicationGroup" => global_replication_group()
-      }
-      
-  """
-  @type failover_global_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_global_replication_group_result() :: %{
-        "GlobalReplicationGroup" => global_replication_group()
-      }
-      
-  """
-  @type modify_global_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_engine_version() :: %{
-        "CacheEngineDescription" => String.t() | atom(),
-        "CacheEngineVersionDescription" => String.t() | atom(),
-        "CacheParameterGroupFamily" => String.t() | atom(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom()
-      }
-      
-  """
-  @type cache_engine_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_updates_message() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("ServiceUpdateName") => String.t() | atom(),
-        optional("ServiceUpdateStatus") => list(list(any())())
-      }
-      
-  """
-  @type describe_service_updates_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_global_replication_group_message() :: %{
-        optional("AutomaticFailoverEnabled") => boolean(),
-        optional("CacheNodeType") => String.t() | atom(),
-        optional("CacheParameterGroupName") => String.t() | atom(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("GlobalReplicationGroupDescription") => String.t() | atom(),
-        required("ApplyImmediately") => boolean(),
-        required("GlobalReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type modify_global_replication_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cache_parameters_message() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("Source") => String.t() | atom(),
-        required("CacheParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_cache_parameters_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_cache_snapshot_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type serverless_cache_snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_group_not_under_migration_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type replication_group_not_under_migration_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_global_replication_group_result() :: %{
-        "GlobalReplicationGroup" => global_replication_group()
-      }
-      
-  """
-  @type create_global_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      increase_replica_count_message() :: %{
-        optional("NewReplicaCount") => integer(),
-        optional("ReplicaConfiguration") => list(configure_shard()),
-        required("ApplyImmediately") => boolean(),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type increase_replica_count_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_global_replication_group_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_global_replication_group_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_subnet_group_in_use() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_subnet_group_in_use() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_migration_message() :: %{
-        required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type test_migration_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pending_modified_values() :: %{
-        "AuthTokenStatus" => list(any()),
-        "CacheNodeIdsToRemove" => list(String.t() | atom()),
-        "CacheNodeType" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()),
-        "NumCacheNodes" => integer(),
-        "ScaleConfig" => scale_config(),
-        "TransitEncryptionEnabled" => boolean(),
-        "TransitEncryptionMode" => list(any())
-      }
-      
-  """
-  @type pending_modified_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_failover_message() :: %{
-        required("NodeGroupId") => String.t() | atom(),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type test_failover_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authorization_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type authorization_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_node() :: %{
-        "CacheNodeCreateTime" => non_neg_integer(),
-        "CacheNodeId" => String.t() | atom(),
-        "CacheNodeStatus" => String.t() | atom(),
-        "CustomerAvailabilityZone" => String.t() | atom(),
-        "CustomerOutpostArn" => String.t() | atom(),
-        "Endpoint" => endpoint(),
-        "ParameterGroupStatus" => String.t() | atom(),
-        "SourceCacheNodeId" => String.t() | atom()
-      }
-      
-  """
-  @type cache_node() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      increase_replica_count_result() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type increase_replica_count_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_cache_cluster_result() :: %{
-        "CacheCluster" => cache_cluster()
-      }
-      
-  """
-  @type reboot_cache_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_snapshots_message() :: %{
-        optional("CacheClusterId") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("ReplicationGroupId") => String.t() | atom(),
-        optional("ShowNodeGroupConfig") => boolean(),
-        optional("SnapshotName") => String.t() | atom(),
-        optional("SnapshotSource") => String.t() | atom()
-      }
-      
-  """
-  @type describe_snapshots_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cache_parameter_groups_message() :: %{
-        optional("CacheParameterGroupName") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
-      }
-      
-  """
-  @type describe_cache_parameter_groups_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_security_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_security_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_security_group() :: %{
-        "ARN" => String.t() | atom(),
-        "CacheSecurityGroupName" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EC2SecurityGroups" => list(ec2_security_group()),
-        "OwnerId" => String.t() | atom()
-      }
-      
-  """
-  @type cache_security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_group_member_update_status() :: %{
-        "CacheClusterId" => String.t() | atom(),
-        "CacheNodeId" => String.t() | atom(),
-        "NodeDeletionDate" => non_neg_integer(),
-        "NodeUpdateEndDate" => non_neg_integer(),
-        "NodeUpdateInitiatedBy" => list(any()),
-        "NodeUpdateInitiatedDate" => non_neg_integer(),
-        "NodeUpdateStartDate" => non_neg_integer(),
-        "NodeUpdateStatus" => list(any()),
-        "NodeUpdateStatusModifiedDate" => non_neg_integer()
-      }
-      
-  """
-  @type node_group_member_update_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_group_configuration() :: %{
-        "NodeGroupId" => String.t() | atom(),
-        "PrimaryAvailabilityZone" => String.t() | atom(),
-        "PrimaryOutpostArn" => String.t() | atom(),
-        "ReplicaAvailabilityZones" => list(String.t() | atom()),
-        "ReplicaCount" => integer(),
-        "ReplicaOutpostArns" => list(String.t() | atom()),
-        "Slots" => String.t() | atom()
-      }
-      
-  """
-  @type node_group_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_outpost() :: %{
-        "SubnetOutpostArn" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_outpost() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_message() :: %{
-        required("UserId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_cache_node_message() :: %{
-        "Marker" => String.t() | atom(),
-        "ReservedCacheNodes" => list(reserved_cache_node())
-      }
-      
-  """
-  @type reserved_cache_node_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authorization_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type authorization_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_serverless_cache_snapshot_request() :: %{
-        required("S3BucketName") => String.t() | atom(),
-        required("ServerlessCacheSnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type export_serverless_cache_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_global_replication_group_message() :: %{
-        required("GlobalReplicationGroupId") => String.t() | atom(),
-        required("PrimaryRegion") => String.t() | atom(),
-        required("PrimaryReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type failover_global_replication_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_reserved_cache_nodes_offerings_message() :: %{
-        optional("CacheNodeType") => String.t() | atom(),
-        optional("Duration") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("OfferingType") => String.t() | atom(),
-        optional("ProductDescription") => String.t() | atom(),
-        optional("ReservedCacheNodesOfferingId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_reserved_cache_nodes_offerings_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_operation_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_operation_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_replication_group_shard_configuration_result() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type modify_replication_group_shard_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_snapshot_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_failover_not_available_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type test_failover_not_available_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_stop_update_action_message() :: %{
-        optional("CacheClusterIds") => list(String.t() | atom()),
-        optional("ReplicationGroupIds") => list(String.t() | atom()),
-        required("ServiceUpdateName") => String.t() | atom()
-      }
-      
-  """
-  @type batch_stop_update_action_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_value_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_replication_group_message() :: %{
-        optional("ApplyImmediately") => boolean(),
-        optional("AuthToken") => String.t() | atom(),
-        optional("AuthTokenUpdateStrategy") => list(any()),
-        optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("AutomaticFailoverEnabled") => boolean(),
-        optional("CacheNodeType") => String.t() | atom(),
-        optional("CacheParameterGroupName") => String.t() | atom(),
-        optional("CacheSecurityGroupNames") => list(String.t() | atom()),
-        optional("ClusterMode") => list(any()),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("IpDiscovery") => list(any()),
-        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
-        optional("MultiAZEnabled") => boolean(),
-        optional("NodeGroupId") => String.t() | atom(),
-        optional("NotificationTopicArn") => String.t() | atom(),
-        optional("NotificationTopicStatus") => String.t() | atom(),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("PrimaryClusterId") => String.t() | atom(),
-        optional("RemoveUserGroups") => boolean(),
-        optional("ReplicationGroupDescription") => String.t() | atom(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t() | atom(),
-        optional("SnapshottingClusterId") => String.t() | atom(),
-        optional("TransitEncryptionEnabled") => boolean(),
-        optional("TransitEncryptionMode") => list(any()),
-        optional("UserGroupIdsToAdd") => list(String.t() | atom()),
-        optional("UserGroupIdsToRemove") => list(String.t() | atom()),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type modify_replication_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_delivery_configuration() :: %{
-        "DestinationDetails" => destination_details(),
-        "DestinationType" => list(any()),
-        "LogFormat" => list(any()),
-        "LogType" => list(any()),
-        "Message" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type log_delivery_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_updates_message() :: %{
-        "Marker" => String.t() | atom(),
-        "ServiceUpdates" => list(service_update())
-      }
-      
-  """
-  @type service_updates_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_snapshot_message() :: %{
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("TargetBucket") => String.t() | atom(),
-        required("SourceSnapshotName") => String.t() | atom(),
-        required("TargetSnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type copy_snapshot_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_cache_cluster_result() :: %{
-        "CacheCluster" => cache_cluster()
-      }
-      
-  """
-  @type modify_cache_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pending_log_delivery_configuration() :: %{
-        "DestinationDetails" => destination_details(),
-        "DestinationType" => list(any()),
-        "LogFormat" => list(any()),
-        "LogType" => list(any())
-      }
-      
-  """
-  @type pending_log_delivery_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scale_config() :: %{
-        "ScaleIntervalMinutes" => integer(),
-        "ScalePercentage" => integer()
-      }
-      
-  """
-  @type scale_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter() :: %{
-        "AllowedValues" => String.t() | atom(),
-        "ChangeType" => list(any()),
-        "DataType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IsModifiable" => boolean(),
-        "MinimumEngineVersion" => String.t() | atom(),
-        "ParameterName" => String.t() | atom(),
-        "ParameterValue" => String.t() | atom(),
-        "Source" => String.t() | atom()
-      }
-      
-  """
-  @type parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_serverless_cache_snapshot_request() :: %{
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("SourceServerlessCacheSnapshotName") => String.t() | atom(),
-        required("TargetServerlessCacheSnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type copy_serverless_cache_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_cache_cluster_message() :: %{
-        required("CacheClusterId") => String.t() | atom(),
-        required("CacheNodeIdsToReboot") => list(String.t() | atom())
-      }
-      
-  """
-  @type reboot_cache_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_arn_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_arn_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authentication() :: %{
-        "PasswordCount" => integer(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type authentication() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_snapshot_message() :: %{
-        required("SnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_snapshot_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_cache_configuration() :: %{
-        "Engine" => String.t() | atom(),
-        "MajorEngineVersion" => String.t() | atom(),
-        "ServerlessCacheName" => String.t() | atom()
-      }
-      
-  """
-  @type serverless_cache_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_cluster() :: %{
-        "Engine" => String.t() | atom(),
-        "ClientDownloadLandingPage" => String.t() | atom(),
-        "NetworkType" => list(any()),
-        "ReplicationGroupId" => String.t() | atom(),
-        "CacheClusterCreateTime" => non_neg_integer(),
-        "PreferredMaintenanceWindow" => String.t() | atom(),
-        "CacheParameterGroup" => cache_parameter_group_status(),
-        "ARN" => String.t() | atom(),
-        "AuthTokenEnabled" => boolean(),
-        "CacheClusterStatus" => String.t() | atom(),
-        "CacheClusterId" => String.t() | atom(),
-        "PendingModifiedValues" => pending_modified_values(),
-        "ReplicationGroupLogDeliveryEnabled" => boolean(),
-        "SnapshotRetentionLimit" => integer(),
-        "PreferredAvailabilityZone" => String.t() | atom(),
-        "SnapshotWindow" => String.t() | atom(),
-        "AtRestEncryptionEnabled" => boolean(),
-        "ConfigurationEndpoint" => endpoint(),
-        "AuthTokenLastModifiedDate" => non_neg_integer(),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "TransitEncryptionMode" => list(any()),
-        "IpDiscovery" => list(any()),
-        "LogDeliveryConfigurations" => list(log_delivery_configuration()),
-        "TransitEncryptionEnabled" => boolean(),
-        "NotificationConfiguration" => notification_configuration(),
-        "CacheSubnetGroupName" => String.t() | atom(),
-        "CacheNodes" => list(cache_node()),
-        "PreferredOutpostArn" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "CacheSecurityGroups" => list(cache_security_group_membership()),
-        "SecurityGroups" => list(security_group_membership()),
-        "CacheNodeType" => String.t() | atom(),
-        "NumCacheNodes" => integer()
-      }
-      
-  """
-  @type cache_cluster() :: %{(String.t() | atom()) => any()}
+  @type node_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_message() :: %{
+        required("AccessString") => String.t() | atom(),
         optional("AuthenticationMode") => authentication_mode(),
+        required("Engine") => String.t() | atom(),
         optional("NoPasswordRequired") => boolean(),
         optional("Passwords") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
-        required("AccessString") => String.t() | atom(),
-        required("Engine") => String.t() | atom(),
         required("UserId") => String.t() | atom(),
         required("UserName") => String.t() | atom()
       }
@@ -2099,214 +334,15 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      cache_subnet_group() :: %{
-        "ARN" => String.t() | atom(),
-        "CacheSubnetGroupDescription" => String.t() | atom(),
-        "CacheSubnetGroupName" => String.t() | atom(),
-        "Subnets" => list(subnet()),
-        "SupportedNetworkTypes" => list(list(any())()),
-        "VpcId" => String.t() | atom()
+      create_serverless_cache_snapshot_request() :: %{
+        optional("KmsKeyId") => String.t() | atom(),
+        required("ServerlessCacheName") => String.t() | atom(),
+        required("ServerlessCacheSnapshotName") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type cache_subnet_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cache_subnet_groups_message() :: %{
-        optional("CacheSubnetGroupName") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
-      }
-      
-  """
-  @type describe_cache_subnet_groups_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_serverless_cache_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_serverless_cache_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type node_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_cache_node_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type reserved_cache_node_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_group_member() :: %{
-        "CacheClusterId" => String.t() | atom(),
-        "CacheNodeId" => String.t() | atom(),
-        "CurrentRole" => String.t() | atom(),
-        "PreferredAvailabilityZone" => String.t() | atom(),
-        "PreferredOutpostArn" => String.t() | atom(),
-        "ReadEndpoint" => endpoint()
-      }
-      
-  """
-  @type node_group_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      api_call_rate_for_customer_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type api_call_rate_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type replication_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_replication_groups_message() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_replication_groups_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_replication_group_result() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type create_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination_details() :: %{
-        "CloudWatchLogsDetails" => cloud_watch_logs_destination_details(),
-        "KinesisFirehoseDetails" => kinesis_firehose_destination_details()
-      }
-      
-  """
-  @type destination_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      purchase_reserved_cache_nodes_offering_result() :: %{
-        "ReservedCacheNode" => reserved_cache_node()
-      }
-      
-  """
-  @type purchase_reserved_cache_nodes_offering_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_group() :: %{
-        "ARN" => String.t() | atom(),
-        "AtRestEncryptionEnabled" => boolean(),
-        "AuthTokenEnabled" => boolean(),
-        "AuthTokenLastModifiedDate" => non_neg_integer(),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "AutomaticFailover" => list(any()),
-        "CacheNodeType" => String.t() | atom(),
-        "ClusterEnabled" => boolean(),
-        "ClusterMode" => list(any()),
-        "ConfigurationEndpoint" => endpoint(),
-        "DataTiering" => list(any()),
-        "Description" => String.t() | atom(),
-        "Engine" => String.t() | atom(),
-        "GlobalReplicationGroupInfo" => global_replication_group_info(),
-        "IpDiscovery" => list(any()),
-        "KmsKeyId" => String.t() | atom(),
-        "LogDeliveryConfigurations" => list(log_delivery_configuration()),
-        "MemberClusters" => list(String.t() | atom()),
-        "MemberClustersOutpostArns" => list(String.t() | atom()),
-        "MultiAZ" => list(any()),
-        "NetworkType" => list(any()),
-        "NodeGroups" => list(node_group()),
-        "PendingModifiedValues" => replication_group_pending_modified_values(),
-        "ReplicationGroupCreateTime" => non_neg_integer(),
-        "ReplicationGroupId" => String.t() | atom(),
-        "SnapshotRetentionLimit" => integer(),
-        "SnapshotWindow" => String.t() | atom(),
-        "SnapshottingClusterId" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "TransitEncryptionEnabled" => boolean(),
-        "TransitEncryptionMode" => list(any()),
-        "UserGroupIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type replication_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_serverless_cache_request() :: %{
-        optional("FinalSnapshotName") => String.t() | atom(),
-        required("ServerlessCacheName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_serverless_cache_request() :: %{(String.t() | atom()) => any()}
+  @type create_serverless_cache_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2329,292 +365,12 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      replication_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
+      cloud_watch_logs_destination_details() :: %{
+        "LogGroup" => String.t() | atom()
       }
       
   """
-  @type replication_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_message() :: %{
-        optional("CacheClusterId") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("ReplicationGroupId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("SnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type create_snapshot_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cluster_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notification_configuration() :: %{
-        "TopicArn" => String.t() | atom(),
-        "TopicStatus" => String.t() | atom()
-      }
-      
-  """
-  @type notification_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_cache_parameter_group_message() :: %{
-        required("CacheParameterGroupName") => String.t() | atom(),
-        required("ParameterNameValues") => list(parameter_name_value())
-      }
-      
-  """
-  @type modify_cache_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_cache_security_group_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_cache_security_group_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint() :: %{
-        "Address" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_cache_subnet_group_message() :: %{
-        optional("CacheSubnetGroupDescription") => String.t() | atom(),
-        optional("SubnetIds") => list(String.t() | atom()),
-        required("CacheSubnetGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type modify_cache_subnet_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_snapshot_result() :: %{
-        "Snapshot" => snapshot()
-      }
-      
-  """
-  @type copy_snapshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_group_pending_modified_values() :: %{
-        "AuthTokenStatus" => list(any()),
-        "AutomaticFailoverStatus" => list(any()),
-        "ClusterMode" => list(any()),
-        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()),
-        "PrimaryClusterId" => String.t() | atom(),
-        "Resharding" => resharding_status(),
-        "TransitEncryptionEnabled" => boolean(),
-        "TransitEncryptionMode" => list(any()),
-        "UserGroups" => user_groups_update_status()
-      }
-      
-  """
-  @type replication_group_pending_modified_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_security_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_security_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      events_message() :: %{
-        "Events" => list(event()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type events_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resharding_configuration() :: %{
-        "NodeGroupId" => String.t() | atom(),
-        "PreferredAvailabilityZones" => list(String.t() | atom())
-      }
-      
-  """
-  @type resharding_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      purchase_reserved_cache_nodes_offering_message() :: %{
-        optional("CacheNodeCount") => integer(),
-        optional("ReservedCacheNodeId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ReservedCacheNodesOfferingId") => String.t() | atom()
-      }
-      
-  """
-  @type purchase_reserved_cache_nodes_offering_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_serverless_caches_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ServerlessCacheName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_serverless_caches_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      processed_update_action() :: %{
-        "CacheClusterId" => String.t() | atom(),
-        "ReplicationGroupId" => String.t() | atom(),
-        "ServiceUpdateName" => String.t() | atom(),
-        "UpdateActionStatus" => list(any())
-      }
-      
-  """
-  @type processed_update_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_engine_default_parameters_result() :: %{
-        "EngineDefaults" => engine_defaults()
-      }
-      
-  """
-  @type describe_engine_default_parameters_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_migration_response() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type test_migration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_snapshot_result() :: %{
-        "Snapshot" => snapshot()
-      }
-      
-  """
-  @type delete_snapshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_migration_response() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type start_migration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_user_name_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_user_name_fault() :: %{(String.t() | atom()) => any()}
+  @type cloud_watch_logs_destination_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2634,65 +390,34 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      cache_subnet_group_message() :: %{
-        "CacheSubnetGroups" => list(cache_subnet_group()),
-        "Marker" => String.t() | atom()
+      invalid_credentials_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type cache_subnet_group_message() :: %{(String.t() | atom()) => any()}
+  @type invalid_credentials_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_global_replication_group_message() :: %{
-        optional("GlobalReplicationGroupDescription") => String.t() | atom(),
-        required("GlobalReplicationGroupIdSuffix") => String.t() | atom(),
-        required("PrimaryReplicationGroupId") => String.t() | atom()
+      insufficient_cache_cluster_capacity_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type create_global_replication_group_message() :: %{(String.t() | atom()) => any()}
+  @type insufficient_cache_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_users_result() :: %{
-        "Marker" => String.t() | atom(),
-        "Users" => list(user())
+      delete_serverless_cache_snapshot_request() :: %{
+        required("ServerlessCacheSnapshotName") => String.t() | atom()
       }
       
   """
-  @type describe_users_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configure_shard() :: %{
-        "NewReplicaCount" => integer(),
-        "NodeGroupId" => String.t() | atom(),
-        "PreferredAvailabilityZones" => list(String.t() | atom()),
-        "PreferredOutpostArns" => list(String.t() | atom())
-      }
-      
-  """
-  @type configure_shard() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cache_security_groups_message() :: %{
-        optional("CacheSecurityGroupName") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
-      }
-      
-  """
-  @type describe_cache_security_groups_message() :: %{(String.t() | atom()) => any()}
+  @type delete_serverless_cache_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2705,6 +430,99 @@ defmodule AWS.ElastiCache do
       
   """
   @type delete_global_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_snapshot_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cache_subnet_group_message() :: %{
+        required("CacheSubnetGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cache_subnet_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_security_group() :: %{
+        "ARN" => String.t() | atom(),
+        "CacheSecurityGroupName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EC2SecurityGroups" => list(ec2_security_group()),
+        "OwnerId" => String.t() | atom()
+      }
+      
+  """
+  @type cache_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cache_parameter_group_message() :: %{
+        required("CacheParameterGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cache_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_kms_key_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_kms_key_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rebalance_slots_in_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
+  """
+  @type rebalance_slots_in_global_replication_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cache_cluster_result() :: %{
+        "CacheCluster" => cache_cluster()
+      }
+      
+  """
+  @type delete_cache_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2737,6 +555,1096 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
+      reserved_cache_node() :: %{
+        "CacheNodeCount" => integer(),
+        "CacheNodeType" => String.t() | atom(),
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "OfferingType" => String.t() | atom(),
+        "ProductDescription" => String.t() | atom(),
+        "RecurringCharges" => list(recurring_charge()),
+        "ReservationARN" => String.t() | atom(),
+        "ReservedCacheNodeId" => String.t() | atom(),
+        "ReservedCacheNodesOfferingId" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "State" => String.t() | atom(),
+        "UsagePrice" => float()
+      }
+      
+  """
+  @type reserved_cache_node() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_serverless_cache_snapshot_response() :: %{
+        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      }
+      
+  """
+  @type delete_serverless_cache_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unprocessed_update_action() :: %{
+        "CacheClusterId" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom(),
+        "ReplicationGroupId" => String.t() | atom(),
+        "ServiceUpdateName" => String.t() | atom()
+      }
+      
+  """
+  @type unprocessed_update_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_serverless_cache_request() :: %{
+        optional("FinalSnapshotName") => String.t() | atom(),
+        required("ServerlessCacheName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_serverless_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_cache_subnet_group_message() :: %{
+        optional("CacheSubnetGroupDescription") => String.t() | atom(),
+        required("CacheSubnetGroupName") => String.t() | atom(),
+        optional("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_cache_subnet_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cache_security_group_message() :: %{
+        required("CacheSecurityGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cache_security_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_user_group_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_user_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_value_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_cache_parameter_group_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_cache_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_migration_response() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
+  """
+  @type start_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_engine_version_message() :: %{
+        "CacheEngineVersions" => list(cache_engine_version()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type cache_engine_version_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cache_security_group_message() :: %{
+        required("CacheSecurityGroupName") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_cache_security_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorization_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type authorization_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      increase_replica_count_message() :: %{
+        required("ApplyImmediately") => boolean(),
+        optional("NewReplicaCount") => integer(),
+        optional("ReplicaConfiguration") => list(configure_shard()),
+        required("ReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type increase_replica_count_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decrease_replica_count_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
+  """
+  @type decrease_replica_count_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      events_message() :: %{
+        "Events" => list(event()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type events_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_in_use() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_serverless_cache_snapshot_request() :: %{
+        optional("KmsKeyId") => String.t() | atom(),
+        required("SourceServerlessCacheSnapshotName") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("TargetServerlessCacheSnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type copy_serverless_cache_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_list_message() :: %{
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type tag_list_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_subnet_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_delivery_configuration_request() :: %{
+        "DestinationDetails" => destination_details(),
+        "DestinationType" => list(any()),
+        "Enabled" => boolean(),
+        "LogFormat" => list(any()),
+        "LogType" => list(any())
+      }
+      
+  """
+  @type log_delivery_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_to_resource_message() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type add_tags_to_resource_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_cache_security_group_ingress_result() :: %{
+        "CacheSecurityGroup" => cache_security_group()
+      }
+      
+  """
+  @type revoke_cache_security_group_ingress_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_subnet_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_global_replication_group_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_global_replication_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_groups_message() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("UserGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_user_groups_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      increase_replica_count_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
+  """
+  @type increase_replica_count_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshots_list_message() :: %{
+        "Marker" => String.t() | atom(),
+        "Snapshots" => list(snapshot())
+      }
+      
+  """
+  @type describe_snapshots_list_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resharding_status() :: %{
+        "SlotMigration" => slot_migration()
+      }
+      
+  """
+  @type resharding_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      purchase_reserved_cache_nodes_offering_result() :: %{
+        "ReservedCacheNode" => reserved_cache_node()
+      }
+      
+  """
+  @type purchase_reserved_cache_nodes_offering_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_cache_subnet_group_result() :: %{
+        "CacheSubnetGroup" => cache_subnet_group()
+      }
+      
+  """
+  @type modify_cache_subnet_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_serverless_cache_snapshot_response() :: %{
+        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      }
+      
+  """
+  @type export_serverless_cache_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_snapshot() :: %{
+        "ARN" => String.t() | atom(),
+        "BytesUsedForCache" => String.t() | atom(),
+        "CreateTime" => non_neg_integer(),
+        "ExpiryTime" => non_neg_integer(),
+        "KmsKeyId" => String.t() | atom(),
+        "ServerlessCacheConfiguration" => serverless_cache_configuration(),
+        "ServerlessCacheSnapshotName" => String.t() | atom(),
+        "SnapshotType" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_apply_update_action_message() :: %{
+        optional("CacheClusterIds") => list(String.t() | atom()),
+        optional("ReplicationGroupIds") => list(String.t() | atom()),
+        required("ServiceUpdateName") => String.t() | atom()
+      }
+      
+  """
+  @type batch_apply_update_action_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_serverless_cache_snapshot_response() :: %{
+        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      }
+      
+  """
+  @type copy_serverless_cache_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter() :: %{
+        "AllowedValues" => String.t() | atom(),
+        "ChangeType" => list(any()),
+        "DataType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IsModifiable" => boolean(),
+        "MinimumEngineVersion" => String.t() | atom(),
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom(),
+        "Source" => String.t() | atom()
+      }
+      
+  """
+  @type parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_security_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_security_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_serverless_cache_snapshot_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_serverless_cache_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user() :: %{
+        optional("ARN") => String.t() | atom(),
+        optional("AccessString") => String.t() | atom(),
+        optional("Authentication") => authentication(),
+        optional("Engine") => String.t() | atom(),
+        optional("MinimumEngineVersion") => String.t() | atom(),
+        optional("Status") => String.t() | atom(),
+        optional("UserGroupIds") => list(String.t() | atom()),
+        optional("UserId") => String.t() | atom(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_parameter_group_name_message() :: %{
+        "CacheParameterGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type cache_parameter_group_name_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_failover_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
+  """
+  @type test_failover_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_serverless_cache_request() :: %{
+        optional("CacheUsageLimits") => cache_usage_limits(),
+        optional("DailySnapshotTime") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("MajorEngineVersion") => String.t() | atom(),
+        optional("RemoveUserGroup") => boolean(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        required("ServerlessCacheName") => String.t() | atom(),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("UserGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_serverless_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_global_replication_group_message() :: %{
+        optional("GlobalReplicationGroupDescription") => String.t() | atom(),
+        required("GlobalReplicationGroupIdSuffix") => String.t() | atom(),
+        required("PrimaryReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type create_global_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_cluster_message() :: %{
+        "CacheClusters" => list(cache_cluster()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type cache_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cache_parameter_groups_message() :: %{
+        optional("CacheParameterGroupName") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_cache_parameter_groups_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_groups_update_status() :: %{
+        "UserGroupIdsToAdd" => list(String.t() | atom()),
+        "UserGroupIdsToRemove" => list(String.t() | atom())
+      }
+      
+  """
+  @type user_groups_update_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_serverless_cache_response() :: %{
+        "ServerlessCache" => serverless_cache()
+      }
+      
+  """
+  @type modify_serverless_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_range_filter() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type time_range_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_cache_nodes_offering() :: %{
+        "CacheNodeType" => String.t() | atom(),
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "OfferingType" => String.t() | atom(),
+        "ProductDescription" => String.t() | atom(),
+        "RecurringCharges" => list(recurring_charge()),
+        "ReservedCacheNodesOfferingId" => String.t() | atom(),
+        "UsagePrice" => float()
+      }
+      
+  """
+  @type reserved_cache_nodes_offering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_serverless_cache_request() :: %{
+        optional("CacheUsageLimits") => cache_usage_limits(),
+        optional("DailySnapshotTime") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Engine") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("MajorEngineVersion") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        required("ServerlessCacheName") => String.t() | atom(),
+        optional("SnapshotArnsToRestore") => list(String.t() | atom()),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SubnetIds") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        optional("UserGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type create_serverless_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_snapshot_message() :: %{
+        optional("KmsKeyId") => String.t() | atom(),
+        required("SourceSnapshotName") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TargetBucket") => String.t() | atom(),
+        required("TargetSnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type copy_snapshot_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_parameter_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_cache_parameter_group_message() :: %{
+        required("CacheParameterGroupName") => String.t() | atom(),
+        optional("ParameterNameValues") => list(parameter_name_value()),
+        optional("ResetAllParameters") => boolean()
+      }
+      
+  """
+  @type reset_cache_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      engine_defaults() :: %{
+        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()),
+        "CacheParameterGroupFamily" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "Parameters" => list(parameter())
+      }
+      
+  """
+  @type engine_defaults() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_group() :: %{
+        optional("ARN") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("MinimumEngineVersion") => String.t() | atom(),
+        optional("PendingChanges") => user_group_pending_changes(),
+        optional("ReplicationGroups") => list(String.t() | atom()),
+        optional("ServerlessCaches") => list(String.t() | atom()),
+        optional("Status") => String.t() | atom(),
+        optional("UserGroupId") => String.t() | atom(),
+        optional("UserIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type user_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_group_configuration() :: %{
+        "NodeGroupId" => String.t() | atom(),
+        "PrimaryAvailabilityZone" => String.t() | atom(),
+        "PrimaryOutpostArn" => String.t() | atom(),
+        "ReplicaAvailabilityZones" => list(String.t() | atom()),
+        "ReplicaCount" => integer(),
+        "ReplicaOutpostArns" => list(String.t() | atom()),
+        "Slots" => String.t() | atom()
+      }
+      
+  """
+  @type node_group_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_update() :: %{
+        "AutoUpdateAfterRecommendedApplyByDate" => boolean(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "EstimatedUpdateTime" => String.t() | atom(),
+        "ServiceUpdateDescription" => String.t() | atom(),
+        "ServiceUpdateEndDate" => non_neg_integer(),
+        "ServiceUpdateName" => String.t() | atom(),
+        "ServiceUpdateRecommendedApplyByDate" => non_neg_integer(),
+        "ServiceUpdateReleaseDate" => non_neg_integer(),
+        "ServiceUpdateSeverity" => list(any()),
+        "ServiceUpdateStatus" => list(any()),
+        "ServiceUpdateType" => list(any())
+      }
+      
+  """
+  @type service_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_parameter_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_parameter_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_cache_nodes_offering_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type reserved_cache_nodes_offering_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_migration_message() :: %{
+        required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
+        required("ReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type start_migration_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_serverless_cache_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_serverless_cache_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_vpc_network_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cache_parameter_group_message() :: %{
+        required("CacheParameterGroupFamily") => String.t() | atom(),
+        required("CacheParameterGroupName") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_cache_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_group() :: %{
+        "NodeGroupId" => String.t() | atom(),
+        "NodeGroupMembers" => list(node_group_member()),
+        "PrimaryEndpoint" => endpoint(),
+        "ReaderEndpoint" => endpoint(),
+        "Slots" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type node_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recurring_charge() :: %{
+        "RecurringChargeAmount" => float(),
+        "RecurringChargeFrequency" => String.t() | atom()
+      }
+      
+  """
+  @type recurring_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cache_subnet_group_result() :: %{
+        "CacheSubnetGroup" => cache_subnet_group()
+      }
+      
+  """
+  @type create_cache_subnet_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configure_shard() :: %{
+        "NewReplicaCount" => integer(),
+        "NodeGroupId" => String.t() | atom(),
+        "PreferredAvailabilityZones" => list(String.t() | atom()),
+        "PreferredOutpostArns" => list(String.t() | atom())
+      }
+      
+  """
+  @type configure_shard() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_group_pending_modified_values() :: %{
+        "AuthTokenStatus" => list(any()),
+        "AutomaticFailoverStatus" => list(any()),
+        "ClusterMode" => list(any()),
+        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()),
+        "PrimaryClusterId" => String.t() | atom(),
+        "Resharding" => resharding_status(),
+        "TransitEncryptionEnabled" => boolean(),
+        "TransitEncryptionMode" => list(any()),
+        "UserGroups" => user_groups_update_status()
+      }
+      
+  """
+  @type replication_group_pending_modified_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      increase_node_groups_in_global_replication_group_message() :: %{
+        required("ApplyImmediately") => boolean(),
+        required("GlobalReplicationGroupId") => String.t() | atom(),
+        required("NodeGroupCount") => integer(),
+        optional("RegionalConfigurations") => list(regional_configuration())
+      }
+      
+  """
+  @type increase_node_groups_in_global_replication_group_message() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_action_results_message() :: %{
+        optional("ProcessedUpdateActions") => list(processed_update_action()),
+        optional("UnprocessedUpdateActions") => list(unprocessed_update_action())
+      }
+      
+  """
+  @type update_action_results_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_subnet_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cache_cluster_result() :: %{
+        "CacheCluster" => cache_cluster()
+      }
+      
+  """
+  @type create_cache_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notification_configuration() :: %{
+        "TopicArn" => String.t() | atom(),
+        "TopicStatus" => String.t() | atom()
+      }
+      
+  """
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
+  """
+  @type delete_global_replication_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_replication_group_member() :: %{
+        "AutomaticFailover" => list(any()),
+        "ReplicationGroupId" => String.t() | atom(),
+        "ReplicationGroupRegion" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type global_replication_group_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_firehose_destination_details() :: %{
+        "DeliveryStream" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_firehose_destination_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       node_group_update_status() :: %{
         "NodeGroupId" => String.t() | atom(),
         "NodeGroupMemberUpdateStatus" => list(node_group_member_update_status())
@@ -2749,25 +1657,185 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      update_actions_message() :: %{
-        "Marker" => String.t() | atom(),
-        "UpdateActions" => list(update_action())
+      cache_node_update_status() :: %{
+        "CacheNodeId" => String.t() | atom(),
+        "NodeDeletionDate" => non_neg_integer(),
+        "NodeUpdateEndDate" => non_neg_integer(),
+        "NodeUpdateInitiatedBy" => list(any()),
+        "NodeUpdateInitiatedDate" => non_neg_integer(),
+        "NodeUpdateStartDate" => non_neg_integer(),
+        "NodeUpdateStatus" => list(any()),
+        "NodeUpdateStatusModifiedDate" => non_neg_integer()
       }
       
   """
-  @type update_actions_message() :: %{(String.t() | atom()) => any()}
+  @type cache_node_update_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_cache_cluster_message() :: %{
-        optional("FinalSnapshotIdentifier") => String.t() | atom(),
-        required("CacheClusterId") => String.t() | atom()
+      describe_cache_subnet_groups_message() :: %{
+        optional("CacheSubnetGroupName") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
       }
       
   """
-  @type delete_cache_cluster_message() :: %{(String.t() | atom()) => any()}
+  @type describe_cache_subnet_groups_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_cache_nodes_offering_message() :: %{
+        "Marker" => String.t() | atom(),
+        "ReservedCacheNodesOfferings" => list(reserved_cache_nodes_offering())
+      }
+      
+  """
+  @type reserved_cache_nodes_offering_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_serverless_caches_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ServerlessCaches" => list(serverless_cache())
+      }
+      
+  """
+  @type describe_serverless_caches_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
+  """
+  @type create_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      slot_migration() :: %{
+        "ProgressPercentage" => float()
+      }
+      
+  """
+  @type slot_migration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_group_already_under_migration_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type replication_group_already_under_migration_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_migration_response() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
+  """
+  @type test_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_parameter_group() :: %{
+        "ARN" => String.t() | atom(),
+        "CacheParameterGroupFamily" => String.t() | atom(),
+        "CacheParameterGroupName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IsGlobal" => boolean()
+      }
+      
+  """
+  @type cache_parameter_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_updates_message() :: %{
+        "Marker" => String.t() | atom(),
+        "ServiceUpdates" => list(service_update())
+      }
+      
+  """
+  @type service_updates_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_replication_group_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_replication_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
+  """
+  @type modify_global_replication_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_parameter_group_status() :: %{
+        "CacheNodeIdsToReboot" => list(String.t() | atom()),
+        "CacheParameterGroupName" => String.t() | atom(),
+        "ParameterApplyStatus" => String.t() | atom()
+      }
+      
+  """
+  @type cache_parameter_group_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_serverless_cache_snapshots_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ServerlessCacheSnapshots" => list(serverless_cache_snapshot())
+      }
+      
+  """
+  @type describe_serverless_cache_snapshots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type tag_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2783,6 +1851,7 @@ defmodule AWS.ElastiCache do
         "CacheParameterGroupName" => String.t() | atom(),
         "CacheSubnetGroupName" => String.t() | atom(),
         "DataTiering" => list(any()),
+        "Durability" => list(any()),
         "Engine" => String.t() | atom(),
         "EngineVersion" => String.t() | atom(),
         "KmsKeyId" => String.t() | atom(),
@@ -2806,6 +1875,1406 @@ defmodule AWS.ElastiCache do
       
   """
   @type snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_serverless_cache_snapshots_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ServerlessCacheName") => String.t() | atom(),
+        optional("ServerlessCacheSnapshotName") => String.t() | atom(),
+        optional("SnapshotType") => String.t() | atom()
+      }
+      
+  """
+  @type describe_serverless_cache_snapshots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_failover_message() :: %{
+        required("NodeGroupId") => String.t() | atom(),
+        required("ReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type test_failover_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_quota_for_cluster_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type node_quota_for_cluster_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_arn_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_arn_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_serverless_caches_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ServerlessCacheName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_serverless_caches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regional_configuration() :: %{
+        "ReplicationGroupId" => String.t() | atom(),
+        "ReplicationGroupRegion" => String.t() | atom(),
+        "ReshardingConfiguration" => list(resharding_configuration())
+      }
+      
+  """
+  @type regional_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_replication_group_message() :: %{
+        optional("FinalSnapshotIdentifier") => String.t() | atom(),
+        required("ReplicationGroupId") => String.t() | atom(),
+        optional("RetainPrimaryCluster") => boolean()
+      }
+      
+  """
+  @type delete_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_security_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_security_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorize_cache_security_group_ingress_result() :: %{
+        "CacheSecurityGroup" => cache_security_group()
+      }
+      
+  """
+  @type authorize_cache_security_group_ingress_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_parameter_groups_message() :: %{
+        "CacheParameterGroups" => list(cache_parameter_group()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type cache_parameter_groups_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_cache_cluster_message() :: %{
+        optional("AZMode") => list(any()),
+        optional("ApplyImmediately") => boolean(),
+        optional("AuthToken") => String.t() | atom(),
+        optional("AuthTokenUpdateStrategy") => list(any()),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        required("CacheClusterId") => String.t() | atom(),
+        optional("CacheNodeIdsToRemove") => list(String.t() | atom()),
+        optional("CacheNodeType") => String.t() | atom(),
+        optional("CacheParameterGroupName") => String.t() | atom(),
+        optional("CacheSecurityGroupNames") => list(String.t() | atom()),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("IpDiscovery") => list(any()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
+        optional("NewAvailabilityZones") => list(String.t() | atom()),
+        optional("NotificationTopicArn") => String.t() | atom(),
+        optional("NotificationTopicStatus") => String.t() | atom(),
+        optional("NumCacheNodes") => integer(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("ScaleConfig") => scale_config(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SnapshotWindow") => String.t() | atom()
+      }
+      
+  """
+  @type modify_cache_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_global_replication_groups_result() :: %{
+        "GlobalReplicationGroups" => list(global_replication_group()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type describe_global_replication_groups_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decrease_replica_count_message() :: %{
+        required("ApplyImmediately") => boolean(),
+        optional("NewReplicaCount") => integer(),
+        optional("ReplicaConfiguration") => list(configure_shard()),
+        optional("ReplicasToRemove") => list(String.t() | atom()),
+        required("ReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type decrease_replica_count_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_message() :: %{
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet() :: %{
+        "SubnetAvailabilityZone" => availability_zone(),
+        "SubnetIdentifier" => String.t() | atom(),
+        "SubnetOutpost" => subnet_outpost(),
+        "SupportedNetworkTypes" => list(list(any())())
+      }
+      
+  """
+  @type subnet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_security_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_security_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      default_user_required() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type default_user_required() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_cache_cluster_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_cache_cluster_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_message() :: %{
+        required("ResourceName") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_updates_message() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ServiceUpdateName") => String.t() | atom(),
+        optional("ServiceUpdateStatus") => list(list(any())())
+      }
+      
+  """
+  @type describe_service_updates_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      purchase_reserved_cache_nodes_offering_message() :: %{
+        optional("CacheNodeCount") => integer(),
+        optional("ReservedCacheNodeId") => String.t() | atom(),
+        required("ReservedCacheNodesOfferingId") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type purchase_reserved_cache_nodes_offering_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resharding_configuration() :: %{
+        "NodeGroupId" => String.t() | atom(),
+        "PreferredAvailabilityZones" => list(String.t() | atom())
+      }
+      
+  """
+  @type resharding_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_from_resource_message() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type remove_tags_from_resource_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cache_clusters_message() :: %{
+        optional("CacheClusterId") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ShowCacheClustersNotInReplicationGroups") => boolean(),
+        optional("ShowCacheNodeInfo") => boolean()
+      }
+      
+  """
+  @type describe_cache_clusters_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_update_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_update_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_migration_message() :: %{
+        required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
+        required("ReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type test_migration_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_node_type_specific_value() :: %{
+        "CacheNodeType" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type cache_node_type_specific_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_cache_cluster_result() :: %{
+        "CacheCluster" => cache_cluster()
+      }
+      
+  """
+  @type reboot_cache_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_node_endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type customer_node_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_replication_group_message() :: %{
+        optional("EngineVersion") => String.t() | atom(),
+        optional("ReplicasPerNodeGroup") => integer(),
+        optional("UserGroupIds") => list(String.t() | atom()),
+        optional("PreferredCacheClusterAZs") => list(String.t() | atom()),
+        optional("GlobalReplicationGroupId") => String.t() | atom(),
+        optional("PrimaryClusterId") => String.t() | atom(),
+        optional("CacheNodeType") => String.t() | atom(),
+        optional("ClusterMode") => list(any()),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("TransitEncryptionMode") => list(any()),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("SnapshotName") => String.t() | atom(),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("CacheParameterGroupName") => String.t() | atom(),
+        optional("NodeGroupConfiguration") => list(node_group_configuration()),
+        optional("TransitEncryptionEnabled") => boolean(),
+        optional("SnapshotWindow") => String.t() | atom(),
+        optional("DataTieringEnabled") => boolean(),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("AuthToken") => String.t() | atom(),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
+        required("ReplicationGroupId") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("CacheSecurityGroupNames") => list(String.t() | atom()),
+        optional("CacheSubnetGroupName") => String.t() | atom(),
+        optional("NotificationTopicArn") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("Port") => integer(),
+        optional("AutomaticFailoverEnabled") => boolean(),
+        optional("MultiAZEnabled") => boolean(),
+        optional("AtRestEncryptionEnabled") => boolean(),
+        optional("SnapshotArns") => list(String.t() | atom()),
+        optional("NumCacheClusters") => integer(),
+        optional("NumNodeGroups") => integer(),
+        required("ReplicationGroupDescription") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("ServerlessCacheSnapshotName") => String.t() | atom(),
+        optional("Durability") => list(any()),
+        optional("IpDiscovery") => list(any())
+      }
+      
+  """
+  @type create_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_quota_for_customer_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_cache_cluster_result() :: %{
+        "CacheCluster" => cache_cluster()
+      }
+      
+  """
+  @type modify_cache_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type replication_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scale_config() :: %{
+        "ScaleIntervalMinutes" => integer(),
+        "ScalePercentage" => integer()
+      }
+      
+  """
+  @type scale_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_replication_group_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
+  """
+  @type delete_replication_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_message() :: %{
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapshot_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_replication_group_shard_configuration_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
+  """
+  @type modify_replication_group_shard_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_failover_not_available_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type test_failover_not_available_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_cache_node_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type reserved_cache_node_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_cache_cluster_message() :: %{
+        required("CacheClusterId") => String.t() | atom(),
+        required("CacheNodeIdsToReboot") => list(String.t() | atom())
+      }
+      
+  """
+  @type reboot_cache_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
+  """
+  @type delete_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_replication_group_result() :: %{
+        "ReplicationGroup" => replication_group()
+      }
+      
+  """
+  @type modify_replication_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_details() :: %{
+        "CloudWatchLogsDetails" => cloud_watch_logs_destination_details(),
+        "KinesisFirehoseDetails" => kinesis_firehose_destination_details()
+      }
+      
+  """
+  @type destination_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
+  """
+  @type failover_global_replication_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allowed_node_type_modifications_message() :: %{
+        "ScaleDownModifications" => list(String.t() | atom()),
+        "ScaleUpModifications" => list(String.t() | atom())
+      }
+      
+  """
+  @type allowed_node_type_modifications_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_user_name_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_user_name_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_reserved_cache_nodes_offerings_message() :: %{
+        optional("CacheNodeType") => String.t() | atom(),
+        optional("Duration") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("OfferingType") => String.t() | atom(),
+        optional("ProductDescription") => String.t() | atom(),
+        optional("ReservedCacheNodesOfferingId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_reserved_cache_nodes_offerings_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_node() :: %{
+        "CacheNodeCreateTime" => non_neg_integer(),
+        "CacheNodeId" => String.t() | atom(),
+        "CacheNodeStatus" => String.t() | atom(),
+        "CustomerAvailabilityZone" => String.t() | atom(),
+        "CustomerOutpostArn" => String.t() | atom(),
+        "Endpoint" => endpoint(),
+        "ParameterGroupStatus" => String.t() | atom(),
+        "SourceCacheNodeId" => String.t() | atom()
+      }
+      
+  """
+  @type cache_node() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cache_parameter_group_result() :: %{
+        "CacheParameterGroup" => cache_parameter_group()
+      }
+      
+  """
+  @type create_cache_parameter_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_cache_security_group_ingress_message() :: %{
+        required("CacheSecurityGroupName") => String.t() | atom(),
+        required("EC2SecurityGroupName") => String.t() | atom(),
+        required("EC2SecurityGroupOwnerId") => String.t() | atom()
+      }
+      
+  """
+  @type revoke_cache_security_group_ingress_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_cache_node_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type reserved_cache_node_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_replication_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type global_replication_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_serverless_cache_snapshot_request() :: %{
+        required("S3BucketName") => String.t() | atom(),
+        required("ServerlessCacheSnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type export_serverless_cache_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_group_message() :: %{
+        required("Engine") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("UserGroupId") => String.t() | atom(),
+        optional("UserIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_user_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_subnet_group_message() :: %{
+        "CacheSubnetGroups" => list(cache_subnet_group()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type cache_subnet_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_not_allowed_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_not_allowed_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cache_security_groups_message() :: %{
+        optional("CacheSecurityGroupName") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_cache_security_groups_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_combination_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rebalance_slots_in_global_replication_group_message() :: %{
+        required("ApplyImmediately") => boolean(),
+        required("GlobalReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type rebalance_slots_in_global_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_cache_parameter_group_message() :: %{
+        required("CacheParameterGroupName") => String.t() | atom(),
+        required("ParameterNameValues") => list(parameter_name_value())
+      }
+      
+  """
+  @type modify_cache_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_replication_groups_message() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_replication_groups_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_parameter_group_details() :: %{
+        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()),
+        "Marker" => String.t() | atom(),
+        "Parameters" => list(parameter())
+      }
+      
+  """
+  @type cache_parameter_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_snapshot_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_cache_node_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type reserved_cache_node_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_update_actions_message() :: %{
+        optional("CacheClusterIds") => list(String.t() | atom()),
+        optional("Engine") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ReplicationGroupIds") => list(String.t() | atom()),
+        optional("ServiceUpdateName") => String.t() | atom(),
+        optional("ServiceUpdateStatus") => list(list(any())()),
+        optional("ServiceUpdateTimeRange") => time_range_filter(),
+        optional("ShowNodeLevelUpdateStatus") => boolean(),
+        optional("UpdateActionStatus") => list(list(any())())
+      }
+      
+  """
+  @type describe_update_actions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_group_message() :: %{
+        "Marker" => String.t() | atom(),
+        "ReplicationGroups" => list(replication_group())
+      }
+      
+  """
+  @type replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      complete_migration_message() :: %{
+        optional("Force") => boolean(),
+        required("ReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type complete_migration_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_cluster() :: %{
+        "CacheParameterGroup" => cache_parameter_group_status(),
+        "EngineVersion" => String.t() | atom(),
+        "CacheClusterCreateTime" => non_neg_integer(),
+        "CacheSecurityGroups" => list(cache_security_group_membership()),
+        "ReplicationGroupLogDeliveryEnabled" => boolean(),
+        "CacheNodeType" => String.t() | atom(),
+        "NumCacheNodes" => integer(),
+        "TransitEncryptionMode" => list(any()),
+        "PreferredOutpostArn" => String.t() | atom(),
+        "NotificationConfiguration" => notification_configuration(),
+        "ConfigurationEndpoint" => endpoint(),
+        "ClientDownloadLandingPage" => String.t() | atom(),
+        "PreferredAvailabilityZone" => String.t() | atom(),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "TransitEncryptionEnabled" => boolean(),
+        "SnapshotWindow" => String.t() | atom(),
+        "AuthTokenLastModifiedDate" => non_neg_integer(),
+        "CacheNodes" => list(cache_node()),
+        "SecurityGroups" => list(security_group_membership()),
+        "CacheClusterStatus" => String.t() | atom(),
+        "SnapshotRetentionLimit" => integer(),
+        "LogDeliveryConfigurations" => list(log_delivery_configuration()),
+        "ReplicationGroupId" => String.t() | atom(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "PendingModifiedValues" => pending_modified_values(),
+        "CacheSubnetGroupName" => String.t() | atom(),
+        "NetworkType" => list(any()),
+        "AtRestEncryptionEnabled" => boolean(),
+        "AuthTokenEnabled" => boolean(),
+        "ARN" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "CacheClusterId" => String.t() | atom(),
+        "IpDiscovery" => list(any())
+      }
+      
+  """
+  @type cache_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_subnet() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_replication_group_shard_configuration_message() :: %{
+        required("ApplyImmediately") => boolean(),
+        required("NodeGroupCount") => integer(),
+        optional("NodeGroupsToRemove") => list(String.t() | atom()),
+        optional("NodeGroupsToRetain") => list(String.t() | atom()),
+        required("ReplicationGroupId") => String.t() | atom(),
+        optional("ReshardingConfiguration") => list(resharding_configuration())
+      }
+      
+  """
+  @type modify_replication_group_shard_configuration_message() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_engine_default_parameters_message() :: %{
+        required("CacheParameterGroupFamily") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_engine_default_parameters_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_delivery_configuration() :: %{
+        "DestinationDetails" => destination_details(),
+        "DestinationType" => list(any()),
+        "LogFormat" => list(any()),
+        "LogType" => list(any()),
+        "Message" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type log_delivery_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_group_not_under_migration_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type replication_group_not_under_migration_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_cluster_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      processed_update_action() :: %{
+        "CacheClusterId" => String.t() | atom(),
+        "ReplicationGroupId" => String.t() | atom(),
+        "ServiceUpdateName" => String.t() | atom(),
+        "UpdateActionStatus" => list(any())
+      }
+      
+  """
+  @type processed_update_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      api_call_rate_for_customer_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type api_call_rate_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_node_type_specific_parameter() :: %{
+        "AllowedValues" => String.t() | atom(),
+        "CacheNodeTypeSpecificValues" => list(cache_node_type_specific_value()),
+        "ChangeType" => list(any()),
+        "DataType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IsModifiable" => boolean(),
+        "MinimumEngineVersion" => String.t() | atom(),
+        "ParameterName" => String.t() | atom(),
+        "Source" => String.t() | atom()
+      }
+      
+  """
+  @type cache_node_type_specific_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_security_group_message() :: %{
+        "CacheSecurityGroups" => list(cache_security_group()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type cache_security_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_replication_group_info() :: %{
+        "GlobalReplicationGroupId" => String.t() | atom(),
+        "GlobalReplicationGroupMemberRole" => String.t() | atom()
+      }
+      
+  """
+  @type global_replication_group_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_c_p_u_per_second() :: %{
+        "Maximum" => integer(),
+        "Minimum" => integer()
+      }
+      
+  """
+  @type e_c_p_u_per_second() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_engine_default_parameters_result() :: %{
+        "EngineDefaults" => engine_defaults()
+      }
+      
+  """
+  @type describe_engine_default_parameters_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_allowed_node_type_modifications_message() :: %{
+        optional("CacheClusterId") => String.t() | atom(),
+        optional("ReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type list_allowed_node_type_modifications_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_subnet_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_user_group_message() :: %{
+        optional("Engine") => String.t() | atom(),
+        required("UserGroupId") => String.t() | atom(),
+        optional("UserIdsToAdd") => list(String.t() | atom()),
+        optional("UserIdsToRemove") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_user_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_group_member_update_status() :: %{
+        "CacheClusterId" => String.t() | atom(),
+        "CacheNodeId" => String.t() | atom(),
+        "NodeDeletionDate" => non_neg_integer(),
+        "NodeUpdateEndDate" => non_neg_integer(),
+        "NodeUpdateInitiatedBy" => list(any()),
+        "NodeUpdateInitiatedDate" => non_neg_integer(),
+        "NodeUpdateStartDate" => non_neg_integer(),
+        "NodeUpdateStatus" => list(any()),
+        "NodeUpdateStatusModifiedDate" => non_neg_integer()
+      }
+      
+  """
+  @type node_group_member_update_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_events_message() :: %{
+        optional("Duration") => integer(),
+        optional("EndTime") => non_neg_integer(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("SourceIdentifier") => String.t() | atom(),
+        optional("SourceType") => list(any()),
+        optional("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type describe_events_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_storage() :: %{
+        "Maximum" => integer(),
+        "Minimum" => integer(),
+        "Unit" => list(any())
+      }
+      
+  """
+  @type data_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_subnet_group_in_use() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cache_subnet_group_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_cache_security_group_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_cache_security_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_global_replication_group_message() :: %{
+        required("GlobalReplicationGroupId") => String.t() | atom(),
+        required("PrimaryRegion") => String.t() | atom(),
+        required("PrimaryReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type failover_global_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cache_subnet_group_message() :: %{
+        required("CacheSubnetGroupDescription") => String.t() | atom(),
+        required("CacheSubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom()),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_cache_subnet_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_global_replication_group_message() :: %{
+        required("GlobalReplicationGroupId") => String.t() | atom(),
+        required("ReplicationGroupId") => String.t() | atom(),
+        required("ReplicationGroupRegion") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_global_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pending_modified_values() :: %{
+        "AuthTokenStatus" => list(any()),
+        "CacheNodeIdsToRemove" => list(String.t() | atom()),
+        "CacheNodeType" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()),
+        "NumCacheNodes" => integer(),
+        "ScaleConfig" => scale_config(),
+        "TransitEncryptionEnabled" => boolean(),
+        "TransitEncryptionMode" => list(any())
+      }
+      
+  """
+  @type pending_modified_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_groups_result() :: %{
+        "Marker" => String.t() | atom(),
+        "UserGroups" => list(user_group())
+      }
+      
+  """
+  @type describe_user_groups_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_global_replication_group_message() :: %{
+        required("ApplyImmediately") => boolean(),
+        optional("AutomaticFailoverEnabled") => boolean(),
+        optional("CacheNodeType") => String.t() | atom(),
+        optional("CacheParameterGroupName") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("GlobalReplicationGroupDescription") => String.t() | atom(),
+        required("GlobalReplicationGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_global_replication_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
+      }
+      
+  """
+  @type disassociate_global_replication_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_cache_node_message() :: %{
+        "Marker" => String.t() | atom(),
+        "ReservedCacheNodes" => list(reserved_cache_node())
+      }
+      
+  """
+  @type reserved_cache_node_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_cache_snapshot_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_cache_snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_feature_not_supported_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_feature_not_supported_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_group() :: %{
+        "Description" => String.t() | atom(),
+        "StorageEncryptionType" => list(any()),
+        "UserGroupIds" => list(String.t() | atom()),
+        "CacheNodeType" => String.t() | atom(),
+        "ClusterMode" => list(any()),
+        "TransitEncryptionMode" => list(any()),
+        "KmsKeyId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "NodeGroups" => list(node_group()),
+        "ConfigurationEndpoint" => endpoint(),
+        "DataTiering" => list(any()),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "TransitEncryptionEnabled" => boolean(),
+        "ReplicationGroupCreateTime" => non_neg_integer(),
+        "SnapshotWindow" => String.t() | atom(),
+        "AuthTokenLastModifiedDate" => non_neg_integer(),
+        "ClusterEnabled" => boolean(),
+        "EffectiveDurability" => list(any()),
+        "SnapshotRetentionLimit" => integer(),
+        "MultiAZ" => list(any()),
+        "LogDeliveryConfigurations" => list(log_delivery_configuration()),
+        "ReplicationGroupId" => String.t() | atom(),
+        "PendingModifiedValues" => replication_group_pending_modified_values(),
+        "AutomaticFailover" => list(any()),
+        "NetworkType" => list(any()),
+        "MemberClusters" => list(String.t() | atom()),
+        "SnapshottingClusterId" => String.t() | atom(),
+        "AtRestEncryptionEnabled" => boolean(),
+        "AuthTokenEnabled" => boolean(),
+        "ARN" => String.t() | atom(),
+        "MemberClustersOutpostArns" => list(String.t() | atom()),
+        "Engine" => String.t() | atom(),
+        "Durability" => list(any()),
+        "GlobalReplicationGroupInfo" => global_replication_group_info(),
+        "IpDiscovery" => list(any())
+      }
+      
+  """
+  @type replication_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2852,205 +3321,142 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      tag_list_message() :: %{
-        "TagList" => list(tag())
+      complete_migration_response() :: %{
+        "ReplicationGroup" => replication_group()
       }
       
   """
-  @type tag_list_message() :: %{(String.t() | atom()) => any()}
+  @type complete_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      subnet_in_use() :: %{
-        "message" => String.t() | atom()
+      increase_node_groups_in_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
       }
       
   """
-  @type subnet_in_use() :: %{(String.t() | atom()) => any()}
+  @type increase_node_groups_in_global_replication_group_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      create_cache_subnet_group_message() :: %{
-        optional("Tags") => list(tag()),
-        required("CacheSubnetGroupDescription") => String.t() | atom(),
-        required("CacheSubnetGroupName") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
+      create_replication_group_result() :: %{
+        "ReplicationGroup" => replication_group()
       }
       
   """
-  @type create_cache_subnet_group_message() :: %{(String.t() | atom()) => any()}
+  @type create_replication_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_linked_role_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_linked_role_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      default_user_associated_to_user_group_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type default_user_associated_to_user_group_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_subnet_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cache_subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_to_resource_message() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type add_tags_to_resource_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cache_subnet_group_message() :: %{
-        required("CacheSubnetGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cache_subnet_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_cache_snapshot_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type serverless_cache_snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cache_security_group_message() :: %{
-        optional("Tags") => list(tag()),
-        required("CacheSecurityGroupName") => String.t() | atom(),
-        required("Description") => String.t() | atom()
-      }
-      
-  """
-  @type create_cache_security_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_replication_group_message() :: %{
-        optional("ServerlessCacheSnapshotName") => String.t() | atom(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("UserGroupIds") => list(String.t() | atom()),
-        optional("PrimaryClusterId") => String.t() | atom(),
-        optional("CacheSubnetGroupName") => String.t() | atom(),
-        optional("SnapshotRetentionLimit") => integer(),
-        optional("NetworkType") => list(any()),
-        optional("GlobalReplicationGroupId") => String.t() | atom(),
-        required("ReplicationGroupId") => String.t() | atom(),
-        optional("AuthToken") => String.t() | atom(),
-        optional("ReplicasPerNodeGroup") => integer(),
-        optional("PreferredCacheClusterAZs") => list(String.t() | atom()),
-        optional("Engine") => String.t() | atom(),
-        optional("IpDiscovery") => list(any()),
-        optional("NumCacheClusters") => integer(),
-        optional("NumNodeGroups") => integer(),
-        optional("CacheParameterGroupName") => String.t() | atom(),
-        optional("NotificationTopicArn") => String.t() | atom(),
-        optional("TransitEncryptionEnabled") => boolean(),
-        optional("SnapshotWindow") => String.t() | atom(),
-        optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("SnapshotArns") => list(String.t() | atom()),
-        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("SnapshotName") => String.t() | atom(),
-        optional("ClusterMode") => list(any()),
-        optional("NodeGroupConfiguration") => list(node_group_configuration()),
-        optional("CacheSecurityGroupNames") => list(String.t() | atom()),
-        optional("DataTieringEnabled") => boolean(),
-        optional("Port") => integer(),
-        optional("AtRestEncryptionEnabled") => boolean(),
-        required("ReplicationGroupDescription") => String.t() | atom(),
-        optional("AutomaticFailoverEnabled") => boolean(),
-        optional("MultiAZEnabled") => boolean(),
-        optional("TransitEncryptionMode") => list(any()),
+      create_snapshot_message() :: %{
+        optional("CacheClusterId") => String.t() | atom(),
         optional("KmsKeyId") => String.t() | atom(),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("CacheNodeType") => String.t() | atom(),
+        optional("ReplicationGroupId") => String.t() | atom(),
+        required("SnapshotName") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_replication_group_message() :: %{(String.t() | atom()) => any()}
+  @type create_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_serverless_cache_snapshot_state_fault() :: %{
+      global_node_group() :: %{
+        "GlobalNodeGroupId" => String.t() | atom(),
+        "Slots" => String.t() | atom()
+      }
+      
+  """
+  @type global_node_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cache_engine_versions_message() :: %{
+        optional("CacheParameterGroupFamily") => String.t() | atom(),
+        optional("DefaultOnly") => boolean(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_cache_engine_versions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_usage_limits() :: %{
+        "DataStorage" => data_storage(),
+        "ECPUPerSecond" => e_c_p_u_per_second()
+      }
+      
+  """
+  @type cache_usage_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorize_cache_security_group_ingress_message() :: %{
+        required("CacheSecurityGroupName") => String.t() | atom(),
+        required("EC2SecurityGroupName") => String.t() | atom(),
+        required("EC2SecurityGroupOwnerId") => String.t() | atom()
+      }
+      
+  """
+  @type authorize_cache_security_group_ingress_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_operation_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_serverless_cache_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
+  @type no_operation_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_events_message() :: %{
-        optional("Duration") => integer(),
-        optional("EndTime") => non_neg_integer(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("SourceIdentifier") => String.t() | atom(),
-        optional("SourceType") => list(any()),
-        optional("StartTime") => non_neg_integer()
+      node_group_member() :: %{
+        "CacheClusterId" => String.t() | atom(),
+        "CacheNodeId" => String.t() | atom(),
+        "CurrentRole" => String.t() | atom(),
+        "PreferredAvailabilityZone" => String.t() | atom(),
+        "PreferredOutpostArn" => String.t() | atom(),
+        "ReadEndpoint" => endpoint()
       }
       
   """
-  @type describe_events_message() :: %{(String.t() | atom()) => any()}
+  @type node_group_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_cache_security_group_result() :: %{
-        "CacheSecurityGroup" => cache_security_group()
+      global_replication_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type create_cache_security_group_result() :: %{(String.t() | atom()) => any()}
+  @type global_replication_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3067,86 +3473,125 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      cache_cluster_message() :: %{
-        "CacheClusters" => list(cache_cluster()),
-        "Marker" => String.t() | atom()
+      node_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type cache_cluster_message() :: %{(String.t() | atom()) => any()}
+  @type node_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_snapshot_result() :: %{
-        "Snapshot" => snapshot()
-      }
-      
-  """
-  @type create_snapshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      customer_node_endpoint() :: %{
-        "Address" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type customer_node_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      complete_migration_response() :: %{
-        "ReplicationGroup" => replication_group()
-      }
-      
-  """
-  @type complete_migration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_serverless_cache_snapshots_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ServerlessCacheName") => String.t() | atom(),
-        optional("ServerlessCacheSnapshotName") => String.t() | atom(),
-        optional("SnapshotType") => String.t() | atom()
-      }
-      
-  """
-  @type describe_serverless_cache_snapshots_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_range_filter() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type time_range_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_snapshots_list_message() :: %{
+      update_actions_message() :: %{
         "Marker" => String.t() | atom(),
-        "Snapshots" => list(snapshot())
+        "UpdateActions" => list(update_action())
       }
       
   """
-  @type describe_snapshots_list_message() :: %{(String.t() | atom()) => any()}
+  @type update_actions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_name_value() :: %{
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_name_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_linked_role_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_linked_role_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cache_parameters_message() :: %{
+        required("CacheParameterGroupName") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("Source") => String.t() | atom()
+      }
+      
+  """
+  @type describe_cache_parameters_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_serverless_cache_response() :: %{
+        "ServerlessCache" => serverless_cache()
+      }
+      
+  """
+  @type delete_serverless_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_security_group() :: %{
+        "EC2SecurityGroupName" => String.t() | atom(),
+        "EC2SecurityGroupOwnerId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type ec2_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_security_group_membership() :: %{
+        "CacheSecurityGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type cache_security_group_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_serverless_cache_snapshot_response() :: %{
+        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      }
+      
+  """
+  @type create_serverless_cache_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_snapshot() :: %{
+        "CacheClusterId" => String.t() | atom(),
+        "CacheNodeCreateTime" => non_neg_integer(),
+        "CacheNodeId" => String.t() | atom(),
+        "CacheSize" => String.t() | atom(),
+        "NodeGroupConfiguration" => node_group_configuration(),
+        "NodeGroupId" => String.t() | atom(),
+        "SnapshotCreateTime" => non_neg_integer()
+      }
+      
+  """
+  @type node_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3167,346 +3612,78 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      authorize_cache_security_group_ingress_message() :: %{
-        required("CacheSecurityGroupName") => String.t() | atom(),
-        required("EC2SecurityGroupName") => String.t() | atom(),
-        required("EC2SecurityGroupOwnerId") => String.t() | atom()
+      user_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type authorize_cache_security_group_ingress_message() :: %{(String.t() | atom()) => any()}
+  @type user_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_serverless_cache_response() :: %{
-        "ServerlessCache" => serverless_cache()
-      }
-      
-  """
-  @type modify_serverless_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user() :: %{
-        optional("ARN") => String.t() | atom(),
-        optional("AccessString") => String.t() | atom(),
-        optional("Authentication") => authentication(),
-        optional("Engine") => String.t() | atom(),
-        optional("MinimumEngineVersion") => String.t() | atom(),
-        optional("Status") => String.t() | atom(),
-        optional("UserGroupIds") => list(String.t() | atom()),
-        optional("UserId") => String.t() | atom(),
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cache_parameter_group_message() :: %{
-        optional("Tags") => list(tag()),
-        required("CacheParameterGroupFamily") => String.t() | atom(),
-        required("CacheParameterGroupName") => String.t() | atom(),
-        required("Description") => String.t() | atom()
-      }
-      
-  """
-  @type create_cache_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_update() :: %{
-        "AutoUpdateAfterRecommendedApplyByDate" => boolean(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "EstimatedUpdateTime" => String.t() | atom(),
-        "ServiceUpdateDescription" => String.t() | atom(),
-        "ServiceUpdateEndDate" => non_neg_integer(),
-        "ServiceUpdateName" => String.t() | atom(),
-        "ServiceUpdateRecommendedApplyByDate" => non_neg_integer(),
-        "ServiceUpdateReleaseDate" => non_neg_integer(),
-        "ServiceUpdateSeverity" => list(any()),
-        "ServiceUpdateStatus" => list(any()),
-        "ServiceUpdateType" => list(any())
-      }
-      
-  """
-  @type service_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authorize_cache_security_group_ingress_result() :: %{
+      create_cache_security_group_result() :: %{
         "CacheSecurityGroup" => cache_security_group()
       }
       
   """
-  @type authorize_cache_security_group_ingress_result() :: %{(String.t() | atom()) => any()}
+  @type create_cache_security_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_serverless_cache_request() :: %{
-        optional("CacheUsageLimits") => cache_usage_limits(),
-        optional("DailySnapshotTime") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("MajorEngineVersion") => String.t() | atom(),
-        optional("NetworkType") => list(any()),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("SnapshotArnsToRestore") => list(String.t() | atom()),
-        optional("SnapshotRetentionLimit") => integer(),
-        optional("SubnetIds") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        optional("UserGroupId") => String.t() | atom(),
-        required("Engine") => String.t() | atom(),
-        required("ServerlessCacheName") => String.t() | atom()
-      }
-      
-  """
-  @type create_serverless_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      default_user_required() :: %{
+      cache_cluster_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type default_user_required() :: %{(String.t() | atom()) => any()}
+  @type cache_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_serverless_cache_snapshot_response() :: %{
-        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
+      subnet_outpost() :: %{
+        "SubnetOutpostArn" => String.t() | atom()
       }
       
   """
-  @type create_serverless_cache_snapshot_response() :: %{(String.t() | atom()) => any()}
+  @type subnet_outpost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_replication_group_state_fault() :: %{
+      default_user_associated_to_user_group_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_replication_group_state_fault() :: %{(String.t() | atom()) => any()}
+  @type default_user_associated_to_user_group_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_cache_parameter_group_result() :: %{
-        "CacheParameterGroup" => cache_parameter_group()
+      decrease_node_groups_in_global_replication_group_result() :: %{
+        "GlobalReplicationGroup" => global_replication_group()
       }
       
   """
-  @type create_cache_parameter_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_replication_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type global_replication_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_engine_version_message() :: %{
-        "CacheEngineVersions" => list(cache_engine_version()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type cache_engine_version_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authentication_mode() :: %{
-        "Passwords" => list(String.t() | atom()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type authentication_mode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_cache_cluster_capacity_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_cache_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_serverless_cache_request() :: %{
-        optional("CacheUsageLimits") => cache_usage_limits(),
-        optional("DailySnapshotTime") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Engine") => String.t() | atom(),
-        optional("MajorEngineVersion") => String.t() | atom(),
-        optional("RemoveUserGroup") => boolean(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("SnapshotRetentionLimit") => integer(),
-        optional("UserGroupId") => String.t() | atom(),
-        required("ServerlessCacheName") => String.t() | atom()
-      }
-      
-  """
-  @type modify_serverless_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cache_clusters_message() :: %{
-        optional("CacheClusterId") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("ShowCacheClustersNotInReplicationGroups") => boolean(),
-        optional("ShowCacheNodeInfo") => boolean()
-      }
-      
-  """
-  @type describe_cache_clusters_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_from_resource_message() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type remove_tags_from_resource_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_node_update_status() :: %{
-        "CacheNodeId" => String.t() | atom(),
-        "NodeDeletionDate" => non_neg_integer(),
-        "NodeUpdateEndDate" => non_neg_integer(),
-        "NodeUpdateInitiatedBy" => list(any()),
-        "NodeUpdateInitiatedDate" => non_neg_integer(),
-        "NodeUpdateStartDate" => non_neg_integer(),
-        "NodeUpdateStatus" => list(any()),
-        "NodeUpdateStatusModifiedDate" => non_neg_integer()
-      }
-      
-  """
-  @type cache_node_update_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_serverless_cache_snapshot_response() :: %{
-        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
-      }
-      
-  """
-  @type delete_serverless_cache_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_group_already_under_migration_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type replication_group_already_under_migration_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cache_security_group_message() :: %{
-        required("CacheSecurityGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cache_security_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_serverless_cache_snapshot_response() :: %{
-        "ServerlessCacheSnapshot" => serverless_cache_snapshot()
-      }
-      
-  """
-  @type export_serverless_cache_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rebalance_slots_in_global_replication_group_message() :: %{
-        required("ApplyImmediately") => boolean(),
-        required("GlobalReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type rebalance_slots_in_global_replication_group_message() :: %{(String.t() | atom()) => any()}
+  @type decrease_node_groups_in_global_replication_group_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       decrease_node_groups_in_global_replication_group_message() :: %{
+        required("ApplyImmediately") => boolean(),
         optional("GlobalNodeGroupsToRemove") => list(String.t() | atom()),
         optional("GlobalNodeGroupsToRetain") => list(String.t() | atom()),
-        required("ApplyImmediately") => boolean(),
         required("GlobalReplicationGroupId") => String.t() | atom(),
         required("NodeGroupCount") => integer()
       }
@@ -3520,906 +3697,736 @@ defmodule AWS.ElastiCache do
 
   ## Example:
       
-      cache_security_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
+      delete_user_group_message() :: %{
+        required("UserGroupId") => String.t() | atom()
       }
       
   """
-  @type cache_security_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+  @type delete_user_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      snapshot_feature_not_supported_fault() :: %{
-        "message" => String.t() | atom()
+      authentication() :: %{
+        "PasswordCount" => integer(),
+        "Type" => list(any())
       }
       
   """
-  @type snapshot_feature_not_supported_fault() :: %{(String.t() | atom()) => any()}
+  @type authentication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_global_replication_group_result() :: %{
-        "GlobalReplicationGroup" => global_replication_group()
-      }
-      
-  """
-  @type delete_global_replication_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_credentials_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_credentials_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_cache_snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type serverless_cache_snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_groups_update_status() :: %{
-        "UserGroupIdsToAdd" => list(String.t() | atom()),
-        "UserGroupIdsToRemove" => list(String.t() | atom())
-      }
-      
-  """
-  @type user_groups_update_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_replication_group_member() :: %{
-        "AutomaticFailover" => list(any()),
-        "ReplicationGroupId" => String.t() | atom(),
-        "ReplicationGroupRegion" => String.t() | atom(),
-        "Role" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type global_replication_group_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_serverless_cache_snapshot_request() :: %{
-        required("ServerlessCacheSnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_serverless_cache_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_node_type_specific_value() :: %{
-        "CacheNodeType" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type cache_node_type_specific_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_migration_message() :: %{
-        required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
-        required("ReplicationGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type start_migration_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_groups_per_replication_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type node_groups_per_replication_group_quota_exceeded_fault() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      slot_migration() :: %{
-        "ProgressPercentage" => float()
-      }
-      
-  """
-  @type slot_migration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cache_cluster_result() :: %{
-        "CacheCluster" => cache_cluster()
-      }
-      
-  """
-  @type create_cache_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_replication_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type global_replication_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_group_message() :: %{
-        "Marker" => String.t() | atom(),
-        "ReplicationGroups" => list(replication_group())
-      }
-      
-  """
-  @type replication_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_global_replication_group_message() :: %{
-        required("GlobalReplicationGroupId") => String.t() | atom(),
-        required("ReplicationGroupId") => String.t() | atom(),
-        required("ReplicationGroupRegion") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_global_replication_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_cache_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type serverless_cache_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cache_cluster_result() :: %{
-        "CacheCluster" => cache_cluster()
-      }
-      
-  """
-  @type delete_cache_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_cache_cluster_message() :: %{
+      create_cache_cluster_message() :: %{
         optional("AZMode") => list(any()),
-        optional("ApplyImmediately") => boolean(),
         optional("AuthToken") => String.t() | atom(),
-        optional("AuthTokenUpdateStrategy") => list(any()),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("CacheNodeIdsToRemove") => list(String.t() | atom()),
+        required("CacheClusterId") => String.t() | atom(),
         optional("CacheNodeType") => String.t() | atom(),
         optional("CacheParameterGroupName") => String.t() | atom(),
         optional("CacheSecurityGroupNames") => list(String.t() | atom()),
+        optional("CacheSubnetGroupName") => String.t() | atom(),
         optional("Engine") => String.t() | atom(),
         optional("EngineVersion") => String.t() | atom(),
         optional("IpDiscovery") => list(any()),
         optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
-        optional("NewAvailabilityZones") => list(String.t() | atom()),
+        optional("NetworkType") => list(any()),
         optional("NotificationTopicArn") => String.t() | atom(),
-        optional("NotificationTopicStatus") => String.t() | atom(),
         optional("NumCacheNodes") => integer(),
+        optional("OutpostMode") => list(any()),
+        optional("Port") => integer(),
+        optional("PreferredAvailabilityZone") => String.t() | atom(),
+        optional("PreferredAvailabilityZones") => list(String.t() | atom()),
         optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("ScaleConfig") => scale_config(),
+        optional("PreferredOutpostArn") => String.t() | atom(),
+        optional("PreferredOutpostArns") => list(String.t() | atom()),
+        optional("ReplicationGroupId") => String.t() | atom(),
         optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SnapshotArns") => list(String.t() | atom()),
+        optional("SnapshotName") => String.t() | atom(),
         optional("SnapshotRetentionLimit") => integer(),
         optional("SnapshotWindow") => String.t() | atom(),
-        required("CacheClusterId") => String.t() | atom()
+        optional("Tags") => list(tag()),
+        optional("TransitEncryptionEnabled") => boolean()
       }
       
   """
-  @type modify_cache_cluster_message() :: %{(String.t() | atom()) => any()}
+  @type create_cache_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      kinesis_firehose_destination_details() :: %{
-        "DeliveryStream" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_firehose_destination_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      increase_node_groups_in_global_replication_group_result() :: %{
-        "GlobalReplicationGroup" => global_replication_group()
-      }
-      
-  """
-  @type increase_node_groups_in_global_replication_group_result() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      cache_subnet_group_already_exists_fault() :: %{
+      user_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type cache_subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+  @type user_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cache_subnet_quota_exceeded_fault() :: %{
+      describe_snapshots_message() :: %{
+        optional("CacheClusterId") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ReplicationGroupId") => String.t() | atom(),
+        optional("ShowNodeGroupConfig") => boolean(),
+        optional("SnapshotName") => String.t() | atom(),
+        optional("SnapshotSource") => String.t() | atom()
+      }
+      
+  """
+  @type describe_snapshots_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pending_log_delivery_configuration() :: %{
+        "DestinationDetails" => destination_details(),
+        "DestinationType" => list(any()),
+        "LogFormat" => list(any()),
+        "LogType" => list(any())
+      }
+      
+  """
+  @type pending_log_delivery_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorization_already_exists_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type cache_subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type authorization_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      regional_configuration() :: %{
-        "ReplicationGroupId" => String.t() | atom(),
-        "ReplicationGroupRegion" => String.t() | atom(),
-        "ReshardingConfiguration" => list(resharding_configuration())
-      }
-      
-  """
-  @type regional_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_quota_for_cluster_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type node_quota_for_cluster_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_serverless_cache_response() :: %{
+      create_serverless_cache_response() :: %{
         "ServerlessCache" => serverless_cache()
       }
       
   """
-  @type delete_serverless_cache_response() :: %{(String.t() | atom()) => any()}
+  @type create_serverless_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_subnet_group() :: %{
+        "ARN" => String.t() | atom(),
+        "CacheSubnetGroupDescription" => String.t() | atom(),
+        "CacheSubnetGroupName" => String.t() | atom(),
+        "Subnets" => list(subnet()),
+        "SupportedNetworkTypes" => list(list(any())()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type cache_subnet_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_snapshot_result() :: %{
+        "Snapshot" => snapshot()
+      }
+      
+  """
+  @type copy_snapshot_result() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_to_resource_errors() ::
-          user_group_not_found_fault()
-          | invalid_replication_group_state_fault()
-          | invalid_serverless_cache_snapshot_state_fault()
-          | serverless_cache_snapshot_not_found_fault()
-          | cache_subnet_group_not_found_fault()
-          | replication_group_not_found_fault()
-          | invalid_serverless_cache_state_fault()
-          | invalid_arn_fault()
-          | cache_security_group_not_found_fault()
-          | tag_quota_per_resource_exceeded()
-          | serverless_cache_not_found_fault()
+          user_not_found_fault()
           | cache_cluster_not_found_fault()
           | reserved_cache_node_not_found_fault()
-          | user_not_found_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | replication_group_not_found_fault()
+          | cache_security_group_not_found_fault()
+          | invalid_arn_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_serverless_cache_state_fault()
+          | serverless_cache_not_found_fault()
           | cache_parameter_group_not_found_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
+          | user_group_not_found_fault()
+          | cache_subnet_group_not_found_fault()
           | snapshot_not_found_fault()
+          | tag_quota_per_resource_exceeded()
 
   @type authorize_cache_security_group_ingress_errors() ::
-          invalid_cache_security_group_state_fault()
-          | invalid_parameter_value_exception()
-          | authorization_already_exists_fault()
-          | cache_security_group_not_found_fault()
+          authorization_already_exists_fault()
+          | invalid_cache_security_group_state_fault()
           | invalid_parameter_combination_exception()
+          | cache_security_group_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type batch_apply_update_action_errors() ::
-          invalid_parameter_value_exception() | service_update_not_found_fault()
+          service_update_not_found_fault() | invalid_parameter_value_exception()
 
   @type batch_stop_update_action_errors() ::
-          invalid_parameter_value_exception() | service_update_not_found_fault()
+          service_update_not_found_fault() | invalid_parameter_value_exception()
 
   @type complete_migration_errors() ::
-          invalid_replication_group_state_fault()
+          replication_group_not_under_migration_fault()
           | replication_group_not_found_fault()
-          | replication_group_not_under_migration_fault()
+          | invalid_replication_group_state_fault()
 
   @type copy_serverless_cache_snapshot_errors() ::
-          serverless_cache_snapshot_quota_exceeded_fault()
-          | invalid_serverless_cache_snapshot_state_fault()
-          | serverless_cache_snapshot_not_found_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_parameter_value_exception()
+          service_linked_role_not_found_fault()
           | serverless_cache_snapshot_already_exists_fault()
-          | tag_quota_per_resource_exceeded()
+          | serverless_cache_snapshot_not_found_fault()
           | invalid_parameter_combination_exception()
+          | invalid_serverless_cache_snapshot_state_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | serverless_cache_snapshot_quota_exceeded_fault()
 
   @type copy_snapshot_errors() ::
           snapshot_already_exists_fault()
+          | invalid_parameter_combination_exception()
+          | snapshot_quota_exceeded_fault()
           | invalid_parameter_value_exception()
+          | snapshot_not_found_fault()
           | invalid_snapshot_state_fault()
           | tag_quota_per_resource_exceeded()
-          | invalid_parameter_combination_exception()
-          | snapshot_not_found_fault()
-          | snapshot_quota_exceeded_fault()
 
   @type create_cache_cluster_errors() ::
-          node_quota_for_cluster_exceeded_fault()
-          | insufficient_cache_cluster_capacity_fault()
-          | invalid_replication_group_state_fault()
-          | cache_subnet_group_not_found_fault()
-          | cluster_quota_for_customer_exceeded_fault()
-          | replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
-          | cache_security_group_not_found_fault()
-          | cache_cluster_already_exists_fault()
-          | tag_quota_per_resource_exceeded()
-          | invalid_vpc_network_state_fault()
+          cache_cluster_already_exists_fault()
           | invalid_parameter_combination_exception()
+          | replication_group_not_found_fault()
+          | cache_security_group_not_found_fault()
+          | node_quota_for_cluster_exceeded_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_vpc_network_state_fault()
           | cache_parameter_group_not_found_fault()
+          | cache_subnet_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | insufficient_cache_cluster_capacity_fault()
           | node_quota_for_customer_exceeded_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | tag_quota_per_resource_exceeded()
 
   @type create_cache_parameter_group_errors() ::
-          cache_parameter_group_quota_exceeded_fault()
+          invalid_parameter_combination_exception()
+          | cache_parameter_group_quota_exceeded_fault()
+          | cache_parameter_group_already_exists_fault()
+          | invalid_cache_parameter_group_state_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
-          | invalid_parameter_combination_exception()
-          | invalid_cache_parameter_group_state_fault()
-          | cache_parameter_group_already_exists_fault()
 
   @type create_cache_security_group_errors() ::
-          cache_security_group_already_exists_fault()
+          invalid_parameter_combination_exception()
+          | cache_security_group_already_exists_fault()
           | cache_security_group_quota_exceeded_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
-          | invalid_parameter_combination_exception()
 
   @type create_cache_subnet_group_errors() ::
           cache_subnet_quota_exceeded_fault()
-          | cache_subnet_group_already_exists_fault()
-          | subnet_not_allowed_fault()
-          | tag_quota_per_resource_exceeded()
           | invalid_subnet()
+          | subnet_not_allowed_fault()
           | cache_subnet_group_quota_exceeded_fault()
+          | cache_subnet_group_already_exists_fault()
+          | tag_quota_per_resource_exceeded()
 
   @type create_global_replication_group_errors() ::
-          global_replication_group_already_exists_fault()
-          | invalid_replication_group_state_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
+          | global_replication_group_already_exists_fault()
           | replication_group_not_found_fault()
+          | invalid_replication_group_state_fault()
           | invalid_parameter_value_exception()
 
   @type create_replication_group_errors() ::
-          node_quota_for_cluster_exceeded_fault()
-          | node_groups_per_replication_group_quota_exceeded_fault()
-          | insufficient_cache_cluster_capacity_fault()
-          | user_group_not_found_fault()
+          cache_cluster_not_found_fault()
           | global_replication_group_not_found_fault()
-          | cache_subnet_group_not_found_fault()
-          | cluster_quota_for_customer_exceeded_fault()
-          | replication_group_already_exists_fault()
-          | invalid_parameter_value_exception()
-          | cache_security_group_not_found_fault()
-          | invalid_global_replication_group_state_fault()
-          | invalid_user_group_state_fault()
-          | tag_quota_per_resource_exceeded()
-          | invalid_vpc_network_state_fault()
           | invalid_parameter_combination_exception()
-          | cache_cluster_not_found_fault()
           | invalid_cache_cluster_state_fault()
+          | cache_security_group_not_found_fault()
+          | node_quota_for_cluster_exceeded_fault()
+          | invalid_vpc_network_state_fault()
           | cache_parameter_group_not_found_fault()
+          | user_group_not_found_fault()
+          | invalid_global_replication_group_state_fault()
+          | cache_subnet_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_user_group_state_fault()
+          | insufficient_cache_cluster_capacity_fault()
           | node_quota_for_customer_exceeded_fault()
+          | replication_group_already_exists_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | node_groups_per_replication_group_quota_exceeded_fault()
+          | tag_quota_per_resource_exceeded()
 
   @type create_serverless_cache_errors() ::
-          serverless_cache_quota_for_customer_exceeded_fault()
-          | invalid_credentials_exception()
-          | user_group_not_found_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
+          | invalid_parameter_combination_exception()
+          | serverless_cache_quota_for_customer_exceeded_fault()
           | invalid_serverless_cache_state_fault()
+          | serverless_cache_not_found_fault()
+          | user_group_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_user_group_state_fault()
-          | tag_quota_per_resource_exceeded()
-          | serverless_cache_not_found_fault()
-          | invalid_parameter_combination_exception()
+          | invalid_credentials_exception()
           | serverless_cache_already_exists_fault()
+          | tag_quota_per_resource_exceeded()
 
   @type create_serverless_cache_snapshot_errors() ::
-          serverless_cache_snapshot_quota_exceeded_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_serverless_cache_state_fault()
-          | invalid_parameter_value_exception()
+          service_linked_role_not_found_fault()
           | serverless_cache_snapshot_already_exists_fault()
-          | tag_quota_per_resource_exceeded()
-          | serverless_cache_not_found_fault()
           | invalid_parameter_combination_exception()
+          | invalid_serverless_cache_state_fault()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | serverless_cache_snapshot_quota_exceeded_fault()
 
   @type create_snapshot_errors() ::
-          snapshot_feature_not_supported_fault()
-          | invalid_replication_group_state_fault()
+          cache_cluster_not_found_fault()
           | snapshot_already_exists_fault()
+          | snapshot_feature_not_supported_fault()
+          | invalid_parameter_combination_exception()
           | replication_group_not_found_fault()
+          | invalid_cache_cluster_state_fault()
+          | invalid_replication_group_state_fault()
+          | snapshot_quota_exceeded_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
-          | invalid_parameter_combination_exception()
-          | cache_cluster_not_found_fault()
-          | invalid_cache_cluster_state_fault()
-          | snapshot_quota_exceeded_fault()
 
   @type create_user_errors() ::
-          service_linked_role_not_found_fault()
+          user_already_exists_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_combination_exception()
           | duplicate_user_name_fault()
           | user_quota_exceeded_fault()
-          | user_already_exists_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
-          | invalid_parameter_combination_exception()
 
   @type create_user_group_errors() ::
-          user_group_already_exists_fault()
-          | default_user_required()
+          user_not_found_fault()
+          | user_group_quota_exceeded_fault()
           | service_linked_role_not_found_fault()
           | duplicate_user_name_fault()
-          | user_group_quota_exceeded_fault()
+          | default_user_required()
+          | user_group_already_exists_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
-          | user_not_found_fault()
 
   @type decrease_node_groups_in_global_replication_group_errors() ::
           global_replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
-          | invalid_global_replication_group_state_fault()
           | invalid_parameter_combination_exception()
+          | invalid_global_replication_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type decrease_replica_count_errors() ::
-          node_groups_per_replication_group_quota_exceeded_fault()
-          | insufficient_cache_cluster_capacity_fault()
-          | invalid_replication_group_state_fault()
-          | service_linked_role_not_found_fault()
-          | cluster_quota_for_customer_exceeded_fault()
-          | replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
+          service_linked_role_not_found_fault()
           | no_operation_fault()
-          | invalid_vpc_network_state_fault()
           | invalid_parameter_combination_exception()
+          | replication_group_not_found_fault()
           | invalid_cache_cluster_state_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_value_exception()
+          | insufficient_cache_cluster_capacity_fault()
           | node_quota_for_customer_exceeded_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | node_groups_per_replication_group_quota_exceeded_fault()
 
   @type delete_cache_cluster_errors() ::
-          snapshot_feature_not_supported_fault()
+          cache_cluster_not_found_fault()
           | snapshot_already_exists_fault()
-          | invalid_parameter_value_exception()
+          | snapshot_feature_not_supported_fault()
           | invalid_parameter_combination_exception()
-          | cache_cluster_not_found_fault()
           | invalid_cache_cluster_state_fault()
           | snapshot_quota_exceeded_fault()
+          | invalid_parameter_value_exception()
 
   @type delete_cache_parameter_group_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
-          | invalid_cache_parameter_group_state_fault()
+          invalid_parameter_combination_exception()
           | cache_parameter_group_not_found_fault()
+          | invalid_cache_parameter_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type delete_cache_security_group_errors() ::
           invalid_cache_security_group_state_fault()
-          | invalid_parameter_value_exception()
-          | cache_security_group_not_found_fault()
           | invalid_parameter_combination_exception()
+          | cache_security_group_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type delete_cache_subnet_group_errors() ::
-          cache_subnet_group_not_found_fault() | cache_subnet_group_in_use()
+          cache_subnet_group_in_use() | cache_subnet_group_not_found_fault()
 
   @type delete_global_replication_group_errors() ::
           global_replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
           | invalid_global_replication_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type delete_replication_group_errors() ::
-          snapshot_feature_not_supported_fault()
-          | invalid_replication_group_state_fault()
-          | snapshot_already_exists_fault()
-          | replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
+          snapshot_already_exists_fault()
+          | snapshot_feature_not_supported_fault()
           | invalid_parameter_combination_exception()
+          | replication_group_not_found_fault()
+          | invalid_replication_group_state_fault()
           | snapshot_quota_exceeded_fault()
+          | invalid_parameter_value_exception()
 
   @type delete_serverless_cache_errors() ::
-          invalid_credentials_exception()
-          | service_linked_role_not_found_fault()
-          | invalid_serverless_cache_state_fault()
-          | invalid_parameter_value_exception()
+          service_linked_role_not_found_fault()
           | serverless_cache_snapshot_already_exists_fault()
-          | serverless_cache_not_found_fault()
           | invalid_parameter_combination_exception()
+          | invalid_serverless_cache_state_fault()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_credentials_exception()
 
   @type delete_serverless_cache_snapshot_errors() ::
-          invalid_serverless_cache_snapshot_state_fault()
+          service_linked_role_not_found_fault()
           | serverless_cache_snapshot_not_found_fault()
-          | service_linked_role_not_found_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
           | invalid_parameter_value_exception()
 
   @type delete_snapshot_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_snapshot_state_fault()
-          | invalid_parameter_combination_exception()
+          invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
           | snapshot_not_found_fault()
+          | invalid_snapshot_state_fault()
 
   @type delete_user_errors() ::
-          default_user_associated_to_user_group_fault()
+          user_not_found_fault()
+          | default_user_associated_to_user_group_fault()
           | service_linked_role_not_found_fault()
           | invalid_parameter_value_exception()
-          | user_not_found_fault()
           | invalid_user_state_fault()
 
   @type delete_user_group_errors() ::
-          user_group_not_found_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
+          | user_group_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_user_group_state_fault()
 
   @type describe_cache_clusters_errors() ::
-          invalid_parameter_value_exception()
+          cache_cluster_not_found_fault()
           | invalid_parameter_combination_exception()
-          | cache_cluster_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type describe_cache_parameter_groups_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          invalid_parameter_combination_exception()
           | cache_parameter_group_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type describe_cache_parameters_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          invalid_parameter_combination_exception()
           | cache_parameter_group_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type describe_cache_security_groups_errors() ::
-          invalid_parameter_value_exception()
+          invalid_parameter_combination_exception()
           | cache_security_group_not_found_fault()
-          | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
 
   @type describe_cache_subnet_groups_errors() :: cache_subnet_group_not_found_fault()
 
   @type describe_engine_default_parameters_errors() ::
-          invalid_parameter_value_exception() | invalid_parameter_combination_exception()
+          invalid_parameter_combination_exception() | invalid_parameter_value_exception()
 
   @type describe_events_errors() ::
-          invalid_parameter_value_exception() | invalid_parameter_combination_exception()
+          invalid_parameter_combination_exception() | invalid_parameter_value_exception()
 
   @type describe_global_replication_groups_errors() ::
           global_replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
 
   @type describe_replication_groups_errors() ::
-          replication_group_not_found_fault()
+          invalid_parameter_combination_exception()
+          | replication_group_not_found_fault()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
 
   @type describe_reserved_cache_nodes_errors() ::
-          invalid_parameter_value_exception()
+          reserved_cache_node_not_found_fault()
           | invalid_parameter_combination_exception()
-          | reserved_cache_node_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type describe_reserved_cache_nodes_offerings_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          invalid_parameter_combination_exception()
           | reserved_cache_nodes_offering_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type describe_serverless_cache_snapshots_errors() ::
           serverless_cache_snapshot_not_found_fault()
-          | invalid_parameter_value_exception()
-          | serverless_cache_not_found_fault()
           | invalid_parameter_combination_exception()
+          | serverless_cache_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type describe_serverless_caches_errors() ::
-          invalid_parameter_value_exception()
+          invalid_parameter_combination_exception()
           | serverless_cache_not_found_fault()
-          | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
 
   @type describe_service_updates_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          invalid_parameter_combination_exception()
           | service_update_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type describe_snapshots_errors() ::
-          invalid_parameter_value_exception()
+          cache_cluster_not_found_fault()
           | invalid_parameter_combination_exception()
-          | cache_cluster_not_found_fault()
+          | invalid_parameter_value_exception()
           | snapshot_not_found_fault()
 
   @type describe_update_actions_errors() ::
-          invalid_parameter_value_exception() | invalid_parameter_combination_exception()
+          invalid_parameter_combination_exception() | invalid_parameter_value_exception()
 
   @type describe_user_groups_errors() ::
-          user_group_not_found_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_parameter_combination_exception()
-
-  @type describe_users_errors() ::
           service_linked_role_not_found_fault()
           | invalid_parameter_combination_exception()
-          | user_not_found_fault()
+          | user_group_not_found_fault()
+
+  @type describe_users_errors() ::
+          user_not_found_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_parameter_combination_exception()
 
   @type disassociate_global_replication_group_errors() ::
           global_replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
-          | invalid_global_replication_group_state_fault()
           | invalid_parameter_combination_exception()
+          | invalid_global_replication_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type export_serverless_cache_snapshot_errors() ::
-          invalid_serverless_cache_snapshot_state_fault()
+          service_linked_role_not_found_fault()
           | serverless_cache_snapshot_not_found_fault()
-          | service_linked_role_not_found_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
           | invalid_parameter_value_exception()
 
   @type failover_global_replication_group_errors() ::
           global_replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
-          | invalid_global_replication_group_state_fault()
           | invalid_parameter_combination_exception()
+          | invalid_global_replication_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type increase_node_groups_in_global_replication_group_errors() ::
           global_replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
           | invalid_global_replication_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type increase_replica_count_errors() ::
-          node_groups_per_replication_group_quota_exceeded_fault()
-          | insufficient_cache_cluster_capacity_fault()
-          | invalid_replication_group_state_fault()
-          | cluster_quota_for_customer_exceeded_fault()
-          | replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
-          | no_operation_fault()
-          | invalid_vpc_network_state_fault()
+          no_operation_fault()
           | invalid_parameter_combination_exception()
-          | invalid_kms_key_fault()
+          | replication_group_not_found_fault()
           | invalid_cache_cluster_state_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_value_exception()
+          | invalid_kms_key_fault()
+          | insufficient_cache_cluster_capacity_fault()
           | node_quota_for_customer_exceeded_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | node_groups_per_replication_group_quota_exceeded_fault()
 
   @type list_allowed_node_type_modifications_errors() ::
-          replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
+          cache_cluster_not_found_fault()
           | invalid_parameter_combination_exception()
-          | cache_cluster_not_found_fault()
+          | replication_group_not_found_fault()
+          | invalid_parameter_value_exception()
 
   @type list_tags_for_resource_errors() ::
-          user_group_not_found_fault()
-          | invalid_replication_group_state_fault()
-          | invalid_serverless_cache_snapshot_state_fault()
-          | serverless_cache_snapshot_not_found_fault()
-          | cache_subnet_group_not_found_fault()
-          | replication_group_not_found_fault()
-          | invalid_serverless_cache_state_fault()
-          | invalid_arn_fault()
-          | cache_security_group_not_found_fault()
-          | serverless_cache_not_found_fault()
+          user_not_found_fault()
           | cache_cluster_not_found_fault()
           | reserved_cache_node_not_found_fault()
-          | user_not_found_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | replication_group_not_found_fault()
+          | cache_security_group_not_found_fault()
+          | invalid_arn_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_serverless_cache_state_fault()
+          | serverless_cache_not_found_fault()
           | cache_parameter_group_not_found_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
+          | user_group_not_found_fault()
+          | cache_subnet_group_not_found_fault()
           | snapshot_not_found_fault()
 
   @type modify_cache_cluster_errors() ::
-          node_quota_for_cluster_exceeded_fault()
-          | insufficient_cache_cluster_capacity_fault()
+          cache_cluster_not_found_fault()
           | invalid_cache_security_group_state_fault()
-          | invalid_parameter_value_exception()
-          | cache_security_group_not_found_fault()
-          | invalid_vpc_network_state_fault()
           | invalid_parameter_combination_exception()
-          | cache_cluster_not_found_fault()
           | invalid_cache_cluster_state_fault()
+          | cache_security_group_not_found_fault()
+          | node_quota_for_cluster_exceeded_fault()
+          | invalid_vpc_network_state_fault()
           | cache_parameter_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | insufficient_cache_cluster_capacity_fault()
           | node_quota_for_customer_exceeded_fault()
 
   @type modify_cache_parameter_group_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_global_replication_group_state_fault()
-          | invalid_parameter_combination_exception()
-          | invalid_cache_parameter_group_state_fault()
+          invalid_parameter_combination_exception()
           | cache_parameter_group_not_found_fault()
+          | invalid_global_replication_group_state_fault()
+          | invalid_cache_parameter_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type modify_cache_subnet_group_errors() ::
           cache_subnet_quota_exceeded_fault()
+          | invalid_subnet()
+          | subnet_not_allowed_fault()
           | cache_subnet_group_not_found_fault()
           | subnet_in_use()
-          | subnet_not_allowed_fault()
-          | invalid_subnet()
 
   @type modify_global_replication_group_errors() ::
           global_replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
           | invalid_global_replication_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type modify_replication_group_errors() ::
-          node_quota_for_cluster_exceeded_fault()
-          | insufficient_cache_cluster_capacity_fault()
-          | user_group_not_found_fault()
-          | invalid_replication_group_state_fault()
+          cache_cluster_not_found_fault()
           | invalid_cache_security_group_state_fault()
-          | replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
-          | cache_security_group_not_found_fault()
-          | invalid_user_group_state_fault()
-          | invalid_vpc_network_state_fault()
           | invalid_parameter_combination_exception()
-          | cache_cluster_not_found_fault()
-          | invalid_kms_key_fault()
+          | replication_group_not_found_fault()
           | invalid_cache_cluster_state_fault()
+          | cache_security_group_not_found_fault()
+          | node_quota_for_cluster_exceeded_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_vpc_network_state_fault()
           | cache_parameter_group_not_found_fault()
+          | user_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_user_group_state_fault()
+          | invalid_kms_key_fault()
+          | insufficient_cache_cluster_capacity_fault()
           | node_quota_for_customer_exceeded_fault()
 
   @type modify_replication_group_shard_configuration_errors() ::
-          node_groups_per_replication_group_quota_exceeded_fault()
-          | insufficient_cache_cluster_capacity_fault()
-          | invalid_replication_group_state_fault()
+          invalid_parameter_combination_exception()
           | replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
-          | invalid_vpc_network_state_fault()
-          | invalid_parameter_combination_exception()
-          | invalid_kms_key_fault()
           | invalid_cache_cluster_state_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_vpc_network_state_fault()
+          | invalid_parameter_value_exception()
+          | invalid_kms_key_fault()
+          | insufficient_cache_cluster_capacity_fault()
           | node_quota_for_customer_exceeded_fault()
+          | node_groups_per_replication_group_quota_exceeded_fault()
 
   @type modify_serverless_cache_errors() ::
-          invalid_credentials_exception()
-          | user_group_not_found_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
+          | invalid_parameter_combination_exception()
           | invalid_serverless_cache_state_fault()
+          | serverless_cache_not_found_fault()
+          | user_group_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_user_group_state_fault()
-          | serverless_cache_not_found_fault()
-          | invalid_parameter_combination_exception()
+          | invalid_credentials_exception()
 
   @type modify_user_errors() ::
-          service_linked_role_not_found_fault()
-          | invalid_parameter_value_exception()
+          user_not_found_fault()
+          | service_linked_role_not_found_fault()
           | invalid_parameter_combination_exception()
-          | user_not_found_fault()
+          | invalid_parameter_value_exception()
           | invalid_user_state_fault()
 
   @type modify_user_group_errors() ::
-          user_group_not_found_fault()
-          | default_user_required()
+          user_not_found_fault()
           | service_linked_role_not_found_fault()
+          | invalid_parameter_combination_exception()
           | duplicate_user_name_fault()
+          | default_user_required()
+          | user_group_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_user_group_state_fault()
-          | invalid_parameter_combination_exception()
-          | user_not_found_fault()
 
   @type purchase_reserved_cache_nodes_offering_errors() ::
-          reserved_cache_node_quota_exceeded_fault()
+          invalid_parameter_combination_exception()
+          | reserved_cache_node_quota_exceeded_fault()
+          | reserved_cache_node_already_exists_fault()
+          | reserved_cache_nodes_offering_not_found_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
-          | reserved_cache_node_already_exists_fault()
-          | invalid_parameter_combination_exception()
-          | reserved_cache_nodes_offering_not_found_fault()
 
   @type rebalance_slots_in_global_replication_group_errors() ::
           global_replication_group_not_found_fault()
-          | invalid_parameter_value_exception()
           | invalid_global_replication_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type reboot_cache_cluster_errors() ::
           cache_cluster_not_found_fault() | invalid_cache_cluster_state_fault()
 
   @type remove_tags_from_resource_errors() ::
-          user_group_not_found_fault()
-          | invalid_replication_group_state_fault()
-          | invalid_serverless_cache_snapshot_state_fault()
-          | serverless_cache_snapshot_not_found_fault()
-          | cache_subnet_group_not_found_fault()
-          | replication_group_not_found_fault()
-          | invalid_serverless_cache_state_fault()
-          | invalid_arn_fault()
-          | cache_security_group_not_found_fault()
-          | serverless_cache_not_found_fault()
-          | tag_not_found_fault()
+          user_not_found_fault()
           | cache_cluster_not_found_fault()
           | reserved_cache_node_not_found_fault()
-          | user_not_found_fault()
+          | serverless_cache_snapshot_not_found_fault()
+          | replication_group_not_found_fault()
+          | cache_security_group_not_found_fault()
+          | invalid_arn_fault()
+          | tag_not_found_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_serverless_cache_state_fault()
+          | serverless_cache_not_found_fault()
           | cache_parameter_group_not_found_fault()
+          | invalid_serverless_cache_snapshot_state_fault()
+          | user_group_not_found_fault()
+          | cache_subnet_group_not_found_fault()
           | snapshot_not_found_fault()
 
   @type reset_cache_parameter_group_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_global_replication_group_state_fault()
-          | invalid_parameter_combination_exception()
-          | invalid_cache_parameter_group_state_fault()
+          invalid_parameter_combination_exception()
           | cache_parameter_group_not_found_fault()
+          | invalid_global_replication_group_state_fault()
+          | invalid_cache_parameter_group_state_fault()
+          | invalid_parameter_value_exception()
 
   @type revoke_cache_security_group_ingress_errors() ::
           invalid_cache_security_group_state_fault()
-          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
           | cache_security_group_not_found_fault()
           | authorization_not_found_fault()
-          | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
 
   @type start_migration_errors() ::
-          replication_group_already_under_migration_fault()
+          replication_group_not_found_fault()
           | invalid_replication_group_state_fault()
-          | replication_group_not_found_fault()
+          | replication_group_already_under_migration_fault()
           | invalid_parameter_value_exception()
 
   @type test_failover_errors() ::
-          invalid_replication_group_state_fault()
-          | replication_group_not_found_fault()
+          node_group_not_found_fault()
           | api_call_rate_for_customer_exceeded_fault()
-          | node_group_not_found_fault()
-          | invalid_parameter_value_exception()
-          | test_failover_not_available_fault()
           | invalid_parameter_combination_exception()
-          | invalid_kms_key_fault()
+          | test_failover_not_available_fault()
+          | replication_group_not_found_fault()
           | invalid_cache_cluster_state_fault()
+          | invalid_replication_group_state_fault()
+          | invalid_parameter_value_exception()
+          | invalid_kms_key_fault()
 
   @type test_migration_errors() ::
-          replication_group_already_under_migration_fault()
+          replication_group_not_found_fault()
           | invalid_replication_group_state_fault()
-          | replication_group_not_found_fault()
+          | replication_group_already_under_migration_fault()
           | invalid_parameter_value_exception()
 
   def metadata do
@@ -4470,7 +4477,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -4497,7 +4505,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, authorize_cache_security_group_ingress_errors()}
   def authorize_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeCacheSecurityGroupIngress", input, options)
   end
@@ -4514,7 +4523,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, batch_apply_update_action_errors()}
   def batch_apply_update_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchApplyUpdateAction", input, options)
   end
@@ -4532,7 +4542,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, batch_stop_update_action_errors()}
   def batch_stop_update_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchStopUpdateAction", input, options)
   end
@@ -4546,7 +4557,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, complete_migration_errors()}
   def complete_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompleteMigration", input, options)
   end
@@ -4562,7 +4574,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, copy_serverless_cache_snapshot_errors()}
   def copy_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyServerlessCacheSnapshot", input, options)
   end
@@ -4673,7 +4686,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -4693,7 +4707,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_cluster_errors()}
   def create_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCacheCluster", input, options)
   end
@@ -4729,7 +4744,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_parameter_group_errors()}
   def create_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCacheParameterGroup", input, options)
   end
@@ -4753,7 +4769,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_security_group_errors()}
   def create_cache_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCacheSecurityGroup", input, options)
   end
@@ -4771,7 +4788,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_subnet_group_errors()}
   def create_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCacheSubnetGroup", input, options)
   end
@@ -4800,7 +4818,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_global_replication_group_errors()}
   def create_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalReplicationGroup", input, options)
   end
@@ -4864,7 +4883,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_replication_group_errors()}
   def create_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationGroup", input, options)
   end
@@ -4878,7 +4898,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_serverless_cache_errors()}
   def create_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServerlessCache", input, options)
   end
@@ -4899,7 +4920,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_serverless_cache_snapshot_errors()}
   def create_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServerlessCacheSnapshot", input, options)
   end
@@ -4916,7 +4938,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -4933,7 +4956,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -4951,7 +4975,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_user_group_errors()}
   def create_user_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserGroup", input, options)
   end
@@ -4969,7 +4994,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, decrease_node_groups_in_global_replication_group_errors()}
   def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4996,7 +5022,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, decrease_replica_count_errors()}
   def decrease_replica_count(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecreaseReplicaCount", input, options)
   end
@@ -5040,7 +5067,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_cluster_errors()}
   def delete_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheCluster", input, options)
   end
@@ -5058,7 +5086,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_parameter_group_errors()}
   def delete_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheParameterGroup", input, options)
   end
@@ -5075,7 +5104,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_security_group_errors()}
   def delete_cache_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheSecurityGroup", input, options)
   end
@@ -5093,7 +5123,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_subnet_group_errors()}
   def delete_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheSubnetGroup", input, options)
   end
@@ -5129,7 +5160,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_global_replication_group_errors()}
   def delete_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGlobalReplicationGroup", input, options)
   end
@@ -5164,7 +5196,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_replication_group_errors()}
   def delete_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationGroup", input, options)
   end
@@ -5183,7 +5216,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_serverless_cache_errors()}
   def delete_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServerlessCache", input, options)
   end
@@ -5203,7 +5237,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_serverless_cache_snapshot_errors()}
   def delete_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServerlessCacheSnapshot", input, options)
   end
@@ -5224,7 +5259,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -5243,7 +5279,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -5262,7 +5299,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_user_group_errors()}
   def delete_user_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserGroup", input, options)
   end
@@ -5302,7 +5340,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_clusters_errors()}
   def describe_cache_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheClusters", input, options)
   end
@@ -5315,7 +5354,8 @@ defmodule AWS.ElastiCache do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_cache_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheEngineVersions", input, options)
   end
@@ -5332,7 +5372,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_parameter_groups_errors()}
   def describe_cache_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheParameterGroups", input, options)
   end
@@ -5346,7 +5387,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_parameters_errors()}
   def describe_cache_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheParameters", input, options)
   end
@@ -5365,7 +5407,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_security_groups_errors()}
   def describe_cache_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheSecurityGroups", input, options)
   end
@@ -5386,7 +5429,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_subnet_groups_errors()}
   def describe_cache_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheSubnetGroups", input, options)
   end
@@ -5406,7 +5450,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_engine_default_parameters_errors()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
@@ -5429,7 +5474,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -5450,7 +5496,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_global_replication_groups_errors()}
   def describe_global_replication_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalReplicationGroups", input, options)
   end
@@ -5470,7 +5517,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_replication_groups_errors()}
   def describe_replication_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationGroups", input, options)
   end
@@ -5486,7 +5534,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_reserved_cache_nodes_errors()}
   def describe_reserved_cache_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedCacheNodes", input, options)
   end
@@ -5504,7 +5553,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_reserved_cache_nodes_offerings_errors()}
   def describe_reserved_cache_nodes_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedCacheNodesOfferings", input, options)
   end
@@ -5528,7 +5578,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_serverless_cache_snapshots_errors()}
   def describe_serverless_cache_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServerlessCacheSnapshots", input, options)
   end
@@ -5546,7 +5597,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_serverless_caches_errors()}
   def describe_serverless_caches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServerlessCaches", input, options)
   end
@@ -5560,7 +5612,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceUpdates", input, options)
   end
@@ -5582,7 +5635,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -5596,7 +5650,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_update_actions_errors()}
   def describe_update_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUpdateActions", input, options)
   end
@@ -5610,7 +5665,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_user_groups_errors()}
   def describe_user_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserGroups", input, options)
   end
@@ -5624,7 +5680,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUsers", input, options)
   end
@@ -5647,7 +5704,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, disassociate_global_replication_group_errors()}
   def disassociate_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateGlobalReplicationGroup", input, options)
   end
@@ -5668,7 +5726,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, export_serverless_cache_snapshot_errors()}
   def export_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportServerlessCacheSnapshot", input, options)
   end
@@ -5689,7 +5748,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, failover_global_replication_group_errors()}
   def failover_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverGlobalReplicationGroup", input, options)
   end
@@ -5707,7 +5767,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, increase_node_groups_in_global_replication_group_errors()}
   def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5734,7 +5795,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, increase_replica_count_errors()}
   def increase_replica_count(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IncreaseReplicaCount", input, options)
   end
@@ -5759,7 +5821,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, list_allowed_node_type_modifications_errors()}
   def list_allowed_node_type_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAllowedNodeTypeModifications", input, options)
   end
@@ -5786,7 +5849,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5804,7 +5868,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_cluster_errors()}
   def modify_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCacheCluster", input, options)
   end
@@ -5821,7 +5886,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_parameter_group_errors()}
   def modify_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCacheParameterGroup", input, options)
   end
@@ -5835,7 +5901,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_subnet_group_errors()}
   def modify_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCacheSubnetGroup", input, options)
   end
@@ -5849,7 +5916,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_global_replication_group_errors()}
   def modify_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyGlobalReplicationGroup", input, options)
   end
@@ -5879,7 +5947,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_replication_group_errors()}
   def modify_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationGroup", input, options)
   end
@@ -5899,7 +5968,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_replication_group_shard_configuration_errors()}
   def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationGroupShardConfiguration", input, options)
   end
@@ -5913,7 +5983,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_serverless_cache_errors()}
   def modify_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyServerlessCache", input, options)
   end
@@ -5927,7 +5998,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_user_errors()}
   def modify_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyUser", input, options)
   end
@@ -5941,7 +6013,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_user_group_errors()}
   def modify_user_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyUserGroup", input, options)
   end
@@ -5963,7 +6036,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, purchase_reserved_cache_nodes_offering_errors()}
   def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedCacheNodesOffering", input, options)
   end
@@ -5982,7 +6056,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, rebalance_slots_in_global_replication_group_errors()}
   def rebalance_slots_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebalanceSlotsInGlobalReplicationGroup", input, options)
   end
@@ -6020,7 +6095,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, reboot_cache_cluster_errors()}
   def reboot_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootCacheCluster", input, options)
   end
@@ -6043,7 +6119,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -6063,7 +6140,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, reset_cache_parameter_group_errors()}
   def reset_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetCacheParameterGroup", input, options)
   end
@@ -6084,7 +6162,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, revoke_cache_security_group_ingress_errors()}
   def revoke_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeCacheSecurityGroupIngress", input, options)
   end
@@ -6098,7 +6177,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, start_migration_errors()}
   def start_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMigration", input, options)
   end
@@ -6205,7 +6285,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, test_failover_errors()}
   def test_failover(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestFailover", input, options)
   end
@@ -6219,7 +6300,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, test_migration_errors()}
   def test_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestMigration", input, options)
   end

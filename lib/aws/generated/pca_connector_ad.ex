@@ -19,37 +19,16 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      connector() :: %{
-        "Arn" => String.t() | atom(),
-        "CertificateAuthorityArn" => String.t() | atom(),
-        "CertificateEnrollmentPolicyServerEndpoint" => [String.t() | atom()],
-        "CreatedAt" => [non_neg_integer()],
-        "DirectoryId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "UpdatedAt" => [non_neg_integer()],
-        "VpcInformation" => vpc_information()
-      }
+      delete_connector_request() :: %{}
 
   """
-  @type connector() :: %{(String.t() | atom()) => any()}
+  @type delete_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      private_key_attributes_v4() :: %{
+      private_key_attributes_v3() :: %{
         "Algorithm" => list(any()),
         "CryptoProviders" => list([String.t() | atom()]()),
         "KeySpec" => list(any()),
@@ -58,53 +37,56 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type private_key_attributes_v4() :: %{(String.t() | atom()) => any()}
+  @type private_key_attributes_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_template_group_access_control_entry_request() :: %{
-        optional("AccessRights") => access_rights(),
-        optional("GroupDisplayName") => String.t() | atom()
+      extensions_v3() :: %{
+        "ApplicationPolicies" => application_policies(),
+        "KeyUsage" => key_usage()
       }
 
   """
-  @type update_template_group_access_control_entry_request() :: %{(String.t() | atom()) => any()}
+  @type extensions_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_connectors_response() :: %{
-        "Connectors" => list(connector_summary()),
-        "NextToken" => String.t() | atom()
+      private_key_attributes_v2() :: %{
+        "CryptoProviders" => list([String.t() | atom()]()),
+        "KeySpec" => list(any()),
+        "MinimalKeyLength" => [integer()]
       }
 
   """
-  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
+  @type private_key_attributes_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_directory_registration_request() :: %{
+      create_template_request() :: %{
         optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DirectoryId") => String.t() | atom()
+        required("ConnectorArn") => String.t() | atom(),
+        required("Definition") => list(),
+        required("Name") => String.t() | atom(),
+        optional("Tags") => map()
       }
 
   """
-  @type create_directory_registration_request() :: %{(String.t() | atom()) => any()}
+  @type create_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_templates_request() :: %{
+        required("ConnectorArn") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConnectorArn") => String.t() | atom()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
@@ -114,10 +96,19 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      delete_template_group_access_control_entry_request() :: %{}
+      template_v2() :: %{
+        "CertificateValidity" => certificate_validity(),
+        "EnrollmentFlags" => enrollment_flags_v2(),
+        "Extensions" => extensions_v2(),
+        "GeneralFlags" => general_flags_v2(),
+        "PrivateKeyAttributes" => private_key_attributes_v2(),
+        "PrivateKeyFlags" => private_key_flags_v2(),
+        "SubjectNameFlags" => subject_name_flags_v2(),
+        "SupersededTemplates" => list(String.t() | atom())
+      }
 
   """
-  @type delete_template_group_access_control_entry_request() :: %{}
+  @type template_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -138,72 +129,13 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      template_v3() :: %{
-        "CertificateValidity" => certificate_validity(),
-        "EnrollmentFlags" => enrollment_flags_v3(),
-        "Extensions" => extensions_v3(),
-        "GeneralFlags" => general_flags_v3(),
-        "HashAlgorithm" => list(any()),
-        "PrivateKeyAttributes" => private_key_attributes_v3(),
-        "PrivateKeyFlags" => private_key_flags_v3(),
-        "SubjectNameFlags" => subject_name_flags_v3(),
-        "SupersededTemplates" => list(String.t() | atom())
+      extensions_v4() :: %{
+        "ApplicationPolicies" => application_policies(),
+        "KeyUsage" => key_usage()
       }
 
   """
-  @type template_v3() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      general_flags_v2() :: %{
-        "AutoEnrollment" => [boolean()],
-        "MachineType" => [boolean()]
-      }
-
-  """
-  @type general_flags_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_control_entry_summary() :: %{
-        "AccessRights" => access_rights(),
-        "CreatedAt" => [non_neg_integer()],
-        "GroupDisplayName" => String.t() | atom(),
-        "GroupSecurityIdentifier" => String.t() | atom(),
-        "TemplateArn" => String.t() | atom(),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type access_control_entry_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enrollment_flags_v4() :: %{
-        "EnableKeyReuseOnNtTokenKeysetStorageFull" => [boolean()],
-        "IncludeSymmetricAlgorithms" => [boolean()],
-        "NoSecurityExtension" => [boolean()],
-        "RemoveInvalidCertificateFromPersonalStore" => [boolean()],
-        "UserInteractionRequired" => [boolean()]
-      }
-
-  """
-  @type enrollment_flags_v4() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_directory_registration_request() :: %{}
-
-  """
-  @type get_directory_registration_request() :: %{}
+  @type extensions_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -221,281 +153,12 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      private_key_flags_v2() :: %{
-        "ClientVersion" => list(any()),
-        "ExportableKey" => [boolean()],
-        "StrongKeyProtectionRequired" => [boolean()]
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type private_key_flags_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_template_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ConnectorArn") => String.t() | atom(),
-        required("Definition") => list(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_template_response() :: %{
-        "Template" => template()
-      }
-
-  """
-  @type get_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      directory_registration_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "DirectoryId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type directory_registration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_template_group_access_control_entry_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("AccessRights") => access_rights(),
-        required("GroupDisplayName") => String.t() | atom(),
-        required("GroupSecurityIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_template_group_access_control_entry_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_template_request() :: %{
-        optional("Definition") => list(),
-        optional("ReenrollAllCertificateHolders") => [boolean()]
-      }
-
-  """
-  @type update_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_usage_flags() :: %{
-        "DataEncipherment" => [boolean()],
-        "DigitalSignature" => [boolean()],
-        "KeyAgreement" => [boolean()],
-        "KeyEncipherment" => [boolean()],
-        "NonRepudiation" => [boolean()]
-      }
-
-  """
-  @type key_usage_flags() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subject_name_flags_v4() :: %{
-        "RequireCommonName" => [boolean()],
-        "RequireDirectoryPath" => [boolean()],
-        "RequireDnsAsCn" => [boolean()],
-        "RequireEmail" => [boolean()],
-        "SanRequireDirectoryGuid" => [boolean()],
-        "SanRequireDns" => [boolean()],
-        "SanRequireDomainDns" => [boolean()],
-        "SanRequireEmail" => [boolean()],
-        "SanRequireSpn" => [boolean()],
-        "SanRequireUpn" => [boolean()]
-      }
-
-  """
-  @type subject_name_flags_v4() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_principal_names_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ServicePrincipalNames" => list(service_principal_name_summary())
-      }
-
-  """
-  @type list_service_principal_names_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enrollment_flags_v2() :: %{
-        "EnableKeyReuseOnNtTokenKeysetStorageFull" => [boolean()],
-        "IncludeSymmetricAlgorithms" => [boolean()],
-        "NoSecurityExtension" => [boolean()],
-        "RemoveInvalidCertificateFromPersonalStore" => [boolean()],
-        "UserInteractionRequired" => [boolean()]
-      }
-
-  """
-  @type enrollment_flags_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extensions_v3() :: %{
-        "ApplicationPolicies" => application_policies(),
-        "KeyUsage" => key_usage()
-      }
-
-  """
-  @type extensions_v3() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_template_request() :: %{}
-
-  """
-  @type delete_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_principal_name_summary() :: %{
-        "ConnectorArn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "DirectoryRegistrationArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type service_principal_name_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extensions_v2() :: %{
-        "ApplicationPolicies" => application_policies(),
-        "KeyUsage" => key_usage()
-      }
-
-  """
-  @type extensions_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_template_group_access_control_entry_response() :: %{
-        "AccessControlEntry" => access_control_entry()
-      }
-
-  """
-  @type get_template_group_access_control_entry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "QuotaCode" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()],
-        "ServiceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_usage_property_flags() :: %{
-        "Decrypt" => [boolean()],
-        "KeyAgreement" => [boolean()],
-        "Sign" => [boolean()]
-      }
-
-  """
-  @type key_usage_property_flags() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -515,6 +178,119 @@ defmodule AWS.PcaConnectorAd do
 
   """
   @type template_v4() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_principal_names_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_service_principal_names_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      directory_registration() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "DirectoryId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type directory_registration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_principal_names_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ServicePrincipalNames" => list(service_principal_name_summary())
+      }
+
+  """
+  @type list_service_principal_names_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_directory_registration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_directory_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_usage_property_flags() :: %{
+        "Decrypt" => [boolean()],
+        "KeyAgreement" => [boolean()],
+        "Sign" => [boolean()]
+      }
+
+  """
+  @type key_usage_property_flags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_template_request() :: %{}
+
+  """
+  @type get_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      private_key_attributes_v4() :: %{
+        "Algorithm" => list(any()),
+        "CryptoProviders" => list([String.t() | atom()]()),
+        "KeySpec" => list(any()),
+        "KeyUsageProperty" => list(),
+        "MinimalKeyLength" => [integer()]
+      }
+
+  """
+  @type private_key_attributes_v4() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_usage() :: %{
+        "Critical" => [boolean()],
+        "UsageFlags" => key_usage_flags()
+      }
+
+  """
+  @type key_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -540,39 +316,129 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      private_key_attributes_v2() :: %{
-        "CryptoProviders" => list([String.t() | atom()]()),
-        "KeySpec" => list(any()),
-        "MinimalKeyLength" => [integer()]
+      general_flags_v3() :: %{
+        "AutoEnrollment" => [boolean()],
+        "MachineType" => [boolean()]
       }
 
   """
-  @type private_key_attributes_v2() :: %{(String.t() | atom()) => any()}
+  @type general_flags_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      directory_registration() :: %{
-        "Arn" => String.t() | atom(),
+      service_principal_name_summary() :: %{
+        "ConnectorArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
-        "DirectoryId" => String.t() | atom(),
+        "DirectoryRegistrationArn" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type directory_registration() :: %{(String.t() | atom()) => any()}
+  @type service_principal_name_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_directory_registration_request() :: %{}
+      template() :: %{
+        "Arn" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Definition" => list(),
+        "Name" => String.t() | atom(),
+        "ObjectIdentifier" => String.t() | atom(),
+        "PolicySchema" => [integer()],
+        "Revision" => template_revision(),
+        "Status" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
 
   """
-  @type delete_directory_registration_request() :: %{}
+  @type template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector() :: %{
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityArn" => String.t() | atom(),
+        "CertificateEnrollmentPolicyServerEndpoint" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "DirectoryId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "UpdatedAt" => [non_neg_integer()],
+        "VpcInformation" => vpc_information()
+      }
+
+  """
+  @type connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_response() :: %{
+        "Connectors" => list(connector_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_directory_registration_request() :: %{}
+
+  """
+  @type get_directory_registration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_template_group_access_control_entries_response() :: %{
+        "AccessControlEntries" => list(access_control_entry_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_template_group_access_control_entries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      private_key_flags_v4() :: %{
+        "ClientVersion" => list(any()),
+        "ExportableKey" => [boolean()],
+        "RequireAlternateSignatureAlgorithm" => [boolean()],
+        "RequireSameKeyRenewal" => [boolean()],
+        "StrongKeyProtectionRequired" => [boolean()],
+        "UseLegacyProvider" => [boolean()]
+      }
+
+  """
+  @type private_key_flags_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -594,10 +460,60 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
+      access_control_entry_summary() :: %{
+        "AccessRights" => access_rights(),
+        "CreatedAt" => [non_neg_integer()],
+        "GroupDisplayName" => String.t() | atom(),
+        "GroupSecurityIdentifier" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type access_control_entry_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_template_response() :: %{
+        "TemplateArn" => String.t() | atom()
+      }
+
+  """
+  @type create_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_template_response() :: %{
+        "Template" => template()
+      }
+
+  """
+  @type get_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_service_principal_name_request() :: %{}
 
   """
   @type get_service_principal_name_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      application_policies() :: %{
+        "Critical" => [boolean()],
+        "Policies" => list(list())
+      }
+
+  """
+  @type application_policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,62 +530,24 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      access_control_entry() :: %{
-        "AccessRights" => access_rights(),
-        "CreatedAt" => [non_neg_integer()],
-        "GroupDisplayName" => String.t() | atom(),
-        "GroupSecurityIdentifier" => String.t() | atom(),
-        "TemplateArn" => String.t() | atom(),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type access_control_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_response() :: %{
-        "ConnectorArn" => String.t() | atom()
-      }
-
-  """
-  @type create_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_directory_registrations_response() :: %{
-        "DirectoryRegistrations" => list(directory_registration_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_directory_registrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_directory_registration_response() :: %{
         "DirectoryRegistrationArn" => String.t() | atom()
       }
 
   """
   @type create_directory_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validity_period() :: %{
+        "Period" => [float()],
+        "PeriodType" => list(any())
+      }
+
+  """
+  @type validity_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -684,12 +562,60 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
+      delete_service_principal_name_request() :: %{}
+
+  """
+  @type delete_service_principal_name_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_template_group_access_control_entry_request() :: %{}
+
+  """
+  @type delete_template_group_access_control_entry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      subject_name_flags_v2() :: %{
+        "RequireCommonName" => [boolean()],
+        "RequireDirectoryPath" => [boolean()],
+        "RequireDnsAsCn" => [boolean()],
+        "RequireEmail" => [boolean()],
+        "SanRequireDirectoryGuid" => [boolean()],
+        "SanRequireDns" => [boolean()],
+        "SanRequireDomainDns" => [boolean()],
+        "SanRequireEmail" => [boolean()],
+        "SanRequireSpn" => [boolean()],
+        "SanRequireUpn" => [boolean()]
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type subject_name_flags_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_template_group_access_control_entry_request() :: %{
+        optional("AccessRights") => access_rights(),
+        optional("GroupDisplayName") => String.t() | atom()
+      }
+
+  """
+  @type update_template_group_access_control_entry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_template_request() :: %{}
+
+  """
+  @type delete_template_request() :: %{}
 
   @typedoc """
 
@@ -706,6 +632,41 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_response() :: %{
+        "ConnectorArn" => String.t() | atom()
+      }
+
+  """
+  @type create_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_service_principal_name_request() :: %{
         optional("ClientToken") => String.t() | atom()
       }
@@ -717,25 +678,88 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      private_key_attributes_v3() :: %{
-        "Algorithm" => list(any()),
-        "CryptoProviders" => list([String.t() | atom()]()),
-        "KeySpec" => list(any()),
-        "KeyUsageProperty" => list(),
-        "MinimalKeyLength" => [integer()]
+      get_template_group_access_control_entry_response() :: %{
+        "AccessControlEntry" => access_control_entry()
       }
 
   """
-  @type private_key_attributes_v3() :: %{(String.t() | atom()) => any()}
+  @type get_template_group_access_control_entry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_service_principal_name_request() :: %{}
+      subject_name_flags_v4() :: %{
+        "RequireCommonName" => [boolean()],
+        "RequireDirectoryPath" => [boolean()],
+        "RequireDnsAsCn" => [boolean()],
+        "RequireEmail" => [boolean()],
+        "SanRequireDirectoryGuid" => [boolean()],
+        "SanRequireDns" => [boolean()],
+        "SanRequireDomainDns" => [boolean()],
+        "SanRequireEmail" => [boolean()],
+        "SanRequireSpn" => [boolean()],
+        "SanRequireUpn" => [boolean()]
+      }
 
   """
-  @type delete_service_principal_name_request() :: %{}
+  @type subject_name_flags_v4() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_validity() :: %{
+        "RenewalPeriod" => validity_period(),
+        "ValidityPeriod" => validity_period()
+      }
+
+  """
+  @type certificate_validity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityArn" => String.t() | atom(),
+        "CertificateEnrollmentPolicyServerEndpoint" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "DirectoryId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "UpdatedAt" => [non_neg_integer()],
+        "VpcInformation" => vpc_information()
+      }
+
+  """
+  @type connector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      general_flags_v2() :: %{
+        "AutoEnrollment" => [boolean()],
+        "MachineType" => [boolean()]
+      }
+
+  """
+  @type general_flags_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -762,6 +786,34 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
+      private_key_flags_v2() :: %{
+        "ClientVersion" => list(any()),
+        "ExportableKey" => [boolean()],
+        "StrongKeyProtectionRequired" => [boolean()]
+      }
+
+  """
+  @type private_key_flags_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_usage_flags() :: %{
+        "DataEncipherment" => [boolean()],
+        "DigitalSignature" => [boolean()],
+        "KeyAgreement" => [boolean()],
+        "KeyEncipherment" => [boolean()],
+        "NonRepudiation" => [boolean()]
+      }
+
+  """
+  @type key_usage_flags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       subject_name_flags_v3() :: %{
         "RequireCommonName" => [boolean()],
         "RequireDirectoryPath" => [boolean()],
@@ -782,63 +834,61 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      validity_period() :: %{
-        "Period" => [float()],
-        "PeriodType" => list(any())
+      access_control_entry() :: %{
+        "AccessRights" => access_rights(),
+        "CreatedAt" => [non_neg_integer()],
+        "GroupDisplayName" => String.t() | atom(),
+        "GroupSecurityIdentifier" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom(),
+        "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type validity_period() :: %{(String.t() | atom()) => any()}
+  @type access_control_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_directory_registrations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      tag_resource_request() :: %{
+        required("Tags") => map()
       }
 
   """
-  @type list_directory_registrations_request() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
+      update_template_request() :: %{
+        optional("Definition") => list(),
+        optional("ReenrollAllCertificateHolders") => [boolean()]
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type update_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      application_policies() :: %{
-        "Critical" => [boolean()],
-        "Policies" => list(list())
+      vpc_information() :: %{
+        "IpAddressType" => list(any()),
+        "SecurityGroupIds" => list(String.t() | atom())
       }
 
   """
-  @type application_policies() :: %{(String.t() | atom()) => any()}
+  @type vpc_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_connector_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("CertificateAuthorityArn") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("VpcInformation") => vpc_information()
-      }
+      delete_directory_registration_request() :: %{}
 
   """
-  @type create_connector_request() :: %{(String.t() | atom()) => any()}
+  @type delete_directory_registration_request() :: %{}
 
   @typedoc """
 
@@ -856,67 +906,6 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      connector_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CertificateAuthorityArn" => String.t() | atom(),
-        "CertificateEnrollmentPolicyServerEndpoint" => [String.t() | atom()],
-        "CreatedAt" => [non_neg_integer()],
-        "DirectoryId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "UpdatedAt" => [non_neg_integer()],
-        "VpcInformation" => vpc_information()
-      }
-
-  """
-  @type connector_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_template_request() :: %{}
-
-  """
-  @type get_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "Reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_template_group_access_control_entries_response() :: %{
-        "AccessControlEntries" => list(access_control_entry_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_template_group_access_control_entries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_rights() :: %{
         "AutoEnroll" => list(any()),
         "Enroll" => list(any())
@@ -929,167 +918,59 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      extensions_v4() :: %{
-        "ApplicationPolicies" => application_policies(),
-        "KeyUsage" => key_usage()
+      directory_registration_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "DirectoryId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type extensions_v4() :: %{(String.t() | atom()) => any()}
+  @type directory_registration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "QuotaCode" => [String.t() | atom()],
-        "ServiceCode" => [String.t() | atom()]
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      general_flags_v4() :: %{
-        "AutoEnrollment" => [boolean()],
-        "MachineType" => [boolean()]
-      }
-
-  """
-  @type general_flags_v4() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connector_response() :: %{
-        "Connector" => connector()
-      }
-
-  """
-  @type get_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_v2() :: %{
+      template_v3() :: %{
         "CertificateValidity" => certificate_validity(),
-        "EnrollmentFlags" => enrollment_flags_v2(),
-        "Extensions" => extensions_v2(),
-        "GeneralFlags" => general_flags_v2(),
-        "PrivateKeyAttributes" => private_key_attributes_v2(),
-        "PrivateKeyFlags" => private_key_flags_v2(),
-        "SubjectNameFlags" => subject_name_flags_v2(),
+        "EnrollmentFlags" => enrollment_flags_v3(),
+        "Extensions" => extensions_v3(),
+        "GeneralFlags" => general_flags_v3(),
+        "HashAlgorithm" => list(any()),
+        "PrivateKeyAttributes" => private_key_attributes_v3(),
+        "PrivateKeyFlags" => private_key_flags_v3(),
+        "SubjectNameFlags" => subject_name_flags_v3(),
         "SupersededTemplates" => list(String.t() | atom())
       }
 
   """
-  @type template_v2() :: %{(String.t() | atom()) => any()}
+  @type template_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      private_key_flags_v4() :: %{
-        "ClientVersion" => list(any()),
-        "ExportableKey" => [boolean()],
-        "RequireAlternateSignatureAlgorithm" => [boolean()],
-        "RequireSameKeyRenewal" => [boolean()],
-        "StrongKeyProtectionRequired" => [boolean()],
-        "UseLegacyProvider" => [boolean()]
-      }
-
-  """
-  @type private_key_flags_v4() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_principal_names_request() :: %{
+      list_directory_registrations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_service_principal_names_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subject_name_flags_v2() :: %{
-        "RequireCommonName" => [boolean()],
-        "RequireDirectoryPath" => [boolean()],
-        "RequireDnsAsCn" => [boolean()],
-        "RequireEmail" => [boolean()],
-        "SanRequireDirectoryGuid" => [boolean()],
-        "SanRequireDns" => [boolean()],
-        "SanRequireDomainDns" => [boolean()],
-        "SanRequireEmail" => [boolean()],
-        "SanRequireSpn" => [boolean()],
-        "SanRequireUpn" => [boolean()]
-      }
-
-  """
-  @type subject_name_flags_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connector_request() :: %{}
-
-  """
-  @type delete_connector_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_template_response() :: %{
-        "TemplateArn" => String.t() | atom()
-      }
-
-  """
-  @type create_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template() :: %{
-        "Arn" => String.t() | atom(),
-        "ConnectorArn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "Definition" => list(),
-        "Name" => String.t() | atom(),
-        "ObjectIdentifier" => String.t() | atom(),
-        "PolicySchema" => [integer()],
-        "Revision" => template_revision(),
-        "Status" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_information() :: %{
-        "IpAddressType" => list(any()),
-        "SecurityGroupIds" => list(String.t() | atom())
-      }
-
-  """
-  @type vpc_information() :: %{(String.t() | atom()) => any()}
+  @type list_directory_registrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1109,223 +990,342 @@ defmodule AWS.PcaConnectorAd do
 
   ## Example:
 
-      certificate_validity() :: %{
-        "RenewalPeriod" => validity_period(),
-        "ValidityPeriod" => validity_period()
+      create_template_group_access_control_entry_request() :: %{
+        required("AccessRights") => access_rights(),
+        optional("ClientToken") => String.t() | atom(),
+        required("GroupDisplayName") => String.t() | atom(),
+        required("GroupSecurityIdentifier") => String.t() | atom()
       }
 
   """
-  @type certificate_validity() :: %{(String.t() | atom()) => any()}
+  @type create_template_group_access_control_entry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      general_flags_v3() :: %{
+      get_connector_response() :: %{
+        "Connector" => connector()
+      }
+
+  """
+  @type get_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      general_flags_v4() :: %{
         "AutoEnrollment" => [boolean()],
         "MachineType" => [boolean()]
       }
 
   """
-  @type general_flags_v3() :: %{(String.t() | atom()) => any()}
+  @type general_flags_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      key_usage() :: %{
-        "Critical" => [boolean()],
-        "UsageFlags" => key_usage_flags()
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
       }
 
   """
-  @type key_usage() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enrollment_flags_v2() :: %{
+        "EnableKeyReuseOnNtTokenKeysetStorageFull" => [boolean()],
+        "IncludeSymmetricAlgorithms" => [boolean()],
+        "NoSecurityExtension" => [boolean()],
+        "RemoveInvalidCertificateFromPersonalStore" => [boolean()],
+        "UserInteractionRequired" => [boolean()]
+      }
+
+  """
+  @type enrollment_flags_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_directory_registrations_response() :: %{
+        "DirectoryRegistrations" => list(directory_registration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_directory_registrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extensions_v2() :: %{
+        "ApplicationPolicies" => application_policies(),
+        "KeyUsage" => key_usage()
+      }
+
+  """
+  @type extensions_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enrollment_flags_v4() :: %{
+        "EnableKeyReuseOnNtTokenKeysetStorageFull" => [boolean()],
+        "IncludeSymmetricAlgorithms" => [boolean()],
+        "NoSecurityExtension" => [boolean()],
+        "RemoveInvalidCertificateFromPersonalStore" => [boolean()],
+        "UserInteractionRequired" => [boolean()]
+      }
+
+  """
+  @type enrollment_flags_v4() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_request() :: %{
+        required("CertificateAuthorityArn") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("VpcInformation") => vpc_information()
+      }
+
+  """
+  @type create_connector_request() :: %{(String.t() | atom()) => any()}
 
   @type create_connector_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type create_directory_registration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type create_service_principal_name_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type create_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type create_template_group_access_control_entry_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type delete_connector_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type delete_directory_registration_errors() ::
-          throttling_exception()
+          internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
 
   @type delete_service_principal_name_errors() ::
-          throttling_exception()
+          internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
 
   @type delete_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type delete_template_group_access_control_entry_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type get_connector_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type get_directory_registration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type get_service_principal_name_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type get_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type get_template_group_access_control_entry_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type list_connectors_errors() ::
-          throttling_exception()
+          internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
 
   @type list_directory_registrations_errors() ::
-          throttling_exception()
+          internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
 
   @type list_service_principal_names_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type list_template_group_access_control_entries_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type list_templates_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
 
   @type update_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   @type update_template_group_access_control_entry_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
 
   def metadata do
     %{
@@ -1428,8 +1428,8 @@ defmodule AWS.PcaConnectorAd do
           | {:error, create_service_principal_name_errors()}
   def create_service_principal_name(
         %Client{} = client,
-        connector_arn,
         directory_registration_arn,
+        connector_arn,
         input,
         options \\ []
       ) do
@@ -1627,8 +1627,8 @@ defmodule AWS.PcaConnectorAd do
           | {:error, delete_service_principal_name_errors()}
   def delete_service_principal_name(
         %Client{} = client,
-        connector_arn,
         directory_registration_arn,
+        connector_arn,
         input,
         options \\ []
       ) do
@@ -1702,8 +1702,8 @@ defmodule AWS.PcaConnectorAd do
           | {:error, delete_template_group_access_control_entry_errors()}
   def delete_template_group_access_control_entry(
         %Client{} = client,
-        group_security_identifier,
         template_arn,
+        group_security_identifier,
         input,
         options \\ []
       ) do
@@ -1779,8 +1779,8 @@ defmodule AWS.PcaConnectorAd do
           | {:error, get_service_principal_name_errors()}
   def get_service_principal_name(
         %Client{} = client,
-        connector_arn,
         directory_registration_arn,
+        connector_arn,
         options \\ []
       ) do
     url_path =
@@ -1829,8 +1829,8 @@ defmodule AWS.PcaConnectorAd do
           | {:error, get_template_group_access_control_entry_errors()}
   def get_template_group_access_control_entry(
         %Client{} = client,
-        group_security_identifier,
         template_arn,
+        group_security_identifier,
         options \\ []
       ) do
     url_path =
@@ -1854,21 +1854,21 @@ defmodule AWS.PcaConnectorAd do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_connectors_errors()}
-  def list_connectors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_connectors(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/connectors"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1895,8 +1895,8 @@ defmodule AWS.PcaConnectorAd do
           | {:error, list_directory_registrations_errors()}
   def list_directory_registrations(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/directoryRegistrations"
@@ -1904,15 +1904,15 @@ defmodule AWS.PcaConnectorAd do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1940,8 +1940,8 @@ defmodule AWS.PcaConnectorAd do
   def list_service_principal_names(
         %Client{} = client,
         directory_registration_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -1951,15 +1951,15 @@ defmodule AWS.PcaConnectorAd do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2004,8 +2004,8 @@ defmodule AWS.PcaConnectorAd do
   def list_template_group_access_control_entries(
         %Client{} = client,
         template_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries"
@@ -2013,15 +2013,15 @@ defmodule AWS.PcaConnectorAd do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2036,9 +2036,9 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec list_templates(
           map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_templates_response(), any()}
@@ -2047,9 +2047,9 @@ defmodule AWS.PcaConnectorAd do
           | {:error, list_templates_errors()}
   def list_templates(
         %Client{} = client,
-        connector_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        connector_arn,
         options \\ []
       ) do
     url_path = "/templates"
@@ -2057,8 +2057,8 @@ defmodule AWS.PcaConnectorAd do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(connector_arn) do
+        [{"ConnectorArn", connector_arn} | query_params]
       else
         query_params
       end
@@ -2071,8 +2071,8 @@ defmodule AWS.PcaConnectorAd do
       end
 
     query_params =
-      if !is_nil(connector_arn) do
-        [{"ConnectorArn", connector_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2192,8 +2192,8 @@ defmodule AWS.PcaConnectorAd do
           | {:error, update_template_group_access_control_entry_errors()}
   def update_template_group_access_control_entry(
         %Client{} = client,
-        group_security_identifier,
         template_arn,
+        group_security_identifier,
         input,
         options \\ []
       ) do

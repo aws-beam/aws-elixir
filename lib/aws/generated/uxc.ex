@@ -230,21 +230,21 @@ defmodule AWS.Uxc do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_services_errors()}
-  def list_services(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_services(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/v1/services"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

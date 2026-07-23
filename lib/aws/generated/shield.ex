@@ -21,118 +21,10 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      update_protection_group_request() :: %{
-        optional("Members") => list(String.t() | atom()),
-        optional("ResourceType") => list(any()),
-        required("Aggregation") => list(any()),
-        required("Pattern") => list(any()),
-        required("ProtectionGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type update_protection_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_subscription_request() :: %{}
-      
-  """
-  @type create_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resources_in_protection_group_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceArns" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_resources_in_protection_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_subscription_request() :: %{}
-      
-  """
-  @type describe_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_proactive_engagement_request() :: %{}
-      
-  """
-  @type disable_proactive_engagement_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
       delete_subscription_request() :: %{}
       
   """
   @type delete_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      attack_vector_description() :: %{
-        "VectorType" => String.t() | atom()
-      }
-      
-  """
-  @type attack_vector_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_emergency_contact_settings_request() :: %{
-        optional("EmergencyContactList") => list(emergency_contact())
-      }
-      
-  """
-  @type update_emergency_contact_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_protection_group_response() :: %{
-        "ProtectionGroup" => protection_group()
-      }
-      
-  """
-  @type describe_protection_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_protection_group_response() :: %{}
-      
-  """
-  @type delete_protection_group_response() :: %{}
 
   @typedoc """
 
@@ -149,276 +41,6 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      inclusion_protection_filters() :: %{
-        "ProtectionNames" => list(String.t() | atom()),
-        "ResourceArns" => list(String.t() | atom()),
-        "ResourceTypes" => list(list(any())())
-      }
-      
-  """
-  @type inclusion_protection_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protection_group_arbitrary_pattern_limits() :: %{
-        "MaxMembers" => float()
-      }
-      
-  """
-  @type protection_group_arbitrary_pattern_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_health_check_request() :: %{
-        required("HealthCheckArn") => String.t() | atom(),
-        required("ProtectionId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_health_check_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_drt_log_bucket_request() :: %{
-        required("LogBucket") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_drt_log_bucket_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_attacks_request() :: %{
-        optional("EndTime") => time_range(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceArns") => list(String.t() | atom()),
-        optional("StartTime") => time_range()
-      }
-      
-  """
-  @type list_attacks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_emergency_contact_settings_response() :: %{
-        "EmergencyContactList" => list(emergency_contact())
-      }
-      
-  """
-  @type describe_emergency_contact_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      response_action() :: %{
-        "Block" => block_action(),
-        "Count" => count_action()
-      }
-      
-  """
-  @type response_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_drt_log_bucket_response() :: %{}
-      
-  """
-  @type associate_drt_log_bucket_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      count_action() :: %{}
-      
-  """
-  @type count_action() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_operation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protection_limits() :: %{
-        "ProtectedResourceTypeLimits" => list(limit())
-      }
-      
-  """
-  @type protection_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_protections_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Protections" => list(protection())
-      }
-      
-  """
-  @type list_protections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      contributor() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => float()
-      }
-      
-  """
-  @type contributor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protection_group() :: %{
-        "Aggregation" => list(any()),
-        "Members" => list(String.t() | atom()),
-        "Pattern" => list(any()),
-        "ProtectionGroupArn" => String.t() | atom(),
-        "ProtectionGroupId" => String.t() | atom(),
-        "ResourceType" => list(any())
-      }
-      
-  """
-  @type protection_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit() :: %{
-        "Max" => float(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_subscription_state_response() :: %{
-        "SubscriptionState" => list(any())
-      }
-      
-  """
-  @type get_subscription_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      locked_subscription_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type locked_subscription_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_protection_groups_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProtectionGroups" => list(protection_group())
-      }
-      
-  """
-  @type list_protection_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protection_group_pattern_type_limits() :: %{
-        "ArbitraryPatternLimits" => protection_group_arbitrary_pattern_limits()
-      }
-      
-  """
-  @type protection_group_pattern_type_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_attack_statistics_request() :: %{}
-      
-  """
-  @type describe_attack_statistics_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      attack_detail() :: %{
-        "AttackCounters" => list(summarized_counter()),
-        "AttackId" => String.t() | atom(),
-        "AttackProperties" => list(attack_property()),
-        "EndTime" => non_neg_integer(),
-        "Mitigations" => list(mitigation()),
-        "ResourceArn" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "SubResources" => list(sub_resource_summary())
-      }
-      
-  """
-  @type attack_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_protection_response() :: %{
         "ProtectionId" => String.t() | atom()
       }
@@ -430,102 +52,13 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
+      subscription_limits() :: %{
+        "ProtectionGroupLimits" => protection_group_limits(),
+        "ProtectionLimits" => protection_limits()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      block_action() :: %{}
-      
-  """
-  @type block_action() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_subscription_state_request() :: %{}
-      
-  """
-  @type get_subscription_state_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_proactive_engagement_response() :: %{}
-      
-  """
-  @type enable_proactive_engagement_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_drt_access_request() :: %{}
-      
-  """
-  @type describe_drt_access_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_protection_groups_request() :: %{
-        optional("InclusionFilters") => inclusion_protection_group_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_protection_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protection() :: %{
-        "ApplicationLayerAutomaticResponseConfiguration" => application_layer_automatic_response_configuration(),
-        "HealthCheckIds" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ProtectionArn" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type protection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_attacks_response() :: %{
-        "AttackSummaries" => list(attack_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_attacks_response() :: %{(String.t() | atom()) => any()}
+  @type subscription_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -542,373 +75,10 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      attack_volume() :: %{
-        "BitsPerSecond" => attack_volume_statistics(),
-        "PacketsPerSecond" => attack_volume_statistics(),
-        "RequestsPerSecond" => attack_volume_statistics()
-      }
-      
-  """
-  @type attack_volume() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_attack_statistics_response() :: %{
-        "DataItems" => list(attack_statistics_data_item()),
-        "TimeRange" => time_range()
-      }
-      
-  """
-  @type describe_attack_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       enable_application_layer_automatic_response_response() :: %{}
       
   """
   @type enable_application_layer_automatic_response_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_protection_group_request() :: %{
-        optional("Members") => list(String.t() | atom()),
-        optional("ResourceType") => list(any()),
-        optional("Tags") => list(tag()),
-        required("Aggregation") => list(any()),
-        required("Pattern") => list(any()),
-        required("ProtectionGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type create_protection_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_protection_response() :: %{}
-      
-  """
-  @type delete_protection_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_proactive_engagement_request() :: %{}
-      
-  """
-  @type enable_proactive_engagement_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      inclusion_protection_group_filters() :: %{
-        "Aggregations" => list(list(any())()),
-        "Patterns" => list(list(any())()),
-        "ProtectionGroupIds" => list(String.t() | atom()),
-        "ResourceTypes" => list(list(any())())
-      }
-      
-  """
-  @type inclusion_protection_group_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_protection_request() :: %{
-        optional("ProtectionId") => String.t() | atom(),
-        optional("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_protection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_proactive_engagement_details_response() :: %{}
-      
-  """
-  @type associate_proactive_engagement_details_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_health_check_response() :: %{}
-      
-  """
-  @type associate_health_check_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_drt_log_bucket_request() :: %{
-        required("LogBucket") => String.t() | atom()
-      }
-      
-  """
-  @type associate_drt_log_bucket_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_subscription_response() :: %{}
-      
-  """
-  @type update_subscription_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      optimistic_lock_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type optimistic_lock_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_drt_role_response() :: %{}
-      
-  """
-  @type disassociate_drt_role_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_application_layer_automatic_response_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type disable_application_layer_automatic_response_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_proactive_engagement_details_request() :: %{
-        required("EmergencyContactList") => list(emergency_contact())
-      }
-      
-  """
-  @type associate_proactive_engagement_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_subscription_response() :: %{}
-      
-  """
-  @type create_subscription_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      sub_resource_summary() :: %{
-        "AttackVectors" => list(summarized_attack_vector()),
-        "Counters" => list(summarized_counter()),
-        "Id" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type sub_resource_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_proactive_engagement_response() :: %{}
-      
-  """
-  @type disable_proactive_engagement_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_resource_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_resource_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_drt_role_request() :: %{}
-      
-  """
-  @type disassociate_drt_role_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_application_layer_automatic_response_response() :: %{}
-      
-  """
-  @type disable_application_layer_automatic_response_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      attack_summary() :: %{
-        "AttackId" => String.t() | atom(),
-        "AttackVectors" => list(attack_vector_description()),
-        "EndTime" => non_neg_integer(),
-        "ResourceArn" => String.t() | atom(),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type attack_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_layer_automatic_response_response() :: %{}
-      
-  """
-  @type update_application_layer_automatic_response_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_range() :: %{
-        "FromInclusive" => non_neg_integer(),
-        "ToExclusive" => non_neg_integer()
-      }
-      
-  """
-  @type time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_protection_request() :: %{
-        required("ProtectionId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_protection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      summarized_attack_vector() :: %{
-        "VectorCounters" => list(summarized_counter()),
-        "VectorType" => String.t() | atom()
-      }
-      
-  """
-  @type summarized_attack_vector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_attack_request() :: %{
-        required("AttackId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_attack_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "fields" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_emergency_contact_settings_request() :: %{}
-      
-  """
-  @type describe_emergency_contact_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -929,65 +99,34 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      create_protection_group_response() :: %{}
-      
-  """
-  @type create_protection_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_protection_group_request() :: %{
-        required("ProtectionGroupId") => String.t() | atom()
+      inclusion_protection_filters() :: %{
+        "ProtectionNames" => list(String.t() | atom()),
+        "ResourceArns" => list(String.t() | atom()),
+        "ResourceTypes" => list(list(any())())
       }
       
   """
-  @type delete_protection_group_request() :: %{(String.t() | atom()) => any()}
+  @type inclusion_protection_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      attack_statistics_data_item() :: %{
-        "AttackCount" => float(),
-        "AttackVolume" => attack_volume()
+      associate_proactive_engagement_details_response() :: %{}
+      
+  """
+  @type associate_proactive_engagement_details_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_protection_response() :: %{
+        "Protection" => protection()
       }
       
   """
-  @type attack_statistics_data_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_subscription_response() :: %{}
-      
-  """
-  @type delete_subscription_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      protection_group_limits() :: %{
-        "MaxProtectionGroups" => float(),
-        "PatternTypeLimits" => protection_group_pattern_type_limits()
-      }
-      
-  """
-  @type protection_group_limits() :: %{(String.t() | atom()) => any()}
+  @type describe_protection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -999,6 +138,247 @@ defmodule AWS.Shield do
       
   """
   @type update_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      block_action() :: %{}
+      
+  """
+  @type block_action() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_protection_request() :: %{
+        optional("ProtectionId") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_protection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_protections_request() :: %{
+        optional("InclusionFilters") => inclusion_protection_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_protections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_subscription_state_request() :: %{}
+      
+  """
+  @type get_subscription_state_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_drt_role_response() :: %{}
+      
+  """
+  @type disassociate_drt_role_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_protection_groups_request() :: %{
+        optional("InclusionFilters") => inclusion_protection_group_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_protection_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_drt_access_request() :: %{}
+      
+  """
+  @type describe_drt_access_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_protection_group_response() :: %{
+        "ProtectionGroup" => protection_group()
+      }
+      
+  """
+  @type describe_protection_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_protections_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Protections" => list(protection())
+      }
+      
+  """
+  @type list_protections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_subscription_state_response() :: %{
+        "SubscriptionState" => list(any())
+      }
+      
+  """
+  @type get_subscription_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_health_check_request() :: %{
+        required("HealthCheckArn") => String.t() | atom(),
+        required("ProtectionId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_health_check_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resources_in_protection_group_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ProtectionGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type list_resources_in_protection_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_health_check_response() :: %{}
+      
+  """
+  @type associate_health_check_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_health_check_request() :: %{
+        required("HealthCheckArn") => String.t() | atom(),
+        required("ProtectionId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_health_check_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attack_summary() :: %{
+        "AttackId" => String.t() | atom(),
+        "AttackVectors" => list(attack_vector_description()),
+        "EndTime" => non_neg_integer(),
+        "ResourceArn" => String.t() | atom(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type attack_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attacks_response() :: %{
+        "AttackSummaries" => list(attack_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_attacks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_proactive_engagement_request() :: %{}
+      
+  """
+  @type disable_proactive_engagement_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_attack_statistics_response() :: %{
+        "DataItems" => list(attack_statistics_data_item()),
+        "TimeRange" => time_range()
+      }
+      
+  """
+  @type describe_attack_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_emergency_contact_settings_response() :: %{}
+      
+  """
+  @type update_emergency_contact_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subscription_request() :: %{}
+      
+  """
+  @type create_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      count_action() :: %{}
+      
+  """
+  @type count_action() :: %{}
 
   @typedoc """
 
@@ -1022,55 +402,33 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      disassociate_health_check_response() :: %{}
-      
-  """
-  @type disassociate_health_check_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      attack_volume_statistics() :: %{
-        "Max" => float()
+      inclusion_protection_group_filters() :: %{
+        "Aggregations" => list(list(any())()),
+        "Patterns" => list(list(any())()),
+        "ProtectionGroupIds" => list(String.t() | atom()),
+        "ResourceTypes" => list(list(any())())
       }
       
   """
-  @type attack_volume_statistics() :: %{(String.t() | atom()) => any()}
+  @type inclusion_protection_group_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      subscription_limits() :: %{
-        "ProtectionGroupLimits" => protection_group_limits(),
-        "ProtectionLimits" => protection_limits()
-      }
+      describe_emergency_contact_settings_request() :: %{}
       
   """
-  @type subscription_limits() :: %{(String.t() | atom()) => any()}
+  @type describe_emergency_contact_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      disassociate_drt_log_bucket_response() :: %{}
+      associate_drt_log_bucket_response() :: %{}
       
   """
-  @type disassociate_drt_log_bucket_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      emergency_contact() :: %{
-        "ContactNotes" => String.t() | atom(),
-        "EmailAddress" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom()
-      }
-      
-  """
-  @type emergency_contact() :: %{(String.t() | atom()) => any()}
+  @type associate_drt_log_bucket_response() :: %{}
 
   @typedoc """
 
@@ -1087,48 +445,315 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      access_denied_for_dependency_exception() :: %{
+      internal_error_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type access_denied_for_dependency_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_drt_access_response() :: %{
-        "LogBucketList" => list(String.t() | atom()),
-        "RoleArn" => String.t() | atom()
+      protection() :: %{
+        "ApplicationLayerAutomaticResponseConfiguration" => application_layer_automatic_response_configuration(),
+        "HealthCheckIds" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProtectionArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type describe_drt_access_response() :: %{(String.t() | atom()) => any()}
+  @type protection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_resources_in_protection_group_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ProtectionGroupId") => String.t() | atom()
+      update_protection_group_response() :: %{}
+      
+  """
+  @type update_protection_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      protection_limits() :: %{
+        "ProtectedResourceTypeLimits" => list(limit())
       }
       
   """
-  @type list_resources_in_protection_group_request() :: %{(String.t() | atom()) => any()}
+  @type protection_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      no_associated_role_exception() :: %{
+      disassociate_drt_log_bucket_request() :: %{
+        required("LogBucket") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_drt_log_bucket_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      response_action() :: %{
+        "Block" => block_action(),
+        "Count" => count_action()
+      }
+      
+  """
+  @type response_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_application_layer_automatic_response_response() :: %{}
+      
+  """
+  @type update_application_layer_automatic_response_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      protection_group_arbitrary_pattern_limits() :: %{
+        "MaxMembers" => float()
+      }
+      
+  """
+  @type protection_group_arbitrary_pattern_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_subscription_request() :: %{}
+      
+  """
+  @type describe_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_application_layer_automatic_response_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type disable_application_layer_automatic_response_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_resource_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type no_associated_role_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_resource_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subscription_response() :: %{}
+      
+  """
+  @type delete_subscription_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_already_exists_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      optimistic_lock_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type optimistic_lock_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_health_check_response() :: %{}
+      
+  """
+  @type disassociate_health_check_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_attack_statistics_request() :: %{}
+      
+  """
+  @type describe_attack_statistics_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      summarized_attack_vector() :: %{
+        "VectorCounters" => list(summarized_counter()),
+        "VectorType" => String.t() | atom()
+      }
+      
+  """
+  @type summarized_attack_vector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attack_volume() :: %{
+        "BitsPerSecond" => attack_volume_statistics(),
+        "PacketsPerSecond" => attack_volume_statistics(),
+        "RequestsPerSecond" => attack_volume_statistics()
+      }
+      
+  """
+  @type attack_volume() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sub_resource_summary() :: %{
+        "AttackVectors" => list(summarized_attack_vector()),
+        "Counters" => list(summarized_counter()),
+        "Id" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type sub_resource_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_emergency_contact_settings_request() :: %{
+        optional("EmergencyContactList") => list(emergency_contact())
+      }
+      
+  """
+  @type update_emergency_contact_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_drt_role_request() :: %{
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type associate_drt_role_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_application_layer_automatic_response_response() :: %{}
+      
+  """
+  @type disable_application_layer_automatic_response_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_range() :: %{
+        "FromInclusive" => non_neg_integer(),
+        "ToExclusive" => non_neg_integer()
+      }
+      
+  """
+  @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_protection_request() :: %{
+        required("Name") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_protection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attack_statistics_data_item() :: %{
+        "AttackCount" => float(),
+        "AttackVolume" => attack_volume()
+      }
+      
+  """
+  @type attack_statistics_data_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1150,22 +775,283 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      associate_drt_role_response() :: %{}
+      protection_group_pattern_type_limits() :: %{
+        "ArbitraryPatternLimits" => protection_group_arbitrary_pattern_limits()
+      }
       
   """
-  @type associate_drt_role_response() :: %{}
+  @type protection_group_pattern_type_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_already_exists_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
+      attack_volume_statistics() :: %{
+        "Max" => float()
       }
       
   """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type attack_volume_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attack_vector_description() :: %{
+        "VectorType" => String.t() | atom()
+      }
+      
+  """
+  @type attack_vector_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protection_group() :: %{
+        "Aggregation" => list(any()),
+        "Members" => list(String.t() | atom()),
+        "Pattern" => list(any()),
+        "ProtectionGroupArn" => String.t() | atom(),
+        "ProtectionGroupId" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type protection_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_protection_group_request() :: %{
+        required("Aggregation") => list(any()),
+        optional("Members") => list(String.t() | atom()),
+        required("Pattern") => list(any()),
+        required("ProtectionGroupId") => String.t() | atom(),
+        optional("ResourceType") => list(any())
+      }
+      
+  """
+  @type update_protection_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_protection_group_response() :: %{}
+      
+  """
+  @type create_protection_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_proactive_engagement_response() :: %{}
+      
+  """
+  @type disable_proactive_engagement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_proactive_engagement_request() :: %{}
+      
+  """
+  @type enable_proactive_engagement_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_associated_role_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_associated_role_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      emergency_contact() :: %{
+        "ContactNotes" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom()
+      }
+      
+  """
+  @type emergency_contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_drt_role_request() :: %{}
+      
+  """
+  @type disassociate_drt_role_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_application_layer_automatic_response_request() :: %{
+        required("Action") => response_action(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_application_layer_automatic_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_protection_group_request() :: %{
+        required("Aggregation") => list(any()),
+        optional("Members") => list(String.t() | atom()),
+        required("Pattern") => list(any()),
+        required("ProtectionGroupId") => String.t() | atom(),
+        optional("ResourceType") => list(any()),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_protection_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subscription_response() :: %{}
+      
+  """
+  @type create_subscription_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "fields" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_proactive_engagement_details_request() :: %{
+        required("EmergencyContactList") => list(emergency_contact())
+      }
+      
+  """
+  @type associate_proactive_engagement_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attacks_request() :: %{
+        optional("EndTime") => time_range(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceArns") => list(String.t() | atom()),
+        optional("StartTime") => time_range()
+      }
+      
+  """
+  @type list_attacks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit() :: %{
+        "Max" => float(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_drt_log_bucket_response() :: %{}
+      
+  """
+  @type disassociate_drt_log_bucket_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_proactive_engagement_response() :: %{}
+      
+  """
+  @type enable_proactive_engagement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protection_request() :: %{
+        required("ProtectionId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_protection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,68 +1070,35 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      describe_protection_response() :: %{
-        "Protection" => protection()
+      associate_drt_log_bucket_request() :: %{
+        required("LogBucket") => String.t() | atom()
       }
       
   """
-  @type describe_protection_response() :: %{(String.t() | atom()) => any()}
+  @type associate_drt_log_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_health_check_request() :: %{
-        required("HealthCheckArn") => String.t() | atom(),
-        required("ProtectionId") => String.t() | atom()
+      list_resources_in_protection_group_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceArns" => list(String.t() | atom())
       }
       
   """
-  @type associate_health_check_request() :: %{(String.t() | atom()) => any()}
+  @type list_resources_in_protection_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_drt_role_request() :: %{
-        required("RoleArn") => String.t() | atom()
+      describe_attack_request() :: %{
+        required("AttackId") => String.t() | atom()
       }
       
   """
-  @type associate_drt_role_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_application_layer_automatic_response_request() :: %{
-        required("Action") => response_action(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type enable_application_layer_automatic_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_protection_group_response() :: %{}
-      
-  """
-  @type update_protection_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_layer_automatic_response_request() :: %{
-        required("Action") => response_action(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_application_layer_automatic_response_request() :: %{(String.t() | atom()) => any()}
+  @type describe_attack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1263,36 +1116,51 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      mitigation() :: %{
-        "MitigationName" => String.t() | atom()
-      }
+      update_subscription_response() :: %{}
       
   """
-  @type mitigation() :: %{(String.t() | atom()) => any()}
+  @type update_subscription_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      internal_error_exception() :: %{
+      describe_drt_access_response() :: %{
+        "LogBucketList" => list(String.t() | atom()),
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type describe_drt_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_operation_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_protection_request() :: %{
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
+      attack_detail() :: %{
+        "AttackCounters" => list(summarized_counter()),
+        "AttackId" => String.t() | atom(),
+        "AttackProperties" => list(attack_property()),
+        "EndTime" => non_neg_integer(),
+        "Mitigations" => list(mitigation()),
+        "ResourceArn" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "SubResources" => list(sub_resource_summary())
       }
       
   """
-  @type create_protection_request() :: %{(String.t() | atom()) => any()}
+  @type attack_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1309,228 +1177,360 @@ defmodule AWS.Shield do
 
   ## Example:
       
-      update_emergency_contact_settings_response() :: %{}
+      protection_group_limits() :: %{
+        "MaxProtectionGroups" => float(),
+        "PatternTypeLimits" => protection_group_pattern_type_limits()
+      }
       
   """
-  @type update_emergency_contact_settings_response() :: %{}
+  @type protection_group_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_protections_request() :: %{
-        optional("InclusionFilters") => inclusion_protection_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      access_denied_for_dependency_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type list_protections_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_for_dependency_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      locked_subscription_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type locked_subscription_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contributor() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => float()
+      }
+      
+  """
+  @type contributor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protection_group_response() :: %{}
+      
+  """
+  @type delete_protection_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protection_response() :: %{}
+      
+  """
+  @type delete_protection_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mitigation() :: %{
+        "MitigationName" => String.t() | atom()
+      }
+      
+  """
+  @type mitigation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_emergency_contact_settings_response() :: %{
+        "EmergencyContactList" => list(emergency_contact())
+      }
+      
+  """
+  @type describe_emergency_contact_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_drt_role_response() :: %{}
+      
+  """
+  @type associate_drt_role_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protection_group_request() :: %{
+        required("ProtectionGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_protection_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_application_layer_automatic_response_request() :: %{
+        required("Action") => response_action(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type enable_application_layer_automatic_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_protection_groups_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProtectionGroups" => list(protection_group())
+      }
+      
+  """
+  @type list_protection_groups_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_drt_log_bucket_errors() ::
-          internal_error_exception()
-          | limits_exceeded_exception()
-          | no_associated_role_exception()
+          resource_not_found_exception()
           | access_denied_for_dependency_exception()
-          | invalid_parameter_exception()
-          | optimistic_lock_exception()
-          | resource_not_found_exception()
           | invalid_operation_exception()
+          | limits_exceeded_exception()
+          | invalid_parameter_exception()
+          | no_associated_role_exception()
+          | optimistic_lock_exception()
+          | internal_error_exception()
 
   @type associate_drt_role_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | access_denied_for_dependency_exception()
+          | invalid_operation_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          | internal_error_exception()
 
   @type associate_health_check_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | limits_exceeded_exception()
           | invalid_parameter_exception()
-          | invalid_resource_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
+          | invalid_resource_exception()
+          | internal_error_exception()
 
   @type associate_proactive_engagement_details_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
+          | invalid_operation_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          | internal_error_exception()
 
   @type create_protection_errors() ::
-          internal_error_exception()
-          | limits_exceeded_exception()
-          | resource_already_exists_exception()
-          | invalid_parameter_exception()
-          | invalid_resource_exception()
-          | optimistic_lock_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | invalid_operation_exception()
+          | limits_exceeded_exception()
+          | invalid_parameter_exception()
+          | optimistic_lock_exception()
+          | resource_already_exists_exception()
+          | invalid_resource_exception()
+          | internal_error_exception()
 
   @type create_protection_group_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | limits_exceeded_exception()
-          | resource_already_exists_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
+          | resource_already_exists_exception()
+          | internal_error_exception()
 
   @type create_subscription_errors() ::
-          internal_error_exception() | resource_already_exists_exception()
+          resource_already_exists_exception() | internal_error_exception()
 
   @type delete_protection_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
 
   @type delete_protection_group_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
 
   @type delete_subscription_errors() ::
-          internal_error_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | locked_subscription_exception()
+          | internal_error_exception()
 
-  @type describe_attack_errors() :: internal_error_exception() | access_denied_exception()
+  @type describe_attack_errors() :: access_denied_exception() | internal_error_exception()
 
   @type describe_attack_statistics_errors() :: internal_error_exception()
 
   @type describe_drt_access_errors() ::
-          internal_error_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_error_exception()
 
   @type describe_emergency_contact_settings_errors() ::
-          internal_error_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_error_exception()
 
   @type describe_protection_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | invalid_parameter_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
 
   @type describe_protection_group_errors() ::
-          internal_error_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_error_exception()
 
   @type describe_subscription_errors() ::
-          internal_error_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_error_exception()
 
   @type disable_application_layer_automatic_response_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
+          | invalid_operation_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          | internal_error_exception()
 
   @type disable_proactive_engagement_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
+          | invalid_operation_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          | internal_error_exception()
 
   @type disassociate_drt_log_bucket_errors() ::
-          internal_error_exception()
-          | no_associated_role_exception()
+          resource_not_found_exception()
           | access_denied_for_dependency_exception()
-          | optimistic_lock_exception()
-          | resource_not_found_exception()
           | invalid_operation_exception()
+          | no_associated_role_exception()
+          | optimistic_lock_exception()
+          | internal_error_exception()
 
   @type disassociate_drt_role_errors() ::
-          internal_error_exception()
-          | optimistic_lock_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | invalid_operation_exception()
+          | optimistic_lock_exception()
+          | internal_error_exception()
 
   @type disassociate_health_check_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | invalid_parameter_exception()
-          | invalid_resource_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
+          | invalid_resource_exception()
+          | internal_error_exception()
 
   @type enable_application_layer_automatic_response_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
+          | invalid_operation_exception()
           | limits_exceeded_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          | internal_error_exception()
 
   @type enable_proactive_engagement_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
+          | invalid_operation_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          | internal_error_exception()
 
   @type get_subscription_state_errors() :: internal_error_exception()
 
   @type list_attacks_errors() ::
-          internal_error_exception()
+          invalid_operation_exception()
           | invalid_parameter_exception()
-          | invalid_operation_exception()
+          | internal_error_exception()
 
   @type list_protection_groups_errors() ::
-          invalid_pagination_token_exception()
+          resource_not_found_exception()
+          | invalid_pagination_token_exception()
           | internal_error_exception()
-          | resource_not_found_exception()
 
   @type list_protections_errors() ::
-          invalid_pagination_token_exception()
+          resource_not_found_exception()
+          | invalid_pagination_token_exception()
           | internal_error_exception()
-          | resource_not_found_exception()
 
   @type list_resources_in_protection_group_errors() ::
-          invalid_pagination_token_exception()
+          resource_not_found_exception()
+          | invalid_pagination_token_exception()
           | internal_error_exception()
-          | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | invalid_resource_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
 
   @type tag_resource_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | invalid_parameter_exception()
           | invalid_resource_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
 
   @type untag_resource_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | invalid_parameter_exception()
           | invalid_resource_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
 
   @type update_application_layer_automatic_response_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
+          | invalid_operation_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          | internal_error_exception()
 
   @type update_emergency_contact_settings_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
 
   @type update_protection_group_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
 
   @type update_subscription_errors() ::
-          internal_error_exception()
+          resource_not_found_exception()
+          | locked_subscription_exception()
           | invalid_parameter_exception()
           | optimistic_lock_exception()
-          | resource_not_found_exception()
-          | locked_subscription_exception()
+          | internal_error_exception()
 
   def metadata do
     %{
@@ -1564,7 +1564,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, associate_drt_log_bucket_errors()}
   def associate_drt_log_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDRTLogBucket", input, options)
   end
@@ -1607,7 +1608,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, associate_drt_role_errors()}
   def associate_drt_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDRTRole", input, options)
   end
@@ -1629,7 +1631,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, associate_health_check_errors()}
   def associate_health_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateHealthCheck", input, options)
   end
@@ -1663,7 +1666,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, associate_proactive_engagement_details_errors()}
   def associate_proactive_engagement_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateProactiveEngagementDetails", input, options)
   end
@@ -1691,7 +1695,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, create_protection_errors()}
   def create_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProtection", input, options)
   end
@@ -1709,7 +1714,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, create_protection_group_errors()}
   def create_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProtectionGroup", input, options)
   end
@@ -1731,7 +1737,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, create_subscription_errors()}
   def create_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubscription", input, options)
   end
@@ -1745,7 +1752,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, delete_protection_errors()}
   def delete_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtection", input, options)
   end
@@ -1759,7 +1767,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, delete_protection_group_errors()}
   def delete_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtectionGroup", input, options)
   end
@@ -1776,7 +1785,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, delete_subscription_errors()}
   def delete_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubscription", input, options)
   end
@@ -1790,7 +1800,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_attack_errors()}
   def describe_attack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAttack", input, options)
   end
@@ -1816,7 +1827,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_attack_statistics_errors()}
   def describe_attack_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAttackStatistics", input, options)
   end
@@ -1832,7 +1844,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_drt_access_errors()}
   def describe_drt_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDRTAccess", input, options)
   end
@@ -1852,7 +1865,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_emergency_contact_settings_errors()}
   def describe_emergency_contact_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEmergencyContactSettings", input, options)
   end
@@ -1866,7 +1880,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_protection_errors()}
   def describe_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProtection", input, options)
   end
@@ -1880,7 +1895,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_protection_group_errors()}
   def describe_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProtectionGroup", input, options)
   end
@@ -1894,7 +1910,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_subscription_errors()}
   def describe_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubscription", input, options)
   end
@@ -1917,7 +1934,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disable_application_layer_automatic_response_errors()}
   def disable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableApplicationLayerAutomaticResponse", input, options)
   end
@@ -1932,7 +1950,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disable_proactive_engagement_errors()}
   def disable_proactive_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableProactiveEngagement", input, options)
   end
@@ -1947,7 +1966,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disassociate_drt_log_bucket_errors()}
   def disassociate_drt_log_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDRTLogBucket", input, options)
   end
@@ -1962,7 +1982,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disassociate_drt_role_errors()}
   def disassociate_drt_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDRTRole", input, options)
   end
@@ -1986,7 +2007,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disassociate_health_check_errors()}
   def disassociate_health_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateHealthCheck", input, options)
   end
@@ -2032,7 +2054,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, enable_application_layer_automatic_response_errors()}
   def enable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableApplicationLayerAutomaticResponse", input, options)
   end
@@ -2048,7 +2071,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, enable_proactive_engagement_errors()}
   def enable_proactive_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableProactiveEngagement", input, options)
   end
@@ -2062,7 +2086,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, get_subscription_state_errors()}
   def get_subscription_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSubscriptionState", input, options)
   end
@@ -2077,7 +2102,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_attacks_errors()}
   def list_attacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAttacks", input, options)
   end
@@ -2095,7 +2121,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_protection_groups_errors()}
   def list_protection_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProtectionGroups", input, options)
   end
@@ -2113,7 +2140,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_protections_errors()}
   def list_protections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProtections", input, options)
   end
@@ -2131,7 +2159,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_resources_in_protection_group_errors()}
   def list_resources_in_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourcesInProtectionGroup", input, options)
   end
@@ -2146,7 +2175,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2160,7 +2190,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2174,7 +2205,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2193,7 +2225,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, update_application_layer_automatic_response_errors()}
   def update_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplicationLayerAutomaticResponse", input, options)
   end
@@ -2214,7 +2247,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, update_emergency_contact_settings_errors()}
   def update_emergency_contact_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEmergencyContactSettings", input, options)
   end
@@ -2232,7 +2266,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, update_protection_group_errors()}
   def update_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProtectionGroup", input, options)
   end
@@ -2253,7 +2288,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, update_subscription_errors()}
   def update_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubscription", input, options)
   end

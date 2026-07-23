@@ -21,592 +21,105 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      parsing_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type parsing_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      manage_sparql_statistics_input() :: %{
-        optional("mode") => list(any())
-      }
-
-  """
-  @type manage_sparql_statistics_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ml_model_training_job_input() :: %{
-        optional("neptuneIamRoleArn") => [String.t() | atom()]
-      }
-
-  """
-  @type get_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_ml_data_processing_job_input() :: %{
-        optional("clean") => [boolean()],
-        optional("neptuneIamRoleArn") => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_ml_data_processing_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      read_only_violation_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type read_only_violation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_model_training_parameters() :: %{
-        "sourceS3DirectoryPath" => [String.t() | atom()],
-        "trainingEntryPointScript" => [String.t() | atom()],
-        "transformEntryPointScript" => [String.t() | atom()]
-      }
-
-  """
-  @type custom_model_training_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type s3_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_r_d_f_graph_summary_input() :: %{
-        optional("mode") => list(any())
-      }
-
-  """
-  @type get_r_d_f_graph_summary_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_propertygraph_stream_output() :: %{
-        "format" => [String.t() | atom()],
-        "lastEventId" => map(),
-        "lastTrxTimestampInMillis" => [float()],
-        "records" => list(propertygraph_record()),
-        "totalRecords" => [integer()]
-      }
-
-  """
-  @type get_propertygraph_stream_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      statistics_not_available_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type statistics_not_available_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_language_version() :: %{
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type query_language_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_operation_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_propertygraph_statistics_output() :: %{
-        "payload" => delete_statistics_value_map(),
-        "status" => [String.t() | atom()],
-        "statusCode" => [integer()]
-      }
-
-  """
-  @type delete_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_propertygraph_statistics_output() :: %{
-        "payload" => statistics(),
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type get_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_gremlin_profile_query_input() :: %{
-        optional("chop") => [integer()],
-        optional("indexOps") => [boolean()],
-        optional("results") => [boolean()],
-        optional("serializer") => [String.t() | atom()],
-        required("gremlinQuery") => [String.t() | atom()]
-      }
-
-  """
-  @type execute_gremlin_profile_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ml_model_transform_jobs_input() :: %{
-        optional("maxItems") => integer(),
-        optional("neptuneIamRoleArn") => [String.t() | atom()]
-      }
-
-  """
-  @type list_ml_model_transform_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_ml_data_processing_job_output() :: %{
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bulk_load_id_not_found_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type bulk_load_id_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_eval_stats() :: %{
-        "cancelled" => [boolean()],
-        "elapsed" => [integer()],
-        "subqueries" => [any()],
-        "waited" => [integer()]
-      }
-
-  """
-  @type query_eval_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      manage_propertygraph_statistics_output() :: %{
-        "payload" => refresh_statistics_id_map(),
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type manage_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_open_cypher_query_output() :: %{
-        "payload" => [boolean()],
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_open_cypher_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_open_cypher_query_output() :: %{
-        "results" => [any()]
-      }
-
-  """
-  @type execute_open_cypher_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ml_model_transform_job_output() :: %{
-        "baseProcessingJob" => ml_resource_definition(),
-        "id" => [String.t() | atom()],
-        "models" => list(ml_config_definition()),
-        "remoteModelTransformJob" => ml_resource_definition(),
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type get_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_ml_model_transform_job_output() :: %{
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_gremlin_explain_query_input() :: %{
-        required("gremlinQuery") => [String.t() | atom()]
-      }
-
-  """
-  @type execute_gremlin_explain_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      method_not_allowed_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_propertygraph_summary_input() :: %{
-        optional("mode") => list(any())
-      }
-
-  """
-  @type get_propertygraph_summary_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ml_config_definition() :: %{
-        "arn" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type ml_config_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_gremlin_profile_query_output() :: %{
-        "output" => binary()
-      }
-
-  """
-  @type execute_gremlin_profile_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ml_model_training_jobs_input() :: %{
-        optional("maxItems") => integer(),
-        optional("neptuneIamRoleArn") => [String.t() | atom()]
-      }
-
-  """
-  @type list_ml_model_training_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_gremlin_query_output() :: %{
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_gremlin_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      propertygraph_data() :: %{
-        "from" => [String.t() | atom()],
-        "id" => [String.t() | atom()],
-        "key" => [String.t() | atom()],
-        "to" => [String.t() | atom()],
-        "type" => [String.t() | atom()],
-        "value" => [any()]
-      }
-
-  """
-  @type propertygraph_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_loader_job_input() :: %{}
-
-  """
-  @type cancel_loader_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_open_cypher_explain_query_input() :: %{
-        optional("parameters") => [String.t() | atom()],
-        required("explainMode") => list(any()),
-        required("openCypherQuery") => [String.t() | atom()]
-      }
-
-  """
-  @type execute_open_cypher_explain_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failure_by_query_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type failure_by_query_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sparql_stream_output() :: %{
-        "format" => [String.t() | atom()],
-        "lastEventId" => map(),
-        "lastTrxTimestampInMillis" => [float()],
-        "records" => list(sparql_record()),
-        "totalRecords" => [integer()]
-      }
-
-  """
-  @type get_sparql_stream_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      illegal_argument_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type illegal_argument_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_ml_model_training_job_output() :: %{
+      start_ml_model_transform_job_output() :: %{
         "arn" => [String.t() | atom()],
         "creationTimeInMillis" => [float()],
         "id" => [String.t() | atom()]
       }
 
   """
-  @type start_ml_model_training_job_output() :: %{(String.t() | atom()) => any()}
+  @type start_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      too_many_requests_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
+      sparql_data() :: %{
+        "stmt" => [String.t() | atom()]
       }
 
   """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type sparql_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_loader_job_input() :: %{
-        optional("dependencies") => list([String.t() | atom()]()),
-        optional("edgeOnlyLoad") => [boolean()],
-        optional("failOnError") => [boolean()],
-        optional("mode") => list(any()),
-        optional("parallelism") => list(any()),
-        optional("parserConfiguration") => map(),
-        optional("queueRequest") => [boolean()],
-        optional("updateSingleCardinalityProperties") => [boolean()],
-        optional("userProvidedEdgeIds") => [boolean()],
-        required("format") => list(any()),
-        required("iamRoleArn") => [String.t() | atom()],
-        required("s3BucketRegion") => list(any()),
-        required("source") => [String.t() | atom()]
+      execute_open_cypher_query_input() :: %{
+        required("openCypherQuery") => [String.t() | atom()],
+        optional("parameters") => [String.t() | atom()]
       }
 
   """
-  @type start_loader_job_input() :: %{(String.t() | atom()) => any()}
+  @type execute_open_cypher_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_gremlin_query_status_input() :: %{}
-
-  """
-  @type get_gremlin_query_status_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_ml_data_processing_job_output() :: %{
-        "arn" => [String.t() | atom()],
-        "creationTimeInMillis" => [float()],
-        "id" => [String.t() | atom()]
-      }
-
-  """
-  @type start_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ml_model_transform_jobs_output() :: %{
-        "ids" => list([String.t() | atom()]())
-      }
-
-  """
-  @type list_ml_model_transform_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ml_data_processing_job_input() :: %{
+      get_ml_endpoint_input() :: %{
         optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type get_ml_data_processing_job_input() :: %{(String.t() | atom()) => any()}
+  @type get_ml_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      subject_structure() :: %{
-        "count" => [float()],
-        "predicates" => list([String.t() | atom()]())
+      manage_propertygraph_statistics_input() :: %{
+        optional("mode") => list(any())
       }
 
   """
-  @type subject_structure() :: %{(String.t() | atom()) => any()}
+  @type manage_propertygraph_statistics_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ml_resource_not_found_exception() :: %{
+      loader_id_result() :: %{
+        "loadIds" => list([String.t() | atom()]())
+      }
+
+  """
+  @type loader_id_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malformed_query_exception() :: %{
         "code" => [String.t() | atom()],
         "detailedMessage" => [String.t() | atom()],
         "requestId" => [String.t() | atom()]
       }
 
   """
-  @type ml_resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type malformed_query_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_loader_job_output() :: %{
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type cancel_loader_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ml_endpoint_output() :: %{
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,129 +141,28 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      query_limit_exceeded_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
+      custom_model_transform_parameters() :: %{
+        "sourceS3DirectoryPath" => [String.t() | atom()],
+        "transformEntryPointScript" => [String.t() | atom()]
       }
 
   """
-  @type query_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type custom_model_transform_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_ml_data_processing_jobs_output() :: %{
-        "ids" => list([String.t() | atom()]())
-      }
-
-  """
-  @type list_ml_data_processing_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      edge_structure() :: %{
-        "count" => [float()],
-        "edgeProperties" => list([String.t() | atom()]())
-      }
-
-  """
-  @type edge_structure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sparql_stream_input() :: %{
-        optional("commitNum") => [float()],
-        optional("encoding") => list(any()),
-        optional("iteratorType") => list(any()),
-        optional("limit") => [float()],
-        optional("opNum") => [float()]
-      }
-
-  """
-  @type get_sparql_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_ml_model_training_job_output() :: %{
+      get_ml_model_transform_job_output() :: %{
+        "baseProcessingJob" => ml_resource_definition(),
+        "id" => [String.t() | atom()],
+        "models" => list(ml_config_definition()),
+        "remoteModelTransformJob" => ml_resource_definition(),
         "status" => [String.t() | atom()]
       }
 
   """
-  @type cancel_ml_model_training_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_limit_exceeded_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type time_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_loader_job_status_output() :: %{
-        "payload" => [any()],
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type get_loader_job_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_ml_model_training_job_input() :: %{
-        optional("baseProcessingInstanceType") => [String.t() | atom()],
-        optional("customModelTrainingParameters") => custom_model_training_parameters(),
-        optional("enableManagedSpotTraining") => [boolean()],
-        optional("id") => [String.t() | atom()],
-        optional("maxHPONumberOfTrainingJobs") => [integer()],
-        optional("maxHPOParallelTrainingJobs") => [integer()],
-        optional("neptuneIamRoleArn") => [String.t() | atom()],
-        optional("previousModelTrainingJobId") => [String.t() | atom()],
-        optional("s3OutputEncryptionKMSKey") => [String.t() | atom()],
-        optional("sagemakerIamRoleArn") => [String.t() | atom()],
-        optional("securityGroupIds") => list([String.t() | atom()]()),
-        optional("subnets") => list([String.t() | atom()]()),
-        optional("trainingInstanceType") => [String.t() | atom()],
-        optional("trainingInstanceVolumeSizeInGB") => [integer()],
-        optional("trainingTimeOutInSeconds") => [integer()],
-        optional("volumeEncryptionKMSKey") => [String.t() | atom()],
-        required("dataProcessingJobId") => [String.t() | atom()],
-        required("trainModelS3Location") => [String.t() | atom()]
-      }
-
-  """
-  @type start_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      memory_limit_exceeded_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type memory_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type get_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -759,9 +171,11 @@ defmodule AWS.Neptunedata do
       start_ml_data_processing_job_input() :: %{
         optional("configFileName") => [String.t() | atom()],
         optional("id") => [String.t() | atom()],
+        required("inputDataS3Location") => [String.t() | atom()],
         optional("modelType") => [String.t() | atom()],
         optional("neptuneIamRoleArn") => [String.t() | atom()],
         optional("previousDataProcessingJobId") => [String.t() | atom()],
+        required("processedDataS3Location") => [String.t() | atom()],
         optional("processingInstanceType") => [String.t() | atom()],
         optional("processingInstanceVolumeSizeInGB") => [integer()],
         optional("processingTimeOutInSeconds") => [integer()],
@@ -769,9 +183,7 @@ defmodule AWS.Neptunedata do
         optional("sagemakerIamRoleArn") => [String.t() | atom()],
         optional("securityGroupIds") => list([String.t() | atom()]()),
         optional("subnets") => list([String.t() | atom()]()),
-        optional("volumeEncryptionKMSKey") => [String.t() | atom()],
-        required("inputDataS3Location") => [String.t() | atom()],
-        required("processedDataS3Location") => [String.t() | atom()]
+        optional("volumeEncryptionKMSKey") => [String.t() | atom()]
       }
 
   """
@@ -781,212 +193,25 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      malformed_query_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
+      cancel_ml_model_transform_job_output() :: %{
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type malformed_query_exception() :: %{(String.t() | atom()) => any()}
+  @type cancel_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      query_limit_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type query_limit_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sparql_record() :: %{
-        "commitTimestampInMillis" => [float()],
-        "data" => sparql_data(),
-        "eventId" => map(),
-        "isLastOp" => [boolean()],
-        "op" => [String.t() | atom()]
-      }
-
-  """
-  @type sparql_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gremlin_query_status() :: %{
-        "queryEvalStats" => query_eval_stats(),
-        "queryId" => [String.t() | atom()],
-        "queryString" => [String.t() | atom()]
-      }
-
-  """
-  @type gremlin_query_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_propertygraph_summary_output() :: %{
-        "payload" => propertygraph_summary_value_map(),
+      delete_sparql_statistics_output() :: %{
+        "payload" => delete_statistics_value_map(),
+        "status" => [String.t() | atom()],
         "statusCode" => [integer()]
       }
 
   """
-  @type get_propertygraph_summary_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ml_endpoints_output() :: %{
-        "ids" => list([String.t() | atom()]())
-      }
-
-  """
-  @type list_ml_endpoints_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      r_d_f_graph_summary_value_map() :: %{
-        "graphSummary" => r_d_f_graph_summary(),
-        "lastStatisticsComputationTime" => [non_neg_integer()],
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type r_d_f_graph_summary_value_map() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_open_cypher_query_input() :: %{
-        optional("parameters") => [String.t() | atom()],
-        required("openCypherQuery") => [String.t() | atom()]
-      }
-
-  """
-  @type execute_open_cypher_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_ml_model_transform_job_input() :: %{
-        optional("clean") => [boolean()],
-        optional("neptuneIamRoleArn") => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_open_cypher_query_input() :: %{
-        optional("silent") => [boolean()]
-      }
-
-  """
-  @type cancel_open_cypher_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ml_model_training_jobs_output() :: %{
-        "ids" => list([String.t() | atom()]())
-      }
-
-  """
-  @type list_ml_model_training_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_loader_job_status_input() :: %{
-        optional("details") => [boolean()],
-        optional("errors") => [boolean()],
-        optional("errorsPerPage") => integer(),
-        optional("page") => integer()
-      }
-
-  """
-  @type get_loader_job_status_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_open_cypher_query_status_output() :: %{
-        "queryEvalStats" => query_eval_stats(),
-        "queryId" => [String.t() | atom()],
-        "queryString" => [String.t() | atom()]
-      }
-
-  """
-  @type get_open_cypher_query_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_ml_model_transform_job_output() :: %{
-        "arn" => [String.t() | atom()],
-        "creationTimeInMillis" => [float()],
-        "id" => [String.t() | atom()]
-      }
-
-  """
-  @type start_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      propertygraph_summary() :: %{
-        "edgeLabels" => list([String.t() | atom()]()),
-        "edgeProperties" => list(map()),
-        "edgeStructures" => list(edge_structure()),
-        "nodeLabels" => list([String.t() | atom()]()),
-        "nodeProperties" => list(map()),
-        "nodeStructures" => list(node_structure()),
-        "numEdgeLabels" => [float()],
-        "numEdgeProperties" => [float()],
-        "numEdges" => [float()],
-        "numNodeLabels" => [float()],
-        "numNodeProperties" => [float()],
-        "numNodes" => [float()],
-        "totalEdgePropertyValues" => [float()],
-        "totalNodePropertyValues" => [float()]
-      }
-
-  """
-  @type propertygraph_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fast_reset_token() :: %{
-        "token" => [String.t() | atom()]
-      }
-
-  """
-  @type fast_reset_token() :: %{(String.t() | atom()) => any()}
+  @type delete_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1011,43 +236,108 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      get_ml_model_transform_job_input() :: %{
+      illegal_argument_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type illegal_argument_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parsing_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type parsing_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      manage_sparql_statistics_input() :: %{
+        optional("mode") => list(any())
+      }
+
+  """
+  @type manage_sparql_statistics_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_propertygraph_summary_input() :: %{
+        optional("mode") => list(any())
+      }
+
+  """
+  @type get_propertygraph_summary_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_limit_exceeded_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type query_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_fast_reset_input() :: %{
+        required("action") => list(any()),
+        optional("token") => [String.t() | atom()]
+      }
+
+  """
+  @type execute_fast_reset_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ml_endpoints_input() :: %{
+        optional("maxItems") => integer(),
         optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type get_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
+  @type list_ml_endpoints_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_ml_endpoint_output() :: %{
-        "endpoint" => ml_resource_definition(),
-        "endpointConfig" => ml_config_definition(),
-        "id" => [String.t() | atom()],
-        "status" => [String.t() | atom()]
-      }
+      get_gremlin_query_status_input() :: %{}
 
   """
-  @type get_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
+  @type get_gremlin_query_status_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      r_d_f_graph_summary() :: %{
-        "classes" => list([String.t() | atom()]()),
-        "numClasses" => [float()],
-        "numDistinctPredicates" => [float()],
-        "numDistinctSubjects" => [float()],
-        "numQuads" => [float()],
-        "predicates" => list(map()),
-        "subjectStructures" => list(subject_structure())
+      bad_request_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type r_d_f_graph_summary() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1079,151 +369,34 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      server_shutdown_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type server_shutdown_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_open_cypher_query_status_input() :: %{}
-
-  """
-  @type get_open_cypher_query_status_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ml_data_processing_jobs_input() :: %{
-        optional("maxItems") => integer(),
+      get_ml_model_transform_job_input() :: %{
         optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type list_ml_data_processing_jobs_input() :: %{(String.t() | atom()) => any()}
+  @type get_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_gremlin_query_status_output() :: %{
-        "queryEvalStats" => query_eval_stats(),
-        "queryId" => [String.t() | atom()],
-        "queryString" => [String.t() | atom()]
+      list_open_cypher_queries_input() :: %{
+        optional("includeWaiting") => [boolean()]
       }
 
   """
-  @type get_gremlin_query_status_output() :: %{(String.t() | atom()) => any()}
+  @type list_open_cypher_queries_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_ml_endpoints_input() :: %{
-        optional("maxItems") => integer(),
-        optional("neptuneIamRoleArn") => [String.t() | atom()]
+      fast_reset_token() :: %{
+        "token" => [String.t() | atom()]
       }
 
   """
-  @type list_ml_endpoints_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gremlin_queries_output() :: %{
-        "acceptedQueryCount" => [integer()],
-        "queries" => list(gremlin_query_status()),
-        "runningQueryCount" => [integer()]
-      }
-
-  """
-  @type list_gremlin_queries_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_ml_model_training_job_input() :: %{
-        optional("clean") => [boolean()],
-        optional("neptuneIamRoleArn") => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancelled_by_user_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type cancelled_by_user_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ml_data_processing_job_output() :: %{
-        "id" => [String.t() | atom()],
-        "processingJob" => ml_resource_definition(),
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type get_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sparql_statistics_output() :: %{
-        "payload" => delete_statistics_value_map(),
-        "status" => [String.t() | atom()],
-        "statusCode" => [integer()]
-      }
-
-  """
-  @type delete_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_propertygraph_stream_input() :: %{
-        optional("commitNum") => [float()],
-        optional("encoding") => list(any()),
-        optional("iteratorType") => list(any()),
-        optional("limit") => [float()],
-        optional("opNum") => [float()]
-      }
-
-  """
-  @type get_propertygraph_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_gremlin_query_input() :: %{
-        optional("serializer") => [String.t() | atom()],
-        required("gremlinQuery") => [String.t() | atom()]
-      }
-
-  """
-  @type execute_gremlin_query_input() :: %{(String.t() | atom()) => any()}
+  @type fast_reset_token() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1252,14 +425,47 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      create_ml_endpoint_output() :: %{
-        "arn" => [String.t() | atom()],
-        "creationTimeInMillis" => [float()],
-        "id" => [String.t() | atom()]
+      cancel_ml_model_training_job_input() :: %{
+        optional("clean") => [boolean()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type create_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
+  @type cancel_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_gremlin_query_output() :: %{
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type cancel_gremlin_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_ml_data_processing_job_input() :: %{
+        optional("clean") => [boolean()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
+      }
+
+  """
+  @type cancel_ml_data_processing_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ml_model_training_job_input() :: %{
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
+      }
+
+  """
+  @type get_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1280,24 +486,47 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      list_loader_jobs_input() :: %{
-        optional("includeQueuedLoads") => [boolean()],
-        optional("limit") => integer()
+      bulk_load_id_not_found_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type list_loader_jobs_input() :: %{(String.t() | atom()) => any()}
+  @type bulk_load_id_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      refresh_statistics_id_map() :: %{
-        "statisticsId" => [String.t() | atom()]
+      delete_ml_endpoint_input() :: %{
+        optional("clean") => [boolean()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type refresh_statistics_id_map() :: %{(String.t() | atom()) => any()}
+  @type delete_ml_endpoint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_loader_job_input() :: %{}
+
+  """
+  @type cancel_loader_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_loader_job_output() :: %{
+        "payload" => map(),
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type start_loader_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1316,228 +545,13 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      invalid_parameter_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_fast_reset_output() :: %{
-        "payload" => fast_reset_token(),
+      get_sparql_statistics_output() :: %{
+        "payload" => statistics(),
         "status" => [String.t() | atom()]
       }
 
   """
-  @type execute_fast_reset_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      propertygraph_summary_value_map() :: %{
-        "graphSummary" => propertygraph_summary(),
-        "lastStatisticsComputationTime" => [non_neg_integer()],
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type propertygraph_summary_value_map() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_argument_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_open_cypher_queries_input() :: %{
-        optional("includeWaiting") => [boolean()]
-      }
-
-  """
-  @type list_open_cypher_queries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      statistics() :: %{
-        "active" => [boolean()],
-        "autoCompute" => [boolean()],
-        "date" => [non_neg_integer()],
-        "note" => [String.t() | atom()],
-        "signatureInfo" => statistics_summary(),
-        "statisticsId" => [String.t() | atom()]
-      }
-
-  """
-  @type statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrent_modification_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      manage_sparql_statistics_output() :: %{
-        "payload" => refresh_statistics_id_map(),
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type manage_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_structure() :: %{
-        "count" => [float()],
-        "distinctOutgoingEdgeLabels" => list([String.t() | atom()]()),
-        "nodeProperties" => list([String.t() | atom()]())
-      }
-
-  """
-  @type node_structure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      constraint_violation_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type constraint_violation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_too_large_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type query_too_large_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_loader_job_output() :: %{
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_loader_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gremlin_queries_input() :: %{
-        optional("includeWaiting") => [boolean()]
-      }
-
-  """
-  @type list_gremlin_queries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_gremlin_query_output() :: %{
-        "meta" => [any()],
-        "requestId" => [String.t() | atom()],
-        "result" => [any()],
-        "status" => gremlin_query_status_attributes()
-      }
-
-  """
-  @type execute_gremlin_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_records_not_found_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
-      }
-
-  """
-  @type stream_records_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_r_d_f_graph_summary_output() :: %{
-        "payload" => r_d_f_graph_summary_value_map(),
-        "statusCode" => [integer()]
-      }
-
-  """
-  @type get_r_d_f_graph_summary_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      manage_propertygraph_statistics_input() :: %{
-        optional("mode") => list(any())
-      }
-
-  """
-  @type manage_propertygraph_statistics_input() :: %{(String.t() | atom()) => any()}
+  @type get_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1556,182 +570,532 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      execute_gremlin_explain_query_output() :: %{
-        "output" => binary()
+      get_propertygraph_stream_input() :: %{
+        optional("commitNum") => [float()],
+        optional("encoding") => list(any()),
+        optional("iteratorType") => list(any()),
+        optional("limit") => [float()],
+        optional("opNum") => [float()]
       }
 
   """
-  @type execute_gremlin_explain_query_output() :: %{(String.t() | atom()) => any()}
+  @type get_propertygraph_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_ml_endpoint_output() :: %{
+      r_d_f_graph_summary_value_map() :: %{
+        "graphSummary" => r_d_f_graph_summary(),
+        "lastStatisticsComputationTime" => [non_neg_integer()],
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type r_d_f_graph_summary_value_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gremlin_query_status_output() :: %{
+        "queryEvalStats" => query_eval_stats(),
+        "queryId" => [String.t() | atom()],
+        "queryString" => [String.t() | atom()]
+      }
+
+  """
+  @type get_gremlin_query_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ml_model_training_jobs_output() :: %{
+        "ids" => list([String.t() | atom()]())
+      }
+
+  """
+  @type list_ml_model_training_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ml_data_processing_job_output() :: %{
+        "id" => [String.t() | atom()],
+        "processingJob" => ml_resource_definition(),
         "status" => [String.t() | atom()]
       }
 
   """
-  @type delete_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
+  @type get_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      load_url_access_denied_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
+      manage_propertygraph_statistics_output() :: %{
+        "payload" => refresh_statistics_id_map(),
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type load_url_access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type manage_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_ml_endpoint_input() :: %{
-        optional("clean") => [boolean()],
+      get_ml_data_processing_job_input() :: %{
         optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type delete_ml_endpoint_input() :: %{(String.t() | atom()) => any()}
+  @type get_ml_data_processing_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      expired_stream_exception() :: %{
+      memory_limit_exceeded_exception() :: %{
         "code" => [String.t() | atom()],
         "detailedMessage" => [String.t() | atom()],
         "requestId" => [String.t() | atom()]
       }
 
   """
-  @type expired_stream_exception() :: %{(String.t() | atom()) => any()}
+  @type memory_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bad_request_exception() :: %{
-        "code" => [String.t() | atom()],
-        "detailedMessage" => [String.t() | atom()],
-        "requestId" => [String.t() | atom()]
+      ml_config_definition() :: %{
+        "arn" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type ml_config_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      gremlin_query_status_attributes() :: %{
-        "attributes" => [any()],
-        "code" => [integer()],
-        "message" => [String.t() | atom()]
+      get_loader_job_status_input() :: %{
+        optional("details") => [boolean()],
+        optional("errors") => [boolean()],
+        optional("errorsPerPage") => integer(),
+        optional("page") => integer()
       }
 
   """
-  @type gremlin_query_status_attributes() :: %{(String.t() | atom()) => any()}
+  @type get_loader_job_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_loader_job_output() :: %{
-        "payload" => map(),
+      get_ml_endpoint_output() :: %{
+        "endpoint" => ml_resource_definition(),
+        "endpointConfig" => ml_config_definition(),
+        "id" => [String.t() | atom()],
         "status" => [String.t() | atom()]
       }
 
   """
-  @type start_loader_job_output() :: %{(String.t() | atom()) => any()}
+  @type get_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_statistics_value_map() :: %{
-        "active" => [boolean()],
+      invalid_argument_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sparql_stream_output() :: %{
+        "format" => [String.t() | atom()],
+        "lastEventId" => map(),
+        "lastTrxTimestampInMillis" => [float()],
+        "records" => list(sparql_record()),
+        "totalRecords" => [integer()]
+      }
+
+  """
+  @type get_sparql_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      refresh_statistics_id_map() :: %{
         "statisticsId" => [String.t() | atom()]
       }
 
   """
-  @type delete_statistics_value_map() :: %{(String.t() | atom()) => any()}
+  @type refresh_statistics_id_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      execute_open_cypher_explain_query_output() :: %{
-        "results" => [binary()]
+      list_ml_data_processing_jobs_input() :: %{
+        optional("maxItems") => integer(),
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type execute_open_cypher_explain_query_output() :: %{(String.t() | atom()) => any()}
+  @type list_ml_data_processing_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_open_cypher_queries_output() :: %{
-        "acceptedQueryCount" => [integer()],
-        "queries" => list(gremlin_query_status()),
-        "runningQueryCount" => [integer()]
+      get_sparql_stream_input() :: %{
+        optional("commitNum") => [float()],
+        optional("encoding") => list(any()),
+        optional("iteratorType") => list(any()),
+        optional("limit") => [float()],
+        optional("opNum") => [float()]
       }
 
   """
-  @type list_open_cypher_queries_output() :: %{(String.t() | atom()) => any()}
+  @type get_sparql_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_ml_model_transform_job_input() :: %{
-        optional("baseProcessingInstanceType") => [String.t() | atom()],
-        optional("baseProcessingInstanceVolumeSizeInGB") => [integer()],
-        optional("customModelTransformParameters") => custom_model_transform_parameters(),
-        optional("dataProcessingJobId") => [String.t() | atom()],
-        optional("id") => [String.t() | atom()],
-        optional("mlModelTrainingJobId") => [String.t() | atom()],
-        optional("neptuneIamRoleArn") => [String.t() | atom()],
-        optional("s3OutputEncryptionKMSKey") => [String.t() | atom()],
-        optional("sagemakerIamRoleArn") => [String.t() | atom()],
-        optional("securityGroupIds") => list([String.t() | atom()]()),
-        optional("subnets") => list([String.t() | atom()]()),
-        optional("trainingJobName") => [String.t() | atom()],
-        optional("volumeEncryptionKMSKey") => [String.t() | atom()],
-        required("modelTransformOutputS3Location") => [String.t() | atom()]
-      }
+      cancel_gremlin_query_input() :: %{}
 
   """
-  @type start_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
+  @type cancel_gremlin_query_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      custom_model_transform_parameters() :: %{
-        "sourceS3DirectoryPath" => [String.t() | atom()],
-        "transformEntryPointScript" => [String.t() | atom()]
+      get_propertygraph_stream_output() :: %{
+        "format" => [String.t() | atom()],
+        "lastEventId" => map(),
+        "lastTrxTimestampInMillis" => [float()],
+        "records" => list(propertygraph_record()),
+        "totalRecords" => [integer()]
       }
 
   """
-  @type custom_model_transform_parameters() :: %{(String.t() | atom()) => any()}
+  @type get_propertygraph_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      loader_id_result() :: %{
-        "loadIds" => list([String.t() | atom()]())
+      query_limit_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type loader_id_result() :: %{(String.t() | atom()) => any()}
+  @type query_limit_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_ml_data_processing_job_output() :: %{
+        "arn" => [String.t() | atom()],
+        "creationTimeInMillis" => [float()],
+        "id" => [String.t() | atom()]
+      }
+
+  """
+  @type start_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_gremlin_query_input() :: %{
+        required("gremlinQuery") => [String.t() | atom()],
+        optional("serializer") => [String.t() | atom()]
+      }
+
+  """
+  @type execute_gremlin_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_open_cypher_query_input() :: %{
+        optional("silent") => [boolean()]
+      }
+
+  """
+  @type cancel_open_cypher_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_records_not_found_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type stream_records_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_propertygraph_statistics_output() :: %{
+        "payload" => statistics(),
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type get_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_timeout_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type client_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_operation_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_eval_stats() :: %{
+        "cancelled" => [boolean()],
+        "elapsed" => [integer()],
+        "subqueries" => [any()],
+        "waited" => [integer()]
+      }
+
+  """
+  @type query_eval_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_open_cypher_query_status_output() :: %{
+        "queryEvalStats" => query_eval_stats(),
+        "queryId" => [String.t() | atom()],
+        "queryString" => [String.t() | atom()]
+      }
+
+  """
+  @type get_open_cypher_query_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failure_by_query_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type failure_by_query_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_shutdown_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type server_shutdown_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_ml_model_training_job_output() :: %{
+        "arn" => [String.t() | atom()],
+        "creationTimeInMillis" => [float()],
+        "id" => [String.t() | atom()]
+      }
+
+  """
+  @type start_ml_model_training_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_r_d_f_graph_summary_output() :: %{
+        "payload" => r_d_f_graph_summary_value_map(),
+        "statusCode" => [integer()]
+      }
+
+  """
+  @type get_r_d_f_graph_summary_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ml_model_transform_jobs_output() :: %{
+        "ids" => list([String.t() | atom()]())
+      }
+
+  """
+  @type list_ml_model_transform_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_ml_model_training_job_output() :: %{
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type cancel_ml_model_training_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_open_cypher_query_output() :: %{
+        "results" => [any()]
+      }
+
+  """
+  @type execute_open_cypher_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      manage_sparql_statistics_output() :: %{
+        "payload" => refresh_statistics_id_map(),
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type manage_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_gremlin_explain_query_input() :: %{
+        required("gremlinQuery") => [String.t() | atom()]
+      }
+
+  """
+  @type execute_gremlin_explain_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      propertygraph_data() :: %{
+        "from" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "key" => [String.t() | atom()],
+        "to" => [String.t() | atom()],
+        "type" => [String.t() | atom()],
+        "value" => [any()]
+      }
+
+  """
+  @type propertygraph_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_r_d_f_graph_summary_input() :: %{
+        optional("mode") => list(any())
+      }
+
+  """
+  @type get_r_d_f_graph_summary_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancelled_by_user_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type cancelled_by_user_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ml_resource_not_found_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type ml_resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1753,6 +1117,221 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
+      time_limit_exceeded_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type time_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_loader_job_input() :: %{
+        optional("dependencies") => list([String.t() | atom()]()),
+        optional("edgeOnlyLoad") => [boolean()],
+        optional("failOnError") => [boolean()],
+        required("format") => list(any()),
+        required("iamRoleArn") => [String.t() | atom()],
+        optional("mode") => list(any()),
+        optional("parallelism") => list(any()),
+        optional("parserConfiguration") => map(),
+        optional("queueRequest") => [boolean()],
+        required("s3BucketRegion") => list(any()),
+        required("source") => [String.t() | atom()],
+        optional("updateSingleCardinalityProperties") => [boolean()],
+        optional("userProvidedEdgeIds") => [boolean()]
+      }
+
+  """
+  @type start_loader_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      statistics() :: %{
+        "active" => [boolean()],
+        "autoCompute" => [boolean()],
+        "date" => [non_neg_integer()],
+        "note" => [String.t() | atom()],
+        "signatureInfo" => statistics_summary(),
+        "statisticsId" => [String.t() | atom()]
+      }
+
+  """
+  @type statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_model_training_parameters() :: %{
+        "sourceS3DirectoryPath" => [String.t() | atom()],
+        "trainingEntryPointScript" => [String.t() | atom()],
+        "transformEntryPointScript" => [String.t() | atom()]
+      }
+
+  """
+  @type custom_model_training_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expired_stream_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type expired_stream_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      propertygraph_summary() :: %{
+        "edgeLabels" => list([String.t() | atom()]()),
+        "edgeProperties" => list(map()),
+        "edgeStructures" => list(edge_structure()),
+        "nodeLabels" => list([String.t() | atom()]()),
+        "nodeProperties" => list(map()),
+        "nodeStructures" => list(node_structure()),
+        "numEdgeLabels" => [float()],
+        "numEdgeProperties" => [float()],
+        "numEdges" => [float()],
+        "numNodeLabels" => [float()],
+        "numNodeProperties" => [float()],
+        "numNodes" => [float()],
+        "totalEdgePropertyValues" => [float()],
+        "totalNodePropertyValues" => [float()]
+      }
+
+  """
+  @type propertygraph_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      propertygraph_summary_value_map() :: %{
+        "graphSummary" => propertygraph_summary(),
+        "lastStatisticsComputationTime" => [non_neg_integer()],
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type propertygraph_summary_value_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gremlin_queries_input() :: %{
+        optional("includeWaiting") => [boolean()]
+      }
+
+  """
+  @type list_gremlin_queries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_open_cypher_queries_output() :: %{
+        "acceptedQueryCount" => [integer()],
+        "queries" => list(gremlin_query_status()),
+        "runningQueryCount" => [integer()]
+      }
+
+  """
+  @type list_open_cypher_queries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_language_version() :: %{
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type query_language_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_ml_model_training_job_input() :: %{
+        optional("baseProcessingInstanceType") => [String.t() | atom()],
+        optional("customModelTrainingParameters") => custom_model_training_parameters(),
+        required("dataProcessingJobId") => [String.t() | atom()],
+        optional("enableManagedSpotTraining") => [boolean()],
+        optional("id") => [String.t() | atom()],
+        optional("maxHPONumberOfTrainingJobs") => [integer()],
+        optional("maxHPOParallelTrainingJobs") => [integer()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()],
+        optional("previousModelTrainingJobId") => [String.t() | atom()],
+        optional("s3OutputEncryptionKMSKey") => [String.t() | atom()],
+        optional("sagemakerIamRoleArn") => [String.t() | atom()],
+        optional("securityGroupIds") => list([String.t() | atom()]()),
+        optional("subnets") => list([String.t() | atom()]()),
+        required("trainModelS3Location") => [String.t() | atom()],
+        optional("trainingInstanceType") => [String.t() | atom()],
+        optional("trainingInstanceVolumeSizeInGB") => [integer()],
+        optional("trainingTimeOutInSeconds") => [integer()],
+        optional("volumeEncryptionKMSKey") => [String.t() | atom()]
+      }
+
+  """
+  @type start_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_gremlin_explain_query_output() :: %{
+        "output" => binary()
+      }
+
+  """
+  @type execute_gremlin_explain_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       preconditions_failed_exception() :: %{
         "code" => [String.t() | atom()],
         "detailedMessage" => [String.t() | atom()],
@@ -1766,25 +1345,161 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      client_timeout_exception() :: %{
+      load_url_access_denied_exception() :: %{
         "code" => [String.t() | atom()],
         "detailedMessage" => [String.t() | atom()],
         "requestId" => [String.t() | atom()]
       }
 
   """
-  @type client_timeout_exception() :: %{(String.t() | atom()) => any()}
+  @type load_url_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sparql_data() :: %{
-        "stmt" => [String.t() | atom()]
+      execute_gremlin_query_output() :: %{
+        "meta" => [any()],
+        "requestId" => [String.t() | atom()],
+        "result" => [any()],
+        "status" => gremlin_query_status_attributes()
       }
 
   """
-  @type sparql_data() :: %{(String.t() | atom()) => any()}
+  @type execute_gremlin_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ml_model_training_jobs_input() :: %{
+        optional("maxItems") => integer(),
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
+      }
+
+  """
+  @type list_ml_model_training_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ml_model_transform_jobs_input() :: %{
+        optional("maxItems") => integer(),
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
+      }
+
+  """
+  @type list_ml_model_transform_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_open_cypher_query_status_input() :: %{}
+
+  """
+  @type get_open_cypher_query_status_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      gremlin_query_status() :: %{
+        "queryEvalStats" => query_eval_stats(),
+        "queryId" => [String.t() | atom()],
+        "queryString" => [String.t() | atom()]
+      }
+
+  """
+  @type gremlin_query_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_ml_model_transform_job_input() :: %{
+        optional("clean") => [boolean()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
+      }
+
+  """
+  @type cancel_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      edge_structure() :: %{
+        "count" => [float()],
+        "edgeProperties" => list([String.t() | atom()]())
+      }
+
+  """
+  @type edge_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_open_cypher_explain_query_output() :: %{
+        "results" => [binary()]
+      }
+
+  """
+  @type execute_open_cypher_explain_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_ml_model_transform_job_input() :: %{
+        optional("baseProcessingInstanceType") => [String.t() | atom()],
+        optional("baseProcessingInstanceVolumeSizeInGB") => [integer()],
+        optional("customModelTransformParameters") => custom_model_transform_parameters(),
+        optional("dataProcessingJobId") => [String.t() | atom()],
+        optional("id") => [String.t() | atom()],
+        optional("mlModelTrainingJobId") => [String.t() | atom()],
+        required("modelTransformOutputS3Location") => [String.t() | atom()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()],
+        optional("s3OutputEncryptionKMSKey") => [String.t() | atom()],
+        optional("sagemakerIamRoleArn") => [String.t() | atom()],
+        optional("securityGroupIds") => list([String.t() | atom()]()),
+        optional("subnets") => list([String.t() | atom()]()),
+        optional("trainingJobName") => [String.t() | atom()],
+        optional("volumeEncryptionKMSKey") => [String.t() | atom()]
+      }
+
+  """
+  @type start_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gremlin_queries_output() :: %{
+        "acceptedQueryCount" => [integer()],
+        "queries" => list(gremlin_query_status()),
+        "runningQueryCount" => [integer()]
+      }
+
+  """
+  @type list_gremlin_queries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_gremlin_profile_query_input() :: %{
+        optional("chop") => [integer()],
+        required("gremlinQuery") => [String.t() | atom()],
+        optional("indexOps") => [boolean()],
+        optional("results") => [boolean()],
+        optional("serializer") => [String.t() | atom()]
+      }
+
+  """
+  @type execute_gremlin_profile_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1802,705 +1517,990 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
-      cancel_gremlin_query_input() :: %{}
-
-  """
-  @type cancel_gremlin_query_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ml_endpoint_input() :: %{
-        optional("neptuneIamRoleArn") => [String.t() | atom()]
+      list_ml_data_processing_jobs_output() :: %{
+        "ids" => list([String.t() | atom()]())
       }
 
   """
-  @type get_ml_endpoint_input() :: %{(String.t() | atom()) => any()}
+  @type list_ml_data_processing_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sparql_statistics_output() :: %{
-        "payload" => statistics(),
+      concurrent_modification_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_loader_job_status_output() :: %{
+        "payload" => [any()],
         "status" => [String.t() | atom()]
       }
 
   """
-  @type get_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
+  @type get_loader_job_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      execute_fast_reset_input() :: %{
-        optional("token") => [String.t() | atom()],
-        required("action") => list(any())
+      query_too_large_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type execute_fast_reset_input() :: %{(String.t() | atom()) => any()}
+  @type query_too_large_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sparql_record() :: %{
+        "commitTimestampInMillis" => [float()],
+        "data" => sparql_data(),
+        "eventId" => map(),
+        "isLastOp" => [boolean()],
+        "op" => [String.t() | atom()]
+      }
+
+  """
+  @type sparql_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_only_violation_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type read_only_violation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_propertygraph_statistics_output() :: %{
+        "payload" => delete_statistics_value_map(),
+        "status" => [String.t() | atom()],
+        "statusCode" => [integer()]
+      }
+
+  """
+  @type delete_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_statistics_value_map() :: %{
+        "active" => [boolean()],
+        "statisticsId" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_statistics_value_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type s3_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ml_endpoint_output() :: %{
+        "arn" => [String.t() | atom()],
+        "creationTimeInMillis" => [float()],
+        "id" => [String.t() | atom()]
+      }
+
+  """
+  @type create_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_propertygraph_summary_output() :: %{
+        "payload" => propertygraph_summary_value_map(),
+        "statusCode" => [integer()]
+      }
+
+  """
+  @type get_propertygraph_summary_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      statistics_not_available_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type statistics_not_available_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      r_d_f_graph_summary() :: %{
+        "classes" => list([String.t() | atom()]()),
+        "numClasses" => [float()],
+        "numDistinctPredicates" => [float()],
+        "numDistinctSubjects" => [float()],
+        "numQuads" => [float()],
+        "predicates" => list(map()),
+        "subjectStructures" => list(subject_structure())
+      }
+
+  """
+  @type r_d_f_graph_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_structure() :: %{
+        "count" => [float()],
+        "distinctOutgoingEdgeLabels" => list([String.t() | atom()]()),
+        "nodeProperties" => list([String.t() | atom()]())
+      }
+
+  """
+  @type node_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_loader_jobs_input() :: %{
+        optional("includeQueuedLoads") => [boolean()],
+        optional("limit") => integer()
+      }
+
+  """
+  @type list_loader_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_fast_reset_output() :: %{
+        "payload" => fast_reset_token(),
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type execute_fast_reset_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_open_cypher_query_output() :: %{
+        "payload" => [boolean()],
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type cancel_open_cypher_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gremlin_query_status_attributes() :: %{
+        "attributes" => [any()],
+        "code" => [integer()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type gremlin_query_status_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_ml_data_processing_job_output() :: %{
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type cancel_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_open_cypher_explain_query_input() :: %{
+        required("explainMode") => list(any()),
+        required("openCypherQuery") => [String.t() | atom()],
+        optional("parameters") => [String.t() | atom()]
+      }
+
+  """
+  @type execute_open_cypher_explain_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_gremlin_profile_query_output() :: %{
+        "output" => binary()
+      }
+
+  """
+  @type execute_gremlin_profile_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      constraint_violation_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type constraint_violation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ml_endpoints_output() :: %{
+        "ids" => list([String.t() | atom()]())
+      }
+
+  """
+  @type list_ml_endpoints_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subject_structure() :: %{
+        "count" => [float()],
+        "predicates" => list([String.t() | atom()]())
+      }
+
+  """
+  @type subject_structure() :: %{(String.t() | atom()) => any()}
 
   @type cancel_gremlin_query_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | time_limit_exceeded_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
           | parsing_exception()
+          | illegal_argument_exception()
 
   @type cancel_loader_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | load_url_access_denied_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | bulk_load_id_not_found_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | internal_failure_exception()
+          | too_many_requests_exception()
+          | load_url_access_denied_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | bulk_load_id_not_found_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type cancel_ml_data_processing_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type cancel_ml_model_training_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type cancel_ml_model_transform_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type cancel_open_cypher_query_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | invalid_numeric_data_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | time_limit_exceeded_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | invalid_numeric_data_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
           | parsing_exception()
+          | illegal_argument_exception()
 
   @type create_ml_endpoint_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type delete_ml_endpoint_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type delete_propertygraph_statistics_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | statistics_not_available_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type delete_sparql_statistics_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | statistics_not_available_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type execute_fast_reset_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | server_shutdown_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | method_not_allowed_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | method_not_allowed_exception()
+          | server_shutdown_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | illegal_argument_exception()
 
   @type execute_gremlin_explain_query_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
+          constraint_violation_exception()
           | query_too_large_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | cancelled_by_user_exception()
-          | missing_parameter_exception()
-          | query_limit_exception()
-          | malformed_query_exception()
-          | memory_limit_exceeded_exception()
-          | time_limit_exceeded_exception()
-          | query_limit_exceeded_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
+          | cancelled_by_user_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | query_limit_exception()
+          | invalid_argument_exception()
+          | memory_limit_exceeded_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | query_limit_exceeded_exception()
           | parsing_exception()
+          | illegal_argument_exception()
+          | malformed_query_exception()
 
   @type execute_gremlin_profile_query_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
+          constraint_violation_exception()
           | query_too_large_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | cancelled_by_user_exception()
-          | missing_parameter_exception()
-          | query_limit_exception()
-          | malformed_query_exception()
-          | memory_limit_exceeded_exception()
-          | time_limit_exceeded_exception()
-          | query_limit_exceeded_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
+          | cancelled_by_user_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | query_limit_exception()
+          | invalid_argument_exception()
+          | memory_limit_exceeded_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | query_limit_exceeded_exception()
           | parsing_exception()
+          | illegal_argument_exception()
+          | malformed_query_exception()
 
   @type execute_gremlin_query_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
+          constraint_violation_exception()
           | query_too_large_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | cancelled_by_user_exception()
-          | missing_parameter_exception()
-          | query_limit_exception()
-          | malformed_query_exception()
-          | memory_limit_exceeded_exception()
-          | time_limit_exceeded_exception()
-          | query_limit_exceeded_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
+          | cancelled_by_user_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | query_limit_exception()
+          | invalid_argument_exception()
+          | memory_limit_exceeded_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | query_limit_exceeded_exception()
           | parsing_exception()
+          | illegal_argument_exception()
+          | malformed_query_exception()
 
   @type execute_open_cypher_explain_query_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | invalid_numeric_data_exception()
+          constraint_violation_exception()
           | query_too_large_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | cancelled_by_user_exception()
-          | missing_parameter_exception()
-          | query_limit_exception()
-          | malformed_query_exception()
-          | memory_limit_exceeded_exception()
-          | time_limit_exceeded_exception()
-          | query_limit_exceeded_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
+          | cancelled_by_user_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | query_limit_exception()
+          | invalid_argument_exception()
+          | memory_limit_exceeded_exception()
+          | invalid_numeric_data_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | query_limit_exceeded_exception()
           | parsing_exception()
+          | illegal_argument_exception()
+          | malformed_query_exception()
 
   @type execute_open_cypher_query_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | invalid_numeric_data_exception()
+          constraint_violation_exception()
           | query_too_large_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | cancelled_by_user_exception()
-          | missing_parameter_exception()
-          | query_limit_exception()
-          | malformed_query_exception()
-          | memory_limit_exceeded_exception()
-          | time_limit_exceeded_exception()
-          | query_limit_exceeded_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
+          | cancelled_by_user_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | query_limit_exception()
+          | invalid_argument_exception()
+          | memory_limit_exceeded_exception()
+          | invalid_numeric_data_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | query_limit_exceeded_exception()
           | parsing_exception()
+          | illegal_argument_exception()
+          | malformed_query_exception()
 
   @type get_engine_status_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | internal_failure_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | illegal_argument_exception()
 
   @type get_gremlin_query_status_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | time_limit_exceeded_exception()
+          constraint_violation_exception()
+          | read_only_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
-          | read_only_violation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
           | parsing_exception()
+          | illegal_argument_exception()
 
   @type get_loader_job_status_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | load_url_access_denied_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | bulk_load_id_not_found_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | internal_failure_exception()
+          | too_many_requests_exception()
+          | load_url_access_denied_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | bulk_load_id_not_found_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_ml_data_processing_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_ml_endpoint_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_ml_model_training_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_ml_model_transform_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_open_cypher_query_status_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | invalid_numeric_data_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | time_limit_exceeded_exception()
+          constraint_violation_exception()
+          | read_only_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
-          | read_only_violation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | invalid_numeric_data_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
           | parsing_exception()
+          | illegal_argument_exception()
 
   @type get_propertygraph_statistics_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | statistics_not_available_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_propertygraph_stream_errors() ::
-          client_timeout_exception()
+          constraint_violation_exception()
+          | too_many_requests_exception()
           | preconditions_failed_exception()
+          | invalid_parameter_exception()
           | expired_stream_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
           | stream_records_not_found_exception()
           | throttling_exception()
-          | constraint_violation_exception()
           | invalid_argument_exception()
-          | invalid_parameter_exception()
           | memory_limit_exceeded_exception()
-          | too_many_requests_exception()
           | illegal_argument_exception()
-          | unsupported_operation_exception()
 
   @type get_propertygraph_summary_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | statistics_not_available_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_r_d_f_graph_summary_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | statistics_not_available_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_sparql_statistics_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | statistics_not_available_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type get_sparql_stream_errors() ::
-          client_timeout_exception()
+          constraint_violation_exception()
+          | too_many_requests_exception()
           | preconditions_failed_exception()
+          | invalid_parameter_exception()
           | expired_stream_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
           | stream_records_not_found_exception()
           | throttling_exception()
-          | constraint_violation_exception()
           | invalid_argument_exception()
-          | invalid_parameter_exception()
           | memory_limit_exceeded_exception()
-          | too_many_requests_exception()
           | illegal_argument_exception()
-          | unsupported_operation_exception()
 
   @type list_gremlin_queries_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | time_limit_exceeded_exception()
+          constraint_violation_exception()
+          | read_only_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
-          | read_only_violation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
           | parsing_exception()
+          | illegal_argument_exception()
 
   @type list_loader_jobs_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | load_url_access_denied_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | bulk_load_id_not_found_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | internal_failure_exception()
+          | too_many_requests_exception()
+          | load_url_access_denied_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | bulk_load_id_not_found_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type list_ml_data_processing_jobs_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type list_ml_endpoints_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type list_ml_model_training_jobs_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type list_ml_model_transform_jobs_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type list_open_cypher_queries_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | invalid_numeric_data_exception()
-          | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | time_limit_exceeded_exception()
+          constraint_violation_exception()
+          | read_only_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | concurrent_modification_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | time_limit_exceeded_exception()
           | failure_by_query_exception()
           | unsupported_operation_exception()
-          | read_only_violation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | invalid_numeric_data_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
           | parsing_exception()
+          | illegal_argument_exception()
 
   @type manage_propertygraph_statistics_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | statistics_not_available_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type manage_sparql_statistics_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | unsupported_operation_exception()
+          constraint_violation_exception()
           | statistics_not_available_exception()
           | read_only_violation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type start_loader_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | load_url_access_denied_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | too_many_requests_exception()
-          | illegal_argument_exception()
-          | bulk_load_id_not_found_exception()
-          | unsupported_operation_exception()
-          | s3_exception()
+          constraint_violation_exception()
           | internal_failure_exception()
+          | s3_exception()
+          | too_many_requests_exception()
+          | load_url_access_denied_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | bulk_load_id_not_found_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type start_ml_data_processing_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type start_ml_model_training_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   @type start_ml_model_transform_job_errors() ::
-          client_timeout_exception()
-          | preconditions_failed_exception()
-          | bad_request_exception()
-          | constraint_violation_exception()
-          | invalid_argument_exception()
-          | invalid_parameter_exception()
-          | missing_parameter_exception()
-          | ml_resource_not_found_exception()
+          constraint_violation_exception()
           | too_many_requests_exception()
-          | illegal_argument_exception()
+          | preconditions_failed_exception()
+          | invalid_parameter_exception()
+          | ml_resource_not_found_exception()
           | unsupported_operation_exception()
+          | client_timeout_exception()
+          | invalid_argument_exception()
+          | missing_parameter_exception()
+          | bad_request_exception()
+          | illegal_argument_exception()
 
   def metadata do
     %{
@@ -2622,8 +2622,8 @@ defmodule AWS.Neptunedata do
 
     {query_params, input} =
       [
-        {"clean", "clean"},
-        {"neptuneIamRoleArn", "neptuneIamRoleArn"}
+        {"neptuneIamRoleArn", "neptuneIamRoleArn"},
+        {"clean", "clean"}
       ]
       |> Request.build_params(input)
 
@@ -2670,8 +2670,8 @@ defmodule AWS.Neptunedata do
 
     {query_params, input} =
       [
-        {"clean", "clean"},
-        {"neptuneIamRoleArn", "neptuneIamRoleArn"}
+        {"neptuneIamRoleArn", "neptuneIamRoleArn"},
+        {"clean", "clean"}
       ]
       |> Request.build_params(input)
 
@@ -2718,8 +2718,8 @@ defmodule AWS.Neptunedata do
 
     {query_params, input} =
       [
-        {"clean", "clean"},
-        {"neptuneIamRoleArn", "neptuneIamRoleArn"}
+        {"neptuneIamRoleArn", "neptuneIamRoleArn"},
+        {"clean", "clean"}
       ]
       |> Request.build_params(input)
 
@@ -2847,8 +2847,8 @@ defmodule AWS.Neptunedata do
 
     {query_params, input} =
       [
-        {"clean", "clean"},
-        {"neptuneIamRoleArn", "neptuneIamRoleArn"}
+        {"neptuneIamRoleArn", "neptuneIamRoleArn"},
+        {"clean", "clean"}
       ]
       |> Request.build_params(input)
 
@@ -3325,10 +3325,10 @@ defmodule AWS.Neptunedata do
   def get_loader_job_status(
         %Client{} = client,
         load_id,
-        details \\ nil,
-        errors \\ nil,
-        errors_per_page \\ nil,
         page \\ nil,
+        errors_per_page \\ nil,
+        errors \\ nil,
+        details \\ nil,
         options \\ []
       ) do
     url_path = "/loader/#{AWS.Util.encode_uri(load_id)}"
@@ -3336,15 +3336,8 @@ defmodule AWS.Neptunedata do
     query_params = []
 
     query_params =
-      if !is_nil(page) do
-        [{"page", page} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(errors_per_page) do
-        [{"errorsPerPage", errors_per_page} | query_params]
+      if !is_nil(details) do
+        [{"details", details} | query_params]
       else
         query_params
       end
@@ -3357,8 +3350,15 @@ defmodule AWS.Neptunedata do
       end
 
     query_params =
-      if !is_nil(details) do
-        [{"details", details} | query_params]
+      if !is_nil(errors_per_page) do
+        [{"errorsPerPage", errors_per_page} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(page) do
+        [{"page", page} | query_params]
       else
         query_params
       end
@@ -3619,10 +3619,10 @@ defmodule AWS.Neptunedata do
           | {:error, get_propertygraph_stream_errors()}
   def get_propertygraph_stream(
         %Client{} = client,
-        commit_num \\ nil,
-        iterator_type \\ nil,
-        limit \\ nil,
         op_num \\ nil,
+        limit \\ nil,
+        iterator_type \\ nil,
+        commit_num \\ nil,
         encoding \\ nil,
         options \\ []
       ) do
@@ -3639,15 +3639,8 @@ defmodule AWS.Neptunedata do
     query_params = []
 
     query_params =
-      if !is_nil(op_num) do
-        [{"opNum", op_num} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(commit_num) do
+        [{"commitNum", commit_num} | query_params]
       else
         query_params
       end
@@ -3660,8 +3653,15 @@ defmodule AWS.Neptunedata do
       end
 
     query_params =
-      if !is_nil(commit_num) do
-        [{"commitNum", commit_num} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(op_num) do
+        [{"opNum", op_num} | query_params]
       else
         query_params
       end
@@ -3791,10 +3791,10 @@ defmodule AWS.Neptunedata do
           | {:error, get_sparql_stream_errors()}
   def get_sparql_stream(
         %Client{} = client,
-        commit_num \\ nil,
-        iterator_type \\ nil,
-        limit \\ nil,
         op_num \\ nil,
+        limit \\ nil,
+        iterator_type \\ nil,
+        commit_num \\ nil,
         encoding \\ nil,
         options \\ []
       ) do
@@ -3811,15 +3811,8 @@ defmodule AWS.Neptunedata do
     query_params = []
 
     query_params =
-      if !is_nil(op_num) do
-        [{"opNum", op_num} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(commit_num) do
+        [{"commitNum", commit_num} | query_params]
       else
         query_params
       end
@@ -3832,8 +3825,15 @@ defmodule AWS.Neptunedata do
       end
 
     query_params =
-      if !is_nil(commit_num) do
-        [{"commitNum", commit_num} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(op_num) do
+        [{"opNum", op_num} | query_params]
       else
         query_params
       end
@@ -3897,8 +3897,8 @@ defmodule AWS.Neptunedata do
           | {:error, list_loader_jobs_errors()}
   def list_loader_jobs(
         %Client{} = client,
-        include_queued_loads \\ nil,
         limit \\ nil,
+        include_queued_loads \\ nil,
         options \\ []
       ) do
     url_path = "/loader"
@@ -3906,15 +3906,15 @@ defmodule AWS.Neptunedata do
     query_params = []
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(include_queued_loads) do
+        [{"includeQueuedLoads", include_queued_loads} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_queued_loads) do
-        [{"includeQueuedLoads", include_queued_loads} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -3947,8 +3947,8 @@ defmodule AWS.Neptunedata do
           | {:error, list_ml_data_processing_jobs_errors()}
   def list_ml_data_processing_jobs(
         %Client{} = client,
-        max_items \\ nil,
         neptune_iam_role_arn \\ nil,
+        max_items \\ nil,
         options \\ []
       ) do
     url_path = "/ml/dataprocessing"
@@ -3956,15 +3956,15 @@ defmodule AWS.Neptunedata do
     query_params = []
 
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if !is_nil(neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
       else
         query_params
       end
@@ -3992,8 +3992,8 @@ defmodule AWS.Neptunedata do
           | {:error, list_ml_endpoints_errors()}
   def list_ml_endpoints(
         %Client{} = client,
-        max_items \\ nil,
         neptune_iam_role_arn \\ nil,
+        max_items \\ nil,
         options \\ []
       ) do
     url_path = "/ml/endpoints"
@@ -4001,15 +4001,15 @@ defmodule AWS.Neptunedata do
     query_params = []
 
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if !is_nil(neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
       else
         query_params
       end
@@ -4042,8 +4042,8 @@ defmodule AWS.Neptunedata do
           | {:error, list_ml_model_training_jobs_errors()}
   def list_ml_model_training_jobs(
         %Client{} = client,
-        max_items \\ nil,
         neptune_iam_role_arn \\ nil,
+        max_items \\ nil,
         options \\ []
       ) do
     url_path = "/ml/modeltraining"
@@ -4051,15 +4051,15 @@ defmodule AWS.Neptunedata do
     query_params = []
 
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if !is_nil(neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
       else
         query_params
       end
@@ -4092,8 +4092,8 @@ defmodule AWS.Neptunedata do
           | {:error, list_ml_model_transform_jobs_errors()}
   def list_ml_model_transform_jobs(
         %Client{} = client,
-        max_items \\ nil,
         neptune_iam_role_arn \\ nil,
+        max_items \\ nil,
         options \\ []
       ) do
     url_path = "/ml/modeltransform"
@@ -4101,15 +4101,15 @@ defmodule AWS.Neptunedata do
     query_params = []
 
     query_params =
-      if !is_nil(neptune_iam_role_arn) do
-        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if !is_nil(neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", neptune_iam_role_arn} | query_params]
       else
         query_params
       end

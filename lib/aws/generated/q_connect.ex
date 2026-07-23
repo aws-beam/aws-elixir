@@ -40,304 +40,106 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      email_generative_answer_chunk_data_details() :: %{
-        "completion" => String.t() | atom(),
-        "nextChunkToken" => String.t() | atom(),
-        "references" => list(data_summary())
-      }
-
-  """
-  @type email_generative_answer_chunk_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_content_upload_response() :: %{
-        required("headersToInclude") => map(),
-        required("uploadId") => String.t() | atom(),
-        required("url") => String.t() | atom(),
-        required("urlExpiry") => [non_neg_integer()]
-      }
-
-  """
-  @type start_content_upload_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_message_template_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_message_template_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_a_i_guardrail_request() :: %{}
-
-  """
-  @type get_a_i_guardrail_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_knowledge_base_template_uri_request() :: %{
-        required("templateUri") => String.t() | atom()
-      }
-
-  """
-  @type update_knowledge_base_template_uri_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_feedback_request() :: %{
-        required("contentFeedback") => list(),
-        required("targetId") => String.t() | atom(),
-        required("targetType") => String.t() | atom()
-      }
-
-  """
-  @type put_feedback_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suggested_message_data_details() :: %{
-        "messageText" => String.t() | atom()
-      }
-
-  """
-  @type suggested_message_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_i_agent_version_response() :: %{}
-
-  """
-  @type delete_a_i_agent_version_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      query_assistant_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("results") => list(result_data())
-      }
-
-  """
-  @type query_assistant_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_configuration() :: %{
-        "generateChunkedMessage" => [boolean()],
-        "generateFillerMessage" => [boolean()]
-      }
-
-  """
-  @type message_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_i_agents_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("origin") => String.t() | atom()
-      }
-
-  """
-  @type list_a_i_agents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_template_order_field() :: %{
+      email_header() :: %{
         "name" => String.t() | atom(),
-        "order" => String.t() | atom()
+        "value" => String.t() | atom()
       }
 
   """
-  @type message_template_order_field() :: %{(String.t() | atom()) => any()}
+  @type email_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_message_template_attachment_response() :: %{}
-
-  """
-  @type delete_message_template_attachment_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieval_configuration() :: %{
-        "filter" => list(),
-        "knowledgeSource" => list(),
-        "numberOfResults" => [integer()],
-        "overrideKnowledgeBaseSearchType" => String.t() | atom()
-      }
-
-  """
-  @type retrieval_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_summary() :: %{
-        "assistantArn" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "sessionArn" => String.t() | atom(),
-        "sessionId" => String.t() | atom()
-      }
-
-  """
-  @type session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_quick_response_response() :: %{
+      get_quick_response_response() :: %{
         "quickResponse" => quick_response_data()
       }
 
   """
-  @type create_quick_response_response() :: %{(String.t() | atom()) => any()}
+  @type get_quick_response_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      a_i_agent_version_summary() :: %{
-        "aiAgentSummary" => a_i_agent_summary(),
-        "versionNumber" => float()
+      a_i_guardrail_contextual_grounding_policy_config() :: %{
+        "filtersConfig" => list(guardrail_contextual_grounding_filter_config())
       }
 
   """
-  @type a_i_agent_version_summary() :: %{(String.t() | atom()) => any()}
+  @type a_i_guardrail_contextual_grounding_policy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_session_response() :: %{
-        optional("session") => session_data()
-      }
-
-  """
-  @type get_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      whats_app_message_template_content() :: %{
-        "data" => String.t() | atom()
-      }
-
-  """
-  @type whats_app_message_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_i_agent_versions_request() :: %{
+      get_recommendations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("origin") => String.t() | atom()
+        optional("nextChunkToken") => String.t() | atom(),
+        optional("recommendationType") => String.t() | atom(),
+        optional("waitTimeSeconds") => integer()
       }
 
   """
-  @type list_a_i_agent_versions_request() :: %{(String.t() | atom()) => any()}
+  @type get_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unauthorized_exception() :: %{
-        "message" => [String.t() | atom()]
+      recommendation_data() :: %{
+        "data" => data_summary(),
+        "document" => document(),
+        "recommendationId" => String.t() | atom(),
+        "relevanceLevel" => String.t() | atom(),
+        "relevanceScore" => float(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+  @type recommendation_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_a_i_guardrail_version_response() :: %{}
+      span_message() :: %{
+        "messageId" => String.t() | atom(),
+        "participant" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "values" => list(list())
+      }
 
   """
-  @type delete_a_i_guardrail_version_response() :: %{}
+  @type span_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      orchestrator_configuration_entry() :: %{
-        "aiAgentId" => String.t() | atom(),
-        "orchestratorUseCase" => String.t() | atom()
+      source_content_data_details() :: %{
+        "citationSpan" => citation_span(),
+        "id" => String.t() | atom(),
+        "rankingData" => ranking_data(),
+        "textData" => text_data(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type orchestrator_configuration_entry() :: %{(String.t() | atom()) => any()}
+  @type source_content_data_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_assistant_a_i_agent_request() :: %{
-        optional("orchestratorUseCase") => String.t() | atom(),
-        required("aiAgentType") => String.t() | atom()
+        required("aiAgentType") => String.t() | atom(),
+        optional("orchestratorUseCase") => String.t() | atom()
       }
 
   """
   @type remove_assistant_a_i_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_summary() :: %{
-        "details" => list(),
-        "reference" => list()
-      }
-
-  """
-  @type data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,256 +159,267 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      quick_response_search_expression() :: %{
-        "filters" => list(quick_response_filter_field()),
-        "orderOnField" => quick_response_order_field(),
-        "queries" => list(quick_response_query_field())
+      whats_app_message_template_content() :: %{
+        "data" => String.t() | atom()
       }
 
   """
-  @type quick_response_search_expression() :: %{(String.t() | atom()) => any()}
+  @type whats_app_message_template_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_content_association_request() :: %{}
+      delete_a_i_guardrail_version_request() :: %{}
 
   """
-  @type get_content_association_request() :: %{}
+  @type delete_a_i_guardrail_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      deactivate_message_template_response() :: %{
-        "messageTemplateArn" => String.t() | atom(),
-        "messageTemplateId" => String.t() | atom(),
-        "versionNumber" => float()
+      delete_a_i_agent_response() :: %{}
+
+  """
+  @type delete_a_i_agent_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assistant_response() :: %{}
+
+  """
+  @type delete_assistant_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contents_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type deactivate_message_template_response() :: %{(String.t() | atom()) => any()}
+  @type list_contents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      fixed_size_chunking_configuration() :: %{
-        "maxTokens" => [integer()],
-        "overlapPercentage" => [integer()]
+      send_message_response() :: %{
+        "configuration" => message_configuration(),
+        "nextMessageToken" => String.t() | atom(),
+        "requestMessageId" => String.t() | atom()
       }
 
   """
-  @type fixed_size_chunking_configuration() :: %{(String.t() | atom()) => any()}
+  @type send_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      highlight() :: %{
-        "beginOffsetInclusive" => integer(),
-        "endOffsetExclusive" => integer()
-      }
-
-  """
-  @type highlight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_topic_config() :: %{
-        "definition" => String.t() | atom(),
-        "examples" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_topic_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_integrations_configuration() :: %{
-        "appIntegrationArn" => String.t() | atom(),
-        "objectFields" => list(String.t() | atom())
-      }
-
-  """
-  @type app_integrations_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_i_agent_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("configuration") => list(),
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom(),
-        required("visibilityStatus") => String.t() | atom()
-      }
-
-  """
-  @type create_a_i_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_i_agent_versions_response() :: %{
-        "aiAgentVersionSummaries" => list(a_i_agent_version_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_a_i_agent_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_i_agent_response() :: %{
-        "aiAgent" => a_i_agent_data()
-      }
-
-  """
-  @type create_a_i_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_iprompt_version_request() :: %{
+      create_a_i_guardrail_version_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("modifiedTime") => [non_neg_integer()]
       }
 
   """
-  @type create_a_iprompt_version_request() :: %{(String.t() | atom()) => any()}
+  @type create_a_i_guardrail_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      span_tool_use_value() :: %{
-        "arguments" => any(),
-        "name" => String.t() | atom(),
-        "toolUseId" => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
       }
 
   """
-  @type span_tool_use_value() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_a_i_agent_response() :: %{
-        "aiAgent" => a_i_agent_data(),
-        "versionNumber" => float()
+      activate_message_template_request() :: %{
+        required("versionNumber") => float()
       }
 
   """
-  @type get_a_i_agent_response() :: %{(String.t() | atom()) => any()}
+  @type activate_message_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_contents_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("contentSummaries") => list(content_summary())
+      data_summary() :: %{
+        "details" => list(),
+        "reference" => list()
       }
 
   """
-  @type list_contents_response() :: %{(String.t() | atom()) => any()}
+  @type data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      query_text_input_data() :: %{
-        "text" => String.t() | atom()
+      create_message_template_response() :: %{
+        "messageTemplate" => message_template_data()
       }
 
   """
-  @type query_text_input_data() :: %{(String.t() | atom()) => any()}
+  @type create_message_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      quick_response_filter_field() :: %{
-        "includeNoExistence" => [boolean()],
-        "name" => String.t() | atom(),
-        "operator" => String.t() | atom(),
-        "values" => list(String.t() | atom())
+      update_assistant_a_i_agent_request() :: %{
+        required("aiAgentType") => String.t() | atom(),
+        required("configuration") => a_i_agent_configuration_data(),
+        optional("orchestratorUseCase") => String.t() | atom()
       }
 
   """
-  @type quick_response_filter_field() :: %{(String.t() | atom()) => any()}
+  @type update_assistant_a_i_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_messages_response() :: %{
-        "messages" => list(message_output()),
-        "nextToken" => String.t() | atom()
+      import_job_data() :: %{
+        "createdTime" => [non_neg_integer()],
+        "externalSourceConfiguration" => external_source_configuration(),
+        "failedRecordReport" => String.t() | atom(),
+        "importJobId" => String.t() | atom(),
+        "importJobType" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "metadata" => map(),
+        "status" => String.t() | atom(),
+        "uploadId" => String.t() | atom(),
+        "url" => String.t() | atom(),
+        "urlExpiry" => [non_neg_integer()]
       }
 
   """
-  @type list_messages_response() :: %{(String.t() | atom()) => any()}
+  @type import_job_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_contextual_grounding_filter_config() :: %{
-        "threshold" => float(),
-        "type" => String.t() | atom()
+      create_a_iprompt_request() :: %{
+        required("apiFormat") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("inferenceConfiguration") => a_iprompt_inference_configuration(),
+        required("modelId") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map(),
+        required("templateConfiguration") => list(),
+        required("templateType") => String.t() | atom(),
+        required("type") => String.t() | atom(),
+        required("visibilityStatus") => String.t() | atom()
       }
 
   """
-  @type guardrail_contextual_grounding_filter_config() :: %{(String.t() | atom()) => any()}
+  @type create_a_iprompt_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_condition() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      update_knowledge_base_template_uri_response() :: %{
+        optional("knowledgeBase") => knowledge_base_data()
       }
 
   """
-  @type tag_condition() :: %{(String.t() | atom()) => any()}
+  @type update_knowledge_base_template_uri_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dependency_failed_exception() :: %{
-        "message" => [String.t() | atom()]
+      import_job_summary() :: %{
+        "createdTime" => [non_neg_integer()],
+        "externalSourceConfiguration" => external_source_configuration(),
+        "importJobId" => String.t() | atom(),
+        "importJobType" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "metadata" => map(),
+        "status" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
       }
 
   """
-  @type dependency_failed_exception() :: %{(String.t() | atom()) => any()}
+  @type import_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_iprompt_request() :: %{}
+
+  """
+  @type delete_a_iprompt_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      self_service_a_i_agent_configuration() :: %{
+        "associationConfigurations" => list(association_configuration()),
+        "selfServiceAIGuardrailId" => String.t() | atom(),
+        "selfServiceAnswerGenerationAIPromptId" => String.t() | atom(),
+        "selfServicePreProcessingAIPromptId" => String.t() | atom()
+      }
+
+  """
+  @type self_service_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_message_template_response() :: %{
+        "messageTemplate" => extended_message_template_data()
+      }
+
+  """
+  @type get_message_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_sensitive_information_policy_config() :: %{
+        "piiEntitiesConfig" => list(guardrail_pii_entity_config()),
+        "regexesConfig" => list(guardrail_regex_config())
+      }
+
+  """
+  @type a_i_guardrail_sensitive_information_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ranking_data() :: %{
+        "relevanceLevel" => String.t() | atom(),
+        "relevanceScore" => float()
+      }
+
+  """
+  @type ranking_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,344 +442,43 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      content_association_data() :: %{
-        "associationData" => list(),
-        "associationType" => String.t() | atom(),
-        "contentArn" => String.t() | atom(),
-        "contentAssociationArn" => String.t() | atom(),
-        "contentAssociationId" => String.t() | atom(),
-        "contentId" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type content_association_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      citation() :: %{
-        "citationSpan" => citation_span(),
-        "contentId" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "referenceType" => String.t() | atom(),
-        "sourceURL" => String.t() | atom(),
-        "title" => String.t() | atom()
-      }
-
-  """
-  @type citation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_i_guardrail_versions_response() :: %{
-        "aiGuardrailVersionSummaries" => list(a_i_guardrail_version_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_a_i_guardrail_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_message_template_request() :: %{
-        required("versionNumber") => float()
-      }
-
-  """
-  @type activate_message_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      external_source_configuration() :: %{
-        "configuration" => list(),
-        "source" => String.t() | atom()
-      }
-
-  """
-  @type external_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_attributes() :: %{
-        "firstName" => String.t() | atom(),
-        "lastName" => String.t() | atom()
-      }
-
-  """
-  @type agent_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_content_association_response() :: %{
-        "contentAssociation" => content_association_data()
-      }
-
-  """
-  @type create_content_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_iprompt_version_summary() :: %{
-        "aiPromptSummary" => a_iprompt_summary(),
+      get_a_iprompt_response() :: %{
+        "aiPrompt" => a_iprompt_data(),
         "versionNumber" => float()
       }
 
   """
-  @type a_iprompt_version_summary() :: %{(String.t() | atom()) => any()}
+  @type get_a_iprompt_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recommendation_data() :: %{
-        "data" => data_summary(),
-        "document" => document(),
-        "recommendationId" => String.t() | atom(),
-        "relevanceLevel" => String.t() | atom(),
-        "relevanceScore" => float(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type recommendation_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_contents_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_contents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_knowledge_base_template_uri_response() :: %{}
-
-  """
-  @type remove_knowledge_base_template_uri_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_i_agent_version_request() :: %{}
-
-  """
-  @type delete_a_i_agent_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      email_generative_answer_a_i_agent_configuration() :: %{
+      manual_search_a_i_agent_configuration() :: %{
+        "answerGenerationAIGuardrailId" => String.t() | atom(),
+        "answerGenerationAIPromptId" => String.t() | atom(),
         "associationConfigurations" => list(association_configuration()),
-        "emailGenerativeAnswerAIPromptId" => String.t() | atom(),
-        "emailQueryReformulationAIPromptId" => String.t() | atom(),
         "locale" => String.t() | atom()
       }
 
   """
-  @type email_generative_answer_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assistant_association_request() :: %{}
-
-  """
-  @type delete_assistant_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conversation_state() :: %{
-        "reason" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type conversation_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_content_summary_response() :: %{
-        optional("contentSummary") => content_summary()
-      }
-
-  """
-  @type get_content_summary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assistant_integration_configuration() :: %{
-        "topicIntegrationArn" => String.t() | atom()
-      }
-
-  """
-  @type assistant_integration_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      intent_detected_data_details() :: %{
-        "intent" => String.t() | atom(),
-        "intentId" => String.t() | atom(),
-        "relevanceLevel" => String.t() | atom()
-      }
-
-  """
-  @type intent_detected_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      text_data() :: %{
-        "excerpt" => document_text(),
-        "title" => document_text()
-      }
-
-  """
-  @type text_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_knowledge_base_response() :: %{}
-
-  """
-  @type delete_knowledge_base_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      generative_chunk_data_details() :: %{
-        "completion" => String.t() | atom(),
-        "nextChunkToken" => String.t() | atom(),
-        "references" => list(data_summary())
-      }
-
-  """
-  @type generative_chunk_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_content_response() :: %{
-        optional("content") => content_data()
-      }
-
-  """
-  @type create_content_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_iprompts_response() :: %{
-        "aiPromptSummaries" => list(a_iprompt_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_a_iprompts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assistant_response() :: %{
-        optional("assistant") => assistant_data()
-      }
-
-  """
-  @type get_assistant_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommendations_response() :: %{
-        optional("triggers") => list(recommendation_trigger()),
-        required("recommendations") => list(recommendation_data())
-      }
-
-  """
-  @type get_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      orchestration_a_i_agent_configuration() :: %{
-        "connectInstanceArn" => String.t() | atom(),
-        "locale" => String.t() | atom(),
-        "orchestrationAIGuardrailId" => String.t() | atom(),
-        "orchestrationAIPromptId" => String.t() | atom(),
-        "toolConfigurations" => list(tool_configuration())
-      }
-
-  """
-  @type orchestration_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_timeout_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
+  @type manual_search_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_a_i_guardrail_request() :: %{
+        required("blockedInputMessaging") => String.t() | atom(),
+        required("blockedOutputsMessaging") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
         optional("contentPolicyConfig") => a_i_guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => a_i_guardrail_contextual_grounding_policy_config(),
         optional("description") => String.t() | atom(),
         optional("sensitiveInformationPolicyConfig") => a_i_guardrail_sensitive_information_policy_config(),
         optional("topicPolicyConfig") => a_i_guardrail_topic_policy_config(),
-        optional("wordPolicyConfig") => a_i_guardrail_word_policy_config(),
-        required("blockedInputMessaging") => String.t() | atom(),
-        required("blockedOutputsMessaging") => String.t() | atom(),
-        required("visibilityStatus") => String.t() | atom()
+        required("visibilityStatus") => String.t() | atom(),
+        optional("wordPolicyConfig") => a_i_guardrail_word_policy_config()
       }
 
   """
@@ -976,315 +488,7 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      list_a_iprompts_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("origin") => String.t() | atom()
-      }
-
-  """
-  @type list_a_iprompts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_a_iprompt_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("inferenceConfiguration") => a_iprompt_inference_configuration(),
-        optional("modelId") => String.t() | atom(),
-        optional("templateConfiguration") => list(),
-        required("visibilityStatus") => String.t() | atom()
-      }
-
-  """
-  @type update_a_iprompt_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_template_attributes() :: %{
-        "agentAttributes" => agent_attributes(),
-        "customAttributes" => map(),
-        "customerProfileAttributes" => customer_profile_attributes(),
-        "systemAttributes" => system_attributes()
-      }
-
-  """
-  @type message_template_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_feedback_response() :: %{
-        "assistantArn" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "contentFeedback" => list(),
-        "targetId" => String.t() | atom(),
-        "targetType" => String.t() | atom()
-      }
-
-  """
-  @type put_feedback_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_job_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("externalSourceConfiguration") => external_source_configuration(),
-        optional("metadata") => map(),
-        required("importJobType") => String.t() | atom(),
-        required("uploadId") => String.t() | atom()
-      }
-
-  """
-  @type start_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_knowledge_base_response() :: %{
-        optional("knowledgeBase") => knowledge_base_data()
-      }
-
-  """
-  @type create_knowledge_base_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parsing_configuration() :: %{
-        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration_for_parsing(),
-        "parsingStrategy" => String.t() | atom()
-      }
-
-  """
-  @type parsing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assistant_association_response() :: %{
-        optional("assistantAssociation") => assistant_association_data()
-      }
-
-  """
-  @type get_assistant_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_quick_response_request() :: %{
-        optional("channels") => list(String.t() | atom()),
-        optional("clientToken") => String.t() | atom(),
-        optional("contentType") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("groupingConfiguration") => grouping_configuration(),
-        optional("isActive") => [boolean()],
-        optional("language") => String.t() | atom(),
-        optional("shortcutKey") => String.t() | atom(),
-        optional("tags") => map(),
-        required("content") => list(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_quick_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_i_guardrail_response() :: %{}
-
-  """
-  @type delete_a_i_guardrail_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_i_guardrail_request() :: %{}
-
-  """
-  @type delete_a_i_guardrail_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      span_attributes() :: %{
-        "initialContactId" => String.t() | atom(),
-        "promptArn" => String.t() | atom(),
-        "promptType" => String.t() | atom(),
-        "operationName" => String.t() | atom(),
-        "inputMessages" => list(span_message()),
-        "promptVersion" => [integer()],
-        "topP" => [float()],
-        "usageOutputTokens" => [integer()],
-        "aiAgentInvoker" => String.t() | atom(),
-        "promptName" => String.t() | atom(),
-        "requestModel" => String.t() | atom(),
-        "contactId" => String.t() | atom(),
-        "usageTotalTokens" => [integer()],
-        "requestMaxTokens" => [integer()],
-        "sessionName" => String.t() | atom(),
-        "aiAgentArn" => String.t() | atom(),
-        "promptId" => String.t() | atom(),
-        "aiAgentOrchestratorUseCase" => String.t() | atom(),
-        "aiAgentId" => String.t() | atom(),
-        "usageInputTokens" => [integer()],
-        "aiAgentName" => String.t() | atom(),
-        "temperature" => [float()],
-        "timeToFirstTokenMs" => [integer()],
-        "responseModel" => String.t() | atom(),
-        "errorType" => String.t() | atom(),
-        "aiAgentVersion" => [integer()],
-        "providerName" => String.t() | atom(),
-        "systemInstructions" => list(list()),
-        "cacheReadInputTokens" => [integer()],
-        "instanceArn" => String.t() | atom(),
-        "agentId" => String.t() | atom(),
-        "outputMessages" => list(span_message()),
-        "cacheWriteInputTokens" => [integer()],
-        "responseFinishReasons" => list(String.t() | atom()),
-        "aiAgentType" => String.t() | atom()
-      }
-
-  """
-  @type span_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_i_agent_version_response() :: %{
-        "aiAgent" => a_i_agent_data(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type create_a_i_agent_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_output_configuration() :: %{
-        "outputVariableNameOverride" => String.t() | atom(),
-        "sessionDataNamespace" => String.t() | atom()
-      }
-
-  """
-  @type tool_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_association_summary() :: %{
-        "associationData" => list(),
-        "associationType" => String.t() | atom(),
-        "contentArn" => String.t() | atom(),
-        "contentAssociationArn" => String.t() | atom(),
-        "contentAssociationId" => String.t() | atom(),
-        "contentId" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type content_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_configuration() :: %{
-        "instanceId" => String.t() | atom()
-      }
-
-  """
-  @type connect_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_iprompt_response() :: %{}
-
-  """
-  @type delete_a_iprompt_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_content_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("contentSummaries") => list(content_summary())
-      }
-
-  """
-  @type search_content_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_request() :: %{}
-
-  """
-  @type get_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      span_text_value() :: %{
-        "aiGuardrailAssessment" => a_i_guardrail_assessment(),
-        "citations" => list(span_citation()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type span_text_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_i_agent_request() :: %{}
-
-  """
-  @type delete_a_i_agent_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      message_template_filter_field() :: %{
+      quick_response_filter_field() :: %{
         "includeNoExistence" => [boolean()],
         "name" => String.t() | atom(),
         "operator" => String.t() | atom(),
@@ -1292,15 +496,146 @@ defmodule AWS.QConnect do
       }
 
   """
-  @type message_template_filter_field() :: %{(String.t() | atom()) => any()}
+  @type quick_response_filter_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_configuration() :: %{
+        "annotations" => annotation(),
+        "description" => String.t() | atom(),
+        "inputSchema" => any(),
+        "instruction" => tool_instruction(),
+        "outputFilters" => list(tool_output_filter()),
+        "outputSchema" => any(),
+        "overrideInputValues" => list(tool_override_input_value()),
+        "title" => String.t() | atom(),
+        "toolId" => String.t() | atom(),
+        "toolName" => String.t() | atom(),
+        "toolType" => String.t() | atom(),
+        "userInteractionConfiguration" => user_interaction_configuration()
+      }
+
+  """
+  @type tool_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_version_summary() :: %{
+        "aiGuardrailSummary" => a_i_guardrail_summary(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type a_i_guardrail_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_message_template_request() :: %{
+        required("channelSubtype") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("content") => list(),
+        optional("defaultAttributes") => message_template_attributes(),
+        optional("description") => String.t() | atom(),
+        optional("groupingConfiguration") => grouping_configuration(),
+        optional("language") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("sourceConfiguration") => list(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_message_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_content_request() :: %{}
+
+  """
+  @type get_content_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      customer_profile_attributes() :: %{
+        "mailingProvince" => String.t() | atom(),
+        "shippingCountry" => String.t() | atom(),
+        "billingState" => String.t() | atom(),
+        "billingAddress2" => String.t() | atom(),
+        "billingCity" => String.t() | atom(),
+        "shippingCity" => String.t() | atom(),
+        "businessEmailAddress" => String.t() | atom(),
+        "mailingAddress3" => String.t() | atom(),
+        "profileARN" => String.t() | atom(),
+        "shippingProvince" => String.t() | atom(),
+        "birthDate" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "billingCounty" => String.t() | atom(),
+        "county" => String.t() | atom(),
+        "mailingCity" => String.t() | atom(),
+        "billingAddress4" => String.t() | atom(),
+        "mailingAddress2" => String.t() | atom(),
+        "emailAddress" => String.t() | atom(),
+        "postalCode" => String.t() | atom(),
+        "country" => String.t() | atom(),
+        "accountNumber" => String.t() | atom(),
+        "mailingAddress4" => String.t() | atom(),
+        "shippingAddress2" => String.t() | atom(),
+        "businessName" => String.t() | atom(),
+        "billingPostalCode" => String.t() | atom(),
+        "address4" => String.t() | atom(),
+        "mobilePhoneNumber" => String.t() | atom(),
+        "shippingState" => String.t() | atom(),
+        "province" => String.t() | atom(),
+        "billingAddress1" => String.t() | atom(),
+        "mailingPostalCode" => String.t() | atom(),
+        "additionalInformation" => String.t() | atom(),
+        "billingProvince" => String.t() | atom(),
+        "firstName" => String.t() | atom(),
+        "address1" => String.t() | atom(),
+        "gender" => String.t() | atom(),
+        "address2" => String.t() | atom(),
+        "mailingCounty" => String.t() | atom(),
+        "custom" => map(),
+        "middleName" => String.t() | atom(),
+        "address3" => String.t() | atom(),
+        "mailingState" => String.t() | atom(),
+        "businessPhoneNumber" => String.t() | atom(),
+        "shippingCounty" => String.t() | atom(),
+        "city" => String.t() | atom(),
+        "shippingPostalCode" => String.t() | atom(),
+        "shippingAddress1" => String.t() | atom(),
+        "shippingAddress4" => String.t() | atom(),
+        "billingCountry" => String.t() | atom(),
+        "partyType" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "shippingAddress3" => String.t() | atom(),
+        "lastName" => String.t() | atom(),
+        "mailingCountry" => String.t() | atom(),
+        "billingAddress3" => String.t() | atom(),
+        "homePhoneNumber" => String.t() | atom(),
+        "phoneNumber" => String.t() | atom(),
+        "mailingAddress1" => String.t() | atom()
+      }
+
+  """
+  @type customer_profile_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_message_template_attachment_request() :: %{
-        optional("clientToken") => String.t() | atom(),
         required("body") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
         required("contentDisposition") => String.t() | atom(),
         required("name") => String.t() | atom()
       }
@@ -1312,83 +647,100 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      assistant_capability_configuration() :: %{
-        "type" => String.t() | atom()
-      }
+      tag_resource_response() :: %{}
 
   """
-  @type assistant_capability_configuration() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      a_i_agent_configuration_data() :: %{
-        "aiAgentId" => String.t() | atom()
+      update_session_request() :: %{
+        optional("aiAgentConfiguration") => map(),
+        optional("description") => String.t() | atom(),
+        optional("orchestratorConfigurationList") => list(orchestrator_configuration_entry()),
+        optional("removeOrchestratorConfigurationList") => [boolean()],
+        optional("tagFilter") => list()
       }
 
   """
-  @type a_i_agent_configuration_data() :: %{(String.t() | atom()) => any()}
+  @type update_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_a_i_guardrail_response() :: %{
-        "aiGuardrail" => a_i_guardrail_data(),
-        "versionNumber" => float()
+      parsing_prompt() :: %{
+        "parsingPromptText" => String.t() | atom()
       }
 
   """
-  @type get_a_i_guardrail_response() :: %{(String.t() | atom()) => any()}
+  @type parsing_prompt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_a_i_agents_response() :: %{
-        "aiAgentSummaries" => list(a_i_agent_summary()),
-        "nextToken" => String.t() | atom()
-      }
+      untag_resource_response() :: %{}
 
   """
-  @type list_a_i_agents_response() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      message_template_search_expression() :: %{
-        "filters" => list(message_template_filter_field()),
-        "orderOnField" => message_template_order_field(),
-        "queries" => list(message_template_query_field())
+      update_quick_response_response() :: %{
+        "quickResponse" => quick_response_data()
       }
 
   """
-  @type message_template_search_expression() :: %{(String.t() | atom()) => any()}
+  @type update_quick_response_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_quick_responses_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      precondition_failed_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type list_quick_responses_request() :: %{(String.t() | atom()) => any()}
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      system_endpoint_attributes() :: %{
-        "address" => String.t() | atom()
+      send_message_request() :: %{
+        optional("aiAgentId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("configuration") => message_configuration(),
+        optional("conversationContext") => conversation_context(),
+        required("message") => message_input(),
+        optional("metadata") => map(),
+        optional("orchestratorUseCase") => String.t() | atom(),
+        optional("originRequestId") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
 
   """
-  @type system_endpoint_attributes() :: %{(String.t() | atom()) => any()}
+  @type send_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chunking_configuration() :: %{
+        "chunkingStrategy" => String.t() | atom(),
+        "fixedSizeChunkingConfiguration" => fixed_size_chunking_configuration(),
+        "hierarchicalChunkingConfiguration" => hierarchical_chunking_configuration(),
+        "semanticChunkingConfiguration" => semantic_chunking_configuration()
+      }
+
+  """
+  @type chunking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1406,149 +758,463 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      start_content_upload_request() :: %{
-        optional("presignedUrlTimeToLive") => integer(),
-        required("contentType") => String.t() | atom()
+      message_configuration() :: %{
+        "generateChunkedMessage" => [boolean()],
+        "generateFillerMessage" => [boolean()]
       }
 
   """
-  @type start_content_upload_request() :: %{(String.t() | atom()) => any()}
+  @type message_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_managed_words_config() :: %{
-        "type" => String.t() | atom()
+      get_content_association_response() :: %{
+        "contentAssociation" => content_association_data()
       }
 
   """
-  @type guardrail_managed_words_config() :: %{(String.t() | atom()) => any()}
+  @type get_content_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_message_template_response() :: %{}
+      remove_knowledge_base_template_uri_response() :: %{}
 
   """
-  @type delete_message_template_response() :: %{}
+  @type remove_knowledge_base_template_uri_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      span_reasoning_value() :: %{
+      semantic_chunking_configuration() :: %{
+        "breakpointPercentileThreshold" => [integer()],
+        "bufferSize" => [integer()],
+        "maxTokens" => [integer()]
+      }
+
+  """
+  @type semantic_chunking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_content_response() :: %{}
+
+  """
+  @type delete_content_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_iprompt_response() :: %{
+        "aiPrompt" => a_iprompt_data()
+      }
+
+  """
+  @type create_a_iprompt_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_override_constant_input_value() :: %{
+        "type" => String.t() | atom(),
         "value" => String.t() | atom()
       }
 
   """
-  @type span_reasoning_value() :: %{(String.t() | atom()) => any()}
+  @type tool_override_constant_input_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_message_template_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("content") => list(),
-        optional("defaultAttributes") => message_template_attributes(),
-        optional("description") => String.t() | atom(),
-        optional("groupingConfiguration") => grouping_configuration(),
-        optional("language") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("sourceConfiguration") => list(),
-        optional("tags") => map(),
-        required("channelSubtype") => String.t() | atom()
+      sms_message_template_content() :: %{
+        "body" => sms_message_template_content_body()
       }
 
   """
-  @type create_message_template_request() :: %{(String.t() | atom()) => any()}
+  @type sms_message_template_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tool_instruction() :: %{
-        "examples" => list([String.t() | atom()]()),
-        "instruction" => [String.t() | atom()]
-      }
-
-  """
-  @type tool_instruction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assistant_request() :: %{}
-
-  """
-  @type delete_assistant_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_iprompt_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("origin") => String.t() | atom()
-      }
-
-  """
-  @type list_a_iprompt_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      self_service_a_i_agent_configuration() :: %{
+      answer_recommendation_a_i_agent_configuration() :: %{
+        "answerGenerationAIGuardrailId" => String.t() | atom(),
+        "answerGenerationAIPromptId" => String.t() | atom(),
         "associationConfigurations" => list(association_configuration()),
-        "selfServiceAIGuardrailId" => String.t() | atom(),
-        "selfServiceAnswerGenerationAIPromptId" => String.t() | atom(),
-        "selfServicePreProcessingAIPromptId" => String.t() | atom()
+        "intentLabelingGenerationAIPromptId" => String.t() | atom(),
+        "locale" => String.t() | atom(),
+        "queryReformulationAIPromptId" => String.t() | atom(),
+        "suggestedMessages" => list(String.t() | atom())
       }
 
   """
-  @type self_service_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+  @type answer_recommendation_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_content_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      orchestrator_configuration_entry() :: %{
+        "aiAgentId" => String.t() | atom(),
+        "orchestratorUseCase" => String.t() | atom()
       }
 
   """
-  @type list_content_associations_request() :: %{(String.t() | atom()) => any()}
+  @type orchestrator_configuration_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      association_configuration() :: %{
-        "associationConfigurationData" => list(),
-        "associationId" => String.t() | atom(),
-        "associationType" => String.t() | atom()
+      create_a_i_guardrail_version_response() :: %{
+        "aiGuardrail" => a_i_guardrail_data(),
+        "versionNumber" => float()
       }
 
   """
-  @type association_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_a_i_guardrail_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hierarchical_chunking_configuration() :: %{
-        "levelConfigurations" => list(hierarchical_chunking_level_configuration()),
-        "overlapTokens" => [integer()]
+      list_a_i_agents_response() :: %{
+        "aiAgentSummaries" => list(a_i_agent_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type hierarchical_chunking_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_a_i_agents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic_config() :: %{
+        "definition" => String.t() | atom(),
+        "examples" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_topic_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_response() :: %{
+        "results" => list(retrieve_result())
+      }
+
+  """
+  @type retrieve_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      render_message_template_response() :: %{
+        "attachments" => list(message_template_attachment()),
+        "attributesNotInterpolated" => list(String.t() | atom()),
+        "content" => list(),
+        "sourceConfigurationSummary" => list()
+      }
+
+  """
+  @type render_message_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_guardrails_response() :: %{
+        "aiGuardrailSummaries" => list(a_i_guardrail_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_a_i_guardrails_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_association_data() :: %{
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom()
+      }
+
+  """
+  @type knowledge_base_association_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      highlight() :: %{
+        "beginOffsetInclusive" => integer(),
+        "endOffsetExclusive" => integer()
+      }
+
+  """
+  @type highlight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_foundation_model_configuration_for_parsing() :: %{
+        "modelArn" => String.t() | atom(),
+        "parsingPrompt" => parsing_prompt()
+      }
+
+  """
+  @type bedrock_foundation_model_configuration_for_parsing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_overview_a_i_agent_configuration() :: %{
+        "emailOverviewAIPromptId" => String.t() | atom(),
+        "locale" => String.t() | atom()
+      }
+
+  """
+  @type email_overview_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_i_agent_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("configuration") => list(),
+        optional("description") => String.t() | atom(),
+        required("visibilityStatus") => String.t() | atom()
+      }
+
+  """
+  @type update_a_i_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_bedrock_knowledge_base_config() :: %{
+        "accessRoleArn" => String.t() | atom(),
+        "bedrockKnowledgeBaseArn" => String.t() | atom()
+      }
+
+  """
+  @type external_bedrock_knowledge_base_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_crawler_configuration() :: %{
+        "crawlerLimits" => web_crawler_limits(),
+        "exclusionFilters" => list(String.t() | atom()),
+        "inclusionFilters" => list(String.t() | atom()),
+        "scope" => String.t() | atom(),
+        "urlConfiguration" => url_configuration()
+      }
+
+  """
+  @type web_crawler_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_ingestion_configuration() :: %{
+        "chunkingConfiguration" => chunking_configuration(),
+        "parsingConfiguration" => parsing_configuration()
+      }
+
+  """
+  @type vector_ingestion_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_message_template_request() :: %{}
+
+  """
+  @type delete_message_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_iprompt_response() :: %{
+        "aiPrompt" => a_iprompt_data()
+      }
+
+  """
+  @type update_a_iprompt_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_knowledge_base_response() :: %{
+        optional("knowledgeBase") => knowledge_base_data()
+      }
+
+  """
+  @type get_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_agent_version_summary() :: %{
+        "aiAgentSummary" => a_i_agent_summary(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type a_i_agent_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_attributes() :: %{
+        "customerEndpoint" => system_endpoint_attributes(),
+        "name" => String.t() | atom(),
+        "systemEndpoint" => system_endpoint_attributes()
+      }
+
+  """
+  @type system_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_f_cm_message_template_content() :: %{
+        "action" => String.t() | atom(),
+        "body" => list(),
+        "imageIconUrl" => String.t() | atom(),
+        "imageUrl" => String.t() | atom(),
+        "rawContent" => list(),
+        "smallImageIconUrl" => String.t() | atom(),
+        "sound" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type push_f_cm_message_template_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_guardrail_request() :: %{
+        required("blockedInputMessaging") => String.t() | atom(),
+        required("blockedOutputsMessaging") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("contentPolicyConfig") => a_i_guardrail_content_policy_config(),
+        optional("contextualGroundingPolicyConfig") => a_i_guardrail_contextual_grounding_policy_config(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("sensitiveInformationPolicyConfig") => a_i_guardrail_sensitive_information_policy_config(),
+        optional("tags") => map(),
+        optional("topicPolicyConfig") => a_i_guardrail_topic_policy_config(),
+        required("visibilityStatus") => String.t() | atom(),
+        optional("wordPolicyConfig") => a_i_guardrail_word_policy_config()
+      }
+
+  """
+  @type create_a_i_guardrail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_response_a_i_agent_configuration() :: %{
+        "associationConfigurations" => list(association_configuration()),
+        "emailQueryReformulationAIPromptId" => String.t() | atom(),
+        "emailResponseAIPromptId" => String.t() | atom(),
+        "locale" => String.t() | atom()
+      }
+
+  """
+  @type email_response_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_data() :: %{
+        "excerpt" => document_text(),
+        "title" => document_text()
+      }
+
+  """
+  @type text_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_data() :: %{
+        "description" => String.t() | atom(),
+        "ingestionFailureReasons" => list(String.t() | atom()),
+        "ingestionStatus" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "knowledgeBaseType" => String.t() | atom(),
+        "lastContentModificationTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "renderingConfiguration" => rendering_configuration(),
+        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
+        "sourceConfiguration" => list(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "vectorIngestionConfiguration" => vector_ingestion_configuration()
+      }
+
+  """
+  @type knowledge_base_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1559,11 +1225,11 @@ defmodule AWS.QConnect do
         optional("clientToken") => String.t() | atom(),
         optional("contactArn") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
         optional("orchestratorConfigurationList") => list(orchestrator_configuration_entry()),
         optional("removeOrchestratorConfigurationList") => [boolean()],
         optional("tagFilter") => list(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
+        optional("tags") => map()
       }
 
   """
@@ -1573,115 +1239,110 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      customer_profile_attributes() :: %{
-        "billingAddress2" => String.t() | atom(),
-        "billingProvince" => String.t() | atom(),
-        "postalCode" => String.t() | atom(),
-        "businessName" => String.t() | atom(),
-        "firstName" => String.t() | atom(),
-        "mailingCity" => String.t() | atom(),
-        "billingCountry" => String.t() | atom(),
-        "partyType" => String.t() | atom(),
-        "address3" => String.t() | atom(),
-        "mailingCounty" => String.t() | atom(),
-        "businessPhoneNumber" => String.t() | atom(),
-        "billingPostalCode" => String.t() | atom(),
-        "shippingAddress3" => String.t() | atom(),
-        "homePhoneNumber" => String.t() | atom(),
-        "mailingAddress2" => String.t() | atom(),
-        "mailingCountry" => String.t() | atom(),
-        "billingCity" => String.t() | atom(),
-        "billingAddress1" => String.t() | atom(),
-        "businessEmailAddress" => String.t() | atom(),
-        "billingAddress4" => String.t() | atom(),
-        "state" => String.t() | atom(),
-        "address2" => String.t() | atom(),
-        "shippingAddress2" => String.t() | atom(),
-        "custom" => map(),
-        "mailingAddress1" => String.t() | atom(),
-        "shippingCounty" => String.t() | atom(),
-        "mailingPostalCode" => String.t() | atom(),
-        "shippingAddress4" => String.t() | atom(),
-        "country" => String.t() | atom(),
-        "city" => String.t() | atom(),
-        "county" => String.t() | atom(),
-        "phoneNumber" => String.t() | atom(),
-        "middleName" => String.t() | atom(),
-        "shippingCity" => String.t() | atom(),
-        "mailingAddress4" => String.t() | atom(),
-        "province" => String.t() | atom(),
-        "address4" => String.t() | atom(),
-        "shippingProvince" => String.t() | atom(),
-        "shippingAddress1" => String.t() | atom(),
-        "lastName" => String.t() | atom(),
-        "gender" => String.t() | atom(),
-        "billingState" => String.t() | atom(),
-        "shippingCountry" => String.t() | atom(),
-        "mobilePhoneNumber" => String.t() | atom(),
-        "shippingState" => String.t() | atom(),
-        "mailingAddress3" => String.t() | atom(),
-        "mailingProvince" => String.t() | atom(),
-        "accountNumber" => String.t() | atom(),
-        "mailingState" => String.t() | atom(),
-        "shippingPostalCode" => String.t() | atom(),
-        "emailAddress" => String.t() | atom(),
-        "birthDate" => String.t() | atom(),
-        "profileId" => String.t() | atom(),
-        "additionalInformation" => String.t() | atom(),
-        "profileARN" => String.t() | atom(),
-        "address1" => String.t() | atom(),
-        "billingAddress3" => String.t() | atom(),
-        "billingCounty" => String.t() | atom()
+      list_knowledge_bases_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type customer_profile_attributes() :: %{(String.t() | atom()) => any()}
+  @type list_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      span_citation() :: %{
-        "contentId" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "title" => String.t() | atom()
+      quick_response_contents() :: %{
+        "markdown" => list(),
+        "plainText" => list()
       }
 
   """
-  @type span_citation() :: %{(String.t() | atom()) => any()}
+  @type quick_response_contents() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_knowledge_base_template_uri_response() :: %{
-        optional("knowledgeBase") => knowledge_base_data()
+      list_assistant_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type update_knowledge_base_template_uri_response() :: %{(String.t() | atom()) => any()}
+  @type list_assistant_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_a_i_guardrail_version_request() :: %{}
+      span_guardrail_assessment() :: %{
+        "action" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
+        "guardrailName" => String.t() | atom(),
+        "policies" => list(guardrail_policy_result()),
+        "source" => String.t() | atom()
+      }
 
   """
-  @type delete_a_i_guardrail_version_request() :: %{}
+  @type span_guardrail_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      annotation() :: %{
-        "destructiveHint" => [boolean()],
-        "title" => [String.t() | atom()]
+      a_i_agent_configuration_data() :: %{
+        "aiAgentId" => String.t() | atom()
       }
 
   """
-  @type annotation() :: %{(String.t() | atom()) => any()}
+  @type a_i_agent_configuration_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_agent_data() :: %{
+        "aiAgentArn" => String.t() | atom(),
+        "aiAgentId" => String.t() | atom(),
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "configuration" => list(),
+        "description" => String.t() | atom(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "origin" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom(),
+        "visibilityStatus" => String.t() | atom()
+      }
+
+  """
+  @type a_i_agent_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_agent_version_response() :: %{
+        "aiAgent" => a_i_agent_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type create_a_i_agent_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_quick_responses_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "results" => list(quick_response_search_result_data())
+      }
+
+  """
+  @type search_quick_responses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1714,12 +1375,1772 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      update_a_i_guardrail_response() :: %{
+      list_a_iprompts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("origin") => String.t() | atom()
+      }
+
+  """
+  @type list_a_iprompts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rendering_configuration() :: %{
+        "templateUri" => String.t() | atom()
+      }
+
+  """
+  @type rendering_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_guardrail_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_a_i_guardrail_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_result() :: %{
+        "associationId" => String.t() | atom(),
+        "contentText" => String.t() | atom(),
+        "referenceType" => String.t() | atom(),
+        "sourceId" => String.t() | atom()
+      }
+
+  """
+  @type retrieve_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_config() :: %{
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_word_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_agent_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("origin") => String.t() | atom()
+      }
+
+  """
+  @type list_a_i_agent_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_jobs_response() :: %{
+        "importJobSummaries" => list(import_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_agent_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("configuration") => list(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map(),
+        required("type") => String.t() | atom(),
+        required("visibilityStatus") => String.t() | atom()
+      }
+
+  """
+  @type create_a_i_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_knowledge_base_request() :: %{}
+
+  """
+  @type delete_knowledge_base_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assistant_association_request() :: %{}
+
+  """
+  @type get_assistant_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      fixed_size_chunking_configuration() :: %{
+        "maxTokens" => [integer()],
+        "overlapPercentage" => [integer()]
+      }
+
+  """
+  @type fixed_size_chunking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generative_data_details() :: %{
+        "completion" => String.t() | atom(),
+        "rankingData" => ranking_data(),
+        "references" => list(data_summary())
+      }
+
+  """
+  @type generative_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_message_templates_response() :: %{
+        "messageTemplateSummaries" => list(message_template_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_message_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_agent_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("modifiedTime") => [non_neg_integer()]
+      }
+
+  """
+  @type create_a_i_agent_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_a_i_agent_request() :: %{}
+
+  """
+  @type get_a_i_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchical_chunking_configuration() :: %{
+        "levelConfigurations" => list(hierarchical_chunking_level_configuration()),
+        "overlapTokens" => [integer()]
+      }
+
+  """
+  @type hierarchical_chunking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_content_association_response() :: %{}
+
+  """
+  @type delete_content_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_filter_field() :: %{
+        "includeNoExistence" => [boolean()],
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type message_template_filter_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_knowledge_base_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("knowledgeBaseType") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("renderingConfiguration") => rendering_configuration(),
+        optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
+        optional("sourceConfiguration") => list(),
+        optional("tags") => map(),
+        optional("vectorIngestionConfiguration") => vector_ingestion_configuration()
+      }
+
+  """
+  @type create_knowledge_base_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_crawler_limits() :: %{
+        "rateLimit" => [integer()]
+      }
+
+  """
+  @type web_crawler_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_data_details() :: %{
+        "rankingData" => ranking_data(),
+        "textData" => text_data()
+      }
+
+  """
+  @type content_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_spans_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_spans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_connect_guide_association_data() :: %{
+        "flowId" => String.t() | atom()
+      }
+
+  """
+  @type amazon_connect_guide_association_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      span_attributes() :: %{
+        "operationName" => String.t() | atom(),
+        "aiAgentType" => String.t() | atom(),
+        "instanceArn" => String.t() | atom(),
+        "contactId" => String.t() | atom(),
+        "outputMessages" => list(span_message()),
+        "systemInstructions" => list(list()),
+        "sessionName" => String.t() | atom(),
+        "promptId" => String.t() | atom(),
+        "cacheWriteInputTokens" => [integer()],
+        "responseModel" => String.t() | atom(),
+        "usageOutputTokens" => [integer()],
+        "usageInputTokens" => [integer()],
+        "aiAgentOrchestratorUseCase" => String.t() | atom(),
+        "aiAgentVersion" => [integer()],
+        "errorType" => String.t() | atom(),
+        "promptArn" => String.t() | atom(),
+        "aiAgentInvoker" => String.t() | atom(),
+        "aiAgentArn" => String.t() | atom(),
+        "aiAgentName" => String.t() | atom(),
+        "promptType" => String.t() | atom(),
+        "temperature" => [float()],
+        "promptName" => String.t() | atom(),
+        "providerName" => String.t() | atom(),
+        "guardrailAssessments" => list(span_guardrail_assessment()),
+        "timeToFirstTokenMs" => [integer()],
+        "inputMessages" => list(span_message()),
+        "initialContactId" => String.t() | atom(),
+        "topP" => [float()],
+        "requestMaxTokens" => [integer()],
+        "aiAgentId" => String.t() | atom(),
+        "cacheReadInputTokens" => [integer()],
+        "responseFinishReasons" => list(String.t() | atom()),
+        "agentId" => String.t() | atom(),
+        "promptVersion" => [integer()],
+        "usageTotalTokens" => [integer()],
+        "requestModel" => String.t() | atom()
+      }
+
+  """
+  @type span_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_condition_item() :: %{
+        "comparator" => String.t() | atom(),
+        "field" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type query_condition_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_next_message_request() :: %{
+        required("nextMessageToken") => String.t() | atom()
+      }
+
+  """
+  @type get_next_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_iprompt_inference_configuration() :: %{
+        "maxTokensToSample" => integer(),
+        "temperature" => float(),
+        "topK" => integer(),
+        "topP" => float()
+      }
+
+  """
+  @type a_iprompt_inference_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_response_chunk_data_details() :: %{
+        "completion" => String.t() | atom(),
+        "nextChunkToken" => String.t() | atom()
+      }
+
+  """
+  @type email_response_chunk_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_order_field() :: %{
+        "name" => String.t() | atom(),
+        "order" => String.t() | atom()
+      }
+
+  """
+  @type message_template_order_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_pii_entity_config() :: %{
+        "action" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_pii_entity_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assistant_association_response() :: %{}
+
+  """
+  @type delete_assistant_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_iprompt_version_response() :: %{
+        "aiPrompt" => a_iprompt_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type create_a_iprompt_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation() :: %{
+        "destructiveHint" => [boolean()],
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type annotation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_knowledge_base_response() :: %{}
+
+  """
+  @type delete_knowledge_base_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_managed_words_config() :: %{
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_managed_words_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_word_policy_config() :: %{
+        "managedWordListsConfig" => list(guardrail_managed_words_config()),
+        "wordsConfig" => list(guardrail_word_config())
+      }
+
+  """
+  @type a_i_guardrail_word_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_i_guardrail_request() :: %{}
+
+  """
+  @type delete_a_i_guardrail_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_content_summary_response() :: %{
+        optional("contentSummary") => content_summary()
+      }
+
+  """
+  @type get_content_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      note_taking_a_i_agent_configuration() :: %{
+        "locale" => String.t() | atom(),
+        "noteTakingAIGuardrailId" => String.t() | atom(),
+        "noteTakingAIPromptId" => String.t() | atom()
+      }
+
+  """
+  @type note_taking_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citation_span() :: %{
+        "beginOffsetInclusive" => integer(),
+        "endOffsetExclusive" => integer()
+      }
+
+  """
+  @type citation_span() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_session_response() :: %{
+        optional("session") => session_data()
+      }
+
+  """
+  @type create_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_version_summary() :: %{
+        "channel" => String.t() | atom(),
+        "channelSubtype" => String.t() | atom(),
+        "isActive" => [boolean()],
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "messageTemplateArn" => String.t() | atom(),
+        "messageTemplateId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type message_template_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_i_guardrail_version_response() :: %{}
+
+  """
+  @type delete_a_i_guardrail_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      span_citation() :: %{
+        "contentId" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "title" => String.t() | atom()
+      }
+
+  """
+  @type span_citation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_iprompt_version_response() :: %{}
+
+  """
+  @type delete_a_iprompt_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      query_text_input_data() :: %{
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type query_text_input_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_message_template_metadata_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("groupingConfiguration") => grouping_configuration(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_message_template_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_attributes() :: %{
+        "firstName" => String.t() | atom(),
+        "lastName" => String.t() | atom()
+      }
+
+  """
+  @type agent_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_agent_summary() :: %{
+        "aiAgentArn" => String.t() | atom(),
+        "aiAgentId" => String.t() | atom(),
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "configuration" => list(),
+        "description" => String.t() | atom(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "origin" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom(),
+        "visibilityStatus" => String.t() | atom()
+      }
+
+  """
+  @type a_i_agent_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_message_template_content_body() :: %{
+        "html" => list(),
+        "plainText" => list()
+      }
+
+  """
+  @type email_message_template_content_body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      span_reasoning_value() :: %{
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type span_reasoning_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_iprompt_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("origin") => String.t() | atom()
+      }
+
+  """
+  @type list_a_iprompt_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_sessions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("searchExpression") => search_expression()
+      }
+
+  """
+  @type search_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_guardrail_response() :: %{
         "aiGuardrail" => a_i_guardrail_data()
       }
 
   """
-  @type update_a_i_guardrail_response() :: %{(String.t() | atom()) => any()}
+  @type create_a_i_guardrail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_spans_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "spans" => list(span())
+      }
+
+  """
+  @type list_spans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assistant_response() :: %{
+        optional("assistant") => assistant_data()
+      }
+
+  """
+  @type create_assistant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_configuration() :: %{
+        "filter" => list(),
+        "knowledgeSource" => list(),
+        "numberOfResults" => [integer()],
+        "overrideKnowledgeBaseSearchType" => String.t() | atom()
+      }
+
+  """
+  @type retrieval_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_message_template_metadata_response() :: %{
+        "messageTemplate" => message_template_data()
+      }
+
+  """
+  @type update_message_template_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contents_response() :: %{
+        required("contentSummaries") => list(content_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_contents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_message_template_version_response() :: %{
+        "messageTemplate" => extended_message_template_data()
+      }
+
+  """
+  @type create_message_template_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_summary() :: %{
+        "crossRegionStatus" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "endOfLifeTimestamp" => [non_neg_integer()],
+        "legacyTimestamp" => [non_neg_integer()],
+        "modelId" => String.t() | atom(),
+        "modelLifecycle" => String.t() | atom(),
+        "supportedAIPromptTypes" => list(String.t() | atom()),
+        "supportsPromptCaching" => [boolean()]
+      }
+
+  """
+  @type model_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_message_template_content() :: %{
+        "body" => email_message_template_content_body(),
+        "headers" => list(email_header()),
+        "subject" => String.t() | atom()
+      }
+
+  """
+  @type email_message_template_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_output() :: %{
+        "messageId" => String.t() | atom(),
+        "participant" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "value" => list()
+      }
+
+  """
+  @type message_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_condition() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assistant_a_i_agent_response() :: %{
+        "assistant" => assistant_data()
+      }
+
+  """
+  @type update_assistant_a_i_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_quick_response_response() :: %{}
+
+  """
+  @type delete_quick_response_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assistant_association_request() :: %{
+        required("association") => list(),
+        required("associationType") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_assistant_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assistants_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_assistants_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generative_content_feedback_data() :: %{
+        "relevance" => String.t() | atom()
+      }
+
+  """
+  @type generative_content_feedback_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_assistant_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("overrideKnowledgeBaseSearchType") => String.t() | atom(),
+        optional("queryCondition") => list(list()),
+        optional("queryInputData") => list(),
+        optional("queryText") => String.t() | atom(),
+        optional("sessionId") => String.t() | atom()
+      }
+
+  """
+  @type query_assistant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_state() :: %{
+        "reason" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type conversation_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_sessions_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("sessionSummaries") => list(session_summary())
+      }
+
+  """
+  @type search_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_summary() :: %{
+        "aiGuardrailArn" => String.t() | atom(),
+        "aiGuardrailId" => String.t() | atom(),
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "visibilityStatus" => String.t() | atom()
+      }
+
+  """
+  @type a_i_guardrail_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_output_configuration() :: %{
+        "outputVariableNameOverride" => String.t() | atom(),
+        "sessionDataNamespace" => String.t() | atom()
+      }
+
+  """
+  @type tool_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parsing_configuration() :: %{
+        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration_for_parsing(),
+        "parsingStrategy" => String.t() | atom()
+      }
+
+  """
+  @type parsing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_integrations_configuration() :: %{
+        "appIntegrationArn" => String.t() | atom(),
+        "objectFields" => list(String.t() | atom())
+      }
+
+  """
+  @type app_integrations_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_service_conversation_history() :: %{
+        "botResponse" => String.t() | atom(),
+        "inputTranscript" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "turnNumber" => [integer()]
+      }
+
+  """
+  @type self_service_conversation_history() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_reference() :: %{
+        "contentArn" => String.t() | atom(),
+        "contentId" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "referenceType" => String.t() | atom(),
+        "sourceURL" => [String.t() | atom()]
+      }
+
+  """
+  @type content_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_data() :: %{
+        "attributeTypes" => list(String.t() | atom()),
+        "channel" => String.t() | atom(),
+        "channelSubtype" => String.t() | atom(),
+        "content" => list(),
+        "createdTime" => [non_neg_integer()],
+        "defaultAttributes" => message_template_attributes(),
+        "description" => String.t() | atom(),
+        "groupingConfiguration" => grouping_configuration(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "language" => String.t() | atom(),
+        "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "messageTemplateArn" => String.t() | atom(),
+        "messageTemplateContentSha256" => String.t() | atom(),
+        "messageTemplateId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceConfigurationSummary" => list(),
+        "tags" => map()
+      }
+
+  """
+  @type message_template_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_ad_m_message_template_content() :: %{
+        "action" => String.t() | atom(),
+        "body" => list(),
+        "imageIconUrl" => String.t() | atom(),
+        "imageUrl" => String.t() | atom(),
+        "rawContent" => list(),
+        "smallImageIconUrl" => String.t() | atom(),
+        "sound" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type push_ad_m_message_template_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_content_response() :: %{
+        required("contentSummaries") => list(content_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type search_content_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchical_chunking_level_configuration() :: %{
+        "maxTokens" => [integer()]
+      }
+
+  """
+  @type hierarchical_chunking_level_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_knowledge_base_template_uri_request() :: %{}
+
+  """
+  @type remove_knowledge_base_template_uri_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_message_template_response() :: %{}
+
+  """
+  @type delete_message_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_message_template_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_message_template_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_content_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("metadata") => map(),
+        required("name") => String.t() | atom(),
+        optional("overrideLinkOutUri") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("title") => String.t() | atom(),
+        required("uploadId") => String.t() | atom()
+      }
+
+  """
+  @type create_content_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_iprompt_response() :: %{}
+
+  """
+  @type delete_a_iprompt_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_guardrails_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_a_i_guardrails_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_assistant_a_i_agent_response() :: %{}
+
+  """
+  @type remove_assistant_a_i_agent_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      request_timeout_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_content_association_request() :: %{}
+
+  """
+  @type get_content_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_messages_response() :: %{
+        "messages" => list(message_output()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_messages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_content_response() :: %{
+        optional("content") => content_data()
+      }
+
+  """
+  @type get_content_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      span_tool_result_value() :: %{
+        "error" => String.t() | atom(),
+        "toolUseId" => String.t() | atom(),
+        "values" => list(list())
+      }
+
+  """
+  @type span_tool_result_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_search_expression() :: %{
+        "filters" => list(message_template_filter_field()),
+        "orderOnField" => message_template_order_field(),
+        "queries" => list(message_template_query_field())
+      }
+
+  """
+  @type message_template_search_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assistant_data() :: %{
+        "aiAgentConfiguration" => map(),
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "capabilityConfiguration" => assistant_capability_configuration(),
+        "description" => String.t() | atom(),
+        "integrationConfiguration" => assistant_integration_configuration(),
+        "name" => String.t() | atom(),
+        "orchestratorConfigurationList" => list(orchestrator_configuration_entry()),
+        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type assistant_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceName" => [String.t() | atom()]
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_session_data() :: %{
+        "key" => String.t() | atom(),
+        "value" => list()
+      }
+
+  """
+  @type runtime_session_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_message_template_response() :: %{
+        "messageTemplateArn" => String.t() | atom(),
+        "messageTemplateId" => String.t() | atom(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type activate_message_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_iprompts_response() :: %{
+        "aiPromptSummaries" => list(a_iprompt_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_a_iprompts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_context() :: %{
+        "selfServiceConversationHistory" => list(self_service_conversation_history())
+      }
+
+  """
+  @type conversation_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_integration_configuration() :: %{
+        "topicIntegrationArn" => String.t() | atom()
+      }
+
+  """
+  @type session_integration_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_assessment() :: %{
+        "blocked" => [boolean()]
+      }
+
+  """
+  @type a_i_guardrail_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assistant_association_data() :: %{
+        "assistantArn" => String.t() | atom(),
+        "assistantAssociationArn" => String.t() | atom(),
+        "assistantAssociationId" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "associationData" => list(),
+        "associationType" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type assistant_association_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_content_request() :: %{}
+
+  """
+  @type delete_content_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_i_agent_version_response() :: %{}
+
+  """
+  @type delete_a_i_agent_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_attribute() :: %{
+        "key" => String.t() | atom(),
+        "value" => any()
+      }
+
+  """
+  @type filter_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quick_response_request() :: %{
+        optional("channels") => list(String.t() | atom()),
+        optional("content") => list(),
+        optional("contentType") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("groupingConfiguration") => grouping_configuration(),
+        optional("isActive") => [boolean()],
+        optional("language") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("removeDescription") => [boolean()],
+        optional("removeGroupingConfiguration") => [boolean()],
+        optional("removeShortcutKey") => [boolean()],
+        optional("shortcutKey") => String.t() | atom()
+      }
+
+  """
+  @type update_quick_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivate_message_template_response() :: %{
+        "messageTemplateArn" => String.t() | atom(),
+        "messageTemplateId" => String.t() | atom(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type deactivate_message_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assistant_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
+        optional("tags") => map(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type create_assistant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_generative_answer_a_i_agent_configuration() :: %{
+        "associationConfigurations" => list(association_configuration()),
+        "emailGenerativeAnswerAIPromptId" => String.t() | atom(),
+        "emailQueryReformulationAIPromptId" => String.t() | atom(),
+        "locale" => String.t() | atom()
+      }
+
+  """
+  @type email_generative_answer_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      seed_url() :: %{
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type seed_url() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generative_chunk_data_details() :: %{
+        "completion" => String.t() | atom(),
+        "nextChunkToken" => String.t() | atom(),
+        "references" => list(data_summary())
+      }
+
+  """
+  @type generative_chunk_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_quick_response_response() :: %{
+        "quickResponse" => quick_response_data()
+      }
+
+  """
+  @type create_quick_response_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      whats_app_message_template_source_configuration_summary() :: %{
+        "businessAccountId" => String.t() | atom(),
+        "components" => list(String.t() | atom()),
+        "language" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom(),
+        "templateId" => String.t() | atom()
+      }
+
+  """
+  @type whats_app_message_template_source_configuration_summary() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_a_p_n_s_message_template_content() :: %{
+        "action" => String.t() | atom(),
+        "body" => list(),
+        "mediaUrl" => String.t() | atom(),
+        "rawContent" => list(),
+        "sound" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type push_a_p_n_s_message_template_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_knowledge_bases_response() :: %{
+        required("knowledgeBaseSummaries") => list(knowledge_base_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_feedback_response() :: %{
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "contentFeedback" => list(),
+        "targetId" => String.t() | atom(),
+        "targetType" => String.t() | atom()
+      }
+
+  """
+  @type put_feedback_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_content_associations_response() :: %{
+        "contentAssociationSummaries" => list(content_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_content_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_message() :: %{
+        "aiGuardrailAssessment" => a_i_guardrail_assessment(),
+        "citations" => list(citation()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type text_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_guardrail_versions_response() :: %{
+        "aiGuardrailVersionSummaries" => list(a_i_guardrail_version_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_a_i_guardrail_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_messages_request() :: %{
+        optional("filter") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_messages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_response_summary() :: %{
+        "channels" => list(String.t() | atom()),
+        "contentType" => String.t() | atom(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "isActive" => [boolean()],
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "quickResponseArn" => String.t() | atom(),
+        "quickResponseId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type quick_response_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_attributes() :: %{
+        "agentAttributes" => agent_attributes(),
+        "customAttributes" => map(),
+        "customerProfileAttributes" => customer_profile_attributes(),
+        "systemAttributes" => system_attributes()
+      }
+
+  """
+  @type message_template_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("externalSourceConfiguration") => external_source_configuration(),
+        required("importJobType") => String.t() | atom(),
+        optional("metadata") => map(),
+        required("uploadId") => String.t() | atom()
+      }
+
+  """
+  @type start_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_regex_config() :: %{
+        "action" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "pattern" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_regex_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notify_recommendations_received_error() :: %{
+        "message" => String.t() | atom(),
+        "recommendationId" => String.t() | atom()
+      }
+
+  """
+  @type notify_recommendations_received_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_topic_policy_config() :: %{
+        "topicsConfig" => list(guardrail_topic_config())
+      }
+
+  """
+  @type a_i_guardrail_topic_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assistant_association_response() :: %{
+        optional("assistantAssociation") => assistant_association_data()
+      }
+
+  """
+  @type create_assistant_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_i_agent_request() :: %{}
+
+  """
+  @type delete_a_i_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_content_policy_config() :: %{
+        "filtersConfig" => list(guardrail_content_filter_config())
+      }
+
+  """
+  @type a_i_guardrail_content_policy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1748,182 +3169,51 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      delete_a_iprompt_version_response() :: %{}
+      delete_a_i_agent_version_request() :: %{}
 
   """
-  @type delete_a_iprompt_version_response() :: %{}
+  @type delete_a_i_agent_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_a_i_agent_request() :: %{}
-
-  """
-  @type get_a_i_agent_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_message_template_attachment_response() :: %{
-        "attachment" => message_template_attachment()
+      notify_recommendations_received_response() :: %{
+        optional("errors") => list(notify_recommendations_received_error()),
+        optional("recommendationIds") => list(String.t() | atom())
       }
 
   """
-  @type create_message_template_attachment_response() :: %{(String.t() | atom()) => any()}
+  @type notify_recommendations_received_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      notes_data_details() :: %{
-        "completion" => String.t() | atom()
+      update_session_data_response() :: %{
+        "data" => list(runtime_session_data()),
+        "namespace" => String.t() | atom(),
+        "sessionArn" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type notes_data_details() :: %{(String.t() | atom()) => any()}
+  @type update_session_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_knowledge_base_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("renderingConfiguration") => rendering_configuration(),
-        optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
-        optional("sourceConfiguration") => list(),
-        optional("tags") => map(),
-        optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
-        required("knowledgeBaseType") => String.t() | atom(),
-        required("name") => String.t() | atom()
+      recommendation_trigger() :: %{
+        "data" => list(),
+        "id" => String.t() | atom(),
+        "recommendationIds" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type create_knowledge_base_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_input() :: %{
-        "value" => list()
-      }
-
-  """
-  @type message_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_message_template_versions_response() :: %{
-        "messageTemplateVersionSummaries" => list(message_template_version_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_message_template_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_summary() :: %{
-        "description" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "knowledgeBaseType" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "renderingConfiguration" => rendering_configuration(),
-        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "sourceConfiguration" => list(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "vectorIngestionConfiguration" => vector_ingestion_configuration()
-      }
-
-  """
-  @type knowledge_base_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_iprompt_response() :: %{
-        "aiPrompt" => a_iprompt_data()
-      }
-
-  """
-  @type create_a_iprompt_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_quick_responses_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "quickResponseSummaries" => list(quick_response_summary())
-      }
-
-  """
-  @type list_quick_responses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      push_a_p_n_s_message_template_content() :: %{
-        "action" => String.t() | atom(),
-        "body" => list(),
-        "mediaUrl" => String.t() | atom(),
-        "rawContent" => list(),
-        "sound" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type push_a_p_n_s_message_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_knowledge_bases_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_content_association_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("association") => list(),
-        required("associationType") => String.t() | atom()
-      }
-
-  """
-  @type create_content_association_request() :: %{(String.t() | atom()) => any()}
+  @type recommendation_trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1940,155 +3230,167 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceName" => [String.t() | atom()]
+      delete_assistant_request() :: %{}
+
+  """
+  @type delete_assistant_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_configuration() :: %{
+        "instanceId" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type connect_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remove_assistant_a_i_agent_response() :: %{}
+      tool_output_filter() :: %{
+        "jsonPath" => String.t() | atom(),
+        "outputConfiguration" => tool_output_configuration()
+      }
 
   """
-  @type remove_assistant_a_i_agent_response() :: %{}
+  @type tool_output_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      import_job_data() :: %{
-        "createdTime" => [non_neg_integer()],
-        "externalSourceConfiguration" => external_source_configuration(),
-        "failedRecordReport" => String.t() | atom(),
-        "importJobId" => String.t() | atom(),
-        "importJobType" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "metadata" => map(),
-        "status" => String.t() | atom(),
-        "uploadId" => String.t() | atom(),
+      list_quick_responses_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_quick_responses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        optional("session") => session_data()
+      }
+
+  """
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_assistant_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("results") => list(result_data())
+      }
+
+  """
+  @type query_assistant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommendations_response() :: %{
+        required("recommendations") => list(recommendation_data()),
+        optional("triggers") => list(recommendation_trigger())
+      }
+
+  """
+  @type get_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_message_templates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "results" => list(message_template_search_result_data())
+      }
+
+  """
+  @type search_message_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      render_message_template_request() :: %{
+        required("attributes") => message_template_attributes()
+      }
+
+  """
+  @type render_message_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_summarization_a_i_agent_configuration() :: %{
+        "caseSummarizationAIGuardrailId" => String.t() | atom(),
+        "caseSummarizationAIPromptId" => String.t() | atom(),
+        "locale" => String.t() | atom()
+      }
+
+  """
+  @type case_summarization_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result_data() :: %{
+        "data" => data_summary(),
+        "document" => document(),
+        "relevanceScore" => float(),
+        "resultId" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type result_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assistant_response() :: %{
+        optional("assistant") => assistant_data()
+      }
+
+  """
+  @type get_assistant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_attachment() :: %{
+        "attachmentId" => String.t() | atom(),
+        "contentDisposition" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "uploadedTime" => [non_neg_integer()],
         "url" => String.t() | atom(),
         "urlExpiry" => [non_neg_integer()]
       }
 
   """
-  @type import_job_data() :: %{(String.t() | atom()) => any()}
+  @type message_template_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      knowledge_base_data() :: %{
-        "description" => String.t() | atom(),
-        "ingestionFailureReasons" => list(String.t() | atom()),
-        "ingestionStatus" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "knowledgeBaseType" => String.t() | atom(),
-        "lastContentModificationTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "renderingConfiguration" => rendering_configuration(),
-        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "sourceConfiguration" => list(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "vectorIngestionConfiguration" => vector_ingestion_configuration()
-      }
+      get_message_template_request() :: %{}
 
   """
-  @type knowledge_base_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assistant_association_data() :: %{
-        "assistantArn" => String.t() | atom(),
-        "assistantAssociationArn" => String.t() | atom(),
-        "assistantAssociationId" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "associationData" => list(),
-        "associationType" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type assistant_association_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_filter_config() :: %{
-        "inputStrength" => String.t() | atom(),
-        "outputStrength" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_content_filter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_text() :: %{
-        "highlights" => list(highlight()),
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type document_text() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assistant_request() :: %{}
-
-  """
-  @type get_assistant_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assistant_response() :: %{}
-
-  """
-  @type delete_assistant_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      message_template_query_field() :: %{
-        "allowFuzziness" => [boolean()],
-        "name" => String.t() | atom(),
-        "operator" => String.t() | atom(),
-        "priority" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type message_template_query_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deactivate_message_template_request() :: %{
-        required("versionNumber") => float()
-      }
-
-  """
-  @type deactivate_message_template_request() :: %{(String.t() | atom()) => any()}
+  @type get_message_template_request() :: %{}
 
   @typedoc """
 
@@ -2121,6 +3423,1014 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      get_a_i_guardrail_response() :: %{
+        "aiGuardrail" => a_i_guardrail_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type get_a_i_guardrail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_content_association_request() :: %{}
+
+  """
+  @type delete_content_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_a_i_agent_response() :: %{
+        "aiAgent" => a_i_agent_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type get_a_i_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_association_data() :: %{
+        "associationData" => list(),
+        "associationType" => String.t() | atom(),
+        "contentArn" => String.t() | atom(),
+        "contentAssociationArn" => String.t() | atom(),
+        "contentAssociationId" => String.t() | atom(),
+        "contentId" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type content_association_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_instruction() :: %{
+        "examples" => list([String.t() | atom()]()),
+        "instruction" => [String.t() | atom()]
+      }
+
+  """
+  @type tool_instruction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_content_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("searchExpression") => search_expression()
+      }
+
+  """
+  @type search_content_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_import_job_response() :: %{}
+
+  """
+  @type delete_import_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      span_tool_use_value() :: %{
+        "arguments" => any(),
+        "name" => String.t() | atom(),
+        "toolUseId" => String.t() | atom()
+      }
+
+  """
+  @type span_tool_use_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_override_input_value() :: %{
+        "jsonPath" => String.t() | atom(),
+        "value" => list()
+      }
+
+  """
+  @type tool_override_input_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_knowledge_base_response() :: %{
+        optional("knowledgeBase") => knowledge_base_data()
+      }
+
+  """
+  @type create_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceName" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_models_response() :: %{
+        "modelSummaries" => list(model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_quick_response_request() :: %{
+        optional("channels") => list(String.t() | atom()),
+        optional("clientToken") => String.t() | atom(),
+        required("content") => list(),
+        optional("contentType") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("groupingConfiguration") => grouping_configuration(),
+        optional("isActive") => [boolean()],
+        optional("language") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("shortcutKey") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_quick_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_association_configuration_data() :: %{
+        "contentTagFilter" => list(),
+        "maxResults" => integer(),
+        "overrideKnowledgeBaseSearchType" => String.t() | atom()
+      }
+
+  """
+  @type knowledge_base_association_configuration_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_job_response() :: %{
+        "importJob" => import_job_data()
+      }
+
+  """
+  @type start_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_content_upload_response() :: %{
+        required("headersToInclude") => map(),
+        required("uploadId") => String.t() | atom(),
+        required("url") => String.t() | atom(),
+        required("urlExpiry") => [non_neg_integer()]
+      }
+
+  """
+  @type start_content_upload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_response_search_expression() :: %{
+        "filters" => list(quick_response_filter_field()),
+        "orderOnField" => quick_response_order_field(),
+        "queries" => list(quick_response_query_field())
+      }
+
+  """
+  @type quick_response_search_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_iprompt_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("modifiedTime") => [non_neg_integer()]
+      }
+
+  """
+  @type create_a_iprompt_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_a_i_guardrail_request() :: %{}
+
+  """
+  @type get_a_i_guardrail_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_message_template_content_body() :: %{
+        "plainText" => list()
+      }
+
+  """
+  @type sms_message_template_content_body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_side_encryption_configuration() :: %{
+        "kmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_baidu_message_template_content() :: %{
+        "action" => String.t() | atom(),
+        "body" => list(),
+        "imageIconUrl" => String.t() | atom(),
+        "imageUrl" => String.t() | atom(),
+        "rawContent" => list(),
+        "smallImageIconUrl" => String.t() | atom(),
+        "sound" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type push_baidu_message_template_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      url_configuration() :: %{
+        "seedUrls" => list(seed_url())
+      }
+
+  """
+  @type url_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assistant_summary() :: %{
+        "aiAgentConfiguration" => map(),
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "capabilityConfiguration" => assistant_capability_configuration(),
+        "description" => String.t() | atom(),
+        "integrationConfiguration" => assistant_integration_configuration(),
+        "name" => String.t() | atom(),
+        "orchestratorConfigurationList" => list(orchestrator_configuration_entry()),
+        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type assistant_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_expression() :: %{
+        "filters" => list(filter())
+      }
+
+  """
+  @type search_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notify_recommendations_received_request() :: %{
+        required("recommendationIds") => list(String.t() | atom())
+      }
+
+  """
+  @type notify_recommendations_received_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_summary() :: %{
+        "contentArn" => String.t() | atom(),
+        "contentId" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "metadata" => map(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "title" => String.t() | atom()
+      }
+
+  """
+  @type content_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivate_message_template_request() :: %{
+        required("versionNumber") => float()
+      }
+
+  """
+  @type deactivate_message_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_policy_result() :: %{
+        "action" => String.t() | atom(),
+        "details" => String.t() | atom(),
+        "policyType" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assistant_integration_configuration() :: %{
+        "topicIntegrationArn" => String.t() | atom()
+      }
+
+  """
+  @type assistant_integration_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_generative_answer_chunk_data_details() :: %{
+        "completion" => String.t() | atom(),
+        "nextChunkToken" => String.t() | atom(),
+        "references" => list(data_summary())
+      }
+
+  """
+  @type email_generative_answer_chunk_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_import_job_request() :: %{}
+
+  """
+  @type delete_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessable_content_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type unprocessable_content_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_failed_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type dependency_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_summary() :: %{
+        "description" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "knowledgeBaseType" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "renderingConfiguration" => rendering_configuration(),
+        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
+        "sourceConfiguration" => list(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "vectorIngestionConfiguration" => vector_ingestion_configuration()
+      }
+
+  """
+  @type knowledge_base_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_content_response() :: %{
+        optional("content") => content_data()
+      }
+
+  """
+  @type update_content_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_session_response() :: %{
+        "session" => session_data()
+      }
+
+  """
+  @type update_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_iprompt_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("inferenceConfiguration") => a_iprompt_inference_configuration(),
+        optional("modelId") => String.t() | atom(),
+        optional("templateConfiguration") => list(),
+        required("visibilityStatus") => String.t() | atom()
+      }
+
+  """
+  @type update_a_iprompt_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_iprompt_version_summary() :: %{
+        "aiPromptSummary" => a_iprompt_summary(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type a_iprompt_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_message_template_response() :: %{
+        "messageTemplate" => message_template_data()
+      }
+
+  """
+  @type update_message_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assistant_association_response() :: %{
+        optional("assistantAssociation") => assistant_association_data()
+      }
+
+  """
+  @type get_assistant_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_input() :: %{
+        "value" => list()
+      }
+
+  """
+  @type message_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assistant_association_request() :: %{}
+
+  """
+  @type delete_assistant_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      association_configuration() :: %{
+        "associationConfigurationData" => list(),
+        "associationId" => String.t() | atom(),
+        "associationType" => String.t() | atom()
+      }
+
+  """
+  @type association_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_data() :: %{
+        "contentArn" => String.t() | atom(),
+        "contentId" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "linkOutUri" => String.t() | atom(),
+        "metadata" => map(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "title" => String.t() | atom(),
+        "url" => String.t() | atom(),
+        "urlExpiry" => [non_neg_integer()]
+      }
+
+  """
+  @type content_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_agents_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("origin") => String.t() | atom()
+      }
+
+  """
+  @type list_a_i_agents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_recommendation_trigger_data() :: %{
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type query_recommendation_trigger_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_summary() :: %{
+        "activeVersionNumber" => float(),
+        "channel" => String.t() | atom(),
+        "channelSubtype" => String.t() | atom(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "messageTemplateArn" => String.t() | atom(),
+        "messageTemplateId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceConfiguration" => list(),
+        "tags" => map()
+      }
+
+  """
+  @type message_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_agent_versions_response() :: %{
+        "aiAgentVersionSummaries" => list(a_i_agent_version_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_a_i_agent_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_full_a_iprompt_edit_template_configuration() :: %{
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type text_full_a_iprompt_edit_template_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_iprompt_version_request() :: %{}
+
+  """
+  @type delete_a_iprompt_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      case_summarization_input_data() :: %{
+        "caseArn" => String.t() | atom()
+      }
+
+  """
+  @type case_summarization_input_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "field" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_filter_config() :: %{
+        "inputStrength" => String.t() | atom(),
+        "outputStrength" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_content_filter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_query_field() :: %{
+        "allowFuzziness" => [boolean()],
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "priority" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type message_template_query_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_models_request() :: %{
+        optional("aiPromptType") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("modelLifecycle") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_iprompt_summary() :: %{
+        "aiPromptArn" => String.t() | atom(),
+        "aiPromptId" => String.t() | atom(),
+        "apiFormat" => String.t() | atom(),
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "modelId" => String.t() | atom(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "origin" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "templateType" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "visibilityStatus" => String.t() | atom()
+      }
+
+  """
+  @type a_iprompt_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_knowledge_base_template_uri_request() :: %{
+        required("templateUri") => String.t() | atom()
+      }
+
+  """
+  @type update_knowledge_base_template_uri_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_source_configuration() :: %{
+        "configuration" => list(),
+        "source" => String.t() | atom()
+      }
+
+  """
+  @type external_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      span_text_value() :: %{
+        "aiGuardrailAssessment" => a_i_guardrail_assessment(),
+        "citations" => list(span_citation()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type span_text_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_quick_responses_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "quickResponseSummaries" => list(quick_response_summary())
+      }
+
+  """
+  @type list_quick_responses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_knowledge_base_request() :: %{}
+
+  """
+  @type get_knowledge_base_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      user_interaction_configuration() :: %{
+        "isUserConfirmationRequired" => [boolean()]
+      }
+
+  """
+  @type user_interaction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_content_response() :: %{
+        optional("content") => content_data()
+      }
+
+  """
+  @type create_content_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_i_guardrail_response() :: %{}
+
+  """
+  @type delete_a_i_guardrail_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      content_association_summary() :: %{
+        "associationData" => list(),
+        "associationType" => String.t() | atom(),
+        "contentArn" => String.t() | atom(),
+        "contentAssociationArn" => String.t() | atom(),
+        "contentAssociationId" => String.t() | atom(),
+        "contentId" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type content_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_message_template_attachment_request() :: %{}
+
+  """
+  @type delete_message_template_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_response_data() :: %{
+        "channels" => list(String.t() | atom()),
+        "contentType" => String.t() | atom(),
+        "contents" => quick_response_contents(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "groupingConfiguration" => grouping_configuration(),
+        "isActive" => [boolean()],
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "language" => String.t() | atom(),
+        "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "quickResponseArn" => String.t() | atom(),
+        "quickResponseId" => String.t() | atom(),
+        "shortcutKey" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type quick_response_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_job_response() :: %{
+        "importJob" => import_job_data()
+      }
+
+  """
+  @type get_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_content_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_content_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_detected_data_details() :: %{
+        "intent" => String.t() | atom(),
+        "intentId" => String.t() | atom(),
+        "relevanceLevel" => String.t() | atom()
+      }
+
+  """
+  @type intent_detected_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_message_template_attachment_response() :: %{
+        "attachment" => message_template_attachment()
+      }
+
+  """
+  @type create_message_template_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_overview_chunk_data_details() :: %{
+        "completion" => String.t() | atom(),
+        "nextChunkToken" => String.t() | atom()
+      }
+
+  """
+  @type email_overview_chunk_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_filter_config() :: %{
+        "threshold" => float(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_contextual_grounding_filter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_message_template_content() :: %{
+        "adm" => push_ad_m_message_template_content(),
+        "apns" => push_a_p_n_s_message_template_content(),
+        "baidu" => push_baidu_message_template_content(),
+        "fcm" => push_f_cm_message_template_content()
+      }
+
+  """
+  @type push_message_template_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_message_template_version_request() :: %{
+        optional("messageTemplateContentSha256") => String.t() | atom()
+      }
+
+  """
+  @type create_message_template_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assistant_associations_response() :: %{
+        required("assistantAssociationSummaries") => list(assistant_association_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_assistant_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_message_template_request() :: %{
         optional("content") => list(),
         optional("defaultAttributes") => message_template_attributes(),
@@ -2135,12 +4445,133 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      a_i_guardrail_assessment() :: %{
-        "blocked" => [boolean()]
+      suggested_message_data_details() :: %{
+        "messageText" => String.t() | atom()
       }
 
   """
-  @type a_i_guardrail_assessment() :: %{(String.t() | atom()) => any()}
+  @type suggested_message_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_job_request() :: %{}
+
+  """
+  @type get_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_feedback_request() :: %{
+        required("contentFeedback") => list(),
+        required("targetId") => String.t() | atom(),
+        required("targetType") => String.t() | atom()
+      }
+
+  """
+  @type put_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      orchestration_a_i_agent_configuration() :: %{
+        "connectInstanceArn" => String.t() | atom(),
+        "locale" => String.t() | atom(),
+        "orchestrationAIGuardrailId" => String.t() | atom(),
+        "orchestrationAIPromptId" => String.t() | atom(),
+        "toolConfigurations" => list(tool_configuration())
+      }
+
+  """
+  @type orchestration_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_quick_response_request() :: %{}
+
+  """
+  @type delete_quick_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_response_search_result_data() :: %{
+        "attributesInterpolated" => list(String.t() | atom()),
+        "attributesNotInterpolated" => list(String.t() | atom()),
+        "channels" => list(String.t() | atom()),
+        "contentType" => String.t() | atom(),
+        "contents" => quick_response_contents(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "groupingConfiguration" => grouping_configuration(),
+        "isActive" => [boolean()],
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "language" => String.t() | atom(),
+        "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "quickResponseArn" => String.t() | atom(),
+        "quickResponseId" => String.t() | atom(),
+        "shortcutKey" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type quick_response_search_result_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grouping_configuration() :: %{
+        "criteria" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type grouping_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_message_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_message_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_request() :: %{
+        required("retrievalConfiguration") => retrieval_configuration(),
+        required("retrievalQuery") => String.t() | atom()
+      }
+
+  """
+  @type retrieve_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_quick_response_request() :: %{}
+
+  """
+  @type get_quick_response_request() :: %{}
 
   @typedoc """
 
@@ -2178,6 +4609,41 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      create_content_association_request() :: %{
+        required("association") => list(),
+        required("associationType") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_content_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_message_template_versions_response() :: %{
+        "messageTemplateVersionSummaries" => list(message_template_version_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_message_template_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_message_template_attachment_response() :: %{}
+
+  """
+  @type delete_message_template_attachment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       notes_chunk_data_details() :: %{
         "completion" => String.t() | atom(),
         "nextChunkToken" => String.t() | atom()
@@ -2190,840 +4656,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      update_message_template_metadata_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("groupingConfiguration") => grouping_configuration(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_message_template_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quick_response_contents() :: %{
-        "markdown" => list(),
-        "plainText" => list()
-      }
-
-  """
-  @type quick_response_contents() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      text_message() :: %{
-        "aiGuardrailAssessment" => a_i_guardrail_assessment(),
-        "citations" => list(citation()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type text_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      seed_url() :: %{
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type seed_url() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amazon_connect_guide_association_data() :: %{
-        "flowId" => String.t() | atom()
-      }
-
-  """
-  @type amazon_connect_guide_association_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_message_template_response() :: %{
-        "messageTemplate" => message_template_data()
-      }
-
-  """
-  @type create_message_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_i_guardrail_version_response() :: %{
-        "aiGuardrail" => a_i_guardrail_data(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type create_a_i_guardrail_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_i_guardrail_response() :: %{
-        "aiGuardrail" => a_i_guardrail_data()
-      }
-
-  """
-  @type create_a_i_guardrail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_import_job_request() :: %{}
-
-  """
-  @type delete_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      url_configuration() :: %{
-        "seedUrls" => list(seed_url())
-      }
-
-  """
-  @type url_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assistant_data() :: %{
-        "aiAgentConfiguration" => map(),
+      session_summary() :: %{
         "assistantArn" => String.t() | atom(),
         "assistantId" => String.t() | atom(),
-        "capabilityConfiguration" => assistant_capability_configuration(),
-        "description" => String.t() | atom(),
-        "integrationConfiguration" => assistant_integration_configuration(),
-        "name" => String.t() | atom(),
-        "orchestratorConfigurationList" => list(orchestrator_configuration_entry()),
-        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom()
+        "sessionArn" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type assistant_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conversation_context() :: %{
-        "selfServiceConversationHistory" => list(self_service_conversation_history())
-      }
-
-  """
-  @type conversation_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_response_chunk_data_details() :: %{
-        "completion" => String.t() | atom(),
-        "nextChunkToken" => String.t() | atom()
-      }
-
-  """
-  @type email_response_chunk_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_crawler_limits() :: %{
-        "rateLimit" => [integer()]
-      }
-
-  """
-  @type web_crawler_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assistant_response() :: %{
-        optional("assistant") => assistant_data()
-      }
-
-  """
-  @type create_assistant_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_interaction_configuration() :: %{
-        "isUserConfirmationRequired" => [boolean()]
-      }
-
-  """
-  @type user_interaction_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quick_response_summary() :: %{
-        "channels" => list(String.t() | atom()),
-        "contentType" => String.t() | atom(),
-        "createdTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "lastModifiedBy" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "quickResponseArn" => String.t() | atom(),
-        "quickResponseId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type quick_response_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_quick_response_response() :: %{
-        "quickResponse" => quick_response_data()
-      }
-
-  """
-  @type get_quick_response_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_job_request() :: %{}
-
-  """
-  @type get_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assistant_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-
-  """
-  @type create_assistant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommendations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextChunkToken") => String.t() | atom(),
-        optional("recommendationType") => String.t() | atom(),
-        optional("waitTimeSeconds") => integer()
-      }
-
-  """
-  @type get_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_recommendation_trigger_data() :: %{
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type query_recommendation_trigger_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_message_template_content_body() :: %{
-        "plainText" => list()
-      }
-
-  """
-  @type sms_message_template_content_body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_output() :: %{
-        "messageId" => String.t() | atom(),
-        "participant" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "value" => list()
-      }
-
-  """
-  @type message_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_message_templates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("searchExpression") => message_template_search_expression()
-      }
-
-  """
-  @type search_message_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_agent_summary() :: %{
-        "aiAgentArn" => String.t() | atom(),
-        "aiAgentId" => String.t() | atom(),
-        "assistantArn" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "configuration" => list(),
-        "description" => String.t() | atom(),
-        "modifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "origin" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom(),
-        "visibilityStatus" => String.t() | atom()
-      }
-
-  """
-  @type a_i_agent_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_session_request() :: %{
-        optional("aiAgentConfiguration") => map(),
-        optional("description") => String.t() | atom(),
-        optional("orchestratorConfigurationList") => list(orchestrator_configuration_entry()),
-        optional("removeOrchestratorConfigurationList") => [boolean()],
-        optional("tagFilter") => list()
-      }
-
-  """
-  @type update_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_sessions_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("sessionSummaries") => list(session_summary())
-      }
-
-  """
-  @type search_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      chunking_configuration() :: %{
-        "chunkingStrategy" => String.t() | atom(),
-        "fixedSizeChunkingConfiguration" => fixed_size_chunking_configuration(),
-        "hierarchicalChunkingConfiguration" => hierarchical_chunking_configuration(),
-        "semanticChunkingConfiguration" => semantic_chunking_configuration()
-      }
-
-  """
-  @type chunking_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_iprompt_version_request() :: %{}
-
-  """
-  @type delete_a_iprompt_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      notify_recommendations_received_response() :: %{
-        optional("errors") => list(notify_recommendations_received_error()),
-        optional("recommendationIds") => list(String.t() | atom())
-      }
-
-  """
-  @type notify_recommendations_received_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      whats_app_message_template_source_configuration_summary() :: %{
-        "businessAccountId" => String.t() | atom(),
-        "components" => list(String.t() | atom()),
-        "language" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusReason" => String.t() | atom(),
-        "templateId" => String.t() | atom()
-      }
-
-  """
-  @type whats_app_message_template_source_configuration_summary() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_quick_response_request() :: %{
-        optional("channels") => list(String.t() | atom()),
-        optional("content") => list(),
-        optional("contentType") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("groupingConfiguration") => grouping_configuration(),
-        optional("isActive") => [boolean()],
-        optional("language") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("removeDescription") => [boolean()],
-        optional("removeGroupingConfiguration") => [boolean()],
-        optional("removeShortcutKey") => [boolean()],
-        optional("shortcutKey") => String.t() | atom()
-      }
-
-  """
-  @type update_quick_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quick_response_data() :: %{
-        "channels" => list(String.t() | atom()),
-        "contentType" => String.t() | atom(),
-        "contents" => quick_response_contents(),
-        "createdTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "groupingConfiguration" => grouping_configuration(),
-        "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "language" => String.t() | atom(),
-        "lastModifiedBy" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "quickResponseArn" => String.t() | atom(),
-        "quickResponseId" => String.t() | atom(),
-        "shortcutKey" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type quick_response_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieve_result() :: %{
-        "associationId" => String.t() | atom(),
-        "contentText" => String.t() | atom(),
-        "referenceType" => String.t() | atom(),
-        "sourceId" => String.t() | atom()
-      }
-
-  """
-  @type retrieve_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      intent_input_data() :: %{
-        "intentId" => String.t() | atom()
-      }
-
-  """
-  @type intent_input_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_association_data() :: %{
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom()
-      }
-
-  """
-  @type knowledge_base_association_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_condition_item() :: %{
-        "comparator" => String.t() | atom(),
-        "field" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type query_condition_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_a_i_agent_response() :: %{
-        "aiAgent" => a_i_agent_data()
-      }
-
-  """
-  @type update_a_i_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parsing_prompt() :: %{
-        "parsingPromptText" => String.t() | atom()
-      }
-
-  """
-  @type parsing_prompt() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_response_a_i_agent_configuration() :: %{
-        "associationConfigurations" => list(association_configuration()),
-        "emailQueryReformulationAIPromptId" => String.t() | atom(),
-        "emailResponseAIPromptId" => String.t() | atom(),
-        "locale" => String.t() | atom()
-      }
-
-  """
-  @type email_response_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_iprompt_inference_configuration() :: %{
-        "maxTokensToSample" => integer(),
-        "temperature" => float(),
-        "topK" => integer(),
-        "topP" => float()
-      }
-
-  """
-  @type a_iprompt_inference_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assistant_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_assistant_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_guardrail_summary() :: %{
-        "aiGuardrailArn" => String.t() | atom(),
-        "aiGuardrailId" => String.t() | atom(),
-        "assistantArn" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "modifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "visibilityStatus" => String.t() | atom()
-      }
-
-  """
-  @type a_i_guardrail_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_knowledge_base_request() :: %{}
-
-  """
-  @type delete_knowledge_base_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      push_ad_m_message_template_content() :: %{
-        "action" => String.t() | atom(),
-        "body" => list(),
-        "imageIconUrl" => String.t() | atom(),
-        "imageUrl" => String.t() | atom(),
-        "rawContent" => list(),
-        "smallImageIconUrl" => String.t() | atom(),
-        "sound" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type push_ad_m_message_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_quick_response_response() :: %{
-        "quickResponse" => quick_response_data()
-      }
-
-  """
-  @type update_quick_response_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assistant_summary() :: %{
-        "aiAgentConfiguration" => map(),
-        "assistantArn" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "capabilityConfiguration" => assistant_capability_configuration(),
-        "description" => String.t() | atom(),
-        "integrationConfiguration" => assistant_integration_configuration(),
-        "name" => String.t() | atom(),
-        "orchestratorConfigurationList" => list(orchestrator_configuration_entry()),
-        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type assistant_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      case_summarization_chunk_data_details() :: %{
-        "completion" => String.t() | atom(),
-        "nextChunkToken" => String.t() | atom()
-      }
-
-  """
-  @type case_summarization_chunk_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_guardrail_topic_policy_config() :: %{
-        "topicsConfig" => list(guardrail_topic_config())
-      }
-
-  """
-  @type a_i_guardrail_topic_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generative_content_feedback_data() :: %{
-        "relevance" => String.t() | atom()
-      }
-
-  """
-  @type generative_content_feedback_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_expression() :: %{
-        "filters" => list(filter())
-      }
-
-  """
-  @type search_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_attribute() :: %{
-        "key" => String.t() | atom(),
-        "value" => any()
-      }
-
-  """
-  @type filter_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "field" => String.t() | atom(),
-        "operator" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      case_summarization_a_i_agent_configuration() :: %{
-        "caseSummarizationAIGuardrailId" => String.t() | atom(),
-        "caseSummarizationAIPromptId" => String.t() | atom(),
-        "locale" => String.t() | atom()
-      }
-
-  """
-  @type case_summarization_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_overview_chunk_data_details() :: %{
-        "completion" => String.t() | atom(),
-        "nextChunkToken" => String.t() | atom()
-      }
-
-  """
-  @type email_overview_chunk_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_agent_data() :: %{
-        "aiAgentArn" => String.t() | atom(),
-        "aiAgentId" => String.t() | atom(),
-        "assistantArn" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "configuration" => list(),
-        "description" => String.t() | atom(),
-        "modifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "origin" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom(),
-        "visibilityStatus" => String.t() | atom()
-      }
-
-  """
-  @type a_i_agent_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_content_data_details() :: %{
-        "citationSpan" => citation_span(),
-        "id" => String.t() | atom(),
-        "rankingData" => ranking_data(),
-        "textData" => text_data(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type source_content_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_side_encryption_configuration() :: %{
-        "kmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_word_config() :: %{
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_word_config() :: %{(String.t() | atom()) => any()}
+  @type session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3049,50 +4690,147 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      search_sessions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("searchExpression") => search_expression()
+      start_content_upload_request() :: %{
+        required("contentType") => String.t() | atom(),
+        optional("presignedUrlTimeToLive") => integer()
       }
 
   """
-  @type search_sessions_request() :: %{(String.t() | atom()) => any()}
+  @type start_content_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      semantic_chunking_configuration() :: %{
-        "breakpointPercentileThreshold" => [integer()],
-        "bufferSize" => [integer()],
-        "maxTokens" => [integer()]
+      document() :: %{
+        "contentReference" => content_reference(),
+        "excerpt" => document_text(),
+        "title" => document_text()
       }
 
   """
-  @type semantic_chunking_configuration() :: %{(String.t() | atom()) => any()}
+  @type document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tool_override_input_value() :: %{
-        "jsonPath" => String.t() | atom(),
-        "value" => list()
+      system_endpoint_attributes() :: %{
+        "address" => String.t() | atom()
       }
 
   """
-  @type tool_override_input_value() :: %{(String.t() | atom()) => any()}
+  @type system_endpoint_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_message_template_version_response() :: %{
-        "messageTemplate" => extended_message_template_data()
+      assistant_capability_configuration() :: %{
+        "type" => String.t() | atom()
       }
 
   """
-  @type create_message_template_version_response() :: %{(String.t() | atom()) => any()}
+  @type assistant_capability_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assistant_association_summary() :: %{
+        "assistantArn" => String.t() | atom(),
+        "assistantAssociationArn" => String.t() | atom(),
+        "assistantAssociationId" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "associationData" => list(),
+        "associationType" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type assistant_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_response_order_field() :: %{
+        "name" => String.t() | atom(),
+        "order" => String.t() | atom()
+      }
+
+  """
+  @type quick_response_order_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_content_request() :: %{
+        optional("metadata") => map(),
+        optional("overrideLinkOutUri") => String.t() | atom(),
+        optional("removeOverrideLinkOutUri") => [boolean()],
+        optional("revisionId") => String.t() | atom(),
+        optional("title") => String.t() | atom(),
+        optional("uploadId") => String.t() | atom()
+      }
+
+  """
+  @type update_content_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_input_data() :: %{
+        "intentId" => String.t() | atom()
+      }
+
+  """
+  @type intent_input_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_use_result_data() :: %{
+        "inputSchema" => any(),
+        "toolName" => String.t() | atom(),
+        "toolResult" => any(),
+        "toolUseId" => String.t() | atom()
+      }
+
+  """
+  @type tool_use_result_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_content_summary_request() :: %{}
+
+  """
+  @type get_content_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_a_iprompt_request() :: %{}
+
+  """
+  @type get_a_iprompt_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_agent_response() :: %{
+        "aiAgent" => a_i_agent_data()
+      }
+
+  """
+  @type create_a_i_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3125,374 +4863,31 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      email_header() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
+      get_session_request() :: %{}
 
   """
-  @type email_header() :: %{(String.t() | atom()) => any()}
+  @type get_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      web_crawler_configuration() :: %{
-        "crawlerLimits" => web_crawler_limits(),
-        "exclusionFilters" => list(String.t() | atom()),
-        "inclusionFilters" => list(String.t() | atom()),
-        "scope" => String.t() | atom(),
-        "urlConfiguration" => url_configuration()
-      }
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type web_crawler_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_import_jobs_response() :: %{
-        "importJobSummaries" => list(import_job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_i_guardrail_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("modifiedTime") => [non_neg_integer()]
-      }
-
-  """
-  @type create_a_i_guardrail_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_message_template_request() :: %{}
-
-  """
-  @type delete_message_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      bedrock_foundation_model_configuration_for_parsing() :: %{
-        "modelArn" => String.t() | atom(),
-        "parsingPrompt" => parsing_prompt()
-      }
-
-  """
-  @type bedrock_foundation_model_configuration_for_parsing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      push_baidu_message_template_content() :: %{
-        "action" => String.t() | atom(),
-        "body" => list(),
-        "imageIconUrl" => String.t() | atom(),
-        "imageUrl" => String.t() | atom(),
-        "rawContent" => list(),
-        "smallImageIconUrl" => String.t() | atom(),
-        "sound" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type push_baidu_message_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_content_association_response() :: %{}
-
-  """
-  @type delete_content_association_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      a_iprompt_summary() :: %{
-        "aiPromptArn" => String.t() | atom(),
-        "aiPromptId" => String.t() | atom(),
-        "apiFormat" => String.t() | atom(),
-        "assistantArn" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "modelId" => String.t() | atom(),
-        "modifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "origin" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "templateType" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "visibilityStatus" => String.t() | atom()
-      }
-
-  """
-  @type a_iprompt_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_guardrail_word_policy_config() :: %{
-        "managedWordListsConfig" => list(guardrail_managed_words_config()),
-        "wordsConfig" => list(guardrail_word_config())
-      }
-
-  """
-  @type a_i_guardrail_word_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_knowledge_base_template_uri_request() :: %{}
-
-  """
-  @type remove_knowledge_base_template_uri_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      generative_data_details() :: %{
+      case_summarization_chunk_data_details() :: %{
         "completion" => String.t() | atom(),
-        "rankingData" => ranking_data(),
-        "references" => list(data_summary())
+        "nextChunkToken" => String.t() | atom()
       }
 
   """
-  @type generative_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_quick_responses_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "results" => list(quick_response_search_result_data())
-      }
-
-  """
-  @type search_quick_responses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_a_iprompt_request() :: %{}
-
-  """
-  @type get_a_iprompt_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      push_f_cm_message_template_content() :: %{
-        "action" => String.t() | atom(),
-        "body" => list(),
-        "imageIconUrl" => String.t() | atom(),
-        "imageUrl" => String.t() | atom(),
-        "rawContent" => list(),
-        "smallImageIconUrl" => String.t() | atom(),
-        "sound" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type push_f_cm_message_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_i_guardrail_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_a_i_guardrail_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_guardrail_version_summary() :: %{
-        "aiGuardrailSummary" => a_i_guardrail_summary(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type a_i_guardrail_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_regex_config() :: %{
-        "action" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "pattern" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_regex_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_message_templates_response() :: %{
-        "messageTemplateSummaries" => list(message_template_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_message_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_a_iprompt_response() :: %{
-        "aiPrompt" => a_iprompt_data(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type get_a_iprompt_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_spans_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "spans" => list(span())
-      }
-
-  """
-  @type list_spans_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_iprompt_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("inferenceConfiguration") => a_iprompt_inference_configuration(),
-        optional("tags") => map(),
-        required("apiFormat") => String.t() | atom(),
-        required("modelId") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("templateConfiguration") => list(),
-        required("templateType") => String.t() | atom(),
-        required("type") => String.t() | atom(),
-        required("visibilityStatus") => String.t() | atom()
-      }
-
-  """
-  @type create_a_iprompt_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_guardrail_contextual_grounding_policy_config() :: %{
-        "filtersConfig" => list(guardrail_contextual_grounding_filter_config())
-      }
-
-  """
-  @type a_i_guardrail_contextual_grounding_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notify_recommendations_received_error() :: %{
-        "message" => String.t() | atom(),
-        "recommendationId" => String.t() | atom()
-      }
-
-  """
-  @type notify_recommendations_received_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_job_response() :: %{
-        "importJob" => import_job_data()
-      }
-
-  """
-  @type get_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      manual_search_a_i_agent_configuration() :: %{
-        "answerGenerationAIGuardrailId" => String.t() | atom(),
-        "answerGenerationAIPromptId" => String.t() | atom(),
-        "associationConfigurations" => list(association_configuration()),
-        "locale" => String.t() | atom()
-      }
-
-  """
-  @type manual_search_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_content_response() :: %{
-        optional("content") => content_data()
-      }
-
-  """
-  @type update_content_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_message_template_attachment_request() :: %{}
-
-  """
-  @type delete_message_template_attachment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessable_content_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type unprocessable_content_exception() :: %{(String.t() | atom()) => any()}
+  @type case_summarization_chunk_data_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3511,862 +4906,46 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      get_message_template_response() :: %{
-        "messageTemplate" => extended_message_template_data()
+      get_assistant_request() :: %{}
+
+  """
+  @type get_assistant_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_i_agent_response() :: %{
+        "aiAgent" => a_i_agent_data()
       }
 
   """
-  @type get_message_template_response() :: %{(String.t() | atom()) => any()}
+  @type update_a_i_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tool_override_constant_input_value() :: %{
-        "type" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tool_override_constant_input_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_quick_response_request() :: %{}
-
-  """
-  @type get_quick_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_configuration() :: %{
-        "annotations" => annotation(),
-        "description" => String.t() | atom(),
-        "inputSchema" => any(),
-        "instruction" => tool_instruction(),
-        "outputFilters" => list(tool_output_filter()),
-        "outputSchema" => any(),
-        "overrideInputValues" => list(tool_override_input_value()),
-        "title" => String.t() | atom(),
-        "toolId" => String.t() | atom(),
-        "toolName" => String.t() | atom(),
-        "toolType" => String.t() | atom(),
-        "userInteractionConfiguration" => user_interaction_configuration()
-      }
-
-  """
-  @type tool_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_guardrail_sensitive_information_policy_config() :: %{
-        "piiEntitiesConfig" => list(guardrail_pii_entity_config()),
-        "regexesConfig" => list(guardrail_regex_config())
-      }
-
-  """
-  @type a_i_guardrail_sensitive_information_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assistant_association_response() :: %{
-        optional("assistantAssociation") => assistant_association_data()
-      }
-
-  """
-  @type create_assistant_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_content_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("metadata") => map(),
-        optional("overrideLinkOutUri") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("title") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("uploadId") => String.t() | atom()
-      }
-
-  """
-  @type create_content_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_template_summary() :: %{
-        "activeVersionNumber" => float(),
-        "channel" => String.t() | atom(),
-        "channelSubtype" => String.t() | atom(),
-        "createdTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "lastModifiedBy" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "messageTemplateArn" => String.t() | atom(),
-        "messageTemplateId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "sourceConfiguration" => list(),
-        "tags" => map()
-      }
-
-  """
-  @type message_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      import_job_summary() :: %{
-        "createdTime" => [non_neg_integer()],
-        "externalSourceConfiguration" => external_source_configuration(),
-        "importJobId" => String.t() | atom(),
-        "importJobType" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "metadata" => map(),
-        "status" => String.t() | atom(),
-        "uploadId" => String.t() | atom()
-      }
-
-  """
-  @type import_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_assistant_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("overrideKnowledgeBaseSearchType") => String.t() | atom(),
-        optional("queryCondition") => list(list()),
-        optional("queryInputData") => list(),
-        optional("queryText") => String.t() | atom(),
-        optional("sessionId") => String.t() | atom()
-      }
-
-  """
-  @type query_assistant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_message_template_request() :: %{}
-
-  """
-  @type get_message_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      quick_response_search_result_data() :: %{
-        "attributesInterpolated" => list(String.t() | atom()),
-        "attributesNotInterpolated" => list(String.t() | atom()),
-        "channels" => list(String.t() | atom()),
-        "contentType" => String.t() | atom(),
-        "contents" => quick_response_contents(),
-        "createdTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "groupingConfiguration" => grouping_configuration(),
-        "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "language" => String.t() | atom(),
-        "lastModifiedBy" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "quickResponseArn" => String.t() | atom(),
-        "quickResponseId" => String.t() | atom(),
-        "shortcutKey" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type quick_response_search_result_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rendering_configuration() :: %{
-        "templateUri" => String.t() | atom()
-      }
-
-  """
-  @type rendering_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_content_association_response() :: %{
-        "contentAssociation" => content_association_data()
-      }
-
-  """
-  @type get_content_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_attributes() :: %{
-        "customerEndpoint" => system_endpoint_attributes(),
-        "name" => String.t() | atom(),
-        "systemEndpoint" => system_endpoint_attributes()
-      }
-
-  """
-  @type system_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_content_request() :: %{}
-
-  """
-  @type delete_content_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_i_guardrails_response() :: %{
-        "aiGuardrailSummaries" => list(a_i_guardrail_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_a_i_guardrails_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_content_request() :: %{}
-
-  """
-  @type get_content_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      push_message_template_content() :: %{
-        "adm" => push_ad_m_message_template_content(),
-        "apns" => push_a_p_n_s_message_template_content(),
-        "baidu" => push_baidu_message_template_content(),
-        "fcm" => push_f_cm_message_template_content()
-      }
-
-  """
-  @type push_message_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_quick_response_request() :: %{}
-
-  """
-  @type delete_quick_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_message_template_version_request() :: %{
-        optional("messageTemplateContentSha256") => String.t() | atom()
-      }
-
-  """
-  @type create_message_template_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_session_data() :: %{
-        "key" => String.t() | atom(),
-        "value" => list()
-      }
-
-  """
-  @type runtime_session_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_reference() :: %{
-        "contentArn" => String.t() | atom(),
-        "contentId" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "referenceType" => String.t() | atom(),
-        "sourceURL" => [String.t() | atom()]
-      }
-
-  """
-  @type content_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_pii_entity_config() :: %{
-        "action" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_pii_entity_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_message_templates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "results" => list(message_template_search_result_data())
-      }
-
-  """
-  @type search_message_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      citation_span() :: %{
-        "beginOffsetInclusive" => integer(),
-        "endOffsetExclusive" => integer()
-      }
-
-  """
-  @type citation_span() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_data() :: %{
-        "contentArn" => String.t() | atom(),
-        "contentId" => String.t() | atom(),
-        "contentType" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "linkOutUri" => String.t() | atom(),
-        "metadata" => map(),
-        "name" => String.t() | atom(),
-        "revisionId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "title" => String.t() | atom(),
-        "url" => String.t() | atom(),
-        "urlExpiry" => [non_neg_integer()]
-      }
-
-  """
-  @type content_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_summary() :: %{
-        "contentArn" => String.t() | atom(),
-        "contentId" => String.t() | atom(),
-        "contentType" => String.t() | atom(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "metadata" => map(),
-        "name" => String.t() | atom(),
-        "revisionId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "title" => String.t() | atom()
-      }
-
-  """
-  @type content_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_session_data_response() :: %{
-        "data" => list(runtime_session_data()),
-        "namespace" => String.t() | atom(),
-        "sessionArn" => String.t() | atom(),
-        "sessionId" => String.t() | atom()
-      }
-
-  """
-  @type update_session_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      self_service_conversation_history() :: %{
-        "botResponse" => String.t() | atom(),
-        "inputTranscript" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "turnNumber" => [integer()]
-      }
-
-  """
-  @type self_service_conversation_history() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_association_configuration_data() :: %{
-        "contentTagFilter" => list(),
-        "maxResults" => integer(),
-        "overrideKnowledgeBaseSearchType" => String.t() | atom()
-      }
-
-  """
-  @type knowledge_base_association_configuration_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hierarchical_chunking_level_configuration() :: %{
-        "maxTokens" => [integer()]
-      }
-
-  """
-  @type hierarchical_chunking_level_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_guardrail_content_policy_config() :: %{
-        "filtersConfig" => list(guardrail_content_filter_config())
-      }
-
-  """
-  @type a_i_guardrail_content_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_content_response() :: %{
-        optional("content") => content_data()
-      }
-
-  """
-  @type get_content_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_iprompt_request() :: %{}
-
-  """
-  @type delete_a_iprompt_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      content_data_details() :: %{
-        "rankingData" => ranking_data(),
-        "textData" => text_data()
-      }
-
-  """
-  @type content_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_trigger() :: %{
-        "data" => list(),
-        "id" => String.t() | atom(),
-        "recommendationIds" => list(String.t() | atom()),
-        "source" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type recommendation_trigger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_session_response() :: %{
-        "session" => session_data()
-      }
-
-  """
-  @type update_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notify_recommendations_received_request() :: %{
-        required("recommendationIds") => list(String.t() | atom())
-      }
-
-  """
-  @type notify_recommendations_received_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_message_request() :: %{
-        optional("aiAgentId") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("configuration") => message_configuration(),
-        optional("conversationContext") => conversation_context(),
-        optional("metadata") => map(),
-        optional("orchestratorUseCase") => String.t() | atom(),
-        optional("originRequestId") => String.t() | atom(),
-        required("message") => message_input(),
-        required("type") => String.t() | atom()
-      }
-
-  """
-  @type send_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_i_agent_response() :: %{}
-
-  """
-  @type delete_a_i_agent_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      message_template_data() :: %{
-        "attributeTypes" => list(String.t() | atom()),
-        "channel" => String.t() | atom(),
-        "channelSubtype" => String.t() | atom(),
-        "content" => list(),
-        "createdTime" => [non_neg_integer()],
-        "defaultAttributes" => message_template_attributes(),
-        "description" => String.t() | atom(),
-        "groupingConfiguration" => grouping_configuration(),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "language" => String.t() | atom(),
-        "lastModifiedBy" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "messageTemplateArn" => String.t() | atom(),
-        "messageTemplateContentSha256" => String.t() | atom(),
-        "messageTemplateId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "sourceConfigurationSummary" => list(),
-        "tags" => map()
-      }
-
-  """
-  @type message_template_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_knowledge_bases_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("knowledgeBaseSummaries") => list(knowledge_base_summary())
-      }
-
-  """
-  @type list_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_knowledge_base_response() :: %{
-        optional("knowledgeBase") => knowledge_base_data()
-      }
-
-  """
-  @type get_knowledge_base_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_message_template_content() :: %{
-        "body" => sms_message_template_content_body()
-      }
-
-  """
-  @type sms_message_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assistant_associations_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("assistantAssociationSummaries") => list(assistant_association_summary())
-      }
-
-  """
-  @type list_assistant_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      result_data() :: %{
-        "data" => data_summary(),
-        "document" => document(),
-        "relevanceScore" => float(),
-        "resultId" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type result_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_message_template_metadata_response() :: %{
-        "messageTemplate" => message_template_data()
-      }
-
-  """
-  @type update_message_template_metadata_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_next_message_request() :: %{
-        required("nextMessageToken") => String.t() | atom()
-      }
-
-  """
-  @type get_next_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      render_message_template_response() :: %{
-        "attachments" => list(message_template_attachment()),
-        "attributesNotInterpolated" => list(String.t() | atom()),
-        "content" => list(),
-        "sourceConfigurationSummary" => list()
-      }
-
-  """
-  @type render_message_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_message_template_content_body() :: %{
-        "html" => list(),
-        "plainText" => list()
-      }
-
-  """
-  @type email_message_template_content_body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_i_guardrails_request() :: %{
-        optional("maxResults") => integer(),
+      list_assistants_response() :: %{
+        required("assistantSummaries") => list(assistant_summary()),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_a_i_guardrails_request() :: %{(String.t() | atom()) => any()}
+  @type list_assistants_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      message_template_version_summary() :: %{
-        "channel" => String.t() | atom(),
-        "channelSubtype" => String.t() | atom(),
-        "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "messageTemplateArn" => String.t() | atom(),
-        "messageTemplateId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type message_template_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_message_templates_request() :: %{
+      search_message_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        required("searchExpression") => message_template_search_expression()
       }
 
   """
-  @type list_message_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_a_i_agent_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("configuration") => list(),
-        optional("description") => String.t() | atom(),
-        required("visibilityStatus") => String.t() | atom()
-      }
-
-  """
-  @type update_a_i_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_job_response() :: %{
-        "importJob" => import_job_data()
-      }
-
-  """
-  @type start_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_content_request() :: %{
-        optional("metadata") => map(),
-        optional("overrideLinkOutUri") => String.t() | atom(),
-        optional("removeOverrideLinkOutUri") => [boolean()],
-        optional("revisionId") => String.t() | atom(),
-        optional("title") => String.t() | atom(),
-        optional("uploadId") => String.t() | atom()
-      }
-
-  """
-  @type update_content_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assistant_association_summary() :: %{
-        "assistantArn" => String.t() | atom(),
-        "assistantAssociationArn" => String.t() | atom(),
-        "assistantAssociationId" => String.t() | atom(),
-        "assistantId" => String.t() | atom(),
-        "associationData" => list(),
-        "associationType" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type assistant_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_content_summary_request() :: %{}
-
-  """
-  @type get_content_summary_request() :: %{}
+  @type search_message_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4387,101 +4966,40 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      note_taking_a_i_agent_configuration() :: %{
-        "locale" => String.t() | atom(),
-        "noteTakingAIGuardrailId" => String.t() | atom(),
-        "noteTakingAIPromptId" => String.t() | atom()
-      }
-
-  """
-  @type note_taking_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      text_full_a_iprompt_edit_template_configuration() :: %{
+      document_text() :: %{
+        "highlights" => list(highlight()),
         "text" => String.t() | atom()
       }
 
   """
-  @type text_full_a_iprompt_edit_template_configuration() :: %{(String.t() | atom()) => any()}
+  @type document_text() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tool_output_filter() :: %{
-        "jsonPath" => String.t() | atom(),
-        "outputConfiguration" => tool_output_configuration()
+      citation() :: %{
+        "citationSpan" => citation_span(),
+        "contentId" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "referenceType" => String.t() | atom(),
+        "sourceURL" => String.t() | atom(),
+        "title" => String.t() | atom()
       }
 
   """
-  @type tool_output_filter() :: %{(String.t() | atom()) => any()}
+  @type citation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      external_bedrock_knowledge_base_config() :: %{
-        "accessRoleArn" => String.t() | atom(),
-        "bedrockKnowledgeBaseArn" => String.t() | atom()
+      update_a_i_guardrail_response() :: %{
+        "aiGuardrail" => a_i_guardrail_data()
       }
 
   """
-  @type external_bedrock_knowledge_base_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suggested_message_reference() :: %{
-        "aiAgentArn" => String.t() | atom(),
-        "aiAgentId" => String.t() | atom()
-      }
-
-  """
-  @type suggested_message_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assistant_association_request() :: %{}
-
-  """
-  @type get_assistant_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      span_tool_result_value() :: %{
-        "error" => String.t() | atom(),
-        "toolUseId" => String.t() | atom(),
-        "values" => list(list())
-      }
-
-  """
-  @type span_tool_result_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_content_response() :: %{}
-
-  """
-  @type delete_content_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_knowledge_base_request() :: %{}
-
-  """
-  @type get_knowledge_base_request() :: %{}
+  @type update_a_i_guardrail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4499,1081 +5017,644 @@ defmodule AWS.QConnect do
 
   ## Example:
 
-      quick_response_order_field() :: %{
-        "name" => String.t() | atom(),
-        "order" => String.t() | atom()
+      create_content_association_response() :: %{
+        "contentAssociation" => content_association_data()
       }
 
   """
-  @type quick_response_order_field() :: %{(String.t() | atom()) => any()}
+  @type create_content_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      send_message_response() :: %{
-        "configuration" => message_configuration(),
-        "nextMessageToken" => String.t() | atom(),
-        "requestMessageId" => String.t() | atom()
+      notes_data_details() :: %{
+        "completion" => String.t() | atom()
       }
 
   """
-  @type send_message_response() :: %{(String.t() | atom()) => any()}
+  @type notes_data_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_assistants_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("assistantSummaries") => list(assistant_summary())
+      suggested_message_reference() :: %{
+        "aiAgentArn" => String.t() | atom(),
+        "aiAgentId" => String.t() | atom()
       }
 
   """
-  @type list_assistants_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assistant_a_i_agent_request() :: %{
-        optional("orchestratorUseCase") => String.t() | atom(),
-        required("aiAgentType") => String.t() | atom(),
-        required("configuration") => a_i_agent_configuration_data()
-      }
-
-  """
-  @type update_assistant_a_i_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_quick_response_response() :: %{}
-
-  """
-  @type delete_quick_response_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      message_template_attachment() :: %{
-        "attachmentId" => String.t() | atom(),
-        "contentDisposition" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "uploadedTime" => [non_neg_integer()],
-        "url" => String.t() | atom(),
-        "urlExpiry" => [non_neg_integer()]
-      }
-
-  """
-  @type message_template_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_spans_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_spans_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_content_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("searchExpression") => search_expression()
-      }
-
-  """
-  @type search_content_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieve_request() :: %{
-        required("retrievalConfiguration") => retrieval_configuration(),
-        required("retrievalQuery") => String.t() | atom()
-      }
-
-  """
-  @type retrieve_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ranking_data() :: %{
-        "relevanceLevel" => String.t() | atom(),
-        "relevanceScore" => float()
-      }
-
-  """
-  @type ranking_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      span_message() :: %{
-        "messageId" => String.t() | atom(),
-        "participant" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "values" => list(list())
-      }
-
-  """
-  @type span_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vector_ingestion_configuration() :: %{
-        "chunkingConfiguration" => chunking_configuration(),
-        "parsingConfiguration" => parsing_configuration()
-      }
-
-  """
-  @type vector_ingestion_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grouping_configuration() :: %{
-        "criteria" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type grouping_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_assistant_association_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("association") => list(),
-        required("associationType") => String.t() | atom()
-      }
-
-  """
-  @type create_assistant_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_i_guardrail_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("contentPolicyConfig") => a_i_guardrail_content_policy_config(),
-        optional("contextualGroundingPolicyConfig") => a_i_guardrail_contextual_grounding_policy_config(),
-        optional("description") => String.t() | atom(),
-        optional("sensitiveInformationPolicyConfig") => a_i_guardrail_sensitive_information_policy_config(),
-        optional("tags") => map(),
-        optional("topicPolicyConfig") => a_i_guardrail_topic_policy_config(),
-        optional("wordPolicyConfig") => a_i_guardrail_word_policy_config(),
-        required("blockedInputMessaging") => String.t() | atom(),
-        required("blockedOutputsMessaging") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("visibilityStatus") => String.t() | atom()
-      }
-
-  """
-  @type create_a_i_guardrail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_overview_a_i_agent_configuration() :: %{
-        "emailOverviewAIPromptId" => String.t() | atom(),
-        "locale" => String.t() | atom()
-      }
-
-  """
-  @type email_overview_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      answer_recommendation_a_i_agent_configuration() :: %{
-        "answerGenerationAIGuardrailId" => String.t() | atom(),
-        "answerGenerationAIPromptId" => String.t() | atom(),
-        "associationConfigurations" => list(association_configuration()),
-        "intentLabelingGenerationAIPromptId" => String.t() | atom(),
-        "locale" => String.t() | atom(),
-        "queryReformulationAIPromptId" => String.t() | atom(),
-        "suggestedMessages" => list(String.t() | atom())
-      }
-
-  """
-  @type answer_recommendation_a_i_agent_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_message_template_content() :: %{
-        "body" => email_message_template_content_body(),
-        "headers" => list(email_header()),
-        "subject" => String.t() | atom()
-      }
-
-  """
-  @type email_message_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_session_response() :: %{
-        optional("session") => session_data()
-      }
-
-  """
-  @type create_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      precondition_failed_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_a_iprompt_response() :: %{
-        "aiPrompt" => a_iprompt_data()
-      }
-
-  """
-  @type update_a_iprompt_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_use_result_data() :: %{
-        "inputSchema" => any(),
-        "toolName" => String.t() | atom(),
-        "toolResult" => any(),
-        "toolUseId" => String.t() | atom()
-      }
-
-  """
-  @type tool_use_result_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      case_summarization_input_data() :: %{
-        "caseArn" => String.t() | atom()
-      }
-
-  """
-  @type case_summarization_input_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_content_associations_response() :: %{
-        "contentAssociationSummaries" => list(content_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_content_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_i_agent_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("modifiedTime") => [non_neg_integer()]
-      }
-
-  """
-  @type create_a_i_agent_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieve_response() :: %{
-        "results" => list(retrieve_result())
-      }
-
-  """
-  @type retrieve_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_assistant_association_response() :: %{}
-
-  """
-  @type delete_assistant_association_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      document() :: %{
-        "contentReference" => content_reference(),
-        "excerpt" => document_text(),
-        "title" => document_text()
-      }
-
-  """
-  @type document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      render_message_template_request() :: %{
-        required("attributes") => message_template_attributes()
-      }
-
-  """
-  @type render_message_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_assistants_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_assistants_request() :: %{(String.t() | atom()) => any()}
+  @type suggested_message_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_session_data_request() :: %{
-        optional("namespace") => String.t() | atom(),
-        required("data") => list(runtime_session_data())
+        required("data") => list(runtime_session_data()),
+        optional("namespace") => String.t() | atom()
       }
 
   """
   @type update_session_data_request() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      delete_content_association_request() :: %{}
-
-  """
-  @type delete_content_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_message_template_response() :: %{
-        "messageTemplate" => message_template_data()
-      }
-
-  """
-  @type update_message_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_integration_configuration() :: %{
-        "topicIntegrationArn" => String.t() | atom()
-      }
-
-  """
-  @type session_integration_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_assistant_a_i_agent_response() :: %{
-        "assistant" => assistant_data()
-      }
-
-  """
-  @type update_assistant_a_i_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_import_job_response() :: %{}
-
-  """
-  @type delete_import_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceName" => [String.t() | atom()]
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_messages_request() :: %{
-        optional("filter") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_messages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_iprompt_version_response() :: %{
-        "aiPrompt" => a_iprompt_data(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type create_a_iprompt_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_message_template_response() :: %{
-        "messageTemplateArn" => String.t() | atom(),
-        "messageTemplateId" => String.t() | atom(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type activate_message_template_response() :: %{(String.t() | atom()) => any()}
-
   @type activate_message_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_a_i_agent_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_a_i_agent_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_a_i_guardrail_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_a_i_guardrail_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_a_iprompt_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_a_iprompt_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_assistant_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_assistant_association_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_content_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_content_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_knowledge_base_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_message_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_message_template_attachment_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_message_template_version_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_quick_response_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_session_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          dependency_failed_exception()
           | resource_not_found_exception()
           | conflict_exception()
-          | dependency_failed_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type deactivate_message_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_a_i_agent_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type delete_a_i_agent_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_a_i_guardrail_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_a_i_guardrail_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_a_iprompt_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type delete_a_iprompt_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_assistant_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_assistant_association_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_content_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_content_association_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_import_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_knowledge_base_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_message_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_message_template_attachment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_quick_response_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_a_i_agent_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type get_a_i_guardrail_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type get_a_iprompt_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type get_assistant_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_assistant_association_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_content_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_content_association_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_content_summary_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_import_job_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type get_knowledge_base_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_message_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type get_next_message_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | unprocessable_content_exception()
+          unprocessable_content_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_quick_response_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_recommendations_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type get_session_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_a_i_agent_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type list_a_i_agents_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type list_a_i_guardrail_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type list_a_i_guardrails_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type list_a_iprompt_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type list_a_iprompts_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type list_assistant_associations_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type list_assistants_errors() ::
-          validation_exception() | access_denied_exception() | unauthorized_exception()
+          unauthorized_exception() | validation_exception() | access_denied_exception()
 
   @type list_content_associations_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_contents_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type list_import_jobs_errors() :: validation_exception() | access_denied_exception()
 
   @type list_knowledge_bases_errors() :: validation_exception() | access_denied_exception()
 
   @type list_message_template_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_message_templates_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_messages_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
+
+  @type list_models_errors() ::
+          resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_quick_responses_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type list_spans_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
   @type notify_recommendations_received_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type put_feedback_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type query_assistant_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | request_timeout_exception()
+          | access_denied_exception()
 
   @type remove_assistant_a_i_agent_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type remove_knowledge_base_template_uri_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type render_message_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type retrieve_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
+          dependency_failed_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
           | request_timeout_exception()
-          | dependency_failed_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type search_content_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type search_message_templates_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | throttling_exception()
 
   @type search_quick_responses_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
-          | request_timeout_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | request_timeout_exception()
+          | access_denied_exception()
 
   @type search_sessions_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
-
-  @type send_message_errors() ::
-          throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
+
+  @type send_message_errors() ::
+          dependency_failed_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
           | request_timeout_exception()
-          | dependency_failed_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type start_content_upload_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type start_import_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
-  @type tag_resource_errors() :: too_many_tags_exception() | resource_not_found_exception()
+  @type tag_resource_errors() :: resource_not_found_exception() | too_many_tags_exception()
 
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_a_i_agent_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_a_i_guardrail_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_a_iprompt_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_assistant_a_i_agent_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_content_errors() ::
-          precondition_failed_exception()
+          resource_not_found_exception()
+          | unauthorized_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | unauthorized_exception()
+          | precondition_failed_exception()
 
   @type update_knowledge_base_template_uri_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type update_message_template_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_message_template_metadata_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_quick_response_errors() ::
-          precondition_failed_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | precondition_failed_exception()
 
   @type update_session_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type update_session_data_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | unauthorized_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -5611,8 +5692,8 @@ defmodule AWS.QConnect do
           | {:error, activate_message_template_errors()}
   def activate_message_template(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -5683,8 +5764,8 @@ defmodule AWS.QConnect do
           | {:error, create_a_i_agent_version_errors()}
   def create_a_i_agent_version(
         %Client{} = client,
-        ai_agent_id,
         assistant_id,
+        ai_agent_id,
         input,
         options \\ []
       ) do
@@ -5755,8 +5836,8 @@ defmodule AWS.QConnect do
           | {:error, create_a_i_guardrail_version_errors()}
   def create_a_i_guardrail_version(
         %Client{} = client,
-        ai_guardrail_id,
         assistant_id,
+        ai_guardrail_id,
         input,
         options \\ []
       ) do
@@ -5827,8 +5908,8 @@ defmodule AWS.QConnect do
           | {:error, create_a_iprompt_version_errors()}
   def create_a_iprompt_version(
         %Client{} = client,
-        ai_prompt_id,
         assistant_id,
+        ai_prompt_id,
         input,
         options \\ []
       ) do
@@ -5991,8 +6072,8 @@ defmodule AWS.QConnect do
           | {:error, create_content_association_errors()}
   def create_content_association(
         %Client{} = client,
-        content_id,
         knowledge_base_id,
+        content_id,
         input,
         options \\ []
       ) do
@@ -6126,8 +6207,8 @@ defmodule AWS.QConnect do
           | {:error, create_message_template_attachment_errors()}
   def create_message_template_attachment(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -6180,8 +6261,8 @@ defmodule AWS.QConnect do
           | {:error, create_message_template_version_errors()}
   def create_message_template_version(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -6288,8 +6369,8 @@ defmodule AWS.QConnect do
           | {:error, deactivate_message_template_errors()}
   def deactivate_message_template(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -6329,7 +6410,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_a_i_agent_errors()}
-  def delete_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, input, options \\ []) do
+  def delete_a_i_agent(%Client{} = client, assistant_id, ai_agent_id, input, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
 
@@ -6369,9 +6450,9 @@ defmodule AWS.QConnect do
           | {:error, delete_a_i_agent_version_errors()}
   def delete_a_i_agent_version(
         %Client{} = client,
-        ai_agent_id,
-        assistant_id,
         version_number,
+        assistant_id,
+        ai_agent_id,
         input,
         options \\ []
       ) do
@@ -6413,8 +6494,8 @@ defmodule AWS.QConnect do
           | {:error, delete_a_i_guardrail_errors()}
   def delete_a_i_guardrail(
         %Client{} = client,
-        ai_guardrail_id,
         assistant_id,
+        ai_guardrail_id,
         input,
         options \\ []
       ) do
@@ -6457,9 +6538,9 @@ defmodule AWS.QConnect do
           | {:error, delete_a_i_guardrail_version_errors()}
   def delete_a_i_guardrail_version(
         %Client{} = client,
-        ai_guardrail_id,
-        assistant_id,
         version_number,
+        assistant_id,
+        ai_guardrail_id,
         input,
         options \\ []
       ) do
@@ -6499,7 +6580,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_a_iprompt_errors()}
-  def delete_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, input, options \\ []) do
+  def delete_a_iprompt(%Client{} = client, assistant_id, ai_prompt_id, input, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}"
 
@@ -6539,9 +6620,9 @@ defmodule AWS.QConnect do
           | {:error, delete_a_iprompt_version_errors()}
   def delete_a_iprompt_version(
         %Client{} = client,
-        ai_prompt_id,
-        assistant_id,
         version_number,
+        assistant_id,
+        ai_prompt_id,
         input,
         options \\ []
       ) do
@@ -6612,8 +6693,8 @@ defmodule AWS.QConnect do
           | {:error, delete_assistant_association_errors()}
   def delete_assistant_association(
         %Client{} = client,
-        assistant_association_id,
         assistant_id,
+        assistant_association_id,
         input,
         options \\ []
       ) do
@@ -6653,7 +6734,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_content_errors()}
-  def delete_content(%Client{} = client, content_id, knowledge_base_id, input, options \\ []) do
+  def delete_content(%Client{} = client, knowledge_base_id, content_id, input, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
 
@@ -6697,9 +6778,9 @@ defmodule AWS.QConnect do
           | {:error, delete_content_association_errors()}
   def delete_content_association(
         %Client{} = client,
-        content_association_id,
-        content_id,
         knowledge_base_id,
+        content_id,
+        content_association_id,
         input,
         options \\ []
       ) do
@@ -6741,8 +6822,8 @@ defmodule AWS.QConnect do
           | {:error, delete_import_job_errors()}
   def delete_import_job(
         %Client{} = client,
-        import_job_id,
         knowledge_base_id,
+        import_job_id,
         input,
         options \\ []
       ) do
@@ -6828,8 +6909,8 @@ defmodule AWS.QConnect do
           | {:error, delete_message_template_errors()}
   def delete_message_template(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -6875,9 +6956,9 @@ defmodule AWS.QConnect do
           | {:error, delete_message_template_attachment_errors()}
   def delete_message_template_attachment(
         %Client{} = client,
-        attachment_id,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
+        attachment_id,
         input,
         options \\ []
       ) do
@@ -6919,8 +7000,8 @@ defmodule AWS.QConnect do
           | {:error, delete_quick_response_errors()}
   def delete_quick_response(
         %Client{} = client,
-        knowledge_base_id,
         quick_response_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -6954,7 +7035,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_a_i_agent_errors()}
-  def get_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, options \\ []) do
+  def get_a_i_agent(%Client{} = client, assistant_id, ai_agent_id, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
 
@@ -6974,7 +7055,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_a_i_guardrail_errors()}
-  def get_a_i_guardrail(%Client{} = client, ai_guardrail_id, assistant_id, options \\ []) do
+  def get_a_i_guardrail(%Client{} = client, assistant_id, ai_guardrail_id, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails/#{AWS.Util.encode_uri(ai_guardrail_id)}"
 
@@ -6994,7 +7075,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_a_iprompt_errors()}
-  def get_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, options \\ []) do
+  def get_a_iprompt(%Client{} = client, assistant_id, ai_prompt_id, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}"
 
@@ -7034,8 +7115,8 @@ defmodule AWS.QConnect do
           | {:error, get_assistant_association_errors()}
   def get_assistant_association(
         %Client{} = client,
-        assistant_association_id,
         assistant_id,
+        assistant_association_id,
         options \\ []
       ) do
     url_path =
@@ -7057,7 +7138,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_content_errors()}
-  def get_content(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
+  def get_content(%Client{} = client, knowledge_base_id, content_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
 
@@ -7089,9 +7170,9 @@ defmodule AWS.QConnect do
           | {:error, get_content_association_errors()}
   def get_content_association(
         %Client{} = client,
-        content_association_id,
-        content_id,
         knowledge_base_id,
+        content_id,
+        content_association_id,
         options \\ []
       ) do
     url_path =
@@ -7113,7 +7194,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_content_summary_errors()}
-  def get_content_summary(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
+  def get_content_summary(%Client{} = client, knowledge_base_id, content_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/summary"
 
@@ -7133,7 +7214,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_import_job_errors()}
-  def get_import_job(%Client{} = client, import_job_id, knowledge_base_id, options \\ []) do
+  def get_import_job(%Client{} = client, knowledge_base_id, import_job_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs/#{AWS.Util.encode_uri(import_job_id)}"
 
@@ -7178,8 +7259,8 @@ defmodule AWS.QConnect do
           | {:error, get_message_template_errors()}
   def get_message_template(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         options \\ []
       ) do
     url_path =
@@ -7209,8 +7290,8 @@ defmodule AWS.QConnect do
           | {:error, get_next_message_errors()}
   def get_next_message(
         %Client{} = client,
-        assistant_id,
         session_id,
+        assistant_id,
         next_message_token,
         options \\ []
       ) do
@@ -7240,7 +7321,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_quick_response_errors()}
-  def get_quick_response(%Client{} = client, knowledge_base_id, quick_response_id, options \\ []) do
+  def get_quick_response(%Client{} = client, quick_response_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
 
@@ -7282,12 +7363,12 @@ defmodule AWS.QConnect do
           | {:error, get_recommendations_errors()}
   def get_recommendations(
         %Client{} = client,
-        assistant_id,
         session_id,
-        max_results \\ nil,
-        next_chunk_token \\ nil,
-        recommendation_type \\ nil,
+        assistant_id,
         wait_time_seconds \\ nil,
+        recommendation_type \\ nil,
+        next_chunk_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7297,15 +7378,8 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(wait_time_seconds) do
-        [{"waitTimeSeconds", wait_time_seconds} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(recommendation_type) do
-        [{"recommendationType", recommendation_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7318,8 +7392,15 @@ defmodule AWS.QConnect do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(recommendation_type) do
+        [{"recommendationType", recommendation_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(wait_time_seconds) do
+        [{"waitTimeSeconds", wait_time_seconds} | query_params]
       else
         query_params
       end
@@ -7337,7 +7418,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_session_errors()}
-  def get_session(%Client{} = client, assistant_id, session_id, options \\ []) do
+  def get_session(%Client{} = client, session_id, assistant_id, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
@@ -7367,11 +7448,11 @@ defmodule AWS.QConnect do
           | {:error, list_a_i_agent_versions_errors()}
   def list_a_i_agent_versions(
         %Client{} = client,
-        ai_agent_id,
         assistant_id,
-        max_results \\ nil,
-        next_token \\ nil,
+        ai_agent_id,
         origin \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7381,8 +7462,8 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(origin) do
-        [{"origin", origin} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7395,8 +7476,8 @@ defmodule AWS.QConnect do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(origin) do
+        [{"origin", origin} | query_params]
       else
         query_params
       end
@@ -7424,9 +7505,9 @@ defmodule AWS.QConnect do
   def list_a_i_agents(
         %Client{} = client,
         assistant_id,
-        max_results \\ nil,
-        next_token \\ nil,
         origin \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents"
@@ -7434,8 +7515,8 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(origin) do
-        [{"origin", origin} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7448,8 +7529,8 @@ defmodule AWS.QConnect do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(origin) do
+        [{"origin", origin} | query_params]
       else
         query_params
       end
@@ -7476,10 +7557,10 @@ defmodule AWS.QConnect do
           | {:error, list_a_i_guardrail_versions_errors()}
   def list_a_i_guardrail_versions(
         %Client{} = client,
-        ai_guardrail_id,
         assistant_id,
-        max_results \\ nil,
+        ai_guardrail_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7489,15 +7570,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7524,8 +7605,8 @@ defmodule AWS.QConnect do
   def list_a_i_guardrails(
         %Client{} = client,
         assistant_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails"
@@ -7533,15 +7614,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7569,11 +7650,11 @@ defmodule AWS.QConnect do
           | {:error, list_a_iprompt_versions_errors()}
   def list_a_iprompt_versions(
         %Client{} = client,
-        ai_prompt_id,
         assistant_id,
-        max_results \\ nil,
-        next_token \\ nil,
+        ai_prompt_id,
         origin \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7583,8 +7664,8 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(origin) do
-        [{"origin", origin} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7597,8 +7678,8 @@ defmodule AWS.QConnect do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(origin) do
+        [{"origin", origin} | query_params]
       else
         query_params
       end
@@ -7626,9 +7707,9 @@ defmodule AWS.QConnect do
   def list_a_iprompts(
         %Client{} = client,
         assistant_id,
-        max_results \\ nil,
-        next_token \\ nil,
         origin \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts"
@@ -7636,8 +7717,8 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(origin) do
-        [{"origin", origin} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7650,8 +7731,8 @@ defmodule AWS.QConnect do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(origin) do
+        [{"origin", origin} | query_params]
       else
         query_params
       end
@@ -7678,8 +7759,8 @@ defmodule AWS.QConnect do
   def list_assistant_associations(
         %Client{} = client,
         assistant_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations"
@@ -7687,15 +7768,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7713,21 +7794,21 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_assistants_errors()}
-  def list_assistants(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_assistants(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/assistants"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7758,10 +7839,10 @@ defmodule AWS.QConnect do
           | {:error, list_content_associations_errors()}
   def list_content_associations(
         %Client{} = client,
-        content_id,
         knowledge_base_id,
-        max_results \\ nil,
+        content_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7771,15 +7852,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7806,8 +7887,8 @@ defmodule AWS.QConnect do
   def list_contents(
         %Client{} = client,
         knowledge_base_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
@@ -7815,15 +7896,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7850,8 +7931,8 @@ defmodule AWS.QConnect do
   def list_import_jobs(
         %Client{} = client,
         knowledge_base_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
@@ -7859,15 +7940,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7887,8 +7968,8 @@ defmodule AWS.QConnect do
           | {:error, list_knowledge_bases_errors()}
   def list_knowledge_bases(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/knowledgeBases"
@@ -7896,15 +7977,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7932,10 +8013,10 @@ defmodule AWS.QConnect do
           | {:error, list_message_template_versions_errors()}
   def list_message_template_versions(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
-        max_results \\ nil,
+        knowledge_base_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7945,15 +8026,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7981,8 +8062,8 @@ defmodule AWS.QConnect do
   def list_message_templates(
         %Client{} = client,
         knowledge_base_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates"
@@ -7990,15 +8071,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8026,11 +8107,11 @@ defmodule AWS.QConnect do
           | {:error, list_messages_errors()}
   def list_messages(
         %Client{} = client,
-        assistant_id,
         session_id,
-        filter \\ nil,
-        max_results \\ nil,
+        assistant_id,
         next_token \\ nil,
+        max_results \\ nil,
+        filter \\ nil,
         options \\ []
       ) do
     url_path =
@@ -8040,8 +8121,8 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(filter) do
+        [{"filter", filter} | query_params]
       else
         query_params
       end
@@ -8054,8 +8135,73 @@ defmodule AWS.QConnect do
       end
 
     query_params =
-      if !is_nil(filter) do
-        [{"filter", filter} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the models available to an Amazon Q in Connect assistant in the
+  assistant's Amazon Web Services Region.
+
+  The available models are determined by the region of the specified assistant.
+  """
+  @spec list_models(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_models_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_models_errors()}
+  def list_models(
+        %Client{} = client,
+        assistant_id,
+        next_token \\ nil,
+        model_lifecycle \\ nil,
+        max_results \\ nil,
+        ai_prompt_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/models"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(ai_prompt_type) do
+        [{"aiPromptType", ai_prompt_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(model_lifecycle) do
+        [{"modelLifecycle", model_lifecycle} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8082,8 +8228,8 @@ defmodule AWS.QConnect do
   def list_quick_responses(
         %Client{} = client,
         knowledge_base_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
@@ -8091,15 +8237,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8127,10 +8273,10 @@ defmodule AWS.QConnect do
           | {:error, list_spans_errors()}
   def list_spans(
         %Client{} = client,
-        assistant_id,
         session_id,
-        max_results \\ nil,
+        assistant_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -8140,15 +8286,15 @@ defmodule AWS.QConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8198,8 +8344,8 @@ defmodule AWS.QConnect do
           | {:error, notify_recommendations_received_errors()}
   def notify_recommendations_received(
         %Client{} = client,
-        assistant_id,
         session_id,
+        assistant_id,
         input,
         options \\ []
       ) do
@@ -8314,8 +8460,8 @@ defmodule AWS.QConnect do
 
     {query_params, input} =
       [
-        {"aiAgentType", "aiAgentType"},
-        {"orchestratorUseCase", "orchestratorUseCase"}
+        {"orchestratorUseCase", "orchestratorUseCase"},
+        {"aiAgentType", "aiAgentType"}
       ]
       |> Request.build_params(input)
 
@@ -8395,8 +8541,8 @@ defmodule AWS.QConnect do
           | {:error, render_message_template_errors()}
   def render_message_template(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -8468,8 +8614,8 @@ defmodule AWS.QConnect do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -8509,8 +8655,8 @@ defmodule AWS.QConnect do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -8550,8 +8696,8 @@ defmodule AWS.QConnect do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -8585,8 +8731,8 @@ defmodule AWS.QConnect do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -8619,7 +8765,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, send_message_errors()}
-  def send_message(%Client{} = client, assistant_id, session_id, input, options \\ []) do
+  def send_message(%Client{} = client, session_id, assistant_id, input, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/message"
 
@@ -8793,7 +8939,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_a_i_agent_errors()}
-  def update_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, input, options \\ []) do
+  def update_a_i_agent(%Client{} = client, assistant_id, ai_agent_id, input, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
 
@@ -8832,8 +8978,8 @@ defmodule AWS.QConnect do
           | {:error, update_a_i_guardrail_errors()}
   def update_a_i_guardrail(
         %Client{} = client,
-        ai_guardrail_id,
         assistant_id,
+        ai_guardrail_id,
         input,
         options \\ []
       ) do
@@ -8873,7 +9019,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_a_iprompt_errors()}
-  def update_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, input, options \\ []) do
+  def update_a_iprompt(%Client{} = client, assistant_id, ai_prompt_id, input, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}"
 
@@ -8945,7 +9091,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_content_errors()}
-  def update_content(%Client{} = client, content_id, knowledge_base_id, input, options \\ []) do
+  def update_content(%Client{} = client, knowledge_base_id, content_id, input, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
 
@@ -9035,8 +9181,8 @@ defmodule AWS.QConnect do
           | {:error, update_message_template_errors()}
   def update_message_template(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -9083,8 +9229,8 @@ defmodule AWS.QConnect do
           | {:error, update_message_template_metadata_errors()}
   def update_message_template_metadata(
         %Client{} = client,
-        knowledge_base_id,
         message_template_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -9126,8 +9272,8 @@ defmodule AWS.QConnect do
           | {:error, update_quick_response_errors()}
   def update_quick_response(
         %Client{} = client,
-        knowledge_base_id,
         quick_response_id,
+        knowledge_base_id,
         input,
         options \\ []
       ) do
@@ -9171,7 +9317,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_session_errors()}
-  def update_session(%Client{} = client, assistant_id, session_id, input, options \\ []) do
+  def update_session(%Client{} = client, session_id, assistant_id, input, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
@@ -9208,7 +9354,7 @@ defmodule AWS.QConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_session_data_errors()}
-  def update_session_data(%Client{} = client, assistant_id, session_id, input, options \\ []) do
+  def update_session_data(%Client{} = client, session_id, assistant_id, input, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/data"
 

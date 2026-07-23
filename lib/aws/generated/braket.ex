@@ -57,120 +57,49 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      cancel_job_request() :: %{}
-
-  """
-  @type cancel_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_quantum_tasks_response() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        required("quantumTasks") => list(quantum_task_summary())
+      create_quantum_task_response() :: %{
+        required("quantumTaskArn") => String.t() | atom()
       }
 
   """
-  @type search_quantum_tasks_response() :: %{(String.t() | atom()) => any()}
+  @type create_quantum_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      device_offline_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type device_offline_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      quantum_task_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "deviceArn" => String.t() | atom(),
-        "endedAt" => [non_neg_integer()],
-        "outputS3Bucket" => [String.t() | atom()],
-        "outputS3Directory" => [String.t() | atom()],
-        "quantumTaskArn" => String.t() | atom(),
-        "shots" => [float()],
-        "status" => String.t() | atom(),
-        "tags" => map()
+      instance_config() :: %{
+        "instanceCount" => [integer()],
+        "instanceType" => String.t() | atom(),
+        "volumeSizeInGb" => [integer()]
       }
 
   """
-  @type quantum_task_summary() :: %{(String.t() | atom()) => any()}
+  @type instance_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_spending_limits_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "spendingLimits" => list(spending_limit_summary())
+      action_metadata() :: %{
+        "actionType" => [String.t() | atom()],
+        "executableCount" => [float()],
+        "programCount" => [float()]
       }
 
   """
-  @type search_spending_limits_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_quantum_task_request() :: %{
-        optional("additionalAttributeNames") => list(String.t() | atom())
-      }
-
-  """
-  @type get_quantum_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_job_response() :: %{
-        required("jobArn") => String.t() | atom()
-      }
-
-  """
-  @type create_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_queue_info() :: %{
-        "queue" => String.t() | atom(),
-        "queuePriority" => String.t() | atom(),
-        "queueSize" => [String.t() | atom()]
-      }
-
-  """
-  @type device_queue_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_checkpoint_config() :: %{
-        "localPath" => String.t() | atom(),
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type job_checkpoint_config() :: %{(String.t() | atom()) => any()}
+  @type action_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,14 +118,221 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      search_spending_limits_request() :: %{
-        optional("filters") => list(search_spending_limits_filter()),
+      script_mode_config() :: %{
+        "compressionType" => String.t() | atom(),
+        "entryPoint" => [String.t() | atom()],
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type script_mode_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_response() :: %{
+        required("deviceArn") => String.t() | atom(),
+        required("deviceCapabilities") => String.t() | atom(),
+        required("deviceName") => [String.t() | atom()],
+        optional("deviceQueueInfo") => list(device_queue_info()),
+        required("deviceStatus") => String.t() | atom(),
+        required("deviceType") => String.t() | atom(),
+        required("providerName") => [String.t() | atom()]
+      }
+
+  """
+  @type get_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_request() :: %{
+        required("algorithmSpecification") => algorithm_specification(),
+        optional("associations") => list(association()),
+        optional("checkpointConfig") => job_checkpoint_config(),
+        required("clientToken") => String.t() | atom(),
+        required("deviceConfig") => device_config(),
+        optional("hyperParameters") => map(),
+        optional("inputDataConfig") => list(input_file_config()),
+        required("instanceConfig") => instance_config(),
+        required("jobName") => [String.t() | atom()],
+        required("outputDataConfig") => job_output_data_config(),
+        required("roleArn") => String.t() | atom(),
+        optional("stoppingCondition") => job_stopping_condition(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      program_set_validation_failure() :: %{
+        "errors" => list([String.t() | atom()]()),
+        "inputsIndex" => [float()],
+        "programIndex" => [float()]
+      }
+
+  """
+  @type program_set_validation_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_spending_limit_request() :: %{}
+
+  """
+  @type delete_spending_limit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source() :: %{
+        "s3DataSource" => s3_data_source()
+      }
+
+  """
+  @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_quantum_task_response() :: %{
+        optional("actionMetadata") => action_metadata(),
+        optional("associations") => list(association()),
+        required("createdAt") => [non_neg_integer()],
+        required("deviceArn") => String.t() | atom(),
+        required("deviceParameters") => String.t() | atom(),
+        optional("endedAt") => [non_neg_integer()],
+        optional("experimentalCapabilities") => list(),
+        optional("failureReason") => [String.t() | atom()],
+        optional("jobArn") => String.t() | atom(),
+        optional("numSuccessfulShots") => [float()],
+        required("outputS3Bucket") => [String.t() | atom()],
+        required("outputS3Directory") => [String.t() | atom()],
+        required("quantumTaskArn") => String.t() | atom(),
+        optional("queueInfo") => quantum_task_queue_info(),
+        required("shots") => [float()],
+        required("status") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type get_quantum_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_spending_limit_response() :: %{
+        "spendingLimitArn" => String.t() | atom()
+      }
+
+  """
+  @type create_spending_limit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_quantum_task_request() :: %{
+        optional("additionalAttributeNames") => list(String.t() | atom())
+      }
+
+  """
+  @type get_quantum_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_quantum_task_request() :: %{
+        required("action") => String.t() | atom(),
+        optional("associations") => list(association()),
+        required("clientToken") => String.t() | atom(),
+        required("deviceArn") => String.t() | atom(),
+        optional("deviceParameters") => String.t() | atom(),
+        optional("experimentalCapabilities") => list(),
+        optional("jobToken") => String.t() | atom(),
+        required("outputS3Bucket") => [String.t() | atom()],
+        required("outputS3KeyPrefix") => [String.t() | atom()],
+        required("shots") => [float()],
+        optional("tags") => map()
+      }
+
+  """
+  @type create_quantum_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "device" => String.t() | atom(),
+        "endedAt" => [non_neg_integer()],
+        "jobArn" => String.t() | atom(),
+        "jobName" => [String.t() | atom()],
+        "startedAt" => [non_neg_integer()],
+        "status" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_devices_request() :: %{
+        required("filters") => list(search_devices_filter()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type search_spending_limits_request() :: %{(String.t() | atom()) => any()}
+  @type search_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_jobs_filter() :: %{
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type search_jobs_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -209,6 +345,141 @@ defmodule AWS.Braket do
 
   """
   @type cancel_quantum_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_response() :: %{
+        required("algorithmSpecification") => algorithm_specification(),
+        optional("associations") => list(association()),
+        optional("billableDuration") => [integer()],
+        optional("checkpointConfig") => job_checkpoint_config(),
+        required("createdAt") => [non_neg_integer()],
+        optional("deviceConfig") => device_config(),
+        optional("endedAt") => [non_neg_integer()],
+        optional("events") => list(job_event_details()),
+        optional("failureReason") => String.t() | atom(),
+        optional("hyperParameters") => map(),
+        optional("inputDataConfig") => list(input_file_config()),
+        required("instanceConfig") => instance_config(),
+        required("jobArn") => String.t() | atom(),
+        required("jobName") => [String.t() | atom()],
+        required("outputDataConfig") => job_output_data_config(),
+        optional("queueInfo") => hybrid_job_queue_info(),
+        required("roleArn") => String.t() | atom(),
+        optional("startedAt") => [non_neg_integer()],
+        required("status") => String.t() | atom(),
+        optional("stoppingCondition") => job_stopping_condition(),
+        optional("tags") => map()
+      }
+
+  """
+  @type get_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_jobs_response() :: %{
+        required("jobs") => list(job_summary()),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type search_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_devices_response() :: %{
+        required("devices") => list(device_summary()),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type search_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_data_source() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_response() :: %{
+        required("cancellationStatus") => String.t() | atom(),
+        required("jobArn") => String.t() | atom()
+      }
+
+  """
+  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_output_data_config() :: %{
+        "kmsKeyId" => String.t() | atom(),
+        "s3Path" => String.t() | atom()
+      }
+
+  """
+  @type job_output_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_image() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type container_image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_period() :: %{
+        "endAt" => [non_neg_integer()],
+        "startAt" => [non_neg_integer()]
+      }
+
+  """
+  @type time_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,116 +504,104 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      device_offline_exception() :: %{
+      throttling_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type device_offline_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      job_stopping_condition() :: %{
-        "maxRuntimeInSeconds" => [integer()]
+      job_checkpoint_config() :: %{
+        "localPath" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type job_stopping_condition() :: %{(String.t() | atom()) => any()}
+  @type job_checkpoint_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_devices_filter() :: %{
-        "name" => [String.t() | atom()],
-        "values" => list(String.t() | atom())
+      get_job_request() :: %{
+        optional("additionalAttributeNames") => list(String.t() | atom())
       }
 
   """
-  @type search_devices_filter() :: %{(String.t() | atom()) => any()}
+  @type get_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      device_retired_exception() :: %{
-        "message" => [String.t() | atom()]
+      search_jobs_request() :: %{
+        required("filters") => list(search_jobs_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type device_retired_exception() :: %{(String.t() | atom()) => any()}
+  @type search_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_job_request() :: %{
-        optional("associations") => list(association()),
-        optional("checkpointConfig") => job_checkpoint_config(),
-        optional("hyperParameters") => map(),
-        optional("inputDataConfig") => list(input_file_config()),
-        optional("stoppingCondition") => job_stopping_condition(),
-        optional("tags") => map(),
-        required("algorithmSpecification") => algorithm_specification(),
+      search_spending_limits_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "spendingLimits" => list(spending_limit_summary())
+      }
+
+  """
+  @type search_spending_limits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_spending_limit_request() :: %{
         required("clientToken") => String.t() | atom(),
-        required("deviceConfig") => device_config(),
-        required("instanceConfig") => instance_config(),
-        required("jobName") => [String.t() | atom()],
-        required("outputDataConfig") => job_output_data_config(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_quantum_task_response() :: %{
-        optional("actionMetadata") => action_metadata(),
-        optional("associations") => list(association()),
-        optional("endedAt") => [non_neg_integer()],
-        optional("experimentalCapabilities") => list(),
-        optional("failureReason") => [String.t() | atom()],
-        optional("jobArn") => String.t() | atom(),
-        optional("numSuccessfulShots") => [float()],
-        optional("queueInfo") => quantum_task_queue_info(),
-        optional("tags") => map(),
-        required("createdAt") => [non_neg_integer()],
         required("deviceArn") => String.t() | atom(),
-        required("deviceParameters") => String.t() | atom(),
-        required("outputS3Bucket") => [String.t() | atom()],
-        required("outputS3Directory") => [String.t() | atom()],
-        required("quantumTaskArn") => String.t() | atom(),
-        required("shots") => [float()],
-        required("status") => String.t() | atom()
+        required("spendingLimit") => [String.t() | atom()],
+        optional("tags") => map(),
+        optional("timePeriod") => time_period()
       }
 
   """
-  @type get_quantum_task_response() :: %{(String.t() | atom()) => any()}
+  @type create_spending_limit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_service_exception() :: %{
-        "message" => [String.t() | atom()]
+      cancel_job_request() :: %{}
+
+  """
+  @type cancel_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
       }
 
   """
-  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_quantum_tasks_request() :: %{
+        required("filters") => list(search_quantum_tasks_filter()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        required("filters") => list(search_quantum_tasks_filter())
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
@@ -352,44 +611,14 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list([String.t() | atom()]())
+      device_queue_info() :: %{
+        "queue" => String.t() | atom(),
+        "queuePriority" => String.t() | atom(),
+        "queueSize" => [String.t() | atom()]
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_quantum_task_request() :: %{
-        required("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type cancel_quantum_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_period() :: %{
-        "endAt" => [non_neg_integer()],
-        "startAt" => [non_neg_integer()]
-      }
-
-  """
-  @type time_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_spending_limit_request() :: %{}
-
-  """
-  @type delete_spending_limit_request() :: %{}
+  @type device_queue_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,103 +636,12 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      job_output_data_config() :: %{
-        "kmsKeyId" => String.t() | atom(),
-        "s3Path" => String.t() | atom()
-      }
-
-  """
-  @type job_output_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_config() :: %{
-        "device" => String.t() | atom()
-      }
-
-  """
-  @type device_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "device" => String.t() | atom(),
-        "endedAt" => [non_neg_integer()],
-        "jobArn" => String.t() | atom(),
-        "jobName" => [String.t() | atom()],
-        "startedAt" => [non_neg_integer()],
-        "status" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      script_mode_config() :: %{
-        "compressionType" => String.t() | atom(),
-        "entryPoint" => [String.t() | atom()],
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type script_mode_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_jobs_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        required("filters") => list(search_jobs_filter())
-      }
-
-  """
-  @type search_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_spending_limit_request() :: %{
-        optional("spendingLimit") => [String.t() | atom()],
-        optional("timePeriod") => time_period(),
+      cancel_quantum_task_request() :: %{
         required("clientToken") => String.t() | atom()
       }
 
   """
-  @type update_spending_limit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type cancel_quantum_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,108 +656,38 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
+      device_retired_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type device_retired_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      program_set_validation_failure() :: %{
-        "errors" => list([String.t() | atom()]()),
-        "inputsIndex" => [float()],
-        "programIndex" => [float()]
+      input_file_config() :: %{
+        "channelName" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
+        "dataSource" => data_source()
       }
 
   """
-  @type program_set_validation_failure() :: %{(String.t() | atom()) => any()}
+  @type input_file_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_spending_limit_response() :: %{
-        "spendingLimitArn" => String.t() | atom()
+      search_spending_limits_request() :: %{
+        optional("filters") => list(search_spending_limits_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type create_spending_limit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_image() :: %{
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type container_image() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      association() :: %{
-        "arn" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_jobs_response() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        required("jobs") => list(job_summary())
-      }
-
-  """
-  @type search_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_quantum_tasks_filter() :: %{
-        "name" => String.t() | atom(),
-        "operator" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type search_quantum_tasks_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_jobs_filter() :: %{
-        "name" => String.t() | atom(),
-        "operator" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type search_jobs_filter() :: %{(String.t() | atom()) => any()}
+  @type search_spending_limits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -638,13 +706,46 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      search_devices_response() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        required("devices") => list(device_summary())
+      validation_exception() :: %{
+        "message" => [String.t() | atom()],
+        "programSetValidationFailures" => list(program_set_validation_failure()),
+        "reason" => String.t() | atom()
       }
 
   """
-  @type search_devices_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_quantum_tasks_response() :: %{
+        optional("nextToken") => [String.t() | atom()],
+        required("quantumTasks") => list(quantum_task_summary())
+      }
+
+  """
+  @type search_quantum_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_config() :: %{
+        "device" => String.t() | atom()
+      }
+
+  """
+  @type device_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -663,81 +764,53 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      get_device_request() :: %{}
-
-  """
-  @type get_device_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_quantum_task_response() :: %{
-        required("quantumTaskArn") => String.t() | atom()
+      untag_resource_request() :: %{
+        required("tagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type create_quantum_task_response() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      action_metadata() :: %{
-        "actionType" => [String.t() | atom()],
-        "executableCount" => [float()],
-        "programCount" => [float()]
+      create_job_response() :: %{
+        required("jobArn") => String.t() | atom()
       }
 
   """
-  @type action_metadata() :: %{(String.t() | atom()) => any()}
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      device_summary() :: %{
-        "deviceArn" => String.t() | atom(),
-        "deviceName" => [String.t() | atom()],
-        "deviceStatus" => String.t() | atom(),
-        "deviceType" => String.t() | atom(),
-        "providerName" => [String.t() | atom()]
-      }
-
-  """
-  @type device_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_quantum_task_request() :: %{
-        optional("associations") => list(association()),
-        optional("deviceParameters") => String.t() | atom(),
-        optional("experimentalCapabilities") => list(),
-        optional("jobToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("action") => String.t() | atom(),
-        required("clientToken") => String.t() | atom(),
-        required("deviceArn") => String.t() | atom(),
-        required("outputS3Bucket") => [String.t() | atom()],
-        required("outputS3KeyPrefix") => [String.t() | atom()],
-        required("shots") => [float()]
-      }
-
-  """
-  @type create_quantum_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quantum_task_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "deviceArn" => String.t() | atom(),
+        "endedAt" => [non_neg_integer()],
+        "outputS3Bucket" => [String.t() | atom()],
+        "outputS3Directory" => [String.t() | atom()],
+        "quantumTaskArn" => String.t() | atom(),
+        "shots" => [float()],
+        "status" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type quantum_task_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -757,59 +830,6 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_response() :: %{
-        optional("associations") => list(association()),
-        optional("billableDuration") => [integer()],
-        optional("checkpointConfig") => job_checkpoint_config(),
-        optional("deviceConfig") => device_config(),
-        optional("endedAt") => [non_neg_integer()],
-        optional("events") => list(job_event_details()),
-        optional("failureReason") => String.t() | atom(),
-        optional("hyperParameters") => map(),
-        optional("inputDataConfig") => list(input_file_config()),
-        optional("queueInfo") => hybrid_job_queue_info(),
-        optional("startedAt") => [non_neg_integer()],
-        optional("stoppingCondition") => job_stopping_condition(),
-        optional("tags") => map(),
-        required("algorithmSpecification") => algorithm_specification(),
-        required("createdAt") => [non_neg_integer()],
-        required("instanceConfig") => instance_config(),
-        required("jobArn") => String.t() | atom(),
-        required("jobName") => [String.t() | atom()],
-        required("outputDataConfig") => job_output_data_config(),
-        required("roleArn") => String.t() | atom(),
-        required("status") => String.t() | atom()
-      }
-
-  """
-  @type get_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()],
-        "programSetValidationFailures" => list(program_set_validation_failure()),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_tags_for_resource_request() :: %{}
 
   """
@@ -819,14 +839,69 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      instance_config() :: %{
-        "instanceCount" => [integer()],
-        "instanceType" => String.t() | atom(),
-        "volumeSizeInGb" => [integer()]
+      internal_service_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type instance_config() :: %{(String.t() | atom()) => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_spending_limit_request() :: %{
+        required("clientToken") => String.t() | atom(),
+        optional("spendingLimit") => [String.t() | atom()],
+        optional("timePeriod") => time_period()
+      }
+
+  """
+  @type update_spending_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_request() :: %{}
+
+  """
+  @type get_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_quantum_tasks_filter() :: %{
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type search_quantum_tasks_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_stopping_condition() :: %{
+        "maxRuntimeInSeconds" => [integer()]
+      }
+
+  """
+  @type job_stopping_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,225 +916,150 @@ defmodule AWS.Braket do
 
   ## Example:
 
-      get_job_request() :: %{
-        optional("additionalAttributeNames") => list(String.t() | atom())
+      association() :: %{
+        "arn" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type get_job_request() :: %{(String.t() | atom()) => any()}
+  @type association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
+      search_devices_filter() :: %{
+        "name" => [String.t() | atom()],
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type search_devices_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_source() :: %{
-        "s3DataSource" => s3_data_source()
+      device_summary() :: %{
+        "deviceArn" => String.t() | atom(),
+        "deviceName" => [String.t() | atom()],
+        "deviceStatus" => String.t() | atom(),
+        "deviceType" => String.t() | atom(),
+        "providerName" => [String.t() | atom()]
       }
 
   """
-  @type data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_file_config() :: %{
-        "channelName" => String.t() | atom(),
-        "contentType" => String.t() | atom(),
-        "dataSource" => data_source()
-      }
-
-  """
-  @type input_file_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_job_response() :: %{
-        required("cancellationStatus") => String.t() | atom(),
-        required("jobArn") => String.t() | atom()
-      }
-
-  """
-  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_spending_limit_request() :: %{
-        optional("tags") => map(),
-        optional("timePeriod") => time_period(),
-        required("clientToken") => String.t() | atom(),
-        required("deviceArn") => String.t() | atom(),
-        required("spendingLimit") => [String.t() | atom()]
-      }
-
-  """
-  @type create_spending_limit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_devices_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        required("filters") => list(search_devices_filter())
-      }
-
-  """
-  @type search_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_response() :: %{
-        optional("deviceQueueInfo") => list(device_queue_info()),
-        required("deviceArn") => String.t() | atom(),
-        required("deviceCapabilities") => String.t() | atom(),
-        required("deviceName") => [String.t() | atom()],
-        required("deviceStatus") => String.t() | atom(),
-        required("deviceType") => String.t() | atom(),
-        required("providerName") => [String.t() | atom()]
-      }
-
-  """
-  @type get_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_data_source() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_data_source() :: %{(String.t() | atom()) => any()}
+  @type device_summary() :: %{(String.t() | atom()) => any()}
 
   @type cancel_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          internal_service_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
           | conflict_exception()
-          | internal_service_exception()
+          | access_denied_exception()
 
   @type cancel_quantum_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          internal_service_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
           | conflict_exception()
-          | internal_service_exception()
+          | access_denied_exception()
 
   @type create_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          service_quota_exceeded_exception()
           | internal_service_exception()
+          | validation_exception()
           | device_retired_exception()
+          | throttling_exception()
+          | conflict_exception()
+          | access_denied_exception()
           | device_offline_exception()
 
   @type create_quantum_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | internal_service_exception()
+          | validation_exception()
           | device_retired_exception()
+          | throttling_exception()
+          | access_denied_exception()
           | device_offline_exception()
 
   @type create_spending_limit_errors() ::
-          throttling_exception()
+          internal_service_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_service_exception()
           | device_retired_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type delete_spending_limit_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          internal_service_exception()
           | resource_not_found_exception()
-          | internal_service_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type get_device_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          internal_service_exception()
           | resource_not_found_exception()
-          | internal_service_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type get_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          internal_service_exception()
           | resource_not_found_exception()
-          | internal_service_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type get_quantum_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          internal_service_exception()
           | resource_not_found_exception()
-          | internal_service_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_service_exception()
+          internal_service_exception() | resource_not_found_exception() | validation_exception()
 
   @type search_devices_errors() ::
-          throttling_exception()
+          internal_service_exception()
           | validation_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_service_exception()
 
   @type search_jobs_errors() ::
-          throttling_exception()
+          internal_service_exception()
           | validation_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_service_exception()
 
   @type search_quantum_tasks_errors() ::
-          throttling_exception()
+          internal_service_exception()
           | validation_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_service_exception()
 
   @type search_spending_limits_errors() ::
-          throttling_exception()
+          internal_service_exception()
           | validation_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_service_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_service_exception()
+          internal_service_exception() | resource_not_found_exception() | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_service_exception()
+          internal_service_exception() | resource_not_found_exception() | validation_exception()
 
   @type update_spending_limit_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          internal_service_exception()
           | resource_not_found_exception()
-          | internal_service_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

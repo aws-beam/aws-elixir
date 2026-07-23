@@ -9,105 +9,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Example:
 
-      client_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type client_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clip_fragment_selector() :: %{
-        "FragmentSelectorType" => list(any()),
-        "TimestampRange" => clip_timestamp_range()
-      }
-
-  """
-  @type clip_fragment_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clip_timestamp_range() :: %{
-        "EndTimestamp" => non_neg_integer(),
-        "StartTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type clip_timestamp_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dash_fragment_selector() :: %{
-        "FragmentSelectorType" => list(any()),
-        "TimestampRange" => dash_timestamp_range()
-      }
-
-  """
-  @type dash_fragment_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dash_timestamp_range() :: %{
-        "EndTimestamp" => non_neg_integer(),
-        "StartTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type dash_timestamp_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fragment() :: %{
-        "FragmentLengthInMilliseconds" => float(),
-        "FragmentNumber" => String.t() | atom(),
-        "FragmentSizeInBytes" => float(),
-        "ProducerTimestamp" => non_neg_integer(),
-        "ServerTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type fragment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fragment_selector() :: %{
-        "FragmentSelectorType" => list(any()),
-        "TimestampRange" => timestamp_range()
-      }
-
-  """
-  @type fragment_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_clip_input() :: %{
-        optional("StreamARN") => String.t() | atom(),
-        optional("StreamName") => String.t() | atom(),
-        required("ClipFragmentSelector") => clip_fragment_selector()
-      }
-
-  """
-  @type get_clip_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       get_clip_output() :: %{
         "ContentType" => String.t() | atom(),
         "Payload" => binary()
@@ -120,30 +21,13 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Example:
 
-      get_dash_streaming_session_url_input() :: %{
-        optional("DASHFragmentSelector") => dash_fragment_selector(),
-        optional("DisplayFragmentNumber") => list(any()),
-        optional("DisplayFragmentTimestamp") => list(any()),
-        optional("Expires") => integer(),
-        optional("MaxManifestFragmentResults") => float(),
-        optional("PlaybackMode") => list(any()),
-        optional("StreamARN") => String.t() | atom(),
-        optional("StreamName") => String.t() | atom()
+      timestamp_range() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "StartTimestamp" => non_neg_integer()
       }
 
   """
-  @type get_dash_streaming_session_url_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dash_streaming_session_url_output() :: %{
-        "DASHStreamingSessionURL" => String.t() | atom()
-      }
-
-  """
-  @type get_dash_streaming_session_url_output() :: %{(String.t() | atom()) => any()}
+  @type timestamp_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,34 +52,99 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Example:
 
+      invalid_media_frame_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_media_frame_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_timestamp_range() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type hls_timestamp_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => hls_timestamp_range()
+      }
+
+  """
+  @type hls_fragment_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dash_streaming_session_url_input() :: %{
+        optional("DASHFragmentSelector") => dash_fragment_selector(),
+        optional("DisplayFragmentNumber") => list(any()),
+        optional("DisplayFragmentTimestamp") => list(any()),
+        optional("Expires") => integer(),
+        optional("MaxManifestFragmentResults") => float(),
+        optional("PlaybackMode") => list(any()),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
+      }
+
+  """
+  @type get_dash_streaming_session_url_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => dash_timestamp_range()
+      }
+
+  """
+  @type dash_fragment_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_argument_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_authorized_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_hls_streaming_session_url_output() :: %{
         "HLSStreamingSessionURL" => String.t() | atom()
       }
 
   """
   @type get_hls_streaming_session_url_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_images_input() :: %{
-        optional("FormatConfig") => map(),
-        optional("HeightPixels") => integer(),
-        optional("MaxResults") => float(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SamplingInterval") => integer(),
-        optional("StreamARN") => String.t() | atom(),
-        optional("StreamName") => String.t() | atom(),
-        optional("WidthPixels") => integer(),
-        required("EndTimestamp") => non_neg_integer(),
-        required("Format") => list(any()),
-        required("ImageSelectorType") => list(any()),
-        required("StartTimestamp") => non_neg_integer()
-      }
-
-  """
-  @type get_images_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -214,9 +163,9 @@ defmodule AWS.KinesisVideoArchivedMedia do
   ## Example:
 
       get_media_for_fragment_list_input() :: %{
+        required("Fragments") => list(String.t() | atom()),
         optional("StreamARN") => String.t() | atom(),
-        optional("StreamName") => String.t() | atom(),
-        required("Fragments") => list(String.t() | atom())
+        optional("StreamName") => String.t() | atom()
       }
 
   """
@@ -226,37 +175,126 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Example:
 
-      get_media_for_fragment_list_output() :: %{
-        "ContentType" => String.t() | atom(),
-        "Payload" => binary()
+      get_images_input() :: %{
+        required("EndTimestamp") => non_neg_integer(),
+        required("Format") => list(any()),
+        optional("FormatConfig") => map(),
+        optional("HeightPixels") => integer(),
+        required("ImageSelectorType") => list(any()),
+        optional("MaxResults") => float(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SamplingInterval") => integer(),
+        required("StartTimestamp") => non_neg_integer(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        optional("WidthPixels") => integer()
       }
 
   """
-  @type get_media_for_fragment_list_output() :: %{(String.t() | atom()) => any()}
+  @type get_images_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hls_fragment_selector() :: %{
-        "FragmentSelectorType" => list(any()),
-        "TimestampRange" => hls_timestamp_range()
+      get_dash_streaming_session_url_output() :: %{
+        "DASHStreamingSessionURL" => String.t() | atom()
       }
 
   """
-  @type hls_fragment_selector() :: %{(String.t() | atom()) => any()}
+  @type get_dash_streaming_session_url_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hls_timestamp_range() :: %{
+      invalid_codec_private_data_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_codec_private_data_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_timestamp_range() :: %{
         "EndTimestamp" => non_neg_integer(),
         "StartTimestamp" => non_neg_integer()
       }
 
   """
-  @type hls_timestamp_range() :: %{(String.t() | atom()) => any()}
+  @type dash_timestamp_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type client_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_codec_private_data_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type missing_codec_private_data_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clip_fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => clip_timestamp_range()
+      }
+
+  """
+  @type clip_fragment_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_stream_media_type_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unsupported_stream_media_type_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fragment_selector() :: %{
+        "FragmentSelectorType" => list(any()),
+        "TimestampRange" => timestamp_range()
+      }
+
+  """
+  @type fragment_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clip_timestamp_range() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "StartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type clip_timestamp_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,34 +313,64 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Example:
 
-      invalid_argument_exception() :: %{
-        "Message" => String.t() | atom()
+      get_clip_input() :: %{
+        required("ClipFragmentSelector") => clip_fragment_selector(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+  @type get_clip_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_codec_private_data_exception() :: %{
-        "Message" => String.t() | atom()
+      get_media_for_fragment_list_output() :: %{
+        "ContentType" => String.t() | atom(),
+        "Payload" => binary()
       }
 
   """
-  @type invalid_codec_private_data_exception() :: %{(String.t() | atom()) => any()}
+  @type get_media_for_fragment_list_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_media_frame_exception() :: %{
+      list_fragments_output() :: %{
+        "Fragments" => list(fragment()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_fragments_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_data_retention_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_media_frame_exception() :: %{(String.t() | atom()) => any()}
+  @type no_data_retention_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fragment() :: %{
+        "FragmentLengthInMilliseconds" => float(),
+        "FragmentNumber" => String.t() | atom(),
+        "FragmentSizeInBytes" => float(),
+        "ProducerTimestamp" => non_neg_integer(),
+        "ServerTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type fragment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,51 +391,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Example:
 
-      list_fragments_output() :: %{
-        "Fragments" => list(fragment()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_fragments_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      missing_codec_private_data_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type missing_codec_private_data_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_data_retention_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type no_data_retention_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_authorized_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       resource_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -375,78 +398,55 @@ defmodule AWS.KinesisVideoArchivedMedia do
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      timestamp_range() :: %{
-        "EndTimestamp" => non_neg_integer(),
-        "StartTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type timestamp_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_stream_media_type_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unsupported_stream_media_type_exception() :: %{(String.t() | atom()) => any()}
-
   @type get_clip_errors() ::
-          unsupported_stream_media_type_exception()
-          | resource_not_found_exception()
-          | not_authorized_exception()
+          resource_not_found_exception()
           | no_data_retention_exception()
+          | unsupported_stream_media_type_exception()
           | missing_codec_private_data_exception()
-          | invalid_media_frame_exception()
-          | invalid_codec_private_data_exception()
-          | invalid_argument_exception()
           | client_limit_exceeded_exception()
+          | invalid_codec_private_data_exception()
+          | not_authorized_exception()
+          | invalid_argument_exception()
+          | invalid_media_frame_exception()
 
   @type get_dash_streaming_session_url_errors() ::
-          unsupported_stream_media_type_exception()
-          | resource_not_found_exception()
-          | not_authorized_exception()
+          resource_not_found_exception()
           | no_data_retention_exception()
+          | unsupported_stream_media_type_exception()
           | missing_codec_private_data_exception()
-          | invalid_codec_private_data_exception()
-          | invalid_argument_exception()
           | client_limit_exceeded_exception()
+          | invalid_codec_private_data_exception()
+          | not_authorized_exception()
+          | invalid_argument_exception()
 
   @type get_hls_streaming_session_url_errors() ::
-          unsupported_stream_media_type_exception()
-          | resource_not_found_exception()
-          | not_authorized_exception()
+          resource_not_found_exception()
           | no_data_retention_exception()
+          | unsupported_stream_media_type_exception()
           | missing_codec_private_data_exception()
-          | invalid_codec_private_data_exception()
-          | invalid_argument_exception()
           | client_limit_exceeded_exception()
+          | invalid_codec_private_data_exception()
+          | not_authorized_exception()
+          | invalid_argument_exception()
 
   @type get_images_errors() ::
           resource_not_found_exception()
-          | not_authorized_exception()
           | no_data_retention_exception()
-          | invalid_argument_exception()
           | client_limit_exceeded_exception()
+          | not_authorized_exception()
+          | invalid_argument_exception()
 
   @type get_media_for_fragment_list_errors() ::
           resource_not_found_exception()
+          | client_limit_exceeded_exception()
           | not_authorized_exception()
           | invalid_argument_exception()
-          | client_limit_exceeded_exception()
 
   @type list_fragments_errors() ::
           resource_not_found_exception()
+          | client_limit_exceeded_exception()
           | not_authorized_exception()
           | invalid_argument_exception()
-          | client_limit_exceeded_exception()
 
   def metadata do
     %{

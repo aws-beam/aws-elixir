@@ -21,6 +21,68 @@ defmodule AWS.Savingsplans do
 
   ## Example:
 
+      parent_savings_plan_offering() :: %{
+        "currency" => list(any()),
+        "durationSeconds" => float(),
+        "offeringId" => String.t() | atom(),
+        "paymentOption" => list(any()),
+        "planDescription" => String.t() | atom(),
+        "planType" => list(any())
+      }
+
+  """
+  @type parent_savings_plan_offering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_savings_plans_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "savingsPlans" => list(savings_plan())
+      }
+
+  """
+  @type describe_savings_plans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      return_savings_plan_response() :: %{
+        "savingsPlanId" => String.t() | atom()
+      }
+
+  """
+  @type return_savings_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      savings_plan_offering_property() :: %{
+        "name" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type savings_plan_offering_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_queued_savings_plan_request() :: %{
+        required("savingsPlanId") => String.t() | atom()
+      }
+
+  """
+  @type delete_queued_savings_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_savings_plans_offerings_response() :: %{
         "nextToken" => String.t() | atom(),
         "searchResults" => list(savings_plan_offering())
@@ -28,6 +90,230 @@ defmodule AWS.Savingsplans do
 
   """
   @type describe_savings_plans_offerings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      savings_plan_offering_filter_element() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type savings_plan_offering_filter_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_savings_plans_request() :: %{
+        optional("filters") => list(savings_plan_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("savingsPlanArns") => list(String.t() | atom()),
+        optional("savingsPlanIds") => list(String.t() | atom()),
+        optional("states") => list(list(any())())
+      }
+
+  """
+  @type describe_savings_plans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_savings_plan_rates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "savingsPlanId" => String.t() | atom(),
+        "searchResults" => list(savings_plan_rate())
+      }
+
+  """
+  @type describe_savings_plan_rates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      savings_plan_rate() :: %{
+        "currency" => list(any()),
+        "operation" => String.t() | atom(),
+        "productType" => list(any()),
+        "properties" => list(savings_plan_rate_property()),
+        "rate" => String.t() | atom(),
+        "serviceCode" => list(any()),
+        "unit" => list(any()),
+        "usageType" => String.t() | atom()
+      }
+
+  """
+  @type savings_plan_rate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      savings_plan_offering_rate_filter_element() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type savings_plan_offering_rate_filter_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      savings_plan_offering_rate() :: %{
+        "operation" => String.t() | atom(),
+        "productType" => list(any()),
+        "properties" => list(savings_plan_offering_rate_property()),
+        "rate" => String.t() | atom(),
+        "savingsPlanOffering" => parent_savings_plan_offering(),
+        "serviceCode" => list(any()),
+        "unit" => list(any()),
+        "usageType" => String.t() | atom()
+      }
+
+  """
+  @type savings_plan_offering_rate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      savings_plan_rate_property() :: %{
+        "name" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type savings_plan_rate_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_savings_plans_offering_rates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "searchResults" => list(savings_plan_offering_rate())
+      }
+
+  """
+  @type describe_savings_plans_offering_rates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      return_savings_plan_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("savingsPlanId") => String.t() | atom()
+      }
+
+  """
+  @type return_savings_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_savings_plans_offerings_request() :: %{
+        optional("currencies") => list(list(any())()),
+        optional("descriptions") => list(String.t() | atom()),
+        optional("durations") => list(float()),
+        optional("filters") => list(savings_plan_offering_filter_element()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("offeringIds") => list(String.t() | atom()),
+        optional("operations") => list(String.t() | atom()),
+        optional("paymentOptions") => list(list(any())()),
+        optional("planTypes") => list(list(any())()),
+        optional("productType") => list(any()),
+        optional("serviceCodes") => list(String.t() | atom()),
+        optional("usageTypes") => list(String.t() | atom())
+      }
+
+  """
+  @type describe_savings_plans_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -42,6 +328,35 @@ defmodule AWS.Savingsplans do
 
   """
   @type describe_savings_plan_rates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_savings_plans_offering_rates_request() :: %{
+        optional("filters") => list(savings_plan_offering_rate_filter_element()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("operations") => list(String.t() | atom()),
+        optional("products") => list(list(any())()),
+        optional("savingsPlanOfferingIds") => list(String.t() | atom()),
+        optional("savingsPlanPaymentOptions") => list(list(any())()),
+        optional("savingsPlanTypes") => list(list(any())()),
+        optional("serviceCodes") => list(list(any())()),
+        optional("usageTypes") => list(String.t() | atom())
+      }
+
+  """
+  @type describe_savings_plans_offering_rates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,67 +386,10 @@ defmodule AWS.Savingsplans do
 
   ## Example:
 
-      describe_savings_plans_request() :: %{
-        optional("filters") => list(savings_plan_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("savingsPlanArns") => list(String.t() | atom()),
-        optional("savingsPlanIds") => list(String.t() | atom()),
-        optional("states") => list(list(any())())
-      }
+      delete_queued_savings_plan_response() :: %{}
 
   """
-  @type describe_savings_plans_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_savings_plan_response() :: %{
-        "savingsPlanId" => String.t() | atom()
-      }
-
-  """
-  @type create_savings_plan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      savings_plan_offering_rate() :: %{
-        "operation" => String.t() | atom(),
-        "productType" => list(any()),
-        "properties" => list(savings_plan_offering_rate_property()),
-        "rate" => String.t() | atom(),
-        "savingsPlanOffering" => parent_savings_plan_offering(),
-        "serviceCode" => list(any()),
-        "unit" => list(any()),
-        "usageType" => String.t() | atom()
-      }
-
-  """
-  @type savings_plan_offering_rate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      savings_plan_offering_rate_property() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type savings_plan_offering_rate_property() :: %{(String.t() | atom()) => any()}
+  @type delete_queued_savings_plan_response() :: %{}
 
   @typedoc """
 
@@ -158,48 +416,28 @@ defmodule AWS.Savingsplans do
 
   ## Example:
 
-      describe_savings_plans_offering_rates_request() :: %{
-        optional("filters") => list(savings_plan_offering_rate_filter_element()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("operations") => list(String.t() | atom()),
-        optional("products") => list(list(any())()),
-        optional("savingsPlanOfferingIds") => list(String.t() | atom()),
-        optional("savingsPlanPaymentOptions") => list(list(any())()),
-        optional("savingsPlanTypes") => list(list(any())()),
-        optional("serviceCodes") => list(list(any())()),
-        optional("usageTypes") => list(String.t() | atom())
+      create_savings_plan_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("commitment") => String.t() | atom(),
+        optional("purchaseTime") => non_neg_integer(),
+        required("savingsPlanOfferingId") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("upfrontPaymentAmount") => String.t() | atom()
       }
 
   """
-  @type describe_savings_plans_offering_rates_request() :: %{(String.t() | atom()) => any()}
+  @type create_savings_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      savings_plan_rate() :: %{
-        "currency" => list(any()),
-        "operation" => String.t() | atom(),
-        "productType" => list(any()),
-        "properties" => list(savings_plan_rate_property()),
-        "rate" => String.t() | atom(),
-        "serviceCode" => list(any()),
-        "unit" => list(any()),
-        "usageType" => String.t() | atom()
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type savings_plan_rate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_queued_savings_plan_response() :: %{}
-
-  """
-  @type delete_queued_savings_plan_response() :: %{}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -212,91 +450,6 @@ defmodule AWS.Savingsplans do
 
   """
   @type savings_plan_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      savings_plan_offering_property() :: %{
-        "name" => list(any()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type savings_plan_offering_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parent_savings_plan_offering() :: %{
-        "currency" => list(any()),
-        "durationSeconds" => float(),
-        "offeringId" => String.t() | atom(),
-        "paymentOption" => list(any()),
-        "planDescription" => String.t() | atom(),
-        "planType" => list(any())
-      }
-
-  """
-  @type parent_savings_plan_offering() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      return_savings_plan_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("savingsPlanId") => String.t() | atom()
-      }
-
-  """
-  @type return_savings_plan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -331,218 +484,65 @@ defmodule AWS.Savingsplans do
 
   ## Example:
 
-      create_savings_plan_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("purchaseTime") => non_neg_integer(),
-        optional("tags") => map(),
-        optional("upfrontPaymentAmount") => String.t() | atom(),
-        required("commitment") => String.t() | atom(),
-        required("savingsPlanOfferingId") => String.t() | atom()
-      }
-
-  """
-  @type create_savings_plan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_savings_plans_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "savingsPlans" => list(savings_plan())
-      }
-
-  """
-  @type describe_savings_plans_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_savings_plans_offering_rates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "searchResults" => list(savings_plan_offering_rate())
-      }
-
-  """
-  @type describe_savings_plans_offering_rates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_savings_plan_rates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "savingsPlanId" => String.t() | atom(),
-        "searchResults" => list(savings_plan_rate())
-      }
-
-  """
-  @type describe_savings_plan_rates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_queued_savings_plan_request() :: %{
-        required("savingsPlanId") => String.t() | atom()
-      }
-
-  """
-  @type delete_queued_savings_plan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      savings_plan_rate_property() :: %{
-        "name" => list(any()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type savings_plan_rate_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      return_savings_plan_response() :: %{
+      create_savings_plan_response() :: %{
         "savingsPlanId" => String.t() | atom()
       }
 
   """
-  @type return_savings_plan_response() :: %{(String.t() | atom()) => any()}
+  @type create_savings_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
+      savings_plan_offering_rate_property() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      savings_plan_offering_filter_element() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type savings_plan_offering_filter_element() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_savings_plans_offerings_request() :: %{
-        optional("currencies") => list(list(any())()),
-        optional("descriptions") => list(String.t() | atom()),
-        optional("durations") => list(float()),
-        optional("filters") => list(savings_plan_offering_filter_element()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("offeringIds") => list(String.t() | atom()),
-        optional("operations") => list(String.t() | atom()),
-        optional("paymentOptions") => list(list(any())()),
-        optional("planTypes") => list(list(any())()),
-        optional("productType") => list(any()),
-        optional("serviceCodes") => list(String.t() | atom()),
-        optional("usageTypes") => list(String.t() | atom())
-      }
-
-  """
-  @type describe_savings_plans_offerings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      savings_plan_offering_rate_filter_element() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type savings_plan_offering_rate_filter_element() :: %{(String.t() | atom()) => any()}
+  @type savings_plan_offering_rate_property() :: %{(String.t() | atom()) => any()}
 
   @type create_savings_plan_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | resource_not_found_exception()
 
   @type delete_queued_savings_plan_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | resource_not_found_exception()
 
   @type describe_savings_plan_rates_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | validation_exception() | resource_not_found_exception()
 
-  @type describe_savings_plans_errors() :: validation_exception() | internal_server_exception()
+  @type describe_savings_plans_errors() :: internal_server_exception() | validation_exception()
 
   @type describe_savings_plans_offering_rates_errors() ::
-          validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception()
 
   @type describe_savings_plans_offerings_errors() ::
-          validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | validation_exception() | resource_not_found_exception()
 
   @type return_savings_plan_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | resource_not_found_exception()
 
   @type tag_resource_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | validation_exception() | resource_not_found_exception()
 
   def metadata do
     %{

@@ -32,256 +32,32 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      get_job_run_response() :: %{
-        required("jobRun") => job_run()
-      }
-
-  """
-  @type get_job_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_configuration_input() :: %{
-        "imageUri" => String.t() | atom()
-      }
-
-  """
-  @type image_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_resource_config() :: %{
-        "cpu" => String.t() | atom(),
-        "disk" => String.t() | atom(),
-        "diskType" => String.t() | atom(),
-        "memory" => String.t() | atom()
-      }
-
-  """
-  @type worker_resource_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_summary() :: %{
+      session() :: %{
         "applicationId" => String.t() | atom(),
         "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "executionRoleArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "releaseLabel" => String.t() | atom(),
-        "sessionId" => String.t() | atom(),
-        "state" => String.t() | atom(),
-        "stateDetails" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_monitoring_configuration() :: %{
-        "encryptionKeyArn" => String.t() | atom(),
-        "logUri" => String.t() | atom()
-      }
-
-  """
-  @type s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_response() :: %{
-        "session" => session()
-      }
-
-  """
-  @type get_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_run_request() :: %{
-        optional("attempt") => integer()
-      }
-
-  """
-  @type get_job_run_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_utilization() :: %{
-        "memoryGBHour" => [float()],
-        "storageGBHour" => [float()],
-        "vCPUHour" => [float()]
-      }
-
-  """
-  @type resource_utilization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_run_attempts_response() :: %{
-        "jobRunAttempts" => list(job_run_attempt_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_job_run_attempts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_run_attempts_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_job_run_attempts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_session_request() :: %{
-        optional("configurationOverrides") => session_configuration_overrides(),
-        optional("idleTimeoutMinutes") => float(),
-        optional("name") => String.t() | atom(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("executionRoleArn") => String.t() | atom()
-      }
-
-  """
-  @type start_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initial_capacity_config() :: %{
-        "workerConfiguration" => worker_resource_config(),
-        "workerCount" => float()
-      }
-
-  """
-  @type initial_capacity_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_endpoint_response() :: %{
-        "applicationId" => String.t() | atom(),
-        "authToken" => String.t() | atom(),
-        "authTokenExpiresAt" => non_neg_integer(),
-        "endpoint" => String.t() | atom(),
-        "sessionId" => String.t() | atom()
-      }
-
-  """
-  @type get_session_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_run() :: %{
-        "applicationId" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "attempt" => integer(),
-        "attemptCreatedAt" => non_neg_integer(),
-        "attemptUpdatedAt" => non_neg_integer(),
         "billedResourceUtilization" => resource_utilization(),
-        "configurationOverrides" => configuration_overrides(),
+        "configurationOverrides" => session_configuration_overrides(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "endedAt" => non_neg_integer(),
-        "executionIamPolicy" => job_run_execution_iam_policy(),
-        "executionRole" => String.t() | atom(),
-        "executionTimeoutMinutes" => float(),
-        "jobDriver" => list(),
-        "jobRunId" => String.t() | atom(),
-        "mode" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "idleSince" => non_neg_integer(),
+        "idleTimeoutMinutes" => float(),
         "name" => String.t() | atom(),
         "networkConfiguration" => network_configuration(),
-        "queuedDurationMilliseconds" => [float()],
         "releaseLabel" => String.t() | atom(),
-        "retryPolicy" => retry_policy(),
+        "sessionId" => String.t() | atom(),
         "startedAt" => non_neg_integer(),
         "state" => String.t() | atom(),
         "stateDetails" => String.t() | atom(),
         "tags" => map(),
-        "totalExecutionDurationSeconds" => [integer()],
+        "totalExecutionDurationSeconds" => [float()],
         "totalResourceUtilization" => total_resource_utilization(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type job_run() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_run_summary() :: %{
-        "applicationId" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "attempt" => integer(),
-        "attemptCreatedAt" => non_neg_integer(),
-        "attemptUpdatedAt" => non_neg_integer(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "executionRole" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "mode" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "releaseLabel" => String.t() | atom(),
-        "state" => String.t() | atom(),
-        "stateDetails" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type job_run_summary() :: %{(String.t() | atom()) => any()}
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,6 +79,31 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      total_resource_utilization() :: %{
+        "memoryGBHour" => [float()],
+        "storageGBHour" => [float()],
+        "vCPUHour" => [float()]
+      }
+
+  """
+  @type total_resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduler_configuration() :: %{
+        "maxConcurrentRuns" => [integer()],
+        "queueTimeoutMinutes" => [integer()]
+      }
+
+  """
+  @type scheduler_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_session_endpoint_request() :: %{}
 
   """
@@ -312,65 +113,11 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      maximum_allowed_resources() :: %{
-        "cpu" => String.t() | atom(),
-        "disk" => String.t() | atom(),
-        "memory" => String.t() | atom()
-      }
-
-  """
-  @type maximum_allowed_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_level_cost_allocation_configuration() :: %{
-        "enabled" => [boolean()]
-      }
-
-  """
-  @type job_level_cost_allocation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration() :: %{
-        "classification" => String.t() | atom(),
-        "configurations" => list(configuration()),
-        "properties" => map()
-      }
-
-  """
-  @type configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disk_encryption_configuration() :: %{
-        "encryptionContext" => map(),
-        "encryptionKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type disk_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_run_attempt_summary() :: %{
-        "applicationId" => String.t() | atom(),
+      application_summary() :: %{
+        "architecture" => String.t() | atom(),
         "arn" => String.t() | atom(),
-        "attempt" => integer(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "executionRole" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "jobCreatedAt" => non_neg_integer(),
-        "mode" => String.t() | atom(),
         "name" => String.t() | atom(),
         "releaseLabel" => String.t() | atom(),
         "state" => String.t() | atom(),
@@ -380,236 +127,7 @@ defmodule AWS.EMRServerless do
       }
 
   """
-  @type job_run_attempt_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      monitoring_configuration() :: %{
-        "cloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
-        "managedPersistenceMonitoringConfiguration" => managed_persistence_monitoring_configuration(),
-        "prometheusMonitoringConfiguration" => prometheus_monitoring_configuration(),
-        "s3MonitoringConfiguration" => s3_monitoring_configuration()
-      }
-
-  """
-  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_center_configuration_input() :: %{
-        "identityCenterInstanceArn" => String.t() | atom(),
-        "userBackgroundSessionsEnabled" => [boolean()]
-      }
-
-  """
-  @type identity_center_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_configuration_overrides() :: %{
-        "runtimeConfiguration" => list(configuration())
-      }
-
-  """
-  @type session_configuration_overrides() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_start_config() :: %{
-        "enabled" => [boolean()]
-      }
-
-  """
-  @type auto_start_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_request() :: %{}
-
-  """
-  @type get_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_stop_config() :: %{
-        "enabled" => [boolean()],
-        "idleTimeoutMinutes" => [integer()]
-      }
-
-  """
-  @type auto_stop_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_type_specification() :: %{
-        "imageConfiguration" => image_configuration()
-      }
-
-  """
-  @type worker_type_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminate_session_request() :: %{}
-
-  """
-  @type terminate_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_run_execution_iam_policy() :: %{
-        "policy" => String.t() | atom(),
-        "policyArns" => list(String.t() | atom())
-      }
-
-  """
-  @type job_run_execution_iam_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminate_session_response() :: %{
-        "applicationId" => String.t() | atom(),
-        "sessionId" => String.t() | atom()
-      }
-
-  """
-  @type terminate_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sessions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "sessions" => list(session_summary())
-      }
-
-  """
-  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      spark_submit() :: %{
-        "entryPoint" => String.t() | atom(),
-        "entryPointArguments" => list(String.t() | atom()),
-        "sparkSubmitParameters" => String.t() | atom()
-      }
-
-  """
-  @type spark_submit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prometheus_monitoring_configuration() :: %{
-        "remoteWriteUrl" => String.t() | atom()
-      }
-
-  """
-  @type prometheus_monitoring_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_job_run_response() :: %{
-        required("applicationId") => String.t() | atom(),
-        required("arn") => String.t() | atom(),
-        required("jobRunId") => String.t() | atom()
-      }
-
-  """
-  @type start_job_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_job_run_response() :: %{
-        required("applicationId") => String.t() | atom(),
-        required("jobRunId") => String.t() | atom()
-      }
-
-  """
-  @type cancel_job_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dashboard_for_job_run_response() :: %{
-        optional("url") => String.t() | atom()
-      }
-
-  """
-  @type get_dashboard_for_job_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -619,18 +137,6 @@ defmodule AWS.EMRServerless do
 
   """
   @type stop_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_runs_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("jobRuns") => list(job_run_summary())
-      }
-
-  """
-  @type list_job_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -671,257 +177,69 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
+      configuration() :: %{
+        "classification" => String.t() | atom(),
+        "configurations" => list(configuration()),
+        "properties" => map()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_application_request() :: %{
-        optional("architecture") => String.t() | atom(),
-        optional("autoStartConfiguration") => auto_start_config(),
-        optional("autoStopConfiguration") => auto_stop_config(),
-        optional("diskEncryptionConfiguration") => disk_encryption_configuration(),
-        optional("identityCenterConfiguration") => identity_center_configuration_input(),
-        optional("imageConfiguration") => image_configuration_input(),
-        optional("initialCapacity") => map(),
-        optional("interactiveConfiguration") => interactive_configuration(),
-        optional("jobLevelCostAllocationConfiguration") => job_level_cost_allocation_configuration(),
-        optional("maximumCapacity") => maximum_allowed_resources(),
-        optional("monitoringConfiguration") => monitoring_configuration(),
-        optional("name") => String.t() | atom(),
-        optional("networkConfiguration") => network_configuration(),
-        optional("runtimeConfiguration") => list(configuration()),
-        optional("schedulerConfiguration") => scheduler_configuration(),
-        optional("tags") => map(),
-        optional("workerTypeSpecifications") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("releaseLabel") => String.t() | atom(),
-        required("type") => String.t() | atom()
+      network_configuration() :: %{
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
       }
 
   """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sessions_request() :: %{
-        optional("createdAtAfter") => non_neg_integer(),
-        optional("createdAtBefore") => non_neg_integer(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("states") => list(String.t() | atom())
+      delete_application_request() :: %{}
+
+  """
+  @type delete_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_dashboard_response() :: %{
+        "url" => String.t() | atom()
       }
 
   """
-  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
+  @type get_resource_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_application_response() :: %{
-        optional("name") => String.t() | atom(),
-        required("applicationId") => String.t() | atom(),
-        required("arn") => String.t() | atom()
+      get_job_run_request() :: %{
+        optional("attempt") => integer()
       }
 
   """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
+  @type get_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      session() :: %{
-        "applicationId" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "billedResourceUtilization" => resource_utilization(),
-        "configurationOverrides" => session_configuration_overrides(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "endedAt" => non_neg_integer(),
-        "executionRoleArn" => String.t() | atom(),
-        "idleSince" => non_neg_integer(),
-        "idleTimeoutMinutes" => float(),
-        "name" => String.t() | atom(),
-        "networkConfiguration" => network_configuration(),
-        "releaseLabel" => String.t() | atom(),
-        "sessionId" => String.t() | atom(),
-        "startedAt" => non_neg_integer(),
-        "state" => String.t() | atom(),
-        "stateDetails" => String.t() | atom(),
-        "tags" => map(),
-        "totalExecutionDurationSeconds" => [float()],
-        "totalResourceUtilization" => total_resource_utilization(),
-        "updatedAt" => non_neg_integer()
+      initial_capacity_config() :: %{
+        "workerConfiguration" => worker_resource_config(),
+        "workerCount" => float()
       }
 
   """
-  @type session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interactive_configuration() :: %{
-        "livyEndpointEnabled" => [boolean()],
-        "sessionEnabled" => [boolean()],
-        "studioEnabled" => [boolean()]
-      }
-
-  """
-  @type interactive_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_response() :: %{}
-
-  """
-  @type delete_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_application_response() :: %{}
-
-  """
-  @type start_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_type_specification_input() :: %{
-        "imageConfiguration" => image_configuration_input()
-      }
-
-  """
-  @type worker_type_specification_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hive() :: %{
-        "initQueryFile" => String.t() | atom(),
-        "parameters" => String.t() | atom(),
-        "query" => String.t() | atom()
-      }
-
-  """
-  @type hive() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_request() :: %{
-        optional("architecture") => String.t() | atom(),
-        optional("autoStartConfiguration") => auto_start_config(),
-        optional("autoStopConfiguration") => auto_stop_config(),
-        optional("diskEncryptionConfiguration") => disk_encryption_configuration(),
-        optional("identityCenterConfiguration") => identity_center_configuration_input(),
-        optional("imageConfiguration") => image_configuration_input(),
-        optional("initialCapacity") => map(),
-        optional("interactiveConfiguration") => interactive_configuration(),
-        optional("jobLevelCostAllocationConfiguration") => job_level_cost_allocation_configuration(),
-        optional("maximumCapacity") => maximum_allowed_resources(),
-        optional("monitoringConfiguration") => monitoring_configuration(),
-        optional("networkConfiguration") => network_configuration(),
-        optional("releaseLabel") => String.t() | atom(),
-        optional("runtimeConfiguration") => list(configuration()),
-        optional("schedulerConfiguration") => scheduler_configuration(),
-        optional("workerTypeSpecifications") => map(),
-        required("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_response() :: %{
-        required("application") => application()
-      }
-
-  """
-  @type update_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scheduler_configuration() :: %{
-        "maxConcurrentRuns" => [integer()],
-        "queueTimeoutMinutes" => [integer()]
-      }
-
-  """
-  @type scheduler_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_application_request() :: %{}
-
-  """
-  @type start_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_job_run_request() :: %{
-        optional("configurationOverrides") => configuration_overrides(),
-        optional("executionIamPolicy") => job_run_execution_iam_policy(),
-        optional("executionTimeoutMinutes") => float(),
-        optional("jobDriver") => list(),
-        optional("mode") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("retryPolicy") => retry_policy(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("executionRoleArn") => String.t() | atom()
-      }
-
-  """
-  @type start_job_run_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_response() :: %{
-        required("application") => application()
-      }
-
-  """
-  @type get_application_response() :: %{(String.t() | atom()) => any()}
+  @type initial_capacity_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -940,67 +258,157 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      network_configuration() :: %{
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom())
+      get_dashboard_for_job_run_response() :: %{
+        optional("url") => String.t() | atom()
       }
 
   """
-  @type network_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_dashboard_for_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_session_response() :: %{
+      prometheus_monitoring_configuration() :: %{
+        "remoteWriteUrl" => String.t() | atom()
+      }
+
+  """
+  @type prometheus_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_session_response() :: %{
         "applicationId" => String.t() | atom(),
-        "arn" => String.t() | atom(),
         "sessionId" => String.t() | atom()
       }
 
   """
-  @type start_session_response() :: %{(String.t() | atom()) => any()}
+  @type terminate_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_application_response() :: %{}
-
-  """
-  @type stop_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_dashboard_response() :: %{
-        "url" => String.t() | atom()
+      worker_type_specification() :: %{
+        "imageConfiguration" => image_configuration()
       }
 
   """
-  @type get_resource_dashboard_response() :: %{(String.t() | atom()) => any()}
+  @type worker_type_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dashboard_for_job_run_request() :: %{
-        optional("accessSystemProfileLogs") => [boolean()],
-        optional("attempt") => integer()
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
       }
 
   """
-  @type get_dashboard_for_job_run_request() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_execution_iam_policy() :: %{
+        "policy" => String.t() | atom(),
+        "policyArns" => list(String.t() | atom())
+      }
+
+  """
+  @type job_run_execution_iam_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_persistence_monitoring_configuration() :: %{
+        "enabled" => [boolean()],
+        "encryptionKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type managed_persistence_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        optional("architecture") => String.t() | atom(),
+        optional("autoStartConfiguration") => auto_start_config(),
+        optional("autoStopConfiguration") => auto_stop_config(),
+        required("clientToken") => String.t() | atom(),
+        optional("diskEncryptionConfiguration") => disk_encryption_configuration(),
+        optional("identityCenterConfiguration") => identity_center_configuration_input(),
+        optional("imageConfiguration") => image_configuration_input(),
+        optional("initialCapacity") => map(),
+        optional("interactiveConfiguration") => interactive_configuration(),
+        optional("jobLevelCostAllocationConfiguration") => job_level_cost_allocation_configuration(),
+        optional("maximumCapacity") => maximum_allowed_resources(),
+        optional("monitoringConfiguration") => monitoring_configuration(),
+        optional("name") => String.t() | atom(),
+        optional("networkConfiguration") => network_configuration(),
+        required("releaseLabel") => String.t() | atom(),
+        optional("runtimeConfiguration") => list(configuration()),
+        optional("schedulerConfiguration") => scheduler_configuration(),
+        optional("tags") => map(),
+        required("type") => String.t() | atom(),
+        optional("workerTypeSpecifications") => map()
+      }
+
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_policy() :: %{
+        "maxAttempts" => integer(),
+        "maxFailedAttemptsPerHour" => [integer()]
+      }
+
+  """
+  @type retry_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_attempt_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "attempt" => integer(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "executionRole" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "jobCreatedAt" => non_neg_integer(),
+        "mode" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "releaseLabel" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type job_run_attempt_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1017,48 +425,68 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      get_application_request() :: %{}
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      identity_center_configuration() :: %{
-        "identityCenterApplicationArn" => String.t() | atom(),
-        "identityCenterInstanceArn" => String.t() | atom(),
-        "userBackgroundSessionsEnabled" => [boolean()]
+      cancel_job_run_request() :: %{
+        optional("shutdownGracePeriodInSeconds") => integer()
       }
 
   """
-  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
+  @type cancel_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_dashboard_request() :: %{
-        required("resourceId") => String.t() | atom(),
-        required("resourceType") => String.t() | atom()
+      worker_resource_config() :: %{
+        "cpu" => String.t() | atom(),
+        "disk" => String.t() | atom(),
+        "diskType" => String.t() | atom(),
+        "memory" => String.t() | atom()
       }
 
   """
-  @type get_resource_dashboard_request() :: %{(String.t() | atom()) => any()}
+  @type worker_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      total_resource_utilization() :: %{
-        "memoryGBHour" => [float()],
-        "storageGBHour" => [float()],
-        "vCPUHour" => [float()]
+      disk_encryption_configuration() :: %{
+        "encryptionContext" => map(),
+        "encryptionKeyArn" => String.t() | atom()
       }
 
   """
-  @type total_resource_utilization() :: %{(String.t() | atom()) => any()}
+  @type disk_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_run_response() :: %{
+        required("applicationId") => String.t() | atom(),
+        required("jobRunId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,68 +505,71 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      application_summary() :: %{
-        "architecture" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "releaseLabel" => String.t() | atom(),
-        "state" => String.t() | atom(),
-        "stateDetails" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
+      list_job_runs_response() :: %{
+        required("jobRuns") => list(job_run_summary()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type application_summary() :: %{(String.t() | atom()) => any()}
+  @type list_job_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_applications_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("applications") => list(application_summary())
+      get_application_response() :: %{
+        required("application") => application()
       }
 
   """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      managed_persistence_monitoring_configuration() :: %{
-        "enabled" => [boolean()],
-        "encryptionKeyArn" => String.t() | atom()
-      }
+      delete_application_response() :: %{}
 
   """
-  @type managed_persistence_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      cancel_job_run_request() :: %{
-        optional("shutdownGracePeriodInSeconds") => integer()
+      identity_center_configuration() :: %{
+        "identityCenterApplicationArn" => String.t() | atom(),
+        "identityCenterInstanceArn" => String.t() | atom(),
+        "userBackgroundSessionsEnabled" => [boolean()]
       }
 
   """
-  @type cancel_job_run_request() :: %{(String.t() | atom()) => any()}
+  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      image_configuration() :: %{
-        "imageUri" => String.t() | atom(),
-        "resolvedImageDigest" => String.t() | atom()
+      monitoring_configuration() :: %{
+        "cloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
+        "managedPersistenceMonitoringConfiguration" => managed_persistence_monitoring_configuration(),
+        "prometheusMonitoringConfiguration" => prometheus_monitoring_configuration(),
+        "s3MonitoringConfiguration" => s3_monitoring_configuration()
       }
 
   """
-  @type image_configuration() :: %{(String.t() | atom()) => any()}
+  @type monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_run_response() :: %{
+        required("jobRun") => job_run()
+      }
+
+  """
+  @type get_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1159,108 +590,681 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      retry_policy() :: %{
-        "maxAttempts" => integer(),
-        "maxFailedAttemptsPerHour" => [integer()]
+      start_job_run_request() :: %{
+        required("clientToken") => String.t() | atom(),
+        optional("configurationOverrides") => configuration_overrides(),
+        optional("executionIamPolicy") => job_run_execution_iam_policy(),
+        required("executionRoleArn") => String.t() | atom(),
+        optional("executionTimeoutMinutes") => float(),
+        optional("jobDriver") => list(),
+        optional("mode") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("retryPolicy") => retry_policy(),
+        optional("tags") => map()
       }
 
   """
-  @type retry_policy() :: %{(String.t() | atom()) => any()}
+  @type start_job_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_application_request() :: %{}
+      start_job_run_response() :: %{
+        required("applicationId") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
+        required("jobRunId") => String.t() | atom()
+      }
 
   """
-  @type get_application_request() :: %{}
+  @type start_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_application_request() :: %{}
+      update_application_response() :: %{
+        required("application") => application()
+      }
 
   """
-  @type delete_application_request() :: %{}
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_start_config() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type auto_start_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        required("applications") => list(application_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_configuration_overrides() :: %{
+        "runtimeConfiguration" => list(configuration())
+      }
+
+  """
+  @type session_configuration_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_center_configuration_input() :: %{
+        "identityCenterInstanceArn" => String.t() | atom(),
+        "userBackgroundSessionsEnabled" => [boolean()]
+      }
+
+  """
+  @type identity_center_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_application_response() :: %{}
+
+  """
+  @type stop_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job_level_cost_allocation_configuration() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type job_level_cost_allocation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_type_specification_input() :: %{
+        "imageConfiguration" => image_configuration_input()
+      }
+
+  """
+  @type worker_type_specification_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_submit() :: %{
+        "entryPoint" => String.t() | atom(),
+        "entryPointArguments" => list(String.t() | atom()),
+        "sparkSubmitParameters" => String.t() | atom()
+      }
+
+  """
+  @type spark_submit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hive() :: %{
+        "initQueryFile" => String.t() | atom(),
+        "parameters" => String.t() | atom(),
+        "query" => String.t() | atom()
+      }
+
+  """
+  @type hive() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_utilization() :: %{
+        "memoryGBHour" => [float()],
+        "storageGBHour" => [float()],
+        "vCPUHour" => [float()]
+      }
+
+  """
+  @type resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_session_request() :: %{
+        required("clientToken") => String.t() | atom(),
+        optional("configurationOverrides") => session_configuration_overrides(),
+        required("executionRoleArn") => String.t() | atom(),
+        optional("idleTimeoutMinutes") => float(),
+        optional("name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type start_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_session_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type start_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_request() :: %{}
+
+  """
+  @type start_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_request() :: %{
+        optional("architecture") => String.t() | atom(),
+        optional("autoStartConfiguration") => auto_start_config(),
+        optional("autoStopConfiguration") => auto_stop_config(),
+        required("clientToken") => String.t() | atom(),
+        optional("diskEncryptionConfiguration") => disk_encryption_configuration(),
+        optional("identityCenterConfiguration") => identity_center_configuration_input(),
+        optional("imageConfiguration") => image_configuration_input(),
+        optional("initialCapacity") => map(),
+        optional("interactiveConfiguration") => interactive_configuration(),
+        optional("jobLevelCostAllocationConfiguration") => job_level_cost_allocation_configuration(),
+        optional("maximumCapacity") => maximum_allowed_resources(),
+        optional("monitoringConfiguration") => monitoring_configuration(),
+        optional("networkConfiguration") => network_configuration(),
+        optional("releaseLabel") => String.t() | atom(),
+        optional("runtimeConfiguration") => list(configuration()),
+        optional("schedulerConfiguration") => scheduler_configuration(),
+        optional("workerTypeSpecifications") => map()
+      }
+
+  """
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_request() :: %{}
+
+  """
+  @type get_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      session_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "releaseLabel" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        "session" => session()
+      }
+
+  """
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_response() :: %{}
+
+  """
+  @type start_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_request() :: %{
+        optional("createdAtAfter") => non_neg_integer(),
+        optional("createdAtBefore") => non_neg_integer(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("states") => list(String.t() | atom())
+      }
+
+  """
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_run_attempts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_job_run_attempts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_configuration() :: %{
+        "applicationLevelDigestResolution" => [boolean()],
+        "imageUri" => String.t() | atom(),
+        "resolvedImageDigest" => String.t() | atom()
+      }
+
+  """
+  @type image_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_stop_config() :: %{
+        "enabled" => [boolean()],
+        "idleTimeoutMinutes" => [integer()]
+      }
+
+  """
+  @type auto_stop_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_response() :: %{
+        required("applicationId") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run() :: %{
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "attempt" => integer(),
+        "attemptCreatedAt" => non_neg_integer(),
+        "attemptUpdatedAt" => non_neg_integer(),
+        "billedResourceUtilization" => resource_utilization(),
+        "configurationOverrides" => configuration_overrides(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "endedAt" => non_neg_integer(),
+        "executionIamPolicy" => job_run_execution_iam_policy(),
+        "executionRole" => String.t() | atom(),
+        "executionTimeoutMinutes" => float(),
+        "imageConfiguration" => image_configuration(),
+        "jobDriver" => list(),
+        "jobRunId" => String.t() | atom(),
+        "mode" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "networkConfiguration" => network_configuration(),
+        "queuedDurationMilliseconds" => [float()],
+        "releaseLabel" => String.t() | atom(),
+        "retryPolicy" => retry_policy(),
+        "startedAt" => non_neg_integer(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "tags" => map(),
+        "totalExecutionDurationSeconds" => [integer()],
+        "totalResourceUtilization" => total_resource_utilization(),
+        "updatedAt" => non_neg_integer(),
+        "workerTypeSpecifications" => map()
+      }
+
+  """
+  @type job_run() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      maximum_allowed_resources() :: %{
+        "cpu" => String.t() | atom(),
+        "disk" => String.t() | atom(),
+        "memory" => String.t() | atom()
+      }
+
+  """
+  @type maximum_allowed_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dashboard_for_job_run_request() :: %{
+        optional("accessSystemProfileLogs") => [boolean()],
+        optional("attempt") => integer()
+      }
+
+  """
+  @type get_dashboard_for_job_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_monitoring_configuration() :: %{
+        "encryptionKeyArn" => String.t() | atom(),
+        "logUri" => String.t() | atom()
+      }
+
+  """
+  @type s3_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sessions" => list(session_summary())
+      }
+
+  """
+  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_configuration_input() :: %{
+        "applicationLevelDigestResolution" => [boolean()],
+        "imageUri" => String.t() | atom()
+      }
+
+  """
+  @type image_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interactive_configuration() :: %{
+        "livyEndpointEnabled" => [boolean()],
+        "sessionEnabled" => [boolean()],
+        "studioEnabled" => [boolean()]
+      }
+
+  """
+  @type interactive_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "attempt" => integer(),
+        "attemptCreatedAt" => non_neg_integer(),
+        "attemptUpdatedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "executionRole" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "mode" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "releaseLabel" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "stateDetails" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type job_run_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_run_attempts_response() :: %{
+        "jobRunAttempts" => list(job_run_attempt_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_job_run_attempts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_endpoint_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "authToken" => String.t() | atom(),
+        "authTokenExpiresAt" => non_neg_integer(),
+        "endpoint" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type get_session_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_session_request() :: %{}
+
+  """
+  @type terminate_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_dashboard_request() :: %{
+        required("resourceId") => String.t() | atom(),
+        required("resourceType") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @type cancel_job_run_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type create_application_errors() ::
-          validation_exception()
+          conflict_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type delete_application_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type get_application_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type get_dashboard_for_job_run_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type get_job_run_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type get_resource_dashboard_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type get_session_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type get_session_endpoint_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
-  @type list_applications_errors() :: validation_exception() | internal_server_exception()
+  @type list_applications_errors() :: internal_server_exception() | validation_exception()
 
   @type list_job_run_attempts_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
-  @type list_job_runs_errors() :: validation_exception() | internal_server_exception()
+  @type list_job_runs_errors() :: internal_server_exception() | validation_exception()
 
   @type list_sessions_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type start_application_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type start_job_run_errors() ::
-          validation_exception()
+          conflict_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type start_session_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type stop_application_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type terminate_session_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type update_application_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   def metadata do
     %{
@@ -1292,7 +1296,7 @@ defmodule AWS.EMRServerless do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, cancel_job_run_errors()}
-  def cancel_job_run(%Client{} = client, application_id, job_run_id, input, options \\ []) do
+  def cancel_job_run(%Client{} = client, job_run_id, application_id, input, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
 
@@ -1424,10 +1428,10 @@ defmodule AWS.EMRServerless do
           | {:error, get_dashboard_for_job_run_errors()}
   def get_dashboard_for_job_run(
         %Client{} = client,
-        application_id,
         job_run_id,
-        access_system_profile_logs \\ nil,
+        application_id,
         attempt \\ nil,
+        access_system_profile_logs \\ nil,
         options \\ []
       ) do
     url_path =
@@ -1437,15 +1441,15 @@ defmodule AWS.EMRServerless do
     query_params = []
 
     query_params =
-      if !is_nil(attempt) do
-        [{"attempt", attempt} | query_params]
+      if !is_nil(access_system_profile_logs) do
+        [{"accessSystemProfileLogs", access_system_profile_logs} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(access_system_profile_logs) do
-        [{"accessSystemProfileLogs", access_system_profile_logs} | query_params]
+      if !is_nil(attempt) do
+        [{"attempt", attempt} | query_params]
       else
         query_params
       end
@@ -1469,7 +1473,7 @@ defmodule AWS.EMRServerless do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_job_run_errors()}
-  def get_job_run(%Client{} = client, application_id, job_run_id, attempt \\ nil, options \\ []) do
+  def get_job_run(%Client{} = client, job_run_id, application_id, attempt \\ nil, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
 
@@ -1513,8 +1517,8 @@ defmodule AWS.EMRServerless do
   def get_resource_dashboard(
         %Client{} = client,
         application_id,
-        resource_id,
         resource_type,
+        resource_id,
         options \\ []
       ) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dashboard"
@@ -1522,15 +1526,15 @@ defmodule AWS.EMRServerless do
     query_params = []
 
     query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
+      if !is_nil(resource_id) do
+        [{"resourceId", resource_id} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(resource_id) do
-        [{"resourceId", resource_id} | query_params]
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
       else
         query_params
       end
@@ -1548,7 +1552,7 @@ defmodule AWS.EMRServerless do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_session_errors()}
-  def get_session(%Client{} = client, application_id, session_id, options \\ []) do
+  def get_session(%Client{} = client, session_id, application_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
@@ -1572,7 +1576,7 @@ defmodule AWS.EMRServerless do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_session_endpoint_errors()}
-  def get_session_endpoint(%Client{} = client, application_id, session_id, options \\ []) do
+  def get_session_endpoint(%Client{} = client, session_id, application_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/endpoint"
 
@@ -1600,9 +1604,9 @@ defmodule AWS.EMRServerless do
           | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         states \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/applications"
@@ -1610,8 +1614,8 @@ defmodule AWS.EMRServerless do
     query_params = []
 
     query_params =
-      if !is_nil(states) do
-        [{"states", states} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1624,8 +1628,8 @@ defmodule AWS.EMRServerless do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(states) do
+        [{"states", states} | query_params]
       else
         query_params
       end
@@ -1652,10 +1656,10 @@ defmodule AWS.EMRServerless do
           | {:error, list_job_run_attempts_errors()}
   def list_job_run_attempts(
         %Client{} = client,
-        application_id,
         job_run_id,
-        max_results \\ nil,
+        application_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -1665,15 +1669,15 @@ defmodule AWS.EMRServerless do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1704,12 +1708,12 @@ defmodule AWS.EMRServerless do
   def list_job_runs(
         %Client{} = client,
         application_id,
-        created_at_after \\ nil,
-        created_at_before \\ nil,
-        max_results \\ nil,
-        mode \\ nil,
-        next_token \\ nil,
         states \\ nil,
+        next_token \\ nil,
+        mode \\ nil,
+        max_results \\ nil,
+        created_at_before \\ nil,
+        created_at_after \\ nil,
         options \\ []
       ) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
@@ -1717,29 +1721,8 @@ defmodule AWS.EMRServerless do
     query_params = []
 
     query_params =
-      if !is_nil(states) do
-        [{"states", states} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(mode) do
-        [{"mode", mode} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(created_at_after) do
+        [{"createdAtAfter", created_at_after} | query_params]
       else
         query_params
       end
@@ -1752,8 +1735,29 @@ defmodule AWS.EMRServerless do
       end
 
     query_params =
-      if !is_nil(created_at_after) do
-        [{"createdAtAfter", created_at_after} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(mode) do
+        [{"mode", mode} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(states) do
+        [{"states", states} | query_params]
       else
         query_params
       end
@@ -1785,11 +1789,11 @@ defmodule AWS.EMRServerless do
   def list_sessions(
         %Client{} = client,
         application_id,
-        created_at_after \\ nil,
-        created_at_before \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         states \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        created_at_before \\ nil,
+        created_at_after \\ nil,
         options \\ []
       ) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/sessions"
@@ -1797,22 +1801,8 @@ defmodule AWS.EMRServerless do
     query_params = []
 
     query_params =
-      if !is_nil(states) do
-        [{"states", states} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(created_at_after) do
+        [{"createdAtAfter", created_at_after} | query_params]
       else
         query_params
       end
@@ -1825,8 +1815,22 @@ defmodule AWS.EMRServerless do
       end
 
     query_params =
-      if !is_nil(created_at_after) do
-        [{"createdAtAfter", created_at_after} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(states) do
+        [{"states", states} | query_params]
       else
         query_params
       end
@@ -2031,7 +2035,7 @@ defmodule AWS.EMRServerless do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, terminate_session_errors()}
-  def terminate_session(%Client{} = client, application_id, session_id, input, options \\ []) do
+  def terminate_session(%Client{} = client, session_id, application_id, input, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 

@@ -34,212 +34,67 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      router_input_thumbnail_details() :: %{
-        "Thumbnail" => [binary()],
-        "ThumbnailMessages" => list(router_input_message()),
-        "Timecode" => [String.t() | atom()],
-        "Timestamp" => [non_neg_integer()]
+      encryption() :: %{
+        "Algorithm" => list(any()),
+        "ConstantInitializationVector" => [String.t() | atom()],
+        "DeviceId" => [String.t() | atom()],
+        "KeyType" => list(any()),
+        "Region" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "RoleArn" => [String.t() | atom()],
+        "SecretArn" => [String.t() | atom()],
+        "Url" => [String.t() | atom()]
       }
 
   """
-  @type router_input_thumbnail_details() :: %{(String.t() | atom()) => any()}
+  @type encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      merge_router_input_stream_details() :: %{
-        "SourceIndexOneStreamDetails" => merge_router_input_indexed_stream_details(),
-        "SourceIndexZeroStreamDetails" => merge_router_input_indexed_stream_details()
+      create_flow_response() :: %{
+        "Flow" => flow()
       }
 
   """
-  @type merge_router_input_stream_details() :: %{(String.t() | atom()) => any()}
+  @type create_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vpc_router_network_interface_configuration() :: %{
-        "SecurityGroupIds" => list([String.t() | atom()]()),
-        "SubnetId" => [String.t() | atom()]
+      update_bridge_source_request() :: %{
+        optional("FlowSource") => update_bridge_flow_source_request(),
+        optional("NetworkSource") => update_bridge_network_source_request()
       }
 
   """
-  @type vpc_router_network_interface_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_bridge_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_router_network_interface_response() :: %{
-        "Errors" => list(batch_get_router_network_interface_error()),
-        "RouterNetworkInterfaces" => list(router_network_interface())
+      list_entitlements_response() :: %{
+        "Entitlements" => list(listed_entitlement()),
+        "NextToken" => [String.t() | atom()]
       }
 
   """
-  @type batch_get_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+  @type list_entitlements_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deregister_gateway_instance_response() :: %{
-        "GatewayInstanceArn" => [String.t() | atom()],
-        "InstanceState" => list(any())
-      }
-
-  """
-  @type deregister_gateway_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_request() :: %{
-        optional("EncodingConfig") => encoding_config(),
-        optional("FlowSize") => list(any()),
-        optional("Maintenance") => update_maintenance(),
-        optional("NdiConfig") => ndi_config(),
-        optional("SourceFailoverConfig") => update_failover_config(),
-        optional("SourceMonitoringConfig") => monitoring_config()
-      }
-
-  """
-  @type update_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      take_router_input_response() :: %{
-        "RoutedState" => list(any()),
-        "RouterInputArn" => String.t() | atom(),
-        "RouterInputName" => [String.t() | atom()],
-        "RouterOutputArn" => String.t() | atom(),
-        "RouterOutputName" => [String.t() | atom()]
-      }
-
-  """
-  @type take_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_flow_source_thumbnail_response() :: %{
-        "ThumbnailDetails" => thumbnail_details()
-      }
-
-  """
-  @type describe_flow_source_thumbnail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_flow_vpc_interface_response() :: %{
+      start_flow_response() :: %{
         "FlowArn" => [String.t() | atom()],
-        "NonDeletedNetworkInterfaceIds" => list([String.t() | atom()]()),
-        "VpcInterfaceName" => [String.t() | atom()]
+        "Status" => list(any())
       }
 
   """
-  @type remove_flow_vpc_interface_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_stream_output_configuration_request() :: %{
-        "DestinationConfigurations" => list(destination_configuration_request()),
-        "EncodingName" => list(any()),
-        "EncodingParameters" => encoding_parameters_request(),
-        "MediaStreamName" => [String.t() | atom()]
-      }
-
-  """
-  @type media_stream_output_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_router_input_request() :: %{}
-
-  """
-  @type stop_router_input_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      add_flow_sources_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "Sources" => list(source())
-      }
-
-  """
-  @type add_flow_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listed_entitlement() :: %{
-        "DataTransferSubscriberFeePercent" => [integer()],
-        "EntitlementArn" => [String.t() | atom()],
-        "EntitlementName" => [String.t() | atom()]
-      }
-
-  """
-  @type listed_entitlement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transport_stream_program() :: %{
-        "PcrPid" => [integer()],
-        "ProgramName" => [String.t() | atom()],
-        "ProgramNumber" => [integer()],
-        "ProgramPid" => [integer()],
-        "Streams" => list(transport_stream())
-      }
-
-  """
-  @type transport_stream_program() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_router_output_request() :: %{
-        optional("AvailabilityZone") => [String.t() | atom()],
-        optional("ClientToken") => [String.t() | atom()],
-        optional("MaintenanceConfiguration") => list(),
-        optional("RegionName") => [String.t() | atom()],
-        optional("Tags") => map(),
-        required("Configuration") => list(),
-        required("MaximumBitrate") => [float()],
-        required("Name") => [String.t() | atom()],
-        required("RoutingScope") => list(any()),
-        required("Tier") => list(any())
-      }
-
-  """
-  @type create_router_output_request() :: %{(String.t() | atom()) => any()}
+  @type start_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,6 +115,131 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      restart_router_output_request() :: %{}
+
+  """
+  @type restart_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_bridge_response() :: %{
+        "Bridge" => bridge()
+      }
+
+  """
+  @type describe_bridge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_outputs_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RouterOutputs" => list(listed_router_output())
+      }
+
+  """
+  @type list_router_outputs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_flow_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "Status" => list(any())
+      }
+
+  """
+  @type stop_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      merge_router_input_indexed_stream_details() :: %{
+        "SourceIndex" => [integer()],
+        "SourceIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type merge_router_input_indexed_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_config() :: %{
+        "FailoverMode" => list(any()),
+        "RecoveryWindow" => [integer()],
+        "SourcePriority" => source_priority(),
+        "State" => list(any())
+      }
+
+  """
+  @type failover_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_network_interface_response() :: %{
+        "RouterNetworkInterface" => router_network_interface()
+      }
+
+  """
+  @type get_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_output_request() :: %{
+        required("Arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_router_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_router_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type delete_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_flow_media_stream_request() :: %{}
+
+  """
+  @type remove_flow_media_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_router_output_response() :: %{
         "Arn" => String.t() | atom(),
         "Name" => [String.t() | atom()],
@@ -273,263 +253,128 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      grant_flow_entitlements_request() :: %{
-        required("Entitlements") => list(grant_entitlement_request())
+      delete_flow_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "Status" => list(any())
       }
 
   """
-  @type grant_flow_entitlements_request() :: %{(String.t() | atom()) => any()}
+  @type delete_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_router_network_interface_request() :: %{
-        optional("Configuration") => list(),
-        optional("Name") => [String.t() | atom()]
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
       }
 
   """
-  @type update_router_network_interface_request() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_router_network_interfaces_request() :: %{
-        optional("Filters") => list(list()),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
+      media_stream_output_configuration_request() :: %{
+        "DestinationConfigurations" => list(destination_configuration_request()),
+        "EncodingName" => list(any()),
+        "EncodingParameters" => encoding_parameters_request(),
+        "MediaStreamName" => [String.t() | atom()]
       }
 
   """
-  @type list_router_network_interfaces_request() :: %{(String.t() | atom()) => any()}
+  @type media_stream_output_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_gateway_instance_request() :: %{}
-
-  """
-  @type describe_gateway_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_flow_source_metadata_request() :: %{}
-
-  """
-  @type describe_flow_source_metadata_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_listener_router_output_configuration() :: %{
-        "EncryptionConfiguration" => srt_encryption_configuration(),
-        "MinimumLatencyMilliseconds" => [float()],
+      rtp_router_input_configuration() :: %{
+        "ForwardErrorCorrection" => list(any()),
         "Port" => [integer()]
       }
 
   """
-  @type srt_listener_router_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type rtp_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      fmtp_request() :: %{
-        "ChannelOrder" => [String.t() | atom()],
-        "Colorimetry" => list(any()),
-        "ExactFramerate" => [String.t() | atom()],
-        "Par" => [String.t() | atom()],
-        "Range" => list(any()),
-        "ScanMode" => list(any()),
-        "Tcs" => list(any())
+      describe_gateway_instance_response() :: %{
+        "GatewayInstance" => gateway_instance()
       }
 
   """
-  @type fmtp_request() :: %{(String.t() | atom()) => any()}
+  @type describe_gateway_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_router_input_error() :: %{
-        "Arn" => String.t() | atom(),
-        "Code" => [String.t() | atom()],
-        "Message" => [String.t() | atom()]
+      encoding_parameters_request() :: %{
+        "CompressionFactor" => [float()],
+        "EncoderProfile" => list(any())
       }
 
   """
-  @type batch_get_router_input_error() :: %{(String.t() | atom()) => any()}
+  @type encoding_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_router_network_interface_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "State" => list(any())
+      media_stream_attributes() :: %{
+        "Fmtp" => fmtp(),
+        "Lang" => [String.t() | atom()]
       }
 
   """
-  @type delete_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+  @type media_stream_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      secrets_manager_encryption_key_configuration() :: %{
-        "RoleArn" => String.t() | atom(),
-        "SecretArn" => String.t() | atom()
-      }
-
-  """
-  @type secrets_manager_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      router_input() :: %{
-        "Arn" => String.t() | atom(),
-        "AvailabilityZone" => [String.t() | atom()],
-        "Configuration" => list(),
-        "CreatedAt" => [non_neg_integer()],
-        "Id" => [String.t() | atom()],
-        "InputType" => list(any()),
-        "IpAddress" => [String.t() | atom()],
-        "MaintenanceConfiguration" => list(),
-        "MaintenanceSchedule" => list(),
-        "MaintenanceScheduleType" => list(any()),
-        "MaintenanceType" => list(any()),
-        "MaximumBitrate" => [float()],
-        "MaximumRoutedOutputs" => [integer()],
-        "Messages" => list(router_input_message()),
-        "Name" => [String.t() | atom()],
-        "RegionName" => [String.t() | atom()],
-        "RoutedOutputs" => [integer()],
-        "RoutingScope" => list(any()),
-        "State" => list(any()),
-        "StreamDetails" => list(),
-        "Tags" => map(),
-        "Tier" => list(any()),
-        "TransitEncryption" => router_input_transit_encryption(),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type router_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restart_router_output_response() :: %{
+      stop_router_output_response() :: %{
         "Arn" => String.t() | atom(),
         "Name" => [String.t() | atom()],
         "State" => list(any())
       }
 
   """
-  @type restart_router_output_response() :: %{(String.t() | atom()) => any()}
+  @type stop_router_output_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ndi_media_info() :: %{
-        "Streams" => list(ndi_media_stream_info())
+      media_connect_flow_router_input_stream_details() :: %{}
+
+  """
+  @type media_connect_flow_router_input_stream_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      add_bridge_outputs_response() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "Outputs" => list(bridge_output())
       }
 
   """
-  @type ndi_media_info() :: %{(String.t() | atom()) => any()}
+  @type add_bridge_outputs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_flow_request() :: %{
-        optional("AvailabilityZone") => [String.t() | atom()],
-        optional("EncodingConfig") => encoding_config(),
-        optional("Entitlements") => list(grant_entitlement_request()),
-        optional("FlowSize") => list(any()),
-        optional("FlowTags") => map(),
-        optional("Maintenance") => add_maintenance(),
-        optional("MediaStreams") => list(add_media_stream_request()),
-        optional("NdiConfig") => ndi_config(),
-        optional("Outputs") => list(add_output_request()),
-        optional("Source") => set_source_request(),
-        optional("SourceFailoverConfig") => failover_config(),
-        optional("SourceMonitoringConfig") => monitoring_config(),
-        optional("Sources") => list(set_source_request()),
-        optional("VpcInterfaces") => list(vpc_interface_request()),
-        required("Name") => [String.t() | atom()]
-      }
+      media_connect_flow_router_output_stream_details() :: %{}
 
   """
-  @type create_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_state_request() :: %{
-        required("DesiredState") => list(any())
-      }
-
-  """
-  @type update_bridge_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_router_output_request() :: %{}
-
-  """
-  @type start_router_output_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_router_input_request() :: %{}
-
-  """
-  @type start_router_input_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rtp_router_output_configuration() :: %{
-        "DestinationAddress" => [String.t() | atom()],
-        "DestinationPort" => [integer()],
-        "ForwardErrorCorrection" => list(any())
-      }
-
-  """
-  @type rtp_router_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_router_output_response() :: %{
-        "Arn" => String.t() | atom(),
-        "MaintenanceSchedule" => list(),
-        "MaintenanceScheduleType" => list(any()),
-        "Name" => [String.t() | atom()],
-        "State" => list(any())
-      }
-
-  """
-  @type start_router_output_response() :: %{(String.t() | atom()) => any()}
+  @type media_connect_flow_router_output_stream_details() :: %{}
 
   @typedoc """
 
@@ -551,6 +396,1400 @@ defmodule AWS.MediaConnect do
 
   """
   @type list_gateway_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_flow_entitlement_response() :: %{
+        "EntitlementArn" => [String.t() | atom()],
+        "FlowArn" => [String.t() | atom()]
+      }
+
+  """
+  @type revoke_flow_entitlement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_network() :: %{
+        "CidrBlock" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type gateway_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_ingress_gateway_bridge_request() :: %{
+        "MaxBitrate" => [integer()],
+        "MaxOutputs" => [integer()]
+      }
+
+  """
+  @type add_ingress_gateway_bridge_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_flow_vpc_interfaces_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "VpcInterfaces" => list(vpc_interface())
+      }
+
+  """
+  @type add_flow_vpc_interfaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_bridge_source() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
+  """
+  @type gateway_bridge_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bridges_request() :: %{
+        optional("FilterArn") => [String.t() | atom()],
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_bridges_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_input_request() :: %{
+        required("Arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_router_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_router_output_request() :: %{}
+
+  """
+  @type delete_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      entitlement() :: %{
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "Description" => [String.t() | atom()],
+        "Encryption" => encryption(),
+        "EntitlementArn" => [String.t() | atom()],
+        "EntitlementStatus" => list(any()),
+        "Name" => [String.t() | atom()],
+        "Subscribers" => list([String.t() | atom()]())
+      }
+
+  """
+  @type entitlement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fmtp() :: %{
+        "ChannelOrder" => [String.t() | atom()],
+        "Colorimetry" => list(any()),
+        "ExactFramerate" => [String.t() | atom()],
+        "Par" => [String.t() | atom()],
+        "Range" => list(any()),
+        "ScanMode" => list(any()),
+        "Tcs" => list(any())
+      }
+
+  """
+  @type fmtp() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_router_input_configuration() :: %{
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "PrimarySourceIndex" => [integer()],
+        "ProtocolConfigurations" => list(list()),
+        "SourcePriorityMode" => list(any())
+      }
+
+  """
+  @type failover_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_source_metadata_details() :: %{
+        "RouterInputMetadata" => list(),
+        "SourceMetadataMessages" => list(router_input_message()),
+        "Timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type router_input_source_metadata_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_decryption_configuration() :: %{
+        "EncryptionKey" => secrets_manager_encryption_key_configuration()
+      }
+
+  """
+  @type srt_decryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingress_gateway_bridge() :: %{
+        "InstanceId" => [String.t() | atom()],
+        "MaxBitrate" => [integer()],
+        "MaxOutputs" => [integer()]
+      }
+
+  """
+  @type ingress_gateway_bridge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encoding_parameters() :: %{
+        "CompressionFactor" => [float()],
+        "EncoderProfile" => list(any())
+      }
+
+  """
+  @type encoding_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_bridge_source_request() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
+  """
+  @type update_gateway_bridge_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_gateway_request() :: %{}
+
+  """
+  @type describe_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_bridge_network_source_request() :: %{
+        "MulticastIp" => [String.t() | atom()],
+        "MulticastSourceSettings" => multicast_source_settings(),
+        "Name" => [String.t() | atom()],
+        "NetworkName" => [String.t() | atom()],
+        "Port" => [integer()],
+        "Protocol" => list(any())
+      }
+
+  """
+  @type add_bridge_network_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_encryption() :: %{
+        "Algorithm" => list(any()),
+        "ConstantInitializationVector" => [String.t() | atom()],
+        "DeviceId" => [String.t() | atom()],
+        "KeyType" => list(any()),
+        "Region" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "RoleArn" => [String.t() | atom()],
+        "SecretArn" => [String.t() | atom()],
+        "Url" => [String.t() | atom()]
+      }
+
+  """
+  @type update_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bridge_network_output_request() :: %{
+        "IpAddress" => [String.t() | atom()],
+        "NetworkName" => [String.t() | atom()],
+        "Port" => [integer()],
+        "Protocol" => list(any()),
+        "Ttl" => [integer()]
+      }
+
+  """
+  @type update_bridge_network_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_source_metadata_request() :: %{}
+
+  """
+  @type get_router_input_source_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_router_output_response() :: %{
+        "Arn" => String.t() | atom(),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type start_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_bridge_output_request() :: %{
+        "NetworkOutput" => add_bridge_network_output_request()
+      }
+
+  """
+  @type add_bridge_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bridge_source() :: %{
+        "FlowSource" => bridge_flow_source(),
+        "NetworkSource" => bridge_network_source()
+      }
+
+  """
+  @type bridge_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_transit_encryption() :: %{
+        "EncryptionKeyConfiguration" => list(),
+        "EncryptionKeyType" => list(any())
+      }
+
+  """
+  @type router_input_transit_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      take_router_input_response() :: %{
+        "RoutedState" => list(any()),
+        "RouterInputArn" => String.t() | atom(),
+        "RouterInputName" => [String.t() | atom()],
+        "RouterOutputArn" => String.t() | atom(),
+        "RouterOutputName" => [String.t() | atom()]
+      }
+
+  """
+  @type take_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transport_media_info() :: %{
+        "Programs" => list(transport_stream_program())
+      }
+
+  """
+  @type transport_media_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_gateway_instance_request() :: %{
+        optional("Force") => [boolean()]
+      }
+
+  """
+  @type deregister_gateway_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_router_input_response() :: %{
+        "RouterInput" => router_input()
+      }
+
+  """
+  @type create_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bridge_state_response() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "DesiredState" => list(any())
+      }
+
+  """
+  @type update_bridge_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_reservation_response() :: %{
+        "Reservation" => reservation()
+      }
+
+  """
+  @type describe_reservation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_router_network_interface_configuration() :: %{
+        "SecurityGroupIds" => list([String.t() | atom()]()),
+        "SubnetId" => [String.t() | atom()]
+      }
+
+  """
+  @type vpc_router_network_interface_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_live_channel_router_input_configuration() :: %{
+        "MediaLiveChannelArn" => String.t() | atom(),
+        "MediaLiveChannelOutputName" => [String.t() | atom()],
+        "MediaLivePipelineId" => list(any()),
+        "SourceTransitDecryption" => media_live_transit_encryption()
+      }
+
+  """
+  @type media_live_channel_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_request() :: %{}
+
+  """
+  @type get_router_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      transport_stream() :: %{
+        "Channels" => [integer()],
+        "Codec" => [String.t() | atom()],
+        "FrameRate" => [String.t() | atom()],
+        "FrameResolution" => frame_resolution(),
+        "Pid" => [integer()],
+        "SampleRate" => [integer()],
+        "SampleSize" => [integer()],
+        "StreamType" => [String.t() | atom()]
+      }
+
+  """
+  @type transport_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_network_interface_request() :: %{
+        required("Arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_router_network_interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_router_network_interface() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedInputCount" => [integer()],
+        "AssociatedOutputCount" => [integer()],
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "NetworkInterfaceType" => list(any()),
+        "RegionName" => [String.t() | atom()],
+        "State" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type listed_router_network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_flow() :: %{
+        "AvailabilityZone" => [String.t() | atom()],
+        "Description" => [String.t() | atom()],
+        "FlowArn" => [String.t() | atom()],
+        "Maintenance" => maintenance(),
+        "Name" => [String.t() | atom()],
+        "SourceType" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type listed_flow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_router_network_interface_configuration() :: %{
+        "AllowRules" => list(public_router_network_interface_rule())
+      }
+
+  """
+  @type public_router_network_interface_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_source_info() :: %{
+        "SourceName" => [String.t() | atom()]
+      }
+
+  """
+  @type ndi_source_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_request() :: %{}
+
+  """
+  @type delete_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway() :: %{
+        "EgressCidrBlocks" => list([String.t() | atom()]()),
+        "GatewayArn" => [String.t() | atom()],
+        "GatewayMessages" => list(message_detail()),
+        "GatewayState" => list(any()),
+        "Name" => [String.t() | atom()],
+        "Networks" => list(gateway_network())
+      }
+
+  """
+  @type gateway() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_configuration_request() :: %{
+        "DestinationIp" => [String.t() | atom()],
+        "DestinationPort" => [integer()],
+        "Interface" => interface_request()
+      }
+
+  """
+  @type destination_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_output_response() :: %{
+        "Errors" => list(batch_get_router_output_error()),
+        "RouterOutputs" => list(router_output())
+      }
+
+  """
+  @type batch_get_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_maintenance() :: %{
+        "MaintenanceDay" => list(any()),
+        "MaintenanceScheduledDate" => [String.t() | atom()],
+        "MaintenanceStartHour" => [String.t() | atom()]
+      }
+
+  """
+  @type update_maintenance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateways_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reservations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_reservations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_media_stream_request() :: %{
+        optional("Attributes") => media_stream_attributes_request(),
+        optional("ClockRate") => [integer()],
+        optional("Description") => [String.t() | atom()],
+        optional("MediaStreamType") => list(any()),
+        optional("VideoFormat") => [String.t() | atom()]
+      }
+
+  """
+  @type update_flow_media_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_output_request() :: %{
+        "CidrAllowList" => list([String.t() | atom()]()),
+        "Description" => [String.t() | atom()],
+        "Destination" => [String.t() | atom()],
+        "Encryption" => encryption(),
+        "MaxLatency" => [integer()],
+        "MediaStreamOutputConfigurations" => list(media_stream_output_configuration_request()),
+        "MinLatency" => [integer()],
+        "Name" => [String.t() | atom()],
+        "NdiOutputTimecodeSource" => list(any()),
+        "NdiProgramName" => [String.t() | atom()],
+        "NdiSpeedHqQuality" => [integer()],
+        "OutputStatus" => list(any()),
+        "OutputTags" => map(),
+        "Port" => [integer()],
+        "Protocol" => list(any()),
+        "RemoteId" => [String.t() | atom()],
+        "RouterIntegrationState" => list(any()),
+        "RouterIntegrationTransitEncryption" => flow_transit_encryption(),
+        "SenderControlPort" => [integer()],
+        "SmoothingLatency" => [integer()],
+        "StreamId" => [String.t() | atom()],
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
+  """
+  @type add_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bridge_response() :: %{
+        "Bridge" => bridge()
+      }
+
+  """
+  @type create_bridge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bridge_source_response() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "Source" => bridge_source()
+      }
+
+  """
+  @type update_bridge_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bridge_output_request() :: %{
+        optional("NetworkOutput") => update_bridge_network_output_request()
+      }
+
+  """
+  @type update_bridge_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_router_output_response() :: %{
+        "RouterOutput" => router_output()
+      }
+
+  """
+  @type create_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_specification() :: %{
+        "ReservedBitrate" => [integer()],
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type resource_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_monitoring_setting() :: %{
+        "BlackFrames" => black_frames(),
+        "FrozenFrames" => frozen_frames()
+      }
+
+  """
+  @type video_monitoring_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_listener_router_output_configuration() :: %{
+        "EncryptionConfiguration" => srt_encryption_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "Port" => [integer()]
+      }
+
+  """
+  @type srt_listener_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_egress_gateway_bridge_request() :: %{
+        "MaxBitrate" => [integer()]
+      }
+
+  """
+  @type update_egress_gateway_bridge_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_request() :: %{
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_live_channel_router_input_stream_details() :: %{}
+
+  """
+  @type media_live_channel_router_input_stream_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_bridge_output_response() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "OutputName" => [String.t() | atom()]
+      }
+
+  """
+  @type remove_bridge_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_failover_config() :: %{
+        "FailoverMode" => list(any()),
+        "RecoveryWindow" => [integer()],
+        "SourcePriority" => source_priority(),
+        "State" => list(any())
+      }
+
+  """
+  @type update_failover_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_interface() :: %{
+        "Name" => [String.t() | atom()],
+        "NetworkInterfaceIds" => list([String.t() | atom()]()),
+        "NetworkInterfaceType" => list(any()),
+        "RoleArn" => [String.t() | atom()],
+        "SecurityGroupIds" => list([String.t() | atom()]()),
+        "SubnetId" => [String.t() | atom()]
+      }
+
+  """
+  @type vpc_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_flow_output_request() :: %{}
+
+  """
+  @type remove_flow_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_gateway_response() :: %{
+        "Gateway" => gateway()
+      }
+
+  """
+  @type describe_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_bridge_request() :: %{}
+
+  """
+  @type describe_bridge_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_outputs_request() :: %{
+        optional("Filters") => list(list()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_router_outputs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_output_response() :: %{
+        "RouterOutput" => router_output()
+      }
+
+  """
+  @type update_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager_encryption_key_configuration() :: %{
+        "RoleArn" => String.t() | atom(),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type secrets_manager_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      messages() :: %{
+        "Errors" => list([String.t() | atom()]())
+      }
+
+  """
+  @type messages() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_flow_source_metadata_request() :: %{}
+
+  """
+  @type describe_flow_source_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      transport() :: %{
+        "CidrAllowList" => list([String.t() | atom()]()),
+        "MaxBitrate" => [integer()],
+        "MaxLatency" => [integer()],
+        "MaxSyncBuffer" => [integer()],
+        "MinLatency" => [integer()],
+        "NdiOutputTimecodeSource" => list(any()),
+        "NdiProgramName" => [String.t() | atom()],
+        "NdiSourceSettings" => ndi_source_settings(),
+        "NdiSpeedHqQuality" => [integer()],
+        "Protocol" => list(any()),
+        "RemoteId" => [String.t() | atom()],
+        "SenderControlPort" => [integer()],
+        "SenderIpAddress" => [String.t() | atom()],
+        "SmoothingLatency" => [integer()],
+        "SourceListenerAddress" => [String.t() | atom()],
+        "SourceListenerPort" => [integer()],
+        "StreamId" => [String.t() | atom()]
+      }
+
+  """
+  @type transport() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      silent_audio() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => [integer()]
+      }
+
+  """
+  @type silent_audio() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_bridge_output_request() :: %{}
+
+  """
+  @type remove_bridge_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      grant_flow_entitlements420_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type grant_flow_entitlements420_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_bridge_outputs_request() :: %{
+        required("Outputs") => list(add_bridge_output_request())
+      }
+
+  """
+  @type add_bridge_outputs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "BridgePorts" => list([integer()]()),
+        "ConnectedRouterInputArn" => [String.t() | atom()],
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "Description" => [String.t() | atom()],
+        "Destination" => [String.t() | atom()],
+        "Encryption" => encryption(),
+        "EntitlementArn" => [String.t() | atom()],
+        "ListenerAddress" => [String.t() | atom()],
+        "MediaLiveInputArn" => [String.t() | atom()],
+        "MediaStreamOutputConfigurations" => list(media_stream_output_configuration()),
+        "Name" => [String.t() | atom()],
+        "OutputArn" => [String.t() | atom()],
+        "OutputStatus" => list(any()),
+        "PeerIpAddress" => [String.t() | atom()],
+        "Port" => [integer()],
+        "RouterIntegrationState" => list(any()),
+        "RouterIntegrationTransitEncryption" => flow_transit_encryption(),
+        "Transport" => transport(),
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
+  """
+  @type output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restart_router_input_request() :: %{}
+
+  """
+  @type restart_router_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_instances_request() :: %{
+        optional("FilterArn") => [String.t() | atom()],
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_gateway_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_priority() :: %{
+        "PrimarySource" => [String.t() | atom()]
+      }
+
+  """
+  @type source_priority() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_flow_vpc_interface_request() :: %{}
+
+  """
+  @type remove_flow_vpc_interface_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_flow_source_thumbnail_request() :: %{}
+
+  """
+  @type describe_flow_source_thumbnail_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_router_input_configuration() :: %{
+        "DecryptionConfiguration" => srt_decryption_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "SourceAddress" => [String.t() | atom()],
+        "SourcePort" => [integer()],
+        "StreamId" => [String.t() | atom()]
+      }
+
+  """
+  @type srt_caller_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_network_interfaces_request() :: %{
+        optional("Filters") => list(list()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_router_network_interfaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_flow_source_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "SourceArn" => [String.t() | atom()]
+      }
+
+  """
+  @type remove_flow_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_configuration() :: %{
+        "InputIp" => [String.t() | atom()],
+        "InputPort" => [integer()],
+        "Interface" => interface()
+      }
+
+  """
+  @type input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      frozen_frames() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => [integer()]
+      }
+
+  """
+  @type frozen_frames() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_source_settings() :: %{
+        "SourceName" => [String.t() | atom()]
+      }
+
+  """
+  @type ndi_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_stream_source_configuration_request() :: %{
+        "EncodingName" => list(any()),
+        "InputConfigurations" => list(input_configuration_request()),
+        "MediaStreamName" => [String.t() | atom()]
+      }
+
+  """
+  @type media_stream_source_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_output_response() :: %{
+        "RouterOutput" => router_output()
+      }
+
+  """
+  @type get_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_bridge_source_request() :: %{
+        "FlowSource" => add_bridge_flow_source_request(),
+        "NetworkSource" => add_bridge_network_source_request()
+      }
+
+  """
+  @type add_bridge_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bridge_network_source() :: %{
+        "MulticastIp" => [String.t() | atom()],
+        "MulticastSourceSettings" => multicast_source_settings(),
+        "Name" => [String.t() | atom()],
+        "NetworkName" => [String.t() | atom()],
+        "Port" => [integer()],
+        "Protocol" => list(any())
+      }
+
+  """
+  @type bridge_network_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_network_interface_response() :: %{
+        "Errors" => list(batch_get_router_network_interface_error()),
+        "RouterNetworkInterfaces" => list(router_network_interface())
+      }
+
+  """
+  @type batch_get_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bridge420_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type create_bridge420_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      take_router_input_request() :: %{
+        optional("RouterInputArn") => String.t() | atom()
+      }
+
+  """
+  @type take_router_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bridge_flow_output() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "FlowSourceArn" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type bridge_flow_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_live_input_router_output_configuration() :: %{
+        "DestinationTransitEncryption" => media_live_transit_encryption(),
+        "MediaLiveInputArn" => String.t() | atom(),
+        "MediaLivePipelineId" => list(any())
+      }
+
+  """
+  @type media_live_input_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restart_router_output_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type restart_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_source_settings() :: %{
+        "MulticastSourceIp" => [String.t() | atom()]
+      }
+
+  """
+  @type multicast_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_input_request() :: %{
+        optional("Configuration") => list(),
+        optional("ContentQualityAnalysisConfiguration") => list(),
+        optional("MaintenanceConfiguration") => list(),
+        optional("MaximumBitrate") => [float()],
+        optional("Name") => [String.t() | atom()],
+        optional("RoutingScope") => list(any()),
+        optional("Tier") => list(any()),
+        optional("TransitEncryption") => router_input_transit_encryption()
+      }
+
+  """
+  @type update_router_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_output_message() :: %{
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type router_output_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_global_resource_request() :: %{
+        required("TagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_global_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_router_input_stream_details() :: %{
+        "SourceIndexOneStreamDetails" => failover_router_input_indexed_stream_details(),
+        "SourceIndexZeroStreamDetails" => failover_router_input_indexed_stream_details()
+      }
+
+  """
+  @type failover_router_input_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_flow_vpc_interfaces_request() :: %{
+        required("VpcInterfaces") => list(vpc_interface_request())
+      }
+
+  """
+  @type add_flow_vpc_interfaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_flow_source_request() :: %{}
+
+  """
+  @type remove_flow_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_entitlements_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_entitlements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_source_metadata_info() :: %{
+        "ActiveSource" => ndi_source_info(),
+        "DiscoveredSources" => list(ndi_source_info()),
+        "MediaInfo" => ndi_media_info(),
+        "Messages" => list(message_detail())
+      }
+
+  """
+  @type ndi_source_metadata_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -583,1004 +1822,13 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      media_stream_source_configuration_request() :: %{
-        "EncodingName" => list(any()),
-        "InputConfigurations" => list(input_configuration_request()),
-        "MediaStreamName" => [String.t() | atom()]
+      update_router_network_interface_request() :: %{
+        optional("Configuration") => list(),
+        optional("Name") => [String.t() | atom()]
       }
 
   """
-  @type media_stream_source_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_egress_gateway_bridge_request() :: %{
-        "MaxBitrate" => [integer()]
-      }
-
-  """
-  @type update_egress_gateway_bridge_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_bridge_sources_response() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "Sources" => list(bridge_source())
-      }
-
-  """
-  @type add_bridge_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_gateway_response() :: %{
-        "Gateway" => gateway()
-      }
-
-  """
-  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateways_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_router_input_response() :: %{
-        "RouterInput" => router_input()
-      }
-
-  """
-  @type create_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_flow_media_streams_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "MediaStreams" => list(media_stream())
-      }
-
-  """
-  @type add_flow_media_streams_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_input_source_metadata_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "SourceMetadataDetails" => router_input_source_metadata_details()
-      }
-
-  """
-  @type get_router_input_source_metadata_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_flow_outputs_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "Outputs" => list(output())
-      }
-
-  """
-  @type add_flow_outputs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_source_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "Source" => source()
-      }
-
-  """
-  @type update_flow_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reservations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_reservations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_live_transit_encryption() :: %{
-        "EncryptionKeyConfiguration" => list(),
-        "EncryptionKeyType" => list(any())
-      }
-
-  """
-  @type media_live_transit_encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_live_input_router_output_configuration() :: %{
-        "DestinationTransitEncryption" => media_live_transit_encryption(),
-        "MediaLiveInputArn" => String.t() | atom(),
-        "MediaLivePipelineId" => list(any())
-      }
-
-  """
-  @type media_live_input_router_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_encryption_configuration() :: %{
-        "EncryptionKey" => secrets_manager_encryption_key_configuration()
-      }
-
-  """
-  @type srt_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_input_response() :: %{
-        "RouterInput" => router_input()
-      }
-
-  """
-  @type get_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_output_request() :: %{
-        optional("NetworkOutput") => update_bridge_network_output_request()
-      }
-
-  """
-  @type update_bridge_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_offerings_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_offerings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automatic_encryption_key_configuration() :: %{}
-
-  """
-  @type automatic_encryption_key_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bridges_request() :: %{
-        optional("FilterArn") => [String.t() | atom()],
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_bridges_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interface_request() :: %{
-        "Name" => [String.t() | atom()]
-      }
-
-  """
-  @type interface_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bridge_flow_source() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
-        "Name" => [String.t() | atom()],
-        "OutputArn" => [String.t() | atom()]
-      }
-
-  """
-  @type bridge_flow_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_offerings_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "Offerings" => list(offering())
-      }
-
-  """
-  @type list_offerings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      frozen_frames() :: %{
-        "State" => list(any()),
-        "ThresholdSeconds" => [integer()]
-      }
-
-  """
-  @type frozen_frames() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_bridge_source_request() :: %{}
-
-  """
-  @type remove_bridge_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_gateway_instance_response() :: %{
-        "GatewayInstance" => gateway_instance()
-      }
-
-  """
-  @type describe_gateway_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_maintenance() :: %{
-        "MaintenanceDay" => list(any()),
-        "MaintenanceScheduledDate" => [String.t() | atom()],
-        "MaintenanceStartHour" => [String.t() | atom()]
-      }
-
-  """
-  @type update_maintenance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_bridge_source_request() :: %{
-        "FlowSource" => add_bridge_flow_source_request(),
-        "NetworkSource" => add_bridge_network_source_request()
-      }
-
-  """
-  @type add_bridge_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ingress_gateway_bridge_request() :: %{
-        "MaxBitrate" => [integer()],
-        "MaxOutputs" => [integer()]
-      }
-
-  """
-  @type update_ingress_gateway_bridge_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_response() :: %{
-        "GatewayArn" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_request() :: %{}
-
-  """
-  @type delete_flow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      router_output_message() :: %{
-        "Code" => [String.t() | atom()],
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type router_output_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_output_request() :: %{}
-
-  """
-  @type get_router_output_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow420_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type create_flow420_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failover_router_input_indexed_stream_details() :: %{
-        "SourceIndex" => [integer()],
-        "SourceIpAddress" => [String.t() | atom()]
-      }
-
-  """
-  @type failover_router_input_indexed_stream_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ndi_source_info() :: %{
-        "SourceName" => [String.t() | atom()]
-      }
-
-  """
-  @type ndi_source_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listed_flow() :: %{
-        "AvailabilityZone" => [String.t() | atom()],
-        "Description" => [String.t() | atom()],
-        "FlowArn" => [String.t() | atom()],
-        "Maintenance" => maintenance(),
-        "Name" => [String.t() | atom()],
-        "SourceType" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type listed_flow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      merge_router_input_indexed_stream_details() :: %{
-        "SourceIndex" => [integer()],
-        "SourceIpAddress" => [String.t() | atom()]
-      }
-
-  """
-  @type merge_router_input_indexed_stream_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thumbnail_details() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "Thumbnail" => [String.t() | atom()],
-        "ThumbnailMessages" => list(message_detail()),
-        "Timecode" => [String.t() | atom()],
-        "Timestamp" => [non_neg_integer()]
-      }
-
-  """
-  @type thumbnail_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_instance_request() :: %{
-        optional("BridgePlacement") => list(any())
-      }
-
-  """
-  @type update_gateway_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_router_input_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "State" => list(any())
-      }
-
-  """
-  @type stop_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_stream() :: %{
-        "Attributes" => media_stream_attributes(),
-        "ClockRate" => [integer()],
-        "Description" => [String.t() | atom()],
-        "Fmt" => [integer()],
-        "MediaStreamId" => [integer()],
-        "MediaStreamName" => [String.t() | atom()],
-        "MediaStreamType" => list(any()),
-        "VideoFormat" => [String.t() | atom()]
-      }
-
-  """
-  @type media_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow_response() :: %{
-        "Flow" => flow()
-      }
-
-  """
-  @type create_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "Status" => list(any())
-      }
-
-  """
-  @type delete_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failover_router_input_stream_details() :: %{
-        "SourceIndexOneStreamDetails" => failover_router_input_indexed_stream_details(),
-        "SourceIndexZeroStreamDetails" => failover_router_input_indexed_stream_details()
-      }
-
-  """
-  @type failover_router_input_stream_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_flow_media_stream_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "MediaStreamName" => [String.t() | atom()]
-      }
-
-  """
-  @type remove_flow_media_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_router_network_interface_response() :: %{
-        "RouterNetworkInterface" => router_network_interface()
-      }
-
-  """
-  @type create_router_network_interface_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_router_network_interface_request() :: %{}
-
-  """
-  @type delete_router_network_interface_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_bridge_source_response() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "SourceName" => [String.t() | atom()]
-      }
-
-  """
-  @type remove_bridge_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      default_maintenance_configuration() :: %{}
-
-  """
-  @type default_maintenance_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_flow_source_request() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "FlowVpcInterfaceAttachment" => vpc_interface_attachment()
-      }
-
-  """
-  @type update_bridge_flow_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encoding_parameters_request() :: %{
-        "CompressionFactor" => [float()],
-        "EncoderProfile" => list(any())
-      }
-
-  """
-  @type encoding_parameters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_caller_router_input_configuration() :: %{
-        "DecryptionConfiguration" => srt_decryption_configuration(),
-        "MinimumLatencyMilliseconds" => [float()],
-        "SourceAddress" => [String.t() | atom()],
-        "SourcePort" => [integer()],
-        "StreamId" => [String.t() | atom()]
-      }
-
-  """
-  @type srt_caller_router_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bridge_response() :: %{
-        "Bridge" => bridge()
-      }
-
-  """
-  @type create_bridge_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway() :: %{
-        "EgressCidrBlocks" => list([String.t() | atom()]()),
-        "GatewayArn" => [String.t() | atom()],
-        "GatewayMessages" => list(message_detail()),
-        "GatewayState" => list(any()),
-        "Name" => [String.t() | atom()],
-        "Networks" => list(gateway_network())
-      }
-
-  """
-  @type gateway() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_media_stream_request() :: %{
-        optional("Attributes") => media_stream_attributes_request(),
-        optional("ClockRate") => [integer()],
-        optional("Description") => [String.t() | atom()],
-        optional("MediaStreamType") => list(any()),
-        optional("VideoFormat") => [String.t() | atom()]
-      }
-
-  """
-  @type update_flow_media_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_media_stream_request() :: %{
-        "Attributes" => media_stream_attributes_request(),
-        "ClockRate" => [integer()],
-        "Description" => [String.t() | atom()],
-        "MediaStreamId" => [integer()],
-        "MediaStreamName" => [String.t() | atom()],
-        "MediaStreamTags" => map(),
-        "MediaStreamType" => list(any()),
-        "VideoFormat" => [String.t() | atom()]
-      }
-
-  """
-  @type add_media_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingress_gateway_bridge() :: %{
-        "InstanceId" => [String.t() | atom()],
-        "MaxBitrate" => [integer()],
-        "MaxOutputs" => [integer()]
-      }
-
-  """
-  @type ingress_gateway_bridge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bridge_network_output() :: %{
-        "IpAddress" => [String.t() | atom()],
-        "Name" => [String.t() | atom()],
-        "NetworkName" => [String.t() | atom()],
-        "Port" => [integer()],
-        "Protocol" => list(any()),
-        "Ttl" => [integer()]
-      }
-
-  """
-  @type bridge_network_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_router_network_interfaces_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "RouterNetworkInterfaces" => list(listed_router_network_interface())
-      }
-
-  """
-  @type list_router_network_interfaces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_router_network_interface_response() :: %{
-        "RouterNetworkInterface" => router_network_interface()
-      }
-
-  """
-  @type update_router_network_interface_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_detail() :: %{
-        "Code" => [String.t() | atom()],
-        "Message" => [String.t() | atom()],
-        "ResourceName" => [String.t() | atom()]
-      }
-
-  """
-  @type message_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_stream_attributes_request() :: %{
-        "Fmtp" => fmtp_request(),
-        "Lang" => [String.t() | atom()]
-      }
-
-  """
-  @type media_stream_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_global_resource_request() :: %{
-        required("TagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_global_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_router_input_response() :: %{
-        "RouterInput" => router_input()
-      }
-
-  """
-  @type update_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bridge420_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type create_bridge420_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_network() :: %{
-        "CidrBlock" => [String.t() | atom()],
-        "Name" => [String.t() | atom()]
-      }
-
-  """
-  @type gateway_network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_request() :: %{
-        optional("EgressGatewayBridge") => update_egress_gateway_bridge_request(),
-        optional("IngressGatewayBridge") => update_ingress_gateway_bridge_request(),
-        optional("SourceFailoverConfig") => update_failover_config()
-      }
-
-  """
-  @type update_bridge_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_global_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_global_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      egress_gateway_bridge() :: %{
-        "InstanceId" => [String.t() | atom()],
-        "MaxBitrate" => [integer()]
-      }
-
-  """
-  @type egress_gateway_bridge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_input_request() :: %{}
-
-  """
-  @type get_router_input_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      public_router_network_interface_configuration() :: %{
-        "AllowRules" => list(public_router_network_interface_rule())
-      }
-
-  """
-  @type public_router_network_interface_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_source_request() :: %{
-        optional("Decryption") => update_encryption(),
-        optional("Description") => [String.t() | atom()],
-        optional("EntitlementArn") => [String.t() | atom()],
-        optional("GatewayBridgeSource") => update_gateway_bridge_source_request(),
-        optional("IngestPort") => [integer()],
-        optional("MaxBitrate") => [integer()],
-        optional("MaxLatency") => [integer()],
-        optional("MaxSyncBuffer") => [integer()],
-        optional("MediaStreamSourceConfigurations") => list(media_stream_source_configuration_request()),
-        optional("MinLatency") => [integer()],
-        optional("NdiSourceSettings") => ndi_source_settings(),
-        optional("Protocol") => list(any()),
-        optional("RouterIntegrationState") => list(any()),
-        optional("RouterIntegrationTransitDecryption") => flow_transit_encryption(),
-        optional("SenderControlPort") => [integer()],
-        optional("SenderIpAddress") => [String.t() | atom()],
-        optional("SourceListenerAddress") => [String.t() | atom()],
-        optional("SourceListenerPort") => [integer()],
-        optional("StreamId") => [String.t() | atom()],
-        optional("VpcInterfaceName") => [String.t() | atom()],
-        optional("WhitelistCidr") => [String.t() | atom()]
-      }
-
-  """
-  @type update_flow_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_flows_response() :: %{
-        "Flows" => list(listed_flow()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_flows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_connect_flow_router_output_configuration() :: %{
-        "DestinationTransitEncryption" => flow_transit_encryption(),
-        "FlowArn" => String.t() | atom(),
-        "FlowSourceArn" => String.t() | atom()
-      }
-
-  """
-  @type media_connect_flow_router_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      router_input_transit_encryption() :: %{
-        "EncryptionKeyConfiguration" => list(),
-        "EncryptionKeyType" => list(any())
-      }
-
-  """
-  @type router_input_transit_encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rist_router_input_configuration() :: %{
-        "Port" => [integer()],
-        "RecoveryLatencyMilliseconds" => [float()]
-      }
-
-  """
-  @type rist_router_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_egress_gateway_bridge_request() :: %{
-        "MaxBitrate" => [integer()]
-      }
-
-  """
-  @type add_egress_gateway_bridge_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listed_gateway() :: %{
-        "GatewayArn" => [String.t() | atom()],
-        "GatewayState" => list(any()),
-        "Name" => [String.t() | atom()]
-      }
-
-  """
-  @type listed_gateway() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_flow_outputs420_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type add_flow_outputs420_exception() :: %{(String.t() | atom()) => any()}
+  @type update_router_network_interface_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1590,959 +1838,6 @@ defmodule AWS.MediaConnect do
 
   """
   @type delete_bridge_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rist_router_output_configuration() :: %{
-        "DestinationAddress" => [String.t() | atom()],
-        "DestinationPort" => [integer()]
-      }
-
-  """
-  @type rist_router_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bridge_output() :: %{
-        "FlowOutput" => bridge_flow_output(),
-        "NetworkOutput" => bridge_network_output()
-      }
-
-  """
-  @type bridge_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bridge_response() :: %{
-        "BridgeArn" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_bridge_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transport() :: %{
-        "CidrAllowList" => list([String.t() | atom()]()),
-        "MaxBitrate" => [integer()],
-        "MaxLatency" => [integer()],
-        "MaxSyncBuffer" => [integer()],
-        "MinLatency" => [integer()],
-        "NdiProgramName" => [String.t() | atom()],
-        "NdiSourceSettings" => ndi_source_settings(),
-        "NdiSpeedHqQuality" => [integer()],
-        "Protocol" => list(any()),
-        "RemoteId" => [String.t() | atom()],
-        "SenderControlPort" => [integer()],
-        "SenderIpAddress" => [String.t() | atom()],
-        "SmoothingLatency" => [integer()],
-        "SourceListenerAddress" => [String.t() | atom()],
-        "SourceListenerPort" => [integer()],
-        "StreamId" => [String.t() | atom()]
-      }
-
-  """
-  @type transport() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_flow_request() :: %{}
-
-  """
-  @type start_flow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bridge_request() :: %{
-        optional("EgressGatewayBridge") => add_egress_gateway_bridge_request(),
-        optional("IngressGatewayBridge") => add_ingress_gateway_bridge_request(),
-        optional("Outputs") => list(add_bridge_output_request()),
-        optional("SourceFailoverConfig") => failover_config(),
-        required("Name") => [String.t() | atom()],
-        required("PlacementArn") => [String.t() | atom()],
-        required("Sources") => list(add_bridge_source_request())
-      }
-
-  """
-  @type create_bridge_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_flow_vpc_interfaces_request() :: %{
-        required("VpcInterfaces") => list(vpc_interface_request())
-      }
-
-  """
-  @type add_flow_vpc_interfaces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_input_thumbnail_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "ThumbnailDetails" => router_input_thumbnail_details()
-      }
-
-  """
-  @type get_router_input_thumbnail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      maintenance() :: %{
-        "MaintenanceDay" => list(any()),
-        "MaintenanceDeadline" => [String.t() | atom()],
-        "MaintenanceScheduledDate" => [String.t() | atom()],
-        "MaintenanceStartHour" => [String.t() | atom()]
-      }
-
-  """
-  @type maintenance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_interface() :: %{
-        "Name" => [String.t() | atom()],
-        "NetworkInterfaceIds" => list([String.t() | atom()]()),
-        "NetworkInterfaceType" => list(any()),
-        "RoleArn" => [String.t() | atom()],
-        "SecurityGroupIds" => list([String.t() | atom()]()),
-        "SubnetId" => [String.t() | atom()]
-      }
-
-  """
-  @type vpc_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_flow_source_thumbnail_request() :: %{}
-
-  """
-  @type describe_flow_source_thumbnail_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_bridge_output_response() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "OutputName" => [String.t() | atom()]
-      }
-
-  """
-  @type remove_bridge_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_router_output_request() :: %{}
-
-  """
-  @type delete_router_output_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      media_connect_flow_router_output_stream_details() :: %{}
-
-  """
-  @type media_connect_flow_router_output_stream_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      take_router_input_request() :: %{
-        optional("RouterInputArn") => String.t() | atom()
-      }
-
-  """
-  @type take_router_input_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fmtp() :: %{
-        "ChannelOrder" => [String.t() | atom()],
-        "Colorimetry" => list(any()),
-        "ExactFramerate" => [String.t() | atom()],
-        "Par" => [String.t() | atom()],
-        "Range" => list(any()),
-        "ScanMode" => list(any()),
-        "Tcs" => list(any())
-      }
-
-  """
-  @type fmtp() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_global_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_global_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_gateway420_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type create_gateway420_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_priority() :: %{
-        "PrimarySource" => [String.t() | atom()]
-      }
-
-  """
-  @type source_priority() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_gateway_bridge_source_request() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "VpcInterfaceAttachment" => vpc_interface_attachment()
-      }
-
-  """
-  @type set_gateway_bridge_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_network_interface_request() :: %{}
-
-  """
-  @type get_router_network_interface_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      silent_audio() :: %{
-        "State" => list(any()),
-        "ThresholdSeconds" => [integer()]
-      }
-
-  """
-  @type silent_audio() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_bridge_network_source_request() :: %{
-        "MulticastIp" => [String.t() | atom()],
-        "MulticastSourceSettings" => multicast_source_settings(),
-        "Name" => [String.t() | atom()],
-        "NetworkName" => [String.t() | atom()],
-        "Port" => [integer()],
-        "Protocol" => list(any())
-      }
-
-  """
-  @type add_bridge_network_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_flow_request() :: %{}
-
-  """
-  @type describe_flow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_source_settings() :: %{
-        "MulticastSourceIp" => [String.t() | atom()]
-      }
-
-  """
-  @type multicast_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_flow_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "Status" => list(any())
-      }
-
-  """
-  @type start_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_flow_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "Status" => list(any())
-      }
-
-  """
-  @type stop_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_connect_flow_router_input_stream_details() :: %{}
-
-  """
-  @type media_connect_flow_router_input_stream_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption() :: %{
-        "Algorithm" => list(any()),
-        "ConstantInitializationVector" => [String.t() | atom()],
-        "DeviceId" => [String.t() | atom()],
-        "KeyType" => list(any()),
-        "Region" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "RoleArn" => [String.t() | atom()],
-        "SecretArn" => [String.t() | atom()],
-        "Url" => [String.t() | atom()]
-      }
-
-  """
-  @type encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bridge() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "BridgeMessages" => list(message_detail()),
-        "BridgeState" => list(any()),
-        "EgressGatewayBridge" => egress_gateway_bridge(),
-        "IngressGatewayBridge" => ingress_gateway_bridge(),
-        "Name" => [String.t() | atom()],
-        "Outputs" => list(bridge_output()),
-        "PlacementArn" => [String.t() | atom()],
-        "SourceFailoverConfig" => failover_config(),
-        "Sources" => list(bridge_source())
-      }
-
-  """
-  @type bridge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_network_output_request() :: %{
-        "IpAddress" => [String.t() | atom()],
-        "NetworkName" => [String.t() | atom()],
-        "Port" => [integer()],
-        "Protocol" => list(any()),
-        "Ttl" => [integer()]
-      }
-
-  """
-  @type update_bridge_network_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_output_response() :: %{
-        "RouterOutput" => router_output()
-      }
-
-  """
-  @type get_router_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_input_source_metadata_request() :: %{}
-
-  """
-  @type get_router_input_source_metadata_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      grant_flow_entitlements420_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type grant_flow_entitlements420_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encoding_parameters() :: %{
-        "CompressionFactor" => [float()],
-        "EncoderProfile" => list(any())
-      }
-
-  """
-  @type encoding_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_monitoring_setting() :: %{
-        "SilentAudio" => silent_audio()
-      }
-
-  """
-  @type audio_monitoring_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_live_input_router_output_stream_details() :: %{}
-
-  """
-  @type media_live_input_router_output_stream_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_specification() :: %{
-        "ReservedBitrate" => [integer()],
-        "ResourceType" => list(any())
-      }
-
-  """
-  @type resource_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_router_output_response() :: %{
-        "RouterOutput" => router_output()
-      }
-
-  """
-  @type update_router_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_bridge_output_request() :: %{}
-
-  """
-  @type remove_bridge_output_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_state_response() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "DesiredState" => list(any())
-      }
-
-  """
-  @type update_bridge_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reservation() :: %{
-        "CurrencyCode" => [String.t() | atom()],
-        "Duration" => [integer()],
-        "DurationUnits" => list(any()),
-        "End" => [String.t() | atom()],
-        "OfferingArn" => [String.t() | atom()],
-        "OfferingDescription" => [String.t() | atom()],
-        "PricePerUnit" => [String.t() | atom()],
-        "PriceUnits" => list(any()),
-        "ReservationArn" => [String.t() | atom()],
-        "ReservationName" => [String.t() | atom()],
-        "ReservationState" => list(any()),
-        "ResourceSpecification" => resource_specification(),
-        "Start" => [String.t() | atom()]
-      }
-
-  """
-  @type reservation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encoding_config() :: %{
-        "EncodingProfile" => list(any()),
-        "VideoMaxBitrate" => [integer()]
-      }
-
-  """
-  @type encoding_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_configuration() :: %{
-        "InputIp" => [String.t() | atom()],
-        "InputPort" => [integer()],
-        "Interface" => interface()
-      }
-
-  """
-  @type input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_entitlements_response() :: %{
-        "Entitlements" => list(listed_entitlement()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_entitlements_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_flow_sources_request() :: %{
-        required("Sources") => list(set_source_request())
-      }
-
-  """
-  @type add_flow_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_stream_attributes() :: %{
-        "Fmtp" => fmtp(),
-        "Lang" => [String.t() | atom()]
-      }
-
-  """
-  @type media_stream_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_flows_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_flows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_source_response() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "Source" => bridge_source()
-      }
-
-  """
-  @type update_bridge_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_bridge_outputs_response() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "Outputs" => list(bridge_output())
-      }
-
-  """
-  @type add_bridge_outputs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listed_router_network_interface() :: %{
-        "Arn" => String.t() | atom(),
-        "AssociatedInputCount" => [integer()],
-        "AssociatedOutputCount" => [integer()],
-        "CreatedAt" => [non_neg_integer()],
-        "Id" => [String.t() | atom()],
-        "Name" => [String.t() | atom()],
-        "NetworkInterfaceType" => list(any()),
-        "RegionName" => [String.t() | atom()],
-        "State" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type listed_router_network_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_flow_source_request() :: %{}
-
-  """
-  @type remove_flow_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_bridge_request() :: %{}
-
-  """
-  @type describe_bridge_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_router_outputs_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "RouterOutputs" => list(listed_router_output())
-      }
-
-  """
-  @type list_router_outputs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_flow_source_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "SourceArn" => [String.t() | atom()]
-      }
-
-  """
-  @type remove_flow_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      router_output_service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type router_output_service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bridge_network_source() :: %{
-        "MulticastIp" => [String.t() | atom()],
-        "MulticastSourceSettings" => multicast_source_settings(),
-        "Name" => [String.t() | atom()],
-        "NetworkName" => [String.t() | atom()],
-        "Port" => [integer()],
-        "Protocol" => list(any())
-      }
-
-  """
-  @type bridge_network_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_stream_output_configuration() :: %{
-        "DestinationConfigurations" => list(destination_configuration()),
-        "EncodingName" => list(any()),
-        "EncodingParameters" => encoding_parameters(),
-        "MediaStreamName" => [String.t() | atom()]
-      }
-
-  """
-  @type media_stream_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_ingress_gateway_bridge_request() :: %{
-        "MaxBitrate" => [integer()],
-        "MaxOutputs" => [integer()]
-      }
-
-  """
-  @type add_ingress_gateway_bridge_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      router_network_interface() :: %{
-        "Arn" => String.t() | atom(),
-        "AssociatedInputCount" => [integer()],
-        "AssociatedOutputCount" => [integer()],
-        "Configuration" => list(),
-        "CreatedAt" => [non_neg_integer()],
-        "Id" => [String.t() | atom()],
-        "Name" => [String.t() | atom()],
-        "NetworkInterfaceType" => list(any()),
-        "RegionName" => [String.t() | atom()],
-        "State" => list(any()),
-        "Tags" => map(),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type router_network_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source() :: %{
-        "ConnectedRouterOutputArn" => [String.t() | atom()],
-        "DataTransferSubscriberFeePercent" => [integer()],
-        "Decryption" => encryption(),
-        "Description" => [String.t() | atom()],
-        "EntitlementArn" => [String.t() | atom()],
-        "GatewayBridgeSource" => gateway_bridge_source(),
-        "IngestIp" => [String.t() | atom()],
-        "IngestPort" => [integer()],
-        "MediaStreamSourceConfigurations" => list(media_stream_source_configuration()),
-        "Name" => [String.t() | atom()],
-        "PeerIpAddress" => [String.t() | atom()],
-        "RouterIntegrationState" => list(any()),
-        "RouterIntegrationTransitDecryption" => flow_transit_encryption(),
-        "SenderControlPort" => [integer()],
-        "SenderIpAddress" => [String.t() | atom()],
-        "SourceArn" => [String.t() | atom()],
-        "Transport" => transport(),
-        "VpcInterfaceName" => [String.t() | atom()],
-        "WhitelistCidr" => [String.t() | atom()]
-      }
-
-  """
-  @type source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_bridge_flow_source_request() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
-        "Name" => [String.t() | atom()]
-      }
-
-  """
-  @type add_bridge_flow_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_instance_response() :: %{
-        "BridgePlacement" => list(any()),
-        "GatewayInstanceArn" => [String.t() | atom()]
-      }
-
-  """
-  @type update_gateway_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restart_router_output_request() :: %{}
-
-  """
-  @type restart_router_output_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_router_output_request() :: %{
-        optional("Configuration") => list(),
-        optional("MaintenanceConfiguration") => list(),
-        optional("MaximumBitrate") => [float()],
-        optional("Name") => [String.t() | atom()],
-        optional("RoutingScope") => list(any()),
-        optional("Tier") => list(any())
-      }
-
-  """
-  @type update_router_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_router_inputs_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "RouterInputs" => list(listed_router_input())
-      }
-
-  """
-  @type list_router_inputs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_router_input_request() :: %{
-        optional("AvailabilityZone") => [String.t() | atom()],
-        optional("ClientToken") => [String.t() | atom()],
-        optional("MaintenanceConfiguration") => list(),
-        optional("RegionName") => [String.t() | atom()],
-        optional("Tags") => map(),
-        optional("TransitEncryption") => router_input_transit_encryption(),
-        required("Configuration") => list(),
-        required("MaximumBitrate") => [float()],
-        required("Name") => [String.t() | atom()],
-        required("RoutingScope") => list(any()),
-        required("Tier") => list(any())
-      }
-
-  """
-  @type create_router_input_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_failover_config() :: %{
-        "FailoverMode" => list(any()),
-        "RecoveryWindow" => [integer()],
-        "SourcePriority" => source_priority(),
-        "State" => list(any())
-      }
-
-  """
-  @type update_failover_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_flow_output_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "OutputArn" => [String.t() | atom()]
-      }
-
-  """
-  @type remove_flow_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_response() :: %{
-        "Bridge" => bridge()
-      }
-
-  """
-  @type update_bridge_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2561,193 +1856,12 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      create_gateway_request() :: %{
-        required("EgressCidrBlocks") => list([String.t() | atom()]()),
-        required("Name") => [String.t() | atom()],
-        required("Networks") => list(gateway_network())
+      create_gateway420_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grant_flow_entitlements_response() :: %{
-        "Entitlements" => list(entitlement()),
-        "FlowArn" => [String.t() | atom()]
-      }
-
-  """
-  @type grant_flow_entitlements_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_bridge_outputs_request() :: %{
-        required("Outputs") => list(add_bridge_output_request())
-      }
-
-  """
-  @type add_bridge_outputs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_maintenance() :: %{
-        "MaintenanceDay" => list(any()),
-        "MaintenanceStartHour" => [String.t() | atom()]
-      }
-
-  """
-  @type add_maintenance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_router_input_response() :: %{
-        "Arn" => String.t() | atom(),
-        "MaintenanceSchedule" => list(),
-        "MaintenanceScheduleType" => list(any()),
-        "Name" => [String.t() | atom()],
-        "State" => list(any())
-      }
-
-  """
-  @type start_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      entitlement() :: %{
-        "DataTransferSubscriberFeePercent" => [integer()],
-        "Description" => [String.t() | atom()],
-        "Encryption" => encryption(),
-        "EntitlementArn" => [String.t() | atom()],
-        "EntitlementStatus" => list(any()),
-        "Name" => [String.t() | atom()],
-        "Subscribers" => list([String.t() | atom()]())
-      }
-
-  """
-  @type entitlement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restart_router_input_request() :: %{}
-
-  """
-  @type restart_router_input_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_encryption() :: %{
-        "Algorithm" => list(any()),
-        "ConstantInitializationVector" => [String.t() | atom()],
-        "DeviceId" => [String.t() | atom()],
-        "KeyType" => list(any()),
-        "Region" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "RoleArn" => [String.t() | atom()],
-        "SecretArn" => [String.t() | atom()],
-        "Url" => [String.t() | atom()]
-      }
-
-  """
-  @type update_encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_network_source_request() :: %{
-        "MulticastIp" => [String.t() | atom()],
-        "MulticastSourceSettings" => multicast_source_settings(),
-        "NetworkName" => [String.t() | atom()],
-        "Port" => [integer()],
-        "Protocol" => list(any())
-      }
-
-  """
-  @type update_bridge_network_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ndi_config() :: %{
-        "MachineName" => [String.t() | atom()],
-        "NdiDiscoveryServers" => list(ndi_discovery_server_config()),
-        "NdiState" => list(any())
-      }
-
-  """
-  @type ndi_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standard_router_output_stream_details() :: %{
-        "DestinationIpAddress" => [String.t() | atom()]
-      }
-
-  """
-  @type standard_router_output_stream_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_router_inputs_request() :: %{
-        optional("Filters") => list(list()),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_router_inputs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_router_network_interface_request() :: %{
-        required("Arns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_router_network_interface_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_input_thumbnail_request() :: %{}
-
-  """
-  @type get_router_input_thumbnail_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reservations_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "Reservations" => list(reservation())
-      }
-
-  """
-  @type list_reservations_response() :: %{(String.t() | atom()) => any()}
+  @type create_gateway420_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2760,675 +1874,6 @@ defmodule AWS.MediaConnect do
 
   """
   @type input_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_decryption_configuration() :: %{
-        "EncryptionKey" => secrets_manager_encryption_key_configuration()
-      }
-
-  """
-  @type srt_decryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ndi_source_metadata_info() :: %{
-        "ActiveSource" => ndi_source_info(),
-        "DiscoveredSources" => list(ndi_source_info()),
-        "MediaInfo" => ndi_media_info(),
-        "Messages" => list(message_detail())
-      }
-
-  """
-  @type ndi_source_metadata_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      messages() :: %{
-        "Errors" => list([String.t() | atom()]())
-      }
-
-  """
-  @type messages() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      window_maintenance_schedule() :: %{
-        "End" => [non_neg_integer()],
-        "ScheduledTime" => [non_neg_integer()],
-        "Start" => [non_neg_integer()]
-      }
-
-  """
-  @type window_maintenance_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_router_input_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "State" => list(any())
-      }
-
-  """
-  @type delete_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_reservation_response() :: %{
-        "Reservation" => reservation()
-      }
-
-  """
-  @type describe_reservation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_configuration_request() :: %{
-        "DestinationIp" => [String.t() | atom()],
-        "DestinationPort" => [integer()],
-        "Interface" => interface_request()
-      }
-
-  """
-  @type destination_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interface() :: %{
-        "Name" => [String.t() | atom()]
-      }
-
-  """
-  @type interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_router_output_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "State" => list(any())
-      }
-
-  """
-  @type stop_router_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transport_media_info() :: %{
-        "Programs" => list(transport_stream_program())
-      }
-
-  """
-  @type transport_media_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_interface_request() :: %{
-        "Name" => [String.t() | atom()],
-        "NetworkInterfaceType" => list(any()),
-        "RoleArn" => [String.t() | atom()],
-        "SecurityGroupIds" => list([String.t() | atom()]()),
-        "SubnetId" => [String.t() | atom()],
-        "VpcInterfaceTags" => map()
-      }
-
-  """
-  @type vpc_interface_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_request() :: %{}
-
-  """
-  @type delete_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_gateway_request() :: %{}
-
-  """
-  @type describe_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_caller_router_output_configuration() :: %{
-        "DestinationAddress" => [String.t() | atom()],
-        "DestinationPort" => [integer()],
-        "EncryptionConfiguration" => srt_encryption_configuration(),
-        "MinimumLatencyMilliseconds" => [float()],
-        "StreamId" => [String.t() | atom()]
-      }
-
-  """
-  @type srt_caller_router_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_router_output_request() :: %{
-        required("Arns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_router_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_router_output_response() :: %{
-        "Errors" => list(batch_get_router_output_error()),
-        "RouterOutputs" => list(router_output())
-      }
-
-  """
-  @type batch_get_router_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_entitlements_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_entitlements_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      public_router_network_interface_rule() :: %{
-        "Cidr" => [String.t() | atom()]
-      }
-
-  """
-  @type public_router_network_interface_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restart_router_input_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => [String.t() | atom()],
-        "State" => list(any())
-      }
-
-  """
-  @type restart_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_router_input_request() :: %{
-        required("Arns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_router_input_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rtp_router_input_configuration() :: %{
-        "ForwardErrorCorrection" => list(any()),
-        "Port" => [integer()]
-      }
-
-  """
-  @type rtp_router_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_live_channel_router_input_stream_details() :: %{}
-
-  """
-  @type media_live_channel_router_input_stream_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_reservation_request() :: %{}
-
-  """
-  @type describe_reservation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_listener_router_input_configuration() :: %{
-        "DecryptionConfiguration" => srt_decryption_configuration(),
-        "MinimumLatencyMilliseconds" => [float()],
-        "Port" => [integer()]
-      }
-
-  """
-  @type srt_listener_router_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_flow_vpc_interface_request() :: %{}
-
-  """
-  @type remove_flow_vpc_interface_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      standard_router_input_configuration() :: %{
-        "NetworkInterfaceArn" => String.t() | atom(),
-        "Protocol" => list(any()),
-        "ProtocolConfiguration" => list()
-      }
-
-  """
-  @type standard_router_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      frame_resolution() :: %{
-        "FrameHeight" => [integer()],
-        "FrameWidth" => [integer()]
-      }
-
-  """
-  @type frame_resolution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_router_input_request() :: %{}
-
-  """
-  @type delete_router_input_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_router_output_error() :: %{
-        "Arn" => String.t() | atom(),
-        "Code" => [String.t() | atom()],
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_get_router_output_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_bridge_source() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "VpcInterfaceAttachment" => vpc_interface_attachment()
-      }
-
-  """
-  @type gateway_bridge_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      revoke_flow_entitlement_request() :: %{}
-
-  """
-  @type revoke_flow_entitlement_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      monitoring_config() :: %{
-        "AudioMonitoringSettings" => list(audio_monitoring_setting()),
-        "ContentQualityAnalysisState" => list(any()),
-        "ThumbnailState" => list(any()),
-        "VideoMonitoringSettings" => list(video_monitoring_setting())
-      }
-
-  """
-  @type monitoring_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_gateway_response() :: %{
-        "Gateway" => gateway()
-      }
-
-  """
-  @type describe_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      router_input_source_metadata_details() :: %{
-        "RouterInputMetadata" => list(),
-        "SourceMetadataMessages" => list(router_input_message()),
-        "Timestamp" => [non_neg_integer()]
-      }
-
-  """
-  @type router_input_source_metadata_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_bridge_output_request() :: %{
-        "NetworkOutput" => add_bridge_network_output_request()
-      }
-
-  """
-  @type add_bridge_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateway_instances_request() :: %{
-        optional("FilterArn") => [String.t() | atom()],
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_gateway_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standard_router_input_stream_details() :: %{
-        "SourceIpAddress" => [String.t() | atom()]
-      }
-
-  """
-  @type standard_router_input_stream_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_router_output_request() :: %{}
-
-  """
-  @type stop_router_output_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_bridge_source_request() :: %{
-        optional("FlowSource") => update_bridge_flow_source_request(),
-        optional("NetworkSource") => update_bridge_network_source_request()
-      }
-
-  """
-  @type update_bridge_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      offering() :: %{
-        "CurrencyCode" => [String.t() | atom()],
-        "Duration" => [integer()],
-        "DurationUnits" => list(any()),
-        "OfferingArn" => [String.t() | atom()],
-        "OfferingDescription" => [String.t() | atom()],
-        "PricePerUnit" => [String.t() | atom()],
-        "PriceUnits" => list(any()),
-        "ResourceSpecification" => resource_specification()
-      }
-
-  """
-  @type offering() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ndi_discovery_server_config() :: %{
-        "DiscoveryServerAddress" => [String.t() | atom()],
-        "DiscoveryServerPort" => [integer()],
-        "VpcInterfaceAdapter" => [String.t() | atom()]
-      }
-
-  """
-  @type ndi_discovery_server_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_router_output_response() :: %{
-        "RouterOutput" => router_output()
-      }
-
-  """
-  @type create_router_output_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_router_network_interface_error() :: %{
-        "Arn" => String.t() | atom(),
-        "Code" => [String.t() | atom()],
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_get_router_network_interface_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_monitoring_setting() :: %{
-        "BlackFrames" => black_frames(),
-        "FrozenFrames" => frozen_frames()
-      }
-
-  """
-  @type video_monitoring_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_flow_media_stream_request() :: %{}
-
-  """
-  @type remove_flow_media_stream_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      grant_entitlement_request() :: %{
-        "DataTransferSubscriberFeePercent" => [integer()],
-        "Description" => [String.t() | atom()],
-        "Encryption" => encryption(),
-        "EntitlementStatus" => list(any()),
-        "EntitlementTags" => map(),
-        "Name" => [String.t() | atom()],
-        "Subscribers" => list([String.t() | atom()]())
-      }
-
-  """
-  @type grant_entitlement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_bridge_response() :: %{
-        "Bridge" => bridge()
-      }
-
-  """
-  @type describe_bridge_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_output_request() :: %{
-        optional("CidrAllowList") => list([String.t() | atom()]()),
-        optional("Description") => [String.t() | atom()],
-        optional("Destination") => [String.t() | atom()],
-        optional("Encryption") => update_encryption(),
-        optional("MaxLatency") => [integer()],
-        optional("MediaStreamOutputConfigurations") => list(media_stream_output_configuration_request()),
-        optional("MinLatency") => [integer()],
-        optional("NdiProgramName") => [String.t() | atom()],
-        optional("NdiSpeedHqQuality") => [integer()],
-        optional("OutputStatus") => list(any()),
-        optional("Port") => [integer()],
-        optional("Protocol") => list(any()),
-        optional("RemoteId") => [String.t() | atom()],
-        optional("RouterIntegrationState") => list(any()),
-        optional("RouterIntegrationTransitEncryption") => flow_transit_encryption(),
-        optional("SenderControlPort") => [integer()],
-        optional("SenderIpAddress") => [String.t() | atom()],
-        optional("SmoothingLatency") => [integer()],
-        optional("StreamId") => [String.t() | atom()],
-        optional("VpcInterfaceAttachment") => vpc_interface_attachment()
-      }
-
-  """
-  @type update_flow_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_instance() :: %{
-        "BridgePlacement" => list(any()),
-        "ConnectionStatus" => list(any()),
-        "GatewayArn" => [String.t() | atom()],
-        "GatewayInstanceArn" => [String.t() | atom()],
-        "InstanceId" => [String.t() | atom()],
-        "InstanceMessages" => list(message_detail()),
-        "InstanceState" => list(any()),
-        "RunningBridgeCount" => [integer()]
-      }
-
-  """
-  @type gateway_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listed_router_input() :: %{
-        "Arn" => String.t() | atom(),
-        "AvailabilityZone" => [String.t() | atom()],
-        "CreatedAt" => [non_neg_integer()],
-        "Id" => [String.t() | atom()],
-        "InputType" => list(any()),
-        "MaintenanceSchedule" => list(),
-        "MaintenanceScheduleType" => list(any()),
-        "MaximumBitrate" => [float()],
-        "MessageCount" => [integer()],
-        "Name" => [String.t() | atom()],
-        "NetworkInterfaceArn" => String.t() | atom(),
-        "RegionName" => [String.t() | atom()],
-        "RoutedOutputs" => [integer()],
-        "RoutingScope" => list(any()),
-        "State" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type listed_router_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_router_input_request() :: %{
-        optional("Configuration") => list(),
-        optional("MaintenanceConfiguration") => list(),
-        optional("MaximumBitrate") => [float()],
-        optional("Name") => [String.t() | atom()],
-        optional("RoutingScope") => list(any()),
-        optional("Tier") => list(any()),
-        optional("TransitEncryption") => router_input_transit_encryption()
-      }
-
-  """
-  @type update_router_input_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3447,97 +1892,21 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      update_flow_output_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "Output" => output()
-      }
+      describe_flow_request() :: %{}
 
   """
-  @type update_flow_output_response() :: %{(String.t() | atom()) => any()}
+  @type describe_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      bad_request_exception() :: %{
+      not_found_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_bridge_sources_request() :: %{
-        required("Sources") => list(add_bridge_source_request())
-      }
-
-  """
-  @type add_bridge_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_transit_encryption() :: %{
-        "EncryptionKeyConfiguration" => list(),
-        "EncryptionKeyType" => list(any())
-      }
-
-  """
-  @type flow_transit_encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_bridge_source_request() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "VpcInterfaceAttachment" => vpc_interface_attachment()
-      }
-
-  """
-  @type update_gateway_bridge_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_entitlement_response() :: %{
-        "Entitlement" => entitlement(),
-        "FlowArn" => [String.t() | atom()]
-      }
-
-  """
-  @type update_flow_entitlement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listed_bridge() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "BridgeState" => list(any()),
-        "BridgeType" => [String.t() | atom()],
-        "Name" => [String.t() | atom()],
-        "PlacementArn" => [String.t() | atom()]
-      }
-
-  """
-  @type listed_bridge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_response() :: %{
-        "Flow" => flow()
-      }
-
-  """
-  @type update_flow_response() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3576,67 +1945,85 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      transport_stream() :: %{
-        "Channels" => [integer()],
-        "Codec" => [String.t() | atom()],
-        "FrameRate" => [String.t() | atom()],
-        "FrameResolution" => frame_resolution(),
-        "Pid" => [integer()],
-        "SampleRate" => [integer()],
-        "SampleSize" => [integer()],
-        "StreamType" => [String.t() | atom()]
-      }
+      revoke_flow_entitlement_request() :: %{}
 
   """
-  @type transport_stream() :: %{(String.t() | atom()) => any()}
+  @type revoke_flow_entitlement_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      revoke_flow_entitlement_response() :: %{
-        "EntitlementArn" => [String.t() | atom()],
-        "FlowArn" => [String.t() | atom()]
-      }
-
-  """
-  @type revoke_flow_entitlement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bridge_flow_output() :: %{
+      remove_flow_media_stream_response() :: %{
         "FlowArn" => [String.t() | atom()],
-        "FlowSourceArn" => [String.t() | atom()],
-        "Name" => [String.t() | atom()]
+        "MediaStreamName" => [String.t() | atom()]
       }
 
   """
-  @type bridge_flow_output() :: %{(String.t() | atom()) => any()}
+  @type remove_flow_media_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_flow_media_stream_response() :: %{
-        "FlowArn" => [String.t() | atom()],
-        "MediaStream" => media_stream()
+      window_maintenance_schedule() :: %{
+        "End" => [non_neg_integer()],
+        "ScheduledTime" => [non_neg_integer()],
+        "Start" => [non_neg_integer()]
       }
 
   """
-  @type update_flow_media_stream_response() :: %{(String.t() | atom()) => any()}
+  @type window_maintenance_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      add_flow_outputs_request() :: %{
-        required("Outputs") => list(add_output_request())
+      content_quality_analysis_feature_configuration() :: %{
+        "BlackFrames" => black_frames_configuration(),
+        "FrozenFrames" => frozen_frames_configuration(),
+        "SilentAudio" => silent_audio_configuration()
       }
 
   """
-  @type add_flow_outputs_request() :: %{(String.t() | atom()) => any()}
+  @type content_quality_analysis_feature_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_instance_response() :: %{
+        "BridgePlacement" => list(any()),
+        "GatewayInstanceArn" => [String.t() | atom()]
+      }
+
+  """
+  @type update_gateway_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_thumbnail_details() :: %{
+        "Thumbnail" => [binary()],
+        "ThumbnailMessages" => list(router_input_message()),
+        "Timecode" => [String.t() | atom()],
+        "Timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type router_input_thumbnail_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_input_response() :: %{
+        "RouterInput" => router_input()
+      }
+
+  """
+  @type update_router_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3649,59 +2036,6 @@ defmodule AWS.MediaConnect do
 
   """
   @type describe_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow() :: %{
-        "AvailabilityZone" => [String.t() | atom()],
-        "Description" => [String.t() | atom()],
-        "EgressIp" => [String.t() | atom()],
-        "EncodingConfig" => encoding_config(),
-        "Entitlements" => list(entitlement()),
-        "FlowArn" => [String.t() | atom()],
-        "FlowSize" => list(any()),
-        "Maintenance" => maintenance(),
-        "MediaStreams" => list(media_stream()),
-        "Name" => [String.t() | atom()],
-        "NdiConfig" => ndi_config(),
-        "Outputs" => list(output()),
-        "Source" => source(),
-        "SourceFailoverConfig" => failover_config(),
-        "SourceMonitoringConfig" => monitoring_config(),
-        "Sources" => list(source()),
-        "Status" => list(any()),
-        "VpcInterfaces" => list(vpc_interface())
-      }
-
-  """
-  @type flow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_router_network_interface_response() :: %{
-        "RouterNetworkInterface" => router_network_interface()
-      }
-
-  """
-  @type get_router_network_interface_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failover_router_input_configuration() :: %{
-        "NetworkInterfaceArn" => String.t() | atom(),
-        "PrimarySourceIndex" => [integer()],
-        "ProtocolConfigurations" => list(list()),
-        "SourcePriorityMode" => list(any())
-      }
-
-  """
-  @type failover_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3740,6 +2074,28 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      update_bridge_request() :: %{
+        optional("EgressGatewayBridge") => update_egress_gateway_bridge_request(),
+        optional("IngressGatewayBridge") => update_ingress_gateway_bridge_request(),
+        optional("SourceFailoverConfig") => update_failover_config()
+      }
+
+  """
+  @type update_bridge_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_router_input_request() :: %{}
+
+  """
+  @type stop_router_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       listed_gateway_instance() :: %{
         "GatewayArn" => [String.t() | atom()],
         "GatewayInstanceArn" => [String.t() | atom()],
@@ -3749,6 +2105,230 @@ defmodule AWS.MediaConnect do
 
   """
   @type listed_gateway_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_live_transit_encryption() :: %{
+        "EncryptionKeyConfiguration" => list(),
+        "EncryptionKeyType" => list(any())
+      }
+
+  """
+  @type media_live_transit_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flows_response() :: %{
+        "Flows" => list(listed_flow()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_flows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_thumbnail_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "ThumbnailDetails" => router_input_thumbnail_details()
+      }
+
+  """
+  @type get_router_input_thumbnail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_instance() :: %{
+        "BridgePlacement" => list(any()),
+        "ConnectionStatus" => list(any()),
+        "GatewayArn" => [String.t() | atom()],
+        "GatewayInstanceArn" => [String.t() | atom()],
+        "InstanceId" => [String.t() | atom()],
+        "InstanceMessages" => list(message_detail()),
+        "InstanceState" => list(any()),
+        "RunningBridgeCount" => [integer()]
+      }
+
+  """
+  @type gateway_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bridge_flow_source_request() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "FlowVpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
+  """
+  @type update_bridge_flow_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_config() :: %{
+        "MachineName" => [String.t() | atom()],
+        "NdiDiscoveryServers" => list(ndi_discovery_server_config()),
+        "NdiState" => list(any())
+      }
+
+  """
+  @type ndi_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      merge_router_input_stream_details() :: %{
+        "SourceIndexOneStreamDetails" => merge_router_input_indexed_stream_details(),
+        "SourceIndexZeroStreamDetails" => merge_router_input_indexed_stream_details()
+      }
+
+  """
+  @type merge_router_input_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_stream_source_configuration() :: %{
+        "EncodingName" => list(any()),
+        "InputConfigurations" => list(input_configuration()),
+        "MediaStreamName" => [String.t() | atom()]
+      }
+
+  """
+  @type media_stream_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_global_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_global_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bridges_response() :: %{
+        "Bridges" => list(listed_bridge()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_bridges_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow() :: %{
+        "AvailabilityZone" => [String.t() | atom()],
+        "Description" => [String.t() | atom()],
+        "EgressIp" => [String.t() | atom()],
+        "EncodingConfig" => encoding_config(),
+        "Entitlements" => list(entitlement()),
+        "FlowArn" => [String.t() | atom()],
+        "FlowSize" => list(any()),
+        "Maintenance" => maintenance(),
+        "MediaStreams" => list(media_stream()),
+        "Name" => [String.t() | atom()],
+        "NdiConfig" => ndi_config(),
+        "Outputs" => list(output()),
+        "Source" => source(),
+        "SourceFailoverConfig" => failover_config(),
+        "SourceMonitoringConfig" => monitoring_config(),
+        "Sources" => list(source()),
+        "Status" => list(any()),
+        "VpcInterfaces" => list(vpc_interface())
+      }
+
+  """
+  @type flow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_router_network_interface_response() :: %{
+        "RouterNetworkInterface" => router_network_interface()
+      }
+
+  """
+  @type create_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      frozen_frames_configuration() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type frozen_frames_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_entitlement_response() :: %{
+        "Entitlement" => entitlement(),
+        "FlowArn" => [String.t() | atom()]
+      }
+
+  """
+  @type update_flow_entitlement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_flow_outputs420_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type add_flow_outputs420_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_output_service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type router_output_service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3766,40 +2346,1220 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      deregister_gateway_instance_request() :: %{
-        optional("Force") => [boolean()]
+      add_bridge_sources_request() :: %{
+        required("Sources") => list(add_bridge_source_request())
       }
 
   """
-  @type deregister_gateway_instance_request() :: %{(String.t() | atom()) => any()}
+  @type add_bridge_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      media_live_channel_router_input_configuration() :: %{
-        "MediaLiveChannelArn" => String.t() | atom(),
-        "MediaLiveChannelOutputName" => [String.t() | atom()],
-        "MediaLivePipelineId" => list(any()),
-        "SourceTransitDecryption" => media_live_transit_encryption()
+      purchase_offering_response() :: %{
+        "Reservation" => reservation()
       }
 
   """
-  @type media_live_channel_router_input_configuration() :: %{(String.t() | atom()) => any()}
+  @type purchase_offering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      failover_config() :: %{
-        "FailoverMode" => list(any()),
-        "RecoveryWindow" => [integer()],
-        "SourcePriority" => source_priority(),
+      start_router_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "Name" => [String.t() | atom()],
         "State" => list(any())
       }
 
   """
-  @type failover_config() :: %{(String.t() | atom()) => any()}
+  @type start_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_offering_request() :: %{}
+
+  """
+  @type describe_offering_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_request() :: %{
+        optional("EncodingConfig") => encoding_config(),
+        optional("FlowSize") => list(any()),
+        optional("Maintenance") => update_maintenance(),
+        optional("NdiConfig") => ndi_config(),
+        optional("SourceFailoverConfig") => update_failover_config(),
+        optional("SourceMonitoringConfig") => monitoring_config()
+      }
+
+  """
+  @type update_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow420_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type create_flow420_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_output_request() :: %{}
+
+  """
+  @type get_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bridge_response() :: %{
+        "BridgeArn" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_bridge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface() :: %{
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_router_network_interface_rule() :: %{
+        "Cidr" => [String.t() | atom()]
+      }
+
+  """
+  @type public_router_network_interface_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      silent_audio_configuration() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type silent_audio_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_response() :: %{
+        "Gateway" => gateway()
+      }
+
+  """
+  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thumbnail_details() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "Thumbnail" => [String.t() | atom()],
+        "ThumbnailMessages" => list(message_detail()),
+        "Timecode" => [String.t() | atom()],
+        "Timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type thumbnail_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_source_metadata_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "SourceMetadataDetails" => router_input_source_metadata_details()
+      }
+
+  """
+  @type get_router_input_source_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_inputs_request() :: %{
+        optional("Filters") => list(list()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_router_inputs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_gateway_instance_request() :: %{}
+
+  """
+  @type describe_gateway_instance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_interface_request() :: %{
+        "Name" => [String.t() | atom()],
+        "NetworkInterfaceType" => list(any()),
+        "RoleArn" => [String.t() | atom()],
+        "SecurityGroupIds" => list([String.t() | atom()]()),
+        "SubnetId" => [String.t() | atom()],
+        "VpcInterfaceTags" => map()
+      }
+
+  """
+  @type vpc_interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_media_stream_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "MediaStream" => media_stream()
+      }
+
+  """
+  @type update_flow_media_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_entitlement() :: %{
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "EntitlementArn" => [String.t() | atom()],
+        "EntitlementName" => [String.t() | atom()]
+      }
+
+  """
+  @type listed_entitlement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => [String.t() | atom()],
+        "Configuration" => list(),
+        "ContentQualityAnalysisConfiguration" => list(),
+        "ContentQualityAnalysisType" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "InputType" => list(any()),
+        "IpAddress" => [String.t() | atom()],
+        "MaintenanceConfiguration" => list(),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "MaintenanceType" => list(any()),
+        "MaximumBitrate" => [float()],
+        "MaximumRoutedOutputs" => [integer()],
+        "Messages" => list(router_input_message()),
+        "Name" => [String.t() | atom()],
+        "RegionName" => [String.t() | atom()],
+        "RoutedOutputs" => [integer()],
+        "RoutingScope" => list(any()),
+        "State" => list(any()),
+        "StreamDetails" => list(),
+        "Tags" => map(),
+        "Tier" => list(any()),
+        "TransitEncryption" => router_input_transit_encryption(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_network_interface_error() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_router_network_interface_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_router_output_request() :: %{}
+
+  """
+  @type start_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bridge() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "BridgeMessages" => list(message_detail()),
+        "BridgeState" => list(any()),
+        "EgressGatewayBridge" => egress_gateway_bridge(),
+        "IngressGatewayBridge" => ingress_gateway_bridge(),
+        "Name" => [String.t() | atom()],
+        "Outputs" => list(bridge_output()),
+        "PlacementArn" => [String.t() | atom()],
+        "SourceFailoverConfig" => failover_config(),
+        "Sources" => list(bridge_source())
+      }
+
+  """
+  @type bridge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_maintenance() :: %{
+        "MaintenanceDay" => list(any()),
+        "MaintenanceStartHour" => [String.t() | atom()]
+      }
+
+  """
+  @type add_maintenance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_flow_media_streams_request() :: %{
+        required("MediaStreams") => list(add_media_stream_request())
+      }
+
+  """
+  @type add_flow_media_streams_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_flow_router_input_configuration() :: %{
+        "FlowArn" => String.t() | atom(),
+        "FlowOutputArn" => String.t() | atom(),
+        "SourceTransitDecryption" => flow_transit_encryption()
+      }
+
+  """
+  @type media_connect_flow_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_router_output_request() :: %{}
+
+  """
+  @type stop_router_output_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_bridge_source_response() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "SourceName" => [String.t() | atom()]
+      }
+
+  """
+  @type remove_bridge_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encoding_config() :: %{
+        "EncodingProfile" => list(any()),
+        "VideoMaxBitrate" => [integer()]
+      }
+
+  """
+  @type encoding_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_maintenance_configuration() :: %{}
+
+  """
+  @type default_maintenance_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_network_interfaces_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RouterNetworkInterfaces" => list(listed_router_network_interface())
+      }
+
+  """
+  @type list_router_network_interfaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_media_stream_request() :: %{
+        "Attributes" => media_stream_attributes_request(),
+        "ClockRate" => [integer()],
+        "Description" => [String.t() | atom()],
+        "MediaStreamId" => [integer()],
+        "MediaStreamName" => [String.t() | atom()],
+        "MediaStreamTags" => map(),
+        "MediaStreamType" => list(any()),
+        "VideoFormat" => [String.t() | atom()]
+      }
+
+  """
+  @type add_media_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_entitlement_request() :: %{
+        optional("Description") => [String.t() | atom()],
+        optional("Encryption") => update_encryption(),
+        optional("EntitlementStatus") => list(any()),
+        optional("Subscribers") => list([String.t() | atom()]())
+      }
+
+  """
+  @type update_flow_entitlement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_global_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_global_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_offerings_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "Offerings" => list(offering())
+      }
+
+  """
+  @type list_offerings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtp_router_output_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationPort" => [integer()],
+        "ForwardErrorCorrection" => list(any())
+      }
+
+  """
+  @type rtp_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_flow_outputs_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "Outputs" => list(output())
+      }
+
+  """
+  @type add_flow_outputs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_offerings_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      black_frames() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => [integer()]
+      }
+
+  """
+  @type black_frames() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_media_stream_info() :: %{
+        "Channels" => [integer()],
+        "Codec" => [String.t() | atom()],
+        "FrameRate" => [String.t() | atom()],
+        "FrameResolution" => frame_resolution(),
+        "SampleRate" => [integer()],
+        "ScanMode" => list(any()),
+        "StreamId" => [integer()],
+        "StreamType" => [String.t() | atom()]
+      }
+
+  """
+  @type ndi_media_stream_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_offering_response() :: %{
+        "Offering" => offering()
+      }
+
+  """
+  @type describe_offering_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bridge_response() :: %{
+        "Bridge" => bridge()
+      }
+
+  """
+  @type update_bridge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_monitoring_setting() :: %{
+        "SilentAudio" => silent_audio()
+      }
+
+  """
+  @type audio_monitoring_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_router_output_stream_details() :: %{
+        "DestinationIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type standard_router_output_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_router_input_configuration() :: %{
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "Protocol" => list(any()),
+        "ProtocolConfiguration" => list()
+      }
+
+  """
+  @type standard_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_router_inputs_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RouterInputs" => list(listed_router_input())
+      }
+
+  """
+  @type list_router_inputs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_request() :: %{
+        optional("AvailabilityZone") => [String.t() | atom()],
+        optional("EncodingConfig") => encoding_config(),
+        optional("Entitlements") => list(grant_entitlement_request()),
+        optional("FlowSize") => list(any()),
+        optional("FlowTags") => map(),
+        optional("Maintenance") => add_maintenance(),
+        optional("MediaStreams") => list(add_media_stream_request()),
+        required("Name") => [String.t() | atom()],
+        optional("NdiConfig") => ndi_config(),
+        optional("Outputs") => list(add_output_request()),
+        optional("Source") => set_source_request(),
+        optional("SourceFailoverConfig") => failover_config(),
+        optional("SourceMonitoringConfig") => monitoring_config(),
+        optional("Sources") => list(set_source_request()),
+        optional("VpcInterfaces") => list(vpc_interface_request())
+      }
+
+  """
+  @type create_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_router_output_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationPort" => [integer()],
+        "EncryptionConfiguration" => srt_encryption_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "StreamId" => [String.t() | atom()]
+      }
+
+  """
+  @type srt_caller_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_encryption_configuration() :: %{
+        "EncryptionKey" => secrets_manager_encryption_key_configuration()
+      }
+
+  """
+  @type srt_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_stream_attributes_request() :: %{
+        "Fmtp" => fmtp_request(),
+        "Lang" => [String.t() | atom()]
+      }
+
+  """
+  @type media_stream_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      black_frames_configuration() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type black_frames_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_router_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type stop_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      egress_gateway_bridge() :: %{
+        "InstanceId" => [String.t() | atom()],
+        "MaxBitrate" => [integer()]
+      }
+
+  """
+  @type egress_gateway_bridge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_network_interface_request() :: %{}
+
+  """
+  @type get_router_network_interface_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      add_flow_sources_request() :: %{
+        required("Sources") => list(set_source_request())
+      }
+
+  """
+  @type add_flow_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_gateway_instance_response() :: %{
+        "GatewayInstanceArn" => [String.t() | atom()],
+        "InstanceState" => list(any())
+      }
+
+  """
+  @type deregister_gateway_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_flow_source_thumbnail_response() :: %{
+        "ThumbnailDetails" => thumbnail_details()
+      }
+
+  """
+  @type describe_flow_source_thumbnail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rist_router_output_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationPort" => [integer()]
+      }
+
+  """
+  @type rist_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purchase_offering_request() :: %{
+        required("ReservationName") => [String.t() | atom()],
+        required("Start") => [String.t() | atom()]
+      }
+
+  """
+  @type purchase_offering_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_configuration() :: %{
+        "DestinationIp" => [String.t() | atom()],
+        "DestinationPort" => [integer()],
+        "Interface" => interface(),
+        "OutboundIp" => [String.t() | atom()]
+      }
+
+  """
+  @type destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_bridge_sources_response() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "Sources" => list(bridge_source())
+      }
+
+  """
+  @type add_bridge_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_response() :: %{
+        "Flow" => flow()
+      }
+
+  """
+  @type update_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_flow_sources_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "Sources" => list(source())
+      }
+
+  """
+  @type add_flow_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_flow_outputs_request() :: %{
+        required("Outputs") => list(add_output_request())
+      }
+
+  """
+  @type add_flow_outputs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bridge_flow_source() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
+        "Name" => [String.t() | atom()],
+        "OutputArn" => [String.t() | atom()]
+      }
+
+  """
+  @type bridge_flow_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grant_entitlement_request() :: %{
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "Description" => [String.t() | atom()],
+        "Encryption" => encryption(),
+        "EntitlementStatus" => list(any()),
+        "EntitlementTags" => map(),
+        "Name" => [String.t() | atom()],
+        "Subscribers" => list([String.t() | atom()]())
+      }
+
+  """
+  @type grant_entitlement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_instance_request() :: %{
+        optional("BridgePlacement") => list(any())
+      }
+
+  """
+  @type update_gateway_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bridge_network_output() :: %{
+        "IpAddress" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "NetworkName" => [String.t() | atom()],
+        "Port" => [integer()],
+        "Protocol" => list(any()),
+        "Ttl" => [integer()]
+      }
+
+  """
+  @type bridge_network_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_flow_output_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "OutputArn" => [String.t() | atom()]
+      }
+
+  """
+  @type remove_flow_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      frame_resolution() :: %{
+        "FrameHeight" => [integer()],
+        "FrameWidth" => [integer()]
+      }
+
+  """
+  @type frame_resolution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_request() :: %{
+        required("EgressCidrBlocks") => list([String.t() | atom()]()),
+        required("Name") => [String.t() | atom()],
+        required("Networks") => list(gateway_network())
+      }
+
+  """
+  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_input_response() :: %{
+        "Errors" => list(batch_get_router_input_error()),
+        "RouterInputs" => list(router_input())
+      }
+
+  """
+  @type batch_get_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_flow_request() :: %{}
+
+  """
+  @type stop_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automatic_encryption_key_configuration() :: %{}
+
+  """
+  @type automatic_encryption_key_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_source_request() :: %{
+        optional("Decryption") => update_encryption(),
+        optional("Description") => [String.t() | atom()],
+        optional("EntitlementArn") => [String.t() | atom()],
+        optional("GatewayBridgeSource") => update_gateway_bridge_source_request(),
+        optional("IngestPort") => [integer()],
+        optional("MaxBitrate") => [integer()],
+        optional("MaxLatency") => [integer()],
+        optional("MaxSyncBuffer") => [integer()],
+        optional("MediaStreamSourceConfigurations") => list(media_stream_source_configuration_request()),
+        optional("MinLatency") => [integer()],
+        optional("NdiSourceSettings") => ndi_source_settings(),
+        optional("Protocol") => list(any()),
+        optional("RouterIntegrationState") => list(any()),
+        optional("RouterIntegrationTransitDecryption") => flow_transit_encryption(),
+        optional("SenderControlPort") => [integer()],
+        optional("SenderIpAddress") => [String.t() | atom()],
+        optional("SourceListenerAddress") => [String.t() | atom()],
+        optional("SourceListenerPort") => [integer()],
+        optional("StreamId") => [String.t() | atom()],
+        optional("VpcInterfaceName") => [String.t() | atom()],
+        optional("WhitelistCidr") => [String.t() | atom()]
+      }
+
+  """
+  @type update_flow_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_output_request() :: %{
+        optional("CidrAllowList") => list([String.t() | atom()]()),
+        optional("Description") => [String.t() | atom()],
+        optional("Destination") => [String.t() | atom()],
+        optional("Encryption") => update_encryption(),
+        optional("MaxLatency") => [integer()],
+        optional("MediaStreamOutputConfigurations") => list(media_stream_output_configuration_request()),
+        optional("MinLatency") => [integer()],
+        optional("NdiOutputTimecodeSource") => list(any()),
+        optional("NdiProgramName") => [String.t() | atom()],
+        optional("NdiSpeedHqQuality") => [integer()],
+        optional("OutputStatus") => list(any()),
+        optional("Port") => [integer()],
+        optional("Protocol") => list(any()),
+        optional("RemoteId") => [String.t() | atom()],
+        optional("RouterIntegrationState") => list(any()),
+        optional("RouterIntegrationTransitEncryption") => flow_transit_encryption(),
+        optional("SenderControlPort") => [integer()],
+        optional("SenderIpAddress") => [String.t() | atom()],
+        optional("SmoothingLatency") => [integer()],
+        optional("StreamId") => [String.t() | atom()],
+        optional("VpcInterfaceAttachment") => vpc_interface_attachment()
+      }
+
+  """
+  @type update_flow_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_network_interface() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedInputCount" => [integer()],
+        "AssociatedOutputCount" => [integer()],
+        "Configuration" => list(),
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "NetworkInterfaceType" => list(any()),
+        "RegionName" => [String.t() | atom()],
+        "State" => list(any()),
+        "Tags" => map(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type router_network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bridge_output() :: %{
+        "FlowOutput" => bridge_flow_output(),
+        "NetworkOutput" => bridge_network_output()
+      }
+
+  """
+  @type bridge_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_router_output_request() :: %{
+        optional("AvailabilityZone") => [String.t() | atom()],
+        optional("ClientToken") => String.t() | atom(),
+        required("Configuration") => list(),
+        optional("MaintenanceConfiguration") => list(),
+        required("MaximumBitrate") => [float()],
+        required("Name") => [String.t() | atom()],
+        optional("RegionName") => [String.t() | atom()],
+        required("RoutingScope") => list(any()),
+        optional("Tags") => map(),
+        required("Tier") => list(any())
+      }
+
+  """
+  @type create_router_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_router_output_request() :: %{
+        optional("Configuration") => list(),
+        optional("MaintenanceConfiguration") => list(),
+        optional("MaximumBitrate") => [float()],
+        optional("Name") => [String.t() | atom()],
+        optional("RoutingScope") => list(any()),
+        optional("Tier") => list(any())
+      }
+
+  """
+  @type update_router_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_source_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "Source" => source()
+      }
+
+  """
+  @type update_flow_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_media_info() :: %{
+        "Streams" => list(ndi_media_stream_info())
+      }
+
+  """
+  @type ndi_media_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reservation() :: %{
+        "CurrencyCode" => [String.t() | atom()],
+        "Duration" => [integer()],
+        "DurationUnits" => list(any()),
+        "End" => [String.t() | atom()],
+        "OfferingArn" => [String.t() | atom()],
+        "OfferingDescription" => [String.t() | atom()],
+        "PricePerUnit" => [String.t() | atom()],
+        "PriceUnits" => list(any()),
+        "ReservationArn" => [String.t() | atom()],
+        "ReservationName" => [String.t() | atom()],
+        "ReservationState" => list(any()),
+        "ResourceSpecification" => resource_specification(),
+        "Start" => [String.t() | atom()]
+      }
+
+  """
+  @type reservation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_output_error() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_router_output_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fmtp_request() :: %{
+        "ChannelOrder" => [String.t() | atom()],
+        "Colorimetry" => list(any()),
+        "ExactFramerate" => [String.t() | atom()],
+        "Par" => [String.t() | atom()],
+        "Range" => list(any()),
+        "ScanMode" => list(any()),
+        "Tcs" => list(any())
+      }
+
+  """
+  @type fmtp_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rist_router_input_configuration() :: %{
+        "Port" => [integer()],
+        "RecoveryLatencyMilliseconds" => [float()]
+      }
+
+  """
+  @type rist_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reservations_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "Reservations" => list(reservation())
+      }
+
+  """
+  @type list_reservations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_router_input_request() :: %{
+        optional("AvailabilityZone") => [String.t() | atom()],
+        optional("ClientToken") => String.t() | atom(),
+        required("Configuration") => list(),
+        optional("ContentQualityAnalysisConfiguration") => list(),
+        optional("MaintenanceConfiguration") => list(),
+        required("MaximumBitrate") => [float()],
+        required("Name") => [String.t() | atom()],
+        optional("RegionName") => [String.t() | atom()],
+        required("RoutingScope") => list(any()),
+        optional("Tags") => map(),
+        required("Tier") => list(any()),
+        optional("TransitEncryption") => router_input_transit_encryption()
+      }
+
+  """
+  @type create_router_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_detail() :: %{
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()],
+        "ResourceName" => [String.t() | atom()]
+      }
+
+  """
+  @type message_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_gateway_bridge_source_request() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      }
+
+  """
+  @type set_gateway_bridge_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3821,135 +3581,96 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      media_connect_flow_router_input_configuration() :: %{
-        "FlowArn" => String.t() | atom(),
-        "FlowOutputArn" => String.t() | atom(),
-        "SourceTransitDecryption" => flow_transit_encryption()
+      grant_flow_entitlements_response() :: %{
+        "Entitlements" => list(entitlement()),
+        "FlowArn" => [String.t() | atom()]
       }
 
   """
-  @type media_connect_flow_router_input_configuration() :: %{(String.t() | atom()) => any()}
+  @type grant_flow_entitlements_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      black_frames() :: %{
-        "State" => list(any()),
-        "ThresholdSeconds" => [integer()]
-      }
+      media_live_input_router_output_stream_details() :: %{}
 
   """
-  @type black_frames() :: %{(String.t() | atom()) => any()}
+  @type media_live_input_router_output_stream_details() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      router_input_service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
+      delete_router_input_request() :: %{}
 
   """
-  @type router_input_service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_router_input_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      describe_offering_response() :: %{
-        "Offering" => offering()
+      source() :: %{
+        "ConnectedRouterOutputArn" => [String.t() | atom()],
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "Decryption" => encryption(),
+        "Description" => [String.t() | atom()],
+        "EntitlementArn" => [String.t() | atom()],
+        "GatewayBridgeSource" => gateway_bridge_source(),
+        "IngestIp" => [String.t() | atom()],
+        "IngestPort" => [integer()],
+        "MediaStreamSourceConfigurations" => list(media_stream_source_configuration()),
+        "Name" => [String.t() | atom()],
+        "PeerIpAddress" => [String.t() | atom()],
+        "RouterIntegrationState" => list(any()),
+        "RouterIntegrationTransitDecryption" => flow_transit_encryption(),
+        "SenderControlPort" => [integer()],
+        "SenderIpAddress" => [String.t() | atom()],
+        "SourceArn" => [String.t() | atom()],
+        "Transport" => transport(),
+        "VpcInterfaceName" => [String.t() | atom()],
+        "WhitelistCidr" => [String.t() | atom()]
       }
 
   """
-  @type describe_offering_response() :: %{(String.t() | atom()) => any()}
+  @type source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      add_flow_vpc_interfaces_response() :: %{
+      add_flow_media_streams_response() :: %{
         "FlowArn" => [String.t() | atom()],
-        "VpcInterfaces" => list(vpc_interface())
+        "MediaStreams" => list(media_stream())
       }
 
   """
-  @type add_flow_vpc_interfaces_response() :: %{(String.t() | atom()) => any()}
+  @type add_flow_media_streams_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_bridges_response() :: %{
-        "Bridges" => list(listed_bridge()),
-        "NextToken" => [String.t() | atom()]
+      delete_router_network_interface_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
       }
 
   """
-  @type list_bridges_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_flow_request() :: %{}
-
-  """
-  @type stop_flow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_flow_output_request() :: %{}
-
-  """
-  @type remove_flow_output_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_entitlement_request() :: %{
-        optional("Description") => [String.t() | atom()],
-        optional("Encryption") => update_encryption(),
-        optional("EntitlementStatus") => list(any()),
-        optional("Subscribers") => list([String.t() | atom()]())
-      }
-
-  """
-  @type update_flow_entitlement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_flow_media_streams_request() :: %{
-        required("MediaStreams") => list(add_media_stream_request())
-      }
-
-  """
-  @type add_flow_media_streams_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_offering_request() :: %{}
-
-  """
-  @type describe_offering_request() :: %{}
+  @type delete_router_network_interface_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_router_network_interface_request() :: %{
-        optional("ClientToken") => [String.t() | atom()],
-        optional("RegionName") => [String.t() | atom()],
-        optional("Tags") => map(),
+        optional("ClientToken") => String.t() | atom(),
         required("Configuration") => list(),
-        required("Name") => [String.t() | atom()]
+        required("Name") => [String.t() | atom()],
+        optional("RegionName") => [String.t() | atom()],
+        optional("Tags") => map()
       }
 
   """
@@ -3959,90 +3680,113 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      ndi_source_settings() :: %{
-        "SourceName" => [String.t() | atom()]
+      standard_router_output_configuration() :: %{
+        "NetworkInterfaceArn" => String.t() | atom(),
+        "Protocol" => list(any()),
+        "ProtocolConfiguration" => list()
       }
 
   """
-  @type ndi_source_settings() :: %{(String.t() | atom()) => any()}
+  @type standard_router_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vpc_interface_attachment() :: %{
-        "VpcInterfaceName" => [String.t() | atom()]
-      }
+      describe_reservation_request() :: %{}
 
   """
-  @type vpc_interface_attachment() :: %{(String.t() | atom()) => any()}
+  @type describe_reservation_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      output() :: %{
-        "BridgeArn" => [String.t() | atom()],
-        "BridgePorts" => list([integer()]()),
-        "ConnectedRouterInputArn" => [String.t() | atom()],
-        "DataTransferSubscriberFeePercent" => [integer()],
-        "Description" => [String.t() | atom()],
-        "Destination" => [String.t() | atom()],
-        "Encryption" => encryption(),
-        "EntitlementArn" => [String.t() | atom()],
-        "ListenerAddress" => [String.t() | atom()],
-        "MediaLiveInputArn" => [String.t() | atom()],
-        "MediaStreamOutputConfigurations" => list(media_stream_output_configuration()),
-        "Name" => [String.t() | atom()],
-        "OutputArn" => [String.t() | atom()],
-        "OutputStatus" => list(any()),
-        "PeerIpAddress" => [String.t() | atom()],
-        "Port" => [integer()],
-        "RouterIntegrationState" => list(any()),
-        "RouterIntegrationTransitEncryption" => flow_transit_encryption(),
-        "Transport" => transport(),
-        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      offering() :: %{
+        "CurrencyCode" => [String.t() | atom()],
+        "Duration" => [integer()],
+        "DurationUnits" => list(any()),
+        "OfferingArn" => [String.t() | atom()],
+        "OfferingDescription" => [String.t() | atom()],
+        "PricePerUnit" => [String.t() | atom()],
+        "PriceUnits" => list(any()),
+        "ResourceSpecification" => resource_specification()
       }
 
   """
-  @type output() :: %{(String.t() | atom()) => any()}
+  @type offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      purchase_offering_response() :: %{
-        "Reservation" => reservation()
+      delete_gateway_response() :: %{
+        "GatewayArn" => [String.t() | atom()]
       }
 
   """
-  @type purchase_offering_response() :: %{(String.t() | atom()) => any()}
+  @type delete_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      destination_configuration() :: %{
-        "DestinationIp" => [String.t() | atom()],
-        "DestinationPort" => [integer()],
-        "Interface" => interface(),
-        "OutboundIp" => [String.t() | atom()]
+      too_many_requests_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type destination_configuration() :: %{(String.t() | atom()) => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      purchase_offering_request() :: %{
-        required("ReservationName") => [String.t() | atom()],
-        required("Start") => [String.t() | atom()]
+      transport_stream_program() :: %{
+        "PcrPid" => [integer()],
+        "ProgramName" => [String.t() | atom()],
+        "ProgramNumber" => [integer()],
+        "ProgramPid" => [integer()],
+        "Streams" => list(transport_stream())
       }
 
   """
-  @type purchase_offering_request() :: %{(String.t() | atom()) => any()}
+  @type transport_stream_program() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_flow_router_output_configuration() :: %{
+        "DestinationTransitEncryption" => flow_transit_encryption(),
+        "FlowArn" => String.t() | atom(),
+        "FlowSourceArn" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_flow_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_gateway() :: %{
+        "GatewayArn" => [String.t() | atom()],
+        "GatewayState" => list(any()),
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type listed_gateway() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_router_network_interface_request() :: %{}
+
+  """
+  @type delete_router_network_interface_request() :: %{}
 
   @typedoc """
 
@@ -4072,82 +3816,357 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      list_router_outputs_request() :: %{
-        optional("Filters") => list(list()),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_router_outputs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ndi_media_stream_info() :: %{
-        "Channels" => [integer()],
-        "Codec" => [String.t() | atom()],
-        "FrameRate" => [String.t() | atom()],
-        "FrameResolution" => frame_resolution(),
-        "SampleRate" => [integer()],
-        "ScanMode" => list(any()),
-        "StreamId" => [integer()],
-        "StreamType" => [String.t() | atom()]
-      }
-
-  """
-  @type ndi_media_stream_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_router_input_response() :: %{
-        "Errors" => list(batch_get_router_input_error()),
-        "RouterInputs" => list(router_input())
-      }
-
-  """
-  @type batch_get_router_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_stream_source_configuration() :: %{
+      media_stream_output_configuration() :: %{
+        "DestinationConfigurations" => list(destination_configuration()),
         "EncodingName" => list(any()),
-        "InputConfigurations" => list(input_configuration()),
+        "EncodingParameters" => encoding_parameters(),
         "MediaStreamName" => [String.t() | atom()]
       }
 
   """
-  @type media_stream_source_configuration() :: %{(String.t() | atom()) => any()}
+  @type media_stream_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bridge_source() :: %{
-        "FlowSource" => bridge_flow_source(),
-        "NetworkSource" => bridge_network_source()
+      list_flows_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type bridge_source() :: %{(String.t() | atom()) => any()}
+  @type list_flows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      standard_router_output_configuration() :: %{
+      restart_router_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type restart_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_response() :: %{
+        "RouterInput" => router_input()
+      }
+
+  """
+  @type get_router_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_bridge_flow_source_request() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type add_bridge_flow_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_request() :: %{}
+
+  """
+  @type delete_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_router_input_stream_details() :: %{
+        "SourceIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type standard_router_input_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bridge_network_source_request() :: %{
+        "MulticastIp" => [String.t() | atom()],
+        "MulticastSourceSettings" => multicast_source_settings(),
+        "NetworkName" => [String.t() | atom()],
+        "Port" => [integer()],
+        "Protocol" => list(any())
+      }
+
+  """
+  @type update_bridge_network_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_transit_encryption() :: %{
+        "EncryptionKeyConfiguration" => list(),
+        "EncryptionKeyType" => list(any())
+      }
+
+  """
+  @type flow_transit_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_output_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "Output" => output()
+      }
+
+  """
+  @type update_flow_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_egress_gateway_bridge_request() :: %{
+        "MaxBitrate" => [integer()]
+      }
+
+  """
+  @type add_egress_gateway_bridge_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_stream() :: %{
+        "Attributes" => media_stream_attributes(),
+        "ClockRate" => [integer()],
+        "Description" => [String.t() | atom()],
+        "Fmt" => [integer()],
+        "MediaStreamId" => [integer()],
+        "MediaStreamName" => [String.t() | atom()],
+        "MediaStreamType" => list(any()),
+        "VideoFormat" => [String.t() | atom()]
+      }
+
+  """
+  @type media_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_router_input() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => [String.t() | atom()],
+        "InputType" => list(any()),
+        "MaintenanceSchedule" => list(),
+        "MaintenanceScheduleType" => list(any()),
+        "MaximumBitrate" => [float()],
+        "MessageCount" => [integer()],
+        "Name" => [String.t() | atom()],
         "NetworkInterfaceArn" => String.t() | atom(),
-        "Protocol" => list(any()),
-        "ProtocolConfiguration" => list()
+        "RegionName" => [String.t() | atom()],
+        "RoutedOutputs" => [integer()],
+        "RoutingScope" => list(any()),
+        "State" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type standard_router_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type listed_router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_discovery_server_config() :: %{
+        "DiscoveryServerAddress" => [String.t() | atom()],
+        "DiscoveryServerPort" => [integer()],
+        "VpcInterfaceAdapter" => [String.t() | atom()]
+      }
+
+  """
+  @type ndi_discovery_server_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bridge_state_request() :: %{
+        required("DesiredState") => list(any())
+      }
+
+  """
+  @type update_bridge_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_router_input_error() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_router_input_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type router_input_service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_flow_request() :: %{}
+
+  """
+  @type start_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      grant_flow_entitlements_request() :: %{
+        required("Entitlements") => list(grant_entitlement_request())
+      }
+
+  """
+  @type grant_flow_entitlements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_interface_attachment() :: %{
+        "VpcInterfaceName" => [String.t() | atom()]
+      }
+
+  """
+  @type vpc_interface_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bridge_request() :: %{
+        optional("EgressGatewayBridge") => add_egress_gateway_bridge_request(),
+        optional("IngressGatewayBridge") => add_ingress_gateway_bridge_request(),
+        required("Name") => [String.t() | atom()],
+        optional("Outputs") => list(add_bridge_output_request()),
+        required("PlacementArn") => [String.t() | atom()],
+        optional("SourceFailoverConfig") => failover_config(),
+        required("Sources") => list(add_bridge_source_request())
+      }
+
+  """
+  @type create_bridge_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_router_input_thumbnail_request() :: %{}
+
+  """
+  @type get_router_input_thumbnail_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      monitoring_config() :: %{
+        "AudioMonitoringSettings" => list(audio_monitoring_setting()),
+        "ContentQualityAnalysisState" => list(any()),
+        "ThumbnailState" => list(any()),
+        "VideoMonitoringSettings" => list(video_monitoring_setting())
+      }
+
+  """
+  @type monitoring_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ingress_gateway_bridge_request() :: %{
+        "MaxBitrate" => [integer()],
+        "MaxOutputs" => [integer()]
+      }
+
+  """
+  @type update_ingress_gateway_bridge_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_bridge() :: %{
+        "BridgeArn" => [String.t() | atom()],
+        "BridgeState" => list(any()),
+        "BridgeType" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "PlacementArn" => [String.t() | atom()]
+      }
+
+  """
+  @type listed_bridge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_bridge_source_request() :: %{}
+
+  """
+  @type remove_bridge_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_listener_router_input_configuration() :: %{
+        "DecryptionConfiguration" => srt_decryption_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "Port" => [integer()]
+      }
+
+  """
+  @type srt_listener_router_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4165,676 +4184,713 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
-      add_output_request() :: %{
-        "CidrAllowList" => list([String.t() | atom()]()),
-        "Description" => [String.t() | atom()],
-        "Destination" => [String.t() | atom()],
-        "Encryption" => encryption(),
-        "MaxLatency" => [integer()],
-        "MediaStreamOutputConfigurations" => list(media_stream_output_configuration_request()),
-        "MinLatency" => [integer()],
-        "Name" => [String.t() | atom()],
-        "NdiProgramName" => [String.t() | atom()],
-        "NdiSpeedHqQuality" => [integer()],
-        "OutputStatus" => list(any()),
-        "OutputTags" => map(),
-        "Port" => [integer()],
-        "Protocol" => list(any()),
-        "RemoteId" => [String.t() | atom()],
-        "RouterIntegrationState" => list(any()),
-        "RouterIntegrationTransitEncryption" => flow_transit_encryption(),
-        "SenderControlPort" => [integer()],
-        "SmoothingLatency" => [integer()],
-        "StreamId" => [String.t() | atom()],
-        "VpcInterfaceAttachment" => vpc_interface_attachment()
+      update_router_network_interface_response() :: %{
+        "RouterNetworkInterface" => router_network_interface()
       }
 
   """
-  @type add_output_request() :: %{(String.t() | atom()) => any()}
+  @type update_router_network_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_router_input_request() :: %{}
+
+  """
+  @type start_router_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_flow_vpc_interface_response() :: %{
+        "FlowArn" => [String.t() | atom()],
+        "NonDeletedNetworkInterfaceIds" => list([String.t() | atom()]()),
+        "VpcInterfaceName" => [String.t() | atom()]
+      }
+
+  """
+  @type remove_flow_vpc_interface_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      maintenance() :: %{
+        "MaintenanceDay" => list(any()),
+        "MaintenanceDeadline" => [String.t() | atom()],
+        "MaintenanceScheduledDate" => [String.t() | atom()],
+        "MaintenanceStartHour" => [String.t() | atom()]
+      }
+
+  """
+  @type maintenance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_router_input_indexed_stream_details() :: %{
+        "SourceIndex" => [integer()],
+        "SourceIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type failover_router_input_indexed_stream_details() :: %{(String.t() | atom()) => any()}
 
   @type add_bridge_outputs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type add_bridge_sources_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type add_flow_media_streams_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type add_flow_outputs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | add_flow_outputs420_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | add_flow_outputs420_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type add_flow_sources_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type add_flow_vpc_interfaces_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type batch_get_router_input_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type batch_get_router_network_interface_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type batch_get_router_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type create_bridge_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
-          | create_bridge420_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | create_bridge420_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type create_flow_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
           | create_flow420_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type create_gateway_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | create_gateway420_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | create_gateway420_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type create_router_input_errors() ::
           router_input_service_quota_exceeded_exception()
+          | service_unavailable_exception()
+          | too_many_requests_exception()
           | bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type create_router_network_interface_errors() ::
-          bad_request_exception()
-          | router_network_interface_service_quota_exceeded_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | router_network_interface_service_quota_exceeded_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type create_router_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | router_output_service_quota_exceeded_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | router_output_service_quota_exceeded_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type delete_bridge_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type delete_flow_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type delete_gateway_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type delete_router_input_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type delete_router_network_interface_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type delete_router_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type deregister_gateway_instance_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type describe_bridge_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type describe_flow_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type describe_flow_source_metadata_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type describe_flow_source_thumbnail_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type describe_gateway_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type describe_gateway_instance_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type describe_offering_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
 
   @type describe_reservation_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
 
   @type get_router_input_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type get_router_input_source_metadata_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type get_router_input_thumbnail_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type get_router_network_interface_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type get_router_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type grant_flow_entitlements_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | grant_flow_entitlements420_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | grant_flow_entitlements420_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type list_bridges_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type list_entitlements_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
 
   @type list_flows_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
 
   @type list_gateway_instances_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type list_gateways_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type list_offerings_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
 
   @type list_reservations_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
 
   @type list_router_inputs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type list_router_network_interfaces_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type list_router_outputs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
 
   @type list_tags_for_global_resource_errors() ::
-          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+          not_found_exception() | bad_request_exception() | internal_server_error_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+          not_found_exception() | bad_request_exception() | internal_server_error_exception()
 
   @type purchase_offering_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type remove_bridge_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type remove_bridge_source_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type remove_flow_media_stream_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type remove_flow_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type remove_flow_source_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type remove_flow_vpc_interface_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type restart_router_input_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type restart_router_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type revoke_flow_entitlement_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type start_flow_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type start_router_input_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type start_router_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type stop_flow_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type stop_router_input_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type stop_router_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type tag_global_resource_errors() ::
-          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+          not_found_exception() | bad_request_exception() | internal_server_error_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+          not_found_exception() | bad_request_exception() | internal_server_error_exception()
 
   @type take_router_input_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type untag_global_resource_errors() ::
-          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+          not_found_exception() | bad_request_exception() | internal_server_error_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+          not_found_exception() | bad_request_exception() | internal_server_error_exception()
 
   @type update_bridge_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type update_bridge_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type update_bridge_source_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type update_bridge_state_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type update_flow_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type update_flow_entitlement_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type update_flow_media_stream_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type update_flow_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type update_flow_source_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
 
   @type update_gateway_instance_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type update_router_input_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type update_router_network_interface_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   @type update_router_output_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
+          service_unavailable_exception()
           | too_many_requests_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | internal_server_error_exception()
           | forbidden_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -5838,9 +5894,9 @@ defmodule AWS.MediaConnect do
           | {:error, list_bridges_errors()}
   def list_bridges(
         %Client{} = client,
-        filter_arn \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        filter_arn \\ nil,
         options \\ []
       ) do
     url_path = "/v1/bridges"
@@ -5848,8 +5904,8 @@ defmodule AWS.MediaConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(filter_arn) do
+        [{"filterArn", filter_arn} | query_params]
       else
         query_params
       end
@@ -5862,8 +5918,8 @@ defmodule AWS.MediaConnect do
       end
 
     query_params =
-      if !is_nil(filter_arn) do
-        [{"filterArn", filter_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5883,21 +5939,21 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_entitlements_errors()}
-  def list_entitlements(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_entitlements(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/v1/entitlements"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5917,21 +5973,21 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_flows_errors()}
-  def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_flows(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/v1/flows"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5961,9 +6017,9 @@ defmodule AWS.MediaConnect do
           | {:error, list_gateway_instances_errors()}
   def list_gateway_instances(
         %Client{} = client,
-        filter_arn \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        filter_arn \\ nil,
         options \\ []
       ) do
     url_path = "/v1/gateway-instances"
@@ -5971,8 +6027,8 @@ defmodule AWS.MediaConnect do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(filter_arn) do
+        [{"filterArn", filter_arn} | query_params]
       else
         query_params
       end
@@ -5985,8 +6041,8 @@ defmodule AWS.MediaConnect do
       end
 
     query_params =
-      if !is_nil(filter_arn) do
-        [{"filterArn", filter_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6006,21 +6062,21 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_gateways_errors()}
-  def list_gateways(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_gateways(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/v1/gateways"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6043,21 +6099,21 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_offerings_errors()}
-  def list_offerings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_offerings(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/v1/offerings"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6078,21 +6134,21 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_reservations_errors()}
-  def list_reservations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_reservations(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/v1/reservations"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6117,8 +6173,8 @@ defmodule AWS.MediaConnect do
 
     {query_params, input} =
       [
-        {"MaxResults", "maxResults"},
-        {"NextToken", "nextToken"}
+        {"NextToken", "nextToken"},
+        {"MaxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -6152,8 +6208,8 @@ defmodule AWS.MediaConnect do
 
     {query_params, input} =
       [
-        {"MaxResults", "maxResults"},
-        {"NextToken", "nextToken"}
+        {"NextToken", "nextToken"},
+        {"MaxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -6187,8 +6243,8 @@ defmodule AWS.MediaConnect do
 
     {query_params, input} =
       [
-        {"MaxResults", "maxResults"},
-        {"NextToken", "nextToken"}
+        {"NextToken", "nextToken"},
+        {"MaxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -6291,7 +6347,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, remove_bridge_output_errors()}
-  def remove_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
+  def remove_bridge_output(%Client{} = client, output_name, bridge_arn, input, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
 
@@ -6328,7 +6384,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, remove_bridge_source_errors()}
-  def remove_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
+  def remove_bridge_source(%Client{} = client, source_name, bridge_arn, input, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
 
@@ -6370,8 +6426,8 @@ defmodule AWS.MediaConnect do
           | {:error, remove_flow_media_stream_errors()}
   def remove_flow_media_stream(
         %Client{} = client,
-        flow_arn,
         media_stream_name,
+        flow_arn,
         input,
         options \\ []
       ) do
@@ -6416,7 +6472,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, remove_flow_output_errors()}
-  def remove_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
+  def remove_flow_output(%Client{} = client, output_arn, flow_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
 
@@ -6455,7 +6511,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, remove_flow_source_errors()}
-  def remove_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
+  def remove_flow_source(%Client{} = client, source_arn, flow_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
 
@@ -6499,8 +6555,8 @@ defmodule AWS.MediaConnect do
           | {:error, remove_flow_vpc_interface_errors()}
   def remove_flow_vpc_interface(
         %Client{} = client,
-        flow_arn,
         vpc_interface_name,
+        flow_arn,
         input,
         options \\ []
       ) do
@@ -6605,7 +6661,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, revoke_flow_entitlement_errors()}
-  def revoke_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
+  def revoke_flow_entitlement(%Client{} = client, flow_arn, entitlement_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
 
@@ -7011,7 +7067,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_bridge_output_errors()}
-  def update_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
+  def update_bridge_output(%Client{} = client, output_name, bridge_arn, input, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
 
@@ -7048,7 +7104,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_bridge_source_errors()}
-  def update_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
+  def update_bridge_source(%Client{} = client, source_name, bridge_arn, input, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
 
@@ -7168,7 +7224,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_flow_entitlement_errors()}
-  def update_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
+  def update_flow_entitlement(%Client{} = client, flow_arn, entitlement_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
 
@@ -7207,8 +7263,8 @@ defmodule AWS.MediaConnect do
           | {:error, update_flow_media_stream_errors()}
   def update_flow_media_stream(
         %Client{} = client,
-        flow_arn,
         media_stream_name,
+        flow_arn,
         input,
         options \\ []
       ) do
@@ -7248,7 +7304,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_flow_output_errors()}
-  def update_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
+  def update_flow_output(%Client{} = client, output_arn, flow_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
 
@@ -7306,7 +7362,7 @@ defmodule AWS.MediaConnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_flow_source_errors()}
-  def update_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
+  def update_flow_source(%Client{} = client, source_arn, flow_arn, input, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
 

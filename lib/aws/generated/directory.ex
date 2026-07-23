@@ -36,22 +36,608 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      enable_radius_result() :: %{}
+      enable_directory_data_access_result() :: %{}
       
   """
-  @type enable_radius_result() :: %{}
+  @type enable_directory_data_access_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_certificates_result() :: %{
-        "CertificatesInfo" => list(certificate_info()),
+      directory_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type directory_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_extension_info() :: %{
+        "Description" => String.t() | atom(),
+        "DirectoryId" => String.t() | atom(),
+        "EndDateTime" => non_neg_integer(),
+        "SchemaExtensionId" => String.t() | atom(),
+        "SchemaExtensionStatus" => list(any()),
+        "SchemaExtensionStatusReason" => String.t() | atom(),
+        "StartDateTime" => non_neg_integer()
+      }
+      
+  """
+  @type schema_extension_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_directories_result() :: %{
+        "DirectoryDescriptions" => list(directory_description()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_certificates_result() :: %{(String.t() | atom()) => any()}
+  @type describe_directories_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      incompatible_settings_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type incompatible_settings_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ad_assessments_request() :: %{
+        optional("DirectoryId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_ad_assessments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      region_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type region_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_ip_routes_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("IpRoutes") => list(ip_route()),
+        optional("UpdateSecurityGroupForDirectoryControllers") => boolean()
+      }
+      
+  """
+  @type add_ip_routes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      share_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type share_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_shared_directory_request() :: %{
+        required("SharedDirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type reject_shared_directory_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_directory_data_access_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type disable_directory_data_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_subscriptions_result() :: %{
+        "LogSubscriptions" => list(log_subscription()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_log_subscriptions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_route_info() :: %{
+        "AddedDateTime" => non_neg_integer(),
+        "CidrIp" => String.t() | atom(),
+        "CidrIpv6" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DirectoryId" => String.t() | atom(),
+        "IpRouteStatusMsg" => list(any()),
+        "IpRouteStatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type ip_route_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificates_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_request() :: %{
+        required("CertificateId") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_does_not_exist_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type certificate_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regions_info() :: %{
+        "AdditionalRegions" => list(String.t() | atom()),
+        "PrimaryRegion" => String.t() | atom()
+      }
+      
+  """
+  @type regions_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_directory_data_access_result() :: %{}
+      
+  """
+  @type disable_directory_data_access_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_hybrid_ad_result() :: %{
+        "AssessmentId" => String.t() | atom(),
+        "DirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type update_hybrid_ad_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hybrid_update_value() :: %{
+        "DnsIps" => list(String.t() | atom()),
+        "InstanceIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type hybrid_update_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_computer_request() :: %{
+        optional("ComputerAttributes") => list(attribute()),
+        required("ComputerName") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        optional("OrganizationalUnitDistinguishedName") => String.t() | atom(),
+        required("Password") => String.t() | atom()
+      }
+      
+  """
+  @type create_computer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_already_in_progress_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type disable_already_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_client_auth_status_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_client_auth_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_directory_result() :: %{
+        "DirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_directory_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ca_enrollment_policy_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_user_password_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("NewPassword") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type reset_user_password_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_directories_request() :: %{
+        optional("DirectoryIds") => list(String.t() | atom()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_directories_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_certificate_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_certificate_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hybrid_settings_description() :: %{
+        "SelfManagedDnsIpAddrs" => list(String.t() | atom()),
+        "SelfManagedInstanceIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type hybrid_settings_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_does_not_exist_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type entity_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_conditional_forwarder_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("DnsIpAddrs") => list(String.t() | atom()),
+        optional("DnsIpv6Addrs") => list(String.t() | atom()),
+        required("RemoteDomainName") => String.t() | atom()
+      }
+      
+  """
+  @type update_conditional_forwarder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_log_subscription_result() :: %{}
+      
+  """
+  @type delete_log_subscription_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_log_subscription_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_log_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trust() :: %{
+        "CreatedDateTime" => non_neg_integer(),
+        "DirectoryId" => String.t() | atom(),
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "RemoteDomainName" => String.t() | atom(),
+        "SelectiveAuth" => list(any()),
+        "StateLastUpdatedDateTime" => non_neg_integer(),
+        "TrustDirection" => list(any()),
+        "TrustId" => String.t() | atom(),
+        "TrustState" => list(any()),
+        "TrustStateReason" => String.t() | atom(),
+        "TrustType" => list(any())
+      }
+      
+  """
+  @type trust() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_certificate_request() :: %{
+        required("CertificateData") => String.t() | atom(),
+        optional("ClientCertAuthSettings") => client_cert_auth_settings(),
+        required("DirectoryId") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type register_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_snapshot_request() :: %{
+        required("SnapshotId") => String.t() | atom()
+      }
+      
+  """
+  @type restore_from_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ad_assessment_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type ad_assessment_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      owner_directory_description() :: %{
+        "AccountId" => String.t() | atom(),
+        "DirectoryId" => String.t() | atom(),
+        "DnsIpAddrs" => list(String.t() | atom()),
+        "DnsIpv6Addrs" => list(String.t() | atom()),
+        "NetworkType" => list(any()),
+        "RadiusSettings" => radius_settings(),
+        "RadiusStatus" => list(any()),
+        "VpcSettings" => directory_vpc_settings_description()
+      }
+      
+  """
+  @type owner_directory_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_number_of_domain_controllers_result() :: %{}
+      
+  """
+  @type update_number_of_domain_controllers_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_from_snapshot_result() :: %{}
+      
+  """
+  @type restore_from_snapshot_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_in_use_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type certificate_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_ldaps_result() :: %{}
+      
+  """
+  @type disable_ldaps_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      shared_directory() :: %{
+        "CreatedDateTime" => non_neg_integer(),
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "OwnerAccountId" => String.t() | atom(),
+        "OwnerDirectoryId" => String.t() | atom(),
+        "ShareMethod" => list(any()),
+        "ShareNotes" => String.t() | atom(),
+        "ShareStatus" => list(any()),
+        "SharedAccountId" => String.t() | atom(),
+        "SharedDirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type shared_directory() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_snapshot_limits_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type get_snapshot_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hybrid_update_activities() :: %{
+        "HybridAdministratorAccount" => list(hybrid_update_info_entry()),
+        "SelfManagedInstances" => list(hybrid_update_info_entry())
+      }
+      
+  """
+  @type hybrid_update_activities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_does_not_exist_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type user_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_number_of_domain_controllers_request() :: %{
+        required("DesiredNumber") => integer(),
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type update_number_of_domain_controllers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -78,57 +664,254 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      delete_log_subscription_request() :: %{
+      deregister_certificate_request() :: %{
+        required("CertificateId") => String.t() | atom(),
         required("DirectoryId") => String.t() | atom()
       }
       
   """
-  @type delete_log_subscription_request() :: %{(String.t() | atom()) => any()}
+  @type deregister_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      entity_already_exists_exception() :: %{
+      radius_settings() :: %{
+        "AuthenticationProtocol" => list(any()),
+        "DisplayLabel" => String.t() | atom(),
+        "RadiusPort" => integer(),
+        "RadiusRetries" => integer(),
+        "RadiusServers" => list(String.t() | atom()),
+        "RadiusServersIpv6" => list(String.t() | atom()),
+        "RadiusTimeout" => integer(),
+        "SharedSecret" => String.t() | atom(),
+        "UseSameUsername" => boolean()
+      }
+      
+  """
+  @type radius_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_client_authentication_result() :: %{}
+      
+  """
+  @type disable_client_authentication_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_radius_result() :: %{}
+      
+  """
+  @type disable_radius_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_topic() :: %{
+        "CreatedDateTime" => non_neg_integer(),
+        "DirectoryId" => String.t() | atom(),
+        "Status" => list(any()),
+        "TopicArn" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+      
+  """
+  @type event_topic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_ldaps_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type enable_ldaps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      directory_does_not_exist_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type entity_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type directory_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      client_authentication_setting_info() :: %{
-        "LastUpdatedDateTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "Type" => list(any())
+      disable_sso_result() :: %{}
+      
+  """
+  @type disable_sso_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_cert_auth_settings() :: %{
+        "OCSPUrl" => String.t() | atom()
       }
       
   """
-  @type client_authentication_setting_info() :: %{(String.t() | atom()) => any()}
+  @type client_cert_auth_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_value() :: %{
-        "OSUpdateSettings" => o_s_update_settings()
+      network_update_settings() :: %{
+        "CustomerDnsIpsV6" => list(String.t() | atom()),
+        "NetworkType" => list(any())
       }
       
   """
-  @type update_value() :: %{(String.t() | atom()) => any()}
+  @type network_update_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_number_of_domain_controllers_result() :: %{}
+      create_trust_request() :: %{
+        optional("ConditionalForwarderIpAddrs") => list(String.t() | atom()),
+        optional("ConditionalForwarderIpv6Addrs") => list(String.t() | atom()),
+        required("DirectoryId") => String.t() | atom(),
+        required("RemoteDomainName") => String.t() | atom(),
+        optional("SelectiveAuth") => list(any()),
+        required("TrustDirection") => list(any()),
+        required("TrustPassword") => String.t() | atom(),
+        optional("TrustType") => list(any())
+      }
       
   """
-  @type update_number_of_domain_controllers_result() :: %{}
+  @type create_trust_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_domain_controllers_result() :: %{
+        "DomainControllers" => list(domain_controller()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_domain_controllers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_route_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type ip_route_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_ca_enrollment_policy_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type disable_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      directory_size_update_settings() :: %{
+        "DirectorySize" => list(any())
+      }
+      
+  """
+  @type directory_size_update_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ldaps_setting_info() :: %{
+        "LDAPSStatus" => list(any()),
+        "LDAPSStatusReason" => String.t() | atom(),
+        "LastUpdatedDateTime" => non_neg_integer()
+      }
+      
+  """
+  @type ldaps_setting_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      directory_not_shared_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type directory_not_shared_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_conditional_forwarder_result() :: %{}
+      
+  """
+  @type update_conditional_forwarder_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_log_subscription_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("LogGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type create_log_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_available_certificate_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type no_available_certificate_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_event_topics_result() :: %{
+        "EventTopics" => list(event_topic())
+      }
+      
+  """
+  @type describe_event_topics_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -146,44 +929,218 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      create_directory_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("NetworkType") => list(any()),
-        optional("ShortName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("VpcSettings") => directory_vpc_settings(),
-        required("Name") => String.t() | atom(),
-        required("Password") => String.t() | atom(),
-        required("Size") => list(any())
+      list_certificates_result() :: %{
+        "CertificatesInfo" => list(certificate_info()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type create_directory_request() :: %{(String.t() | atom()) => any()}
+  @type list_certificates_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_snapshot_request() :: %{
-        required("SnapshotId") => String.t() | atom()
+      delete_conditional_forwarder_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("RemoteDomainName") => String.t() | atom()
       }
       
   """
-  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
+  @type delete_conditional_forwarder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_ldaps_settings_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Type") => list(any()),
+      directory_vpc_settings_description() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
+        "SecurityGroupId" => String.t() | atom(),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type directory_vpc_settings_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshots_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Snapshots" => list(snapshot())
+      }
+      
+  """
+  @type describe_snapshots_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_limits() :: %{
+        "ManualSnapshotsCurrentCount" => integer(),
+        "ManualSnapshotsLimit" => integer(),
+        "ManualSnapshotsLimitReached" => boolean()
+      }
+      
+  """
+  @type snapshot_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_directory_setup_result() :: %{}
+      
+  """
+  @type update_directory_setup_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hybrid_ad_request() :: %{
+        required("AssessmentId") => String.t() | atom(),
+        required("SecretArn") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_hybrid_ad_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trusts_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Trusts" => list(trust())
+      }
+      
+  """
+  @type describe_trusts_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      setting() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_schema_extension_result() :: %{
+        "SchemaExtensionId" => String.t() | atom()
+      }
+      
+  """
+  @type start_schema_extension_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_regions_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RegionsDescription" => list(region_description())
+      }
+      
+  """
+  @type describe_regions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assessment_summary() :: %{
+        "AssessmentId" => String.t() | atom(),
+        "CustomerDnsIps" => list(String.t() | atom()),
+        "DirectoryId" => String.t() | atom(),
+        "DnsName" => String.t() | atom(),
+        "LastUpdateDateTime" => non_neg_integer(),
+        "ReportType" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type assessment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      directory_connect_settings() :: %{
+        "CustomerDnsIps" => list(String.t() | atom()),
+        "CustomerDnsIpsV6" => list(String.t() | atom()),
+        "CustomerUserName" => String.t() | atom(),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type directory_connect_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_client_authentication_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type disable_client_authentication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_directory_request() :: %{
         required("DirectoryId") => String.t() | atom()
       }
       
   """
-  @type describe_ldaps_settings_request() :: %{(String.t() | atom()) => any()}
+  @type delete_directory_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assessment_validation() :: %{
+        "Category" => String.t() | atom(),
+        "LastUpdateDateTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Status" => String.t() | atom(),
+        "StatusCode" => String.t() | atom(),
+        "StatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type assessment_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,51 +1157,281 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      describe_event_topics_request() :: %{
-        optional("DirectoryId") => String.t() | atom(),
-        optional("TopicNames") => list(String.t() | atom())
+      connect_directory_request() :: %{
+        required("ConnectSettings") => directory_connect_settings(),
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
+        required("Password") => String.t() | atom(),
+        optional("ShortName") => String.t() | atom(),
+        required("Size") => list(any()),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type describe_event_topics_request() :: %{(String.t() | atom()) => any()}
+  @type connect_directory_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_ldaps_settings_result() :: %{
-        "LDAPSSettingsInfo" => list(ldaps_setting_info()),
-        "NextToken" => String.t() | atom()
+      connect_directory_result() :: %{
+        "DirectoryId" => String.t() | atom()
       }
       
   """
-  @type describe_ldaps_settings_result() :: %{(String.t() | atom()) => any()}
+  @type connect_directory_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_conditional_forwarder_request() :: %{
-        optional("DnsIpAddrs") => list(String.t() | atom()),
-        optional("DnsIpv6Addrs") => list(String.t() | atom()),
+      share_directory_result() :: %{
+        "SharedDirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type share_directory_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_ip_routes_result() :: %{}
+      
+  """
+  @type remove_ip_routes_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_radius_result() :: %{}
+      
+  """
+  @type update_radius_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_conditional_forwarder_result() :: %{}
+      
+  """
+  @type create_conditional_forwarder_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_trust_request() :: %{
+        optional("SelectiveAuth") => list(any()),
+        required("TrustId") => String.t() | atom()
+      }
+      
+  """
+  @type update_trust_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hybrid_update_info_entry() :: %{
+        "AssessmentId" => String.t() | atom(),
+        "InitiatedBy" => String.t() | atom(),
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "NewValue" => hybrid_update_value(),
+        "PreviousValue" => hybrid_update_value(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type hybrid_update_info_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schema_extensions_request() :: %{
         required("DirectoryId") => String.t() | atom(),
-        required("RemoteDomainName") => String.t() | atom()
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type update_conditional_forwarder_request() :: %{(String.t() | atom()) => any()}
+  @type list_schema_extensions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      snapshot_limit_exceeded_exception() :: %{
+      enable_sso_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("Password") => String.t() | atom(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type enable_sso_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_regions_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegionName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_regions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_region_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type remove_region_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_hybrid_ad_update_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "UpdateActivities" => hybrid_update_activities()
+      }
+      
+  """
+  @type describe_hybrid_ad_update_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_microsoft_ad_result() :: %{
+        "DirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type create_microsoft_ad_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_client_authentication_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type enable_client_authentication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schema_extensions_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SchemaExtensionsInfo" => list(schema_extension_info())
+      }
+      
+  """
+  @type list_schema_extensions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type snapshot_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_directory_result() :: %{
+        "DirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type create_directory_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_directory_limits_request() :: %{}
+      
+  """
+  @type get_directory_limits_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_trust_request() :: %{
+        optional("DeleteAssociatedConditionalForwarder") => boolean(),
+        required("TrustId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_trust_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_sso_result() :: %{}
+      
+  """
+  @type enable_sso_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_trust_result() :: %{
+        "TrustId" => String.t() | atom()
+      }
+      
+  """
+  @type create_trust_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_ldaps_result() :: %{}
+      
+  """
+  @type enable_ldaps_result() :: %{}
 
   @typedoc """
 
@@ -263,244 +1450,145 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      invalid_target_exception() :: %{
+      certificate_already_exists_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type invalid_target_exception() :: %{(String.t() | atom()) => any()}
+  @type certificate_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_snapshot_limits_result() :: %{
-        "SnapshotLimits" => snapshot_limits()
+      deregister_event_topic_result() :: %{}
+      
+  """
+  @type deregister_event_topic_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      assessment() :: %{
+        "AssessmentId" => String.t() | atom(),
+        "CustomerDnsIps" => list(String.t() | atom()),
+        "DirectoryId" => String.t() | atom(),
+        "DnsName" => String.t() | atom(),
+        "LastUpdateDateTime" => non_neg_integer(),
+        "ReportType" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SelfManagedInstanceIds" => list(String.t() | atom()),
+        "StartTime" => non_neg_integer(),
+        "Status" => String.t() | atom(),
+        "StatusCode" => String.t() | atom(),
+        "StatusReason" => String.t() | atom(),
+        "SubnetIds" => list(String.t() | atom()),
+        "Version" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type get_snapshot_limits_result() :: %{(String.t() | atom()) => any()}
+  @type assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_hybrid_ad_request() :: %{
-        optional("HybridAdministratorAccountUpdate") => hybrid_administrator_account_update(),
-        optional("SelfManagedInstancesSettings") => hybrid_customer_instances_settings(),
+      describe_update_directory_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "UpdateActivities" => list(update_info_entry())
+      }
+      
+  """
+  @type describe_update_directory_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ad_assessment_request() :: %{
+        required("AssessmentId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ad_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_client_authentication_result() :: %{}
+      
+  """
+  @type enable_client_authentication_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_ip_routes_request() :: %{
+        optional("CidrIps") => list(String.t() | atom()),
+        optional("CidrIpv6s") => list(String.t() | atom()),
         required("DirectoryId") => String.t() | atom()
       }
       
   """
-  @type update_hybrid_ad_request() :: %{(String.t() | atom()) => any()}
+  @type remove_ip_routes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unshare_directory_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("UnshareTarget") => unshare_target()
-      }
-      
-  """
-  @type unshare_directory_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      domain_controller_limit_exceeded_exception() :: %{
+      enable_already_in_progress_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type domain_controller_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type enable_already_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_directory_result() :: %{
-        "DirectoryId" => String.t() | atom()
+      accept_shared_directory_result() :: %{
+        "SharedDirectory" => shared_directory()
       }
       
   """
-  @type create_directory_result() :: %{(String.t() | atom()) => any()}
+  @type accept_shared_directory_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unsupported_operation_exception() :: %{
+      add_ip_routes_result() :: %{}
+      
+  """
+  @type add_ip_routes_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_radius_result() :: %{}
+      
+  """
+  @type enable_radius_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_limit_exceeded_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_ldaps_status_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_ldaps_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_trust_request() :: %{
-        optional("ConditionalForwarderIpAddrs") => list(String.t() | atom()),
-        optional("ConditionalForwarderIpv6Addrs") => list(String.t() | atom()),
-        optional("SelectiveAuth") => list(any()),
-        optional("TrustType") => list(any()),
-        required("DirectoryId") => String.t() | atom(),
-        required("RemoteDomainName") => String.t() | atom(),
-        required("TrustDirection") => list(any()),
-        required("TrustPassword") => String.t() | atom()
-      }
-      
-  """
-  @type create_trust_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_ip_routes_result() :: %{}
-      
-  """
-  @type remove_ip_routes_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      hybrid_update_activities() :: %{
-        "HybridAdministratorAccount" => list(hybrid_update_info_entry()),
-        "SelfManagedInstances" => list(hybrid_update_info_entry())
-      }
-      
-  """
-  @type hybrid_update_activities() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_shared_directory_request() :: %{
-        required("SharedDirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type reject_shared_directory_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      o_s_update_settings() :: %{
-        "OSVersion" => list(any())
-      }
-      
-  """
-  @type o_s_update_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_permissions_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_permissions_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_info() :: %{
-        "CertificateId" => String.t() | atom(),
-        "CommonName" => String.t() | atom(),
-        "ExpiryDateTime" => non_neg_integer(),
-        "State" => list(any()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type certificate_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      setting() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_conditional_forwarder_result() :: %{}
-      
-  """
-  @type create_conditional_forwarder_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_ad_assessment_result() :: %{
-        "Assessment" => assessment(),
-        "AssessmentReports" => list(assessment_report())
-      }
-      
-  """
-  @type describe_ad_assessment_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      share_directory_request() :: %{
-        optional("ShareNotes") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("ShareMethod") => list(any()),
-        required("ShareTarget") => share_target()
-      }
-      
-  """
-  @type share_directory_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_hybrid_ad_update_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("UpdateType") => list(any()),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_hybrid_ad_update_request() :: %{(String.t() | atom()) => any()}
+  @type snapshot_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,387 +1615,191 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      network_update_settings() :: %{
-        "CustomerDnsIpsV6" => list(String.t() | atom()),
-        "NetworkType" => list(any())
-      }
-      
-  """
-  @type network_update_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_conditional_forwarder_request() :: %{
-        optional("DnsIpAddrs") => list(String.t() | atom()),
-        optional("DnsIpv6Addrs") => list(String.t() | atom()),
+      describe_hybrid_ad_update_request() :: %{
         required("DirectoryId") => String.t() | atom(),
-        required("RemoteDomainName") => String.t() | atom()
+        optional("NextToken") => String.t() | atom(),
+        optional("UpdateType") => list(any())
       }
       
   """
-  @type create_conditional_forwarder_request() :: %{(String.t() | atom()) => any()}
+  @type describe_hybrid_ad_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_alias_request() :: %{
-        required("Alias") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type create_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_available_certificate_exception() :: %{
+      unsupported_operation_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type no_available_certificate_exception() :: %{(String.t() | atom()) => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      directory_in_desired_state_exception() :: %{
+      deregister_event_topic_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("TopicName") => String.t() | atom()
+      }
+      
+  """
+  @type deregister_event_topic_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_ldaps_status_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type directory_in_desired_state_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_ldaps_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      region_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
+      reset_user_password_result() :: %{}
+      
+  """
+  @type reset_user_password_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      share_directory_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("ShareMethod") => list(any()),
+        optional("ShareNotes") => String.t() | atom(),
+        required("ShareTarget") => share_target()
       }
       
   """
-  @type region_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type share_directory_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_snapshot_request() :: %{
-        optional("Name") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_certificate_result() :: %{
-        "CertificateId" => String.t() | atom()
-      }
-      
-  """
-  @type register_certificate_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_log_subscriptions_request() :: %{
-        optional("DirectoryId") => String.t() | atom(),
+      describe_ldaps_settings_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
+        optional("NextToken") => String.t() | atom(),
+        optional("Type") => list(any())
       }
       
   """
-  @type list_log_subscriptions_request() :: %{(String.t() | atom()) => any()}
+  @type describe_ldaps_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      directory_already_shared_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type directory_already_shared_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_client_authentication_result() :: %{}
-      
-  """
-  @type disable_client_authentication_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      unshare_directory_result() :: %{
-        "SharedDirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type unshare_directory_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_region_request() :: %{
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type remove_region_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_trust_result() :: %{
-        "RequestId" => String.t() | atom(),
-        "TrustId" => String.t() | atom()
-      }
-      
-  """
-  @type update_trust_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_directory_data_access_request() :: %{
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_directory_data_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ad_assessment_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type ad_assessment_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_radius_request() :: %{
+      update_radius_request() :: %{
         required("DirectoryId") => String.t() | atom(),
         required("RadiusSettings") => radius_settings()
       }
       
   """
-  @type enable_radius_request() :: %{(String.t() | atom()) => any()}
+  @type update_radius_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unsupported_settings_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_settings_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_from_snapshot_request() :: %{
-        required("SnapshotId") => String.t() | atom()
-      }
-      
-  """
-  @type restore_from_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      computer() :: %{
-        "ComputerAttributes" => list(attribute()),
-        "ComputerId" => String.t() | atom(),
-        "ComputerName" => String.t() | atom()
-      }
-      
-  """
-  @type computer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_directory_limits_result() :: %{
-        "DirectoryLimits" => directory_limits()
-      }
-      
-  """
-  @type get_directory_limits_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_trust_result() :: %{
-        "TrustId" => String.t() | atom()
-      }
-      
-  """
-  @type verify_trust_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_certificate_request() :: %{
-        required("CertificateId") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type deregister_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_schema_extensions_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SchemaExtensionsInfo" => list(schema_extension_info())
-      }
-      
-  """
-  @type list_schema_extensions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_directory_data_access_request() :: %{
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type enable_directory_data_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_to_resource_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type add_tags_to_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_ad_assessment_request() :: %{
-        required("AssessmentId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_ad_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_region_result() :: %{}
-      
-  """
-  @type remove_region_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_sso_request() :: %{
-        optional("Password") => String.t() | atom(),
-        optional("UserName") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type disable_sso_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_info_entry() :: %{
-        "InitiatedBy" => String.t() | atom(),
-        "LastUpdatedDateTime" => non_neg_integer(),
-        "NewValue" => update_value(),
-        "PreviousValue" => update_value(),
-        "Region" => String.t() | atom(),
+      snapshot() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
+        "Type" => list(any())
       }
       
   """
-  @type update_info_entry() :: %{(String.t() | atom()) => any()}
+  @type snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      add_region_result() :: %{}
+      o_s_update_settings() :: %{
+        "OSVersion" => list(any())
+      }
       
   """
-  @type add_region_result() :: %{}
+  @type o_s_update_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cancel_schema_extension_result() :: %{}
+      start_schema_extension_request() :: %{
+        required("CreateSnapshotBeforeSchemaExtension") => boolean(),
+        required("Description") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        required("LdifContent") => String.t() | atom()
+      }
       
   """
-  @type cancel_schema_extension_result() :: %{}
+  @type start_schema_extension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      directory_not_shared_exception() :: %{
+      client_authentication_setting_info() :: %{
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type client_authentication_setting_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_ca_enrollment_policy_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("PcaConnectorArn") => String.t() | atom()
+      }
+      
+  """
+  @type enable_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_update_directory_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegionName") => String.t() | atom(),
+        required("UpdateType") => list(any())
+      }
+      
+  """
+  @type describe_update_directory_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_limit_exceeded_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type directory_not_shared_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -924,431 +1816,30 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      describe_update_directory_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "UpdateActivities" => list(update_info_entry())
+      certificate() :: %{
+        "CertificateId" => String.t() | atom(),
+        "ClientCertAuthSettings" => client_cert_auth_settings(),
+        "CommonName" => String.t() | atom(),
+        "ExpiryDateTime" => non_neg_integer(),
+        "RegisteredDateTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom(),
+        "Type" => list(any())
       }
       
   """
-  @type describe_update_directory_result() :: %{(String.t() | atom()) => any()}
+  @type certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_ad_assessment_request() :: %{
-        optional("AssessmentConfiguration") => assessment_configuration(),
-        optional("DirectoryId") => String.t() | atom()
+      delete_trust_result() :: %{
+        "TrustId" => String.t() | atom()
       }
       
   """
-  @type start_ad_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      client_cert_auth_settings() :: %{
-        "OCSPUrl" => String.t() | atom()
-      }
-      
-  """
-  @type client_cert_auth_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_log_subscription_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("LogGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type create_log_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_computer_result() :: %{
-        "Computer" => computer()
-      }
-      
-  """
-  @type create_computer_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trusts_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "Trusts" => list(trust())
-      }
-      
-  """
-  @type describe_trusts_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_certificates_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_already_in_progress_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type disable_already_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      share_directory_result() :: %{
-        "SharedDirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type share_directory_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_microsoft_ad_result() :: %{
-        "DirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type create_microsoft_ad_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      directory_limits() :: %{
-        "CloudOnlyDirectoriesCurrentCount" => integer(),
-        "CloudOnlyDirectoriesLimit" => integer(),
-        "CloudOnlyDirectoriesLimitReached" => boolean(),
-        "CloudOnlyMicrosoftADCurrentCount" => integer(),
-        "CloudOnlyMicrosoftADLimit" => integer(),
-        "CloudOnlyMicrosoftADLimitReached" => boolean(),
-        "ConnectedDirectoriesCurrentCount" => integer(),
-        "ConnectedDirectoriesLimit" => integer(),
-        "ConnectedDirectoriesLimitReached" => boolean()
-      }
-      
-  """
-  @type directory_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      owner_directory_description() :: %{
-        "AccountId" => String.t() | atom(),
-        "DirectoryId" => String.t() | atom(),
-        "DnsIpAddrs" => list(String.t() | atom()),
-        "DnsIpv6Addrs" => list(String.t() | atom()),
-        "NetworkType" => list(any()),
-        "RadiusSettings" => radius_settings(),
-        "RadiusStatus" => list(any()),
-        "VpcSettings" => directory_vpc_settings_description()
-      }
-      
-  """
-  @type owner_directory_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_directory_setup_result() :: %{}
-      
-  """
-  @type update_directory_setup_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_directories_request() :: %{
-        optional("DirectoryIds") => list(String.t() | atom()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_directories_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_ip_routes_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type list_ip_routes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_already_exists_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type certificate_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hybrid_customer_instances_settings() :: %{
-        "CustomerDnsIps" => list(String.t() | atom()),
-        "InstanceIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type hybrid_customer_instances_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_snapshot_limits_request() :: %{
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type get_snapshot_limits_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_ldaps_result() :: %{}
-      
-  """
-  @type disable_ldaps_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_regions_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("RegionName") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_regions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_ldaps_result() :: %{}
-      
-  """
-  @type enable_ldaps_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_event_topic_result() :: %{}
-      
-  """
-  @type deregister_event_topic_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_sso_result() :: %{}
-      
-  """
-  @type enable_sso_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      shared_directory() :: %{
-        "CreatedDateTime" => non_neg_integer(),
-        "LastUpdatedDateTime" => non_neg_integer(),
-        "OwnerAccountId" => String.t() | atom(),
-        "OwnerDirectoryId" => String.t() | atom(),
-        "ShareMethod" => list(any()),
-        "ShareNotes" => String.t() | atom(),
-        "ShareStatus" => list(any()),
-        "SharedAccountId" => String.t() | atom(),
-        "SharedDirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type shared_directory() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      client_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      radius_settings() :: %{
-        "AuthenticationProtocol" => list(any()),
-        "DisplayLabel" => String.t() | atom(),
-        "RadiusPort" => integer(),
-        "RadiusRetries" => integer(),
-        "RadiusServers" => list(String.t() | atom()),
-        "RadiusServersIpv6" => list(String.t() | atom()),
-        "RadiusTimeout" => integer(),
-        "SharedSecret" => String.t() | atom(),
-        "UseSameUsername" => boolean()
-      }
-      
-  """
-  @type radius_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_ip_routes_result() :: %{}
-      
-  """
-  @type add_ip_routes_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_ldaps_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type disable_ldaps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_event_topics_result() :: %{
-        "EventTopics" => list(event_topic())
-      }
-      
-  """
-  @type describe_event_topics_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      assessment_validation() :: %{
-        "Category" => String.t() | atom(),
-        "LastUpdateDateTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "Status" => String.t() | atom(),
-        "StatusCode" => String.t() | atom(),
-        "StatusReason" => String.t() | atom()
-      }
-      
-  """
-  @type assessment_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      directory_does_not_exist_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type directory_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_subscription() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "LogGroupName" => String.t() | atom(),
-        "SubscriptionCreatedDateTime" => non_neg_integer()
-      }
-      
-  """
-  @type log_subscription() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_ad_assessments_result() :: %{
-        "Assessments" => list(assessment_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_ad_assessments_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      incompatible_settings_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type incompatible_settings_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_directory_data_access_result() :: %{}
-      
-  """
-  @type enable_directory_data_access_result() :: %{}
+  @type delete_trust_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1369,6 +1860,403 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      describe_directory_data_access_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_directory_data_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_settings_result() :: %{
+        "DirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type update_settings_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_subscription() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "LogGroupName" => String.t() | atom(),
+        "SubscriptionCreatedDateTime" => non_neg_integer()
+      }
+      
+  """
+  @type log_subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unshare_directory_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("UnshareTarget") => unshare_target()
+      }
+      
+  """
+  @type unshare_directory_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_value() :: %{
+        "OSUpdateSettings" => o_s_update_settings()
+      }
+      
+  """
+  @type update_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ad_assessment_request() :: %{
+        required("AssessmentId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_ad_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_directory_limits_result() :: %{
+        "DirectoryLimits" => directory_limits()
+      }
+      
+  """
+  @type get_directory_limits_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_from_resource_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type remove_tags_from_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_shared_directory_request() :: %{
+        required("SharedDirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type accept_shared_directory_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_ca_enrollment_policy_result() :: %{}
+      
+  """
+  @type disable_ca_enrollment_policy_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_result() :: %{
+        "Certificate" => certificate()
+      }
+      
+  """
+  @type describe_certificate_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshots_request() :: %{
+        optional("DirectoryId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SnapshotIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_snapshots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_schema_extension_result() :: %{}
+      
+  """
+  @type cancel_schema_extension_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_client_authentication_settings_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type describe_client_authentication_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_directory_setup_request() :: %{
+        optional("CreateSnapshotBeforeUpdate") => boolean(),
+        required("DirectoryId") => String.t() | atom(),
+        optional("DirectorySizeUpdateSettings") => directory_size_update_settings(),
+        optional("NetworkUpdateSettings") => network_update_settings(),
+        optional("OSUpdateSettings") => o_s_update_settings(),
+        required("UpdateType") => list(any())
+      }
+      
+  """
+  @type update_directory_setup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_event_topic_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("TopicName") => String.t() | atom()
+      }
+      
+  """
+  @type register_event_topic_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_conditional_forwarders_result() :: %{
+        "ConditionalForwarders" => list(conditional_forwarder())
+      }
+      
+  """
+  @type describe_conditional_forwarders_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      region_description() :: %{
+        "DesiredNumberOfDomainControllers" => integer(),
+        "DirectoryId" => String.t() | atom(),
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "LaunchTime" => non_neg_integer(),
+        "RegionName" => String.t() | atom(),
+        "RegionType" => list(any()),
+        "Status" => list(any()),
+        "StatusLastUpdatedDateTime" => non_neg_integer(),
+        "VpcSettings" => directory_vpc_settings()
+      }
+      
+  """
+  @type region_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_trust_result() :: %{
+        "TrustId" => String.t() | atom()
+      }
+      
+  """
+  @type verify_trust_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_already_exists_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type entity_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      directory_connect_settings_description() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
+        "ConnectIps" => list(String.t() | atom()),
+        "ConnectIpsV6" => list(String.t() | atom()),
+        "CustomerUserName" => String.t() | atom(),
+        "SecurityGroupId" => String.t() | atom(),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type directory_connect_settings_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attribute() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_controller_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type domain_controller_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_client_authentication_settings_result() :: %{
+        "ClientAuthenticationSettingsInfo" => list(client_authentication_setting_info()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_client_authentication_settings_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_target_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_target_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_certificate_result() :: %{
+        "CertificateId" => String.t() | atom()
+      }
+      
+  """
+  @type register_certificate_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_event_topics_request() :: %{
+        optional("DirectoryId") => String.t() | atom(),
+        optional("TopicNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_event_topics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_conditional_forwarders_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("RemoteDomainNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_conditional_forwarders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_region_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("RegionName") => String.t() | atom(),
+        required("VPCSettings") => directory_vpc_settings()
+      }
+      
+  """
+  @type add_region_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ad_assessment_result() :: %{
+        "Assessment" => assessment(),
+        "AssessmentReports" => list(assessment_report())
+      }
+      
+  """
+  @type describe_ad_assessment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_sso_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("Password") => String.t() | atom(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type disable_sso_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_log_subscription_result() :: %{}
+      
+  """
+  @type create_log_subscription_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_region_result() :: %{}
+      
+  """
+  @type remove_region_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       tag() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -1381,48 +2269,143 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      describe_client_authentication_settings_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Type") => list(any()),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_client_authentication_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_event_topic_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("TopicName") => String.t() | atom()
-      }
-      
-  """
-  @type deregister_event_topic_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organizations_exception() :: %{
+      directory_already_shared_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type organizations_exception() :: %{(String.t() | atom()) => any()}
+  @type directory_already_shared_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_conditional_forwarder_result() :: %{}
+      invalid_password_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
       
   """
-  @type delete_conditional_forwarder_result() :: %{}
+  @type invalid_password_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ad_assessment_result() :: %{
+        "AssessmentId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_ad_assessment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_alias_request() :: %{
+        required("Alias") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type create_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_to_resource_result() :: %{}
+      
+  """
+  @type add_tags_to_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_region_result() :: %{}
+      
+  """
+  @type add_region_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      share_target() :: %{
+        "Id" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type share_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ca_enrollment_policy_result() :: %{
+        "CaEnrollmentPolicyStatus" => list(any()),
+        "CaEnrollmentPolicyStatusReason" => String.t() | atom(),
+        "DirectoryId" => String.t() | atom(),
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "PcaConnectorArn" => String.t() | atom()
+      }
+      
+  """
+  @type describe_ca_enrollment_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_trust_result() :: %{
+        "RequestId" => String.t() | atom(),
+        "TrustId" => String.t() | atom()
+      }
+      
+  """
+  @type update_trust_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_result() :: %{
+        "SnapshotId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trusts_request() :: %{
+        optional("DirectoryId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TrustIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_trusts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_hybrid_ad_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("HybridAdministratorAccountUpdate") => hybrid_administrator_account_update(),
+        optional("SelfManagedInstancesSettings") => hybrid_customer_instances_settings()
+      }
+      
+  """
+  @type update_hybrid_ad_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1452,100 +2435,415 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      reset_user_password_result() :: %{}
-      
-  """
-  @type reset_user_password_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
+      directory_in_desired_state_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type directory_in_desired_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_certificate_request() :: %{
-        required("CertificateId") => String.t() | atom(),
+      enable_ca_enrollment_policy_result() :: %{}
+      
+  """
+  @type enable_ca_enrollment_policy_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_radius_request() :: %{
         required("DirectoryId") => String.t() | atom()
       }
       
   """
-  @type describe_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type disable_radius_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      enable_client_authentication_request() :: %{
+      list_ip_routes_result() :: %{
+        "IpRoutesInfo" => list(ip_route_info()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_ip_routes_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_directory_data_access_request() :: %{
+        required("DirectoryId") => String.t() | atom()
+      }
+      
+  """
+  @type enable_directory_data_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_computer_result() :: %{
+        "Computer" => computer()
+      }
+      
+  """
+  @type create_computer_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unshare_directory_result() :: %{
+        "SharedDirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type unshare_directory_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_shared_directory_result() :: %{
+        "SharedDirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type reject_shared_directory_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_radius_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("RadiusSettings") => radius_settings()
+      }
+      
+  """
+  @type enable_radius_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      directory_unavailable_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type directory_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_conditional_forwarder_result() :: %{}
+      
+  """
+  @type delete_conditional_forwarder_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type certificate_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_to_resource_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type add_tags_to_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_info() :: %{
+        "CertificateId" => String.t() | atom(),
+        "CommonName" => String.t() | atom(),
+        "ExpiryDateTime" => non_neg_integer(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type certificate_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ad_assessments_result() :: %{
+        "Assessments" => list(assessment_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_ad_assessments_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_conditional_forwarder_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("DnsIpAddrs") => list(String.t() | atom()),
+        optional("DnsIpv6Addrs") => list(String.t() | atom()),
+        required("RemoteDomainName") => String.t() | atom()
+      }
+      
+  """
+  @type create_conditional_forwarder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_directory_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
+        required("Password") => String.t() | atom(),
+        optional("ShortName") => String.t() | atom(),
+        required("Size") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("VpcSettings") => directory_vpc_settings()
+      }
+      
+  """
+  @type create_directory_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_subscriptions_request() :: %{
+        optional("DirectoryId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_log_subscriptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hybrid_ad_result() :: %{
+        "DirectoryId" => String.t() | atom()
+      }
+      
+  """
+  @type create_hybrid_ad_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      computer() :: %{
+        "ComputerAttributes" => list(attribute()),
+        "ComputerId" => String.t() | atom(),
+        "ComputerName" => String.t() | atom()
+      }
+      
+  """
+  @type computer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_settings_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_settings_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_from_resource_result() :: %{}
+      
+  """
+  @type remove_tags_from_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_settings_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        required("Settings") => list(setting())
+      }
+      
+  """
+  @type update_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_settings_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "SettingEntries" => list(setting_entry())
+      }
+      
+  """
+  @type describe_settings_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_info_entry() :: %{
+        "InitiatedBy" => String.t() | atom(),
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "NewValue" => update_value(),
+        "PreviousValue" => update_value(),
+        "Region" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type update_info_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_ldaps_request() :: %{
         required("DirectoryId") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type enable_client_authentication_request() :: %{(String.t() | atom()) => any()}
+  @type disable_ldaps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      connect_directory_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("NetworkType") => list(any()),
-        optional("ShortName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ConnectSettings") => directory_connect_settings(),
-        required("Name") => String.t() | atom(),
-        required("Password") => String.t() | atom(),
-        required("Size") => list(any())
+      conditional_forwarder() :: %{
+        "DnsIpAddrs" => list(String.t() | atom()),
+        "DnsIpv6Addrs" => list(String.t() | atom()),
+        "RemoteDomainName" => String.t() | atom(),
+        "ReplicationScope" => list(any())
       }
       
   """
-  @type connect_directory_request() :: %{(String.t() | atom()) => any()}
+  @type conditional_forwarder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      directory_vpc_settings_description() :: %{
-        "AvailabilityZones" => list(String.t() | atom()),
-        "SecurityGroupId" => String.t() | atom(),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
+      describe_settings_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
       }
       
   """
-  @type directory_vpc_settings_description() :: %{(String.t() | atom()) => any()}
+  @type describe_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_conditional_forwarders_result() :: %{
-        "ConditionalForwarders" => list(conditional_forwarder())
+      describe_directory_data_access_result() :: %{
+        "DataAccessStatus" => list(any())
       }
       
   """
-  @type describe_conditional_forwarders_result() :: %{(String.t() | atom()) => any()}
+  @type describe_directory_data_access_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_ad_assessment_result() :: %{
-        "AssessmentId" => String.t() | atom()
+      organizations_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
       
   """
-  @type delete_ad_assessment_result() :: %{(String.t() | atom()) => any()}
+  @type organizations_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ldaps_settings_result() :: %{
+        "LDAPSSettingsInfo" => list(ldaps_setting_info()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_ldaps_settings_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hybrid_administrator_account_update() :: %{
+        "SecretArn" => String.t() | atom()
+      }
+      
+  """
+  @type hybrid_administrator_account_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1563,47 +2861,101 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      describe_client_authentication_settings_result() :: %{
-        "ClientAuthenticationSettingsInfo" => list(client_authentication_setting_info()),
-        "NextToken" => String.t() | atom()
+      describe_shared_directories_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("OwnerDirectoryId") => String.t() | atom(),
+        optional("SharedDirectoryIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_client_authentication_settings_result() :: %{(String.t() | atom()) => any()}
+  @type describe_shared_directories_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_limit_exceeded_exception() :: %{
+      create_microsoft_ad_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Edition") => list(any()),
+        required("Name") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
+        required("Password") => String.t() | atom(),
+        optional("ShortName") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("VpcSettings") => directory_vpc_settings()
+      }
+      
+  """
+  @type create_microsoft_ad_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      directory_limits() :: %{
+        "CloudOnlyDirectoriesCurrentCount" => integer(),
+        "CloudOnlyDirectoriesLimit" => integer(),
+        "CloudOnlyDirectoriesLimitReached" => boolean(),
+        "CloudOnlyMicrosoftADCurrentCount" => integer(),
+        "CloudOnlyMicrosoftADLimit" => integer(),
+        "CloudOnlyMicrosoftADLimitReached" => boolean(),
+        "ConnectedDirectoriesCurrentCount" => integer(),
+        "ConnectedDirectoriesLimit" => integer(),
+        "ConnectedDirectoriesLimitReached" => boolean()
+      }
+      
+  """
+  @type directory_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_result() :: %{
+        "SnapshotId" => String.t() | atom()
+      }
+      
+  """
+  @type create_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_exception() :: %{
         "Message" => String.t() | atom(),
         "RequestId" => String.t() | atom()
       }
       
   """
-  @type tag_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_trust_result() :: %{
-        "TrustId" => String.t() | atom()
+      directory_already_in_region_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
       
   """
-  @type create_trust_result() :: %{(String.t() | atom()) => any()}
+  @type directory_already_in_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_ca_enrollment_policy_request() :: %{
-        required("DirectoryId") => String.t() | atom()
+      describe_domain_controllers_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
+        optional("DomainControllerIds") => list(String.t() | atom()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
+  @type describe_domain_controllers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1648,251 +3000,6 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      service_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_certificate_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_certificate_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schema_extension_info() :: %{
-        "Description" => String.t() | atom(),
-        "DirectoryId" => String.t() | atom(),
-        "EndDateTime" => non_neg_integer(),
-        "SchemaExtensionId" => String.t() | atom(),
-        "SchemaExtensionStatus" => list(any()),
-        "SchemaExtensionStatusReason" => String.t() | atom(),
-        "StartDateTime" => non_neg_integer()
-      }
-      
-  """
-  @type schema_extension_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_ip_routes_request() :: %{
-        optional("UpdateSecurityGroupForDirectoryControllers") => boolean(),
-        required("DirectoryId") => String.t() | atom(),
-        required("IpRoutes") => list(ip_route())
-      }
-      
-  """
-  @type add_ip_routes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conditional_forwarder() :: %{
-        "DnsIpAddrs" => list(String.t() | atom()),
-        "DnsIpv6Addrs" => list(String.t() | atom()),
-        "RemoteDomainName" => String.t() | atom(),
-        "ReplicationScope" => list(any())
-      }
-      
-  """
-  @type conditional_forwarder() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_certificate_result() :: %{}
-      
-  """
-  @type deregister_certificate_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_settings_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("Settings") => list(setting())
-      }
-      
-  """
-  @type update_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_hybrid_ad_result() :: %{
-        "AssessmentId" => String.t() | atom(),
-        "DirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type update_hybrid_ad_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_certificate_request() :: %{
-        optional("ClientCertAuthSettings") => client_cert_auth_settings(),
-        optional("Type") => list(any()),
-        required("CertificateData") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type register_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_directory_result() :: %{
-        "DirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_directory_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_snapshots_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "Snapshots" => list(snapshot())
-      }
-      
-  """
-  @type describe_snapshots_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_directories_result() :: %{
-        "DirectoryDescriptions" => list(directory_description()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_directories_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_trust_request() :: %{
-        optional("SelectiveAuth") => list(any()),
-        required("TrustId") => String.t() | atom()
-      }
-      
-  """
-  @type update_trust_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_domain_controllers_result() :: %{
-        "DomainControllers" => list(domain_controller()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_domain_controllers_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_from_resource_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type remove_tags_from_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      assessment() :: %{
-        "AssessmentId" => String.t() | atom(),
-        "CustomerDnsIps" => list(String.t() | atom()),
-        "DirectoryId" => String.t() | atom(),
-        "DnsName" => String.t() | atom(),
-        "LastUpdateDateTime" => non_neg_integer(),
-        "ReportType" => String.t() | atom(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SelfManagedInstanceIds" => list(String.t() | atom()),
-        "StartTime" => non_neg_integer(),
-        "Status" => String.t() | atom(),
-        "StatusCode" => String.t() | atom(),
-        "StatusReason" => String.t() | atom(),
-        "SubnetIds" => list(String.t() | atom()),
-        "Version" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connect_directory_result() :: %{
-        "DirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type connect_directory_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_update_directory_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("RegionName") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("UpdateType") => list(any())
-      }
-      
-  """
-  @type describe_update_directory_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_directory_limits_request() :: %{}
-      
-  """
-  @type get_directory_limits_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
       register_event_topic_result() :: %{}
       
   """
@@ -1902,641 +3009,38 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      region_description() :: %{
-        "DesiredNumberOfDomainControllers" => integer(),
-        "DirectoryId" => String.t() | atom(),
-        "LastUpdatedDateTime" => non_neg_integer(),
-        "LaunchTime" => non_neg_integer(),
-        "RegionName" => String.t() | atom(),
-        "RegionType" => list(any()),
-        "Status" => list(any()),
-        "StatusLastUpdatedDateTime" => non_neg_integer(),
-        "VpcSettings" => directory_vpc_settings()
+      insufficient_permissions_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
       }
       
   """
-  @type region_description() :: %{(String.t() | atom()) => any()}
+  @type insufficient_permissions_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      restore_from_snapshot_result() :: %{}
-      
-  """
-  @type restore_from_snapshot_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_ad_assessment_request() :: %{
-        required("AssessmentId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_ad_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_ad_assessments_request() :: %{
-        optional("DirectoryId") => String.t() | atom(),
+      list_ip_routes_request() :: %{
+        required("DirectoryId") => String.t() | atom(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_ad_assessments_request() :: %{(String.t() | atom()) => any()}
+  @type list_ip_routes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      disable_radius_result() :: %{}
-      
-  """
-  @type disable_radius_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_ca_enrollment_policy_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("PcaConnectorArn") => String.t() | atom()
+      start_ad_assessment_request() :: %{
+        optional("AssessmentConfiguration") => assessment_configuration(),
+        optional("DirectoryId") => String.t() | atom()
       }
       
   """
-  @type enable_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_conditional_forwarders_request() :: %{
-        optional("RemoteDomainNames") => list(String.t() | atom()),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_conditional_forwarders_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trusts_request() :: %{
-        optional("DirectoryId") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TrustIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_trusts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_in_use_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type certificate_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reset_user_password_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("NewPassword") => String.t() | atom(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type reset_user_password_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_directory_data_access_request() :: %{
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type disable_directory_data_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trust() :: %{
-        "CreatedDateTime" => non_neg_integer(),
-        "DirectoryId" => String.t() | atom(),
-        "LastUpdatedDateTime" => non_neg_integer(),
-        "RemoteDomainName" => String.t() | atom(),
-        "SelectiveAuth" => list(any()),
-        "StateLastUpdatedDateTime" => non_neg_integer(),
-        "TrustDirection" => list(any()),
-        "TrustId" => String.t() | atom(),
-        "TrustState" => list(any()),
-        "TrustStateReason" => String.t() | atom(),
-        "TrustType" => list(any())
-      }
-      
-  """
-  @type trust() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate() :: %{
-        "CertificateId" => String.t() | atom(),
-        "ClientCertAuthSettings" => client_cert_auth_settings(),
-        "CommonName" => String.t() | atom(),
-        "ExpiryDateTime" => non_neg_integer(),
-        "RegisteredDateTime" => non_neg_integer(),
-        "State" => list(any()),
-        "StateReason" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_shared_directory_request() :: %{
-        required("SharedDirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type accept_shared_directory_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ldaps_setting_info() :: %{
-        "LDAPSStatus" => list(any()),
-        "LDAPSStatusReason" => String.t() | atom(),
-        "LastUpdatedDateTime" => non_neg_integer()
-      }
-      
-  """
-  @type ldaps_setting_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hybrid_settings_description() :: %{
-        "SelfManagedDnsIpAddrs" => list(String.t() | atom()),
-        "SelfManagedInstanceIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type hybrid_settings_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_snapshot_result() :: %{
-        "SnapshotId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_snapshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hybrid_administrator_account_update() :: %{
-        "SecretArn" => String.t() | atom()
-      }
-      
-  """
-  @type hybrid_administrator_account_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_ip_routes_result() :: %{
-        "IpRoutesInfo" => list(ip_route_info()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_ip_routes_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_radius_request() :: %{
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type disable_radius_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_does_not_exist_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type user_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "SnapshotId" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type snapshot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_route_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type ip_route_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_shared_directory_result() :: %{
-        "SharedDirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type reject_shared_directory_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_log_subscription_result() :: %{}
-      
-  """
-  @type delete_log_subscription_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_shared_directories_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SharedDirectoryIds") => list(String.t() | atom()),
-        required("OwnerDirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_shared_directories_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hybrid_update_value() :: %{
-        "DnsIps" => list(String.t() | atom()),
-        "InstanceIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type hybrid_update_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_ca_enrollment_policy_result() :: %{}
-      
-  """
-  @type disable_ca_enrollment_policy_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      entity_does_not_exist_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type entity_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_sso_result() :: %{}
-      
-  """
-  @type disable_sso_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_directory_request() :: %{
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_directory_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_conditional_forwarder_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("RemoteDomainName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_conditional_forwarder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_client_auth_status_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_client_auth_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      directory_already_in_region_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type directory_already_in_region_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_log_subscriptions_result() :: %{
-        "LogSubscriptions" => list(log_subscription()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_log_subscriptions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      directory_unavailable_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type directory_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_result() :: %{
-        "SnapshotId" => String.t() | atom()
-      }
-      
-  """
-  @type create_snapshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceId") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_ca_enrollment_policy_result() :: %{
-        "CaEnrollmentPolicyStatus" => list(any()),
-        "CaEnrollmentPolicyStatusReason" => String.t() | atom(),
-        "DirectoryId" => String.t() | atom(),
-        "LastUpdatedDateTime" => non_neg_integer(),
-        "PcaConnectorArn" => String.t() | atom()
-      }
-      
-  """
-  @type describe_ca_enrollment_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_settings_result() :: %{
-        "DirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type update_settings_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_number_of_domain_controllers_request() :: %{
-        required("DesiredNumber") => integer(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type update_number_of_domain_controllers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_settings_result() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "SettingEntries" => list(setting_entry())
-      }
-      
-  """
-  @type describe_settings_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_event_topic_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("TopicName") => String.t() | atom()
-      }
-      
-  """
-  @type register_event_topic_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_ip_routes_request() :: %{
-        optional("CidrIps") => list(String.t() | atom()),
-        optional("CidrIpv6s") => list(String.t() | atom()),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type remove_ip_routes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_sso_request() :: %{
-        optional("Password") => String.t() | atom(),
-        optional("UserName") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type enable_sso_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_trust_result() :: %{
-        "TrustId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_trust_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_hybrid_ad_update_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "UpdateActivities" => hybrid_update_activities()
-      }
-      
-  """
-  @type describe_hybrid_ad_update_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attribute() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_snapshots_request() :: %{
-        optional("DirectoryId") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SnapshotIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_snapshots_request() :: %{(String.t() | atom()) => any()}
+  @type start_ad_assessment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2554,163 +3058,24 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      create_log_subscription_result() :: %{}
-      
-  """
-  @type create_log_subscription_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_directory_data_access_result() :: %{
-        "DataAccessStatus" => list(any())
+      assessment_report() :: %{
+        "DomainControllerIp" => String.t() | atom(),
+        "Validations" => list(assessment_validation())
       }
       
   """
-  @type describe_directory_data_access_result() :: %{(String.t() | atom()) => any()}
+  @type assessment_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      directory_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
+      get_snapshot_limits_result() :: %{
+        "SnapshotLimits" => snapshot_limits()
       }
       
   """
-  @type directory_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_schema_extension_result() :: %{
-        "SchemaExtensionId" => String.t() | atom()
-      }
-      
-  """
-  @type start_schema_extension_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_ca_enrollment_policy_request() :: %{
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type disable_ca_enrollment_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_schema_extension_request() :: %{
-        required("CreateSnapshotBeforeSchemaExtension") => boolean(),
-        required("Description") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("LdifContent") => String.t() | atom()
-      }
-      
-  """
-  @type start_schema_extension_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_from_resource_result() :: %{}
-      
-  """
-  @type remove_tags_from_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_ldaps_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type enable_ldaps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_settings_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any()),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      directory_connect_settings_description() :: %{
-        "AvailabilityZones" => list(String.t() | atom()),
-        "ConnectIps" => list(String.t() | atom()),
-        "ConnectIpsV6" => list(String.t() | atom()),
-        "CustomerUserName" => String.t() | atom(),
-        "SecurityGroupId" => String.t() | atom(),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type directory_connect_settings_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hybrid_update_info_entry() :: %{
-        "AssessmentId" => String.t() | atom(),
-        "InitiatedBy" => String.t() | atom(),
-        "LastUpdatedDateTime" => non_neg_integer(),
-        "NewValue" => hybrid_update_value(),
-        "PreviousValue" => hybrid_update_value(),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
-      }
-      
-  """
-  @type hybrid_update_info_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_does_not_exist_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type certificate_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_schema_extensions_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type list_schema_extensions_request() :: %{(String.t() | atom()) => any()}
+  @type get_snapshot_limits_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2728,1001 +3093,636 @@ defmodule AWS.Directory do
 
   ## Example:
       
-      share_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type share_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_microsoft_ad_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Edition") => list(any()),
-        optional("NetworkType") => list(any()),
-        optional("ShortName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("Password") => String.t() | atom(),
-        required("VpcSettings") => directory_vpc_settings()
-      }
-      
-  """
-  @type create_microsoft_ad_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_regions_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RegionsDescription" => list(region_description())
-      }
-      
-  """
-  @type describe_regions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_client_authentication_result() :: %{}
-      
-  """
-  @type enable_client_authentication_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      assessment_report() :: %{
-        "DomainControllerIp" => String.t() | atom(),
-        "Validations" => list(assessment_validation())
-      }
-      
-  """
-  @type assessment_report() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_hybrid_ad_result() :: %{
-        "DirectoryId" => String.t() | atom()
-      }
-      
-  """
-  @type create_hybrid_ad_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_to_resource_result() :: %{}
-      
-  """
-  @type add_tags_to_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_directory_data_access_result() :: %{}
-      
-  """
-  @type disable_directory_data_access_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      directory_size_update_settings() :: %{
-        "DirectorySize" => list(any())
-      }
-      
-  """
-  @type directory_size_update_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_route_info() :: %{
-        "AddedDateTime" => non_neg_integer(),
-        "CidrIp" => String.t() | atom(),
-        "CidrIpv6" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "DirectoryId" => String.t() | atom(),
-        "IpRouteStatusMsg" => list(any()),
-        "IpRouteStatusReason" => String.t() | atom()
-      }
-      
-  """
-  @type ip_route_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      regions_info() :: %{
-        "AdditionalRegions" => list(String.t() | atom()),
-        "PrimaryRegion" => String.t() | atom()
-      }
-      
-  """
-  @type regions_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_ca_enrollment_policy_result() :: %{}
-      
-  """
-  @type enable_ca_enrollment_policy_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_limits() :: %{
-        "ManualSnapshotsCurrentCount" => integer(),
-        "ManualSnapshotsLimit" => integer(),
-        "ManualSnapshotsLimitReached" => boolean()
-      }
-      
-  """
-  @type snapshot_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_trust_request() :: %{
-        optional("DeleteAssociatedConditionalForwarder") => boolean(),
-        required("TrustId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_trust_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_shared_directory_result() :: %{
-        "SharedDirectory" => shared_directory()
-      }
-      
-  """
-  @type accept_shared_directory_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_computer_request() :: %{
-        optional("ComputerAttributes") => list(attribute()),
-        optional("OrganizationalUnitDistinguishedName") => String.t() | atom(),
-        required("ComputerName") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("Password") => String.t() | atom()
-      }
-      
-  """
-  @type create_computer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_conditional_forwarder_result() :: %{}
-      
-  """
-  @type update_conditional_forwarder_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_certificate_result() :: %{
-        "Certificate" => certificate()
-      }
-      
-  """
-  @type describe_certificate_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_topic() :: %{
-        "CreatedDateTime" => non_neg_integer(),
-        "DirectoryId" => String.t() | atom(),
-        "Status" => list(any()),
-        "TopicArn" => String.t() | atom(),
-        "TopicName" => String.t() | atom()
-      }
-      
-  """
-  @type event_topic() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      directory_connect_settings() :: %{
+      hybrid_customer_instances_settings() :: %{
         "CustomerDnsIps" => list(String.t() | atom()),
-        "CustomerDnsIpsV6" => list(String.t() | atom()),
-        "CustomerUserName" => String.t() | atom(),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
+        "InstanceIds" => list(String.t() | atom())
       }
       
   """
-  @type directory_connect_settings() :: %{(String.t() | atom()) => any()}
+  @type hybrid_customer_instances_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_password_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
+      deregister_certificate_result() :: %{}
       
   """
-  @type invalid_password_exception() :: %{(String.t() | atom()) => any()}
+  @type deregister_certificate_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      enable_already_in_progress_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
+      delete_snapshot_request() :: %{
+        required("SnapshotId") => String.t() | atom()
       }
       
   """
-  @type enable_already_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_client_authentication_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type disable_client_authentication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_domain_controllers_request() :: %{
-        optional("DomainControllerIds") => list(String.t() | atom()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_domain_controllers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_directory_setup_request() :: %{
-        optional("CreateSnapshotBeforeUpdate") => boolean(),
-        optional("DirectorySizeUpdateSettings") => directory_size_update_settings(),
-        optional("NetworkUpdateSettings") => network_update_settings(),
-        optional("OSUpdateSettings") => o_s_update_settings(),
-        required("DirectoryId") => String.t() | atom(),
-        required("UpdateType") => list(any())
-      }
-      
-  """
-  @type update_directory_setup_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      share_target() :: %{
-        "Id" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type share_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      assessment_summary() :: %{
-        "AssessmentId" => String.t() | atom(),
-        "CustomerDnsIps" => list(String.t() | atom()),
-        "DirectoryId" => String.t() | atom(),
-        "DnsName" => String.t() | atom(),
-        "LastUpdateDateTime" => non_neg_integer(),
-        "ReportType" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type assessment_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_radius_result() :: %{}
-      
-  """
-  @type update_radius_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_region_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("RegionName") => String.t() | atom(),
-        required("VPCSettings") => directory_vpc_settings()
-      }
-      
-  """
-  @type add_region_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type certificate_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_radius_request() :: %{
-        required("DirectoryId") => String.t() | atom(),
-        required("RadiusSettings") => radius_settings()
-      }
-      
-  """
-  @type update_radius_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_hybrid_ad_request() :: %{
-        optional("Tags") => list(tag()),
-        required("AssessmentId") => String.t() | atom(),
-        required("SecretArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_hybrid_ad_request() :: %{(String.t() | atom()) => any()}
+  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @type accept_shared_directory_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | directory_already_shared_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type add_ip_routes_errors() ::
-          directory_unavailable_exception()
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | entity_already_exists_exception()
+          | ip_route_limit_exceeded_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | ip_route_limit_exceeded_exception()
-          | service_exception()
-          | client_exception()
-          | entity_already_exists_exception()
 
   @type add_region_errors() ::
-          directory_unavailable_exception()
-          | directory_already_in_region_exception()
+          directory_already_in_region_exception()
+          | client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | access_denied_exception()
-          | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
           | region_limit_exceeded_exception()
-          | unsupported_operation_exception()
 
   @type add_tags_to_resource_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
           | tag_limit_exceeded_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type cancel_schema_extension_errors() ::
-          entity_does_not_exist_exception() | service_exception() | client_exception()
+          client_exception() | service_exception() | entity_does_not_exist_exception()
 
   @type connect_directory_errors() ::
-          directory_limit_exceeded_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
+          | invalid_parameter_exception()
+          | directory_limit_exceeded_exception()
 
   @type create_alias_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | entity_already_exists_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type create_computer_errors() ::
           authentication_failed_exception()
+          | client_exception()
+          | service_exception()
           | directory_unavailable_exception()
+          | entity_already_exists_exception()
+          | unsupported_operation_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-          | entity_already_exists_exception()
 
   @type create_conditional_forwarder_errors() ::
-          directory_unavailable_exception()
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | entity_already_exists_exception()
+          | unsupported_operation_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-          | entity_already_exists_exception()
 
   @type create_directory_errors() ::
-          directory_limit_exceeded_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
+          | invalid_parameter_exception()
+          | directory_limit_exceeded_exception()
 
   @type create_hybrid_ad_errors() ::
-          directory_limit_exceeded_exception()
+          client_exception()
+          | service_exception()
+          | unsupported_operation_exception()
+          | ad_assessment_limit_exceeded_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-          | ad_assessment_limit_exceeded_exception()
-          | unsupported_operation_exception()
+          | directory_limit_exceeded_exception()
 
   @type create_log_subscription_errors() ::
-          entity_does_not_exist_exception()
-          | service_exception()
+          insufficient_permissions_exception()
           | client_exception()
-          | insufficient_permissions_exception()
-          | unsupported_operation_exception()
+          | service_exception()
           | entity_already_exists_exception()
+          | unsupported_operation_exception()
+          | entity_does_not_exist_exception()
 
   @type create_microsoft_ad_errors() ::
-          directory_limit_exceeded_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | invalid_parameter_exception()
+          | directory_limit_exceeded_exception()
 
   @type create_snapshot_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | snapshot_limit_exceeded_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type create_trust_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
-          | unsupported_operation_exception()
           | entity_already_exists_exception()
+          | unsupported_operation_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type delete_ad_assessment_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type delete_conditional_forwarder_errors() ::
-          directory_unavailable_exception()
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | unsupported_operation_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-          | unsupported_operation_exception()
 
   @type delete_directory_errors() ::
-          entity_does_not_exist_exception() | service_exception() | client_exception()
+          client_exception() | service_exception() | entity_does_not_exist_exception()
 
   @type delete_log_subscription_errors() ::
-          entity_does_not_exist_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | entity_does_not_exist_exception()
 
   @type delete_snapshot_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type delete_trust_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type deregister_certificate_errors() ::
-          certificate_does_not_exist_exception()
-          | directory_unavailable_exception()
-          | invalid_parameter_exception()
-          | certificate_in_use_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
+          | directory_unavailable_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | certificate_in_use_exception()
+          | invalid_parameter_exception()
+          | certificate_does_not_exist_exception()
 
   @type deregister_event_topic_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type describe_ad_assessment_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type describe_ca_enrollment_policy_errors() ::
-          service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
+          client_exception()
+          | service_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
 
   @type describe_certificate_errors() ::
-          certificate_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | invalid_parameter_exception()
+          | certificate_does_not_exist_exception()
 
   @type describe_client_authentication_settings_errors() ::
-          invalid_parameter_exception()
-          | access_denied_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
+          | invalid_parameter_exception()
 
   @type describe_conditional_forwarders_errors() ::
-          directory_unavailable_exception()
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | unsupported_operation_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-          | unsupported_operation_exception()
 
   @type describe_directories_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
           | invalid_next_token_exception()
-          | client_exception()
-
-  @type describe_directory_data_access_errors() ::
-          access_denied_exception()
-          | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type describe_domain_controllers_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type describe_event_topics_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-
-  @type describe_hybrid_ad_update_errors() ::
-          invalid_parameter_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type describe_ldaps_settings_errors() ::
-          invalid_parameter_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type describe_regions_errors() ::
-          invalid_parameter_exception()
-          | access_denied_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type describe_settings_errors() ::
-          invalid_parameter_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type describe_shared_directories_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type describe_snapshots_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | client_exception()
-
-  @type describe_trusts_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type describe_update_directory_errors() ::
-          invalid_parameter_exception()
-          | access_denied_exception()
-          | service_exception()
-          | invalid_next_token_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-
-  @type disable_ca_enrollment_policy_errors() ::
-          directory_unavailable_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | access_denied_exception()
+
+  @type describe_directory_data_access_errors() ::
+          client_exception()
           | service_exception()
+          | unsupported_operation_exception()
           | directory_does_not_exist_exception()
-          | client_exception()
+          | access_denied_exception()
+
+  @type describe_domain_controllers_errors() ::
+          client_exception()
+          | service_exception()
+          | unsupported_operation_exception()
+          | invalid_next_token_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type describe_event_topics_errors() ::
+          client_exception()
+          | service_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type describe_hybrid_ad_update_errors() ::
+          client_exception()
+          | service_exception()
+          | unsupported_operation_exception()
+          | invalid_next_token_exception()
+          | directory_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type describe_ldaps_settings_errors() ::
+          client_exception()
+          | service_exception()
+          | unsupported_operation_exception()
+          | invalid_next_token_exception()
+          | directory_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type describe_regions_errors() ::
+          client_exception()
+          | service_exception()
+          | unsupported_operation_exception()
+          | invalid_next_token_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
+          | invalid_parameter_exception()
+
+  @type describe_settings_errors() ::
+          client_exception()
+          | service_exception()
+          | unsupported_operation_exception()
+          | invalid_next_token_exception()
+          | directory_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type describe_shared_directories_errors() ::
+          client_exception()
+          | service_exception()
+          | unsupported_operation_exception()
+          | invalid_next_token_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type describe_snapshots_errors() ::
+          client_exception()
+          | service_exception()
+          | invalid_next_token_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type describe_trusts_errors() ::
+          client_exception()
+          | service_exception()
+          | unsupported_operation_exception()
+          | invalid_next_token_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type describe_update_directory_errors() ::
+          client_exception()
+          | service_exception()
+          | invalid_next_token_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
+          | invalid_parameter_exception()
+
+  @type disable_ca_enrollment_policy_errors() ::
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
+          | entity_does_not_exist_exception()
           | disable_already_in_progress_exception()
+          | invalid_parameter_exception()
 
   @type disable_client_authentication_errors() ::
-          invalid_client_auth_status_exception()
-          | access_denied_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
+          | invalid_client_auth_status_exception()
 
   @type disable_directory_data_access_errors() ::
-          directory_unavailable_exception()
-          | access_denied_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
+          | directory_unavailable_exception()
           | directory_in_desired_state_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
 
   @type disable_ldaps_errors() ::
-          directory_unavailable_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
+          | directory_unavailable_exception()
           | invalid_ldaps_status_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type disable_radius_errors() ::
-          entity_does_not_exist_exception() | service_exception() | client_exception()
+          client_exception() | service_exception() | entity_does_not_exist_exception()
 
   @type disable_sso_errors() ::
           authentication_failed_exception()
-          | entity_does_not_exist_exception()
-          | service_exception()
-          | client_exception()
           | insufficient_permissions_exception()
+          | client_exception()
+          | service_exception()
+          | entity_does_not_exist_exception()
 
   @type enable_ca_enrollment_policy_errors() ::
-          enable_already_in_progress_exception()
+          client_exception()
+          | service_exception()
           | directory_unavailable_exception()
+          | entity_already_exists_exception()
+          | enable_already_in_progress_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | access_denied_exception()
-          | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | entity_already_exists_exception()
 
   @type enable_client_authentication_errors() ::
-          invalid_client_auth_status_exception()
-          | access_denied_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | no_available_certificate_exception()
           | unsupported_operation_exception()
+          | no_available_certificate_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
+          | invalid_client_auth_status_exception()
 
   @type enable_directory_data_access_errors() ::
-          directory_unavailable_exception()
-          | access_denied_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
+          | directory_unavailable_exception()
           | directory_in_desired_state_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
 
   @type enable_ldaps_errors() ::
-          directory_unavailable_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | no_available_certificate_exception()
+          | directory_unavailable_exception()
           | invalid_ldaps_status_exception()
           | unsupported_operation_exception()
+          | no_available_certificate_exception()
+          | directory_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type enable_radius_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | entity_already_exists_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type enable_sso_errors() ::
           authentication_failed_exception()
-          | entity_does_not_exist_exception()
-          | service_exception()
-          | client_exception()
           | insufficient_permissions_exception()
+          | client_exception()
+          | service_exception()
+          | entity_does_not_exist_exception()
 
   @type get_directory_limits_errors() ::
-          entity_does_not_exist_exception() | service_exception() | client_exception()
+          client_exception() | service_exception() | entity_does_not_exist_exception()
 
   @type get_snapshot_limits_errors() ::
-          entity_does_not_exist_exception() | service_exception() | client_exception()
+          client_exception() | service_exception() | entity_does_not_exist_exception()
 
   @type list_ad_assessments_errors() ::
-          invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type list_certificates_errors() ::
-          invalid_parameter_exception()
+          client_exception()
           | service_exception()
+          | unsupported_operation_exception()
           | invalid_next_token_exception()
           | directory_does_not_exist_exception()
-          | client_exception()
-          | unsupported_operation_exception()
+          | invalid_parameter_exception()
 
   @type list_ip_routes_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
           | invalid_next_token_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type list_log_subscriptions_errors() ::
-          entity_does_not_exist_exception()
+          client_exception()
           | service_exception()
           | invalid_next_token_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
 
   @type list_schema_extensions_errors() ::
-          entity_does_not_exist_exception()
+          client_exception()
           | service_exception()
           | invalid_next_token_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
 
   @type list_tags_for_resource_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
           | invalid_next_token_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type register_certificate_errors() ::
-          certificate_limit_exceeded_exception()
-          | directory_unavailable_exception()
-          | invalid_parameter_exception()
-          | invalid_certificate_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | certificate_already_exists_exception()
+          | certificate_limit_exceeded_exception()
+          | directory_unavailable_exception()
           | unsupported_operation_exception()
+          | certificate_already_exists_exception()
+          | directory_does_not_exist_exception()
+          | invalid_certificate_exception()
+          | invalid_parameter_exception()
 
   @type register_event_topic_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type reject_shared_directory_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | directory_already_shared_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type remove_ip_routes_errors() ::
-          directory_unavailable_exception()
-          | entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
-
-  @type remove_region_errors() ::
-          directory_unavailable_exception()
-          | access_denied_exception()
-          | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-
-  @type remove_tags_from_resource_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-
-  @type reset_user_password_errors() ::
-          invalid_password_exception()
           | directory_unavailable_exception()
           | entity_does_not_exist_exception()
-          | user_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type remove_region_errors() ::
+          client_exception()
           | service_exception()
-          | client_exception()
+          | directory_unavailable_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
+
+  @type remove_tags_from_resource_errors() ::
+          client_exception()
+          | service_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+
+  @type reset_user_password_errors() ::
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | invalid_password_exception()
+          | unsupported_operation_exception()
+          | user_does_not_exist_exception()
+          | entity_does_not_exist_exception()
 
   @type restore_from_snapshot_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type share_directory_errors() ::
-          share_limit_exceeded_exception()
-          | entity_does_not_exist_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          client_exception()
           | service_exception()
           | organizations_exception()
-          | client_exception()
           | directory_already_shared_exception()
-          | unsupported_operation_exception()
           | invalid_target_exception()
+          | unsupported_operation_exception()
+          | access_denied_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+          | share_limit_exceeded_exception()
 
   @type start_ad_assessment_errors() ::
-          invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | ad_assessment_limit_exceeded_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | ad_assessment_limit_exceeded_exception()
+          | invalid_parameter_exception()
 
   @type start_schema_extension_errors() ::
-          directory_unavailable_exception()
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | snapshot_limit_exceeded_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-          | snapshot_limit_exceeded_exception()
 
   @type unshare_directory_errors() ::
-          entity_does_not_exist_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
-          | directory_not_shared_exception()
           | invalid_target_exception()
+          | directory_not_shared_exception()
+          | entity_does_not_exist_exception()
 
   @type update_conditional_forwarder_errors() ::
-          directory_unavailable_exception()
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | unsupported_operation_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-          | unsupported_operation_exception()
 
   @type update_directory_setup_errors() ::
-          directory_unavailable_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
+          | directory_unavailable_exception()
           | directory_in_desired_state_exception()
           | unsupported_operation_exception()
           | snapshot_limit_exceeded_exception()
+          | directory_does_not_exist_exception()
+          | access_denied_exception()
+          | invalid_parameter_exception()
 
   @type update_hybrid_ad_errors() ::
-          invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
-          | ad_assessment_limit_exceeded_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | ad_assessment_limit_exceeded_exception()
+          | invalid_parameter_exception()
 
   @type update_number_of_domain_controllers_errors() ::
-          directory_unavailable_exception()
+          client_exception()
+          | service_exception()
+          | directory_unavailable_exception()
+          | domain_controller_limit_exceeded_exception()
+          | unsupported_operation_exception()
           | entity_does_not_exist_exception()
           | invalid_parameter_exception()
-          | service_exception()
-          | client_exception()
-          | unsupported_operation_exception()
-          | domain_controller_limit_exceeded_exception()
 
   @type update_radius_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type update_settings_errors() ::
-          directory_unavailable_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | incompatible_settings_exception()
-          | directory_does_not_exist_exception()
-          | client_exception()
           | unsupported_settings_exception()
+          | directory_unavailable_exception()
           | unsupported_operation_exception()
+          | directory_does_not_exist_exception()
+          | invalid_parameter_exception()
+          | incompatible_settings_exception()
 
   @type update_trust_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   @type verify_trust_errors() ::
-          entity_does_not_exist_exception()
-          | invalid_parameter_exception()
+          client_exception()
           | service_exception()
-          | client_exception()
           | unsupported_operation_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
 
   def metadata do
     %{
@@ -3750,7 +3750,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, accept_shared_directory_errors()}
   def accept_shared_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptSharedDirectory", input, options)
   end
@@ -3778,7 +3779,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, add_ip_routes_errors()}
   def add_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddIpRoutes", input, options)
   end
@@ -3792,7 +3794,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, add_region_errors()}
   def add_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRegion", input, options)
   end
@@ -3811,7 +3814,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -3832,7 +3836,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, cancel_schema_extension_errors()}
   def cancel_schema_extension(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelSchemaExtension", input, options)
   end
@@ -3852,7 +3857,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, connect_directory_errors()}
   def connect_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConnectDirectory", input, options)
   end
@@ -3873,7 +3879,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -3887,7 +3894,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_computer_errors()}
   def create_computer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComputer", input, options)
   end
@@ -3907,7 +3915,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_conditional_forwarder_errors()}
   def create_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConditionalForwarder", input, options)
   end
@@ -3930,7 +3939,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_directory_errors()}
   def create_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDirectory", input, options)
   end
@@ -3952,7 +3962,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_hybrid_ad_errors()}
   def create_hybrid_ad(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHybridAD", input, options)
   end
@@ -3969,7 +3980,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_log_subscription_errors()}
   def create_log_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLogSubscription", input, options)
   end
@@ -3992,7 +4004,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_microsoft_ad_errors()}
   def create_microsoft_ad(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMicrosoftAD", input, options)
   end
@@ -4009,7 +4022,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -4037,7 +4051,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_trust_errors()}
   def create_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrust", input, options)
   end
@@ -4058,7 +4073,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_ad_assessment_errors()}
   def delete_ad_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteADAssessment", input, options)
   end
@@ -4074,7 +4090,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_conditional_forwarder_errors()}
   def delete_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConditionalForwarder", input, options)
   end
@@ -4094,7 +4111,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_directory_errors()}
   def delete_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDirectory", input, options)
   end
@@ -4108,7 +4126,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_log_subscription_errors()}
   def delete_log_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLogSubscription", input, options)
   end
@@ -4122,7 +4141,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -4138,7 +4158,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_trust_errors()}
   def delete_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrust", input, options)
   end
@@ -4154,7 +4175,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, deregister_certificate_errors()}
   def deregister_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterCertificate", input, options)
   end
@@ -4169,7 +4191,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, deregister_event_topic_errors()}
   def deregister_event_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterEventTopic", input, options)
   end
@@ -4188,7 +4211,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_ad_assessment_errors()}
   def describe_ad_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeADAssessment", input, options)
   end
@@ -4207,7 +4231,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_ca_enrollment_policy_errors()}
   def describe_ca_enrollment_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCAEnrollmentPolicy", input, options)
   end
@@ -4222,7 +4247,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
@@ -4247,7 +4273,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_client_authentication_settings_errors()}
   def describe_client_authentication_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientAuthenticationSettings", input, options)
   end
@@ -4265,7 +4292,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_conditional_forwarders_errors()}
   def describe_conditional_forwarders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConditionalForwarders", input, options)
   end
@@ -4293,7 +4321,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_directories_errors()}
   def describe_directories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectories", input, options)
   end
@@ -4309,7 +4338,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_directory_data_access_errors()}
   def describe_directory_data_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectoryDataAccess", input, options)
   end
@@ -4323,7 +4353,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_domain_controllers_errors()}
   def describe_domain_controllers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomainControllers", input, options)
   end
@@ -4343,7 +4374,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_event_topics_errors()}
   def describe_event_topics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventTopics", input, options)
   end
@@ -4361,7 +4393,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_hybrid_ad_update_errors()}
   def describe_hybrid_ad_update(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHybridADUpdate", input, options)
   end
@@ -4375,7 +4408,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_ldaps_settings_errors()}
   def describe_ldaps_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLDAPSSettings", input, options)
   end
@@ -4390,7 +4424,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_regions_errors()}
   def describe_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegions", input, options)
   end
@@ -4405,7 +4440,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_settings_errors()}
   def describe_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSettings", input, options)
   end
@@ -4419,7 +4455,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_shared_directories_errors()}
   def describe_shared_directories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSharedDirectories", input, options)
   end
@@ -4442,7 +4479,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -4460,7 +4498,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_trusts_errors()}
   def describe_trusts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrusts", input, options)
   end
@@ -4474,7 +4513,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_update_directory_errors()}
   def describe_update_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUpdateDirectory", input, options)
   end
@@ -4499,7 +4539,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_ca_enrollment_policy_errors()}
   def disable_ca_enrollment_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableCAEnrollmentPolicy", input, options)
   end
@@ -4513,7 +4554,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_client_authentication_errors()}
   def disable_client_authentication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableClientAuthentication", input, options)
   end
@@ -4531,7 +4573,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_directory_data_access_errors()}
   def disable_directory_data_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableDirectoryDataAccess", input, options)
   end
@@ -4545,7 +4588,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_ldaps_errors()}
   def disable_ldaps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableLDAPS", input, options)
   end
@@ -4561,7 +4605,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_radius_errors()}
   def disable_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableRadius", input, options)
   end
@@ -4575,7 +4620,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_sso_errors()}
   def disable_sso(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSso", input, options)
   end
@@ -4601,7 +4647,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_ca_enrollment_policy_errors()}
   def enable_ca_enrollment_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableCAEnrollmentPolicy", input, options)
   end
@@ -4615,7 +4662,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_client_authentication_errors()}
   def enable_client_authentication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableClientAuthentication", input, options)
   end
@@ -4633,7 +4681,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_directory_data_access_errors()}
   def enable_directory_data_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableDirectoryDataAccess", input, options)
   end
@@ -4647,7 +4696,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_ldaps_errors()}
   def enable_ldaps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableLDAPS", input, options)
   end
@@ -4663,7 +4713,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_radius_errors()}
   def enable_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableRadius", input, options)
   end
@@ -4682,7 +4733,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_sso_errors()}
   def enable_sso(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSso", input, options)
   end
@@ -4696,7 +4748,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, get_directory_limits_errors()}
   def get_directory_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDirectoryLimits", input, options)
   end
@@ -4710,7 +4763,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, get_snapshot_limits_errors()}
   def get_snapshot_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshotLimits", input, options)
   end
@@ -4728,7 +4782,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_ad_assessments_errors()}
   def list_ad_assessments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListADAssessments", input, options)
   end
@@ -4744,7 +4799,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCertificates", input, options)
   end
@@ -4758,7 +4814,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_ip_routes_errors()}
   def list_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIpRoutes", input, options)
   end
@@ -4772,7 +4829,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_log_subscriptions_errors()}
   def list_log_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogSubscriptions", input, options)
   end
@@ -4786,7 +4844,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_schema_extensions_errors()}
   def list_schema_extensions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemaExtensions", input, options)
   end
@@ -4800,7 +4859,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4814,7 +4874,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, register_certificate_errors()}
   def register_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterCertificate", input, options)
   end
@@ -4837,7 +4898,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, register_event_topic_errors()}
   def register_event_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterEventTopic", input, options)
   end
@@ -4852,7 +4914,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, reject_shared_directory_errors()}
   def reject_shared_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectSharedDirectory", input, options)
   end
@@ -4866,7 +4929,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, remove_ip_routes_errors()}
   def remove_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveIpRoutes", input, options)
   end
@@ -4885,7 +4949,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, remove_region_errors()}
   def remove_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRegion", input, options)
   end
@@ -4899,7 +4964,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -4938,7 +5004,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, reset_user_password_errors()}
   def reset_user_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetUserPassword", input, options)
   end
@@ -4963,7 +5030,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, restore_from_snapshot_errors()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
   end
@@ -5001,7 +5069,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, share_directory_errors()}
   def share_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ShareDirectory", input, options)
   end
@@ -5040,7 +5109,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, start_ad_assessment_errors()}
   def start_ad_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartADAssessment", input, options)
   end
@@ -5054,7 +5124,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, start_schema_extension_errors()}
   def start_schema_extension(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSchemaExtension", input, options)
   end
@@ -5068,7 +5139,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, unshare_directory_errors()}
   def unshare_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnshareDirectory", input, options)
   end
@@ -5084,7 +5156,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_conditional_forwarder_errors()}
   def update_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConditionalForwarder", input, options)
   end
@@ -5098,7 +5171,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_directory_setup_errors()}
   def update_directory_setup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDirectorySetup", input, options)
   end
@@ -5129,7 +5203,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_hybrid_ad_errors()}
   def update_hybrid_ad(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHybridAD", input, options)
   end
@@ -5156,7 +5231,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_number_of_domain_controllers_errors()}
   def update_number_of_domain_controllers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNumberOfDomainControllers", input, options)
   end
@@ -5172,7 +5248,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_radius_errors()}
   def update_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRadius", input, options)
   end
@@ -5186,7 +5263,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_settings_errors()}
   def update_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSettings", input, options)
   end
@@ -5202,7 +5280,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_trust_errors()}
   def update_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrust", input, options)
   end
@@ -5222,7 +5301,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, verify_trust_errors()}
   def verify_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyTrust", input, options)
   end

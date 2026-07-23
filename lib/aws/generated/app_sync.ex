@@ -14,194 +14,6 @@ defmodule AWS.AppSync do
 
   ## Example:
 
-      data_source_introspection_model_index() :: %{
-        "fields" => list(String.t() | atom()),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type data_source_introspection_model_index() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_namespace_request() :: %{}
-
-  """
-  @type get_channel_namespace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_type_request() :: %{
-        required("format") => list(any())
-      }
-
-  """
-  @type get_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_merged_graphql_api_response() :: %{
-        "sourceApiAssociation" => source_api_association()
-      }
-
-  """
-  @type associate_merged_graphql_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_names_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_domain_names_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluate_code_response() :: %{
-        "error" => evaluate_code_error_detail(),
-        "evaluationResult" => String.t() | atom(),
-        "logs" => list(String.t() | atom()),
-        "outErrors" => String.t() | atom(),
-        "stash" => String.t() | atom()
-      }
-
-  """
-  @type evaluate_code_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_error_location() :: %{
-        "column" => integer(),
-        "line" => integer(),
-        "span" => integer()
-      }
-
-  """
-  @type code_error_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_type_request() :: %{}
-
-  """
-  @type delete_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resolvers_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_resolvers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flush_api_cache_request() :: %{}
-
-  """
-  @type flush_api_cache_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_type_response() :: %{}
-
-  """
-  @type delete_type_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_source_graphql_api_request() :: %{}
-
-  """
-  @type disassociate_source_graphql_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_api_keys_response() :: %{
-        "apiKeys" => list(api_key()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_api_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_conflict_handler_config() :: %{
-        "lambdaConflictHandlerArn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_conflict_handler_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluate_code_error_detail() :: %{
-        "codeErrors" => list(code_error()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type evaluate_code_error_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       unauthorized_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -213,445 +25,52 @@ defmodule AWS.AppSync do
 
   ## Example:
 
-      list_source_api_associations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "sourceApiAssociationSummaries" => list(source_api_association_summary())
+      evaluate_mapping_template_request() :: %{
+        required("context") => String.t() | atom(),
+        required("template") => String.t() | atom()
       }
 
   """
-  @type list_source_api_associations_response() :: %{(String.t() | atom()) => any()}
+  @type evaluate_mapping_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_functions_response() :: %{
-        "functions" => list(function_configuration()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_functions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_types_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "types" => list(type())
-      }
-
-  """
-  @type list_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type api_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resolver_response() :: %{
-        "resolver" => resolver()
-      }
-
-  """
-  @type update_resolver_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_source_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("dynamodbConfig") => dynamodb_data_source_config(),
-        optional("elasticsearchConfig") => elasticsearch_data_source_config(),
-        optional("eventBridgeConfig") => event_bridge_data_source_config(),
-        optional("httpConfig") => http_data_source_config(),
-        optional("lambdaConfig") => lambda_data_source_config(),
-        optional("metricsConfig") => list(any()),
-        optional("openSearchServiceConfig") => open_search_service_data_source_config(),
-        optional("relationalDatabaseConfig") => relational_database_data_source_config(),
-        optional("serviceRoleArn") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("type") => list(any())
-      }
-
-  """
-  @type create_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_introspection_model_field() :: %{
-        "length" => float(),
-        "name" => String.t() | atom(),
-        "type" => data_source_introspection_model_field_type()
-      }
-
-  """
-  @type data_source_introspection_model_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      integration() :: %{
-        "dataSourceName" => String.t() | atom(),
-        "lambdaConfig" => lambda_config()
-      }
-
-  """
-  @type integration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_authorizer_config() :: %{
-        "authorizerResultTtlInSeconds" => integer(),
-        "authorizerUri" => String.t() | atom(),
-        "identityValidationExpression" => String.t() | atom()
-      }
-
-  """
-  @type lambda_authorizer_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_graphql_api_response() :: %{}
-
-  """
-  @type delete_graphql_api_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_graphql_apis_response() :: %{
-        "graphqlApis" => list(graphql_api()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_graphql_apis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resolver_request() :: %{}
-
-  """
-  @type get_resolver_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_name_response() :: %{}
-
-  """
-  @type delete_domain_name_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      additional_authentication_provider() :: %{
-        "authenticationType" => list(any()),
-        "lambdaAuthorizerConfig" => lambda_authorizer_config(),
-        "openIDConnectConfig" => open_id_connect_config(),
-        "userPoolConfig" => cognito_user_pool_config()
-      }
-
-  """
-  @type additional_authentication_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_api_associations_request() :: %{
+      list_types_request() :: %{
+        required("format") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_source_api_associations_request() :: %{(String.t() | atom()) => any()}
+  @type list_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_source_api_association_response() :: %{
-        "sourceApiAssociation" => source_api_association()
+      aws_iam_config() :: %{
+        "signingRegion" => String.t() | atom(),
+        "signingServiceName" => String.t() | atom()
       }
 
   """
-  @type get_source_api_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resolvers_by_function_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_resolvers_by_function_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_key_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("expires") => float()
-      }
-
-  """
-  @type update_api_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_response() :: %{
-        "api" => api()
-      }
-
-  """
-  @type create_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_namespaces_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_channel_namespaces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schema_creation_status_response() :: %{
-        "details" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_schema_creation_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cognito_user_pool_config() :: %{
-        "appIdClientRegex" => String.t() | atom(),
-        "awsRegion" => String.t() | atom(),
-        "userPoolId" => String.t() | atom()
-      }
-
-  """
-  @type cognito_user_pool_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_key_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type api_key_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cognito_config() :: %{
-        "appIdClientRegex" => String.t() | atom(),
-        "awsRegion" => String.t() | atom(),
-        "userPoolId" => String.t() | atom()
-      }
-
-  """
-  @type cognito_config() :: %{(String.t() | atom()) => any()}
+  @type aws_iam_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_name_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
         required("certificateArn") => String.t() | atom(),
-        required("domainName") => String.t() | atom()
+        optional("description") => String.t() | atom(),
+        required("domainName") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
   @type create_domain_name_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_graphql_apis_request() :: %{
-        optional("apiType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owner") => list(any())
-      }
-
-  """
-  @type list_graphql_apis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_association_response() :: %{
-        "apiAssociation" => api_association()
-      }
-
-  """
-  @type get_api_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_cache_response() :: %{
-        "apiCache" => api_cache()
-      }
-
-  """
-  @type create_api_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_types_by_association_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("format") => list(any())
-      }
-
-  """
-  @type list_types_by_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_response() :: %{
-        "functionConfiguration" => function_configuration()
-      }
-
-  """
-  @type get_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_source_response() :: %{
-        "dataSource" => data_source()
-      }
-
-  """
-  @type update_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_graphql_api_environment_variables_response() :: %{
-        "environmentVariables" => map()
-      }
-
-  """
-  @type put_graphql_api_environment_variables_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_namespace_request() :: %{
-        optional("codeHandlers") => String.t() | atom(),
-        optional("handlerConfigs") => handler_configs(),
-        optional("publishAuthModes") => list(auth_mode()),
-        optional("subscribeAuthModes") => list(auth_mode())
-      }
-
-  """
-  @type update_channel_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_type_request() :: %{
-        required("definition") => String.t() | atom(),
-        required("format") => list(any())
-      }
-
-  """
-  @type create_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_log_config() :: %{
-        "cloudWatchLogsRoleArn" => String.t() | atom(),
-        "logLevel" => list(any())
-      }
-
-  """
-  @type event_log_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -672,51 +91,328 @@ defmodule AWS.AppSync do
 
   ## Example:
 
-      handler_configs() :: %{
-        "onPublish" => handler_config(),
-        "onSubscribe" => handler_config()
+      api_cache() :: %{
+        "apiCachingBehavior" => list(any()),
+        "atRestEncryptionEnabled" => boolean(),
+        "healthMetricsConfig" => list(any()),
+        "status" => list(any()),
+        "transitEncryptionEnabled" => boolean(),
+        "ttl" => float(),
+        "type" => list(any())
       }
 
   """
-  @type handler_configs() :: %{(String.t() | atom()) => any()}
+  @type api_cache() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_apis_response() :: %{
-        "apis" => list(api()),
+      auth_mode() :: %{
+        "authType" => list(any())
+      }
+
+  """
+  @type auth_mode() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resolver_response() :: %{}
+
+  """
+  @type delete_resolver_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_key_response() :: %{
+        "apiKey" => api_key()
+      }
+
+  """
+  @type create_api_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_graphql_apis_request() :: %{
+        optional("apiType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owner") => list(any())
+      }
+
+  """
+  @type list_graphql_apis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_namespaces_response() :: %{
+        "channelNamespaces" => list(channel_namespace()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_apis_response() :: %{(String.t() | atom()) => any()}
+  @type list_channel_namespaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      evaluate_mapping_template_request() :: %{
-        required("context") => String.t() | atom(),
-        required("template") => String.t() | atom()
+      enhanced_metrics_config() :: %{
+        "dataSourceLevelMetricsBehavior" => list(any()),
+        "operationLevelMetricsConfig" => list(any()),
+        "resolverLevelMetricsBehavior" => list(any())
       }
 
   """
-  @type evaluate_mapping_template_request() :: %{(String.t() | atom()) => any()}
+  @type enhanced_metrics_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      open_id_connect_config() :: %{
-        "authTTL" => float(),
-        "clientId" => String.t() | atom(),
-        "iatTTL" => float(),
-        "issuer" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("tags") => map()
       }
 
   """
-  @type open_id_connect_config() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_merged_graphql_api_response() :: %{
+        "sourceApiAssociationStatus" => list(any())
+      }
+
+  """
+  @type disassociate_merged_graphql_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cognito_config() :: %{
+        "appIdClientRegex" => String.t() | atom(),
+        "awsRegion" => String.t() | atom(),
+        "userPoolId" => String.t() | atom()
+      }
+
+  """
+  @type cognito_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_detail() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_introspection_model() :: %{
+        "fields" => list(data_source_introspection_model_field()),
+        "indexes" => list(data_source_introspection_model_index()),
+        "name" => String.t() | atom(),
+        "primaryKey" => data_source_introspection_model_index(),
+        "sdl" => String.t() | atom()
+      }
+
+  """
+  @type data_source_introspection_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rds_data_api_config() :: %{
+        "databaseName" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "secretArn" => String.t() | atom()
+      }
+
+  """
+  @type rds_data_api_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_key_request() :: %{}
+
+  """
+  @type delete_api_key_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resolver_request() :: %{}
+
+  """
+  @type delete_resolver_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_key_response() :: %{}
+
+  """
+  @type delete_api_key_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graphql_api_request() :: %{}
+
+  """
+  @type get_graphql_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_type_response() :: %{
+        "type" => type()
+      }
+
+  """
+  @type update_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_api_response() :: %{
+        "apiAssociation" => api_association()
+      }
+
+  """
+  @type associate_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_source_graphql_api_request() :: %{}
+
+  """
+  @type disassociate_source_graphql_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_type_response() :: %{
+        "type" => type()
+      }
+
+  """
+  @type create_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_response() :: %{}
+
+  """
+  @type delete_api_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delta_sync_config() :: %{
+        "baseTableTTL" => float(),
+        "deltaSyncTableName" => String.t() | atom(),
+        "deltaSyncTableTTL" => float()
+      }
+
+  """
+  @type delta_sync_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_graphql_api_request() :: %{}
+
+  """
+  @type delete_graphql_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resolver_response() :: %{
+        "resolver" => resolver()
+      }
+
+  """
+  @type get_resolver_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_graphql_api_request() :: %{
+        optional("additionalAuthenticationProviders") => list(additional_authentication_provider()),
+        required("authenticationType") => list(any()),
+        optional("enhancedMetricsConfig") => enhanced_metrics_config(),
+        optional("introspectionConfig") => list(any()),
+        optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
+        optional("logConfig") => log_config(),
+        optional("mergedApiExecutionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("openIDConnectConfig") => open_id_connect_config(),
+        optional("ownerContact") => String.t() | atom(),
+        optional("queryDepthLimit") => integer(),
+        optional("resolverCountLimit") => integer(),
+        optional("userPoolConfig") => user_pool_config(),
+        optional("xrayEnabled") => boolean()
+      }
+
+  """
+  @type update_graphql_api_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -737,82 +433,10 @@ defmodule AWS.AppSync do
 
   ## Example:
 
-      list_resolvers_by_function_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resolvers" => list(resolver())
-      }
+      disassociate_api_response() :: %{}
 
   """
-  @type list_resolvers_by_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_function_response() :: %{
-        "functionConfiguration" => function_configuration()
-      }
-
-  """
-  @type update_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_namespace_request() :: %{}
-
-  """
-  @type delete_channel_namespace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      auth_mode() :: %{
-        "authType" => list(any())
-      }
-
-  """
-  @type auth_mode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_graphql_api_response() :: %{
-        "graphqlApi" => graphql_api()
-      }
-
-  """
-  @type update_graphql_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_cache_request() :: %{
-        optional("atRestEncryptionEnabled") => boolean(),
-        optional("healthMetricsConfig") => list(any()),
-        optional("transitEncryptionEnabled") => boolean(),
-        required("apiCachingBehavior") => list(any()),
-        required("ttl") => float(),
-        required("type") => list(any())
-      }
-
-  """
-  @type create_api_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_key_response() :: %{
-        "apiKey" => api_key()
-      }
-
-  """
-  @type update_api_key_response() :: %{(String.t() | atom()) => any()}
+  @type disassociate_api_response() :: %{}
 
   @typedoc """
 
@@ -851,40 +475,131 @@ defmodule AWS.AppSync do
 
   ## Example:
 
-      get_api_cache_request() :: %{}
-
-  """
-  @type get_api_cache_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_graphql_api_request() :: %{}
-
-  """
-  @type delete_graphql_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_association_request() :: %{}
-
-  """
-  @type get_api_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      caching_config() :: %{
-        "cachingKeys" => list(String.t() | atom()),
-        "ttl" => float()
+      api_key_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type caching_config() :: %{(String.t() | atom()) => any()}
+  @type api_key_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_namespace_request() :: %{
+        optional("codeHandlers") => String.t() | atom(),
+        optional("handlerConfigs") => handler_configs(),
+        required("name") => String.t() | atom(),
+        optional("publishAuthModes") => list(auth_mode()),
+        optional("subscribeAuthModes") => list(auth_mode()),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_channel_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_name_response() :: %{}
+
+  """
+  @type delete_domain_name_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_name_request() :: %{}
+
+  """
+  @type get_domain_name_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_name_request() :: %{
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_domain_name_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_introspection_model_index() :: %{
+        "fields" => list(String.t() | atom()),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type data_source_introspection_model_index() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_function_response() :: %{
+        "functionConfiguration" => function_configuration()
+      }
+
+  """
+  @type update_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_source_request() :: %{}
+
+  """
+  @type delete_data_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_conflict_handler_config() :: %{
+        "lambdaConflictHandlerArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_conflict_handler_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_source_response() :: %{
+        "dataSource" => data_source()
+      }
+
+  """
+  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,96 +617,18 @@ defmodule AWS.AppSync do
 
   ## Example:
 
-      get_type_response() :: %{
-        "type" => type()
+      source_api_association_summary() :: %{
+        "associationArn" => String.t() | atom(),
+        "associationId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "mergedApiArn" => String.t() | atom(),
+        "mergedApiId" => String.t() | atom(),
+        "sourceApiArn" => String.t() | atom(),
+        "sourceApiId" => String.t() | atom()
       }
 
   """
-  @type get_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sources_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_introspection_schema_response() :: %{
-        "schema" => binary()
-      }
-
-  """
-  @type get_introspection_schema_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_namespace_request() :: %{
-        optional("codeHandlers") => String.t() | atom(),
-        optional("handlerConfigs") => handler_configs(),
-        optional("publishAuthModes") => list(auth_mode()),
-        optional("subscribeAuthModes") => list(auth_mode()),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_channel_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_source_response() :: %{}
-
-  """
-  @type delete_data_source_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delta_sync_config() :: %{
-        "baseTableTTL" => float(),
-        "deltaSyncTableName" => String.t() | atom(),
-        "deltaSyncTableTTL" => float()
-      }
-
-  """
-  @type delta_sync_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_sync_runtime() :: %{
-        "name" => list(any()),
-        "runtimeVersion" => String.t() | atom()
-      }
-
-  """
-  @type app_sync_runtime() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_api_response() :: %{
-        "apiAssociation" => api_association()
-      }
-
-  """
-  @type associate_api_response() :: %{(String.t() | atom()) => any()}
+  @type source_api_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1006,12 +643,417 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      event_bridge_data_source_config() :: %{
+        "eventBusArn" => String.t() | atom()
+      }
+
+  """
+  @type event_bridge_data_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_graphql_api_response() :: %{
+        "graphqlApi" => graphql_api()
+      }
+
+  """
+  @type update_graphql_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_source_graphql_api_response() :: %{
+        "sourceApiAssociation" => source_api_association()
+      }
+
+  """
+  @type associate_source_graphql_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_request() :: %{}
+
+  """
+  @type delete_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_introspection_model_field() :: %{
+        "length" => float(),
+        "name" => String.t() | atom(),
+        "type" => data_source_introspection_model_field_type()
+      }
+
+  """
+  @type data_source_introspection_model_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_code_error_detail() :: %{
+        "codeErrors" => list(code_error()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type evaluate_code_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graphql_api_environment_variables_request() :: %{}
+
+  """
+  @type get_graphql_api_environment_variables_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_introspection_response() :: %{
+        "introspectionId" => String.t() | atom(),
+        "introspectionResult" => data_source_introspection_result(),
+        "introspectionStatus" => list(any()),
+        "introspectionStatusDetail" => String.t() | atom()
+      }
+
+  """
+  @type get_data_source_introspection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_api_request() :: %{
+        required("apiId") => String.t() | atom()
+      }
+
+  """
+  @type associate_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_merged_graphql_api_response() :: %{
+        "sourceApiAssociation" => source_api_association()
+      }
+
+  """
+  @type associate_merged_graphql_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_response() :: %{
+        "functionConfiguration" => function_configuration()
+      }
+
+  """
+  @type get_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type api_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_name_response() :: %{
+        "domainNameConfig" => domain_name_config()
+      }
+
+  """
+  @type get_domain_name_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_type_request() :: %{
+        optional("definition") => String.t() | atom(),
+        required("format") => list(any())
+      }
+
+  """
+  @type update_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_provider() :: %{
+        "authType" => list(any()),
+        "cognitoConfig" => cognito_config(),
+        "lambdaAuthorizerConfig" => lambda_authorizer_config(),
+        "openIDConnectConfig" => open_id_connect_config()
+      }
+
+  """
+  @type auth_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_response() :: %{
+        "dataSource" => data_source()
+      }
+
+  """
+  @type get_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_error_location() :: %{
+        "column" => integer(),
+        "line" => integer(),
+        "span" => integer()
+      }
+
+  """
+  @type code_error_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_source_api_association_request() :: %{}
+
+  """
+  @type get_source_api_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_graphql_api_request() :: %{
+        optional("additionalAuthenticationProviders") => list(additional_authentication_provider()),
+        optional("apiType") => list(any()),
+        required("authenticationType") => list(any()),
+        optional("enhancedMetricsConfig") => enhanced_metrics_config(),
+        optional("introspectionConfig") => list(any()),
+        optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
+        optional("logConfig") => log_config(),
+        optional("mergedApiExecutionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("openIDConnectConfig") => open_id_connect_config(),
+        optional("ownerContact") => String.t() | atom(),
+        optional("queryDepthLimit") => integer(),
+        optional("resolverCountLimit") => integer(),
+        optional("tags") => map(),
+        optional("userPoolConfig") => user_pool_config(),
+        optional("visibility") => list(any()),
+        optional("xrayEnabled") => boolean()
+      }
+
+  """
+  @type create_graphql_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_function_request() :: %{
+        optional("code") => String.t() | atom(),
+        required("dataSourceName") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("functionVersion") => String.t() | atom(),
+        optional("maxBatchSize") => integer(),
+        required("name") => String.t() | atom(),
+        optional("requestMappingTemplate") => String.t() | atom(),
+        optional("responseMappingTemplate") => String.t() | atom(),
+        optional("runtime") => app_sync_runtime(),
+        optional("syncConfig") => sync_config()
+      }
+
+  """
+  @type update_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_name_config() :: %{
+        "appsyncDomainName" => String.t() | atom(),
+        "certificateArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "domainNameArn" => String.t() | atom(),
+        "hostedZoneId" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type domain_name_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_config() :: %{
+        "invokeType" => list(any())
+      }
+
+  """
+  @type lambda_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_cache_request() :: %{
+        required("apiCachingBehavior") => list(any()),
+        optional("atRestEncryptionEnabled") => boolean(),
+        optional("healthMetricsConfig") => list(any()),
+        optional("transitEncryptionEnabled") => boolean(),
+        required("ttl") => float(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_api_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_search_service_data_source_config() :: %{
+        "awsRegion" => String.t() | atom(),
+        "endpoint" => String.t() | atom()
+      }
+
+  """
+  @type open_search_service_data_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_type_request() :: %{
+        required("definition") => String.t() | atom(),
+        required("format") => list(any())
+      }
+
+  """
+  @type create_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_namespace_response() :: %{
+        "channelNamespace" => channel_namespace()
+      }
+
+  """
+  @type update_channel_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_function_request() :: %{}
+
+  """
+  @type delete_function_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source() :: %{
+        "dataSourceArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "dynamodbConfig" => dynamodb_data_source_config(),
+        "elasticsearchConfig" => elasticsearch_data_source_config(),
+        "eventBridgeConfig" => event_bridge_data_source_config(),
+        "httpConfig" => http_data_source_config(),
+        "lambdaConfig" => lambda_data_source_config(),
+        "metricsConfig" => list(any()),
+        "name" => String.t() | atom(),
+        "openSearchServiceConfig" => open_search_service_data_source_config(),
+        "relationalDatabaseConfig" => relational_database_data_source_config(),
+        "serviceRoleArn" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_api_keys_response() :: %{
+        "apiKeys" => list(api_key()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_api_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1038,346 +1080,179 @@ defmodule AWS.AppSync do
 
   ## Example:
 
-      user_pool_config() :: %{
-        "appIdClientRegex" => String.t() | atom(),
-        "awsRegion" => String.t() | atom(),
-        "defaultAction" => list(any()),
-        "userPoolId" => String.t() | atom()
-      }
+      flush_api_cache_response() :: %{}
 
   """
-  @type user_pool_config() :: %{(String.t() | atom()) => any()}
+  @type flush_api_cache_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_api_response() :: %{
-        "api" => api()
+      create_resolver_response() :: %{
+        "resolver" => resolver()
       }
 
   """
-  @type get_api_response() :: %{(String.t() | atom()) => any()}
+  @type create_resolver_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_channel_namespace_response() :: %{
-        "channelNamespace" => channel_namespace()
-      }
-
-  """
-  @type get_channel_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_graphql_api_environment_variables_request() :: %{
-        required("environmentVariables") => map()
-      }
-
-  """
-  @type put_graphql_api_environment_variables_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resolver_request() :: %{
-        optional("cachingConfig") => caching_config(),
-        optional("code") => String.t() | atom(),
-        optional("dataSourceName") => String.t() | atom(),
-        optional("kind") => list(any()),
-        optional("maxBatchSize") => integer(),
+      update_data_source_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("dynamodbConfig") => dynamodb_data_source_config(),
+        optional("elasticsearchConfig") => elasticsearch_data_source_config(),
+        optional("eventBridgeConfig") => event_bridge_data_source_config(),
+        optional("httpConfig") => http_data_source_config(),
+        optional("lambdaConfig") => lambda_data_source_config(),
         optional("metricsConfig") => list(any()),
-        optional("pipelineConfig") => pipeline_config(),
-        optional("requestMappingTemplate") => String.t() | atom(),
-        optional("responseMappingTemplate") => String.t() | atom(),
-        optional("runtime") => app_sync_runtime(),
-        optional("syncConfig") => sync_config(),
-        required("fieldName") => String.t() | atom()
+        optional("openSearchServiceConfig") => open_search_service_data_source_config(),
+        optional("relationalDatabaseConfig") => relational_database_data_source_config(),
+        optional("serviceRoleArn") => String.t() | atom(),
+        required("type") => list(any())
       }
 
   """
-  @type create_resolver_request() :: %{(String.t() | atom()) => any()}
+  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      code_error() :: %{
-        "errorType" => String.t() | atom(),
-        "location" => code_error_location(),
-        "value" => String.t() | atom()
+      relational_database_data_source_config() :: %{
+        "rdsHttpEndpointConfig" => rds_http_endpoint_config(),
+        "relationalDatabaseSourceType" => list(any())
       }
 
   """
-  @type code_error() :: %{(String.t() | atom()) => any()}
+  @type relational_database_data_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_function_request() :: %{}
-
-  """
-  @type delete_function_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      log_config() :: %{
-        "cloudWatchLogsRoleArn" => String.t() | atom(),
-        "excludeVerboseContent" => boolean(),
-        "fieldLogLevel" => list(any())
+      caching_config() :: %{
+        "cachingKeys" => list(String.t() | atom()),
+        "ttl" => float()
       }
 
   """
-  @type log_config() :: %{(String.t() | atom()) => any()}
+  @type caching_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_data_source_request() :: %{}
+      evaluate_code_response() :: %{
+        "error" => evaluate_code_error_detail(),
+        "evaluationResult" => String.t() | atom(),
+        "logs" => list(String.t() | atom()),
+        "outErrors" => String.t() | atom(),
+        "stash" => String.t() | atom()
+      }
 
   """
-  @type get_data_source_request() :: %{}
+  @type evaluate_code_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_resolvers_response() :: %{
+      handler_configs() :: %{
+        "onPublish" => handler_config(),
+        "onSubscribe" => handler_config()
+      }
+
+  """
+  @type handler_configs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_source_api_association_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("sourceApiAssociationConfig") => source_api_association_config()
+      }
+
+  """
+  @type update_source_api_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_graphql_api_response() :: %{
+        "graphqlApi" => graphql_api()
+      }
+
+  """
+  @type create_graphql_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_types_by_association_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "types" => list(type())
+      }
+
+  """
+  @type list_types_by_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_source_graphql_api_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("sourceApiAssociationConfig") => source_api_association_config(),
+        required("sourceApiIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type associate_source_graphql_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resolvers_by_function_response() :: %{
         "nextToken" => String.t() | atom(),
         "resolvers" => list(resolver())
       }
 
   """
-  @type list_resolvers_response() :: %{(String.t() | atom()) => any()}
+  @type list_resolvers_by_function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_api_response() :: %{
-        "api" => api()
+      update_api_request() :: %{
+        required("eventConfig") => event_config(),
+        required("name") => String.t() | atom(),
+        optional("ownerContact") => String.t() | atom()
       }
 
   """
-  @type update_api_response() :: %{(String.t() | atom()) => any()}
+  @type update_api_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      lambda_authorizer_config() :: %{
+        "authorizerResultTtlInSeconds" => integer(),
+        "authorizerUri" => String.t() | atom(),
+        "identityValidationExpression" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_cache_response() :: %{
-        "apiCache" => api_cache()
-      }
-
-  """
-  @type get_api_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_merged_graphql_api_response() :: %{
-        "sourceApiAssociationStatus" => list(any())
-      }
-
-  """
-  @type disassociate_merged_graphql_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_api_request() :: %{}
-
-  """
-  @type disassociate_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_type_response() :: %{
-        "type" => type()
-      }
-
-  """
-  @type create_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graphql_api_environment_variables_response() :: %{
-        "environmentVariables" => map()
-      }
-
-  """
-  @type get_graphql_api_environment_variables_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_function_response() :: %{
-        "functionConfiguration" => function_configuration()
-      }
-
-  """
-  @type create_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enhanced_metrics_config() :: %{
-        "dataSourceLevelMetricsBehavior" => list(any()),
-        "operationLevelMetricsConfig" => list(any()),
-        "resolverLevelMetricsBehavior" => list(any())
-      }
-
-  """
-  @type enhanced_metrics_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_key_response() :: %{}
-
-  """
-  @type delete_api_key_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sources_response() :: %{
-        "dataSources" => list(data_source()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_source_request() :: %{}
-
-  """
-  @type delete_data_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_function_response() :: %{}
-
-  """
-  @type delete_function_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      api_cache() :: %{
-        "apiCachingBehavior" => list(any()),
-        "atRestEncryptionEnabled" => boolean(),
-        "healthMetricsConfig" => list(any()),
-        "status" => list(any()),
-        "transitEncryptionEnabled" => boolean(),
-        "ttl" => float(),
-        "type" => list(any())
-      }
-
-  """
-  @type api_cache() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_name_response() :: %{
-        "domainNameConfig" => domain_name_config()
-      }
-
-  """
-  @type update_domain_name_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resolver_request() :: %{}
-
-  """
-  @type delete_resolver_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_introspection_response() :: %{
-        "introspectionId" => String.t() | atom(),
-        "introspectionResult" => data_source_introspection_result(),
-        "introspectionStatus" => list(any()),
-        "introspectionStatusDetail" => String.t() | atom()
-      }
-
-  """
-  @type get_data_source_introspection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_source_api_association_request() :: %{}
-
-  """
-  @type get_source_api_association_request() :: %{}
+  @type lambda_authorizer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1396,6 +1271,38 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      delete_api_cache_response() :: %{}
+
+  """
+  @type delete_api_cache_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      integration() :: %{
+        "dataSourceName" => String.t() | atom(),
+        "lambdaConfig" => lambda_config()
+      }
+
+  """
+  @type integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_type_response() :: %{
+        "type" => type()
+      }
+
+  """
+  @type get_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       handler_config() :: %{
         "behavior" => list(any()),
         "integration" => integration()
@@ -1403,6 +1310,1302 @@ defmodule AWS.AppSync do
 
   """
   @type handler_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_data_source_config() :: %{
+        "lambdaFunctionArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_data_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_log_config() :: %{
+        "cloudWatchLogsRoleArn" => String.t() | atom(),
+        "logLevel" => list(any())
+      }
+
+  """
+  @type event_log_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_request() :: %{
+        required("eventConfig") => event_config(),
+        required("name") => String.t() | atom(),
+        optional("ownerContact") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      elasticsearch_data_source_config() :: %{
+        "awsRegion" => String.t() | atom(),
+        "endpoint" => String.t() | atom()
+      }
+
+  """
+  @type elasticsearch_data_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apis_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_apis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_detail() :: %{
+        "codeErrors" => list(code_error())
+      }
+
+  """
+  @type bad_request_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_data_source_config() :: %{
+        "authorizationConfig" => authorization_config(),
+        "endpoint" => String.t() | atom()
+      }
+
+  """
+  @type http_data_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key() :: %{
+        "deletes" => float(),
+        "description" => String.t() | atom(),
+        "expires" => float(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type api_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_source_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("dynamodbConfig") => dynamodb_data_source_config(),
+        optional("elasticsearchConfig") => elasticsearch_data_source_config(),
+        optional("eventBridgeConfig") => event_bridge_data_source_config(),
+        optional("httpConfig") => http_data_source_config(),
+        optional("lambdaConfig") => lambda_data_source_config(),
+        optional("metricsConfig") => list(any()),
+        required("name") => String.t() | atom(),
+        optional("openSearchServiceConfig") => open_search_service_data_source_config(),
+        optional("relationalDatabaseConfig") => relational_database_data_source_config(),
+        optional("serviceRoleArn") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_cache_request() :: %{
+        required("apiCachingBehavior") => list(any()),
+        optional("healthMetricsConfig") => list(any()),
+        required("ttl") => float(),
+        required("type") => list(any())
+      }
+
+  """
+  @type update_api_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_key_response() :: %{
+        "apiKey" => api_key()
+      }
+
+  """
+  @type update_api_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_introspection_schema_response() :: %{
+        "schema" => binary()
+      }
+
+  """
+  @type get_introspection_schema_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_authentication_provider() :: %{
+        "authenticationType" => list(any()),
+        "lambdaAuthorizerConfig" => lambda_authorizer_config(),
+        "openIDConnectConfig" => open_id_connect_config(),
+        "userPoolConfig" => cognito_user_pool_config()
+      }
+
+  """
+  @type additional_authentication_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_introspection_request() :: %{
+        optional("includeModelsSDL") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_data_source_introspection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_types_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "types" => list(type())
+      }
+
+  """
+  @type list_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_namespace() :: %{
+        "apiId" => String.t() | atom(),
+        "channelNamespaceArn" => String.t() | atom(),
+        "codeHandlers" => String.t() | atom(),
+        "created" => non_neg_integer(),
+        "handlerConfigs" => handler_configs(),
+        "lastModified" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "publishAuthModes" => list(auth_mode()),
+        "subscribeAuthModes" => list(auth_mode()),
+        "tags" => map()
+      }
+
+  """
+  @type channel_namespace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_merged_graphql_api_request() :: %{}
+
+  """
+  @type disassociate_merged_graphql_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_introspection_model_field_type() :: %{
+        "kind" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => data_source_introspection_model_field_type(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type data_source_introspection_model_field_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_key_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("expires") => float()
+      }
+
+  """
+  @type update_api_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_type_request() :: %{
+        required("format") => list(any())
+      }
+
+  """
+  @type get_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sync_config() :: %{
+        "conflictDetection" => list(any()),
+        "conflictHandler" => list(any()),
+        "lambdaConflictHandlerConfig" => lambda_conflict_handler_config()
+      }
+
+  """
+  @type sync_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      graph_q_l_schema_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type graph_q_l_schema_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_source_response() :: %{
+        "dataSource" => data_source()
+      }
+
+  """
+  @type update_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_config() :: %{
+        "cloudWatchLogsRoleArn" => String.t() | atom(),
+        "excludeVerboseContent" => boolean(),
+        "fieldLogLevel" => list(any())
+      }
+
+  """
+  @type log_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_schema_creation_request() :: %{
+        required("definition") => binary()
+      }
+
+  """
+  @type start_schema_creation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_graphql_api_response() :: %{}
+
+  """
+  @type delete_graphql_api_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_key_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("expires") => float()
+      }
+
+  """
+  @type create_api_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_request() :: %{}
+
+  """
+  @type get_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_association_request() :: %{}
+
+  """
+  @type get_api_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cognito_user_pool_config() :: %{
+        "appIdClientRegex" => String.t() | atom(),
+        "awsRegion" => String.t() | atom(),
+        "userPoolId" => String.t() | atom()
+      }
+
+  """
+  @type cognito_user_pool_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_api_association_config() :: %{
+        "mergeType" => list(any())
+      }
+
+  """
+  @type source_api_association_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_names_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domain_names_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_type_response() :: %{}
+
+  """
+  @type delete_type_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_function_response() :: %{
+        "functionConfiguration" => function_configuration()
+      }
+
+  """
+  @type create_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_cache_response() :: %{
+        "apiCache" => api_cache()
+      }
+
+  """
+  @type update_api_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_introspection_result() :: %{
+        "models" => list(data_source_introspection_model()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type data_source_introspection_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graphql_api_environment_variables_response() :: %{
+        "environmentVariables" => map()
+      }
+
+  """
+  @type get_graphql_api_environment_variables_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_response() :: %{
+        "api" => api()
+      }
+
+  """
+  @type get_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_type_request() :: %{}
+
+  """
+  @type delete_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_names_response() :: %{
+        "domainNameConfigs" => list(domain_name_config()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_names_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_namespaces_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_channel_namespaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_api_associations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sourceApiAssociationSummaries" => list(source_api_association_summary())
+      }
+
+  """
+  @type list_source_api_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_name_response() :: %{
+        "domainNameConfig" => domain_name_config()
+      }
+
+  """
+  @type create_domain_name_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_graphql_api_environment_variables_response() :: %{
+        "environmentVariables" => map()
+      }
+
+  """
+  @type put_graphql_api_environment_variables_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_request() :: %{}
+
+  """
+  @type get_data_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_namespace_request() :: %{}
+
+  """
+  @type delete_channel_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_cache_request() :: %{}
+
+  """
+  @type get_api_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_cache_request() :: %{}
+
+  """
+  @type delete_api_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_data_source_introspection_request() :: %{
+        optional("rdsDataApiConfig") => rds_data_api_config()
+      }
+
+  """
+  @type start_data_source_introspection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resolvers_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resolvers" => list(resolver())
+      }
+
+  """
+  @type list_resolvers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key_validity_out_of_bounds_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type api_key_validity_out_of_bounds_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_name_response() :: %{
+        "domainNameConfig" => domain_name_config()
+      }
+
+  """
+  @type update_domain_name_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_source_api_association_response() :: %{
+        "sourceApiAssociation" => source_api_association()
+      }
+
+  """
+  @type get_source_api_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_name_request() :: %{}
+
+  """
+  @type delete_domain_name_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_namespace_response() :: %{}
+
+  """
+  @type delete_channel_namespace_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schema_creation_status_response() :: %{
+        "details" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_schema_creation_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_source_graphql_api_response() :: %{
+        "sourceApiAssociationStatus" => list(any())
+      }
+
+  """
+  @type disassociate_source_graphql_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_pool_config() :: %{
+        "appIdClientRegex" => String.t() | atom(),
+        "awsRegion" => String.t() | atom(),
+        "defaultAction" => list(any()),
+        "userPoolId" => String.t() | atom()
+      }
+
+  """
+  @type user_pool_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_schema_merge_response() :: %{
+        "sourceApiAssociationStatus" => list(any())
+      }
+
+  """
+  @type start_schema_merge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_code_request() :: %{
+        required("code") => String.t() | atom(),
+        required("context") => String.t() | atom(),
+        optional("function") => String.t() | atom(),
+        required("runtime") => app_sync_runtime()
+      }
+
+  """
+  @type evaluate_code_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_functions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_functions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resolver_request() :: %{}
+
+  """
+  @type get_resolver_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_response() :: %{
+        "api" => api()
+      }
+
+  """
+  @type update_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_namespace_request() :: %{
+        optional("codeHandlers") => String.t() | atom(),
+        optional("handlerConfigs") => handler_configs(),
+        optional("publishAuthModes") => list(auth_mode()),
+        optional("subscribeAuthModes") => list(auth_mode())
+      }
+
+  """
+  @type update_channel_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_namespace_response() :: %{
+        "channelNamespace" => channel_namespace()
+      }
+
+  """
+  @type create_channel_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resolvers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_resolvers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_response() :: %{
+        "api" => api()
+      }
+
+  """
+  @type create_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_association_response() :: %{
+        "apiAssociation" => api_association()
+      }
+
+  """
+  @type get_api_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_configuration() :: %{
+        "code" => String.t() | atom(),
+        "dataSourceName" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "functionArn" => String.t() | atom(),
+        "functionId" => String.t() | atom(),
+        "functionVersion" => String.t() | atom(),
+        "maxBatchSize" => integer(),
+        "name" => String.t() | atom(),
+        "requestMappingTemplate" => String.t() | atom(),
+        "responseMappingTemplate" => String.t() | atom(),
+        "runtime" => app_sync_runtime(),
+        "syncConfig" => sync_config()
+      }
+
+  """
+  @type function_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_schema_creation_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type start_schema_creation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_introspection_schema_request() :: %{
+        required("format") => list(any()),
+        optional("includeDirectives") => boolean()
+      }
+
+  """
+  @type get_introspection_schema_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_function_request() :: %{
+        optional("code") => String.t() | atom(),
+        required("dataSourceName") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("functionVersion") => String.t() | atom(),
+        optional("maxBatchSize") => integer(),
+        required("name") => String.t() | atom(),
+        optional("requestMappingTemplate") => String.t() | atom(),
+        optional("responseMappingTemplate") => String.t() | atom(),
+        optional("runtime") => app_sync_runtime(),
+        optional("syncConfig") => sync_config()
+      }
+
+  """
+  @type create_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api() :: %{
+        "apiArn" => String.t() | atom(),
+        "apiId" => String.t() | atom(),
+        "created" => non_neg_integer(),
+        "dns" => map(),
+        "eventConfig" => event_config(),
+        "name" => String.t() | atom(),
+        "ownerContact" => String.t() | atom(),
+        "tags" => map(),
+        "wafWebAclArn" => String.t() | atom(),
+        "xrayEnabled" => boolean()
+      }
+
+  """
+  @type api() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flush_api_cache_request() :: %{}
+
+  """
+  @type flush_api_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_source_api_association_response() :: %{
+        "sourceApiAssociation" => source_api_association()
+      }
+
+  """
+  @type update_source_api_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_config() :: %{
+        "authProviders" => list(auth_provider()),
+        "connectionAuthModes" => list(auth_mode()),
+        "defaultPublishAuthModes" => list(auth_mode()),
+        "defaultSubscribeAuthModes" => list(auth_mode()),
+        "logConfig" => event_log_config()
+      }
+
+  """
+  @type event_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_association() :: %{
+        "apiId" => String.t() | atom(),
+        "associationStatus" => list(any()),
+        "deploymentDetail" => String.t() | atom(),
+        "domainName" => String.t() | atom()
+      }
+
+  """
+  @type api_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apis_response() :: %{
+        "apis" => list(api()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_apis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_api_request() :: %{}
+
+  """
+  @type disassociate_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_namespace_response() :: %{
+        "channelNamespace" => channel_namespace()
+      }
+
+  """
+  @type get_channel_namespace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_api_association() :: %{
+        "associationArn" => String.t() | atom(),
+        "associationId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "lastSuccessfulMergeDate" => non_neg_integer(),
+        "mergedApiArn" => String.t() | atom(),
+        "mergedApiId" => String.t() | atom(),
+        "sourceApiArn" => String.t() | atom(),
+        "sourceApiAssociationConfig" => source_api_association_config(),
+        "sourceApiAssociationStatus" => list(any()),
+        "sourceApiAssociationStatusDetail" => String.t() | atom(),
+        "sourceApiId" => String.t() | atom()
+      }
+
+  """
+  @type source_api_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graphql_api_response() :: %{
+        "graphqlApi" => graphql_api()
+      }
+
+  """
+  @type get_graphql_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_api_keys_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_api_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_graphql_apis_response() :: %{
+        "graphqlApis" => list(graphql_api()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_graphql_apis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schema_creation_status_request() :: %{}
+
+  """
+  @type get_schema_creation_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resolvers_by_function_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_resolvers_by_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_cache_response() :: %{
+        "apiCache" => api_cache()
+      }
+
+  """
+  @type get_api_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resolver_response() :: %{
+        "resolver" => resolver()
+      }
+
+  """
+  @type update_resolver_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_id_connect_config() :: %{
+        "authTTL" => float(),
+        "clientId" => String.t() | atom(),
+        "iatTTL" => float(),
+        "issuer" => String.t() | atom()
+      }
+
+  """
+  @type open_id_connect_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sources_response() :: %{
+        "dataSources" => list(data_source()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_schema_merge_request() :: %{}
+
+  """
+  @type start_schema_merge_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_namespace_request() :: %{}
+
+  """
+  @type get_channel_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      app_sync_runtime() :: %{
+        "name" => list(any()),
+        "runtimeVersion" => String.t() | atom()
+      }
+
+  """
+  @type app_sync_runtime() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_merged_graphql_api_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("mergedApiIdentifier") => String.t() | atom(),
+        optional("sourceApiAssociationConfig") => source_api_association_config()
+      }
+
+  """
+  @type associate_merged_graphql_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resolver_request() :: %{
+        optional("cachingConfig") => caching_config(),
+        optional("code") => String.t() | atom(),
+        optional("dataSourceName") => String.t() | atom(),
+        required("fieldName") => String.t() | atom(),
+        optional("kind") => list(any()),
+        optional("maxBatchSize") => integer(),
+        optional("metricsConfig") => list(any()),
+        optional("pipelineConfig") => pipeline_config(),
+        optional("requestMappingTemplate") => String.t() | atom(),
+        optional("responseMappingTemplate") => String.t() | atom(),
+        optional("runtime") => app_sync_runtime(),
+        optional("syncConfig") => sync_config()
+      }
+
+  """
+  @type create_resolver_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_cache_response() :: %{
+        "apiCache" => api_cache()
+      }
+
+  """
+  @type create_api_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dynamodb_data_source_config() :: %{
+        "awsRegion" => String.t() | atom(),
+        "deltaSyncConfig" => delta_sync_config(),
+        "tableName" => String.t() | atom(),
+        "useCallerCredentials" => boolean(),
+        "versioned" => boolean()
+      }
+
+  """
+  @type dynamodb_data_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "detail" => bad_request_detail(),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_functions_response() :: %{
+        "functions" => list(function_configuration()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_functions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_types_by_association_request() :: %{
+        required("format") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_types_by_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_source_response() :: %{}
+
+  """
+  @type delete_data_source_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_config() :: %{
+        "functions" => list(String.t() | atom())
+      }
+
+  """
+  @type pipeline_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_api_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_source_api_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1432,691 +2635,34 @@ defmodule AWS.AppSync do
 
   ## Example:
 
-      list_domain_names_response() :: %{
-        "domainNameConfigs" => list(domain_name_config()),
-        "nextToken" => String.t() | atom()
+      put_graphql_api_environment_variables_request() :: %{
+        required("environmentVariables") => map()
       }
 
   """
-  @type list_domain_names_response() :: %{(String.t() | atom()) => any()}
+  @type put_graphql_api_environment_variables_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_api_key_response() :: %{
-        "apiKey" => api_key()
+      delete_function_response() :: %{}
+
+  """
+  @type delete_function_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      code_error() :: %{
+        "errorType" => String.t() | atom(),
+        "location" => code_error_location(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type create_api_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_type_request() :: %{
-        optional("definition") => String.t() | atom(),
-        required("format") => list(any())
-      }
-
-  """
-  @type update_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_config() :: %{
-        "functions" => list(String.t() | atom())
-      }
-
-  """
-  @type pipeline_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_name_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_domain_name_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_key_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("expires") => float()
-      }
-
-  """
-  @type create_api_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_data_source_config() :: %{
-        "lambdaFunctionArn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_data_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_cache_request() :: %{
-        optional("healthMetricsConfig") => list(any()),
-        required("apiCachingBehavior") => list(any()),
-        required("ttl") => float(),
-        required("type") => list(any())
-      }
-
-  """
-  @type update_api_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_config() :: %{
-        "authProviders" => list(auth_provider()),
-        "connectionAuthModes" => list(auth_mode()),
-        "defaultPublishAuthModes" => list(auth_mode()),
-        "defaultSubscribeAuthModes" => list(auth_mode()),
-        "logConfig" => event_log_config()
-      }
-
-  """
-  @type event_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_functions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_functions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_association() :: %{
-        "apiId" => String.t() | atom(),
-        "associationStatus" => list(any()),
-        "deploymentDetail" => String.t() | atom(),
-        "domainName" => String.t() | atom()
-      }
-
-  """
-  @type api_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_data_source_config() :: %{
-        "authorizationConfig" => authorization_config(),
-        "endpoint" => String.t() | atom()
-      }
-
-  """
-  @type http_data_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_source_response() :: %{
-        "dataSource" => data_source()
-      }
-
-  """
-  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_schema_merge_response() :: %{
-        "sourceApiAssociationStatus" => list(any())
-      }
-
-  """
-  @type start_schema_merge_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_cache_request() :: %{}
-
-  """
-  @type delete_api_cache_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_namespace_response() :: %{
-        "channelNamespace" => channel_namespace()
-      }
-
-  """
-  @type create_channel_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_schema_merge_request() :: %{}
-
-  """
-  @type start_schema_merge_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rds_data_api_config() :: %{
-        "databaseName" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "secretArn" => String.t() | atom()
-      }
-
-  """
-  @type rds_data_api_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_namespace_response() :: %{}
-
-  """
-  @type delete_channel_namespace_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_apis_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_apis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auth_provider() :: %{
-        "authType" => list(any()),
-        "cognitoConfig" => cognito_config(),
-        "lambdaAuthorizerConfig" => lambda_authorizer_config(),
-        "openIDConnectConfig" => open_id_connect_config()
-      }
-
-  """
-  @type auth_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_config() :: %{
-        "signingRegion" => String.t() | atom(),
-        "signingServiceName" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schema_creation_status_request() :: %{}
-
-  """
-  @type get_schema_creation_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      error_detail() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type error_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_namespace() :: %{
-        "apiId" => String.t() | atom(),
-        "channelNamespaceArn" => String.t() | atom(),
-        "codeHandlers" => String.t() | atom(),
-        "created" => non_neg_integer(),
-        "handlerConfigs" => handler_configs(),
-        "lastModified" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "publishAuthModes" => list(auth_mode()),
-        "subscribeAuthModes" => list(auth_mode()),
-        "tags" => map()
-      }
-
-  """
-  @type channel_namespace() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_source_graphql_api_response() :: %{
-        "sourceApiAssociationStatus" => list(any())
-      }
-
-  """
-  @type disassociate_source_graphql_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resolver_response() :: %{
-        "resolver" => resolver()
-      }
-
-  """
-  @type get_resolver_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_api_association() :: %{
-        "associationArn" => String.t() | atom(),
-        "associationId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "lastSuccessfulMergeDate" => non_neg_integer(),
-        "mergedApiArn" => String.t() | atom(),
-        "mergedApiId" => String.t() | atom(),
-        "sourceApiArn" => String.t() | atom(),
-        "sourceApiAssociationConfig" => source_api_association_config(),
-        "sourceApiAssociationStatus" => list(any()),
-        "sourceApiAssociationStatusDetail" => String.t() | atom(),
-        "sourceApiId" => String.t() | atom()
-      }
-
-  """
-  @type source_api_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_name_request() :: %{}
-
-  """
-  @type get_domain_name_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_api_request() :: %{
-        required("apiId") => String.t() | atom()
-      }
-
-  """
-  @type associate_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graphql_api_response() :: %{
-        "graphqlApi" => graphql_api()
-      }
-
-  """
-  @type get_graphql_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resolver_response() :: %{}
-
-  """
-  @type delete_resolver_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_key_request() :: %{}
-
-  """
-  @type delete_api_key_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source_api_association_summary() :: %{
-        "associationArn" => String.t() | atom(),
-        "associationId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "mergedApiArn" => String.t() | atom(),
-        "mergedApiId" => String.t() | atom(),
-        "sourceApiArn" => String.t() | atom(),
-        "sourceApiId" => String.t() | atom()
-      }
-
-  """
-  @type source_api_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_request() :: %{
-        optional("ownerContact") => String.t() | atom(),
-        required("eventConfig") => event_config(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_name_config() :: %{
-        "appsyncDomainName" => String.t() | atom(),
-        "certificateArn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainName" => String.t() | atom(),
-        "domainNameArn" => String.t() | atom(),
-        "hostedZoneId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type domain_name_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_types_by_association_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "types" => list(type())
-      }
-
-  """
-  @type list_types_by_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_schema_creation_response() :: %{
-        "status" => list(any())
-      }
-
-  """
-  @type start_schema_creation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_merged_graphql_api_request() :: %{}
-
-  """
-  @type disassociate_merged_graphql_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_schema_creation_request() :: %{
-        required("definition") => binary()
-      }
-
-  """
-  @type start_schema_creation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_namespaces_response() :: %{
-        "channelNamespaces" => list(channel_namespace()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channel_namespaces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      api_key_validity_out_of_bounds_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type api_key_validity_out_of_bounds_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_configuration() :: %{
-        "code" => String.t() | atom(),
-        "dataSourceName" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "functionArn" => String.t() | atom(),
-        "functionId" => String.t() | atom(),
-        "functionVersion" => String.t() | atom(),
-        "maxBatchSize" => integer(),
-        "name" => String.t() | atom(),
-        "requestMappingTemplate" => String.t() | atom(),
-        "responseMappingTemplate" => String.t() | atom(),
-        "runtime" => app_sync_runtime(),
-        "syncConfig" => sync_config()
-      }
-
-  """
-  @type function_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      elasticsearch_data_source_config() :: %{
-        "awsRegion" => String.t() | atom(),
-        "endpoint" => String.t() | atom()
-      }
-
-  """
-  @type elasticsearch_data_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_config() :: %{
-        "invokeType" => list(any())
-      }
-
-  """
-  @type lambda_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_api_keys_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_api_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      relational_database_data_source_config() :: %{
-        "rdsHttpEndpointConfig" => rds_http_endpoint_config(),
-        "relationalDatabaseSourceType" => list(any())
-      }
-
-  """
-  @type relational_database_data_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      open_search_service_data_source_config() :: %{
-        "awsRegion" => String.t() | atom(),
-        "endpoint" => String.t() | atom()
-      }
-
-  """
-  @type open_search_service_data_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_source_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("dynamodbConfig") => dynamodb_data_source_config(),
-        optional("elasticsearchConfig") => elasticsearch_data_source_config(),
-        optional("eventBridgeConfig") => event_bridge_data_source_config(),
-        optional("httpConfig") => http_data_source_config(),
-        optional("lambdaConfig") => lambda_data_source_config(),
-        optional("metricsConfig") => list(any()),
-        optional("openSearchServiceConfig") => open_search_service_data_source_config(),
-        optional("relationalDatabaseConfig") => relational_database_data_source_config(),
-        optional("serviceRoleArn") => String.t() | atom(),
-        required("type") => list(any())
-      }
-
-  """
-  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flush_api_cache_response() :: %{}
-
-  """
-  @type flush_api_cache_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_request() :: %{
-        optional("ownerContact") => String.t() | atom(),
-        optional("tags") => map(),
-        required("eventConfig") => event_config(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_cache_response() :: %{}
-
-  """
-  @type delete_api_cache_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_source_graphql_api_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("sourceApiAssociationConfig") => source_api_association_config(),
-        required("sourceApiIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type associate_source_graphql_api_request() :: %{(String.t() | atom()) => any()}
+  @type code_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2133,1036 +2679,490 @@ defmodule AWS.AppSync do
   """
   @type type() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      data_source_introspection_model() :: %{
-        "fields" => list(data_source_introspection_model_field()),
-        "indexes" => list(data_source_introspection_model_index()),
-        "name" => String.t() | atom(),
-        "primaryKey" => data_source_introspection_model_index(),
-        "sdl" => String.t() | atom()
-      }
-
-  """
-  @type data_source_introspection_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api() :: %{
-        "apiArn" => String.t() | atom(),
-        "apiId" => String.t() | atom(),
-        "created" => non_neg_integer(),
-        "dns" => map(),
-        "eventConfig" => event_config(),
-        "name" => String.t() | atom(),
-        "ownerContact" => String.t() | atom(),
-        "tags" => map(),
-        "wafWebAclArn" => String.t() | atom(),
-        "xrayEnabled" => boolean()
-      }
-
-  """
-  @type api() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_namespace_response() :: %{
-        "channelNamespace" => channel_namespace()
-      }
-
-  """
-  @type update_channel_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_graphql_api_response() :: %{
-        "graphqlApi" => graphql_api()
-      }
-
-  """
-  @type create_graphql_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_introspection_result() :: %{
-        "models" => list(data_source_introspection_model()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type data_source_introspection_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluate_code_request() :: %{
-        optional("function") => String.t() | atom(),
-        required("code") => String.t() | atom(),
-        required("context") => String.t() | atom(),
-        required("runtime") => app_sync_runtime()
-      }
-
-  """
-  @type evaluate_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_source_graphql_api_response() :: %{
-        "sourceApiAssociation" => source_api_association()
-      }
-
-  """
-  @type associate_source_graphql_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_name_request() :: %{}
-
-  """
-  @type delete_domain_name_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source_api_association_config() :: %{
-        "mergeType" => list(any())
-      }
-
-  """
-  @type source_api_association_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_bridge_data_source_config() :: %{
-        "eventBusArn" => String.t() | atom()
-      }
-
-  """
-  @type event_bridge_data_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_type_response() :: %{
-        "type" => type()
-      }
-
-  """
-  @type update_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_name_response() :: %{
-        "domainNameConfig" => domain_name_config()
-      }
-
-  """
-  @type create_domain_name_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_source_api_association_response() :: %{
-        "sourceApiAssociation" => source_api_association()
-      }
-
-  """
-  @type update_source_api_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_function_request() :: %{
-        optional("code") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("functionVersion") => String.t() | atom(),
-        optional("maxBatchSize") => integer(),
-        optional("requestMappingTemplate") => String.t() | atom(),
-        optional("responseMappingTemplate") => String.t() | atom(),
-        optional("runtime") => app_sync_runtime(),
-        optional("syncConfig") => sync_config(),
-        required("dataSourceName") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_function_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "detail" => bad_request_detail(),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_graphql_api_request() :: %{
-        optional("additionalAuthenticationProviders") => list(additional_authentication_provider()),
-        optional("enhancedMetricsConfig") => enhanced_metrics_config(),
-        optional("introspectionConfig") => list(any()),
-        optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
-        optional("logConfig") => log_config(),
-        optional("mergedApiExecutionRoleArn") => String.t() | atom(),
-        optional("openIDConnectConfig") => open_id_connect_config(),
-        optional("ownerContact") => String.t() | atom(),
-        optional("queryDepthLimit") => integer(),
-        optional("resolverCountLimit") => integer(),
-        optional("userPoolConfig") => user_pool_config(),
-        optional("xrayEnabled") => boolean(),
-        required("authenticationType") => list(any()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_graphql_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_cache_response() :: %{
-        "apiCache" => api_cache()
-      }
-
-  """
-  @type update_api_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resolver_response() :: %{
-        "resolver" => resolver()
-      }
-
-  """
-  @type create_resolver_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_introspection_schema_request() :: %{
-        optional("includeDirectives") => boolean(),
-        required("format") => list(any())
-      }
-
-  """
-  @type get_introspection_schema_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_function_request() :: %{
-        optional("code") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("functionVersion") => String.t() | atom(),
-        optional("maxBatchSize") => integer(),
-        optional("requestMappingTemplate") => String.t() | atom(),
-        optional("responseMappingTemplate") => String.t() | atom(),
-        optional("runtime") => app_sync_runtime(),
-        optional("syncConfig") => sync_config(),
-        required("dataSourceName") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_function_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_detail() :: %{
-        "codeErrors" => list(code_error())
-      }
-
-  """
-  @type bad_request_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graphql_api_request() :: %{}
-
-  """
-  @type get_graphql_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_source_api_association_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("sourceApiAssociationConfig") => source_api_association_config()
-      }
-
-  """
-  @type update_source_api_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graphql_api_environment_variables_request() :: %{}
-
-  """
-  @type get_graphql_api_environment_variables_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_api_response() :: %{}
-
-  """
-  @type disassociate_api_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source() :: %{
-        "dataSourceArn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "dynamodbConfig" => dynamodb_data_source_config(),
-        "elasticsearchConfig" => elasticsearch_data_source_config(),
-        "eventBridgeConfig" => event_bridge_data_source_config(),
-        "httpConfig" => http_data_source_config(),
-        "lambdaConfig" => lambda_data_source_config(),
-        "metricsConfig" => list(any()),
-        "name" => String.t() | atom(),
-        "openSearchServiceConfig" => open_search_service_data_source_config(),
-        "relationalDatabaseConfig" => relational_database_data_source_config(),
-        "serviceRoleArn" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sync_config() :: %{
-        "conflictDetection" => list(any()),
-        "conflictHandler" => list(any()),
-        "lambdaConflictHandlerConfig" => lambda_conflict_handler_config()
-      }
-
-  """
-  @type sync_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_introspection_model_field_type() :: %{
-        "kind" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => data_source_introspection_model_field_type(),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type data_source_introspection_model_field_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_graphql_api_request() :: %{
-        optional("additionalAuthenticationProviders") => list(additional_authentication_provider()),
-        optional("apiType") => list(any()),
-        optional("enhancedMetricsConfig") => enhanced_metrics_config(),
-        optional("introspectionConfig") => list(any()),
-        optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
-        optional("logConfig") => log_config(),
-        optional("mergedApiExecutionRoleArn") => String.t() | atom(),
-        optional("openIDConnectConfig") => open_id_connect_config(),
-        optional("ownerContact") => String.t() | atom(),
-        optional("queryDepthLimit") => integer(),
-        optional("resolverCountLimit") => integer(),
-        optional("tags") => map(),
-        optional("userPoolConfig") => user_pool_config(),
-        optional("visibility") => list(any()),
-        optional("xrayEnabled") => boolean(),
-        required("authenticationType") => list(any()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_graphql_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_key() :: %{
-        "deletes" => float(),
-        "description" => String.t() | atom(),
-        "expires" => float(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type api_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_data_source_introspection_request() :: %{
-        optional("rdsDataApiConfig") => rds_data_api_config()
-      }
-
-  """
-  @type start_data_source_introspection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_response() :: %{
-        "dataSource" => data_source()
-      }
-
-  """
-  @type get_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynamodb_data_source_config() :: %{
-        "awsRegion" => String.t() | atom(),
-        "deltaSyncConfig" => delta_sync_config(),
-        "tableName" => String.t() | atom(),
-        "useCallerCredentials" => boolean(),
-        "versioned" => boolean()
-      }
-
-  """
-  @type dynamodb_data_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_types_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("format") => list(any())
-      }
-
-  """
-  @type list_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_request() :: %{}
-
-  """
-  @type get_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      graph_q_l_schema_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type graph_q_l_schema_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_name_response() :: %{
-        "domainNameConfig" => domain_name_config()
-      }
-
-  """
-  @type get_domain_name_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_introspection_request() :: %{
-        optional("includeModelsSDL") => boolean(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_data_source_introspection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_merged_graphql_api_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("sourceApiAssociationConfig") => source_api_association_config(),
-        required("mergedApiIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type associate_merged_graphql_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_request() :: %{}
-
-  """
-  @type delete_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_response() :: %{}
-
-  """
-  @type delete_api_response() :: %{}
-
   @type associate_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | access_denied_exception()
           | not_found_exception()
-          | internal_failure_exception()
 
   @type associate_merged_graphql_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | limit_exceeded_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type associate_source_graphql_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | limit_exceeded_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_api_errors() ::
           bad_request_exception()
-          | concurrent_modification_exception()
           | service_quota_exceeded_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
+          | concurrent_modification_exception()
+          | unauthorized_exception()
 
   @type create_api_cache_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_api_key_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | api_key_validity_out_of_bounds_exception()
-          | not_found_exception()
-          | api_key_limit_exceeded_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
+          | api_key_limit_exceeded_exception()
+          | not_found_exception()
+          | unauthorized_exception()
 
   @type create_channel_namespace_errors() ::
           bad_request_exception()
+          | service_quota_exceeded_exception()
+          | internal_failure_exception()
+          | conflict_exception()
           | concurrent_modification_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_data_source_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_domain_name_errors() ::
-          bad_request_exception() | access_denied_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | access_denied_exception()
 
   @type create_function_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_graphql_api_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | concurrent_modification_exception()
-          | api_limit_exceeded_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
+          | api_limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | unauthorized_exception()
 
   @type create_resolver_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_type_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_api_cache_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_api_key_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_channel_namespace_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_data_source_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_domain_name_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
-          | internal_failure_exception()
 
   @type delete_function_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_graphql_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_resolver_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_type_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type disassociate_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
-          | internal_failure_exception()
 
   @type disassociate_merged_graphql_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type disassociate_source_graphql_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type evaluate_code_errors() ::
-          bad_request_exception() | access_denied_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | access_denied_exception()
 
   @type evaluate_mapping_template_errors() ::
-          bad_request_exception() | access_denied_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | access_denied_exception()
 
   @type flush_api_cache_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_api_association_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | access_denied_exception()
           | not_found_exception()
-          | internal_failure_exception()
 
   @type get_api_cache_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_channel_namespace_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_data_source_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_data_source_introspection_errors() ::
-          bad_request_exception() | not_found_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | not_found_exception()
 
   @type get_domain_name_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | access_denied_exception()
           | not_found_exception()
-          | internal_failure_exception()
 
   @type get_function_errors() ::
           concurrent_modification_exception() | not_found_exception() | unauthorized_exception()
 
   @type get_graphql_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_graphql_api_environment_variables_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_introspection_schema_errors() ::
-          graph_q_l_schema_exception()
+          internal_failure_exception()
+          | graph_q_l_schema_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_resolver_errors() ::
           concurrent_modification_exception() | not_found_exception() | unauthorized_exception()
 
   @type get_schema_creation_status_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_source_api_association_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_type_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_api_keys_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_apis_errors() ::
-          bad_request_exception() | unauthorized_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | unauthorized_exception()
 
   @type list_channel_namespaces_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_data_sources_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_domain_names_errors() ::
-          bad_request_exception() | access_denied_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | access_denied_exception()
 
   @type list_functions_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_graphql_apis_errors() ::
-          bad_request_exception() | unauthorized_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | unauthorized_exception()
 
   @type list_resolvers_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_resolvers_by_function_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_source_api_associations_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | limit_exceeded_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_types_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_types_by_association_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type put_graphql_api_environment_variables_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type start_data_source_introspection_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type start_schema_creation_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type start_schema_merge_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | limit_exceeded_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | limit_exceeded_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_api_cache_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_api_key_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | api_key_validity_out_of_bounds_exception()
+          | internal_failure_exception()
+          | limit_exceeded_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_channel_namespace_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_data_source_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_domain_name_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
-          | internal_failure_exception()
 
   @type update_function_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_graphql_api_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_resolver_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_source_api_association_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_type_errors() ::
           bad_request_exception()
+          | internal_failure_exception()
           | concurrent_modification_exception()
           | not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   def metadata do
     %{
@@ -3559,7 +3559,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, create_resolver_errors()}
-  def create_resolver(%Client{} = client, api_id, type_name, input, options \\ []) do
+  def create_resolver(%Client{} = client, type_name, api_id, input, options \\ []) do
     url_path =
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers"
 
@@ -3683,7 +3683,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_api_key_errors()}
-  def delete_api_key(%Client{} = client, api_id, id, input, options \\ []) do
+  def delete_api_key(%Client{} = client, id, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
     headers = []
     custom_headers = []
@@ -3718,7 +3718,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_channel_namespace_errors()}
-  def delete_channel_namespace(%Client{} = client, api_id, name, input, options \\ []) do
+  def delete_channel_namespace(%Client{} = client, name, api_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces/#{AWS.Util.encode_uri(name)}"
 
@@ -3755,7 +3755,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_data_source_errors()}
-  def delete_data_source(%Client{} = client, api_id, name, input, options \\ []) do
+  def delete_data_source(%Client{} = client, name, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
     headers = []
     custom_headers = []
@@ -3819,7 +3819,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_function_errors()}
-  def delete_function(%Client{} = client, api_id, function_id, input, options \\ []) do
+  def delete_function(%Client{} = client, function_id, api_id, input, options \\ []) do
     url_path =
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}"
 
@@ -3886,7 +3886,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_resolver_errors()}
-  def delete_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
+  def delete_resolver(%Client{} = client, type_name, field_name, api_id, input, options \\ []) do
     url_path =
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
 
@@ -3923,7 +3923,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_type_errors()}
-  def delete_type(%Client{} = client, api_id, type_name, input, options \\ []) do
+  def delete_type(%Client{} = client, type_name, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
     headers = []
     custom_headers = []
@@ -3991,8 +3991,8 @@ defmodule AWS.AppSync do
           | {:error, disassociate_merged_graphql_api_errors()}
   def disassociate_merged_graphql_api(
         %Client{} = client,
-        association_id,
         source_api_identifier,
+        association_id,
         input,
         options \\ []
       ) do
@@ -4036,8 +4036,8 @@ defmodule AWS.AppSync do
           | {:error, disassociate_source_graphql_api_errors()}
   def disassociate_source_graphql_api(
         %Client{} = client,
-        association_id,
         merged_api_identifier,
+        association_id,
         input,
         options \\ []
       ) do
@@ -4235,7 +4235,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_channel_namespace_errors()}
-  def get_channel_namespace(%Client{} = client, api_id, name, options \\ []) do
+  def get_channel_namespace(%Client{} = client, name, api_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces/#{AWS.Util.encode_uri(name)}"
 
@@ -4255,7 +4255,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_data_source_errors()}
-  def get_data_source(%Client{} = client, api_id, name, options \\ []) do
+  def get_data_source(%Client{} = client, name, api_id, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
@@ -4288,9 +4288,9 @@ defmodule AWS.AppSync do
   def get_data_source_introspection(
         %Client{} = client,
         introspection_id,
-        include_models_s_d_l \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        include_models_s_d_l \\ nil,
         options \\ []
       ) do
     url_path = "/v1/datasources/introspections/#{AWS.Util.encode_uri(introspection_id)}"
@@ -4298,8 +4298,8 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(include_models_s_d_l) do
+        [{"includeModelsSDL", include_models_s_d_l} | query_params]
       else
         query_params
       end
@@ -4312,8 +4312,8 @@ defmodule AWS.AppSync do
       end
 
     query_params =
-      if !is_nil(include_models_s_d_l) do
-        [{"includeModelsSDL", include_models_s_d_l} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4349,7 +4349,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_function_errors()}
-  def get_function(%Client{} = client, api_id, function_id, options \\ []) do
+  def get_function(%Client{} = client, function_id, api_id, options \\ []) do
     url_path =
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}"
 
@@ -4405,8 +4405,8 @@ defmodule AWS.AppSync do
   @spec get_introspection_schema(
           map(),
           String.t() | atom(),
-          String.t() | atom(),
           String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_introspection_schema_response(), any()}
@@ -4416,8 +4416,8 @@ defmodule AWS.AppSync do
   def get_introspection_schema(
         %Client{} = client,
         api_id,
-        format,
         include_directives \\ nil,
+        format,
         options \\ []
       ) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schema"
@@ -4425,15 +4425,15 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(include_directives) do
-        [{"includeDirectives", include_directives} | query_params]
+      if !is_nil(format) do
+        [{"format", format} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(format) do
-        [{"format", format} | query_params]
+      if !is_nil(include_directives) do
+        [{"includeDirectives", include_directives} | query_params]
       else
         query_params
       end
@@ -4451,7 +4451,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_resolver_errors()}
-  def get_resolver(%Client{} = client, api_id, field_name, type_name, options \\ []) do
+  def get_resolver(%Client{} = client, type_name, field_name, api_id, options \\ []) do
     url_path =
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
 
@@ -4491,8 +4491,8 @@ defmodule AWS.AppSync do
           | {:error, get_source_api_association_errors()}
   def get_source_api_association(
         %Client{} = client,
-        association_id,
         merged_api_identifier,
+        association_id,
         options \\ []
       ) do
     url_path =
@@ -4514,7 +4514,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_type_errors()}
-  def get_type(%Client{} = client, api_id, type_name, format, options \\ []) do
+  def get_type(%Client{} = client, type_name, api_id, format, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
     headers = []
     query_params = []
@@ -4555,8 +4555,8 @@ defmodule AWS.AppSync do
   def list_api_keys(
         %Client{} = client,
         api_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys"
@@ -4564,15 +4564,15 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4593,21 +4593,21 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_apis_errors()}
-  def list_apis(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_apis(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/v2/apis"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4637,8 +4637,8 @@ defmodule AWS.AppSync do
   def list_channel_namespaces(
         %Client{} = client,
         api_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces"
@@ -4646,15 +4646,15 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4681,8 +4681,8 @@ defmodule AWS.AppSync do
   def list_data_sources(
         %Client{} = client,
         api_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources"
@@ -4690,15 +4690,15 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4716,21 +4716,21 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_domain_names_errors()}
-  def list_domain_names(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_domain_names(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/v1/domainnames"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4757,8 +4757,8 @@ defmodule AWS.AppSync do
   def list_functions(
         %Client{} = client,
         api_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions"
@@ -4766,15 +4766,15 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4801,10 +4801,10 @@ defmodule AWS.AppSync do
           | {:error, list_graphql_apis_errors()}
   def list_graphql_apis(
         %Client{} = client,
-        api_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         owner \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        api_type \\ nil,
         options \\ []
       ) do
     url_path = "/v1/apis"
@@ -4812,15 +4812,8 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(owner) do
-        [{"owner", owner} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(api_type) do
+        [{"apiType", api_type} | query_params]
       else
         query_params
       end
@@ -4833,8 +4826,15 @@ defmodule AWS.AppSync do
       end
 
     query_params =
-      if !is_nil(api_type) do
-        [{"apiType", api_type} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owner) do
+        [{"owner", owner} | query_params]
       else
         query_params
       end
@@ -4861,10 +4861,10 @@ defmodule AWS.AppSync do
           | {:error, list_resolvers_errors()}
   def list_resolvers(
         %Client{} = client,
-        api_id,
         type_name,
-        max_results \\ nil,
+        api_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -4874,15 +4874,15 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4909,10 +4909,10 @@ defmodule AWS.AppSync do
           | {:error, list_resolvers_by_function_errors()}
   def list_resolvers_by_function(
         %Client{} = client,
-        api_id,
         function_id,
-        max_results \\ nil,
+        api_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -4922,15 +4922,15 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4957,8 +4957,8 @@ defmodule AWS.AppSync do
   def list_source_api_associations(
         %Client{} = client,
         api_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/sourceApiAssociations"
@@ -4966,15 +4966,15 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5008,9 +5008,9 @@ defmodule AWS.AppSync do
   @spec list_types(
           map(),
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_types_response(), any()}
@@ -5020,9 +5020,9 @@ defmodule AWS.AppSync do
   def list_types(
         %Client{} = client,
         api_id,
-        format,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        format,
         options \\ []
       ) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types"
@@ -5030,8 +5030,8 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(format) do
+        [{"format", format} | query_params]
       else
         query_params
       end
@@ -5044,8 +5044,8 @@ defmodule AWS.AppSync do
       end
 
     query_params =
-      if !is_nil(format) do
-        [{"format", format} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5062,9 +5062,9 @@ defmodule AWS.AppSync do
           map(),
           String.t() | atom(),
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_types_by_association_response(), any()}
@@ -5073,11 +5073,11 @@ defmodule AWS.AppSync do
           | {:error, list_types_by_association_errors()}
   def list_types_by_association(
         %Client{} = client,
-        association_id,
         merged_api_identifier,
-        format,
-        max_results \\ nil,
+        association_id,
         next_token \\ nil,
+        max_results \\ nil,
+        format,
         options \\ []
       ) do
     url_path =
@@ -5087,8 +5087,8 @@ defmodule AWS.AppSync do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(format) do
+        [{"format", format} | query_params]
       else
         query_params
       end
@@ -5101,8 +5101,8 @@ defmodule AWS.AppSync do
       end
 
     query_params =
-      if !is_nil(format) do
-        [{"format", format} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5278,8 +5278,8 @@ defmodule AWS.AppSync do
           | {:error, start_schema_merge_errors()}
   def start_schema_merge(
         %Client{} = client,
-        association_id,
         merged_api_identifier,
+        association_id,
         input,
         options \\ []
       ) do
@@ -5442,7 +5442,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_api_key_errors()}
-  def update_api_key(%Client{} = client, api_id, id, input, options \\ []) do
+  def update_api_key(%Client{} = client, id, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
     headers = []
     custom_headers = []
@@ -5477,7 +5477,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_channel_namespace_errors()}
-  def update_channel_namespace(%Client{} = client, api_id, name, input, options \\ []) do
+  def update_channel_namespace(%Client{} = client, name, api_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces/#{AWS.Util.encode_uri(name)}"
 
@@ -5514,7 +5514,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_data_source_errors()}
-  def update_data_source(%Client{} = client, api_id, name, input, options \\ []) do
+  def update_data_source(%Client{} = client, name, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
     headers = []
     custom_headers = []
@@ -5578,7 +5578,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_function_errors()}
-  def update_function(%Client{} = client, api_id, function_id, input, options \\ []) do
+  def update_function(%Client{} = client, function_id, api_id, input, options \\ []) do
     url_path =
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}"
 
@@ -5645,7 +5645,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_resolver_errors()}
-  def update_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
+  def update_resolver(%Client{} = client, type_name, field_name, api_id, input, options \\ []) do
     url_path =
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
 
@@ -5685,8 +5685,8 @@ defmodule AWS.AppSync do
           | {:error, update_source_api_association_errors()}
   def update_source_api_association(
         %Client{} = client,
-        association_id,
         merged_api_identifier,
+        association_id,
         input,
         options \\ []
       ) do
@@ -5726,7 +5726,7 @@ defmodule AWS.AppSync do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_type_errors()}
-  def update_type(%Client{} = client, api_id, type_name, input, options \\ []) do
+  def update_type(%Client{} = client, type_name, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
     headers = []
     custom_headers = []

@@ -39,247 +39,369 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      get_buckets_aggregation_response() :: %{
-        "buckets" => list(bucket()),
-        "totalCount" => integer()
+      create_fleet_metric_request() :: %{
+        required("aggregationField") => String.t() | atom(),
+        required("aggregationType") => aggregation_type(),
+        optional("description") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        required("period") => integer(),
+        required("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("unit") => list(any())
       }
 
   """
-  @type get_buckets_aggregation_response() :: %{(String.t() | atom()) => any()}
+  @type create_fleet_metric_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      http_url_destination_configuration() :: %{
-        "confirmationUrl" => String.t() | atom()
+      propagating_attribute() :: %{
+        "connectionAttribute" => String.t() | atom(),
+        "thingAttribute" => String.t() | atom(),
+        "userPropertyKey" => String.t() | atom()
       }
 
   """
-  @type http_url_destination_configuration() :: %{(String.t() | atom()) => any()}
+  @type propagating_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_audit_suppression_request() :: %{
-        required("checkName") => String.t() | atom(),
-        required("resourceIdentifier") => resource_identifier()
+      publish_finding_to_sns_params() :: %{
+        "topicArn" => String.t() | atom()
       }
 
   """
-  @type describe_audit_suppression_request() :: %{(String.t() | atom()) => any()}
+  @type publish_finding_to_sns_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sbom_validation_results_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "validationResultSummaries" => list(sbom_validation_result_summary())
+      get_topic_rule_response() :: %{
+        "rule" => topic_rule(),
+        "ruleArn" => String.t() | atom()
       }
 
   """
-  @type list_sbom_validation_results_response() :: %{(String.t() | atom()) => any()}
+  @type get_topic_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_billing_group_response() :: %{
-        "billingGroupArn" => String.t() | atom(),
-        "billingGroupId" => String.t() | atom(),
-        "billingGroupMetadata" => billing_group_metadata(),
-        "billingGroupName" => String.t() | atom(),
-        "billingGroupProperties" => billing_group_properties(),
-        "version" => float()
+      validation_error() :: %{
+        "errorMessage" => String.t() | atom()
       }
 
   """
-  @type describe_billing_group_response() :: %{(String.t() | atom()) => any()}
+  @type validation_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_command_response() :: %{
-        "statusCode" => integer()
+      register_ca_certificate_response() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom()
       }
 
   """
-  @type delete_command_response() :: %{(String.t() | atom()) => any()}
+  @type register_ca_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cancel_job_request() :: %{
-        optional("comment") => String.t() | atom(),
-        optional("force") => boolean(),
-        optional("reasonCode") => String.t() | atom()
+      list_detect_mitigation_actions_executions_request() :: %{
+        optional("endTime") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("startTime") => non_neg_integer(),
+        optional("taskId") => String.t() | atom(),
+        optional("thingName") => String.t() | atom(),
+        optional("violationId") => String.t() | atom()
       }
 
   """
-  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
+  @type list_detect_mitigation_actions_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_thing_response() :: %{
-        "thingArn" => String.t() | atom(),
-        "thingId" => String.t() | atom(),
-        "thingName" => String.t() | atom()
+      ota_update_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "otaUpdateArn" => String.t() | atom(),
+        "otaUpdateId" => String.t() | atom()
       }
 
   """
-  @type create_thing_response() :: %{(String.t() | atom()) => any()}
+  @type ota_update_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_thing_registration_task_reports_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "reportType" => list(any()),
-        "resourceLinks" => list(String.t() | atom())
+      list_policy_versions_response() :: %{
+        "policyVersions" => list(policy_version())
       }
 
   """
-  @type list_thing_registration_task_reports_response() :: %{(String.t() | atom()) => any()}
+  @type list_policy_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_certificate_provider_request() :: %{}
-
-  """
-  @type describe_certificate_provider_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_command_response() :: %{
-        "commandArn" => String.t() | atom(),
-        "commandId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "deprecated" => boolean(),
-        "description" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "mandatoryParameters" => list(command_parameter()),
-        "namespace" => list(any()),
-        "payload" => command_payload(),
-        "payloadTemplate" => String.t() | atom(),
-        "pendingDeletion" => boolean(),
-        "preprocessor" => command_preprocessor(),
-        "roleArn" => String.t() | atom()
+      delete_fleet_metric_request() :: %{
+        optional("expectedVersion") => float()
       }
 
   """
-  @type get_command_response() :: %{(String.t() | atom()) => any()}
+  @type delete_fleet_metric_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      retry_criteria() :: %{
-        "failureType" => list(any()),
-        "numberOfRetries" => integer()
+      update_package_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("defaultVersionName") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("unsetDefaultVersion") => boolean()
       }
 
   """
-  @type retry_criteria() :: %{(String.t() | atom()) => any()}
+  @type update_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_billing_group_response() :: %{
-        "billingGroupArn" => String.t() | atom(),
-        "billingGroupId" => String.t() | atom(),
-        "billingGroupName" => String.t() | atom()
+      security_profile_target_mapping() :: %{
+        "securityProfileIdentifier" => security_profile_identifier(),
+        "target" => security_profile_target()
       }
 
   """
-  @type create_billing_group_response() :: %{(String.t() | atom()) => any()}
+  @type security_profile_target_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_dimension_response() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom()
+      delete_package_version_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type create_dimension_response() :: %{(String.t() | atom()) => any()}
+  @type delete_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_mitigation_action_request() :: %{}
-
-  """
-  @type delete_mitigation_action_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioning_template_versions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "versions" => list(provisioning_template_version_summary())
+      command_preprocessor() :: %{
+        "awsJsonSubstitution" => aws_json_substitution_command_preprocessor_config()
       }
 
   """
-  @type list_provisioning_template_versions_response() :: %{(String.t() | atom()) => any()}
+  @type command_preprocessor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audit_mitigation_action_execution_metadata() :: %{
-        "actionId" => String.t() | atom(),
-        "actionName" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
+      delete_stream_response() :: %{}
+
+  """
+  @type delete_stream_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_check_details() :: %{
+        "checkCompliant" => boolean(),
+        "checkRunStatus" => list(any()),
         "errorCode" => String.t() | atom(),
-        "findingId" => String.t() | atom(),
         "message" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "taskId" => String.t() | atom()
+        "nonCompliantResourcesCount" => float(),
+        "suppressedNonCompliantResourcesCount" => float(),
+        "totalResourcesCount" => float()
       }
 
   """
-  @type audit_mitigation_action_execution_metadata() :: %{(String.t() | atom()) => any()}
+  @type audit_check_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      geo_location_target() :: %{
-        "name" => String.t() | atom(),
-        "order" => list(any())
+      code_signing_certificate_chain() :: %{
+        "certificateName" => String.t() | atom(),
+        "inlineDocument" => String.t() | atom()
       }
 
   """
-  @type geo_location_target() :: %{(String.t() | atom()) => any()}
+  @type code_signing_certificate_chain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_certificate_request() :: %{
-        required("newStatus") => list(any())
+      describe_job_template_response() :: %{
+        "abortConfig" => abort_config(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "destinationPackageVersions" => list(String.t() | atom()),
+        "document" => String.t() | atom(),
+        "documentSource" => String.t() | atom(),
+        "jobExecutionsRetryConfig" => job_executions_retry_config(),
+        "jobExecutionsRolloutConfig" => job_executions_rollout_config(),
+        "jobTemplateArn" => String.t() | atom(),
+        "jobTemplateId" => String.t() | atom(),
+        "maintenanceWindows" => list(maintenance_window()),
+        "presignedUrlConfig" => presigned_url_config(),
+        "timeoutConfig" => timeout_config()
       }
 
   """
-  @type update_certificate_request() :: %{(String.t() | atom()) => any()}
+  @type describe_job_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_packages_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "packageSummaries" => list(package_summary())
+      }
+
+  """
+  @type list_packages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_fleet_metric_response() :: %{
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom()
+      }
+
+  """
+  @type create_fleet_metric_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_process_details() :: %{
+        "numberOfCanceledThings" => integer(),
+        "numberOfFailedThings" => integer(),
+        "numberOfInProgressThings" => integer(),
+        "numberOfQueuedThings" => integer(),
+        "numberOfRejectedThings" => integer(),
+        "numberOfRemovedThings" => integer(),
+        "numberOfSucceededThings" => integer(),
+        "numberOfTimedOutThings" => integer(),
+        "processingTargets" => list(String.t() | atom())
+      }
+
+  """
+  @type job_process_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_topic_rule_destination_request() :: %{}
+
+  """
+  @type get_topic_rule_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_targets_with_job_response() :: %{
+        "description" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom()
+      }
+
+  """
+  @type associate_targets_with_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scheduled_audits_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_scheduled_audits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_thing_registration_task_request() :: %{
+        required("inputFileBucket") => String.t() | atom(),
+        required("inputFileKey") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("templateBody") => String.t() | atom()
+      }
+
+  """
+  @type start_thing_registration_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_certificate_provider_response() :: %{
+        "accountDefaultForOperations" => list(list(any())()),
+        "certificateProviderArn" => String.t() | atom(),
+        "certificateProviderName" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "lambdaFunctionArn" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer()
+      }
+
+  """
+  @type describe_certificate_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,51 +419,12 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      topic_rule() :: %{
-        "actions" => list(action()),
-        "awsIotSqlVersion" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "errorAction" => action(),
-        "ruleDisabled" => boolean(),
-        "ruleName" => String.t() | atom(),
-        "sql" => String.t() | atom()
+      aws_job_presigned_url_config() :: %{
+        "expiresInSec" => float()
       }
 
   """
-  @type topic_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timestream_dimension() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type timestream_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terms_aggregation() :: %{
-        "maxBuckets" => integer()
-      }
-
-  """
-  @type terms_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioning_claim_request() :: %{}
-
-  """
-  @type create_provisioning_claim_request() :: %{}
+  @type aws_job_presigned_url_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,317 +442,343 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      get_topic_rule_destination_request() :: %{}
-
-  """
-  @type get_topic_rule_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_configuration_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("versionUpdateByJobsConfig") => version_update_by_jobs_config()
+      thing_connectivity() :: %{
+        "cleanSession" => boolean(),
+        "clientId" => String.t() | atom(),
+        "connected" => boolean(),
+        "disconnectReason" => String.t() | atom(),
+        "keepAliveDuration" => integer(),
+        "sessionExpiry" => float(),
+        "timestamp" => float()
       }
 
   """
-  @type update_package_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type thing_connectivity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ota_update_file() :: %{
-        "attributes" => map(),
-        "codeSigning" => code_signing(),
-        "fileLocation" => file_location(),
-        "fileName" => String.t() | atom(),
-        "fileType" => integer(),
-        "fileVersion" => String.t() | atom()
-      }
-
-  """
-  @type ota_update_file() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_statistics_response() :: %{
-        "statistics" => statistics()
-      }
-
-  """
-  @type get_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      violation_event_additional_info() :: %{
-        "confidenceLevel" => list(any())
-      }
-
-  """
-  @type violation_event_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_billing_group_request() :: %{
-        optional("expectedVersion") => float()
-      }
-
-  """
-  @type delete_billing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_versions_response() :: %{
-        "policyVersions" => list(policy_version())
-      }
-
-  """
-  @type list_policy_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_indexing_configuration_response() :: %{
-        "thingGroupIndexingConfiguration" => thing_group_indexing_configuration(),
-        "thingIndexingConfiguration" => thing_indexing_configuration()
-      }
-
-  """
-  @type get_indexing_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_request() :: %{
-        optional("attributePayload") => attribute_payload(),
-        optional("expectedVersion") => float(),
-        optional("removeThingType") => boolean(),
-        optional("thingTypeName") => String.t() | atom()
-      }
-
-  """
-  @type update_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ca_certificate_request() :: %{}
-
-  """
-  @type delete_ca_certificate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_job_template_response() :: %{
-        "jobTemplateArn" => String.t() | atom(),
-        "jobTemplateId" => String.t() | atom()
-      }
-
-  """
-  @type create_job_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_default_policy_version_request() :: %{}
-
-  """
-  @type set_default_policy_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_group_indexing_configuration() :: %{
-        "customFields" => list(field()),
-        "managedFields" => list(field()),
-        "thingGroupIndexingMode" => list(any())
-      }
-
-  """
-  @type thing_group_indexing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_version_response() :: %{
+      describe_provisioning_template_version_response() :: %{
         "creationDate" => non_neg_integer(),
-        "generationId" => String.t() | atom(),
         "isDefaultVersion" => boolean(),
+        "templateBody" => String.t() | atom(),
+        "versionId" => integer()
+      }
+
+  """
+  @type describe_provisioning_template_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_billing_groups_response() :: %{
+        "billingGroups" => list(group_name_and_arn()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_billing_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ca_certificates_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer(),
+        optional("templateName") => String.t() | atom()
+      }
+
+  """
+  @type list_ca_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "defaultVersionId" => String.t() | atom(),
+        "generationId" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
         "policyArn" => String.t() | atom(),
         "policyDocument" => String.t() | atom(),
-        "policyName" => String.t() | atom(),
-        "policyVersionId" => String.t() | atom()
+        "policyName" => String.t() | atom()
       }
 
   """
-  @type get_policy_version_response() :: %{(String.t() | atom()) => any()}
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      firehose_action() :: %{
-        "batchMode" => boolean(),
-        "deliveryStreamName" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "separator" => String.t() | atom()
+      get_job_document_response() :: %{
+        "document" => String.t() | atom()
       }
 
   """
-  @type firehose_action() :: %{(String.t() | atom()) => any()}
+  @type get_job_document_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_audit_mitigation_actions_task_response() :: %{
-        "taskId" => String.t() | atom()
-      }
+      delete_certificate_provider_request() :: %{}
 
   """
-  @type start_audit_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
+  @type delete_certificate_provider_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_things_in_thing_group_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("recursive") => boolean()
-      }
-
-  """
-  @type list_things_in_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_authorization() :: %{
-        "sigv4" => sig_v4_authorization()
-      }
-
-  """
-  @type http_authorization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detect_mitigation_actions_task_target() :: %{
-        "behaviorName" => String.t() | atom(),
-        "securityProfileName" => String.t() | atom(),
-        "violationIds" => list(String.t() | atom())
-      }
-
-  """
-  @type detect_mitigation_actions_task_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registration_config() :: %{
-        "roleArn" => String.t() | atom(),
-        "templateBody" => String.t() | atom(),
-        "templateName" => String.t() | atom()
-      }
-
-  """
-  @type registration_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioning_template_versions_request() :: %{
+      list_indices_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_provisioning_template_versions_request() :: %{(String.t() | atom()) => any()}
+  @type list_indices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      malformed_policy_exception() :: %{
+      list_metric_values_request() :: %{
+        optional("dimensionName") => String.t() | atom(),
+        optional("dimensionValueOperator") => list(any()),
+        required("endTime") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        required("metricName") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("startTime") => non_neg_integer(),
+        required("thingName") => String.t() | atom()
+      }
+
+  """
+  @type list_metric_values_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_certificate_request() :: %{}
+
+  """
+  @type describe_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_behavior_model_training_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "summaries" => list(behavior_model_training_summary())
+      }
+
+  """
+  @type get_behavior_model_training_summaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_response() :: %{
+        "jobs" => list(job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_metrics_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_custom_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy() :: %{
+        "policyArn" => String.t() | atom(),
+        "policyName" => String.t() | atom()
+      }
+
+  """
+  @type policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_action() :: %{
+        "bucketName" => String.t() | atom(),
+        "cannedAcl" => list(any()),
+        "key" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type malformed_policy_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_principal_things_v2_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "principalThingObjects" => list(principal_thing_object())
+      create_thing_group_request() :: %{
+        optional("parentGroupName") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("thingGroupProperties") => thing_group_properties()
       }
 
   """
-  @type list_principal_things_v2_response() :: %{(String.t() | atom()) => any()}
+  @type create_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_thing_groups_request() :: %{
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_mitigation_action_request() :: %{}
+
+  """
+  @type delete_mitigation_action_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      location_timestamp() :: %{
+        "unit" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type location_timestamp() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ota_update_request() :: %{
+        optional("additionalParameters") => map(),
+        optional("awsJobAbortConfig") => aws_job_abort_config(),
+        optional("awsJobExecutionsRolloutConfig") => aws_job_executions_rollout_config(),
+        optional("awsJobPresignedUrlConfig") => aws_job_presigned_url_config(),
+        optional("awsJobTimeoutConfig") => aws_job_timeout_config(),
+        optional("description") => String.t() | atom(),
+        required("files") => list(ota_update_file()),
+        optional("protocols") => list(list(any())()),
+        required("roleArn") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("targetSelection") => list(any()),
+        required("targets") => list(String.t() | atom())
+      }
+
+  """
+  @type create_ota_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_groups_for_thing_response() :: %{}
+
+  """
+  @type update_thing_groups_for_thing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_topic_rule_destination_request() :: %{
+        required("arn") => String.t() | atom(),
+        required("status") => list(any())
+      }
+
+  """
+  @type update_topic_rule_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_execution_result() :: %{
+        "B" => boolean(),
+        "BIN" => binary(),
+        "S" => String.t() | atom()
+      }
+
+  """
+  @type command_execution_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_profiles_for_target_request() :: %{
         optional("maxResults") => integer(),
-        optional("namePrefixFilter") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
-        optional("parentGroup") => String.t() | atom(),
-        optional("recursive") => boolean()
+        optional("recursive") => boolean(),
+        required("securityProfileTargetArn") => String.t() | atom()
       }
 
   """
-  @type list_thing_groups_request() :: %{(String.t() | atom()) => any()}
+  @type list_security_profiles_for_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_certificate_without_ca_request() :: %{
+        required("certificatePem") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type register_certificate_without_ca_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_configurations_request() :: %{
+        optional("eventConfigurations") => map()
+      }
+
+  """
+  @type update_event_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,917 +808,114 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      attach_thing_principal_request() :: %{
-        optional("thingPrincipalType") => list(any()),
-        required("principal") => String.t() | atom()
+      detect_mitigation_actions_task_target() :: %{
+        "behaviorName" => String.t() | atom(),
+        "securityProfileName" => String.t() | atom(),
+        "violationIds" => list(String.t() | atom())
       }
 
   """
-  @type attach_thing_principal_request() :: %{(String.t() | atom()) => any()}
+  @type detect_mitigation_actions_task_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_package_version_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      elasticsearch_action() :: %{
+        "endpoint" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "index" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type delete_package_version_request() :: %{(String.t() | atom()) => any()}
+  @type elasticsearch_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_job_response() :: %{
-        "documentSource" => String.t() | atom(),
-        "job" => job()
-      }
-
-  """
-  @type describe_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version_conflict_exception() :: %{
+      transfer_conflict_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type version_conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type transfer_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_job_execution_request() :: %{
-        optional("executionNumber") => float()
+      create_topic_rule_destination_response() :: %{
+        "topicRuleDestination" => topic_rule_destination()
       }
 
   """
-  @type describe_job_execution_request() :: %{(String.t() | atom()) => any()}
+  @type create_topic_rule_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_security_profile_response() :: %{}
-
-  """
-  @type delete_security_profile_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_job_execution_request() :: %{
-        optional("expectedVersion") => float(),
-        optional("force") => boolean(),
-        optional("statusDetails") => map()
-      }
-
-  """
-  @type cancel_job_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_topic_rules_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "rules" => list(topic_rule_list_item())
-      }
-
-  """
-  @type list_topic_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_job_response() :: %{
-        "description" => String.t() | atom(),
-        "jobArn" => String.t() | atom(),
-        "jobId" => String.t() | atom()
-      }
-
-  """
-  @type create_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_finding() :: %{
-        "checkName" => String.t() | atom(),
-        "findingId" => String.t() | atom(),
-        "findingTime" => non_neg_integer(),
-        "isSuppressed" => boolean(),
-        "nonCompliantResource" => non_compliant_resource(),
-        "reasonForNonCompliance" => String.t() | atom(),
-        "reasonForNonComplianceCode" => String.t() | atom(),
-        "relatedResources" => list(related_resource()),
-        "severity" => list(any()),
-        "taskId" => String.t() | atom(),
-        "taskStartTime" => non_neg_integer()
-      }
-
-  """
-  @type audit_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_indexing_configuration_request() :: %{}
-
-  """
-  @type get_indexing_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_provisioning_template_version_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "isDefaultVersion" => boolean(),
-        "templateBody" => String.t() | atom(),
-        "versionId" => integer()
-      }
-
-  """
-  @type describe_provisioning_template_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tls_context() :: %{
-        "serverName" => String.t() | atom()
-      }
-
-  """
-  @type tls_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_version_request() :: %{}
-
-  """
-  @type get_policy_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      status_reason() :: %{
-        "reasonCode" => String.t() | atom(),
-        "reasonDescription" => String.t() | atom()
-      }
-
-  """
-  @type status_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_configuration_request() :: %{
-        optional("applicationProtocol") => list(any()),
-        optional("authenticationType") => list(any()),
-        optional("authorizerConfig") => authorizer_config(),
-        optional("clientCertificateConfig") => client_certificate_config(),
-        optional("domainConfigurationStatus") => list(any()),
-        optional("removeAuthorizerConfig") => boolean(),
-        optional("serverCertificateConfig") => server_certificate_config(),
-        optional("tlsConfig") => tls_config()
-      }
-
-  """
-  @type update_domain_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attach_security_profile_response() :: %{}
-
-  """
-  @type attach_security_profile_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      billing_group_metadata() :: %{
-        "creationDate" => non_neg_integer()
-      }
-
-  """
-  @type billing_group_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      buckets_aggregation_type() :: %{
-        "termsAggregation" => terms_aggregation()
-      }
-
-  """
-  @type buckets_aggregation_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_authorizer_response() :: %{
-        "authorizerDescription" => authorizer_description()
-      }
-
-  """
-  @type describe_authorizer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_metric_request() :: %{}
-
-  """
-  @type delete_custom_metric_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      test_authorization_response() :: %{
-        "authResults" => list(auth_result())
-      }
-
-  """
-  @type test_authorization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_job_executions_rollout_config() :: %{
-        "exponentialRate" => aws_job_exponential_rollout_rate(),
-        "maximumPerMinute" => integer()
-      }
-
-  """
-  @type aws_job_executions_rollout_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_topic_rule_response() :: %{
-        "rule" => topic_rule(),
-        "ruleArn" => String.t() | atom()
-      }
-
-  """
-  @type get_topic_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      violation_event_occurrence_range() :: %{
-        "endTime" => non_neg_integer(),
-        "startTime" => non_neg_integer()
-      }
-
-  """
-  @type violation_event_occurrence_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_commands_response() :: %{
-        "commands" => list(command_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_commands_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_security_profiles_for_target_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("recursive") => boolean(),
-        required("securityProfileTargetArn") => String.t() | atom()
-      }
-
-  """
-  @type list_security_profiles_for_target_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_thing_connectivity_data_response() :: %{
-        "connected" => boolean(),
-        "disconnectReason" => list(any()),
-        "thingName" => String.t() | atom(),
-        "timestamp" => non_neg_integer()
-      }
-
-  """
-  @type get_thing_connectivity_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ca_certificate_description() :: %{
-        "autoRegistrationStatus" => list(any()),
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom(),
-        "certificateMode" => list(any()),
-        "certificatePem" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "customerVersion" => integer(),
-        "generationId" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "ownedBy" => String.t() | atom(),
-        "status" => list(any()),
-        "validity" => certificate_validity()
-      }
-
-  """
-  @type ca_certificate_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policies_response() :: %{
-        "nextMarker" => String.t() | atom(),
-        "policies" => list(policy())
-      }
-
-  """
-  @type list_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_certificate_transfer_request() :: %{}
-
-  """
-  @type cancel_certificate_transfer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_scheduled_audit_response() :: %{}
-
-  """
-  @type delete_scheduled_audit_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_command_execution_response() :: %{}
-
-  """
-  @type delete_command_execution_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_percentiles_response() :: %{
-        "percentiles" => list(percent_pair())
-      }
-
-  """
-  @type get_percentiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_topic_rules_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("ruleDisabled") => boolean(),
-        optional("topic") => String.t() | atom()
-      }
-
-  """
-  @type list_topic_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_job_timeout_config() :: %{
-        "inProgressTimeoutInMinutes" => float()
-      }
-
-  """
-  @type aws_job_timeout_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      confirm_topic_rule_destination_response() :: %{}
-
-  """
-  @type confirm_topic_rule_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_package_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_mitigation_actions_executions_request() :: %{
-        optional("actionStatus") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("findingId") => String.t() | atom(),
-        required("taskId") => String.t() | atom()
-      }
-
-  """
-  @type list_audit_mitigation_actions_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detach_thing_principal_response() :: %{}
-
-  """
-  @type detach_thing_principal_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_type_request() :: %{
-        optional("thingTypeProperties") => thing_type_properties()
-      }
-
-  """
-  @type update_thing_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_thing_type_request() :: %{}
-
-  """
-  @type delete_thing_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_topic_rule_destinations_response() :: %{
-        "destinationSummaries" => list(topic_rule_destination_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_topic_rule_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_detect_mitigation_actions_tasks_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "tasks" => list(detect_mitigation_actions_task_summary())
-      }
-
-  """
-  @type list_detect_mitigation_actions_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_invoke_authorizer_request() :: %{
-        optional("httpContext") => http_context(),
-        optional("mqttContext") => mqtt_context(),
-        optional("tlsContext") => tls_context(),
-        optional("token") => String.t() | atom(),
-        optional("tokenSignature") => String.t() | atom()
-      }
-
-  """
-  @type test_invoke_authorizer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_job_abort_criteria() :: %{
-        "action" => list(any()),
-        "failureType" => list(any()),
-        "minNumberOfExecutedThings" => integer(),
-        "thresholdPercentage" => float()
-      }
-
-  """
-  @type aws_job_abort_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_audit_suppression_response() :: %{}
-
-  """
-  @type update_audit_suppression_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioning_hook() :: %{
-        "payloadVersion" => String.t() | atom(),
+      sns_action() :: %{
+        "messageFormat" => list(any()),
+        "roleArn" => String.t() | atom(),
         "targetArn" => String.t() | atom()
       }
 
   """
-  @type provisioning_hook() :: %{(String.t() | atom()) => any()}
+  @type sns_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dynamo_dbv2_action() :: %{
-        "putItem" => put_item_input(),
-        "roleArn" => String.t() | atom()
+      cancel_audit_mitigation_actions_task_response() :: %{}
+
+  """
+  @type cancel_audit_mitigation_actions_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_audit_suppression_request() :: %{
+        required("checkName") => String.t() | atom(),
+        required("clientRequestToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("expirationDate") => non_neg_integer(),
+        required("resourceIdentifier") => resource_identifier(),
+        optional("suppressIndefinitely") => boolean()
       }
 
   """
-  @type dynamo_dbv2_action() :: %{(String.t() | atom()) => any()}
+  @type create_audit_suppression_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      enable_topic_rule_request() :: %{}
-
-  """
-  @type enable_topic_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_mitigation_actions_task_metadata() :: %{
-        "startTime" => non_neg_integer(),
-        "taskId" => String.t() | atom(),
-        "taskStatus" => list(any())
+      policy_version() :: %{
+        "createDate" => non_neg_integer(),
+        "isDefaultVersion" => boolean(),
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type audit_mitigation_actions_task_metadata() :: %{(String.t() | atom()) => any()}
+  @type policy_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_ota_update_response() :: %{
-        "otaUpdateInfo" => ota_update_info()
-      }
-
-  """
-  @type get_ota_update_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_property_value() :: %{
-        "quality" => String.t() | atom(),
-        "timestamp" => asset_property_timestamp(),
-        "value" => list()
-      }
-
-  """
-  @type asset_property_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("namespaceId") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("targetSelection") => list(any()),
-        optional("thingGroupId") => String.t() | atom(),
-        optional("thingGroupName") => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policies_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer()
-      }
-
-  """
-  @type list_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mqtt5_configuration() :: %{
-        "propagatingAttributes" => list(propagating_attribute())
-      }
-
-  """
-  @type mqtt5_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_billing_groups_request() :: %{
-        optional("maxResults") => integer(),
-        optional("namePrefixFilter") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_billing_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_action() :: %{
-        "bucketName" => String.t() | atom(),
-        "cannedAcl" => list(any()),
-        "key" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type s3_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_parameter() :: %{
-        "description" => String.t() | atom(),
-        "example" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "optional" => boolean(),
-        "regex" => String.t() | atom()
-      }
-
-  """
-  @type document_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_request() :: %{}
-
-  """
-  @type get_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_billing_group_response() :: %{
-        "version" => float()
-      }
-
-  """
-  @type update_billing_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_certificate_transfer_request() :: %{
-        optional("rejectReason") => String.t() | atom()
-      }
-
-  """
-  @type reject_certificate_transfer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_principals_request() :: %{
+      list_topic_rule_destinations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_thing_principals_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      billing_group_properties() :: %{
-        "billingGroupDescription" => String.t() | atom()
-      }
-
-  """
-  @type billing_group_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_security_profile_response() :: %{
-        "additionalMetricsToRetain" => list(String.t() | atom()),
-        "additionalMetricsToRetainV2" => list(metric_to_retain()),
-        "alertTargets" => map(),
-        "behaviors" => list(behavior()),
-        "creationDate" => non_neg_integer(),
-        "lastModifiedDate" => non_neg_integer(),
-        "metricsExportConfig" => metrics_export_config(),
-        "securityProfileArn" => String.t() | atom(),
-        "securityProfileDescription" => String.t() | atom(),
-        "securityProfileName" => String.t() | atom(),
-        "version" => float()
-      }
-
-  """
-  @type describe_security_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_aggregation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_aggregation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_security_profile_response() :: %{
-        "securityProfileArn" => String.t() | atom(),
-        "securityProfileName" => String.t() | atom()
-      }
-
-  """
-  @type create_security_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_url_destination_properties() :: %{
-        "confirmationUrl" => String.t() | atom()
-      }
-
-  """
-  @type http_url_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_certificate_without_ca_response() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom()
-      }
-
-  """
-  @type register_certificate_without_ca_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_certificate_provider_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("accountDefaultForOperations") => list(list(any())()),
-        required("lambdaFunctionArn") => String.t() | atom()
-      }
-
-  """
-  @type create_certificate_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type delete_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_certificate_from_csr_request() :: %{
-        optional("setAsActive") => boolean(),
-        required("certificateSigningRequest") => String.t() | atom()
-      }
-
-  """
-  @type create_certificate_from_csr_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_findings_response() :: %{
-        "findings" => list(audit_finding()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_audit_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attached_policies_response() :: %{
-        "nextMarker" => String.t() | atom(),
-        "policies" => list(policy())
-      }
-
-  """
-  @type list_attached_policies_response() :: %{(String.t() | atom()) => any()}
+  @type list_topic_rule_destinations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1632,2514 +938,24 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      update_security_profile_request() :: %{
-        optional("additionalMetricsToRetain") => list(String.t() | atom()),
-        optional("additionalMetricsToRetainV2") => list(metric_to_retain()),
-        optional("alertTargets") => map(),
-        optional("behaviors") => list(behavior()),
-        optional("deleteAdditionalMetricsToRetain") => boolean(),
-        optional("deleteAlertTargets") => boolean(),
-        optional("deleteBehaviors") => boolean(),
-        optional("deleteMetricsExportConfig") => boolean(),
-        optional("expectedVersion") => float(),
-        optional("metricsExportConfig") => metrics_export_config(),
-        optional("securityProfileDescription") => String.t() | atom()
+      aggregation_type() :: %{
+        "name" => list(any()),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type update_security_profile_request() :: %{(String.t() | atom()) => any()}
+  @type aggregation_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_fleet_metric_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("queryVersion") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("unit") => list(any()),
-        required("aggregationField") => String.t() | atom(),
-        required("aggregationType") => aggregation_type(),
-        required("period") => integer(),
-        required("queryString") => String.t() | atom()
+      machine_learning_detection_config() :: %{
+        "confidenceLevel" => list(any())
       }
 
   """
-  @type create_fleet_metric_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_thing_registration_task_request() :: %{}
-
-  """
-  @type stop_thing_registration_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_custom_metric_request() :: %{}
-
-  """
-  @type describe_custom_metric_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_role_aliases_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer()
-      }
-
-  """
-  @type list_role_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_custom_metric_request() :: %{
-        required("displayName") => String.t() | atom()
-      }
-
-  """
-  @type update_custom_metric_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_document_request() :: %{
-        optional("beforeSubstitution") => boolean()
-      }
-
-  """
-  @type get_job_document_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynamo_db_action() :: %{
-        "hashKeyField" => String.t() | atom(),
-        "hashKeyType" => list(any()),
-        "hashKeyValue" => String.t() | atom(),
-        "operation" => String.t() | atom(),
-        "payloadField" => String.t() | atom(),
-        "rangeKeyField" => String.t() | atom(),
-        "rangeKeyType" => list(any()),
-        "rangeKeyValue" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "tableName" => String.t() | atom()
-      }
-
-  """
-  @type dynamo_db_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_description() :: %{
-        "caCertificateId" => String.t() | atom(),
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom(),
-        "certificateMode" => list(any()),
-        "certificatePem" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "customerVersion" => integer(),
-        "generationId" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "ownedBy" => String.t() | atom(),
-        "previousOwnedBy" => String.t() | atom(),
-        "status" => list(any()),
-        "transferData" => transfer_data(),
-        "validity" => certificate_validity()
-      }
-
-  """
-  @type certificate_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_asset_property_value_entry() :: %{
-        "assetId" => String.t() | atom(),
-        "entryId" => String.t() | atom(),
-        "propertyAlias" => String.t() | atom(),
-        "propertyId" => String.t() | atom(),
-        "propertyValues" => list(asset_property_value())
-      }
-
-  """
-  @type put_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_effective_policies_response() :: %{
-        "effectivePolicies" => list(effective_policy())
-      }
-
-  """
-  @type get_effective_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_mitigation_actions_request() :: %{
-        optional("actionType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_mitigation_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_principals_response() :: %{
-        "nextMarker" => String.t() | atom(),
-        "principals" => list(String.t() | atom())
-      }
-
-  """
-  @type list_policy_principals_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type certificate_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_configurations_response() :: %{
-        "domainConfigurations" => list(domain_configuration_summary()),
-        "nextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_domain_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_policy_request() :: %{
-        optional("tags") => list(tag()),
-        required("policyDocument") => String.t() | atom()
-      }
-
-  """
-  @type create_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_packages_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_packages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ota_update_request() :: %{}
-
-  """
-  @type get_ota_update_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      replace_topic_rule_request() :: %{
-        required("topicRulePayload") => topic_rule_payload()
-      }
-
-  """
-  @type replace_topic_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_thing_registration_task_request() :: %{
-        required("inputFileBucket") => String.t() | atom(),
-        required("inputFileKey") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("templateBody") => String.t() | atom()
-      }
-
-  """
-  @type start_thing_registration_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detach_security_profile_request() :: %{
-        required("securityProfileTargetArn") => String.t() | atom()
-      }
-
-  """
-  @type detach_security_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_command_execution_request() :: %{
-        required("targetArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_command_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_authorizer_request() :: %{}
-
-  """
-  @type describe_authorizer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_fleet_metrics_response() :: %{
-        "fleetMetrics" => list(fleet_metric_name_and_arn()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_fleet_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_type_response() :: %{}
-
-  """
-  @type update_thing_type_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_to_retain() :: %{
-        "exportMetric" => boolean(),
-        "metric" => String.t() | atom(),
-        "metricDimension" => metric_dimension()
-      }
-
-  """
-  @type metric_to_retain() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_event_configuration() :: %{
-        "eventType" => String.t() | atom(),
-        "logDestination" => String.t() | atom(),
-        "logLevel" => list(any())
-      }
-
-  """
-  @type log_event_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_topic_rule_destination_response() :: %{
-        "topicRuleDestination" => topic_rule_destination()
-      }
-
-  """
-  @type create_topic_rule_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ca_certificates_response() :: %{
-        "certificates" => list(ca_certificate()),
-        "nextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_ca_certificates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_version_response() :: %{}
-
-  """
-  @type update_package_version_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_configurations_response() :: %{}
-
-  """
-  @type update_event_configurations_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      versions_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type versions_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_mitigation_action_request() :: %{
-        optional("actionParams") => mitigation_action_params(),
-        optional("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_mitigation_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_violation_events_request() :: %{
-        optional("behaviorCriteriaType") => list(any()),
-        optional("listSuppressedAlerts") => boolean(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("securityProfileName") => String.t() | atom(),
-        optional("thingName") => String.t() | atom(),
-        optional("verificationState") => list(any()),
-        required("endTime") => non_neg_integer(),
-        required("startTime") => non_neg_integer()
-      }
-
-  """
-  @type list_violation_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_policy_version_response() :: %{
-        "isDefaultVersion" => boolean(),
-        "policyArn" => String.t() | atom(),
-        "policyDocument" => String.t() | atom(),
-        "policyVersionId" => String.t() | atom()
-      }
-
-  """
-  @type create_policy_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_things_to_thing_group_params() :: %{
-        "overrideDynamicGroups" => boolean(),
-        "thingGroupNames" => list(String.t() | atom())
-      }
-
-  """
-  @type add_things_to_thing_group_params() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_certificate_without_ca_request() :: %{
-        optional("status") => list(any()),
-        required("certificatePem") => String.t() | atom()
-      }
-
-  """
-  @type register_certificate_without_ca_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_things_in_thing_group_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "things" => list(String.t() | atom())
-      }
-
-  """
-  @type list_things_in_thing_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_audit_mitigation_actions_task_request() :: %{
-        required("auditCheckToActionsMapping") => map(),
-        required("clientRequestToken") => String.t() | atom(),
-        required("target") => audit_mitigation_actions_task_target()
-      }
-
-  """
-  @type start_audit_mitigation_actions_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_stream_response() :: %{}
-
-  """
-  @type delete_stream_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_indexing_configuration_response() :: %{}
-
-  """
-  @type update_indexing_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      http_action_header() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type http_action_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      exponential_rollout_rate() :: %{
-        "baseRatePerMinute" => integer(),
-        "incrementFactor" => float(),
-        "rateIncreaseCriteria" => rate_increase_criteria()
-      }
-
-  """
-  @type exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_ca_certificate_response() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom()
-      }
-
-  """
-  @type register_ca_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_response() :: %{
-        "jobs" => list(job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_json_substitution_command_preprocessor_config() :: %{
-        "outputFormat" => list(any())
-      }
-
-  """
-  @type aws_json_substitution_command_preprocessor_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_security_profiles_for_target_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "securityProfileTargetMappings" => list(security_profile_target_mapping())
-      }
-
-  """
-  @type list_security_profiles_for_target_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_job_request() :: %{
-        optional("abortConfig") => abort_config(),
-        optional("description") => String.t() | atom(),
-        optional("destinationPackageVersions") => list(String.t() | atom()),
-        optional("document") => String.t() | atom(),
-        optional("documentParameters") => map(),
-        optional("documentSource") => String.t() | atom(),
-        optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
-        optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
-        optional("jobTemplateArn") => String.t() | atom(),
-        optional("namespaceId") => String.t() | atom(),
-        optional("presignedUrlConfig") => presigned_url_config(),
-        optional("schedulingConfig") => scheduling_config(),
-        optional("tags") => list(tag()),
-        optional("targetSelection") => list(any()),
-        optional("timeoutConfig") => timeout_config(),
-        required("targets") => list(String.t() | atom())
-      }
-
-  """
-  @type create_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detach_policy_request() :: %{
-        required("target") => String.t() | atom()
-      }
-
-  """
-  @type detach_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_account_audit_configuration_response() :: %{
-        "auditCheckConfigurations" => map(),
-        "auditNotificationTargetConfigurations" => map(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type describe_account_audit_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_configuration_request() :: %{}
-
-  """
-  @type describe_domain_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      mqtt_headers() :: %{
-        "contentType" => String.t() | atom(),
-        "correlationData" => String.t() | atom(),
-        "messageExpiry" => String.t() | atom(),
-        "payloadFormatIndicator" => String.t() | atom(),
-        "responseTopic" => String.t() | atom(),
-        "userProperties" => list(user_property())
-      }
-
-  """
-  @type mqtt_headers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_sbom_with_package_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("sbom") => sbom()
-      }
-
-  """
-  @type associate_sbom_with_package_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_thing_from_billing_group_request() :: %{
-        optional("billingGroupArn") => String.t() | atom(),
-        optional("billingGroupName") => String.t() | atom(),
-        optional("thingArn") => String.t() | atom(),
-        optional("thingName") => String.t() | atom()
-      }
-
-  """
-  @type remove_thing_from_billing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioning_templates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "templates" => list(provisioning_template_summary())
-      }
-
-  """
-  @type list_provisioning_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_account_audit_configuration_request() :: %{}
-
-  """
-  @type describe_account_audit_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ca_certificate_params() :: %{
-        "action" => list(any())
-      }
-
-  """
-  @type update_ca_certificate_params() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ca_certificates_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer(),
-        optional("templateName") => String.t() | atom()
-      }
-
-  """
-  @type list_ca_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_topic_rule_request() :: %{
-        optional("tags") => String.t() | atom(),
-        required("topicRulePayload") => topic_rule_payload()
-      }
-
-  """
-  @type create_topic_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_targets_with_job_request() :: %{
-        optional("comment") => String.t() | atom(),
-        optional("namespaceId") => String.t() | atom(),
-        required("targets") => list(String.t() | atom())
-      }
-
-  """
-  @type associate_targets_with_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_response() :: %{}
-
-  """
-  @type update_package_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_thing_from_billing_group_response() :: %{}
-
-  """
-  @type remove_thing_from_billing_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_certificate_provider_response() :: %{
-        "certificateProviderArn" => String.t() | atom(),
-        "certificateProviderName" => String.t() | atom()
-      }
-
-  """
-  @type update_certificate_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_scheduled_audit_request() :: %{}
-
-  """
-  @type describe_scheduled_audit_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_principals_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer(),
-        required("policyName") => String.t() | atom()
-      }
-
-  """
-  @type list_policy_principals_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dynamic_thing_group_response() :: %{
-        "indexName" => String.t() | atom(),
-        "queryString" => String.t() | atom(),
-        "queryVersion" => String.t() | atom(),
-        "thingGroupArn" => String.t() | atom(),
-        "thingGroupId" => String.t() | atom(),
-        "thingGroupName" => String.t() | atom()
-      }
-
-  """
-  @type create_dynamic_thing_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_info() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type error_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      statistical_threshold() :: %{
-        "statistic" => String.t() | atom()
-      }
-
-  """
-  @type statistical_threshold() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_scheduled_audit_request() :: %{
-        optional("dayOfMonth") => String.t() | atom(),
-        optional("dayOfWeek") => list(any()),
-        optional("frequency") => list(any()),
-        optional("targetCheckNames") => list(String.t() | atom())
-      }
-
-  """
-  @type update_scheduled_audit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_index_request() :: %{}
-
-  """
-  @type describe_index_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_connectivity() :: %{
-        "connected" => boolean(),
-        "disconnectReason" => String.t() | atom(),
-        "timestamp" => float()
-      }
-
-  """
-  @type thing_connectivity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_keys_and_certificate_request() :: %{
-        optional("setAsActive") => boolean()
-      }
-
-  """
-  @type create_keys_and_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_certificates_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer()
-      }
-
-  """
-  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_audit_task_response() :: %{}
-
-  """
-  @type cancel_audit_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_authorizer_request() :: %{}
-
-  """
-  @type delete_authorizer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      timestream_action() :: %{
-        "databaseName" => String.t() | atom(),
-        "dimensions" => list(timestream_dimension()),
-        "roleArn" => String.t() | atom(),
-        "tableName" => String.t() | atom(),
-        "timestamp" => timestream_timestamp()
-      }
-
-  """
-  @type timestream_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_signing_signature() :: %{
-        "inlineDocument" => binary()
-      }
-
-  """
-  @type code_signing_signature() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_keys_and_certificate_response() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom(),
-        "certificatePem" => String.t() | atom(),
-        "keyPair" => key_pair()
-      }
-
-  """
-  @type create_keys_and_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_streams_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_streams_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_authorizer_request() :: %{
-        optional("enableCachingForHttp") => boolean(),
-        optional("signingDisabled") => boolean(),
-        optional("status") => list(any()),
-        optional("tags") => list(tag()),
-        optional("tokenKeyName") => String.t() | atom(),
-        optional("tokenSigningPublicKeys") => map(),
-        required("authorizerFunctionArn") => String.t() | atom()
-      }
-
-  """
-  @type create_authorizer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioning_template_version_response() :: %{
-        "isDefaultVersion" => boolean(),
-        "templateArn" => String.t() | atom(),
-        "templateName" => String.t() | atom(),
-        "versionId" => integer()
-      }
-
-  """
-  @type create_provisioning_template_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_tasks_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("taskStatus") => list(any()),
-        optional("taskType") => list(any()),
-        required("endTime") => non_neg_integer(),
-        required("startTime") => non_neg_integer()
-      }
-
-  """
-  @type list_audit_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_index_response() :: %{
-        "indexName" => String.t() | atom(),
-        "indexStatus" => list(any()),
-        "schema" => String.t() | atom()
-      }
-
-  """
-  @type describe_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_mitigation_actions_tasks_request() :: %{
-        optional("auditTaskId") => String.t() | atom(),
-        optional("findingId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("taskStatus") => list(any()),
-        required("endTime") => non_neg_integer(),
-        required("startTime") => non_neg_integer()
-      }
-
-  """
-  @type list_audit_mitigation_actions_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ota_update_request() :: %{
-        optional("additionalParameters") => map(),
-        optional("awsJobAbortConfig") => aws_job_abort_config(),
-        optional("awsJobExecutionsRolloutConfig") => aws_job_executions_rollout_config(),
-        optional("awsJobPresignedUrlConfig") => aws_job_presigned_url_config(),
-        optional("awsJobTimeoutConfig") => aws_job_timeout_config(),
-        optional("description") => String.t() | atom(),
-        optional("protocols") => list(list(any())()),
-        optional("tags") => list(tag()),
-        optional("targetSelection") => list(any()),
-        required("files") => list(ota_update_file()),
-        required("roleArn") => String.t() | atom(),
-        required("targets") => list(String.t() | atom())
-      }
-
-  """
-  @type create_ota_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_fleet_metrics_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_fleet_metrics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_role_alias_request() :: %{
-        optional("credentialDurationSeconds") => integer(),
-        optional("tags") => list(tag()),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_role_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_certificate_provider_response() :: %{
-        "certificateProviderArn" => String.t() | atom(),
-        "certificateProviderName" => String.t() | atom()
-      }
-
-  """
-  @type create_certificate_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      command_preprocessor() :: %{
-        "awsJsonSubstitution" => aws_json_substitution_command_preprocessor_config()
-      }
-
-  """
-  @type command_preprocessor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_target() :: %{
-        "targetName" => String.t() | atom(),
-        "targetType" => list(any())
-      }
-
-  """
-  @type log_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mitigation_action() :: %{
-        "actionParams" => mitigation_action_params(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type mitigation_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ota_update_response() :: %{
-        "awsIotJobArn" => String.t() | atom(),
-        "awsIotJobId" => String.t() | atom(),
-        "otaUpdateArn" => String.t() | atom(),
-        "otaUpdateId" => String.t() | atom(),
-        "otaUpdateStatus" => list(any())
-      }
-
-  """
-  @type create_ota_update_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metrics_export_config() :: %{
-        "mqttTopic" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type metrics_export_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mitigation_action_identifier() :: %{
-        "actionArn" => String.t() | atom(),
-        "actionName" => String.t() | atom(),
-        "creationDate" => non_neg_integer()
-      }
-
-  """
-  @type mitigation_action_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_commands_request() :: %{
-        optional("commandParameterName") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("namespace") => list(any()),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_commands_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_authorizer_response() :: %{}
-
-  """
-  @type delete_authorizer_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_job_presigned_url_config() :: %{
-        "expiresInSec" => float()
-      }
-
-  """
-  @type aws_job_presigned_url_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_command_response() :: %{
-        "commandId" => String.t() | atom(),
-        "deprecated" => boolean(),
-        "description" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_command_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      percent_pair() :: %{
-        "percent" => float(),
-        "value" => float()
-      }
-
-  """
-  @type percent_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_things_in_billing_group_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_things_in_billing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_billing_group_request() :: %{
-        optional("billingGroupProperties") => billing_group_properties(),
-        optional("tags") => list(tag())
-      }
-
-  """
-  @type create_billing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_profile_identifier() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type security_profile_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_on_demand_audit_task_response() :: %{
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type start_on_demand_audit_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_indices_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_indices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      location_timestamp() :: %{
-        "unit" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type location_timestamp() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      elasticsearch_action() :: %{
-        "endpoint" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "index" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type elasticsearch_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_version_identifier() :: %{
-        "policyName" => String.t() | atom(),
-        "policyVersionId" => String.t() | atom()
-      }
-
-  """
-  @type policy_version_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_executions_for_thing_request() :: %{
-        optional("jobId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("namespaceId") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_job_executions_for_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_targets_with_job_response() :: %{
-        "description" => String.t() | atom(),
-        "jobArn" => String.t() | atom(),
-        "jobId" => String.t() | atom()
-      }
-
-  """
-  @type associate_targets_with_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_detect_mitigation_actions_task_request() :: %{
-        optional("includeOnlyActiveViolations") => boolean(),
-        optional("includeSuppressedAlerts") => boolean(),
-        optional("violationEventOccurrenceRange") => violation_event_occurrence_range(),
-        required("actions") => list(String.t() | atom()),
-        required("clientRequestToken") => String.t() | atom(),
-        required("target") => detect_mitigation_actions_task_target()
-      }
-
-  """
-  @type start_detect_mitigation_actions_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_scheduled_audit_request() :: %{}
-
-  """
-  @type delete_scheduled_audit_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_version() :: %{
-        "createDate" => non_neg_integer(),
-        "isDefaultVersion" => boolean(),
-        "versionId" => String.t() | atom()
-      }
-
-  """
-  @type policy_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioning_claim_response() :: %{
-        "certificateId" => String.t() | atom(),
-        "certificatePem" => String.t() | atom(),
-        "expiration" => non_neg_integer(),
-        "keyPair" => key_pair()
-      }
-
-  """
-  @type create_provisioning_claim_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_thing_registration_task_response() :: %{
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type start_thing_registration_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_percentiles_request() :: %{
-        optional("aggregationField") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("percents") => list(float()),
-        optional("queryVersion") => String.t() | atom(),
-        required("queryString") => String.t() | atom()
-      }
-
-  """
-  @type get_percentiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_authorizer_response() :: %{
-        "authorizerArn" => String.t() | atom(),
-        "authorizerName" => String.t() | atom()
-      }
-
-  """
-  @type create_authorizer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_thing_request() :: %{
-        optional("attributePayload") => attribute_payload(),
-        optional("billingGroupName") => String.t() | atom(),
-        optional("thingTypeName") => String.t() | atom()
-      }
-
-  """
-  @type create_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_version_request() :: %{
-        optional("action") => list(any()),
-        optional("artifact") => package_version_artifact(),
-        optional("attributes") => map(),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("recipe") => String.t() | atom()
-      }
-
-  """
-  @type update_package_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioning_template_version_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "isDefaultVersion" => boolean(),
-        "versionId" => integer()
-      }
-
-  """
-  @type provisioning_template_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_ca_certificate_request() :: %{}
-
-  """
-  @type describe_ca_certificate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_template_request() :: %{}
-
-  """
-  @type delete_job_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_process_details() :: %{
-        "numberOfCanceledThings" => integer(),
-        "numberOfFailedThings" => integer(),
-        "numberOfInProgressThings" => integer(),
-        "numberOfQueuedThings" => integer(),
-        "numberOfRejectedThings" => integer(),
-        "numberOfRemovedThings" => integer(),
-        "numberOfSucceededThings" => integer(),
-        "numberOfTimedOutThings" => integer(),
-        "processingTargets" => list(String.t() | atom())
-      }
-
-  """
-  @type job_process_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_detect_mitigation_actions_task_request() :: %{}
-
-  """
-  @type cancel_detect_mitigation_actions_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_command_execution_request() :: %{
-        optional("includeResult") => boolean(),
-        required("targetArn") => String.t() | atom()
-      }
-
-  """
-  @type get_command_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_audit_mitigation_actions_task_request() :: %{}
-
-  """
-  @type describe_audit_mitigation_actions_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sns_action() :: %{
-        "messageFormat" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "targetArn" => String.t() | atom()
-      }
-
-  """
-  @type sns_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      indexing_filter() :: %{
-        "geoLocations" => list(geo_location_target()),
-        "namedShadowNames" => list(String.t() | atom())
-      }
-
-  """
-  @type indexing_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_logging_options_request() :: %{
-        required("loggingOptionsPayload") => logging_options_payload()
-      }
-
-  """
-  @type set_logging_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deprecate_thing_type_response() :: %{}
-
-  """
-  @type deprecate_thing_type_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_audit_finding_response() :: %{
-        "finding" => audit_finding()
-      }
-
-  """
-  @type describe_audit_finding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attached_policies_request() :: %{
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer(),
-        optional("recursive") => boolean()
-      }
-
-  """
-  @type list_attached_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sig_v4_authorization() :: %{
-        "roleArn" => String.t() | atom(),
-        "serviceName" => String.t() | atom(),
-        "signingRegion" => String.t() | atom()
-      }
-
-  """
-  @type sig_v4_authorization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_stream_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("files") => list(stream_file()),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_provisioning_template_request() :: %{
-        optional("defaultVersionId") => integer(),
-        optional("description") => String.t() | atom(),
-        optional("enabled") => boolean(),
-        optional("preProvisioningHook") => provisioning_hook(),
-        optional("provisioningRoleArn") => String.t() | atom(),
-        optional("removePreProvisioningHook") => boolean()
-      }
-
-  """
-  @type update_provisioning_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_v2_logging_levels_response() :: %{
-        "logTargetConfigurations" => list(log_target_configuration()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_v2_logging_levels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_audit_suppression_request() :: %{
-        required("checkName") => String.t() | atom(),
-        required("resourceIdentifier") => resource_identifier()
-      }
-
-  """
-  @type delete_audit_suppression_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_event_configurations_request() :: %{}
-
-  """
-  @type describe_event_configurations_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_summary() :: %{
-        "completedAt" => non_neg_integer(),
-        "createdAt" => non_neg_integer(),
-        "isConcurrent" => boolean(),
-        "jobArn" => String.t() | atom(),
-        "jobId" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "targetSelection" => list(any()),
-        "thingGroupId" => String.t() | atom()
-      }
-
-  """
-  @type job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_scheduled_audit_request() :: %{
-        optional("dayOfMonth") => String.t() | atom(),
-        optional("dayOfWeek") => list(any()),
-        optional("tags") => list(tag()),
-        required("frequency") => list(any()),
-        required("targetCheckNames") => list(String.t() | atom())
-      }
-
-  """
-  @type create_scheduled_audit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sbom() :: %{
-        "s3Location" => s3_location()
-      }
-
-  """
-  @type sbom() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_audit_finding_request() :: %{}
-
-  """
-  @type describe_audit_finding_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_statistics_request() :: %{
-        optional("aggregationField") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("queryVersion") => String.t() | atom(),
-        required("queryString") => String.t() | atom()
-      }
-
-  """
-  @type get_statistics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_attribute() :: %{
-        "attributes" => map(),
-        "thingArn" => String.t() | atom(),
-        "thingName" => String.t() | atom(),
-        "thingTypeName" => String.t() | atom(),
-        "version" => float()
-      }
-
-  """
-  @type thing_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_active_violations_response() :: %{
-        "activeViolations" => list(active_violation()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_active_violations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_custom_metric_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "displayName" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "metricArn" => String.t() | atom(),
-        "metricName" => String.t() | atom(),
-        "metricType" => list(any())
-      }
-
-  """
-  @type describe_custom_metric_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_command_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("mandatoryParameters") => list(command_parameter()),
-        optional("namespace") => list(any()),
-        optional("payload") => command_payload(),
-        optional("payloadTemplate") => String.t() | atom(),
-        optional("preprocessor") => command_preprocessor(),
-        optional("roleArn") => String.t() | atom(),
-        optional("tags") => list(tag())
-      }
-
-  """
-  @type create_command_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_command_request() :: %{}
-
-  """
-  @type delete_command_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_detect_mitigation_actions_task_response() :: %{}
-
-  """
-  @type cancel_detect_mitigation_actions_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_managed_job_template_request() :: %{
-        optional("templateVersion") => String.t() | atom()
-      }
-
-  """
-  @type describe_managed_job_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_targets_for_policy_response() :: %{
-        "nextMarker" => String.t() | atom(),
-        "targets" => list(String.t() | atom())
-      }
-
-  """
-  @type list_targets_for_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_audit_suppression_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("expirationDate") => non_neg_integer(),
-        optional("suppressIndefinitely") => boolean(),
-        required("checkName") => String.t() | atom(),
-        required("clientRequestToken") => String.t() | atom(),
-        required("resourceIdentifier") => resource_identifier()
-      }
-
-  """
-  @type create_audit_suppression_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_configuration_request() :: %{}
-
-  """
-  @type delete_domain_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_job_rate_increase_criteria() :: %{
-        "numberOfNotifiedThings" => integer(),
-        "numberOfSucceededThings" => integer()
-      }
-
-  """
-  @type aws_job_rate_increase_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloudwatch_metric_action() :: %{
-        "metricName" => String.t() | atom(),
-        "metricNamespace" => String.t() | atom(),
-        "metricTimestamp" => String.t() | atom(),
-        "metricUnit" => String.t() | atom(),
-        "metricValue" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type cloudwatch_metric_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_certificate_providers_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_certificate_providers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_execution_response() :: %{
-        "execution" => job_execution()
-      }
-
-  """
-  @type describe_job_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_policy_version_request() :: %{}
-
-  """
-  @type delete_policy_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      http_context() :: %{
-        "headers" => map(),
-        "queryString" => String.t() | atom()
-      }
-
-  """
-  @type http_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detach_security_profile_response() :: %{}
-
-  """
-  @type detach_security_profile_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      iot_analytics_action() :: %{
-        "batchMode" => boolean(),
-        "channelArn" => String.t() | atom(),
-        "channelName" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type iot_analytics_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_datum() :: %{
-        "timestamp" => non_neg_integer(),
-        "value" => metric_value()
-      }
-
-  """
-  @type metric_datum() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_response() :: %{}
-
-  """
-  @type delete_package_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_options_payload() :: %{
-        "logLevel" => list(any()),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type logging_options_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_security_profile_request() :: %{
-        optional("additionalMetricsToRetain") => list(String.t() | atom()),
-        optional("additionalMetricsToRetainV2") => list(metric_to_retain()),
-        optional("alertTargets") => map(),
-        optional("behaviors") => list(behavior()),
-        optional("metricsExportConfig") => metrics_export_config(),
-        optional("securityProfileDescription") => String.t() | atom(),
-        optional("tags") => list(tag())
-      }
-
-  """
-  @type create_security_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_mitigation_action_response() :: %{
-        "actionArn" => String.t() | atom(),
-        "actionId" => String.t() | atom()
-      }
-
-  """
-  @type create_mitigation_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ota_updates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("otaUpdateStatus") => list(any())
-      }
-
-  """
-  @type list_ota_updates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_indexing_configuration_request() :: %{
-        optional("thingGroupIndexingConfiguration") => thing_group_indexing_configuration(),
-        optional("thingIndexingConfiguration") => thing_indexing_configuration()
-      }
-
-  """
-  @type update_indexing_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_things_in_billing_group_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "things" => list(String.t() | atom())
-      }
-
-  """
-  @type list_things_in_billing_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_command_request() :: %{}
-
-  """
-  @type get_command_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_job_templates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("templateName") => String.t() | atom()
-      }
-
-  """
-  @type list_managed_job_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioning_templates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_provisioning_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_action() :: %{
-        "functionArn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attach_security_profile_request() :: %{
-        required("securityProfileTargetArn") => String.t() | atom()
-      }
-
-  """
-  @type attach_security_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_command_request() :: %{
-        optional("deprecated") => boolean(),
-        optional("description") => String.t() | atom(),
-        optional("displayName") => String.t() | atom()
-      }
-
-  """
-  @type update_command_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      command_parameter() :: %{
-        "defaultValue" => command_parameter_value(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => list(any()),
-        "value" => command_parameter_value(),
-        "valueConditions" => list(command_parameter_value_condition())
-      }
-
-  """
-  @type command_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_role_alias_request() :: %{
-        optional("credentialDurationSeconds") => integer(),
-        optional("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_role_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kinesis_action() :: %{
-        "partitionKey" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "streamName" => String.t() | atom()
-      }
-
-  """
-  @type kinesis_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timestream_timestamp() :: %{
-        "unit" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type timestream_timestamp() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_identifier() :: %{
-        "account" => String.t() | atom(),
-        "caCertificateId" => String.t() | atom(),
-        "clientId" => String.t() | atom(),
-        "cognitoIdentityPoolId" => String.t() | atom(),
-        "deviceCertificateArn" => String.t() | atom(),
-        "deviceCertificateId" => String.t() | atom(),
-        "iamRoleArn" => String.t() | atom(),
-        "issuerCertificateIdentifier" => issuer_certificate_identifier(),
-        "policyVersionIdentifier" => policy_version_identifier(),
-        "roleAliasArn" => String.t() | atom()
-      }
-
-  """
-  @type resource_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      signing_profile_parameter() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificatePathOnDevice" => String.t() | atom(),
-        "platform" => String.t() | atom()
-      }
-
-  """
-  @type signing_profile_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_metrics_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_custom_metrics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_version_request() :: %{
-        optional("artifact") => package_version_artifact(),
-        optional("attributes") => map(),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("recipe") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_package_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_policy_version_request() :: %{
-        optional("setAsDefault") => boolean(),
-        required("policyDocument") => String.t() | atom()
-      }
-
-  """
-  @type create_policy_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_response_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_response_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_job_request() :: %{
-        optional("abortConfig") => abort_config(),
-        optional("description") => String.t() | atom(),
-        optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
-        optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
-        optional("namespaceId") => String.t() | atom(),
-        optional("presignedUrlConfig") => presigned_url_config(),
-        optional("timeoutConfig") => timeout_config()
-      }
-
-  """
-  @type update_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thing_group_request() :: %{}
-
-  """
-  @type describe_thing_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_audit_suppression_response() :: %{
-        "checkName" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "expirationDate" => non_neg_integer(),
-        "resourceIdentifier" => resource_identifier(),
-        "suppressIndefinitely" => boolean()
-      }
-
-  """
-  @type describe_audit_suppression_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_audit_suppression_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("expirationDate") => non_neg_integer(),
-        optional("suppressIndefinitely") => boolean(),
-        required("checkName") => String.t() | atom(),
-        required("resourceIdentifier") => resource_identifier()
-      }
-
-  """
-  @type update_audit_suppression_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_group_request() :: %{
-        optional("expectedVersion") => float(),
-        required("thingGroupProperties") => thing_group_properties()
-      }
-
-  """
-  @type update_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type certificate_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_mitigation_action_request() :: %{}
-
-  """
-  @type describe_mitigation_action_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_thing_group_request() :: %{
-        optional("parentGroupName") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("thingGroupProperties") => thing_group_properties()
-      }
-
-  """
-  @type create_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scheduled_audits_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "scheduledAudits" => list(scheduled_audit_metadata())
-      }
-
-  """
-  @type list_scheduled_audits_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_io_t_logging_params() :: %{
-        "logLevel" => list(any()),
-        "roleArnForLogging" => String.t() | atom()
-      }
-
-  """
-  @type enable_io_t_logging_params() :: %{(String.t() | atom()) => any()}
+  @type machine_learning_detection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4154,131 +970,26 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      list_thing_types_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "thingTypes" => list(thing_type_definition())
+      create_role_alias_request() :: %{
+        optional("credentialDurationSeconds") => integer(),
+        required("roleArn") => String.t() | atom(),
+        optional("tags") => list(tag())
       }
 
   """
-  @type list_thing_types_response() :: %{(String.t() | atom()) => any()}
+  @type create_role_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_security_profiles_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "securityProfileIdentifiers" => list(security_profile_identifier())
+      status_reason() :: %{
+        "reasonCode" => String.t() | atom(),
+        "reasonDescription" => String.t() | atom()
       }
 
   """
-  @type list_security_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_streams_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "streams" => list(stream_summary())
-      }
-
-  """
-  @type list_streams_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_ca_certificate_request() :: %{
-        optional("allowAutoRegistration") => boolean(),
-        optional("certificateMode") => list(any()),
-        optional("registrationConfig") => registration_config(),
-        optional("setAsActive") => boolean(),
-        optional("tags") => list(tag()),
-        optional("verificationCertificate") => String.t() | atom(),
-        required("caCertificate") => String.t() | atom()
-      }
-
-  """
-  @type register_ca_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_certificate_provider_request() :: %{}
-
-  """
-  @type delete_certificate_provider_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dimension_request() :: %{}
-
-  """
-  @type describe_dimension_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloudwatch_alarm_action() :: %{
-        "alarmName" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "stateReason" => String.t() | atom(),
-        "stateValue" => String.t() | atom()
-      }
-
-  """
-  @type cloudwatch_alarm_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_filter() :: %{
-        "after" => String.t() | atom(),
-        "before" => String.t() | atom()
-      }
-
-  """
-  @type time_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_billing_group_response() :: %{}
-
-  """
-  @type delete_billing_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      effective_policy() :: %{
-        "policyArn" => String.t() | atom(),
-        "policyDocument" => String.t() | atom(),
-        "policyName" => String.t() | atom()
-      }
-
-  """
-  @type effective_policy() :: %{(String.t() | atom()) => any()}
+  @type status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4296,371 +1007,90 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      describe_role_alias_response() :: %{
-        "roleAliasDescription" => role_alias_description()
+      update_role_alias_response() :: %{
+        "roleAlias" => String.t() | atom(),
+        "roleAliasArn" => String.t() | atom()
       }
 
   """
-  @type describe_role_alias_response() :: %{(String.t() | atom()) => any()}
+  @type update_role_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      attach_policy_request() :: %{
-        required("target") => String.t() | atom()
+      get_effective_policies_request() :: %{
+        optional("cognitoIdentityPoolId") => String.t() | atom(),
+        optional("principal") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
       }
 
   """
-  @type attach_policy_request() :: %{(String.t() | atom()) => any()}
+  @type get_effective_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_registration_code_request() :: %{}
+      cancel_certificate_transfer_request() :: %{}
 
   """
-  @type get_registration_code_request() :: %{}
+  @type cancel_certificate_transfer_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      describe_thing_registration_task_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "failureCount" => integer(),
-        "inputFileBucket" => String.t() | atom(),
-        "inputFileKey" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "message" => String.t() | atom(),
-        "percentageProgress" => integer(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "successCount" => integer(),
-        "taskId" => String.t() | atom(),
-        "templateBody" => String.t() | atom()
+      list_audit_mitigation_actions_tasks_request() :: %{
+        optional("auditTaskId") => String.t() | atom(),
+        required("endTime") => non_neg_integer(),
+        optional("findingId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("startTime") => non_neg_integer(),
+        optional("taskStatus") => list(any())
       }
 
   """
-  @type describe_thing_registration_task_response() :: %{(String.t() | atom()) => any()}
+  @type list_audit_mitigation_actions_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_principal_things_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "things" => list(String.t() | atom())
+      get_indexing_configuration_request() :: %{}
+
+  """
+  @type get_indexing_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_thing_registration_task_request() :: %{}
+
+  """
+  @type describe_thing_registration_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dimension_response() :: %{}
+
+  """
+  @type delete_dimension_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      test_authorization_response() :: %{
+        "authResults" => list(auth_result())
       }
 
   """
-  @type list_principal_things_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_topic_rule_request() :: %{}
-
-  """
-  @type delete_topic_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_certificate_from_csr_response() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom(),
-        "certificatePem" => String.t() | atom()
-      }
-
-  """
-  @type create_certificate_from_csr_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_thing_request() :: %{
-        optional("parameters") => map(),
-        required("templateBody") => String.t() | atom()
-      }
-
-  """
-  @type register_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_certificate_request() :: %{}
-
-  """
-  @type describe_certificate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_principal_policies_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer(),
-        required("principal") => String.t() | atom()
-      }
-
-  """
-  @type list_principal_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_principal_object() :: %{
-        "principal" => String.t() | atom(),
-        "thingPrincipalType" => list(any())
-      }
-
-  """
-  @type thing_principal_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_account_audit_configuration_request() :: %{
-        optional("deleteScheduledAudits") => boolean()
-      }
-
-  """
-  @type delete_account_audit_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      abort_config() :: %{
-        "criteriaList" => list(abort_criteria())
-      }
-
-  """
-  @type abort_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ota_update_request() :: %{
-        optional("deleteStream") => boolean(),
-        optional("forceDeleteAWSJob") => boolean()
-      }
-
-  """
-  @type delete_ota_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_metric_values_response() :: %{
-        "metricDatumList" => list(metric_datum()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_metric_values_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      client_certificate_config() :: %{
-        "clientCertificateCallbackArn" => String.t() | atom()
-      }
-
-  """
-  @type client_certificate_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_certificate_provider_request() :: %{
-        optional("accountDefaultForOperations") => list(list(any())()),
-        optional("lambdaFunctionArn") => String.t() | atom()
-      }
-
-  """
-  @type update_certificate_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_configurations_request() :: %{
-        optional("eventConfigurations") => map()
-      }
-
-  """
-  @type update_event_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      allowed() :: %{
-        "policies" => list(policy())
-      }
-
-  """
-  @type allowed() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dimension_request() :: %{
-        required("stringValues") => list(String.t() | atom())
-      }
-
-  """
-  @type update_dimension_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deprecate_thing_type_request() :: %{
-        optional("undoDeprecate") => boolean()
-      }
-
-  """
-  @type deprecate_thing_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_detect_mitigation_actions_task_request() :: %{}
-
-  """
-  @type describe_detect_mitigation_actions_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      security_profile_target() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type security_profile_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_thing_type_response() :: %{}
-
-  """
-  @type delete_thing_type_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      issuer_certificate_identifier() :: %{
-        "issuerCertificateSerialNumber" => String.t() | atom(),
-        "issuerCertificateSubject" => String.t() | atom(),
-        "issuerId" => String.t() | atom()
-      }
-
-  """
-  @type issuer_certificate_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      topic_rule_destination_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "httpUrlSummary" => http_url_destination_summary(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "statusReason" => String.t() | atom(),
-        "vpcDestinationSummary" => vpc_destination_summary()
-      }
-
-  """
-  @type topic_rule_destination_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alert_target() :: %{
-        "alertTargetArn" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type alert_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      task_statistics_for_audit_check() :: %{
-        "canceledFindingsCount" => float(),
-        "failedFindingsCount" => float(),
-        "skippedFindingsCount" => float(),
-        "succeededFindingsCount" => float(),
-        "totalFindingsCount" => float()
-      }
-
-  """
-  @type task_statistics_for_audit_check() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_configurations_request() :: %{
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer(),
-        optional("serviceType") => list(any())
-      }
-
-  """
-  @type list_domain_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_executions_for_job_response() :: %{
-        "executionSummaries" => list(job_execution_summary_for_job()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_job_executions_for_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      field() :: %{
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type field() :: %{(String.t() | atom()) => any()}
+  @type test_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4679,783 +1109,104 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      list_thing_groups_for_thing_request() :: %{
+      replace_topic_rule_request() :: %{
+        required("topicRulePayload") => topic_rule_payload()
+      }
+
+  """
+  @type replace_topic_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_targets_for_security_profile_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_thing_groups_for_thing_request() :: %{(String.t() | atom()) => any()}
+  @type list_targets_for_security_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_certificate_providers_response() :: %{
-        "certificateProviders" => list(certificate_provider_summary()),
-        "nextToken" => String.t() | atom()
+      list_policy_versions_request() :: %{}
+
+  """
+  @type list_policy_versions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_security_profile_request() :: %{}
+
+  """
+  @type describe_security_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      register_thing_response() :: %{
+        "certificatePem" => String.t() | atom(),
+        "resourceArns" => map()
       }
 
   """
-  @type list_certificate_providers_response() :: %{(String.t() | atom()) => any()}
+  @type register_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      principal_thing_object() :: %{
-        "thingName" => String.t() | atom(),
-        "thingPrincipalType" => list(any())
-      }
-
-  """
-  @type principal_thing_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_payload() :: %{
-        "attributes" => map(),
-        "merge" => boolean()
-      }
-
-  """
-  @type attribute_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dynamic_thing_group_request() :: %{
-        optional("expectedVersion") => float(),
-        optional("indexName") => String.t() | atom(),
-        optional("queryString") => String.t() | atom(),
-        optional("queryVersion") => String.t() | atom(),
-        required("thingGroupProperties") => thing_group_properties()
-      }
-
-  """
-  @type update_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_role_alias_response() :: %{
-        "roleAlias" => String.t() | atom(),
-        "roleAliasArn" => String.t() | atom()
-      }
-
-  """
-  @type update_role_alias_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_state_transition_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_state_transition_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      presigned_url_config() :: %{
-        "expiresInSec" => float(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type presigned_url_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_principals_v2_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("thingPrincipalType") => list(any())
-      }
-
-  """
-  @type list_thing_principals_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_job_abort_config() :: %{
-        "abortCriteriaList" => list(aws_job_abort_criteria())
-      }
-
-  """
-  @type aws_job_abort_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_request() :: %{
-        optional("beforeSubstitution") => boolean()
-      }
-
-  """
-  @type describe_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_job_template_summary() :: %{
-        "description" => String.t() | atom(),
-        "environments" => list(String.t() | atom()),
-        "templateArn" => String.t() | atom(),
-        "templateName" => String.t() | atom(),
-        "templateVersion" => String.t() | atom()
-      }
-
-  """
-  @type managed_job_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transfer_already_completed_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type transfer_already_completed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_configuration_response() :: %{
-        "domainConfigurationArn" => String.t() | atom(),
-        "domainConfigurationName" => String.t() | atom()
-      }
-
-  """
-  @type create_domain_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_endpoint_request() :: %{
-        optional("endpointType") => String.t() | atom()
-      }
-
-  """
-  @type describe_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_registration_tasks_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_thing_registration_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_v2_logging_options_request() :: %{
-        optional("verbose") => boolean()
-      }
-
-  """
-  @type get_v2_logging_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_details() :: %{
-        "configurationStatus" => list(any()),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dynamic_thing_group_request() :: %{
-        optional("indexName") => String.t() | atom(),
-        optional("queryVersion") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("thingGroupProperties") => thing_group_properties(),
-        required("queryString") => String.t() | atom()
-      }
-
-  """
-  @type create_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_error() :: %{
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type validation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attach_thing_principal_response() :: %{}
-
-  """
-  @type attach_thing_principal_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ca_certificate_request() :: %{
-        optional("newAutoRegistrationStatus") => list(any()),
-        optional("newStatus") => list(any()),
-        optional("registrationConfig") => registration_config(),
-        optional("removeAutoRegistration") => boolean()
-      }
-
-  """
-  @type update_ca_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_encryption_configuration_request() :: %{
-        optional("kmsAccessRoleArn") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        required("encryptionType") => list(any())
-      }
-
-  """
-  @type update_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ota_update_response() :: %{}
-
-  """
-  @type delete_ota_update_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      clear_default_authorizer_response() :: %{}
-
-  """
-  @type clear_default_authorizer_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      auth_info() :: %{
-        "actionType" => list(any()),
-        "resources" => list(String.t() | atom())
-      }
-
-  """
-  @type auth_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dimension_request() :: %{}
-
-  """
-  @type delete_dimension_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_template_response() :: %{
-        "abortConfig" => abort_config(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "destinationPackageVersions" => list(String.t() | atom()),
-        "document" => String.t() | atom(),
-        "documentSource" => String.t() | atom(),
-        "jobExecutionsRetryConfig" => job_executions_retry_config(),
-        "jobExecutionsRolloutConfig" => job_executions_rollout_config(),
-        "jobTemplateArn" => String.t() | atom(),
-        "jobTemplateId" => String.t() | atom(),
-        "maintenanceWindows" => list(maintenance_window()),
-        "presignedUrlConfig" => presigned_url_config(),
-        "timeoutConfig" => timeout_config()
-      }
-
-  """
-  @type describe_job_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_thing_request() :: %{
-        optional("expectedVersion") => float()
-      }
-
-  """
-  @type delete_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_certificate_request() :: %{
-        optional("caCertificatePem") => String.t() | atom(),
-        optional("setAsActive") => boolean(),
-        optional("status") => list(any()),
-        required("certificatePem") => String.t() | atom()
-      }
-
-  """
-  @type register_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_active_violations_request() :: %{
-        optional("behaviorCriteriaType") => list(any()),
-        optional("listSuppressedAlerts") => boolean(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("securityProfileName") => String.t() | atom(),
-        optional("thingName") => String.t() | atom(),
-        optional("verificationState") => list(any())
-      }
-
-  """
-  @type list_active_violations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_certificate_provider_response() :: %{
-        "accountDefaultForOperations" => list(list(any())()),
-        "certificateProviderArn" => String.t() | atom(),
-        "certificateProviderName" => String.t() | atom(),
+      update_dimension_response() :: %{
+        "arn" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
-        "lambdaFunctionArn" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer()
-      }
-
-  """
-  @type describe_certificate_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_default_authorizer_response() :: %{
-        "authorizerArn" => String.t() | atom(),
-        "authorizerName" => String.t() | atom()
-      }
-
-  """
-  @type set_default_authorizer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thing_response() :: %{
-        "attributes" => map(),
-        "billingGroupName" => String.t() | atom(),
-        "defaultClientId" => String.t() | atom(),
-        "thingArn" => String.t() | atom(),
-        "thingId" => String.t() | atom(),
-        "thingName" => String.t() | atom(),
-        "thingTypeName" => String.t() | atom(),
-        "version" => float()
-      }
-
-  """
-  @type describe_thing_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_verification_state_on_violation_response() :: %{}
-
-  """
-  @type put_verification_state_on_violation_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_topic_rule_destination_request() :: %{}
-
-  """
-  @type delete_topic_rule_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_thing_from_thing_group_response() :: %{}
-
-  """
-  @type remove_thing_from_thing_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      security_profile_target_mapping() :: %{
-        "securityProfileIdentifier" => security_profile_identifier(),
-        "target" => security_profile_target()
-      }
-
-  """
-  @type security_profile_target_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_outgoing_certificates_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer()
-      }
-
-  """
-  @type list_outgoing_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_tasks_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "tasks" => list(audit_task_metadata())
-      }
-
-  """
-  @type list_audit_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "bucket" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_item_input() :: %{
-        "tableName" => String.t() | atom()
-      }
-
-  """
-  @type put_item_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_mitigation_action_response() :: %{
-        "actionArn" => String.t() | atom(),
-        "actionId" => String.t() | atom()
-      }
-
-  """
-  @type update_mitigation_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("defaultVersionName") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("unsetDefaultVersion") => boolean()
-      }
-
-  """
-  @type update_package_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_encryption_configuration_response() :: %{
-        "configurationDetails" => configuration_details(),
-        "encryptionType" => list(any()),
-        "kmsAccessRoleArn" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer()
-      }
-
-  """
-  @type describe_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detect_mitigation_action_execution() :: %{
-        "actionName" => String.t() | atom(),
-        "errorCode" => String.t() | atom(),
-        "executionEndDate" => non_neg_integer(),
-        "executionStartDate" => non_neg_integer(),
-        "message" => String.t() | atom(),
-        "status" => list(any()),
-        "taskId" => String.t() | atom(),
-        "thingName" => String.t() | atom(),
-        "violationId" => String.t() | atom()
-      }
-
-  """
-  @type detect_mitigation_action_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_audit_suppression_response() :: %{}
-
-  """
-  @type create_audit_suppression_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      add_thing_to_thing_group_response() :: %{}
-
-  """
-  @type add_thing_to_thing_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      violation_event() :: %{
-        "behavior" => behavior(),
-        "metricValue" => metric_value(),
-        "securityProfileName" => String.t() | atom(),
-        "thingName" => String.t() | atom(),
-        "verificationState" => list(any()),
-        "verificationStateDescription" => String.t() | atom(),
-        "violationEventAdditionalInfo" => violation_event_additional_info(),
-        "violationEventTime" => non_neg_integer(),
-        "violationEventType" => list(any()),
-        "violationId" => String.t() | atom()
-      }
-
-  """
-  @type violation_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_indices_response() :: %{
-        "indexNames" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_indices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_command_executions_request() :: %{
-        optional("commandArn") => String.t() | atom(),
-        optional("completedTimeFilter") => time_filter(),
-        optional("maxResults") => integer(),
-        optional("namespace") => list(any()),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any()),
-        optional("startedTimeFilter") => time_filter(),
-        optional("status") => list(any()),
-        optional("targetArn") => String.t() | atom()
-      }
-
-  """
-  @type list_command_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_pair() :: %{
-        "PrivateKey" => String.t() | atom(),
-        "PublicKey" => String.t() | atom()
-      }
-
-  """
-  @type key_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_scheduled_audit_response() :: %{
-        "scheduledAuditArn" => String.t() | atom()
-      }
-
-  """
-  @type update_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_executions_retry_config() :: %{
-        "criteriaList" => list(retry_criteria())
-      }
-
-  """
-  @type job_executions_retry_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kafka_action() :: %{
-        "clientProperties" => map(),
-        "destinationArn" => String.t() | atom(),
-        "headers" => list(kafka_action_header()),
-        "key" => String.t() | atom(),
-        "partition" => String.t() | atom(),
-        "topic" => String.t() | atom()
-      }
-
-  """
-  @type kafka_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_destination() :: %{
-        "bucket" => String.t() | atom(),
-        "prefix" => String.t() | atom()
-      }
-
-  """
-  @type s3_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_dimension() :: %{
-        "dimensionName" => String.t() | atom(),
-        "operator" => list(any())
-      }
-
-  """
-  @type metric_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_policy_response() :: %{
-        "policyArn" => String.t() | atom(),
-        "policyDocument" => String.t() | atom(),
-        "policyName" => String.t() | atom(),
-        "policyVersionId" => String.t() | atom()
-      }
-
-  """
-  @type create_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_version_response() :: %{
-        "artifact" => package_version_artifact(),
-        "attributes" => map(),
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "errorReason" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "packageName" => String.t() | atom(),
-        "packageVersionArn" => String.t() | atom(),
-        "recipe" => String.t() | atom(),
-        "sbom" => sbom(),
-        "sbomValidationStatus" => list(any()),
-        "status" => list(any()),
-        "versionName" => String.t() | atom()
+        "name" => String.t() | atom(),
+        "stringValues" => list(String.t() | atom()),
+        "type" => list(any())
       }
 
   """
-  @type get_package_version_response() :: %{(String.t() | atom()) => any()}
+  @type update_dimension_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_signing_signature() :: %{
+        "inlineDocument" => binary()
+      }
+
+  """
+  @type code_signing_signature() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_response() :: %{
+        "documentSource" => String.t() | atom(),
+        "job" => job()
+      }
+
+  """
+  @type describe_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detach_thing_principal_request() :: %{
+        required("principal") => String.t() | atom()
+      }
+
+  """
+  @type detach_thing_principal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5482,106 +1233,79 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      scheduled_audit_metadata() :: %{
-        "dayOfMonth" => String.t() | atom(),
-        "dayOfWeek" => list(any()),
-        "frequency" => list(any()),
-        "scheduledAuditArn" => String.t() | atom(),
-        "scheduledAuditName" => String.t() | atom()
+      delete_account_audit_configuration_response() :: %{}
+
+  """
+  @type delete_account_audit_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      time_filter() :: %{
+        "after" => String.t() | atom(),
+        "before" => String.t() | atom()
       }
 
   """
-  @type scheduled_audit_metadata() :: %{(String.t() | atom()) => any()}
+  @type time_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_sbom_from_package_version_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      stream_info() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "files" => list(stream_file()),
+        "lastUpdatedAt" => non_neg_integer(),
+        "roleArn" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
+        "streamVersion" => integer()
       }
 
   """
-  @type disassociate_sbom_from_package_version_request() :: %{(String.t() | atom()) => any()}
+  @type stream_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      command_parameter_value_comparison_operand() :: %{
-        "number" => String.t() | atom(),
-        "numberRange" => command_parameter_value_number_range(),
-        "numbers" => list(String.t() | atom()),
-        "string" => String.t() | atom(),
-        "strings" => list(String.t() | atom())
+      topic_rule_destination() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "httpUrlProperties" => http_url_destination_properties(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "vpcProperties" => vpc_destination_properties()
       }
 
   """
-  @type command_parameter_value_comparison_operand() :: %{(String.t() | atom()) => any()}
+  @type topic_rule_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      domain_configuration_summary() :: %{
-        "domainConfigurationArn" => String.t() | atom(),
-        "domainConfigurationName" => String.t() | atom(),
-        "serviceType" => list(any())
+      delete_custom_metric_request() :: %{}
+
+  """
+  @type delete_custom_metric_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_type_properties() :: %{
+        "mqtt5Configuration" => mqtt5_configuration(),
+        "searchableAttributes" => list(String.t() | atom()),
+        "thingTypeDescription" => String.t() | atom()
       }
 
   """
-  @type domain_configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_provisioning_template_request() :: %{}
-
-  """
-  @type describe_provisioning_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_audit_mitigation_actions_task_response() :: %{}
-
-  """
-  @type cancel_audit_mitigation_actions_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_versions_request() :: %{}
-
-  """
-  @type list_policy_versions_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_query_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_query_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_stream_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("files") => list(stream_file()),
-        optional("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_stream_request() :: %{(String.t() | atom()) => any()}
+  @type thing_type_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5610,15 +1334,149 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      abort_criteria() :: %{
-        "action" => list(any()),
-        "failureType" => list(any()),
-        "minNumberOfExecutedThings" => integer(),
-        "thresholdPercentage" => float()
+      get_statistics_request() :: %{
+        optional("aggregationField") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        required("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom()
       }
 
   """
-  @type abort_criteria() :: %{(String.t() | atom()) => any()}
+  @type get_statistics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_tasks_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tasks" => list(audit_task_metadata())
+      }
+
+  """
+  @type list_audit_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timestream_action() :: %{
+        "databaseName" => String.t() | atom(),
+        "dimensions" => list(timestream_dimension()),
+        "roleArn" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
+        "timestamp" => timestream_timestamp()
+      }
+
+  """
+  @type timestream_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_sbom_from_package_version_response() :: %{}
+
+  """
+  @type disassociate_sbom_from_package_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principal_things_v2_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "principalThingObjects" => list(principal_thing_object())
+      }
+
+  """
+  @type list_principal_things_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sbom() :: %{
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type sbom() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter() :: %{
+        "defaultValue" => command_parameter_value(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => command_parameter_value(),
+        "valueConditions" => list(command_parameter_value_condition())
+      }
+
+  """
+  @type command_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_profiles_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "securityProfileIdentifiers" => list(security_profile_identifier())
+      }
+
+  """
+  @type list_security_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_verification_state_on_violation_request() :: %{
+        required("verificationState") => list(any()),
+        optional("verificationStateDescription") => String.t() | atom()
+      }
+
+  """
+  @type put_verification_state_on_violation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property_timestamp() :: %{
+        "offsetInNanos" => String.t() | atom(),
+        "timeInSeconds" => String.t() | atom()
+      }
+
+  """
+  @type asset_property_timestamp() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_thing_type_request() :: %{
+        optional("tags") => list(tag()),
+        optional("thingTypeProperties") => thing_type_properties()
+      }
+
+  """
+  @type create_thing_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_audit_configuration_request() :: %{
+        optional("deleteScheduledAudits") => boolean()
+      }
+
+  """
+  @type delete_account_audit_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5639,992 +1497,92 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      delete_thing_group_response() :: %{}
-
-  """
-  @type delete_thing_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      propagating_attribute() :: %{
-        "connectionAttribute" => String.t() | atom(),
-        "thingAttribute" => String.t() | atom(),
-        "userPropertyKey" => String.t() | atom()
-      }
-
-  """
-  @type propagating_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "defaultVersionId" => String.t() | atom(),
-        "generationId" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "policyArn" => String.t() | atom(),
-        "policyDocument" => String.t() | atom(),
-        "policyName" => String.t() | atom()
-      }
-
-  """
-  @type get_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_ca_certificate_response() :: %{
-        "certificateDescription" => ca_certificate_description(),
-        "registrationConfig" => registration_config()
-      }
-
-  """
-  @type describe_ca_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_role_alias_response() :: %{}
-
-  """
-  @type delete_role_alias_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_mitigation_action_request() :: %{
-        optional("tags") => list(tag()),
-        required("actionParams") => mitigation_action_params(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_mitigation_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ca_certificate() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type ca_certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      confirm_topic_rule_destination_request() :: %{}
-
-  """
-  @type confirm_topic_rule_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_topic_rule_request() :: %{}
-
-  """
-  @type disable_topic_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_stream_request() :: %{}
-
-  """
-  @type describe_stream_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_stream_response() :: %{
+      managed_job_template_summary() :: %{
         "description" => String.t() | atom(),
-        "streamArn" => String.t() | atom(),
-        "streamId" => String.t() | atom(),
-        "streamVersion" => integer()
-      }
-
-  """
-  @type update_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_metric_response() :: %{}
-
-  """
-  @type delete_custom_metric_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_index_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "thingGroups" => list(thing_group_document()),
-        "things" => list(thing_document())
-      }
-
-  """
-  @type search_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      task_statistics() :: %{
-        "canceledChecks" => integer(),
-        "compliantChecks" => integer(),
-        "failedChecks" => integer(),
-        "inProgressChecks" => integer(),
-        "nonCompliantChecks" => integer(),
-        "totalChecks" => integer(),
-        "waitingForDataCollectionChecks" => integer()
-      }
-
-  """
-  @type task_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_configured_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_configured_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_location() :: %{
-        "s3Location" => s3_location(),
-        "stream" => stream()
-      }
-
-  """
-  @type file_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thing_registration_task_request() :: %{}
-
-  """
-  @type describe_thing_registration_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_execution_status_details() :: %{
-        "detailsMap" => map()
-      }
-
-  """
-  @type job_execution_status_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dimension_response() :: %{}
-
-  """
-  @type delete_dimension_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rate_increase_criteria() :: %{
-        "numberOfNotifiedThings" => integer(),
-        "numberOfSucceededThings" => integer()
-      }
-
-  """
-  @type rate_increase_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_registration_code_response() :: %{
-        "registrationCode" => String.t() | atom()
-      }
-
-  """
-  @type get_registration_code_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_group_metadata() :: %{
-        "creationDate" => non_neg_integer(),
-        "parentGroupName" => String.t() | atom(),
-        "rootToParentThingGroups" => list(group_name_and_arn())
-      }
-
-  """
-  @type thing_group_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_code_signing() :: %{
-        "certificateChain" => code_signing_certificate_chain(),
-        "hashAlgorithm" => String.t() | atom(),
-        "signature" => code_signing_signature(),
-        "signatureAlgorithm" => String.t() | atom()
-      }
-
-  """
-  @type custom_code_signing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_name_and_arn() :: %{
-        "groupArn" => String.t() | atom(),
-        "groupName" => String.t() | atom()
-      }
-
-  """
-  @type group_name_and_arn() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "defaultVersionName" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "packageName" => String.t() | atom()
-      }
-
-  """
-  @type package_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_thing_group_response() :: %{
-        "thingGroupArn" => String.t() | atom(),
-        "thingGroupId" => String.t() | atom(),
-        "thingGroupName" => String.t() | atom()
-      }
-
-  """
-  @type create_thing_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ca_certificate_response() :: %{}
-
-  """
-  @type delete_ca_certificate_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ota_updates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "otaUpdates" => list(ota_update_summary())
-      }
-
-  """
-  @type list_ota_updates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_response() :: %{}
-
-  """
-  @type update_thing_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_v2_logging_levels_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("targetType") => list(any())
-      }
-
-  """
-  @type list_v2_logging_levels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_default_authorizer_response() :: %{
-        "authorizerDescription" => authorizer_description()
-      }
-
-  """
-  @type describe_default_authorizer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      command_execution_result() :: %{
-        "B" => boolean(),
-        "BIN" => binary(),
-        "S" => String.t() | atom()
-      }
-
-  """
-  @type command_execution_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_configuration_response() :: %{
-        "versionUpdateByJobsConfig" => version_update_by_jobs_config()
-      }
-
-  """
-  @type get_package_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_billing_group_request() :: %{
-        optional("expectedVersion") => float(),
-        required("billingGroupProperties") => billing_group_properties()
-      }
-
-  """
-  @type update_billing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_policy_request() :: %{}
-
-  """
-  @type delete_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_security_profile_request() :: %{
-        optional("expectedVersion") => float()
-      }
-
-  """
-  @type delete_security_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_groups_for_thing_response() :: %{}
-
-  """
-  @type update_thing_groups_for_thing_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_execution_request() :: %{
-        optional("force") => boolean(),
-        optional("namespaceId") => String.t() | atom()
-      }
-
-  """
-  @type delete_job_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_group_properties() :: %{
-        "attributePayload" => attribute_payload(),
-        "thingGroupDescription" => String.t() | atom()
-      }
-
-  """
-  @type thing_group_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_mitigation_action_response() :: %{}
-
-  """
-  @type delete_mitigation_action_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_buckets_aggregation_request() :: %{
-        optional("indexName") => String.t() | atom(),
-        optional("queryVersion") => String.t() | atom(),
-        required("aggregationField") => String.t() | atom(),
-        required("bucketsAggregationType") => buckets_aggregation_type(),
-        required("queryString") => String.t() | atom()
-      }
-
-  """
-  @type get_buckets_aggregation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom(),
-        "certificateMode" => list(any()),
-        "creationDate" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_update_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "otaUpdateArn" => String.t() | atom(),
-        "otaUpdateId" => String.t() | atom()
-      }
-
-  """
-  @type ota_update_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_default_authorizer_request() :: %{
-        required("authorizerName") => String.t() | atom()
-      }
-
-  """
-  @type set_default_authorizer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      denied() :: %{
-        "explicitDeny" => explicit_deny(),
-        "implicitDeny" => implicit_deny()
-      }
-
-  """
-  @type denied() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_fleet_metric_request() :: %{
-        optional("expectedVersion") => float()
-      }
-
-  """
-  @type delete_fleet_metric_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_provisioning_template_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "defaultVersionId" => integer(),
-        "description" => String.t() | atom(),
-        "enabled" => boolean(),
-        "lastModifiedDate" => non_neg_integer(),
-        "preProvisioningHook" => provisioning_hook(),
-        "provisioningRoleArn" => String.t() | atom(),
+        "environments" => list(String.t() | atom()),
         "templateArn" => String.t() | atom(),
-        "templateBody" => String.t() | atom(),
         "templateName" => String.t() | atom(),
-        "type" => list(any())
+        "templateVersion" => String.t() | atom()
       }
 
   """
-  @type describe_provisioning_template_response() :: %{(String.t() | atom()) => any()}
+  @type managed_job_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_things_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "things" => list(thing_attribute())
-      }
-
-  """
-  @type list_things_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_provisioning_template_version_response() :: %{}
-
-  """
-  @type delete_provisioning_template_version_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_property_timestamp() :: %{
-        "offsetInNanos" => String.t() | atom(),
-        "timeInSeconds" => String.t() | atom()
-      }
-
-  """
-  @type asset_property_timestamp() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_custom_metric_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "displayName" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "metricArn" => String.t() | atom(),
-        "metricName" => String.t() | atom(),
-        "metricType" => list(any())
-      }
-
-  """
-  @type update_custom_metric_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_signing_certificate_chain() :: %{
-        "certificateName" => String.t() | atom(),
-        "inlineDocument" => String.t() | atom()
-      }
-
-  """
-  @type code_signing_certificate_chain() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_scheduled_audit_response() :: %{
-        "scheduledAuditArn" => String.t() | atom()
-      }
-
-  """
-  @type create_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_metric_request() :: %{
-        optional("displayName") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("clientRequestToken") => String.t() | atom(),
-        required("metricType") => list(any())
-      }
-
-  """
-  @type create_custom_metric_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      task_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type task_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_groups_for_thing_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "thingGroups" => list(group_name_and_arn())
-      }
-
-  """
-  @type list_thing_groups_for_thing_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_certificate_response() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom()
-      }
-
-  """
-  @type register_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authorizer_description() :: %{
-        "authorizerArn" => String.t() | atom(),
-        "authorizerFunctionArn" => String.t() | atom(),
-        "authorizerName" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "enableCachingForHttp" => boolean(),
-        "lastModifiedDate" => non_neg_integer(),
-        "signingDisabled" => boolean(),
-        "status" => list(any()),
-        "tokenKeyName" => String.t() | atom(),
-        "tokenSigningPublicKeys" => map()
-      }
-
-  """
-  @type authorizer_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_url_destination_summary() :: %{
-        "confirmationUrl" => String.t() | atom()
-      }
-
-  """
-  @type http_url_destination_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action() :: %{
-        "cloudwatchAlarm" => cloudwatch_alarm_action(),
-        "cloudwatchLogs" => cloudwatch_logs_action(),
-        "cloudwatchMetric" => cloudwatch_metric_action(),
-        "dynamoDB" => dynamo_db_action(),
-        "dynamoDBv2" => dynamo_dbv2_action(),
-        "elasticsearch" => elasticsearch_action(),
-        "firehose" => firehose_action(),
-        "http" => http_action(),
-        "iotAnalytics" => iot_analytics_action(),
-        "iotEvents" => iot_events_action(),
-        "iotSiteWise" => iot_site_wise_action(),
-        "kafka" => kafka_action(),
-        "kinesis" => kinesis_action(),
-        "lambda" => lambda_action(),
-        "location" => location_action(),
-        "openSearch" => open_search_action(),
-        "republish" => republish_action(),
-        "s3" => s3_action(),
-        "salesforce" => salesforce_action(),
-        "sns" => sns_action(),
-        "sqs" => sqs_action(),
-        "stepFunctions" => step_functions_action(),
-        "timestream" => timestream_action()
-      }
-
-  """
-  @type action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_violation_events_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "violationEvents" => list(violation_event())
-      }
-
-  """
-  @type list_violation_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tls_config() :: %{
-        "securityPolicy" => String.t() | atom()
-      }
-
-  """
-  @type tls_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      republish_action() :: %{
-        "headers" => mqtt_headers(),
-        "qos" => integer(),
-        "roleArn" => String.t() | atom(),
-        "topic" => String.t() | atom()
-      }
-
-  """
-  @type republish_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_configuration_response() :: %{}
-
-  """
-  @type update_package_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_verification_state_on_violation_request() :: %{
-        optional("verificationStateDescription") => String.t() | atom(),
-        required("verificationState") => list(any())
-      }
-
-  """
-  @type put_verification_state_on_violation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_authorizers_response() :: %{
-        "authorizers" => list(authorizer_summary()),
-        "nextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_authorizers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_certificate_config() :: %{
-        "enableOCSPCheck" => boolean(),
-        "ocspAuthorizedResponderArn" => String.t() | atom(),
-        "ocspLambdaArn" => String.t() | atom()
-      }
-
-  """
-  @type server_certificate_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_executions_for_thing_response() :: %{
-        "executionSummaries" => list(job_execution_summary_for_thing()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_job_executions_for_thing_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      topic_rule_destination_configuration() :: %{
-        "httpUrlConfiguration" => http_url_destination_configuration(),
-        "vpcConfiguration" => vpc_destination_configuration()
-      }
-
-  """
-  @type topic_rule_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_encryption_configuration_request() :: %{}
-
-  """
-  @type describe_encryption_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      index_not_ready_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type index_not_ready_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_config() :: %{
-        "batchAcrossTopics" => boolean(),
-        "maxBatchOpenMs" => integer(),
-        "maxBatchSize" => integer(),
-        "maxBatchSizeBytes" => integer()
-      }
-
-  """
-  @type batch_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_templates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_job_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy() :: %{
-        "policyArn" => String.t() | atom(),
-        "policyName" => String.t() | atom()
-      }
-
-  """
-  @type policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detect_mitigation_actions_task_summary() :: %{
-        "actionsDefinition" => list(mitigation_action()),
-        "onlyActiveViolationsIncluded" => boolean(),
-        "suppressedAlertsIncluded" => boolean(),
-        "target" => detect_mitigation_actions_task_target(),
-        "taskEndTime" => non_neg_integer(),
-        "taskId" => String.t() | atom(),
-        "taskStartTime" => non_neg_integer(),
-        "taskStatistics" => detect_mitigation_actions_task_statistics(),
-        "taskStatus" => list(any()),
-        "violationEventOccurrenceRange" => violation_event_occurrence_range()
-      }
-
-  """
-  @type detect_mitigation_actions_task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      command_execution_summary() :: %{
-        "commandArn" => String.t() | atom(),
-        "completedAt" => non_neg_integer(),
+      job_template_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "executionId" => String.t() | atom(),
-        "startedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "targetArn" => String.t() | atom()
+        "description" => String.t() | atom(),
+        "jobTemplateArn" => String.t() | atom(),
+        "jobTemplateId" => String.t() | atom()
       }
 
   """
-  @type command_execution_summary() :: %{(String.t() | atom()) => any()}
+  @type job_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bucket() :: %{
-        "count" => integer(),
-        "keyValue" => String.t() | atom()
+      create_job_request() :: %{
+        optional("abortConfig") => abort_config(),
+        optional("description") => String.t() | atom(),
+        optional("destinationPackageVersions") => list(String.t() | atom()),
+        optional("document") => String.t() | atom(),
+        optional("documentParameters") => map(),
+        optional("documentSource") => String.t() | atom(),
+        optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
+        optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
+        optional("jobTemplateArn") => String.t() | atom(),
+        optional("namespaceId") => String.t() | atom(),
+        optional("presignedUrlConfig") => presigned_url_config(),
+        optional("schedulingConfig") => scheduling_config(),
+        optional("tags") => list(tag()),
+        optional("targetSelection") => list(any()),
+        required("targets") => list(String.t() | atom()),
+        optional("timeoutConfig") => timeout_config()
       }
 
   """
-  @type bucket() :: %{(String.t() | atom()) => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_thing_registration_tasks_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "taskIds" => list(String.t() | atom())
+      create_domain_configuration_request() :: %{
+        optional("applicationProtocol") => list(any()),
+        optional("authenticationType") => list(any()),
+        optional("authorizerConfig") => authorizer_config(),
+        optional("clientCertificateConfig") => client_certificate_config(),
+        optional("domainName") => String.t() | atom(),
+        optional("serverCertificateArns") => list(String.t() | atom()),
+        optional("serverCertificateConfig") => server_certificate_config(),
+        optional("serviceType") => list(any()),
+        optional("tags") => list(tag()),
+        optional("tlsConfig") => tls_config(),
+        optional("validationCertificateArn") => String.t() | atom()
       }
 
   """
-  @type list_thing_registration_tasks_response() :: %{(String.t() | atom()) => any()}
+  @type create_domain_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      attach_principal_policy_request() :: %{
-        required("principal") => String.t() | atom()
+      update_command_response() :: %{
+        "commandId" => String.t() | atom(),
+        "deprecated" => boolean(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer()
       }
 
   """
-  @type attach_principal_policy_request() :: %{(String.t() | atom()) => any()}
+  @type update_command_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6645,48 +1603,117 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      create_job_template_request() :: %{
-        optional("abortConfig") => abort_config(),
-        optional("destinationPackageVersions") => list(String.t() | atom()),
-        optional("document") => String.t() | atom(),
-        optional("documentSource") => String.t() | atom(),
-        optional("jobArn") => String.t() | atom(),
-        optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
-        optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
-        optional("maintenanceWindows") => list(maintenance_window()),
-        optional("presignedUrlConfig") => presigned_url_config(),
-        optional("tags") => list(tag()),
-        optional("timeoutConfig") => timeout_config(),
-        required("description") => String.t() | atom()
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type create_job_template_request() :: %{(String.t() | atom()) => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_stream_response() :: %{
-        "description" => String.t() | atom(),
-        "streamArn" => String.t() | atom(),
-        "streamId" => String.t() | atom(),
-        "streamVersion" => integer()
+      domain_configuration_summary() :: %{
+        "domainConfigurationArn" => String.t() | atom(),
+        "domainConfigurationName" => String.t() | atom(),
+        "serviceType" => list(any())
       }
 
   """
-  @type create_stream_response() :: %{(String.t() | atom()) => any()}
+  @type domain_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      publish_finding_to_sns_params() :: %{
-        "topicArn" => String.t() | atom()
+      detach_principal_policy_request() :: %{
+        required("principal") => String.t() | atom()
       }
 
   """
-  @type publish_finding_to_sns_params() :: %{(String.t() | atom()) => any()}
+  @type detach_principal_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_groups_for_thing_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_thing_groups_for_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_command_request() :: %{}
+
+  """
+  @type delete_command_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_findings_response() :: %{
+        "findings" => list(audit_finding()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_audit_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_detect_mitigation_actions_tasks_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tasks" => list(detect_mitigation_actions_task_summary())
+      }
+
+  """
+  @type list_detect_mitigation_actions_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_scheduled_audit_response() :: %{
+        "scheduledAuditArn" => String.t() | atom()
+      }
+
+  """
+  @type create_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      exponential_rollout_rate() :: %{
+        "baseRatePerMinute" => integer(),
+        "incrementFactor" => float(),
+        "rateIncreaseCriteria" => rate_increase_criteria()
+      }
+
+  """
+  @type exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_authorizer_response() :: %{
+        "authorizerArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom()
+      }
+
+  """
+  @type update_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6705,234 +1732,67 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      job_executions_rollout_config() :: %{
-        "exponentialRate" => exponential_rollout_rate(),
-        "maximumPerMinute" => integer()
+      create_dynamic_thing_group_response() :: %{
+        "indexName" => String.t() | atom(),
+        "queryString" => String.t() | atom(),
+        "queryVersion" => String.t() | atom(),
+        "thingGroupArn" => String.t() | atom(),
+        "thingGroupId" => String.t() | atom(),
+        "thingGroupName" => String.t() | atom()
       }
 
   """
-  @type job_executions_rollout_config() :: %{(String.t() | atom()) => any()}
+  @type create_dynamic_thing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_package_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      start_on_demand_audit_task_response() :: %{
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type delete_package_request() :: %{(String.t() | atom()) => any()}
+  @type start_on_demand_audit_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      timeout_config() :: %{
-        "inProgressTimeoutInMinutes" => float()
+      rate_increase_criteria() :: %{
+        "numberOfNotifiedThings" => integer(),
+        "numberOfSucceededThings" => integer()
       }
 
   """
-  @type timeout_config() :: %{(String.t() | atom()) => any()}
+  @type rate_increase_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      thing_document() :: %{
-        "attributes" => map(),
-        "connectivity" => thing_connectivity(),
-        "deviceDefender" => String.t() | atom(),
-        "shadow" => String.t() | atom(),
-        "thingGroupNames" => list(String.t() | atom()),
-        "thingId" => String.t() | atom(),
-        "thingName" => String.t() | atom(),
-        "thingTypeName" => String.t() | atom()
+      list_role_aliases_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer()
       }
 
   """
-  @type thing_document() :: %{(String.t() | atom()) => any()}
+  @type list_role_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      replace_default_policy_version_params() :: %{
-        "templateName" => list(any())
+      create_provisioning_claim_response() :: %{
+        "certificateId" => String.t() | atom(),
+        "certificatePem" => String.t() | atom(),
+        "expiration" => non_neg_integer(),
+        "keyPair" => key_pair()
       }
 
   """
-  @type replace_default_policy_version_params() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_audit_task_request() :: %{}
-
-  """
-  @type cancel_audit_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_related_resources_for_audit_finding_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "relatedResources" => list(related_resource())
-      }
-
-  """
-  @type list_related_resources_for_audit_finding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_document_response() :: %{
-        "document" => String.t() | atom()
-      }
-
-  """
-  @type get_job_document_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_default_authorizer_request() :: %{}
-
-  """
-  @type describe_default_authorizer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioning_template_version_request() :: %{
-        optional("setAsDefault") => boolean(),
-        required("templateBody") => String.t() | atom()
-      }
-
-  """
-  @type create_provisioning_template_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transfer_certificate_request() :: %{
-        optional("transferMessage") => String.t() | atom(),
-        required("targetAwsAccount") => String.t() | atom()
-      }
-
-  """
-  @type transfer_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_related_resources_for_audit_finding_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("findingId") => String.t() | atom()
-      }
-
-  """
-  @type list_related_resources_for_audit_finding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_certificate_request() :: %{
-        optional("forceDelete") => boolean()
-      }
-
-  """
-  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_detect_mitigation_actions_task_response() :: %{
-        "taskSummary" => detect_mitigation_actions_task_summary()
-      }
-
-  """
-  @type describe_detect_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      behavior() :: %{
-        "criteria" => behavior_criteria(),
-        "exportMetric" => boolean(),
-        "metric" => String.t() | atom(),
-        "metricDimension" => metric_dimension(),
-        "name" => String.t() | atom(),
-        "suppressAlerts" => boolean()
-      }
-
-  """
-  @type behavior() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_certificate_response() :: %{
-        "certificateDescription" => certificate_description()
-      }
-
-  """
-  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dimensions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_dimensions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_endpoint_response() :: %{
-        "endpointAddress" => String.t() | atom()
-      }
-
-  """
-  @type describe_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_certificate_provider_response() :: %{}
-
-  """
-  @type delete_certificate_provider_response() :: %{}
+  @type create_provisioning_claim_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6951,621 +1811,322 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      code_signing() :: %{
-        "awsSignerJobId" => String.t() | atom(),
-        "customCodeSigning" => custom_code_signing(),
-        "startSigningJobParameter" => start_signing_job_parameter()
-      }
-
-  """
-  @type code_signing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_registration_task_reports_request() :: %{
+      list_provisioning_template_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("reportType") => list(any())
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_thing_registration_task_reports_request() :: %{(String.t() | atom()) => any()}
+  @type list_provisioning_template_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      authorizer_summary() :: %{
-        "authorizerArn" => String.t() | atom(),
-        "authorizerName" => String.t() | atom()
+      describe_index_response() :: %{
+        "indexName" => String.t() | atom(),
+        "indexStatus" => list(any()),
+        "schema" => String.t() | atom()
       }
 
   """
-  @type authorizer_summary() :: %{(String.t() | atom()) => any()}
+  @type describe_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      authorizer_config() :: %{
-        "allowAuthorizerOverride" => boolean(),
-        "defaultAuthorizerName" => String.t() | atom()
-      }
-
-  """
-  @type authorizer_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dimension_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "lastModifiedDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "stringValues" => list(String.t() | atom()),
-        "type" => list(any())
-      }
-
-  """
-  @type update_dimension_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_mitigation_actions_tasks_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "tasks" => list(audit_mitigation_actions_task_metadata())
-      }
-
-  """
-  @type list_audit_mitigation_actions_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      open_search_action() :: %{
-        "endpoint" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "index" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type open_search_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      machine_learning_detection_config() :: %{
-        "confidenceLevel" => list(any())
-      }
-
-  """
-  @type machine_learning_detection_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflicting_resource_update_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflicting_resource_update_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_groups_for_thing_request() :: %{
-        optional("overrideDynamicGroups") => boolean(),
-        optional("thingGroupsToAdd") => list(String.t() | atom()),
-        optional("thingGroupsToRemove") => list(String.t() | atom()),
-        optional("thingName") => String.t() | atom()
-      }
-
-  """
-  @type update_thing_groups_for_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_groups_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "thingGroups" => list(group_name_and_arn())
-      }
-
-  """
-  @type list_thing_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioning_template_response() :: %{
-        "defaultVersionId" => integer(),
-        "templateArn" => String.t() | atom(),
-        "templateName" => String.t() | atom()
-      }
-
-  """
-  @type create_provisioning_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      behavior_criteria() :: %{
-        "comparisonOperator" => list(any()),
-        "consecutiveDatapointsToAlarm" => integer(),
-        "consecutiveDatapointsToClear" => integer(),
-        "durationSeconds" => integer(),
-        "mlDetectionConfig" => machine_learning_detection_config(),
-        "statisticalThreshold" => statistical_threshold(),
-        "value" => metric_value()
-      }
-
-  """
-  @type behavior_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_principal_policies_response() :: %{
-        "nextMarker" => String.t() | atom(),
-        "policies" => list(policy())
-      }
-
-  """
-  @type list_principal_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_detect_mitigation_actions_tasks_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("endTime") => non_neg_integer(),
-        required("startTime") => non_neg_integer()
-      }
-
-  """
-  @type list_detect_mitigation_actions_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      command_parameter_value_number_range() :: %{
-        "max" => String.t() | atom(),
-        "min" => String.t() | atom()
-      }
-
-  """
-  @type command_parameter_value_number_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_fleet_metric_request() :: %{
-        optional("aggregationField") => String.t() | atom(),
-        optional("aggregationType") => aggregation_type(),
-        optional("description") => String.t() | atom(),
-        optional("expectedVersion") => float(),
-        optional("period") => integer(),
-        optional("queryString") => String.t() | atom(),
-        optional("queryVersion") => String.t() | atom(),
-        optional("unit") => list(any()),
-        required("indexName") => String.t() | atom()
-      }
-
-  """
-  @type update_fleet_metric_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_thing_group_request() :: %{
-        optional("expectedVersion") => float()
-      }
-
-  """
-  @type delete_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_detect_mitigation_actions_task_response() :: %{
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type start_detect_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registration_code_validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type registration_code_validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mitigation_action_params() :: %{
-        "addThingsToThingGroupParams" => add_things_to_thing_group_params(),
-        "enableIoTLoggingParams" => enable_io_t_logging_params(),
-        "publishFindingToSnsParams" => publish_finding_to_sns_params(),
-        "replaceDefaultPolicyVersionParams" => replace_default_policy_version_params(),
-        "updateCACertificateParams" => update_ca_certificate_params(),
-        "updateDeviceCertificateParams" => update_device_certificate_params()
-      }
-
-  """
-  @type mitigation_action_params() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dimensions_response() :: %{
-        "dimensionNames" => list(String.t() | atom()),
+      list_metric_values_response() :: %{
+        "metricDatumList" => list(metric_datum()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_dimensions_response() :: %{(String.t() | atom()) => any()}
+  @type list_metric_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_security_profile_request() :: %{}
-
-  """
-  @type describe_security_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_request() :: %{
-        optional("force") => boolean(),
-        optional("namespaceId") => String.t() | atom()
+      update_thing_group_request() :: %{
+        optional("expectedVersion") => float(),
+        required("thingGroupProperties") => thing_group_properties()
       }
 
   """
-  @type delete_job_request() :: %{(String.t() | atom()) => any()}
+  @type update_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sbom_validation_result_summary() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "fileName" => String.t() | atom(),
-        "validationResult" => list(any())
+      mitigation_action_identifier() :: %{
+        "actionArn" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
+        "creationDate" => non_neg_integer()
       }
 
   """
-  @type sbom_validation_result_summary() :: %{(String.t() | atom()) => any()}
+  @type mitigation_action_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      statistics() :: %{
-        "average" => float(),
-        "count" => integer(),
-        "maximum" => float(),
-        "minimum" => float(),
-        "stdDeviation" => float(),
-        "sum" => float(),
-        "sumOfSquares" => float(),
-        "variance" => float()
+      delete_package_version_response() :: %{}
+
+  """
+  @type delete_package_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_configuration_request() :: %{}
+
+  """
+  @type describe_domain_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_principal_object() :: %{
+        "principal" => String.t() | atom(),
+        "thingPrincipalType" => list(any())
       }
 
   """
-  @type statistics() :: %{(String.t() | atom()) => any()}
+  @type thing_principal_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_audit_mitigation_actions_task_response() :: %{
-        "actionsDefinition" => list(mitigation_action()),
-        "auditCheckToActionsMapping" => map(),
-        "endTime" => non_neg_integer(),
-        "startTime" => non_neg_integer(),
-        "target" => audit_mitigation_actions_task_target(),
-        "taskStatistics" => map(),
-        "taskStatus" => list(any())
+      list_job_executions_for_thing_response() :: %{
+        "executionSummaries" => list(job_execution_summary_for_thing()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type describe_audit_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
+  @type list_job_executions_for_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      detach_principal_policy_request() :: %{
-        required("principal") => String.t() | atom()
+      disassociate_sbom_from_package_version_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type detach_principal_policy_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_sbom_from_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      behavior_model_training_summary() :: %{
-        "behaviorName" => String.t() | atom(),
-        "datapointsCollectionPercentage" => float(),
-        "lastModelRefreshDate" => non_neg_integer(),
-        "modelStatus" => list(any()),
-        "securityProfileName" => String.t() | atom(),
-        "trainingDataCollectionStartDate" => non_neg_integer()
+      delete_authorizer_response() :: %{}
+
+  """
+  @type delete_authorizer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_default_authorizer_response() :: %{
+        "authorizerDescription" => authorizer_description()
       }
 
   """
-  @type behavior_model_training_summary() :: %{(String.t() | atom()) => any()}
+  @type describe_default_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      role_alias_description() :: %{
-        "creationDate" => non_neg_integer(),
-        "credentialDurationSeconds" => integer(),
-        "lastModifiedDate" => non_neg_integer(),
-        "owner" => String.t() | atom(),
-        "roleAlias" => String.t() | atom(),
-        "roleAliasArn" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
+      create_job_template_response() :: %{
+        "jobTemplateArn" => String.t() | atom(),
+        "jobTemplateId" => String.t() | atom()
       }
 
   """
-  @type role_alias_description() :: %{(String.t() | atom()) => any()}
+  @type create_job_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metric_value() :: %{
-        "cidrs" => list(String.t() | atom()),
-        "count" => float(),
-        "number" => float(),
-        "numbers" => list(float()),
-        "ports" => list(integer()),
-        "strings" => list(String.t() | atom())
+      delete_command_execution_request() :: %{
+        required("targetArn") => String.t() | atom()
       }
 
   """
-  @type metric_value() :: %{(String.t() | atom()) => any()}
+  @type delete_command_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      http_action() :: %{
-        "auth" => http_authorization(),
-        "batchConfig" => batch_config(),
-        "confirmationUrl" => String.t() | atom(),
-        "enableBatching" => boolean(),
-        "headers" => list(http_action_header()),
-        "url" => String.t() | atom()
+      retry_criteria() :: %{
+        "failureType" => list(any()),
+        "numberOfRetries" => integer()
       }
 
   """
-  @type http_action() :: %{(String.t() | atom()) => any()}
+  @type retry_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_fleet_metric_response() :: %{
-        "aggregationField" => String.t() | atom(),
-        "aggregationType" => aggregation_type(),
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "indexName" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "metricArn" => String.t() | atom(),
-        "metricName" => String.t() | atom(),
-        "period" => integer(),
-        "queryString" => String.t() | atom(),
-        "queryVersion" => String.t() | atom(),
-        "unit" => list(any()),
-        "version" => float()
+      maintenance_window() :: %{
+        "durationInMinutes" => integer(),
+        "startTime" => String.t() | atom()
       }
 
   """
-  @type describe_fleet_metric_response() :: %{(String.t() | atom()) => any()}
+  @type maintenance_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validate_security_profile_behaviors_response() :: %{
-        "valid" => boolean(),
-        "validationErrors" => list(validation_error())
+      stream_file() :: %{
+        "fileId" => integer(),
+        "s3Location" => s3_location()
       }
 
   """
-  @type validate_security_profile_behaviors_response() :: %{(String.t() | atom()) => any()}
+  @type stream_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_signing_job_parameter() :: %{
-        "destination" => destination(),
-        "signingProfileName" => String.t() | atom(),
-        "signingProfileParameter" => signing_profile_parameter()
+      associate_sbom_with_package_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("sbom") => sbom()
       }
 
   """
-  @type start_signing_job_parameter() :: %{(String.t() | atom()) => any()}
+  @type associate_sbom_with_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      set_v2_logging_options_request() :: %{
-        optional("defaultLogLevel") => list(any()),
-        optional("disableAllLogs") => boolean(),
-        optional("eventConfigurations") => list(log_event_configuration()),
+      create_provisioning_claim_request() :: %{}
+
+  """
+  @type create_provisioning_claim_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      register_certificate_without_ca_response() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom()
+      }
+
+  """
+  @type register_certificate_without_ca_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mqtt_context() :: %{
+        "clientId" => String.t() | atom(),
+        "password" => binary(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type mqtt_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificate_providers_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_certificate_providers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_principals_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_thing_principals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_indexing_configuration_request() :: %{
+        optional("thingGroupIndexingConfiguration") => thing_group_indexing_configuration(),
+        optional("thingIndexingConfiguration") => thing_indexing_configuration()
+      }
+
+  """
+  @type update_indexing_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_execution_response() :: %{
+        "execution" => job_execution()
+      }
+
+  """
+  @type describe_job_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ota_update_request() :: %{
+        optional("deleteStream") => boolean(),
+        optional("forceDeleteAWSJob") => boolean()
+      }
+
+  """
+  @type delete_ota_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_stream_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("files") => list(stream_file()),
         optional("roleArn") => String.t() | atom()
       }
 
   """
-  @type set_v2_logging_options_request() :: %{(String.t() | atom()) => any()}
+  @type update_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      set_v2_logging_level_request() :: %{
-        required("logLevel") => list(any()),
-        required("logTarget") => log_target()
-      }
+      delete_mitigation_action_response() :: %{}
 
   """
-  @type set_v2_logging_level_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_configuration_request() :: %{}
-
-  """
-  @type get_package_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_audit_mitigation_actions_task_request() :: %{}
-
-  """
-  @type cancel_audit_mitigation_actions_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_detect_mitigation_actions_executions_request() :: %{
-        optional("endTime") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("startTime") => non_neg_integer(),
-        optional("taskId") => String.t() | atom(),
-        optional("thingName") => String.t() | atom(),
-        optional("violationId") => String.t() | atom()
-      }
-
-  """
-  @type list_detect_mitigation_actions_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type certificate_validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_provisioning_template_version_request() :: %{}
-
-  """
-  @type delete_provisioning_template_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_principals_v2_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "thingPrincipalObjects" => list(thing_principal_object())
-      }
-
-  """
-  @type list_thing_principals_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_mitigation_actions_executions_response() :: %{
-        "actionsExecutions" => list(audit_mitigation_action_execution_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_audit_mitigation_actions_executions_response() :: %{(String.t() | atom()) => any()}
+  @type delete_mitigation_action_response() :: %{}
 
   @typedoc """
 
@@ -7606,6 +2167,711 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      create_certificate_from_csr_response() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "certificatePem" => String.t() | atom()
+      }
+
+  """
+  @type create_certificate_from_csr_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_identifier() :: %{
+        "account" => String.t() | atom(),
+        "caCertificateId" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "cognitoIdentityPoolId" => String.t() | atom(),
+        "deviceCertificateArn" => String.t() | atom(),
+        "deviceCertificateId" => String.t() | atom(),
+        "iamRoleArn" => String.t() | atom(),
+        "issuerCertificateIdentifier" => issuer_certificate_identifier(),
+        "policyVersionIdentifier" => policy_version_identifier(),
+        "roleAliasArn" => String.t() | atom()
+      }
+
+  """
+  @type resource_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_packages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_packages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_audit_mitigation_actions_task_request() :: %{}
+
+  """
+  @type describe_audit_mitigation_actions_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      task_statistics_for_audit_check() :: %{
+        "canceledFindingsCount" => float(),
+        "failedFindingsCount" => float(),
+        "skippedFindingsCount" => float(),
+        "succeededFindingsCount" => float(),
+        "totalFindingsCount" => float()
+      }
+
+  """
+  @type task_statistics_for_audit_check() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_signing_job_parameter() :: %{
+        "destination" => destination(),
+        "signingProfileName" => String.t() | atom(),
+        "signingProfileParameter" => signing_profile_parameter()
+      }
+
+  """
+  @type start_signing_job_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      statistical_threshold() :: %{
+        "statistic" => String.t() | atom()
+      }
+
+  """
+  @type statistical_threshold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_stream_response() :: %{
+        "description" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
+        "streamVersion" => integer()
+      }
+
+  """
+  @type update_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      violation_event_additional_info() :: %{
+        "confidenceLevel" => list(any())
+      }
+
+  """
+  @type violation_event_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_validity() :: %{
+        "notAfter" => non_neg_integer(),
+        "notBefore" => non_neg_integer()
+      }
+
+  """
+  @type certificate_validity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_verification_state_on_violation_response() :: %{}
+
+  """
+  @type put_verification_state_on_violation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      iot_analytics_action() :: %{
+        "batchMode" => boolean(),
+        "channelArn" => String.t() | atom(),
+        "channelName" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type iot_analytics_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_request() :: %{
+        optional("beforeSubstitution") => boolean()
+      }
+
+  """
+  @type describe_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_groups_request() :: %{
+        optional("maxResults") => integer(),
+        optional("namePrefixFilter") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("parentGroup") => String.t() | atom(),
+        optional("recursive") => boolean()
+      }
+
+  """
+  @type list_thing_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_scheduled_audit_request() :: %{
+        optional("dayOfMonth") => String.t() | atom(),
+        optional("dayOfWeek") => list(any()),
+        required("frequency") => list(any()),
+        optional("tags") => list(tag()),
+        required("targetCheckNames") => list(String.t() | atom())
+      }
+
+  """
+  @type create_scheduled_audit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_streams_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_streams_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_audit_task_request() :: %{}
+
+  """
+  @type cancel_audit_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_group_response() :: %{}
+
+  """
+  @type delete_thing_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_security_profile_behaviors_response() :: %{
+        "valid" => boolean(),
+        "validationErrors" => list(validation_error())
+      }
+
+  """
+  @type validate_security_profile_behaviors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream() :: %{
+        "fileId" => integer(),
+        "streamId" => String.t() | atom()
+      }
+
+  """
+  @type stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_configured_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_configured_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_group_metadata() :: %{
+        "creationDate" => non_neg_integer(),
+        "parentGroupName" => String.t() | atom(),
+        "rootToParentThingGroups" => list(group_name_and_arn())
+      }
+
+  """
+  @type thing_group_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_thing_principal_request() :: %{
+        required("principal") => String.t() | atom(),
+        optional("thingPrincipalType") => list(any())
+      }
+
+  """
+  @type attach_thing_principal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_profile_identifier() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type security_profile_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ca_certificate_request() :: %{}
+
+  """
+  @type delete_ca_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_findings_request() :: %{
+        optional("checkName") => String.t() | atom(),
+        optional("endTime") => non_neg_integer(),
+        optional("listSuppressedFindings") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceIdentifier") => resource_identifier(),
+        optional("startTime") => non_neg_integer(),
+        optional("taskId") => String.t() | atom()
+      }
+
+  """
+  @type list_audit_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_targets_for_security_profile_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "securityProfileTargets" => list(security_profile_target())
+      }
+
+  """
+  @type list_targets_for_security_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_url_destination_configuration() :: %{
+        "confirmationUrl" => String.t() | atom()
+      }
+
+  """
+  @type http_url_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detach_security_profile_request() :: %{
+        required("securityProfileTargetArn") => String.t() | atom()
+      }
+
+  """
+  @type detach_security_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioning_template_versions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "versions" => list(provisioning_template_version_summary())
+      }
+
+  """
+  @type list_provisioning_template_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_version_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "lastModifiedDate" => non_neg_integer(),
+        "packageName" => String.t() | atom(),
+        "status" => list(any()),
+        "versionName" => String.t() | atom()
+      }
+
+  """
+  @type package_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_response() :: %{
+        "description" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom()
+      }
+
+  """
+  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_role_alias_request() :: %{}
+
+  """
+  @type describe_role_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_security_profile_request() :: %{
+        optional("additionalMetricsToRetain") => list(String.t() | atom()),
+        optional("additionalMetricsToRetainV2") => list(metric_to_retain()),
+        optional("alertTargets") => map(),
+        optional("behaviors") => list(behavior()),
+        optional("deleteAdditionalMetricsToRetain") => boolean(),
+        optional("deleteAlertTargets") => boolean(),
+        optional("deleteBehaviors") => boolean(),
+        optional("deleteMetricsExportConfig") => boolean(),
+        optional("expectedVersion") => float(),
+        optional("metricsExportConfig") => metrics_export_config(),
+        optional("securityProfileDescription") => String.t() | atom()
+      }
+
+  """
+  @type update_security_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_version_artifact() :: %{
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type package_version_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_datum() :: %{
+        "timestamp" => non_neg_integer(),
+        "value" => metric_value()
+      }
+
+  """
+  @type metric_datum() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_topic_rule_request() :: %{
+        optional("tags") => String.t() | atom(),
+        required("topicRulePayload") => topic_rule_payload()
+      }
+
+  """
+  @type create_topic_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_audit_configuration_request() :: %{}
+
+  """
+  @type describe_account_audit_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dimension_request() :: %{
+        required("clientRequestToken") => String.t() | atom(),
+        required("stringValues") => list(String.t() | atom()),
+        optional("tags") => list(tag()),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_dimension_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principal_things_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("principal") => String.t() | atom()
+      }
+
+  """
+  @type list_principal_things_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_detect_mitigation_actions_task_response() :: %{
+        "taskSummary" => detect_mitigation_actions_task_summary()
+      }
+
+  """
+  @type describe_detect_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_scheduled_audit_response() :: %{}
+
+  """
+  @type delete_scheduled_audit_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_type_response() :: %{}
+
+  """
+  @type delete_thing_type_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attached_policies_request() :: %{
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer(),
+        optional("recursive") => boolean()
+      }
+
+  """
+  @type list_attached_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      issuer_certificate_identifier() :: %{
+        "issuerCertificateSerialNumber" => String.t() | atom(),
+        "issuerCertificateSubject" => String.t() | atom(),
+        "issuerId" => String.t() | atom()
+      }
+
+  """
+  @type issuer_certificate_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      behavior() :: %{
+        "criteria" => behavior_criteria(),
+        "exportMetric" => boolean(),
+        "metric" => String.t() | atom(),
+        "metricDimension" => metric_dimension(),
+        "name" => String.t() | atom(),
+        "suppressAlerts" => boolean()
+      }
+
+  """
+  @type behavior() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_security_profile_request() :: %{
+        optional("expectedVersion") => float()
+      }
+
+  """
+  @type delete_security_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_mitigation_action_request() :: %{
+        optional("actionParams") => mitigation_action_params(),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_mitigation_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_role_alias_response() :: %{
+        "roleAlias" => String.t() | atom(),
+        "roleAliasArn" => String.t() | atom()
+      }
+
+  """
+  @type create_role_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_certificate_transfer_request() :: %{
+        optional("setAsActive") => boolean()
+      }
+
+  """
+  @type accept_certificate_transfer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clear_default_authorizer_request() :: %{}
+
+  """
+  @type clear_default_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_profile_parameter() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificatePathOnDevice" => String.t() | atom(),
+        "platform" => String.t() | atom()
+      }
+
+  """
+  @type signing_profile_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_audit_task_request() :: %{}
+
+  """
+  @type describe_audit_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_role_aliases_response() :: %{
+        "nextMarker" => String.t() | atom(),
+        "roleAliases" => list(String.t() | atom())
+      }
+
+  """
+  @type list_role_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_provisioning_template_request() :: %{}
 
   """
@@ -7615,120 +2881,2022 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      list_package_versions_request() :: %{
+      cloudwatch_logs_action() :: %{
+        "batchMode" => boolean(),
+        "logGroupName" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type cloudwatch_logs_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_mitigation_actions_request() :: %{
+        optional("actionType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_mitigation_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_executions_retry_config() :: %{
+        "criteriaList" => list(retry_criteria())
+      }
+
+  """
+  @type job_executions_retry_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_related_resources_for_audit_finding_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "relatedResources" => list(related_resource())
+      }
+
+  """
+  @type list_related_resources_for_audit_finding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_thing_response() :: %{
+        "thingArn" => String.t() | atom(),
+        "thingId" => String.t() | atom(),
+        "thingName" => String.t() | atom()
+      }
+
+  """
+  @type create_thing_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_billing_group_request() :: %{
+        optional("expectedVersion") => float()
+      }
+
+  """
+  @type delete_billing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_audit_finding_response() :: %{
+        "finding" => audit_finding()
+      }
+
+  """
+  @type describe_audit_finding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_thing_response() :: %{
+        "attributes" => map(),
+        "billingGroupName" => String.t() | atom(),
+        "defaultClientId" => String.t() | atom(),
+        "thingArn" => String.t() | atom(),
+        "thingId" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "thingTypeName" => String.t() | atom(),
+        "version" => float()
+      }
+
+  """
+  @type describe_thing_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      effective_policy() :: %{
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom()
+      }
+
+  """
+  @type effective_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_parameter() :: %{
+        "description" => String.t() | atom(),
+        "example" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "optional" => boolean(),
+        "regex" => String.t() | atom()
+      }
+
+  """
+  @type document_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_outgoing_certificates_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer()
+      }
+
+  """
+  @type list_outgoing_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_action_header() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type http_action_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_check_configuration() :: %{
+        "configuration" => map(),
+        "enabled" => boolean()
+      }
+
+  """
+  @type audit_check_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_type_response() :: %{}
+
+  """
+  @type update_thing_type_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      malformed_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type malformed_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_security_profile_behaviors_request() :: %{
+        required("behaviors") => list(behavior())
+      }
+
+  """
+  @type validate_security_profile_behaviors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      presigned_url_config() :: %{
+        "expiresInSec" => float(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type presigned_url_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iot_events_action() :: %{
+        "batchMode" => boolean(),
+        "inputName" => String.t() | atom(),
+        "messageId" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type iot_events_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_configuration_response() :: %{
+        "domainConfigurationArn" => String.t() | atom(),
+        "domainConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type update_domain_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_audit_suppression_response() :: %{}
+
+  """
+  @type create_audit_suppression_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioning_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_provisioning_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_metric_request() :: %{
+        required("clientRequestToken") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        required("metricType") => list(any()),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_custom_metric_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_command_response() :: %{
+        "commandArn" => String.t() | atom(),
+        "commandId" => String.t() | atom()
+      }
+
+  """
+  @type create_command_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dynamic_thing_group_request() :: %{
+        optional("expectedVersion") => float()
+      }
+
+  """
+  @type delete_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_authorizer_response() :: %{
+        "authorizerDescription" => authorizer_description()
+      }
+
+  """
+  @type describe_authorizer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_indexing_configuration_response() :: %{
+        "thingGroupIndexingConfiguration" => thing_group_indexing_configuration(),
+        "thingIndexingConfiguration" => thing_indexing_configuration()
+      }
+
+  """
+  @type get_indexing_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_provisioning_template_version_request() :: %{
+        optional("setAsDefault") => boolean(),
+        required("templateBody") => String.t() | atom()
+      }
+
+  """
+  @type create_provisioning_template_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registration_code_request() :: %{}
+
+  """
+  @type delete_registration_code_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      active_violation() :: %{
+        "behavior" => behavior(),
+        "lastViolationTime" => non_neg_integer(),
+        "lastViolationValue" => metric_value(),
+        "securityProfileName" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "verificationState" => list(any()),
+        "verificationStateDescription" => String.t() | atom(),
+        "violationEventAdditionalInfo" => violation_event_additional_info(),
+        "violationId" => String.t() | atom(),
+        "violationStartTime" => non_neg_integer()
+      }
+
+  """
+  @type active_violation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_details() :: %{
+        "configurationStatus" => list(any()),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_command_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("mandatoryParameters") => list(command_parameter()),
+        optional("namespace") => list(any()),
+        optional("payload") => command_payload(),
+        optional("payloadTemplate") => String.t() | atom(),
+        optional("preprocessor") => command_preprocessor(),
+        optional("roleArn") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_command_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ca_certificate_response() :: %{}
+
+  """
+  @type delete_ca_certificate_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      terms_aggregation() :: %{
+        "maxBuckets" => integer()
+      }
+
+  """
+  @type terms_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scheduled_audits_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scheduledAudits" => list(scheduled_audit_metadata())
+      }
+
+  """
+  @type list_scheduled_audits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_version_request() :: %{}
+
+  """
+  @type get_policy_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principal_things_v2_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        required("principal") => String.t() | atom(),
+        optional("thingPrincipalType") => list(any())
+      }
+
+  """
+  @type list_principal_things_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      versions_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type versions_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mqtt_headers() :: %{
+        "contentType" => String.t() | atom(),
+        "correlationData" => String.t() | atom(),
+        "messageExpiry" => String.t() | atom(),
+        "payloadFormatIndicator" => String.t() | atom(),
+        "responseTopic" => String.t() | atom(),
+        "userProperties" => list(user_property())
+      }
+
+  """
+  @type mqtt_headers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_versions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "packageVersionSummaries" => list(package_version_summary())
+      }
+
+  """
+  @type list_package_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_topic_rule_destinations_response() :: %{
+        "destinationSummaries" => list(topic_rule_destination_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_topic_rule_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_registration_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_registration_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_authorizer_request() :: %{
+        optional("authorizerFunctionArn") => String.t() | atom(),
+        optional("enableCachingForHttp") => boolean(),
+        optional("status") => list(any()),
+        optional("tokenKeyName") => String.t() | atom(),
+        optional("tokenSigningPublicKeys") => map()
+      }
+
+  """
+  @type update_authorizer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "certificateMode" => list(any()),
+        "creationDate" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_audit_suppression_response() :: %{}
+
+  """
+  @type delete_audit_suppression_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificates_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer()
+      }
+
+  """
+  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_stream_request() :: %{}
+
+  """
+  @type delete_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_action() :: %{
+        "clientProperties" => map(),
+        "destinationArn" => String.t() | atom(),
+        "headers" => list(kafka_action_header()),
+        "key" => String.t() | atom(),
+        "partition" => String.t() | atom(),
+        "topic" => String.t() | atom()
+      }
+
+  """
+  @type kafka_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_keys_and_certificate_response() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "certificatePem" => String.t() | atom(),
+        "keyPair" => key_pair()
+      }
+
+  """
+  @type create_keys_and_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_metrics_response() :: %{
+        "metricNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_custom_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "defaultVersionName" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "packageArn" => String.t() | atom(),
+        "packageName" => String.t() | atom()
+      }
+
+  """
+  @type get_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      behavior_model_training_summary() :: %{
+        "behaviorName" => String.t() | atom(),
+        "datapointsCollectionPercentage" => float(),
+        "lastModelRefreshDate" => non_neg_integer(),
+        "modelStatus" => list(any()),
+        "securityProfileName" => String.t() | atom(),
+        "trainingDataCollectionStartDate" => non_neg_integer()
+      }
+
+  """
+  @type behavior_model_training_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_provisioning_template_response() :: %{}
+
+  """
+  @type delete_provisioning_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      add_thing_to_thing_group_request() :: %{
+        optional("overrideDynamicGroups") => boolean(),
+        optional("thingArn") => String.t() | atom(),
+        optional("thingGroupArn") => String.t() | atom(),
+        optional("thingGroupName") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
+      }
+
+  """
+  @type add_thing_to_thing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      non_compliant_resource() :: %{
+        "additionalInfo" => map(),
+        "resourceIdentifier" => resource_identifier(),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type non_compliant_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_url_destination_properties() :: %{
+        "confirmationUrl" => String.t() | atom()
+      }
+
+  """
+  @type http_url_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_execution_status_details() :: %{
+        "detailsMap" => map()
+      }
+
+  """
+  @type job_execution_status_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_summary() :: %{
+        "completedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "isConcurrent" => boolean(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "targetSelection" => list(any()),
+        "thingGroupId" => String.t() | atom()
+      }
+
+  """
+  @type job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_request() :: %{
+        optional("attributePayload") => attribute_payload(),
+        optional("expectedVersion") => float(),
+        optional("removeThingType") => boolean(),
+        optional("thingTypeName") => String.t() | atom()
+      }
+
+  """
+  @type update_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_audit_configuration_response() :: %{}
+
+  """
+  @type update_account_audit_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_configurations_request() :: %{
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer(),
+        optional("serviceType") => list(any())
+      }
+
+  """
+  @type list_domain_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_topic_rule_destination_response() :: %{}
+
+  """
+  @type delete_topic_rule_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_thing_registration_task_response() :: %{
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type start_thing_registration_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_audit_task_response() :: %{}
+
+  """
+  @type cancel_audit_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer()
+      }
+
+  """
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ota_updates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "otaUpdates" => list(ota_update_summary())
+      }
+
+  """
+  @type list_ota_updates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_security_profile_response() :: %{}
+
+  """
+  @type attach_security_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificate_providers_response() :: %{
+        "certificateProviders" => list(certificate_provider_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_certificate_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_profile_target() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type security_profile_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_detect_mitigation_actions_task_request() :: %{}
+
+  """
+  @type cancel_detect_mitigation_actions_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_to_retain() :: %{
+        "exportMetric" => boolean(),
+        "metric" => String.t() | atom(),
+        "metricDimension" => metric_dimension()
+      }
+
+  """
+  @type metric_to_retain() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_version_request() :: %{
+        optional("action") => list(any()),
+        optional("artifact") => package_version_artifact(),
+        optional("attributes") => map(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("recipe") => String.t() | atom()
+      }
+
+  """
+  @type update_package_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principal_things_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "things" => list(String.t() | atom())
+      }
+
+  """
+  @type list_principal_things_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_info() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ca_certificate_request() :: %{
+        optional("newAutoRegistrationStatus") => list(any()),
+        optional("newStatus") => list(any()),
+        optional("registrationConfig") => registration_config(),
+        optional("removeAutoRegistration") => boolean()
+      }
+
+  """
+  @type update_ca_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_version_response() :: %{
+        "artifact" => package_version_artifact(),
+        "attributes" => map(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "errorReason" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "packageName" => String.t() | atom(),
+        "packageVersionArn" => String.t() | atom(),
+        "recipe" => String.t() | atom(),
+        "sbom" => sbom(),
+        "sbomValidationStatus" => list(any()),
+        "status" => list(any()),
+        "versionName" => String.t() | atom()
+      }
+
+  """
+  @type get_package_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_thing_from_thing_group_request() :: %{
+        optional("thingArn") => String.t() | atom(),
+        optional("thingGroupArn") => String.t() | atom(),
+        optional("thingGroupName") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
+      }
+
+  """
+  @type remove_thing_from_thing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ca_certificates_response() :: %{
+        "certificates" => list(ca_certificate()),
+        "nextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_ca_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_role_alias_response() :: %{}
+
+  """
+  @type delete_role_alias_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_certificate_request() :: %{
+        optional("forceDelete") => boolean()
+      }
+
+  """
+  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_response() :: %{}
+
+  """
+  @type delete_package_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_profiles_for_target_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "securityProfileTargetMappings" => list(security_profile_target_mapping())
+      }
+
+  """
+  @type list_security_profiles_for_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_thing_group_response() :: %{
+        "indexName" => String.t() | atom(),
+        "queryString" => String.t() | atom(),
+        "queryVersion" => String.t() | atom(),
+        "status" => list(any()),
+        "thingGroupArn" => String.t() | atom(),
+        "thingGroupId" => String.t() | atom(),
+        "thingGroupMetadata" => thing_group_metadata(),
+        "thingGroupName" => String.t() | atom(),
+        "thingGroupProperties" => thing_group_properties(),
+        "version" => float()
+      }
+
+  """
+  @type describe_thing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_security_profile_request() :: %{
+        required("securityProfileTargetArn") => String.t() | atom()
+      }
+
+  """
+  @type attach_security_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_index_request() :: %{
+        optional("indexName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom()
+      }
+
+  """
+  @type search_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_logging_options_request() :: %{}
+
+  """
+  @type get_logging_options_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificates_response() :: %{
+        "certificates" => list(certificate()),
+        "nextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_context() :: %{
+        "serverName" => String.t() | atom()
+      }
+
+  """
+  @type tls_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mitigation_action() :: %{
+        "actionParams" => mitigation_action_params(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type mitigation_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_authorizers_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer(),
         optional("status") => list(any())
       }
 
   """
-  @type list_package_versions_request() :: %{(String.t() | atom()) => any()}
+  @type list_authorizers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      command_parameter_value_condition() :: %{
-        "comparisonOperator" => list(any()),
-        "operand" => command_parameter_value_comparison_operand()
+      delete_domain_configuration_response() :: %{}
+
+  """
+  @type delete_domain_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_sbom_with_package_version_response() :: %{
+        "packageName" => String.t() | atom(),
+        "sbom" => sbom(),
+        "sbomValidationStatus" => list(any()),
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type command_parameter_value_condition() :: %{(String.t() | atom()) => any()}
+  @type associate_sbom_with_package_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      destination() :: %{
-        "s3Destination" => s3_destination()
+      detach_security_profile_response() :: %{}
+
+  """
+  @type detach_security_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      timestream_dimension() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type destination() :: %{(String.t() | atom()) => any()}
+  @type timestream_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stream_file() :: %{
-        "fileId" => integer(),
-        "s3Location" => s3_location()
-      }
+      delete_thing_response() :: %{}
 
   """
-  @type stream_file() :: %{(String.t() | atom()) => any()}
+  @type delete_thing_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      mqtt_context() :: %{
-        "clientId" => String.t() | atom(),
-        "password" => binary(),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type mqtt_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_topic_rule_destination_response() :: %{}
-
-  """
-  @type update_topic_rule_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_execution_summary_for_thing() :: %{
-        "jobExecutionSummary" => job_execution_summary(),
-        "jobId" => String.t() | atom()
-      }
-
-  """
-  @type job_execution_summary_for_thing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_principals_response() :: %{
+      list_thing_groups_response() :: %{
         "nextToken" => String.t() | atom(),
-        "principals" => list(String.t() | atom())
+        "thingGroups" => list(group_name_and_arn())
       }
 
   """
-  @type list_thing_principals_response() :: %{(String.t() | atom()) => any()}
+  @type list_thing_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audit_task_metadata() :: %{
-        "taskId" => String.t() | atom(),
-        "taskStatus" => list(any()),
-        "taskType" => list(any())
+      create_custom_metric_response() :: %{
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom()
       }
 
   """
-  @type audit_task_metadata() :: %{(String.t() | atom()) => any()}
+  @type create_custom_metric_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_authorizer_response() :: %{
+      get_policy_request() :: %{}
+
+  """
+  @type get_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      buckets_aggregation_type() :: %{
+        "termsAggregation" => terms_aggregation()
+      }
+
+  """
+  @type buckets_aggregation_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_endpoint_request() :: %{
+        optional("endpointType") => String.t() | atom()
+      }
+
+  """
+  @type describe_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_configurations_response() :: %{
+        "domainConfigurations" => list(domain_configuration_summary()),
+        "nextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_things_in_thing_group_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("recursive") => boolean()
+      }
+
+  """
+  @type list_things_in_thing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_rule_destination_configuration() :: %{
+        "httpUrlConfiguration" => http_url_destination_configuration(),
+        "vpcConfiguration" => vpc_destination_configuration()
+      }
+
+  """
+  @type topic_rule_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type certificate_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      republish_action() :: %{
+        "headers" => mqtt_headers(),
+        "qos" => integer(),
+        "roleArn" => String.t() | atom(),
+        "topic" => String.t() | atom()
+      }
+
+  """
+  @type republish_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_package_version_request() :: %{
+        optional("artifact") => package_version_artifact(),
+        optional("attributes") => map(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("recipe") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_package_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_certificate_provider_response() :: %{
+        "certificateProviderArn" => String.t() | atom(),
+        "certificateProviderName" => String.t() | atom()
+      }
+
+  """
+  @type create_certificate_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replace_default_policy_version_params() :: %{
+        "templateName" => list(any())
+      }
+
+  """
+  @type replace_default_policy_version_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_type_request() :: %{}
+
+  """
+  @type delete_thing_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      register_certificate_request() :: %{
+        optional("caCertificatePem") => String.t() | atom(),
+        required("certificatePem") => String.t() | atom(),
+        optional("setAsActive") => boolean(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type register_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fleet_metric_name_and_arn() :: %{
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom()
+      }
+
+  """
+  @type fleet_metric_name_and_arn() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_job_executions_rollout_config() :: %{
+        "exponentialRate" => aws_job_exponential_rollout_rate(),
+        "maximumPerMinute" => integer()
+      }
+
+  """
+  @type aws_job_executions_rollout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_audit_mitigation_actions_task_request() :: %{}
+
+  """
+  @type cancel_audit_mitigation_actions_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("versionUpdateByJobsConfig") => version_update_by_jobs_config()
+      }
+
+  """
+  @type update_package_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_mitigation_action_response() :: %{
+        "actionArn" => String.t() | atom(),
+        "actionId" => String.t() | atom()
+      }
+
+  """
+  @type update_mitigation_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_command_request() :: %{
+        optional("deprecated") => boolean(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom()
+      }
+
+  """
+  @type update_command_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_audit_metadata() :: %{
+        "dayOfMonth" => String.t() | atom(),
+        "dayOfWeek" => list(any()),
+        "frequency" => list(any()),
+        "scheduledAuditArn" => String.t() | atom(),
+        "scheduledAuditName" => String.t() | atom()
+      }
+
+  """
+  @type scheduled_audit_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_policy_version_response() :: %{
+        "isDefaultVersion" => boolean(),
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyVersionId" => String.t() | atom()
+      }
+
+  """
+  @type create_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_job_rate_increase_criteria() :: %{
+        "numberOfNotifiedThings" => integer(),
+        "numberOfSucceededThings" => integer()
+      }
+
+  """
+  @type aws_job_rate_increase_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      statistics() :: %{
+        "average" => float(),
+        "count" => integer(),
+        "maximum" => float(),
+        "minimum" => float(),
+        "stdDeviation" => float(),
+        "sum" => float(),
+        "sumOfSquares" => float(),
+        "variance" => float()
+      }
+
+  """
+  @type statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloudwatch_alarm_action() :: %{
+        "alarmName" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "stateReason" => String.t() | atom(),
+        "stateValue" => String.t() | atom()
+      }
+
+  """
+  @type cloudwatch_alarm_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_thing_from_thing_group_response() :: %{}
+
+  """
+  @type remove_thing_from_thing_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      version_update_by_jobs_config() :: %{
+        "enabled" => boolean(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type version_update_by_jobs_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      firehose_action() :: %{
+        "batchMode" => boolean(),
+        "deliveryStreamName" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "separator" => String.t() | atom()
+      }
+
+  """
+  @type firehose_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_things_in_billing_group_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "things" => list(String.t() | atom())
+      }
+
+  """
+  @type list_things_in_billing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_type_definition() :: %{
+        "thingTypeArn" => String.t() | atom(),
+        "thingTypeMetadata" => thing_type_metadata(),
+        "thingTypeName" => String.t() | atom(),
+        "thingTypeProperties" => thing_type_properties()
+      }
+
+  """
+  @type thing_type_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_thing_request() :: %{
+        optional("attributePayload") => attribute_payload(),
+        optional("billingGroupName") => String.t() | atom(),
+        optional("thingTypeName") => String.t() | atom()
+      }
+
+  """
+  @type create_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sbom_validation_results_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "validationResultSummaries" => list(sbom_validation_result_summary())
+      }
+
+  """
+  @type list_sbom_validation_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iot_site_wise_action() :: %{
+        "putAssetPropertyValueEntries" => list(put_asset_property_value_entry()),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type iot_site_wise_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloudwatch_metric_action() :: %{
+        "metricName" => String.t() | atom(),
+        "metricNamespace" => String.t() | atom(),
+        "metricTimestamp" => String.t() | atom(),
+        "metricUnit" => String.t() | atom(),
+        "metricValue" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type cloudwatch_metric_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_thing_to_thing_group_response() :: %{}
+
+  """
+  @type add_thing_to_thing_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      log_target() :: %{
+        "targetName" => String.t() | atom(),
+        "targetType" => list(any())
+      }
+
+  """
+  @type log_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_state_transition_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_state_transition_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_default_authorizer_response() :: %{
         "authorizerArn" => String.t() | atom(),
         "authorizerName" => String.t() | atom()
       }
 
   """
-  @type update_authorizer_response() :: %{(String.t() | atom()) => any()}
+  @type set_default_authorizer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_job_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("templateName") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_job_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_job_exponential_rollout_rate() :: %{
+        "baseRatePerMinute" => integer(),
+        "incrementFactor" => float(),
+        "rateIncreaseCriteria" => aws_job_rate_increase_criteria()
+      }
+
+  """
+  @type aws_job_exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_provisioning_template_version_request() :: %{}
+
+  """
+  @type describe_provisioning_template_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_things_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "things" => list(thing_attribute())
+      }
+
+  """
+  @type list_things_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_audit_mitigation_actions_task_response() :: %{
+        "actionsDefinition" => list(mitigation_action()),
+        "auditCheckToActionsMapping" => map(),
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer(),
+        "target" => audit_mitigation_actions_task_target(),
+        "taskStatistics" => map(),
+        "taskStatus" => list(any())
+      }
+
+  """
+  @type describe_audit_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_destination_configuration() :: %{
+        "roleArn" => String.t() | atom(),
+        "securityGroups" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_provisioning_template_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "defaultVersionId" => integer(),
+        "description" => String.t() | atom(),
+        "enabled" => boolean(),
+        "lastModifiedDate" => non_neg_integer(),
+        "preProvisioningHook" => provisioning_hook(),
+        "provisioningRoleArn" => String.t() | atom(),
+        "templateArn" => String.t() | atom(),
+        "templateBody" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type describe_provisioning_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ota_update_response() :: %{
+        "otaUpdateInfo" => ota_update_info()
+      }
+
+  """
+  @type get_ota_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_action_header() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type kafka_action_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detach_thing_principal_response() :: %{}
+
+  """
+  @type detach_thing_principal_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_managed_job_template_response() :: %{
+        "description" => String.t() | atom(),
+        "document" => String.t() | atom(),
+        "documentParameters" => list(document_parameter()),
+        "environments" => list(String.t() | atom()),
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
+        "templateVersion" => String.t() | atom()
+      }
+
+  """
+  @type describe_managed_job_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_policy_request() :: %{
+        required("policyDocument") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_certificate_response() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom()
+      }
+
+  """
+  @type register_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_request() :: %{
+        optional("comment") => String.t() | atom(),
+        optional("force") => boolean(),
+        optional("reasonCode") => String.t() | atom()
+      }
+
+  """
+  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_thing_from_billing_group_request() :: %{
+        optional("billingGroupArn") => String.t() | atom(),
+        optional("billingGroupName") => String.t() | atom(),
+        optional("thingArn") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
+      }
+
+  """
+  @type remove_thing_from_billing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_result() :: %{
+        "allowed" => allowed(),
+        "authDecision" => list(any()),
+        "authInfo" => auth_info(),
+        "denied" => denied(),
+        "missingContextValues" => list(String.t() | atom())
+      }
+
+  """
+  @type auth_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_event_configurations_request() :: %{}
+
+  """
+  @type describe_event_configurations_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_executions_for_job_response() :: %{
+        "executionSummaries" => list(job_execution_summary_for_job()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_job_executions_for_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_response() :: %{
+        "nextMarker" => String.t() | atom(),
+        "policies" => list(policy())
+      }
+
+  """
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_response() :: %{}
+
+  """
+  @type update_thing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_document() :: %{
+        "attributes" => map(),
+        "connectivity" => thing_connectivity(),
+        "deviceDefender" => String.t() | atom(),
+        "shadow" => String.t() | atom(),
+        "thingGroupNames" => list(String.t() | atom()),
+        "thingId" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "thingTypeName" => String.t() | atom()
+      }
+
+  """
+  @type thing_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_billing_group_response() :: %{
+        "billingGroupArn" => String.t() | atom(),
+        "billingGroupId" => String.t() | atom(),
+        "billingGroupName" => String.t() | atom()
+      }
+
+  """
+  @type create_billing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      confirm_topic_rule_destination_request() :: %{}
+
+  """
+  @type confirm_topic_rule_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_execution_request() :: %{
+        optional("expectedVersion") => float(),
+        optional("force") => boolean(),
+        optional("statusDetails") => map()
+      }
+
+  """
+  @type cancel_job_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_topic_rule_request() :: %{}
+
+  """
+  @type enable_topic_rule_request() :: %{}
 
   @typedoc """
 
@@ -7746,72 +4914,124 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      list_scheduled_audits_request() :: %{
+      describe_thing_type_response() :: %{
+        "thingTypeArn" => String.t() | atom(),
+        "thingTypeId" => String.t() | atom(),
+        "thingTypeMetadata" => thing_type_metadata(),
+        "thingTypeName" => String.t() | atom(),
+        "thingTypeProperties" => thing_type_properties()
+      }
+
+  """
+  @type describe_thing_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_audit_suppression_response() :: %{}
+
+  """
+  @type update_audit_suppression_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_metric_response() :: %{}
+
+  """
+  @type delete_custom_metric_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_mitigation_actions_executions_request() :: %{
+        optional("actionStatus") => list(any()),
+        required("findingId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("taskId") => String.t() | atom()
+      }
+
+  """
+  @type list_audit_mitigation_actions_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_audit_mitigation_actions_task_request() :: %{
+        required("auditCheckToActionsMapping") => map(),
+        required("clientRequestToken") => String.t() | atom(),
+        required("target") => audit_mitigation_actions_task_target()
+      }
+
+  """
+  @type start_audit_mitigation_actions_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_detect_mitigation_actions_task_response() :: %{
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type start_detect_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_things_in_billing_group_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_scheduled_audits_request() :: %{(String.t() | atom()) => any()}
+  @type list_things_in_billing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_topic_rule_request() :: %{}
-
-  """
-  @type get_topic_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
+      explicit_deny() :: %{
+        "policies" => list(policy())
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type explicit_deny() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sql_parse_exception() :: %{
-        "message" => String.t() | atom()
+      update_thing_groups_for_thing_request() :: %{
+        optional("overrideDynamicGroups") => boolean(),
+        optional("thingGroupsToAdd") => list(String.t() | atom()),
+        optional("thingGroupsToRemove") => list(String.t() | atom()),
+        optional("thingName") => String.t() | atom()
       }
 
   """
-  @type sql_parse_exception() :: %{(String.t() | atom()) => any()}
+  @type update_thing_groups_for_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_audit_task_response() :: %{
-        "auditDetails" => map(),
-        "scheduledAuditName" => String.t() | atom(),
-        "taskStartTime" => non_neg_integer(),
-        "taskStatistics" => task_statistics(),
-        "taskStatus" => list(any()),
-        "taskType" => list(any())
+      ca_certificate() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "status" => list(any())
       }
 
   """
-  @type describe_audit_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kafka_action_header() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type kafka_action_header() :: %{(String.t() | atom()) => any()}
+  @type ca_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7830,19 +5050,4100 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      get_thing_connectivity_data_request() :: %{}
+      create_security_profile_response() :: %{
+        "securityProfileArn" => String.t() | atom(),
+        "securityProfileName" => String.t() | atom()
+      }
 
   """
-  @type get_thing_connectivity_data_request() :: %{}
+  @type create_security_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_provisioning_template_version_request() :: %{}
+      outgoing_certificate() :: %{
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "transferDate" => non_neg_integer(),
+        "transferMessage" => String.t() | atom(),
+        "transferredTo" => String.t() | atom()
+      }
 
   """
-  @type describe_provisioning_template_version_request() :: %{}
+  @type outgoing_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_v2_logging_options_request() :: %{
+        optional("verbose") => boolean()
+      }
+
+  """
+  @type get_v2_logging_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_active_violations_response() :: %{
+        "activeViolations" => list(active_violation()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_active_violations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_provisioning_template_version_response() :: %{}
+
+  """
+  @type delete_provisioning_template_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_role_alias_response() :: %{
+        "roleAliasDescription" => role_alias_description()
+      }
+
+  """
+  @type describe_role_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_v2_logging_level_request() :: %{
+        required("logLevel") => list(any()),
+        required("logTarget") => log_target()
+      }
+
+  """
+  @type set_v2_logging_level_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_types_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "thingTypes" => list(thing_type_definition())
+      }
+
+  """
+  @type list_thing_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_context() :: %{
+        "headers" => map(),
+        "queryString" => String.t() | atom()
+      }
+
+  """
+  @type http_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ca_certificate_params() :: %{
+        "action" => list(any())
+      }
+
+  """
+  @type update_ca_certificate_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dynamic_thing_group_request() :: %{
+        optional("expectedVersion") => float(),
+        optional("indexName") => String.t() | atom(),
+        optional("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
+        required("thingGroupProperties") => thing_group_properties()
+      }
+
+  """
+  @type update_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mitigation_action_response() :: %{
+        "actionArn" => String.t() | atom(),
+        "actionId" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
+        "actionParams" => mitigation_action_params(),
+        "actionType" => list(any()),
+        "creationDate" => non_neg_integer(),
+        "lastModifiedDate" => non_neg_integer(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type describe_mitigation_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_scheduled_audit_request() :: %{}
+
+  """
+  @type describe_scheduled_audit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      set_default_policy_version_request() :: %{}
+
+  """
+  @type set_default_policy_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioning_template_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "enabled" => boolean(),
+        "lastModifiedDate" => non_neg_integer(),
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type provisioning_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_signing() :: %{
+        "awsSignerJobId" => String.t() | atom(),
+        "customCodeSigning" => custom_code_signing(),
+        "startSigningJobParameter" => start_signing_job_parameter()
+      }
+
+  """
+  @type code_signing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sig_v4_authorization() :: %{
+        "roleArn" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "signingRegion" => String.t() | atom()
+      }
+
+  """
+  @type sig_v4_authorization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_command_executions_response() :: %{
+        "commandExecutions" => list(command_execution_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_command_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_thing_group_request() :: %{}
+
+  """
+  @type describe_thing_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_dimension() :: %{
+        "dimensionName" => String.t() | atom(),
+        "operator" => list(any())
+      }
+
+  """
+  @type metric_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_configuration_response() :: %{}
+
+  """
+  @type update_package_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_v2_logging_levels_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("targetType") => list(any())
+      }
+
+  """
+  @type list_v2_logging_levels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_rule_destination_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "httpUrlSummary" => http_url_destination_summary(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "vpcDestinationSummary" => vpc_destination_summary()
+      }
+
+  """
+  @type topic_rule_destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_rule() :: %{
+        "actions" => list(action()),
+        "awsIotSqlVersion" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "errorAction" => action(),
+        "ruleDisabled" => boolean(),
+        "ruleName" => String.t() | atom(),
+        "sql" => String.t() | atom()
+      }
+
+  """
+  @type topic_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dimension_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "lastModifiedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "stringValues" => list(String.t() | atom()),
+        "type" => list(any())
+      }
+
+  """
+  @type describe_dimension_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_executions_for_job_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_job_executions_for_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_things_in_thing_group_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "things" => list(String.t() | atom())
+      }
+
+  """
+  @type list_things_in_thing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_principals_v2_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "thingPrincipalObjects" => list(thing_principal_object())
+      }
+
+  """
+  @type list_thing_principals_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket() :: %{
+        "count" => integer(),
+        "keyValue" => String.t() | atom()
+      }
+
+  """
+  @type bucket() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_thing_request() :: %{}
+
+  """
+  @type describe_thing_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fleet_metrics_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_fleet_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_execution_summary_for_job() :: %{
+        "jobExecutionSummary" => job_execution_summary(),
+        "thingArn" => String.t() | atom()
+      }
+
+  """
+  @type job_execution_summary_for_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ota_updates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("otaUpdateStatus") => list(any())
+      }
+
+  """
+  @type list_ota_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stream_response() :: %{
+        "description" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
+        "streamVersion" => integer()
+      }
+
+  """
+  @type create_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ota_update_response() :: %{}
+
+  """
+  @type delete_ota_update_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_response() :: %{}
+
+  """
+  @type update_package_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_outgoing_certificates_response() :: %{
+        "nextMarker" => String.t() | atom(),
+        "outgoingCertificates" => list(outgoing_certificate())
+      }
+
+  """
+  @type list_outgoing_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_payload() :: %{
+        "attributes" => map(),
+        "merge" => boolean()
+      }
+
+  """
+  @type attribute_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_configurations_response() :: %{}
+
+  """
+  @type update_event_configurations_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_topic_rule_destination_request() :: %{
+        required("destinationConfiguration") => topic_rule_destination_configuration()
+      }
+
+  """
+  @type create_topic_rule_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_detect_mitigation_actions_executions_response() :: %{
+        "actionsExecutions" => list(detect_mitigation_action_execution()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_detect_mitigation_actions_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      allowed() :: %{
+        "policies" => list(policy())
+      }
+
+  """
+  @type allowed() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_endpoint_response() :: %{
+        "endpointAddress" => String.t() | atom()
+      }
+
+  """
+  @type describe_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_template_request() :: %{
+        optional("abortConfig") => abort_config(),
+        required("description") => String.t() | atom(),
+        optional("destinationPackageVersions") => list(String.t() | atom()),
+        optional("document") => String.t() | atom(),
+        optional("documentSource") => String.t() | atom(),
+        optional("jobArn") => String.t() | atom(),
+        optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
+        optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
+        optional("maintenanceWindows") => list(maintenance_window()),
+        optional("presignedUrlConfig") => presigned_url_config(),
+        optional("tags") => list(tag()),
+        optional("timeoutConfig") => timeout_config()
+      }
+
+  """
+  @type create_job_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_command_execution_response() :: %{}
+
+  """
+  @type delete_command_execution_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_encryption_configuration_response() :: %{
+        "configurationDetails" => configuration_details(),
+        "encryptionType" => list(any()),
+        "kmsAccessRoleArn" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer()
+      }
+
+  """
+  @type describe_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_thing_to_billing_group_request() :: %{
+        optional("billingGroupArn") => String.t() | atom(),
+        optional("billingGroupName") => String.t() | atom(),
+        optional("thingArn") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
+      }
+
+  """
+  @type add_thing_to_billing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_task_metadata() :: %{
+        "taskId" => String.t() | atom(),
+        "taskStatus" => list(any()),
+        "taskType" => list(any())
+      }
+
+  """
+  @type audit_task_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_group_properties() :: %{
+        "attributePayload" => attribute_payload(),
+        "thingGroupDescription" => String.t() | atom()
+      }
+
+  """
+  @type thing_group_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sbom_validation_results_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("validationResult") => list(any())
+      }
+
+  """
+  @type list_sbom_validation_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_request() :: %{}
+
+  """
+  @type delete_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type certificate_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_destination_summary() :: %{
+        "roleArn" => String.t() | atom(),
+        "securityGroups" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_group_request() :: %{
+        optional("expectedVersion") => float()
+      }
+
+  """
+  @type delete_thing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_scheduled_audit_request() :: %{}
+
+  """
+  @type delete_scheduled_audit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_response() :: %{
+        "description" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom()
+      }
+
+  """
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_detect_mitigation_actions_task_request() :: %{}
+
+  """
+  @type describe_detect_mitigation_actions_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dimension_request() :: %{}
+
+  """
+  @type delete_dimension_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_v2_logging_levels_response() :: %{
+        "logTargetConfigurations" => list(log_target_configuration()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_v2_logging_levels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      denied() :: %{
+        "explicitDeny" => explicit_deny(),
+        "implicitDeny" => implicit_deny()
+      }
+
+  """
+  @type denied() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_billing_group_response() :: %{}
+
+  """
+  @type delete_billing_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_criteria() :: %{
+        "action" => list(any()),
+        "failureType" => list(any()),
+        "minNumberOfExecutedThings" => integer(),
+        "thresholdPercentage" => float()
+      }
+
+  """
+  @type abort_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_thing_type_request() :: %{}
+
+  """
+  @type describe_thing_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_asset_property_value_entry() :: %{
+        "assetId" => String.t() | atom(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
+        "propertyValues" => list(asset_property_value())
+      }
+
+  """
+  @type put_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorizer_description() :: %{
+        "authorizerArn" => String.t() | atom(),
+        "authorizerFunctionArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "enableCachingForHttp" => boolean(),
+        "lastModifiedDate" => non_neg_integer(),
+        "signingDisabled" => boolean(),
+        "status" => list(any()),
+        "tokenKeyName" => String.t() | atom(),
+        "tokenSigningPublicKeys" => map()
+      }
+
+  """
+  @type authorizer_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_audit_suppression_request() :: %{
+        required("checkName") => String.t() | atom(),
+        required("resourceIdentifier") => resource_identifier()
+      }
+
+  """
+  @type describe_audit_suppression_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_command_execution_request() :: %{
+        optional("includeResult") => boolean(),
+        required("targetArn") => String.t() | atom()
+      }
+
+  """
+  @type get_command_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_mitigation_action_response() :: %{
+        "actionArn" => String.t() | atom(),
+        "actionId" => String.t() | atom()
+      }
+
+  """
+  @type create_mitigation_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_security_profile_response() :: %{
+        "additionalMetricsToRetain" => list(String.t() | atom()),
+        "additionalMetricsToRetainV2" => list(metric_to_retain()),
+        "alertTargets" => map(),
+        "behaviors" => list(behavior()),
+        "creationDate" => non_neg_integer(),
+        "lastModifiedDate" => non_neg_integer(),
+        "metricsExportConfig" => metrics_export_config(),
+        "securityProfileArn" => String.t() | atom(),
+        "securityProfileDescription" => String.t() | atom(),
+        "securityProfileName" => String.t() | atom(),
+        "version" => float()
+      }
+
+  """
+  @type describe_security_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ota_update_request() :: %{}
+
+  """
+  @type get_ota_update_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      file_location() :: %{
+        "s3Location" => s3_location(),
+        "stream" => stream()
+      }
+
+  """
+  @type file_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clear_default_authorizer_response() :: %{}
+
+  """
+  @type clear_default_authorizer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_commands_response() :: %{
+        "commands" => list(command_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_commands_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_thing_request() :: %{
+        optional("parameters") => map(),
+        required("templateBody") => String.t() | atom()
+      }
+
+  """
+  @type register_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_encryption_configuration_response() :: %{}
+
+  """
+  @type update_encryption_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("namespaceId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("targetSelection") => list(any()),
+        optional("thingGroupId") => String.t() | atom(),
+        optional("thingGroupName") => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dynamic_thing_group_request() :: %{
+        optional("indexName") => String.t() | atom(),
+        required("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("thingGroupProperties") => thing_group_properties()
+      }
+
+  """
+  @type create_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_thing_registration_task_response() :: %{}
+
+  """
+  @type stop_thing_registration_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_related_resources_for_audit_finding_request() :: %{
+        required("findingId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_related_resources_for_audit_finding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_package_response() :: %{
+        "description" => String.t() | atom(),
+        "packageArn" => String.t() | atom(),
+        "packageName" => String.t() | atom()
+      }
+
+  """
+  @type create_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_version_response() :: %{}
+
+  """
+  @type update_package_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      test_authorization_request() :: %{
+        required("authInfos") => list(auth_info()),
+        optional("clientId") => String.t() | atom(),
+        optional("cognitoIdentityPoolId") => String.t() | atom(),
+        optional("policyNamesToAdd") => list(String.t() | atom()),
+        optional("policyNamesToSkip") => list(String.t() | atom()),
+        optional("principal") => String.t() | atom()
+      }
+
+  """
+  @type test_authorization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      confirm_topic_rule_destination_response() :: %{}
+
+  """
+  @type confirm_topic_rule_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      billing_group_properties() :: %{
+        "billingGroupDescription" => String.t() | atom()
+      }
+
+  """
+  @type billing_group_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_url_destination_summary() :: %{
+        "confirmationUrl" => String.t() | atom()
+      }
+
+  """
+  @type http_url_destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registration_config() :: %{
+        "roleArn" => String.t() | atom(),
+        "templateBody" => String.t() | atom(),
+        "templateName" => String.t() | atom()
+      }
+
+  """
+  @type registration_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_v2_logging_options_response() :: %{
+        "defaultLogLevel" => list(any()),
+        "disableAllLogs" => boolean(),
+        "eventConfigurations" => list(log_event_configuration()),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type get_v2_logging_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_target_configuration() :: %{
+        "logLevel" => list(any()),
+        "logTarget" => log_target()
+      }
+
+  """
+  @type log_target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_authorizer_request() :: %{
+        required("authorizerFunctionArn") => String.t() | atom(),
+        optional("enableCachingForHttp") => boolean(),
+        optional("signingDisabled") => boolean(),
+        optional("status") => list(any()),
+        optional("tags") => list(tag()),
+        optional("tokenKeyName") => String.t() | atom(),
+        optional("tokenSigningPublicKeys") => map()
+      }
+
+  """
+  @type create_authorizer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timestream_timestamp() :: %{
+        "unit" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type timestream_timestamp() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_connectivity_data_response() :: %{
+        "cleanSession" => boolean(),
+        "clientId" => String.t() | atom(),
+        "connected" => boolean(),
+        "disconnectReason" => list(any()),
+        "keepAliveDuration" => integer(),
+        "sessionExpiry" => float(),
+        "sourceIp" => String.t() | atom(),
+        "sourcePort" => integer(),
+        "targetIp" => String.t() | atom(),
+        "targetPort" => integer(),
+        "thingName" => String.t() | atom(),
+        "timestamp" => non_neg_integer(),
+        "vpcEndpointId" => String.t() | atom()
+      }
+
+  """
+  @type get_thing_connectivity_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_connectivity_data_request() :: %{
+        optional("includeSocketInformation") => boolean()
+      }
+
+  """
+  @type get_thing_connectivity_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_keys_and_certificate_request() :: %{
+        optional("setAsActive") => boolean()
+      }
+
+  """
+  @type create_keys_and_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_config() :: %{
+        "criteriaList" => list(abort_criteria())
+      }
+
+  """
+  @type abort_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_detect_mitigation_actions_task_response() :: %{}
+
+  """
+  @type cancel_detect_mitigation_actions_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_streams_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "streams" => list(stream_summary())
+      }
+
+  """
+  @type list_streams_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_provisioning_template_version_request() :: %{}
+
+  """
+  @type delete_provisioning_template_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      group_name_and_arn() :: %{
+        "groupArn" => String.t() | atom(),
+        "groupName" => String.t() | atom()
+      }
+
+  """
+  @type group_name_and_arn() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_query_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_query_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_principals_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "principals" => list(String.t() | atom())
+      }
+
+  """
+  @type list_thing_principals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      location_action() :: %{
+        "deviceId" => String.t() | atom(),
+        "latitude" => String.t() | atom(),
+        "longitude" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "timestamp" => location_timestamp(),
+        "trackerName" => String.t() | atom()
+      }
+
+  """
+  @type location_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      indexing_filter() :: %{
+        "connectivity" => connectivity_filter(),
+        "geoLocations" => list(geo_location_target()),
+        "namedShadowNames" => list(String.t() | atom())
+      }
+
+  """
+  @type indexing_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_role_alias_request() :: %{}
+
+  """
+  @type delete_role_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_template_request() :: %{}
+
+  """
+  @type delete_job_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      authorizer_summary() :: %{
+        "authorizerArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom()
+      }
+
+  """
+  @type authorizer_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_thing_registration_task_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "failureCount" => integer(),
+        "inputFileBucket" => String.t() | atom(),
+        "inputFileKey" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "message" => String.t() | atom(),
+        "percentageProgress" => integer(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "successCount" => integer(),
+        "taskId" => String.t() | atom(),
+        "templateBody" => String.t() | atom()
+      }
+
+  """
+  @type describe_thing_registration_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_package_version_response() :: %{
+        "attributes" => map(),
+        "description" => String.t() | atom(),
+        "errorReason" => String.t() | atom(),
+        "packageName" => String.t() | atom(),
+        "packageVersionArn" => String.t() | atom(),
+        "status" => list(any()),
+        "versionName" => String.t() | atom()
+      }
+
+  """
+  @type create_package_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_billing_group_request() :: %{
+        required("billingGroupProperties") => billing_group_properties(),
+        optional("expectedVersion") => float()
+      }
+
+  """
+  @type update_billing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_security_profile_response() :: %{}
+
+  """
+  @type delete_security_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      related_resource() :: %{
+        "additionalInfo" => map(),
+        "resourceIdentifier" => resource_identifier(),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type related_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_execution_request() :: %{
+        optional("force") => boolean(),
+        optional("namespaceId") => String.t() | atom()
+      }
+
+  """
+  @type delete_job_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_registration_tasks_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_thing_registration_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_things_request() :: %{
+        optional("attributeName") => String.t() | atom(),
+        optional("attributeValue") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("thingTypeName") => String.t() | atom(),
+        optional("usePrefixAttributeValue") => boolean()
+      }
+
+  """
+  @type list_things_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_summary() :: %{
+        "commandArn" => String.t() | atom(),
+        "commandId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "deprecated" => boolean(),
+        "displayName" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "pendingDeletion" => boolean()
+      }
+
+  """
+  @type command_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_configuration_response() :: %{
+        "versionUpdateByJobsConfig" => version_update_by_jobs_config()
+      }
+
+  """
+  @type get_package_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transfer_certificate_request() :: %{
+        required("targetAwsAccount") => String.t() | atom(),
+        optional("transferMessage") => String.t() | atom()
+      }
+
+  """
+  @type transfer_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_group_indexing_configuration() :: %{
+        "customFields" => list(field()),
+        "managedFields" => list(field()),
+        "thingGroupIndexingMode" => list(any())
+      }
+
+  """
+  @type thing_group_indexing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_command_response() :: %{
+        "statusCode" => integer()
+      }
+
+  """
+  @type delete_command_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property_value() :: %{
+        "quality" => String.t() | atom(),
+        "timestamp" => asset_property_timestamp(),
+        "value" => list()
+      }
+
+  """
+  @type asset_property_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_detect_mitigation_actions_tasks_request() :: %{
+        required("endTime") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("startTime") => non_neg_integer()
+      }
+
+  """
+  @type list_detect_mitigation_actions_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_job_abort_config() :: %{
+        "abortCriteriaList" => list(aws_job_abort_criteria())
+      }
+
+  """
+  @type aws_job_abort_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_certificate_provider_request() :: %{
+        required("accountDefaultForOperations") => list(list(any())()),
+        optional("clientToken") => String.t() | atom(),
+        required("lambdaFunctionArn") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_certificate_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_principals_v2_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("thingPrincipalType") => list(any())
+      }
+
+  """
+  @type list_thing_principals_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_action() :: %{
+        "token" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type salesforce_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_default_authorizer_request() :: %{}
+
+  """
+  @type describe_default_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_suppressions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "suppressions" => list(audit_suppression())
+      }
+
+  """
+  @type list_audit_suppressions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_ca_certificate_request() :: %{}
+
+  """
+  @type describe_ca_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination() :: %{
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_metric_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "displayName" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom(),
+        "metricType" => list(any())
+      }
+
+  """
+  @type update_custom_metric_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_types_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("thingTypeName") => String.t() | atom()
+      }
+
+  """
+  @type list_thing_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_percentiles_request() :: %{
+        optional("aggregationField") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("percents") => list(float()),
+        required("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_percentiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detect_mitigation_actions_task_summary() :: %{
+        "actionsDefinition" => list(mitigation_action()),
+        "onlyActiveViolationsIncluded" => boolean(),
+        "suppressedAlertsIncluded" => boolean(),
+        "target" => detect_mitigation_actions_task_target(),
+        "taskEndTime" => non_neg_integer(),
+        "taskId" => String.t() | atom(),
+        "taskStartTime" => non_neg_integer(),
+        "taskStatistics" => detect_mitigation_actions_task_statistics(),
+        "taskStatus" => list(any()),
+        "violationEventOccurrenceRange" => violation_event_occurrence_range()
+      }
+
+  """
+  @type detect_mitigation_actions_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registration_code_response() :: %{}
+
+  """
+  @type delete_registration_code_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      registration_code_validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type registration_code_validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dimension_request() :: %{}
+
+  """
+  @type describe_dimension_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_configuration_request() :: %{}
+
+  """
+  @type get_package_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_audit_configuration_response() :: %{
+        "auditCheckConfigurations" => map(),
+        "auditNotificationTargetConfigurations" => map(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type describe_account_audit_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_provisioning_template_request() :: %{}
+
+  """
+  @type describe_provisioning_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      index_not_ready_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type index_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_security_profile_request() :: %{
+        optional("additionalMetricsToRetain") => list(String.t() | atom()),
+        optional("additionalMetricsToRetainV2") => list(metric_to_retain()),
+        optional("alertTargets") => map(),
+        optional("behaviors") => list(behavior()),
+        optional("metricsExportConfig") => metrics_export_config(),
+        optional("securityProfileDescription") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_security_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_topic_rule_destination_response() :: %{
+        "topicRuleDestination" => topic_rule_destination()
+      }
+
+  """
+  @type get_topic_rule_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_rule_payload() :: %{
+        "actions" => list(action()),
+        "awsIotSqlVersion" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "errorAction" => action(),
+        "ruleDisabled" => boolean(),
+        "sql" => String.t() | atom()
+      }
+
+  """
+  @type topic_rule_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_detect_mitigation_actions_task_request() :: %{
+        required("actions") => list(String.t() | atom()),
+        required("clientRequestToken") => String.t() | atom(),
+        optional("includeOnlyActiveViolations") => boolean(),
+        optional("includeSuppressedAlerts") => boolean(),
+        required("target") => detect_mitigation_actions_task_target(),
+        optional("violationEventOccurrenceRange") => violation_event_occurrence_range()
+      }
+
+  """
+  @type start_detect_mitigation_actions_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_mitigation_actions_response() :: %{
+        "actionIdentifiers" => list(mitigation_action_identifier()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_mitigation_actions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_metric_request() :: %{
+        required("displayName") => String.t() | atom()
+      }
+
+  """
+  @type update_custom_metric_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_authorizers_response() :: %{
+        "authorizers" => list(authorizer_summary()),
+        "nextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_authorizers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type delete_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_package_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_request() :: %{
+        optional("expectedVersion") => float()
+      }
+
+  """
+  @type delete_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_audit_suppression_request() :: %{
+        required("checkName") => String.t() | atom(),
+        required("resourceIdentifier") => resource_identifier()
+      }
+
+  """
+  @type delete_audit_suppression_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_executions_rollout_config() :: %{
+        "exponentialRate" => exponential_rollout_rate(),
+        "maximumPerMinute" => integer()
+      }
+
+  """
+  @type job_executions_rollout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "defaultVersionName" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "packageName" => String.t() | atom()
+      }
+
+  """
+  @type package_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_code_signing() :: %{
+        "certificateChain" => code_signing_certificate_chain(),
+        "hashAlgorithm" => String.t() | atom(),
+        "signature" => code_signing_signature(),
+        "signatureAlgorithm" => String.t() | atom()
+      }
+
+  """
+  @type custom_code_signing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sql_parse_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type sql_parse_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_certificate_from_csr_request() :: %{
+        required("certificateSigningRequest") => String.t() | atom(),
+        optional("setAsActive") => boolean()
+      }
+
+  """
+  @type create_certificate_from_csr_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mitigation_action_params() :: %{
+        "addThingsToThingGroupParams" => add_things_to_thing_group_params(),
+        "enableIoTLoggingParams" => enable_io_t_logging_params(),
+        "publishFindingToSnsParams" => publish_finding_to_sns_params(),
+        "replaceDefaultPolicyVersionParams" => replace_default_policy_version_params(),
+        "updateCACertificateParams" => update_ca_certificate_params(),
+        "updateDeviceCertificateParams" => update_device_certificate_params()
+      }
+
+  """
+  @type mitigation_action_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_things_to_thing_group_params() :: %{
+        "overrideDynamicGroups" => boolean(),
+        "thingGroupNames" => list(String.t() | atom())
+      }
+
+  """
+  @type add_things_to_thing_group_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter_value() :: %{
+        "B" => boolean(),
+        "BIN" => binary(),
+        "D" => float(),
+        "I" => integer(),
+        "L" => float(),
+        "S" => String.t() | atom(),
+        "UL" => String.t() | atom()
+      }
+
+  """
+  @type command_parameter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_audit_mitigation_actions_task_response() :: %{
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type start_audit_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_provisioning_template_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("enabled") => boolean(),
+        optional("preProvisioningHook") => provisioning_hook(),
+        required("provisioningRoleArn") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("templateBody") => String.t() | atom(),
+        required("templateName") => String.t() | atom(),
+        optional("type") => list(any())
+      }
+
+  """
+  @type create_provisioning_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificates_by_ca_response() :: %{
+        "certificates" => list(certificate()),
+        "nextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_certificates_by_ca_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      violation_event_occurrence_range() :: %{
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer()
+      }
+
+  """
+  @type violation_event_occurrence_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter_value_condition() :: %{
+        "comparisonOperator" => list(any()),
+        "operand" => command_parameter_value_comparison_operand()
+      }
+
+  """
+  @type command_parameter_value_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_thing_from_billing_group_response() :: %{}
+
+  """
+  @type remove_thing_from_billing_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_request() :: %{}
+
+  """
+  @type get_package_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      principal_thing_object() :: %{
+        "thingName" => String.t() | atom(),
+        "thingPrincipalType" => list(any())
+      }
+
+  """
+  @type principal_thing_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transfer_data() :: %{
+        "acceptDate" => non_neg_integer(),
+        "rejectDate" => non_neg_integer(),
+        "rejectReason" => String.t() | atom(),
+        "transferDate" => non_neg_integer(),
+        "transferMessage" => String.t() | atom()
+      }
+
+  """
+  @type transfer_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_violation_events_request() :: %{
+        optional("behaviorCriteriaType") => list(any()),
+        required("endTime") => non_neg_integer(),
+        optional("listSuppressedAlerts") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("securityProfileName") => String.t() | atom(),
+        required("startTime") => non_neg_integer(),
+        optional("thingName") => String.t() | atom(),
+        optional("verificationState") => list(any())
+      }
+
+  """
+  @type list_violation_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_certificate_config() :: %{
+        "enableOCSPCheck" => boolean(),
+        "ocspAuthorizedResponderArn" => String.t() | atom(),
+        "ocspLambdaArn" => String.t() | atom()
+      }
+
+  """
+  @type server_certificate_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_job_templates_response() :: %{
+        "managedJobTemplates" => list(managed_job_template_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_job_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_certificate_provider_response() :: %{}
+
+  """
+  @type delete_certificate_provider_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_executions_for_thing_request() :: %{
+        optional("jobId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("namespaceId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_job_executions_for_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_options_payload() :: %{
+        "logLevel" => list(any()),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type logging_options_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_policy_request() :: %{
+        required("target") => String.t() | atom()
+      }
+
+  """
+  @type attach_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_invoke_authorizer_request() :: %{
+        optional("httpContext") => http_context(),
+        optional("mqttContext") => mqtt_context(),
+        optional("tlsContext") => tls_context(),
+        optional("token") => String.t() | atom(),
+        optional("tokenSignature") => String.t() | atom()
+      }
+
+  """
+  @type test_invoke_authorizer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_json_substitution_command_preprocessor_config() :: %{
+        "outputFormat" => list(any())
+      }
+
+  """
+  @type aws_json_substitution_command_preprocessor_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_registration_tasks_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "taskIds" => list(String.t() | atom())
+      }
+
+  """
+  @type list_thing_registration_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_mitigation_actions_executions_response() :: %{
+        "actionsExecutions" => list(audit_mitigation_action_execution_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_audit_mitigation_actions_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioning_hook() :: %{
+        "payloadVersion" => String.t() | atom(),
+        "targetArn" => String.t() | atom()
+      }
+
+  """
+  @type provisioning_hook() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_fleet_metric_request() :: %{}
+
+  """
+  @type describe_fleet_metric_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_registration_task_reports_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("reportType") => list(any())
+      }
+
+  """
+  @type list_thing_registration_task_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_item_input() :: %{
+        "tableName" => String.t() | atom()
+      }
+
+  """
+  @type put_item_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_topic_rule_destination_response() :: %{}
+
+  """
+  @type update_topic_rule_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deprecate_thing_type_response() :: %{}
+
+  """
+  @type deprecate_thing_type_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      task_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type task_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registration_code_request() :: %{}
+
+  """
+  @type get_registration_code_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cardinality_request() :: %{
+        optional("aggregationField") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        required("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_cardinality_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transfer_certificate_response() :: %{
+        "transferredCertificateArn" => String.t() | atom()
+      }
+
+  """
+  @type transfer_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter_value_number_range() :: %{
+        "max" => String.t() | atom(),
+        "min" => String.t() | atom()
+      }
+
+  """
+  @type command_parameter_value_number_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dimension_request() :: %{
+        required("stringValues") => list(String.t() | atom())
+      }
+
+  """
+  @type update_dimension_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_command_response() :: %{
+        "commandArn" => String.t() | atom(),
+        "commandId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "deprecated" => boolean(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "mandatoryParameters" => list(command_parameter()),
+        "namespace" => list(any()),
+        "payload" => command_payload(),
+        "payloadTemplate" => String.t() | atom(),
+        "pendingDeletion" => boolean(),
+        "preprocessor" => command_preprocessor(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type get_command_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scheduled_audit_request() :: %{
+        optional("dayOfMonth") => String.t() | atom(),
+        optional("dayOfWeek") => list(any()),
+        optional("frequency") => list(any()),
+        optional("targetCheckNames") => list(String.t() | atom())
+      }
+
+  """
+  @type update_scheduled_audit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_group_response() :: %{
+        "version" => float()
+      }
+
+  """
+  @type update_thing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      percent_pair() :: %{
+        "percent" => float(),
+        "value" => float()
+      }
+
+  """
+  @type percent_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dynamo_db_action() :: %{
+        "hashKeyField" => String.t() | atom(),
+        "hashKeyType" => list(any()),
+        "hashKeyValue" => String.t() | atom(),
+        "operation" => String.t() | atom(),
+        "payloadField" => String.t() | atom(),
+        "rangeKeyField" => String.t() | atom(),
+        "rangeKeyType" => list(any()),
+        "rangeKeyValue" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "tableName" => String.t() | atom()
+      }
+
+  """
+  @type dynamo_db_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_billing_group_request() :: %{
+        optional("billingGroupProperties") => billing_group_properties(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_billing_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_type_metadata() :: %{
+        "creationDate" => non_neg_integer(),
+        "deprecated" => boolean(),
+        "deprecationDate" => non_neg_integer()
+      }
+
+  """
+  @type thing_type_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_ca_certificate_request() :: %{
+        optional("allowAutoRegistration") => boolean(),
+        required("caCertificate") => String.t() | atom(),
+        optional("certificateMode") => list(any()),
+        optional("registrationConfig") => registration_config(),
+        optional("setAsActive") => boolean(),
+        optional("tags") => list(tag()),
+        optional("verificationCertificate") => String.t() | atom()
+      }
+
+  """
+  @type register_ca_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_principal_policy_request() :: %{
+        required("principal") => String.t() | atom()
+      }
+
+  """
+  @type attach_principal_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_index_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "thingGroups" => list(thing_group_document()),
+        "things" => list(thing_document())
+      }
+
+  """
+  @type search_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_active_violations_request() :: %{
+        optional("behaviorCriteriaType") => list(any()),
+        optional("listSuppressedAlerts") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("securityProfileName") => String.t() | atom(),
+        optional("thingName") => String.t() | atom(),
+        optional("verificationState") => list(any())
+      }
+
+  """
+  @type list_active_violations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_encryption_configuration_request() :: %{}
+
+  """
+  @type describe_encryption_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_io_t_logging_params() :: %{
+        "logLevel" => list(any()),
+        "roleArnForLogging" => String.t() | atom()
+      }
+
+  """
+  @type enable_io_t_logging_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_mitigation_actions_task_target() :: %{
+        "auditCheckToReasonCodeFilter" => map(),
+        "auditTaskId" => String.t() | atom(),
+        "findingIds" => list(String.t() | atom())
+      }
+
+  """
+  @type audit_mitigation_actions_task_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_provisioning_template_version_response() :: %{
+        "isDefaultVersion" => boolean(),
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
+        "versionId" => integer()
+      }
+
+  """
+  @type create_provisioning_template_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_billing_group_response() :: %{
+        "version" => float()
+      }
+
+  """
+  @type update_billing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_effective_policies_response() :: %{
+        "effectivePolicies" => list(effective_policy())
+      }
+
+  """
+  @type get_effective_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_indexing_configuration_response() :: %{}
+
+  """
+  @type update_indexing_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_suppression() :: %{
+        "checkName" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "expirationDate" => non_neg_integer(),
+        "resourceIdentifier" => resource_identifier(),
+        "suppressIndefinitely" => boolean()
+      }
+
+  """
+  @type audit_suppression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_update_file() :: %{
+        "attributes" => map(),
+        "codeSigning" => code_signing(),
+        "fileLocation" => file_location(),
+        "fileName" => String.t() | atom(),
+        "fileType" => integer(),
+        "fileVersion" => String.t() | atom()
+      }
+
+  """
+  @type ota_update_file() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_type_request() :: %{
+        optional("thingTypeProperties") => thing_type_properties()
+      }
+
+  """
+  @type update_thing_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detect_mitigation_action_execution() :: %{
+        "actionName" => String.t() | atom(),
+        "errorCode" => String.t() | atom(),
+        "executionEndDate" => non_neg_integer(),
+        "executionStartDate" => non_neg_integer(),
+        "message" => String.t() | atom(),
+        "status" => list(any()),
+        "taskId" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "violationId" => String.t() | atom()
+      }
+
+  """
+  @type detect_mitigation_action_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_topic_rule_request() :: %{}
+
+  """
+  @type delete_topic_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_certificate_response() :: %{
+        "certificateDescription" => certificate_description()
+      }
+
+  """
+  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_certificate_config() :: %{
+        "clientCertificateCallbackArn" => String.t() | atom()
+      }
+
+  """
+  @type client_certificate_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_statistics_response() :: %{
+        "statistics" => statistics()
+      }
+
+  """
+  @type get_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_job_request() :: %{
+        optional("abortConfig") => abort_config(),
+        optional("description") => String.t() | atom(),
+        optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
+        optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
+        optional("namespaceId") => String.t() | atom(),
+        optional("presignedUrlConfig") => presigned_url_config(),
+        optional("timeoutConfig") => timeout_config()
+      }
+
+  """
+  @type update_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_commands_request() :: %{
+        optional("commandParameterName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("namespace") => list(any()),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_commands_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_policy_response() :: %{
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom(),
+        "policyVersionId" => String.t() | atom()
+      }
+
+  """
+  @type create_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_config() :: %{
+        "securityPolicy" => String.t() | atom()
+      }
+
+  """
+  @type tls_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_mitigation_action_execution_metadata() :: %{
+        "actionId" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "errorCode" => String.t() | atom(),
+        "findingId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type audit_mitigation_action_execution_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_profiles_request() :: %{
+        optional("dimensionName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("metricName") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_security_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_summary() :: %{
+        "description" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
+        "streamVersion" => integer()
+      }
+
+  """
+  @type stream_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_response_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_response_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_aggregation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_aggregation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_templates_response() :: %{
+        "jobTemplates" => list(job_template_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_job_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_configuration_request() :: %{
+        optional("applicationProtocol") => list(any()),
+        optional("authenticationType") => list(any()),
+        optional("authorizerConfig") => authorizer_config(),
+        optional("clientCertificateConfig") => client_certificate_config(),
+        optional("domainConfigurationStatus") => list(any()),
+        optional("removeAuthorizerConfig") => boolean(),
+        optional("serverCertificateConfig") => server_certificate_config(),
+        optional("tlsConfig") => tls_config()
+      }
+
+  """
+  @type update_domain_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_execution_summary_for_thing() :: %{
+        "jobExecutionSummary" => job_execution_summary(),
+        "jobId" => String.t() | atom()
+      }
+
+  """
+  @type job_execution_summary_for_thing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dimensions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_dimensions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_audit_finding_request() :: %{}
+
+  """
+  @type describe_audit_finding_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_targets_for_policy_response() :: %{
+        "nextMarker" => String.t() | atom(),
+        "targets" => list(String.t() | atom())
+      }
+
+  """
+  @type list_targets_for_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_topic_rule_request() :: %{}
+
+  """
+  @type get_topic_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_thing_registration_task_request() :: %{}
+
+  """
+  @type stop_thing_registration_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "s3Destination" => s3_destination()
+      }
+
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_version_request() :: %{}
+
+  """
+  @type get_package_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_certificate_transfer_request() :: %{
+        optional("rejectReason") => String.t() | atom()
+      }
+
+  """
+  @type reject_certificate_transfer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sqs_action() :: %{
+        "queueUrl" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "useBase64" => boolean()
+      }
+
+  """
+  @type sqs_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_billing_group_response() :: %{
+        "billingGroupArn" => String.t() | atom(),
+        "billingGroupId" => String.t() | atom(),
+        "billingGroupMetadata" => billing_group_metadata(),
+        "billingGroupName" => String.t() | atom(),
+        "billingGroupProperties" => billing_group_properties(),
+        "version" => float()
+      }
+
+  """
+  @type describe_billing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_job_timeout_config() :: %{
+        "inProgressTimeoutInMinutes" => float()
+      }
+
+  """
+  @type aws_job_timeout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_certificate_provider_request() :: %{
+        optional("accountDefaultForOperations") => list(list(any())()),
+        optional("lambdaFunctionArn") => String.t() | atom()
+      }
+
+  """
+  @type update_certificate_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stream_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("files") => list(stream_file()),
+        required("roleArn") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transfer_already_completed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type transfer_already_completed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_logging_options_request() :: %{
+        required("loggingOptionsPayload") => logging_options_payload()
+      }
+
+  """
+  @type set_logging_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorizer_config() :: %{
+        "allowAuthorizerOverride" => boolean(),
+        "defaultAuthorizerName" => String.t() | atom()
+      }
+
+  """
+  @type authorizer_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dynamo_dbv2_action() :: %{
+        "putItem" => put_item_input(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type dynamo_dbv2_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics_export_config() :: %{
+        "mqttTopic" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type metrics_export_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_job_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scheduled_audit_response() :: %{
+        "scheduledAuditArn" => String.t() | atom()
+      }
+
+  """
+  @type update_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      billing_group_metadata() :: %{
+        "creationDate" => non_neg_integer()
+      }
+
+  """
+  @type billing_group_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_thing_to_billing_group_response() :: %{}
+
+  """
+  @type add_thing_to_billing_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_audit_suppression_request() :: %{
+        required("checkName") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("expirationDate") => non_neg_integer(),
+        required("resourceIdentifier") => resource_identifier(),
+        optional("suppressIndefinitely") => boolean()
+      }
+
+  """
+  @type update_audit_suppression_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_version_identifier() :: %{
+        "policyName" => String.t() | atom(),
+        "policyVersionId" => String.t() | atom()
+      }
+
+  """
+  @type policy_version_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_billing_group_request() :: %{}
+
+  """
+  @type describe_billing_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_notification_target() :: %{
+        "enabled" => boolean(),
+        "roleArn" => String.t() | atom(),
+        "targetArn" => String.t() | atom()
+      }
+
+  """
+  @type audit_notification_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_topic_rules_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("ruleDisabled") => boolean(),
+        optional("topic") => String.t() | atom()
+      }
+
+  """
+  @type list_topic_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_index_request() :: %{}
+
+  """
+  @type describe_index_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_authorizer_request() :: %{}
+
+  """
+  @type delete_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job_execution_summary() :: %{
+        "executionNumber" => float(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "queuedAt" => non_neg_integer(),
+        "retryAttempt" => integer(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type job_execution_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_managed_job_template_request() :: %{
+        optional("templateVersion") => String.t() | atom()
+      }
+
+  """
+  @type describe_managed_job_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_buckets_aggregation_response() :: %{
+        "buckets" => list(bucket()),
+        "totalCount" => integer()
+      }
+
+  """
+  @type get_buckets_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detach_policy_request() :: %{
+        required("target") => String.t() | atom()
+      }
+
+  """
+  @type detach_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detect_mitigation_actions_task_statistics() :: %{
+        "actionsExecuted" => float(),
+        "actionsFailed" => float(),
+        "actionsSkipped" => float()
+      }
+
+  """
+  @type detect_mitigation_actions_task_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_percentiles_response() :: %{
+        "percentiles" => list(percent_pair())
+      }
+
+  """
+  @type get_percentiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_tasks_request() :: %{
+        required("endTime") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("startTime") => non_neg_integer(),
+        optional("taskStatus") => list(any()),
+        optional("taskType") => list(any())
+      }
+
+  """
+  @type list_audit_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timeout_config() :: %{
+        "inProgressTimeoutInMinutes" => float()
+      }
+
+  """
+  @type timeout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action() :: %{
+        "cloudwatchAlarm" => cloudwatch_alarm_action(),
+        "cloudwatchLogs" => cloudwatch_logs_action(),
+        "cloudwatchMetric" => cloudwatch_metric_action(),
+        "dynamoDB" => dynamo_db_action(),
+        "dynamoDBv2" => dynamo_dbv2_action(),
+        "elasticsearch" => elasticsearch_action(),
+        "firehose" => firehose_action(),
+        "http" => http_action(),
+        "iotAnalytics" => iot_analytics_action(),
+        "iotEvents" => iot_events_action(),
+        "iotSiteWise" => iot_site_wise_action(),
+        "kafka" => kafka_action(),
+        "kinesis" => kinesis_action(),
+        "lambda" => lambda_action(),
+        "location" => location_action(),
+        "openSearch" => open_search_action(),
+        "republish" => republish_action(),
+        "s3" => s3_action(),
+        "salesforce" => salesforce_action(),
+        "sns" => sns_action(),
+        "sqs" => sqs_action(),
+        "stepFunctions" => step_functions_action(),
+        "timestream" => timestream_action()
+      }
+
+  """
+  @type action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioning_templates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "templates" => list(provisioning_template_summary())
+      }
+
+  """
+  @type list_provisioning_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type certificate_validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_execution_summary() :: %{
+        "commandArn" => String.t() | atom(),
+        "completedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "executionId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "targetArn" => String.t() | atom()
+      }
+
+  """
+  @type command_execution_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_v2_logging_options_request() :: %{
+        optional("defaultLogLevel") => list(any()),
+        optional("disableAllLogs") => boolean(),
+        optional("eventConfigurations") => list(log_event_configuration()),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type set_v2_logging_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_custom_metric_request() :: %{}
+
+  """
+  @type describe_custom_metric_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      set_default_authorizer_request() :: %{
+        required("authorizerName") => String.t() | atom()
+      }
+
+  """
+  @type set_default_authorizer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alert_target() :: %{
+        "alertTargetArn" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type alert_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_billing_groups_request() :: %{
+        optional("maxResults") => integer(),
+        optional("namePrefixFilter") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_billing_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thing_attribute() :: %{
+        "attributes" => map(),
+        "thingArn" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "thingTypeName" => String.t() | atom(),
+        "version" => float()
+      }
+
+  """
+  @type thing_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dynamic_thing_group_response() :: %{
+        "version" => float()
+      }
+
+  """
+  @type update_dynamic_thing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_custom_metric_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "displayName" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom(),
+        "metricType" => list(any())
+      }
+
+  """
+  @type describe_custom_metric_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_audit_suppression_response() :: %{
+        "checkName" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "expirationDate" => non_neg_integer(),
+        "resourceIdentifier" => resource_identifier(),
+        "suppressIndefinitely" => boolean()
+      }
+
+  """
+  @type describe_audit_suppression_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kinesis_action() :: %{
+        "partitionKey" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "streamName" => String.t() | atom()
+      }
+
+  """
+  @type kinesis_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_mitigation_actions_tasks_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tasks" => list(audit_mitigation_actions_task_metadata())
+      }
+
+  """
+  @type list_audit_mitigation_actions_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fleet_metrics_response() :: %{
+        "fleetMetrics" => list(fleet_metric_name_and_arn()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_fleet_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_audit_configuration_request() :: %{
+        optional("auditCheckConfigurations") => map(),
+        optional("auditNotificationTargetConfigurations") => map(),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_account_audit_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audit_suppressions_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("checkName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceIdentifier") => resource_identifier()
+      }
+
+  """
+  @type list_audit_suppressions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principal_policies_response() :: %{
+        "nextMarker" => String.t() | atom(),
+        "policies" => list(policy())
+      }
+
+  """
+  @type list_principal_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attached_policies_response() :: %{
+        "nextMarker" => String.t() | atom(),
+        "policies" => list(policy())
+      }
+
+  """
+  @type list_attached_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_topic_rule_request() :: %{}
+
+  """
+  @type disable_topic_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_finding() :: %{
+        "checkName" => String.t() | atom(),
+        "findingId" => String.t() | atom(),
+        "findingTime" => non_neg_integer(),
+        "isSuppressed" => boolean(),
+        "nonCompliantResource" => non_compliant_resource(),
+        "reasonForNonCompliance" => String.t() | atom(),
+        "reasonForNonComplianceCode" => String.t() | atom(),
+        "relatedResources" => list(related_resource()),
+        "severity" => list(any()),
+        "taskId" => String.t() | atom(),
+        "taskStartTime" => non_neg_integer()
+      }
+
+  """
+  @type audit_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registration_code_response() :: %{
+        "registrationCode" => String.t() | atom()
+      }
+
+  """
+  @type get_registration_code_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      role_alias_description() :: %{
+        "creationDate" => non_neg_integer(),
+        "credentialDurationSeconds" => integer(),
+        "lastModifiedDate" => non_neg_integer(),
+        "owner" => String.t() | atom(),
+        "roleAlias" => String.t() | atom(),
+        "roleAliasArn" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type role_alias_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_registration_task_reports_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "reportType" => list(any()),
+        "resourceLinks" => list(String.t() | atom())
+      }
+
+  """
+  @type list_thing_registration_task_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dynamic_thing_group_response() :: %{}
+
+  """
+  @type delete_dynamic_thing_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_command_request() :: %{}
+
+  """
+  @type get_command_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_fleet_metric_request() :: %{
+        optional("aggregationField") => String.t() | atom(),
+        optional("aggregationType") => aggregation_type(),
+        optional("description") => String.t() | atom(),
+        optional("expectedVersion") => float(),
+        required("indexName") => String.t() | atom(),
+        optional("period") => integer(),
+        optional("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
+        optional("unit") => list(any())
+      }
+
+  """
+  @type update_fleet_metric_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_violation_events_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "violationEvents" => list(violation_event())
+      }
+
+  """
+  @type list_violation_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_job_abort_criteria() :: %{
+        "action" => list(any()),
+        "failureType" => list(any()),
+        "minNumberOfExecutedThings" => integer(),
+        "thresholdPercentage" => float()
+      }
+
+  """
+  @type aws_job_abort_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_on_demand_audit_task_request() :: %{
+        required("targetCheckNames") => list(String.t() | atom())
+      }
+
+  """
+  @type start_on_demand_audit_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_configuration_request() :: %{}
+
+  """
+  @type delete_domain_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      test_invoke_authorizer_response() :: %{
+        "disconnectAfterInSeconds" => integer(),
+        "isAuthenticated" => boolean(),
+        "policyDocuments" => list(String.t() | atom()),
+        "principalId" => String.t() | atom(),
+        "refreshAfterInSeconds" => integer()
+      }
+
+  """
+  @type test_invoke_authorizer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_role_alias_request() :: %{
+        optional("credentialDurationSeconds") => integer(),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_role_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_provisioning_template_response() :: %{}
+
+  """
+  @type update_provisioning_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_principals_response() :: %{
+        "nextMarker" => String.t() | atom(),
+        "principals" => list(String.t() | atom())
+      }
+
+  """
+  @type list_policy_principals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ota_update_response() :: %{
+        "awsIotJobArn" => String.t() | atom(),
+        "awsIotJobId" => String.t() | atom(),
+        "otaUpdateArn" => String.t() | atom(),
+        "otaUpdateId" => String.t() | atom(),
+        "otaUpdateStatus" => list(any())
+      }
+
+  """
+  @type create_ota_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_topic_rule_destination_request() :: %{}
+
+  """
+  @type delete_topic_rule_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_package_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_event_configurations_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "eventConfigurations" => map(),
+        "lastModifiedDate" => non_neg_integer()
+      }
+
+  """
+  @type describe_event_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_search_action() :: %{
+        "endpoint" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "index" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type open_search_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_certificate_provider_response() :: %{
+        "certificateProviderArn" => String.t() | atom(),
+        "certificateProviderName" => String.t() | atom()
+      }
+
+  """
+  @type update_certificate_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dimensions_response() :: %{
+        "dimensionNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_dimensions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_info() :: %{
+        "actionType" => list(any()),
+        "resources" => list(String.t() | atom())
+      }
+
+  """
+  @type auth_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificates_by_ca_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer()
+      }
+
+  """
+  @type list_certificates_by_ca_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_fleet_metric_response() :: %{
+        "aggregationField" => String.t() | atom(),
+        "aggregationType" => aggregation_type(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "indexName" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom(),
+        "period" => integer(),
+        "queryString" => String.t() | atom(),
+        "queryVersion" => String.t() | atom(),
+        "unit" => list(any()),
+        "version" => float()
+      }
+
+  """
+  @type describe_fleet_metric_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_document_request() :: %{
+        optional("beforeSubstitution") => boolean()
+      }
+
+  """
+  @type get_job_document_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_version_request() :: %{}
+
+  """
+  @type delete_policy_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_value() :: %{
+        "cidrs" => list(String.t() | atom()),
+        "count" => float(),
+        "number" => float(),
+        "numbers" => list(float()),
+        "ports" => list(integer()),
+        "strings" => list(String.t() | atom())
+      }
+
+  """
+  @type metric_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mqtt5_configuration() :: %{
+        "propagatingAttributes" => list(propagating_attribute())
+      }
+
+  """
+  @type mqtt5_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_mitigation_actions_task_metadata() :: %{
+        "startTime" => non_neg_integer(),
+        "taskId" => String.t() | atom(),
+        "taskStatus" => list(any())
+      }
+
+  """
+  @type audit_mitigation_actions_task_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_thing_group_response() :: %{
+        "thingGroupArn" => String.t() | atom(),
+        "thingGroupId" => String.t() | atom(),
+        "thingGroupName" => String.t() | atom()
+      }
+
+  """
+  @type create_thing_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_execution_request() :: %{
+        optional("executionNumber") => float()
+      }
+
+  """
+  @type describe_job_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      implicit_deny() :: %{
+        "policies" => list(policy())
+      }
+
+  """
+  @type implicit_deny() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_stream_response() :: %{
+        "streamInfo" => stream_info()
+      }
+
+  """
+  @type describe_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_action() :: %{
+        "functionArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7855,6 +9156,205 @@ defmodule AWS.IoT do
 
   """
   @type list_targets_for_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      violation_event() :: %{
+        "behavior" => behavior(),
+        "metricValue" => metric_value(),
+        "securityProfileName" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "verificationState" => list(any()),
+        "verificationStateDescription" => String.t() | atom(),
+        "violationEventAdditionalInfo" => violation_event_additional_info(),
+        "violationEventTime" => non_neg_integer(),
+        "violationEventType" => list(any()),
+        "violationId" => String.t() | atom()
+      }
+
+  """
+  @type violation_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_scheduled_audit_response() :: %{
+        "dayOfMonth" => String.t() | atom(),
+        "dayOfWeek" => list(any()),
+        "frequency" => list(any()),
+        "scheduledAuditArn" => String.t() | atom(),
+        "scheduledAuditName" => String.t() | atom(),
+        "targetCheckNames" => list(String.t() | atom())
+      }
+
+  """
+  @type describe_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_topic_rules_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "rules" => list(topic_rule_list_item())
+      }
+
+  """
+  @type list_topic_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_command_executions_request() :: %{
+        optional("commandArn") => String.t() | atom(),
+        optional("completedTimeFilter") => time_filter(),
+        optional("maxResults") => integer(),
+        optional("namespace") => list(any()),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any()),
+        optional("startedTimeFilter") => time_filter(),
+        optional("status") => list(any()),
+        optional("targetArn") => String.t() | atom()
+      }
+
+  """
+  @type list_command_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_device_certificate_params() :: %{
+        "action" => list(any())
+      }
+
+  """
+  @type update_device_certificate_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connectivity_filter() :: %{
+        "includeSocketInformation" => list(list(any())())
+      }
+
+  """
+  @type connectivity_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_policy_version_request() :: %{
+        required("policyDocument") => String.t() | atom(),
+        optional("setAsDefault") => boolean()
+      }
+
+  """
+  @type create_policy_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_action() :: %{
+        "auth" => http_authorization(),
+        "batchConfig" => batch_config(),
+        "confirmationUrl" => String.t() | atom(),
+        "enableBatching" => boolean(),
+        "headers" => list(http_action_header()),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type http_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_event_configuration() :: %{
+        "eventType" => String.t() | atom(),
+        "logDestination" => String.t() | atom(),
+        "logLevel" => list(any())
+      }
+
+  """
+  @type log_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      version_conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type version_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cardinality_response() :: %{
+        "cardinality" => integer()
+      }
+
+  """
+  @type get_cardinality_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_principals_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer(),
+        required("policyName") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_principals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_v2_logging_level_request() :: %{
+        required("targetName") => String.t() | atom(),
+        required("targetType") => list(any())
+      }
+
+  """
+  @type delete_v2_logging_level_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_authorizer_request() :: %{}
+
+  """
+  @type describe_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_ca_certificate_response() :: %{
+        "certificateDescription" => ca_certificate_description(),
+        "registrationConfig" => registration_config()
+      }
+
+  """
+  @type describe_ca_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7886,61 +9386,312 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      get_behavior_model_training_summaries_response() :: %{
+      get_buckets_aggregation_request() :: %{
+        required("aggregationField") => String.t() | atom(),
+        required("bucketsAggregationType") => buckets_aggregation_type(),
+        optional("indexName") => String.t() | atom(),
+        required("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_buckets_aggregation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_stream_request() :: %{}
+
+  """
+  @type describe_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter_value_comparison_operand() :: %{
+        "number" => String.t() | atom(),
+        "numberRange" => command_parameter_value_number_range(),
+        "numbers" => list(String.t() | atom()),
+        "string" => String.t() | atom(),
+        "strings" => list(String.t() | atom())
+      }
+
+  """
+  @type command_parameter_value_comparison_operand() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_certificate_provider_request() :: %{}
+
+  """
+  @type describe_certificate_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      key_pair() :: %{
+        "PrivateKey" => String.t() | atom(),
+        "PublicKey" => String.t() | atom()
+      }
+
+  """
+  @type key_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_provisioning_template_response() :: %{
+        "defaultVersionId" => integer(),
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom()
+      }
+
+  """
+  @type create_provisioning_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      behavior_criteria() :: %{
+        "comparisonOperator" => list(any()),
+        "consecutiveDatapointsToAlarm" => integer(),
+        "consecutiveDatapointsToClear" => integer(),
+        "durationSeconds" => integer(),
+        "mlDetectionConfig" => machine_learning_detection_config(),
+        "statisticalThreshold" => statistical_threshold(),
+        "value" => metric_value()
+      }
+
+  """
+  @type behavior_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_audit_task_response() :: %{
+        "auditDetails" => map(),
+        "scheduledAuditName" => String.t() | atom(),
+        "taskStartTime" => non_neg_integer(),
+        "taskStatistics" => task_statistics(),
+        "taskStatus" => list(any()),
+        "taskType" => list(any())
+      }
+
+  """
+  @type describe_audit_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_config() :: %{
+        "batchAcrossTopics" => boolean(),
+        "maxBatchOpenMs" => integer(),
+        "maxBatchSize" => integer(),
+        "maxBatchSizeBytes" => integer()
+      }
+
+  """
+  @type batch_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principal_policies_request() :: %{
+        optional("ascendingOrder") => boolean(),
+        optional("marker") => String.t() | atom(),
+        optional("pageSize") => integer(),
+        required("principal") => String.t() | atom()
+      }
+
+  """
+  @type list_principal_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_mitigation_action_request() :: %{
+        required("actionParams") => mitigation_action_params(),
+        required("roleArn") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_mitigation_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_certificate_request() :: %{
+        required("newStatus") => list(any())
+      }
+
+  """
+  @type update_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_job_rollout() :: %{
+        "startTime" => String.t() | atom()
+      }
+
+  """
+  @type scheduled_job_rollout() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_description() :: %{
+        "caCertificateId" => String.t() | atom(),
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "certificateMode" => list(any()),
+        "certificatePem" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "customerVersion" => integer(),
+        "generationId" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "ownedBy" => String.t() | atom(),
+        "previousOwnedBy" => String.t() | atom(),
+        "status" => list(any()),
+        "transferData" => transfer_data(),
+        "validity" => certificate_validity()
+      }
+
+  """
+  @type certificate_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_version_response() :: %{
+        "creationDate" => non_neg_integer(),
+        "generationId" => String.t() | atom(),
+        "isDefaultVersion" => boolean(),
+        "lastModifiedDate" => non_neg_integer(),
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom(),
+        "policyVersionId" => String.t() | atom()
+      }
+
+  """
+  @type get_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_provisioning_template_request() :: %{
+        optional("defaultVersionId") => integer(),
+        optional("description") => String.t() | atom(),
+        optional("enabled") => boolean(),
+        optional("preProvisioningHook") => provisioning_hook(),
+        optional("provisioningRoleArn") => String.t() | atom(),
+        optional("removePreProvisioningHook") => boolean()
+      }
+
+  """
+  @type update_provisioning_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_request() :: %{
+        optional("force") => boolean(),
+        optional("namespaceId") => String.t() | atom()
+      }
+
+  """
+  @type delete_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mitigation_action_request() :: %{}
+
+  """
+  @type describe_mitigation_action_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dimension_response() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type create_dimension_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_targets_with_job_request() :: %{
+        optional("comment") => String.t() | atom(),
+        optional("namespaceId") => String.t() | atom(),
+        required("targets") => list(String.t() | atom())
+      }
+
+  """
+  @type associate_targets_with_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_authorizer_response() :: %{
+        "authorizerArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom()
+      }
+
+  """
+  @type create_authorizer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sbom_validation_result_summary() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "fileName" => String.t() | atom(),
+        "validationResult" => list(any())
+      }
+
+  """
+  @type sbom_validation_result_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_groups_for_thing_response() :: %{
         "nextToken" => String.t() | atom(),
-        "summaries" => list(behavior_model_training_summary())
+        "thingGroups" => list(group_name_and_arn())
       }
 
   """
-  @type get_behavior_model_training_summaries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_sbom_with_package_version_response() :: %{
-        "packageName" => String.t() | atom(),
-        "sbom" => sbom(),
-        "sbomValidationStatus" => list(any()),
-        "versionName" => String.t() | atom()
-      }
-
-  """
-  @type associate_sbom_with_package_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_response() :: %{
-        "description" => String.t() | atom(),
-        "packageArn" => String.t() | atom(),
-        "packageName" => String.t() | atom()
-      }
-
-  """
-  @type create_package_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_check_configuration() :: %{
-        "configuration" => map(),
-        "enabled" => boolean()
-      }
-
-  """
-  @type audit_check_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_stream_request() :: %{}
-
-  """
-  @type delete_stream_request() :: %{}
+  @type list_thing_groups_for_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7960,1176 +9711,13 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      provisioning_template_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "enabled" => boolean(),
-        "lastModifiedDate" => non_neg_integer(),
-        "templateArn" => String.t() | atom(),
-        "templateName" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type provisioning_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sbom_validation_results_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("validationResult") => list(any())
-      }
-
-  """
-  @type list_sbom_validation_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_event_configurations_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "eventConfigurations" => map(),
-        "lastModifiedDate" => non_neg_integer()
-      }
-
-  """
-  @type describe_event_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioning_template_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("enabled") => boolean(),
-        optional("preProvisioningHook") => provisioning_hook(),
-        optional("tags") => list(tag()),
-        optional("type") => list(any()),
-        required("provisioningRoleArn") => String.t() | atom(),
-        required("templateBody") => String.t() | atom(),
-        required("templateName") => String.t() | atom()
-      }
-
-  """
-  @type create_provisioning_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_summary() :: %{
-        "description" => String.t() | atom(),
-        "streamArn" => String.t() | atom(),
-        "streamId" => String.t() | atom(),
-        "streamVersion" => integer()
-      }
-
-  """
-  @type stream_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thing_group_response() :: %{
-        "indexName" => String.t() | atom(),
-        "queryString" => String.t() | atom(),
-        "queryVersion" => String.t() | atom(),
-        "status" => list(any()),
-        "thingGroupArn" => String.t() | atom(),
-        "thingGroupId" => String.t() | atom(),
-        "thingGroupMetadata" => thing_group_metadata(),
-        "thingGroupName" => String.t() | atom(),
-        "thingGroupProperties" => thing_group_properties(),
-        "version" => float()
-      }
-
-  """
-  @type describe_thing_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_thing_response() :: %{}
-
-  """
-  @type delete_thing_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_security_profile_behaviors_request() :: %{
-        required("behaviors") => list(behavior())
-      }
-
-  """
-  @type validate_security_profile_behaviors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_audit_task_request() :: %{}
-
-  """
-  @type describe_audit_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_authorizers_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_authorizers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_account_audit_configuration_response() :: %{}
-
-  """
-  @type delete_account_audit_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      register_thing_response() :: %{
-        "certificatePem" => String.t() | atom(),
-        "resourceArns" => map()
-      }
-
-  """
-  @type register_thing_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_role_aliases_response() :: %{
-        "nextMarker" => String.t() | atom(),
-        "roleAliases" => list(String.t() | atom())
-      }
-
-  """
-  @type list_role_aliases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_thing_from_thing_group_request() :: %{
-        optional("thingArn") => String.t() | atom(),
-        optional("thingGroupArn") => String.t() | atom(),
-        optional("thingGroupName") => String.t() | atom(),
-        optional("thingName") => String.t() | atom()
-      }
-
-  """
-  @type remove_thing_from_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_suppressions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "suppressions" => list(audit_suppression())
-      }
-
-  """
-  @type list_audit_suppressions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_fleet_metric_response() :: %{
-        "metricArn" => String.t() | atom(),
-        "metricName" => String.t() | atom()
-      }
-
-  """
-  @type create_fleet_metric_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      related_resource() :: %{
-        "additionalInfo" => map(),
-        "resourceIdentifier" => resource_identifier(),
-        "resourceType" => list(any())
-      }
-
-  """
-  @type related_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_audit_suppression_response() :: %{}
-
-  """
-  @type delete_audit_suppression_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      fleet_metric_name_and_arn() :: %{
-        "metricArn" => String.t() | atom(),
-        "metricName" => String.t() | atom()
-      }
-
-  """
-  @type fleet_metric_name_and_arn() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_sbom_from_package_version_response() :: %{}
-
-  """
-  @type disassociate_sbom_from_package_version_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      implicit_deny() :: %{
-        "policies" => list(policy())
-      }
-
-  """
-  @type implicit_deny() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_topic_rule_destination_response() :: %{}
-
-  """
-  @type delete_topic_rule_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_destination_summary() :: %{
-        "roleArn" => String.t() | atom(),
-        "securityGroups" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_destination_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_registration_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_registration_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_certificate_transfer_request() :: %{
-        optional("setAsActive") => boolean()
-      }
-
-  """
-  @type accept_certificate_transfer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iot_site_wise_action() :: %{
-        "putAssetPropertyValueEntries" => list(put_asset_property_value_entry()),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type iot_site_wise_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_group_response() :: %{
-        "version" => float()
-      }
-
-  """
-  @type update_thing_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_scheduled_audit_response() :: %{
-        "dayOfMonth" => String.t() | atom(),
-        "dayOfWeek" => list(any()),
-        "frequency" => list(any()),
-        "scheduledAuditArn" => String.t() | atom(),
-        "scheduledAuditName" => String.t() | atom(),
-        "targetCheckNames" => list(String.t() | atom())
-      }
-
-  """
-  @type describe_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_version_request() :: %{}
-
-  """
-  @type get_package_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_billing_groups_response() :: %{
-        "billingGroups" => list(group_name_and_arn()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_billing_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_topic_rule_destination_request() :: %{
-        required("destinationConfiguration") => topic_rule_destination_configuration()
-      }
-
-  """
-  @type create_topic_rule_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      active_violation() :: %{
-        "behavior" => behavior(),
-        "lastViolationTime" => non_neg_integer(),
-        "lastViolationValue" => metric_value(),
-        "securityProfileName" => String.t() | atom(),
-        "thingName" => String.t() | atom(),
-        "verificationState" => list(any()),
-        "verificationStateDescription" => String.t() | atom(),
-        "violationEventAdditionalInfo" => violation_event_additional_info(),
-        "violationId" => String.t() | atom(),
-        "violationStartTime" => non_neg_integer()
-      }
-
-  """
-  @type active_violation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detect_mitigation_actions_task_statistics() :: %{
-        "actionsExecuted" => float(),
-        "actionsFailed" => float(),
-        "actionsSkipped" => float()
-      }
-
-  """
-  @type detect_mitigation_actions_task_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_things_request() :: %{
-        optional("attributeName") => String.t() | atom(),
-        optional("attributeValue") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("thingTypeName") => String.t() | atom(),
-        optional("usePrefixAttributeValue") => boolean()
-      }
-
-  """
-  @type list_things_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_command_executions_response() :: %{
-        "commandExecutions" => list(command_execution_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_command_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_logging_options_request() :: %{}
-
-  """
-  @type get_logging_options_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      test_invoke_authorizer_response() :: %{
-        "disconnectAfterInSeconds" => integer(),
-        "isAuthenticated" => boolean(),
-        "policyDocuments" => list(String.t() | atom()),
-        "principalId" => String.t() | atom(),
-        "refreshAfterInSeconds" => integer()
-      }
-
-  """
-  @type test_invoke_authorizer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_findings_request() :: %{
-        optional("checkName") => String.t() | atom(),
-        optional("endTime") => non_neg_integer(),
-        optional("listSuppressedFindings") => boolean(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceIdentifier") => resource_identifier(),
-        optional("startTime") => non_neg_integer(),
-        optional("taskId") => String.t() | atom()
-      }
-
-  """
-  @type list_audit_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      location_action() :: %{
-        "deviceId" => String.t() | atom(),
-        "latitude" => String.t() | atom(),
-        "longitude" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "timestamp" => location_timestamp(),
-        "trackerName" => String.t() | atom()
-      }
-
-  """
-  @type location_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_thing_types_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("thingTypeName") => String.t() | atom()
-      }
-
-  """
-  @type list_thing_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_role_alias_request() :: %{}
-
-  """
-  @type describe_role_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_type_metadata() :: %{
-        "creationDate" => non_neg_integer(),
-        "deprecated" => boolean(),
-        "deprecationDate" => non_neg_integer()
-      }
-
-  """
-  @type thing_type_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_effective_policies_request() :: %{
-        optional("cognitoIdentityPoolId") => String.t() | atom(),
-        optional("principal") => String.t() | atom(),
-        optional("thingName") => String.t() | atom()
-      }
-
-  """
-  @type get_effective_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_topic_rule_destinations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_topic_rule_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_topic_rule_destination_response() :: %{
-        "topicRuleDestination" => topic_rule_destination()
-      }
-
-  """
-  @type get_topic_rule_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_version_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "lastModifiedDate" => non_neg_integer(),
-        "packageName" => String.t() | atom(),
-        "status" => list(any()),
-        "versionName" => String.t() | atom()
-      }
-
-  """
-  @type package_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dynamic_thing_group_response() :: %{
-        "version" => float()
-      }
-
-  """
-  @type update_dynamic_thing_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dimension_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "lastModifiedDate" => non_neg_integer(),
+      field() :: %{
         "name" => String.t() | atom(),
-        "stringValues" => list(String.t() | atom()),
         "type" => list(any())
       }
 
   """
-  @type describe_dimension_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audit_suppressions_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("checkName") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceIdentifier") => resource_identifier()
-      }
-
-  """
-  @type list_audit_suppressions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_thing_to_billing_group_request() :: %{
-        optional("billingGroupArn") => String.t() | atom(),
-        optional("billingGroupName") => String.t() | atom(),
-        optional("thingArn") => String.t() | atom(),
-        optional("thingName") => String.t() | atom()
-      }
-
-  """
-  @type add_thing_to_billing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cardinality_request() :: %{
-        optional("aggregationField") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("queryVersion") => String.t() | atom(),
-        required("queryString") => String.t() | atom()
-      }
-
-  """
-  @type get_cardinality_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream() :: %{
-        "fileId" => integer(),
-        "streamId" => String.t() | atom()
-      }
-
-  """
-  @type stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dynamic_thing_group_response() :: %{}
-
-  """
-  @type delete_dynamic_thing_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_detect_mitigation_actions_executions_response() :: %{
-        "actionsExecutions" => list(detect_mitigation_action_execution()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_detect_mitigation_actions_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_templates_response() :: %{
-        "jobTemplates" => list(job_template_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_job_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      non_compliant_resource() :: %{
-        "additionalInfo" => map(),
-        "resourceIdentifier" => resource_identifier(),
-        "resourceType" => list(any())
-      }
-
-  """
-  @type non_compliant_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_mitigation_action_response() :: %{
-        "actionArn" => String.t() | atom(),
-        "actionId" => String.t() | atom(),
-        "actionName" => String.t() | atom(),
-        "actionParams" => mitigation_action_params(),
-        "actionType" => list(any()),
-        "creationDate" => non_neg_integer(),
-        "lastModifiedDate" => non_neg_integer(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type describe_mitigation_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_info() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "files" => list(stream_file()),
-        "lastUpdatedAt" => non_neg_integer(),
-        "roleArn" => String.t() | atom(),
-        "streamArn" => String.t() | atom(),
-        "streamId" => String.t() | atom(),
-        "streamVersion" => integer()
-      }
-
-  """
-  @type stream_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      topic_rule_payload() :: %{
-        "actions" => list(action()),
-        "awsIotSqlVersion" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "errorAction" => action(),
-        "ruleDisabled" => boolean(),
-        "sql" => String.t() | atom()
-      }
-
-  """
-  @type topic_rule_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_audit_configuration_response() :: %{}
-
-  """
-  @type update_account_audit_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      explicit_deny() :: %{
-        "policies" => list(policy())
-      }
-
-  """
-  @type explicit_deny() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dynamic_thing_group_request() :: %{
-        optional("expectedVersion") => float()
-      }
-
-  """
-  @type delete_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_v2_logging_level_request() :: %{
-        required("targetName") => String.t() | atom(),
-        required("targetType") => list(any())
-      }
-
-  """
-  @type delete_v2_logging_level_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_billing_group_request() :: %{}
-
-  """
-  @type describe_billing_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_mitigation_actions_response() :: %{
-        "actionIdentifiers" => list(mitigation_action_identifier()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_mitigation_actions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_already_exists_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "resourceId" => String.t() | atom()
-      }
-
-  """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_validity() :: %{
-        "notAfter" => non_neg_integer(),
-        "notBefore" => non_neg_integer()
-      }
-
-  """
-  @type certificate_validity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scheduled_job_rollout() :: %{
-        "startTime" => String.t() | atom()
-      }
-
-  """
-  @type scheduled_job_rollout() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_job_exponential_rollout_rate() :: %{
-        "baseRatePerMinute" => integer(),
-        "incrementFactor" => float(),
-        "rateIncreaseCriteria" => aws_job_rate_increase_criteria()
-      }
-
-  """
-  @type aws_job_exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_outgoing_certificates_response() :: %{
-        "nextMarker" => String.t() | atom(),
-        "outgoingCertificates" => list(outgoing_certificate())
-      }
-
-  """
-  @type list_outgoing_certificates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_metrics_response() :: %{
-        "metricNames" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_custom_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dimension_request() :: %{
-        optional("tags") => list(tag()),
-        required("clientRequestToken") => String.t() | atom(),
-        required("stringValues") => list(String.t() | atom()),
-        required("type") => list(any())
-      }
-
-  """
-  @type create_dimension_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_certificates_by_ca_request() :: %{
-        optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | atom(),
-        optional("pageSize") => integer()
-      }
-
-  """
-  @type list_certificates_by_ca_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_version_response() :: %{
-        "attributes" => map(),
-        "description" => String.t() | atom(),
-        "errorReason" => String.t() | atom(),
-        "packageName" => String.t() | atom(),
-        "packageVersionArn" => String.t() | atom(),
-        "status" => list(any()),
-        "versionName" => String.t() | atom()
-      }
-
-  """
-  @type create_package_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version_update_by_jobs_config() :: %{
-        "enabled" => boolean(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type version_update_by_jobs_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_thing_to_billing_group_response() :: %{}
-
-  """
-  @type add_thing_to_billing_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_command_response() :: %{
-        "commandArn" => String.t() | atom(),
-        "commandId" => String.t() | atom()
-      }
-
-  """
-  @type create_command_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_mitigation_actions_task_target() :: %{
-        "auditCheckToReasonCodeFilter" => map(),
-        "auditTaskId" => String.t() | atom(),
-        "findingIds" => list(String.t() | atom())
-      }
-
-  """
-  @type audit_mitigation_actions_task_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_version_artifact() :: %{
-        "s3Location" => s3_location()
-      }
-
-  """
-  @type package_version_artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_v2_logging_options_response() :: %{
-        "defaultLogLevel" => list(any()),
-        "disableAllLogs" => boolean(),
-        "eventConfigurations" => list(log_event_configuration()),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type get_v2_logging_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      topic_rule_destination() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "httpUrlProperties" => http_url_destination_properties(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "statusReason" => String.t() | atom(),
-        "vpcProperties" => vpc_destination_properties()
-      }
-
-  """
-  @type topic_rule_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_destination_configuration() :: %{
-        "roleArn" => String.t() | atom(),
-        "securityGroups" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      command_summary() :: %{
-        "commandArn" => String.t() | atom(),
-        "commandId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "deprecated" => boolean(),
-        "displayName" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "pendingDeletion" => boolean()
-      }
-
-  """
-  @type command_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_notification_target() :: %{
-        "enabled" => boolean(),
-        "roleArn" => String.t() | atom(),
-        "targetArn" => String.t() | atom()
-      }
-
-  """
-  @type audit_notification_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_security_profiles_request() :: %{
-        optional("dimensionName") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("metricName") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_security_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_metric_values_request() :: %{
-        optional("dimensionName") => String.t() | atom(),
-        optional("dimensionValueOperator") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("endTime") => non_neg_integer(),
-        required("metricName") => String.t() | atom(),
-        required("startTime") => non_neg_integer(),
-        required("thingName") => String.t() | atom()
-      }
-
-  """
-  @type list_metric_values_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_job_response() :: %{
-        "description" => String.t() | atom(),
-        "jobArn" => String.t() | atom(),
-        "jobId" => String.t() | atom()
-      }
-
-  """
-  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      maintenance_window() :: %{
-        "durationInMinutes" => integer(),
-        "startTime" => String.t() | atom()
-      }
-
-  """
-  @type maintenance_window() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_configuration_request() :: %{
-        optional("applicationProtocol") => list(any()),
-        optional("authenticationType") => list(any()),
-        optional("authorizerConfig") => authorizer_config(),
-        optional("clientCertificateConfig") => client_certificate_config(),
-        optional("domainName") => String.t() | atom(),
-        optional("serverCertificateArns") => list(String.t() | atom()),
-        optional("serverCertificateConfig") => server_certificate_config(),
-        optional("serviceType") => list(any()),
-        optional("tags") => list(tag()),
-        optional("tlsConfig") => tls_config(),
-        optional("validationCertificateArn") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_provisioning_template_response() :: %{}
-
-  """
-  @type delete_provisioning_template_response() :: %{}
+  @type field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9156,725 +9744,6 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      list_targets_for_security_profile_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_targets_for_security_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_registration_code_request() :: %{}
-
-  """
-  @type delete_registration_code_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thing_type_request() :: %{}
-
-  """
-  @type describe_thing_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_execution_summary() :: %{
-        "executionNumber" => float(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "queuedAt" => non_neg_integer(),
-        "retryAttempt" => integer(),
-        "startedAt" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type job_execution_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_device_certificate_params() :: %{
-        "action" => list(any())
-      }
-
-  """
-  @type update_device_certificate_params() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_job_templates_response() :: %{
-        "managedJobTemplates" => list(managed_job_template_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_job_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_audit_configuration_request() :: %{
-        optional("auditCheckConfigurations") => map(),
-        optional("auditNotificationTargetConfigurations") => map(),
-        optional("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_account_audit_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_request() :: %{}
-
-  """
-  @type get_package_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_principal_things_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("principal") => String.t() | atom()
-      }
-
-  """
-  @type list_principal_things_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cardinality_response() :: %{
-        "cardinality" => integer()
-      }
-
-  """
-  @type get_cardinality_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detach_thing_principal_request() :: %{
-        required("principal") => String.t() | atom()
-      }
-
-  """
-  @type detach_thing_principal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_suppression() :: %{
-        "checkName" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "expirationDate" => non_neg_integer(),
-        "resourceIdentifier" => resource_identifier(),
-        "suppressIndefinitely" => boolean()
-      }
-
-  """
-  @type audit_suppression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_on_demand_audit_task_request() :: %{
-        required("targetCheckNames") => list(String.t() | atom())
-      }
-
-  """
-  @type start_on_demand_audit_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clear_default_authorizer_request() :: %{}
-
-  """
-  @type clear_default_authorizer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thing_request() :: %{}
-
-  """
-  @type describe_thing_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      transfer_data() :: %{
-        "acceptDate" => non_neg_integer(),
-        "rejectDate" => non_neg_integer(),
-        "rejectReason" => String.t() | atom(),
-        "transferDate" => non_neg_integer(),
-        "transferMessage" => String.t() | atom()
-      }
-
-  """
-  @type transfer_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_packages_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "packageSummaries" => list(package_summary())
-      }
-
-  """
-  @type list_packages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_index_request() :: %{
-        optional("indexName") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("queryVersion") => String.t() | atom(),
-        required("queryString") => String.t() | atom()
-      }
-
-  """
-  @type search_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      command_parameter_value() :: %{
-        "B" => boolean(),
-        "BIN" => binary(),
-        "D" => float(),
-        "I" => integer(),
-        "L" => float(),
-        "S" => String.t() | atom(),
-        "UL" => String.t() | atom()
-      }
-
-  """
-  @type command_parameter_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transfer_certificate_response() :: %{
-        "transferredCertificateArn" => String.t() | atom()
-      }
-
-  """
-  @type transfer_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_response() :: %{
-        "creationDate" => non_neg_integer(),
-        "defaultVersionName" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "lastModifiedDate" => non_neg_integer(),
-        "packageArn" => String.t() | atom(),
-        "packageName" => String.t() | atom()
-      }
-
-  """
-  @type get_package_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transfer_conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type transfer_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_targets_for_security_profile_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "securityProfileTargets" => list(security_profile_target())
-      }
-
-  """
-  @type list_targets_for_security_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_stream_response() :: %{
-        "streamInfo" => stream_info()
-      }
-
-  """
-  @type describe_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_metric_response() :: %{
-        "metricArn" => String.t() | atom(),
-        "metricName" => String.t() | atom()
-      }
-
-  """
-  @type create_custom_metric_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_provisioning_template_response() :: %{}
-
-  """
-  @type update_provisioning_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_configuration_response() :: %{}
-
-  """
-  @type delete_domain_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_encryption_configuration_response() :: %{}
-
-  """
-  @type update_encryption_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_check_details() :: %{
-        "checkCompliant" => boolean(),
-        "checkRunStatus" => list(any()),
-        "errorCode" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "nonCompliantResourcesCount" => float(),
-        "suppressedNonCompliantResourcesCount" => float(),
-        "totalResourcesCount" => float()
-      }
-
-  """
-  @type audit_check_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_certificates_by_ca_response() :: %{
-        "certificates" => list(certificate()),
-        "nextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_certificates_by_ca_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_type_properties() :: %{
-        "mqtt5Configuration" => mqtt5_configuration(),
-        "searchableAttributes" => list(String.t() | atom()),
-        "thingTypeDescription" => String.t() | atom()
-      }
-
-  """
-  @type thing_type_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_executions_for_job_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_job_executions_for_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_authorizer_request() :: %{
-        optional("authorizerFunctionArn") => String.t() | atom(),
-        optional("enableCachingForHttp") => boolean(),
-        optional("status") => list(any()),
-        optional("tokenKeyName") => String.t() | atom(),
-        optional("tokenSigningPublicKeys") => map()
-      }
-
-  """
-  @type update_authorizer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auth_result() :: %{
-        "allowed" => allowed(),
-        "authDecision" => list(any()),
-        "authInfo" => auth_info(),
-        "denied" => denied(),
-        "missingContextValues" => list(String.t() | atom())
-      }
-
-  """
-  @type auth_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_role_alias_request() :: %{}
-
-  """
-  @type delete_role_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_configuration_response() :: %{
-        "domainConfigurationArn" => String.t() | atom(),
-        "domainConfigurationName" => String.t() | atom()
-      }
-
-  """
-  @type update_domain_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_certificates_response() :: %{
-        "certificates" => list(certificate()),
-        "nextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_principal_things_v2_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("thingPrincipalType") => list(any()),
-        required("principal") => String.t() | atom()
-      }
-
-  """
-  @type list_principal_things_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_authorization_request() :: %{
-        optional("clientId") => String.t() | atom(),
-        optional("cognitoIdentityPoolId") => String.t() | atom(),
-        optional("policyNamesToAdd") => list(String.t() | atom()),
-        optional("policyNamesToSkip") => list(String.t() | atom()),
-        optional("principal") => String.t() | atom(),
-        required("authInfos") => list(auth_info())
-      }
-
-  """
-  @type test_authorization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thing_type_response() :: %{
-        "thingTypeArn" => String.t() | atom(),
-        "thingTypeId" => String.t() | atom(),
-        "thingTypeMetadata" => thing_type_metadata(),
-        "thingTypeName" => String.t() | atom(),
-        "thingTypeProperties" => thing_type_properties()
-      }
-
-  """
-  @type describe_thing_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_target_configuration() :: %{
-        "logLevel" => list(any()),
-        "logTarget" => log_target()
-      }
-
-  """
-  @type log_target_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_type() :: %{
-        "name" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type aggregation_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_thing_registration_task_response() :: %{}
-
-  """
-  @type stop_thing_registration_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      salesforce_action() :: %{
-        "token" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type salesforce_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_managed_job_template_response() :: %{
-        "description" => String.t() | atom(),
-        "document" => String.t() | atom(),
-        "documentParameters" => list(document_parameter()),
-        "environments" => list(String.t() | atom()),
-        "templateArn" => String.t() | atom(),
-        "templateName" => String.t() | atom(),
-        "templateVersion" => String.t() | atom()
-      }
-
-  """
-  @type describe_managed_job_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_thing_type_request() :: %{
-        optional("tags") => list(tag()),
-        optional("thingTypeProperties") => thing_type_properties()
-      }
-
-  """
-  @type create_thing_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_registration_code_response() :: %{}
-
-  """
-  @type delete_registration_code_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      add_thing_to_thing_group_request() :: %{
-        optional("overrideDynamicGroups") => boolean(),
-        optional("thingArn") => String.t() | atom(),
-        optional("thingGroupArn") => String.t() | atom(),
-        optional("thingGroupName") => String.t() | atom(),
-        optional("thingName") => String.t() | atom()
-      }
-
-  """
-  @type add_thing_to_thing_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_execution_summary_for_job() :: %{
-        "jobExecutionSummary" => job_execution_summary(),
-        "thingArn" => String.t() | atom()
-      }
-
-  """
-  @type job_execution_summary_for_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_versions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "packageVersionSummaries" => list(package_version_summary())
-      }
-
-  """
-  @type list_package_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      outgoing_certificate() :: %{
-        "certificateArn" => String.t() | atom(),
-        "certificateId" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "transferDate" => non_neg_integer(),
-        "transferMessage" => String.t() | atom(),
-        "transferredTo" => String.t() | atom()
-      }
-
-  """
-  @type outgoing_certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sqs_action() :: %{
-        "queueUrl" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "useBase64" => boolean()
-      }
-
-  """
-  @type sqs_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_topic_rule_destination_request() :: %{
-        required("arn") => String.t() | atom(),
-        required("status") => list(any())
-      }
-
-  """
-  @type update_topic_rule_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thing_type_definition() :: %{
-        "thingTypeArn" => String.t() | atom(),
-        "thingTypeMetadata" => thing_type_metadata(),
-        "thingTypeName" => String.t() | atom(),
-        "thingTypeProperties" => thing_type_properties()
-      }
-
-  """
-  @type thing_type_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_fleet_metric_request() :: %{}
-
-  """
-  @type describe_fleet_metric_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloudwatch_logs_action() :: %{
-        "batchMode" => boolean(),
-        "logGroupName" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type cloudwatch_logs_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_template_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "jobTemplateArn" => String.t() | atom(),
-        "jobTemplateId" => String.t() | atom()
-      }
-
-  """
-  @type job_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iot_events_action() :: %{
-        "batchMode" => boolean(),
-        "inputName" => String.t() | atom(),
-        "messageId" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type iot_events_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       vpc_destination_properties() :: %{
         "roleArn" => String.t() | atom(),
         "securityGroups" => list(String.t() | atom()),
@@ -9889,1891 +9758,2049 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      create_role_alias_response() :: %{
-        "roleAlias" => String.t() | atom(),
-        "roleAliasArn" => String.t() | atom()
+      ca_certificate_description() :: %{
+        "autoRegistrationStatus" => list(any()),
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "certificateMode" => list(any()),
+        "certificatePem" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "customerVersion" => integer(),
+        "generationId" => String.t() | atom(),
+        "lastModifiedDate" => non_neg_integer(),
+        "ownedBy" => String.t() | atom(),
+        "status" => list(any()),
+        "validity" => certificate_validity()
       }
 
   """
-  @type create_role_alias_response() :: %{(String.t() | atom()) => any()}
+  @type ca_certificate_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_package_version_response() :: %{}
+      task_statistics() :: %{
+        "canceledChecks" => integer(),
+        "compliantChecks" => integer(),
+        "failedChecks" => integer(),
+        "inProgressChecks" => integer(),
+        "nonCompliantChecks" => integer(),
+        "totalChecks" => integer(),
+        "waitingForDataCollectionChecks" => integer()
+      }
 
   """
-  @type delete_package_version_response() :: %{}
+  @type task_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deprecate_thing_type_request() :: %{
+        optional("undoDeprecate") => boolean()
+      }
+
+  """
+  @type deprecate_thing_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_thing_principal_response() :: %{}
+
+  """
+  @type attach_thing_principal_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_authorization() :: %{
+        "sigv4" => sig_v4_authorization()
+      }
+
+  """
+  @type http_authorization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioning_template_version_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "isDefaultVersion" => boolean(),
+        "versionId" => integer()
+      }
+
+  """
+  @type provisioning_template_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_configuration_response() :: %{
+        "domainConfigurationArn" => String.t() | atom(),
+        "domainConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type create_domain_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_encryption_configuration_request() :: %{
+        required("encryptionType") => list(any()),
+        optional("kmsAccessRoleArn") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom()
+      }
+
+  """
+  @type update_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflicting_resource_update_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflicting_resource_update_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indices_response() :: %{
+        "indexNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_indices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      geo_location_target() :: %{
+        "name" => String.t() | atom(),
+        "order" => list(any())
+      }
+
+  """
+  @type geo_location_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_already_exists_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
+      }
+
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @type accept_certificate_transfer_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
           | transfer_already_completed_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type add_thing_to_billing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type add_thing_to_thing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type associate_sbom_with_package_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | service_quota_exceeded_exception()
+          | throttling_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type associate_targets_with_job_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
 
   @type attach_policy_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type attach_principal_policy_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type attach_security_profile_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
           | throttling_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type attach_thing_principal_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type cancel_audit_mitigation_actions_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type cancel_audit_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type cancel_certificate_transfer_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
           | transfer_already_completed_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type cancel_detect_mitigation_actions_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type cancel_job_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
 
   @type cancel_job_execution_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_state_transition_exception()
+          version_conflict_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | invalid_state_transition_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | version_conflict_exception()
 
   @type clear_default_authorizer_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type confirm_topic_rule_destination_errors() ::
           conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type create_audit_suppression_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type create_authorizer_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
+          | unauthorized_exception()
 
   @type create_billing_group_errors() ::
           resource_already_exists_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
 
   @type create_certificate_from_csr_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_certificate_provider_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
+          | unauthorized_exception()
 
   @type create_command_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_custom_metric_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type create_dimension_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type create_domain_configuration_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
-          | throttling_exception()
-          | certificate_validation_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
+          | certificate_validation_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
+          | unauthorized_exception()
 
   @type create_dynamic_thing_group_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_query_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type create_fleet_metric_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
+          | invalid_aggregation_exception()
           | throttling_exception()
           | index_not_ready_exception()
           | invalid_query_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
-          | invalid_aggregation_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_job_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
 
   @type create_job_template_errors() ::
-          limit_exceeded_exception()
+          conflict_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
-          | conflict_exception()
-          | internal_failure_exception()
 
   @type create_keys_and_certificate_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_mitigation_action_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type create_ota_update_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_package_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_package_version_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_policy_errors() ::
           resource_already_exists_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | unauthorized_exception()
-          | malformed_policy_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | malformed_policy_exception()
+          | unauthorized_exception()
 
   @type create_policy_version_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
-          | resource_not_found_exception()
+          | service_unavailable_exception()
           | versions_limit_exceeded_exception()
-          | unauthorized_exception()
           | malformed_policy_exception()
-          | internal_failure_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type create_provisioning_claim_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_provisioning_template_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_provisioning_template_version_errors() ::
-          throttling_exception()
-          | conflicting_resource_update_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | versions_limit_exceeded_exception()
-          | unauthorized_exception()
+          conflicting_resource_update_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | versions_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type create_role_alias_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
+          | unauthorized_exception()
 
   @type create_scheduled_audit_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type create_security_profile_errors() ::
           resource_already_exists_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
 
   @type create_stream_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
+          | internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_thing_errors() ::
           resource_already_exists_exception()
+          | internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type create_thing_group_errors() ::
           resource_already_exists_exception()
+          | internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
 
   @type create_thing_type_errors() ::
           resource_already_exists_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | unauthorized_exception()
 
   @type create_topic_rule_errors() ::
           resource_already_exists_exception()
-          | sql_parse_exception()
           | conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
+          | sql_parse_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type create_topic_rule_destination_errors() ::
           resource_already_exists_exception()
           | conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type delete_account_audit_configuration_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type delete_audit_suppression_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type delete_authorizer_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | delete_conflict_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_billing_group_errors() ::
-          throttling_exception()
-          | invalid_request_exception()
+          internal_failure_exception()
           | version_conflict_exception()
-          | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
 
   @type delete_ca_certificate_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
-          | resource_not_found_exception()
           | certificate_state_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_certificate_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | certificate_state_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | delete_conflict_exception()
+          | invalid_request_exception()
+          | certificate_state_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_certificate_provider_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | delete_conflict_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_command_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type delete_command_execution_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type delete_custom_metric_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type delete_dimension_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type delete_domain_configuration_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_dynamic_thing_group_errors() ::
-          throttling_exception()
-          | invalid_request_exception()
+          internal_failure_exception()
           | version_conflict_exception()
-          | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
 
   @type delete_fleet_metric_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | unauthorized_exception()
+          internal_failure_exception()
           | version_conflict_exception()
-          | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | unauthorized_exception()
 
   @type delete_job_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
-          | invalid_state_transition_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | invalid_state_transition_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
 
   @type delete_job_execution_errors() ::
           throttling_exception()
-          | service_unavailable_exception()
-          | invalid_state_transition_exception()
           | invalid_request_exception()
+          | invalid_state_transition_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
 
   @type delete_job_template_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type delete_mitigation_action_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type delete_ota_update_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type delete_package_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type delete_package_version_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type delete_policy_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | delete_conflict_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_policy_version_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | delete_conflict_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_provisioning_template_errors() ::
-          throttling_exception()
-          | conflicting_resource_update_exception()
+          conflicting_resource_update_exception()
+          | internal_failure_exception()
+          | throttling_exception()
+          | delete_conflict_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | delete_conflict_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_provisioning_template_version_errors() ::
-          throttling_exception()
-          | conflicting_resource_update_exception()
+          conflicting_resource_update_exception()
+          | internal_failure_exception()
+          | throttling_exception()
+          | delete_conflict_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | delete_conflict_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_registration_code_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_role_alias_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | delete_conflict_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_scheduled_audit_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type delete_security_profile_errors() ::
-          throttling_exception()
-          | invalid_request_exception()
+          internal_failure_exception()
           | version_conflict_exception()
-          | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
 
   @type delete_stream_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | delete_conflict_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_thing_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type delete_thing_group_errors() ::
-          throttling_exception()
-          | invalid_request_exception()
+          internal_failure_exception()
           | version_conflict_exception()
-          | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
 
   @type delete_thing_type_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type delete_topic_rule_errors() ::
           conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type delete_topic_rule_destination_errors() ::
           conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type delete_v2_logging_level_errors() ::
-          internal_exception() | service_unavailable_exception() | invalid_request_exception()
+          invalid_request_exception() | service_unavailable_exception() | internal_exception()
 
   @type deprecate_thing_type_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_account_audit_configuration_errors() ::
-          throttling_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception()
 
   @type describe_audit_finding_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_audit_mitigation_actions_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_audit_suppression_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_audit_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_authorizer_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_billing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_ca_certificate_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_certificate_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_certificate_provider_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_custom_metric_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_default_authorizer_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_detect_mitigation_actions_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_dimension_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_domain_configuration_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_encryption_configuration_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_endpoint_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_event_configurations_errors() ::
-          throttling_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception()
 
   @type describe_fleet_metric_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_index_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_job_errors() ::
           throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
 
   @type describe_job_execution_errors() ::
           throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
 
   @type describe_job_template_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_managed_job_template_errors() ::
           throttling_exception()
-          | internal_server_exception()
           | invalid_request_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type describe_mitigation_action_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_provisioning_template_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_provisioning_template_version_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_role_alias_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_scheduled_audit_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_security_profile_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_stream_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_thing_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_thing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type describe_thing_registration_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type describe_thing_type_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type detach_policy_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type detach_principal_policy_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type detach_security_profile_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type detach_thing_principal_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type disable_topic_rule_errors() ::
           conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type disassociate_sbom_from_package_version_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | throttling_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type enable_topic_rule_errors() ::
           conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type get_behavior_model_training_summaries_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type get_buckets_aggregation_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | invalid_aggregation_exception()
+          | throttling_exception()
           | index_not_ready_exception()
           | invalid_query_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | invalid_aggregation_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_cardinality_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | invalid_aggregation_exception()
+          | throttling_exception()
           | index_not_ready_exception()
           | invalid_query_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | invalid_aggregation_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_command_errors() ::
           throttling_exception()
-          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_command_execution_errors() ::
           throttling_exception()
-          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_effective_policies_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_indexing_configuration_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_job_document_errors() ::
           throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
 
   @type get_logging_options_errors() ::
-          internal_exception() | service_unavailable_exception() | invalid_request_exception()
+          invalid_request_exception() | service_unavailable_exception() | internal_exception()
 
   @type get_ota_update_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_package_errors() ::
           throttling_exception()
-          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_package_configuration_errors() :: throttling_exception() | internal_server_exception()
 
   @type get_package_version_errors() ::
           throttling_exception()
-          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_percentiles_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | invalid_aggregation_exception()
+          | throttling_exception()
           | index_not_ready_exception()
           | invalid_query_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | invalid_aggregation_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_policy_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_policy_version_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_registration_code_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_statistics_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | invalid_aggregation_exception()
+          | throttling_exception()
           | index_not_ready_exception()
           | invalid_query_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | invalid_aggregation_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_thing_connectivity_data_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | index_not_ready_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type get_topic_rule_errors() ::
-          internal_exception()
+          invalid_request_exception()
           | service_unavailable_exception()
-          | invalid_request_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type get_topic_rule_destination_errors() ::
-          internal_exception()
+          invalid_request_exception()
           | service_unavailable_exception()
-          | invalid_request_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type get_v2_logging_options_errors() ::
-          internal_exception() | not_configured_exception() | service_unavailable_exception()
+          service_unavailable_exception() | not_configured_exception() | internal_exception()
 
   @type list_active_violations_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_attached_policies_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_audit_findings_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_audit_mitigation_actions_executions_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_audit_mitigation_actions_tasks_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_audit_suppressions_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_audit_tasks_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_authorizers_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_billing_groups_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_ca_certificates_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_certificate_providers_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_certificates_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_certificates_by_ca_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_command_executions_errors() ::
           throttling_exception()
-          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_commands_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type list_custom_metrics_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_detect_mitigation_actions_executions_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_detect_mitigation_actions_tasks_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_dimensions_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_domain_configurations_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_fleet_metrics_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_indices_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_job_executions_for_job_errors() ::
           throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
 
   @type list_job_executions_for_thing_errors() ::
           throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
 
   @type list_job_templates_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_jobs_errors() ::
           throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
 
   @type list_managed_job_templates_errors() ::
           throttling_exception()
-          | internal_server_exception()
           | invalid_request_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type list_metric_values_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_mitigation_actions_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_ota_updates_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_outgoing_certificates_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_package_versions_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type list_packages_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type list_policies_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_policy_principals_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_policy_versions_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_principal_policies_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_principal_things_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_principal_things_v2_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_provisioning_template_versions_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_provisioning_templates_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_related_resources_for_audit_finding_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_role_aliases_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_sbom_validation_results_errors() ::
           throttling_exception()
-          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_scheduled_audits_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type list_security_profiles_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_security_profiles_for_target_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_streams_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_targets_for_policy_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_targets_for_security_profile_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_thing_groups_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_thing_groups_for_thing_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_thing_principals_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_thing_principals_v2_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_thing_registration_task_reports_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_thing_registration_tasks_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_thing_types_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_things_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type list_things_in_billing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_things_in_thing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type list_topic_rule_destinations_errors() ::
-          internal_exception()
+          invalid_request_exception()
           | service_unavailable_exception()
-          | invalid_request_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type list_topic_rules_errors() ::
-          internal_exception()
+          invalid_request_exception()
           | service_unavailable_exception()
-          | invalid_request_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type list_v2_logging_levels_errors() ::
-          internal_exception()
-          | not_configured_exception()
+          invalid_request_exception()
           | service_unavailable_exception()
-          | invalid_request_exception()
+          | not_configured_exception()
+          | internal_exception()
 
   @type list_violation_events_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type put_verification_state_on_violation_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type register_ca_certificate_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
-          | throttling_exception()
+          | internal_failure_exception()
           | certificate_validation_exception()
+          | throttling_exception()
           | registration_code_validation_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type register_certificate_errors() ::
           resource_already_exists_exception()
-          | throttling_exception()
+          | internal_failure_exception()
           | certificate_validation_exception()
-          | service_unavailable_exception()
+          | throttling_exception()
           | certificate_conflict_exception()
           | invalid_request_exception()
           | certificate_state_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type register_certificate_without_ca_errors() ::
           resource_already_exists_exception()
-          | throttling_exception()
+          | internal_failure_exception()
           | certificate_validation_exception()
-          | service_unavailable_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | certificate_state_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type register_thing_errors() ::
-          resource_registration_failure_exception()
-          | throttling_exception()
-          | conflicting_resource_update_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
-          | unauthorized_exception()
+          conflicting_resource_update_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
+          | resource_registration_failure_exception()
+          | unauthorized_exception()
 
   @type reject_certificate_transfer_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
           | transfer_already_completed_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type remove_thing_from_billing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type remove_thing_from_thing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type replace_topic_rule_errors() ::
-          sql_parse_exception()
-          | conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
+          conflicting_resource_update_exception()
+          | sql_parse_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type search_index_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | index_not_ready_exception()
           | invalid_query_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type set_default_authorizer_errors() ::
           resource_already_exists_exception()
+          | internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type set_default_policy_version_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type set_logging_options_errors() ::
-          internal_exception() | service_unavailable_exception() | invalid_request_exception()
+          invalid_request_exception() | service_unavailable_exception() | internal_exception()
 
   @type set_v2_logging_level_errors() ::
-          limit_exceeded_exception()
-          | internal_exception()
-          | not_configured_exception()
+          invalid_request_exception()
           | service_unavailable_exception()
-          | invalid_request_exception()
+          | not_configured_exception()
+          | limit_exceeded_exception()
+          | internal_exception()
 
   @type set_v2_logging_options_errors() ::
-          internal_exception() | service_unavailable_exception() | invalid_request_exception()
+          invalid_request_exception() | service_unavailable_exception() | internal_exception()
 
   @type start_audit_mitigation_actions_task_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          internal_failure_exception()
           | task_already_exists_exception()
+          | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type start_detect_mitigation_actions_task_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          internal_failure_exception()
           | task_already_exists_exception()
+          | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type start_on_demand_audit_task_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
-          | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type start_thing_registration_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type stop_thing_registration_task_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type tag_resource_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type test_authorization_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type test_invoke_authorizer_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          internal_failure_exception()
           | invalid_response_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type transfer_certificate_errors() ::
-          transfer_conflict_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
-          | resource_not_found_exception()
           | certificate_state_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
+          | transfer_conflict_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type update_account_audit_configuration_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type update_audit_suppression_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type update_authorizer_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_billing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type update_ca_certificate_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_certificate_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
-          | resource_not_found_exception()
           | certificate_state_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_certificate_provider_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_command_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | throttling_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type update_custom_metric_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type update_dimension_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type update_domain_configuration_errors() ::
-          throttling_exception()
+          internal_failure_exception()
           | certificate_validation_exception()
-          | service_unavailable_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_dynamic_thing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
+          | throttling_exception()
           | invalid_query_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type update_encryption_configuration_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_event_configurations_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   @type update_fleet_metric_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
+          | invalid_aggregation_exception()
+          | throttling_exception()
           | index_not_ready_exception()
           | invalid_query_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
-          | invalid_aggregation_exception()
           | unauthorized_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type update_indexing_configuration_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_job_errors() ::
           throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
 
   @type update_mitigation_action_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type update_package_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | throttling_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type update_package_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type update_package_version_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | throttling_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type update_provisioning_template_errors() ::
           conflicting_resource_update_exception()
+          | internal_failure_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_role_alias_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_scheduled_audit_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type update_security_profile_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type update_stream_errors() ::
-          limit_exceeded_exception()
+          internal_failure_exception()
           | throttling_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_thing_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type update_thing_group_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | version_conflict_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | version_conflict_exception()
-          | internal_failure_exception()
 
   @type update_thing_groups_for_thing_errors() ::
-          throttling_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_failure_exception()
 
   @type update_thing_type_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
+          internal_failure_exception()
+          | throttling_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
-          | internal_failure_exception()
 
   @type update_topic_rule_destination_errors() ::
           conflicting_resource_update_exception()
-          | internal_exception()
-          | service_unavailable_exception()
           | invalid_request_exception()
+          | service_unavailable_exception()
           | unauthorized_exception()
+          | internal_exception()
 
   @type validate_security_profile_behaviors_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+          internal_failure_exception() | throttling_exception() | invalid_request_exception()
 
   def metadata do
     %{
@@ -11927,8 +11954,8 @@ defmodule AWS.IoT do
           | {:error, associate_sbom_with_package_version_errors()}
   def associate_sbom_with_package_version(
         %Client{} = client,
-        package_name,
         version_name,
+        package_name,
         input,
         options \\ []
       ) do
@@ -12419,7 +12446,7 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, cancel_job_execution_errors()}
-  def cancel_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
+  def cancel_job_execution(%Client{} = client, thing_name, job_id, input, options \\ []) do
     url_path =
       "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
 
@@ -13235,7 +13262,7 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, create_package_version_errors()}
-  def create_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
+  def create_package_version(%Client{} = client, version_name, package_name, input, options \\ []) do
     url_path =
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
 
@@ -14405,8 +14432,8 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"force", "force"},
-        {"namespaceId", "namespaceId"}
+        {"namespaceId", "namespaceId"},
+        {"force", "force"}
       ]
       |> Request.build_params(input)
 
@@ -14446,9 +14473,9 @@ defmodule AWS.IoT do
           | {:error, delete_job_execution_errors()}
   def delete_job_execution(
         %Client{} = client,
-        execution_number,
-        job_id,
         thing_name,
+        job_id,
+        execution_number,
         input,
         options \\ []
       ) do
@@ -14460,8 +14487,8 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"force", "force"},
-        {"namespaceId", "namespaceId"}
+        {"namespaceId", "namespaceId"},
+        {"force", "force"}
       ]
       |> Request.build_params(input)
 
@@ -14566,8 +14593,8 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"deleteStream", "deleteStream"},
-        {"forceDeleteAWSJob", "forceDeleteAWSJob"}
+        {"forceDeleteAWSJob", "forceDeleteAWSJob"},
+        {"deleteStream", "deleteStream"}
       ]
       |> Request.build_params(input)
 
@@ -14644,7 +14671,7 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_package_version_errors()}
-  def delete_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
+  def delete_package_version(%Client{} = client, version_name, package_name, input, options \\ []) do
     url_path =
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
 
@@ -14748,8 +14775,8 @@ defmodule AWS.IoT do
           | {:error, delete_policy_version_errors()}
   def delete_policy_version(
         %Client{} = client,
-        policy_name,
         policy_version_id,
+        policy_name,
         input,
         options \\ []
       ) do
@@ -14833,8 +14860,8 @@ defmodule AWS.IoT do
           | {:error, delete_provisioning_template_version_errors()}
   def delete_provisioning_template_version(
         %Client{} = client,
-        template_name,
         version_id,
+        template_name,
         input,
         options \\ []
       ) do
@@ -15248,8 +15275,8 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"targetName", "targetName"},
-        {"targetType", "targetType"}
+        {"targetType", "targetType"},
+        {"targetName", "targetName"}
       ]
       |> Request.build_params(input)
 
@@ -15827,8 +15854,8 @@ defmodule AWS.IoT do
           | {:error, describe_job_execution_errors()}
   def describe_job_execution(
         %Client{} = client,
-        job_id,
         thing_name,
+        job_id,
         execution_number \\ nil,
         options \\ []
       ) do
@@ -15964,8 +15991,8 @@ defmodule AWS.IoT do
           | {:error, describe_provisioning_template_version_errors()}
   def describe_provisioning_template_version(
         %Client{} = client,
-        template_name,
         version_id,
+        template_name,
         options \\ []
       ) do
     url_path =
@@ -16390,8 +16417,8 @@ defmodule AWS.IoT do
           | {:error, disassociate_sbom_from_package_version_errors()}
   def disassociate_sbom_from_package_version(
         %Client{} = client,
-        package_name,
         version_name,
+        package_name,
         input,
         options \\ []
       ) do
@@ -16476,9 +16503,9 @@ defmodule AWS.IoT do
           | {:error, get_behavior_model_training_summaries_errors()}
   def get_behavior_model_training_summaries(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         security_profile_name \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/behavior-model-training/summaries"
@@ -16486,8 +16513,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(security_profile_name) do
-        [{"securityProfileName", security_profile_name} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -16500,8 +16527,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(security_profile_name) do
+        [{"securityProfileName", security_profile_name} | query_params]
       else
         query_params
       end
@@ -16601,8 +16628,8 @@ defmodule AWS.IoT do
   @spec get_command_execution(
           map(),
           String.t() | atom(),
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_command_execution_response(), any()}
@@ -16612,8 +16639,8 @@ defmodule AWS.IoT do
   def get_command_execution(
         %Client{} = client,
         execution_id,
-        include_result \\ nil,
         target_arn,
+        include_result \\ nil,
         options \\ []
       ) do
     url_path = "/command-executions/#{AWS.Util.encode_uri(execution_id)}"
@@ -16621,15 +16648,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(target_arn) do
-        [{"targetArn", target_arn} | query_params]
+      if !is_nil(include_result) do
+        [{"includeResult", include_result} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(include_result) do
-        [{"includeResult", include_result} | query_params]
+      if !is_nil(target_arn) do
+        [{"targetArn", target_arn} | query_params]
       else
         query_params
       end
@@ -16833,7 +16860,7 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_package_version_errors()}
-  def get_package_version(%Client{} = client, package_name, version_name, options \\ []) do
+  def get_package_version(%Client{} = client, version_name, package_name, options \\ []) do
     url_path =
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
 
@@ -16929,7 +16956,7 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_policy_version_errors()}
-  def get_policy_version(%Client{} = client, policy_name, policy_version_id, options \\ []) do
+  def get_policy_version(%Client{} = client, policy_version_id, policy_name, options \\ []) do
     url_path =
       "/policies/#{AWS.Util.encode_uri(policy_name)}/version/#{AWS.Util.encode_uri(policy_version_id)}"
 
@@ -17007,6 +17034,11 @@ defmodule AWS.IoT do
 
   @doc """
   Retrieves the live connectivity status per device.
+
+  If a device has never connected to IoT Core or was disconnected for more than 1
+  hour before fleet indexing's `thingConnectivityIndexingMode` was enabled, the
+  response will have the `connected` field set to `false` with no additional
+  session details.
   """
   @spec get_thing_connectivity_data(
           map(),
@@ -17136,13 +17168,13 @@ defmodule AWS.IoT do
           | {:error, list_active_violations_errors()}
   def list_active_violations(
         %Client{} = client,
-        behavior_criteria_type \\ nil,
-        list_suppressed_alerts \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        security_profile_name \\ nil,
-        thing_name \\ nil,
         verification_state \\ nil,
+        thing_name \\ nil,
+        security_profile_name \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        list_suppressed_alerts \\ nil,
+        behavior_criteria_type \\ nil,
         options \\ []
       ) do
     url_path = "/active-violations"
@@ -17150,36 +17182,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(verification_state) do
-        [{"verificationState", verification_state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(thing_name) do
-        [{"thingName", thing_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(security_profile_name) do
-        [{"securityProfileName", security_profile_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(behavior_criteria_type) do
+        [{"behaviorCriteriaType", behavior_criteria_type} | query_params]
       else
         query_params
       end
@@ -17192,8 +17196,36 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(behavior_criteria_type) do
-        [{"behaviorCriteriaType", behavior_criteria_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(security_profile_name) do
+        [{"securityProfileName", security_profile_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_name) do
+        [{"thingName", thing_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(verification_state) do
+        [{"verificationState", verification_state} | query_params]
       else
         query_params
       end
@@ -17227,9 +17259,9 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"marker", "marker"},
+        {"recursive", "recursive"},
         {"pageSize", "pageSize"},
-        {"recursive", "recursive"}
+        {"marker", "marker"}
       ]
       |> Request.build_params(input)
 
@@ -17294,11 +17326,11 @@ defmodule AWS.IoT do
   """
   @spec list_audit_mitigation_actions_executions(
           map(),
-          String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_audit_mitigation_actions_executions_response(), any()}
@@ -17307,11 +17339,11 @@ defmodule AWS.IoT do
           | {:error, list_audit_mitigation_actions_executions_errors()}
   def list_audit_mitigation_actions_executions(
         %Client{} = client,
-        action_status \\ nil,
-        finding_id,
-        max_results \\ nil,
-        next_token \\ nil,
         task_id,
+        next_token \\ nil,
+        max_results \\ nil,
+        finding_id,
+        action_status \\ nil,
         options \\ []
       ) do
     url_path = "/audit/mitigationactions/executions"
@@ -17319,22 +17351,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(task_id) do
-        [{"taskId", task_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(action_status) do
+        [{"actionStatus", action_status} | query_params]
       else
         query_params
       end
@@ -17347,8 +17365,22 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(action_status) do
-        [{"actionStatus", action_status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(task_id) do
+        [{"taskId", task_id} | query_params]
       else
         query_params
       end
@@ -17382,13 +17414,13 @@ defmodule AWS.IoT do
           | {:error, list_audit_mitigation_actions_tasks_errors()}
   def list_audit_mitigation_actions_tasks(
         %Client{} = client,
-        audit_task_id \\ nil,
-        end_time,
-        finding_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time,
         task_status \\ nil,
+        start_time,
+        next_token \\ nil,
+        max_results \\ nil,
+        finding_id \\ nil,
+        end_time,
+        audit_task_id \\ nil,
         options \\ []
       ) do
     url_path = "/audit/mitigationactions/tasks"
@@ -17396,36 +17428,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(task_status) do
-        [{"taskStatus", task_status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(finding_id) do
-        [{"findingId", finding_id} | query_params]
+      if !is_nil(audit_task_id) do
+        [{"auditTaskId", audit_task_id} | query_params]
       else
         query_params
       end
@@ -17438,8 +17442,36 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(audit_task_id) do
-        [{"auditTaskId", audit_task_id} | query_params]
+      if !is_nil(finding_id) do
+        [{"findingId", finding_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(task_status) do
+        [{"taskStatus", task_status} | query_params]
       else
         query_params
       end
@@ -17493,12 +17525,12 @@ defmodule AWS.IoT do
   """
   @spec list_audit_tasks(
           map(),
-          String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_audit_tasks_response(), any()}
@@ -17507,12 +17539,12 @@ defmodule AWS.IoT do
           | {:error, list_audit_tasks_errors()}
   def list_audit_tasks(
         %Client{} = client,
-        end_time,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time,
-        task_status \\ nil,
         task_type \\ nil,
+        task_status \\ nil,
+        start_time,
+        next_token \\ nil,
+        max_results \\ nil,
+        end_time,
         options \\ []
       ) do
     url_path = "/audit/tasks"
@@ -17520,29 +17552,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(task_type) do
-        [{"taskType", task_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(task_status) do
-        [{"taskStatus", task_status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
       else
         query_params
       end
@@ -17555,8 +17566,29 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(task_status) do
+        [{"taskStatus", task_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(task_type) do
+        [{"taskType", task_type} | query_params]
       else
         query_params
       end
@@ -17587,10 +17619,10 @@ defmodule AWS.IoT do
           | {:error, list_authorizers_errors()}
   def list_authorizers(
         %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
         status \\ nil,
+        page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/authorizers"
@@ -17598,15 +17630,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -17619,8 +17644,15 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -17650,9 +17682,9 @@ defmodule AWS.IoT do
           | {:error, list_billing_groups_errors()}
   def list_billing_groups(
         %Client{} = client,
-        max_results \\ nil,
-        name_prefix_filter \\ nil,
         next_token \\ nil,
+        name_prefix_filter \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/billing-groups"
@@ -17660,8 +17692,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -17674,8 +17706,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -17710,10 +17742,10 @@ defmodule AWS.IoT do
           | {:error, list_ca_certificates_errors()}
   def list_ca_certificates(
         %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
-        page_size \\ nil,
         template_name \\ nil,
+        page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/cacertificates"
@@ -17721,15 +17753,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(template_name) do
-        [{"templateName", template_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -17742,8 +17767,15 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(template_name) do
+        [{"templateName", template_name} | query_params]
       else
         query_params
       end
@@ -17772,8 +17804,8 @@ defmodule AWS.IoT do
           | {:error, list_certificate_providers_errors()}
   def list_certificate_providers(
         %Client{} = client,
-        ascending_order \\ nil,
         next_token \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/certificate-providers"
@@ -17781,15 +17813,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -17823,9 +17855,9 @@ defmodule AWS.IoT do
           | {:error, list_certificates_errors()}
   def list_certificates(
         %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
         page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/certificates"
@@ -17833,8 +17865,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -17847,8 +17879,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -17880,9 +17912,9 @@ defmodule AWS.IoT do
   def list_certificates_by_ca(
         %Client{} = client,
         ca_certificate_id,
-        ascending_order \\ nil,
-        marker \\ nil,
         page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/certificates-by-ca/#{AWS.Util.encode_uri(ca_certificate_id)}"
@@ -17890,8 +17922,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -17904,8 +17936,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -17947,8 +17979,8 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -17985,11 +18017,11 @@ defmodule AWS.IoT do
           | {:error, list_commands_errors()}
   def list_commands(
         %Client{} = client,
-        command_parameter_name \\ nil,
-        max_results \\ nil,
-        namespace \\ nil,
-        next_token \\ nil,
         sort_order \\ nil,
+        next_token \\ nil,
+        namespace \\ nil,
+        max_results \\ nil,
+        command_parameter_name \\ nil,
         options \\ []
       ) do
     url_path = "/commands"
@@ -17997,22 +18029,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(namespace) do
-        [{"namespace", namespace} | query_params]
+      if !is_nil(command_parameter_name) do
+        [{"commandParameterName", command_parameter_name} | query_params]
       else
         query_params
       end
@@ -18025,8 +18043,22 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(command_parameter_name) do
-        [{"commandParameterName", command_parameter_name} | query_params]
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
       else
         query_params
       end
@@ -18051,8 +18083,8 @@ defmodule AWS.IoT do
           | {:error, list_custom_metrics_errors()}
   def list_custom_metrics(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/custom-metrics"
@@ -18060,15 +18092,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -18104,13 +18136,13 @@ defmodule AWS.IoT do
           | {:error, list_detect_mitigation_actions_executions_errors()}
   def list_detect_mitigation_actions_executions(
         %Client{} = client,
-        end_time \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        start_time \\ nil,
-        task_id \\ nil,
-        thing_name \\ nil,
         violation_id \\ nil,
+        thing_name \\ nil,
+        task_id \\ nil,
+        start_time \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        end_time \\ nil,
         options \\ []
       ) do
     url_path = "/detect/mitigationactions/executions"
@@ -18118,36 +18150,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(violation_id) do
-        [{"violationId", violation_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(thing_name) do
-        [{"thingName", thing_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(task_id) do
-        [{"taskId", task_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
       else
         query_params
       end
@@ -18160,8 +18164,36 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(task_id) do
+        [{"taskId", task_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_name) do
+        [{"thingName", thing_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(violation_id) do
+        [{"violationId", violation_id} | query_params]
       else
         query_params
       end
@@ -18193,10 +18225,10 @@ defmodule AWS.IoT do
           | {:error, list_detect_mitigation_actions_tasks_errors()}
   def list_detect_mitigation_actions_tasks(
         %Client{} = client,
-        end_time,
-        max_results \\ nil,
-        next_token \\ nil,
         start_time,
+        next_token \\ nil,
+        max_results \\ nil,
+        end_time,
         options \\ []
       ) do
     url_path = "/detect/mitigationactions/tasks"
@@ -18204,15 +18236,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
       else
         query_params
       end
@@ -18225,8 +18250,15 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
       else
         query_params
       end
@@ -18249,21 +18281,21 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_dimensions_errors()}
-  def list_dimensions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_dimensions(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/dimensions"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -18296,9 +18328,9 @@ defmodule AWS.IoT do
           | {:error, list_domain_configurations_errors()}
   def list_domain_configurations(
         %Client{} = client,
-        marker \\ nil,
-        page_size \\ nil,
         service_type \\ nil,
+        page_size \\ nil,
+        marker \\ nil,
         options \\ []
       ) do
     url_path = "/domainConfigurations"
@@ -18306,8 +18338,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(service_type) do
-        [{"serviceType", service_type} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
       else
         query_params
       end
@@ -18320,8 +18352,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(service_type) do
+        [{"serviceType", service_type} | query_params]
       else
         query_params
       end
@@ -18343,21 +18375,21 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_fleet_metrics_errors()}
-  def list_fleet_metrics(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_fleet_metrics(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/fleet-metrics"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -18379,21 +18411,21 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_indices_errors()}
-  def list_indices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_indices(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/indices"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -18425,9 +18457,9 @@ defmodule AWS.IoT do
   def list_job_executions_for_job(
         %Client{} = client,
         job_id,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/things"
@@ -18435,8 +18467,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -18449,8 +18481,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -18484,11 +18516,11 @@ defmodule AWS.IoT do
   def list_job_executions_for_thing(
         %Client{} = client,
         thing_name,
-        job_id \\ nil,
-        max_results \\ nil,
-        namespace_id \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        namespace_id \\ nil,
+        max_results \\ nil,
+        job_id \\ nil,
         options \\ []
       ) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs"
@@ -18496,22 +18528,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(namespace_id) do
-        [{"namespaceId", namespace_id} | query_params]
+      if !is_nil(job_id) do
+        [{"jobId", job_id} | query_params]
       else
         query_params
       end
@@ -18524,8 +18542,22 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(job_id) do
-        [{"jobId", job_id} | query_params]
+      if !is_nil(namespace_id) do
+        [{"namespaceId", namespace_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -18547,21 +18579,21 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_job_templates_errors()}
-  def list_job_templates(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_job_templates(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/job-templates"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -18595,13 +18627,13 @@ defmodule AWS.IoT do
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
-        max_results \\ nil,
-        namespace_id \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        target_selection \\ nil,
-        thing_group_id \\ nil,
         thing_group_name \\ nil,
+        thing_group_id \\ nil,
+        target_selection \\ nil,
+        status \\ nil,
+        next_token \\ nil,
+        namespace_id \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/jobs"
@@ -18609,36 +18641,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(thing_group_name) do
-        [{"thingGroupName", thing_group_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(thing_group_id) do
-        [{"thingGroupId", thing_group_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(target_selection) do
-        [{"targetSelection", target_selection} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -18651,8 +18655,36 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_selection) do
+        [{"targetSelection", target_selection} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_group_id) do
+        [{"thingGroupId", thing_group_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_group_name) do
+        [{"thingGroupName", thing_group_name} | query_params]
       else
         query_params
       end
@@ -18678,9 +18710,9 @@ defmodule AWS.IoT do
           | {:error, list_managed_job_templates_errors()}
   def list_managed_job_templates(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         template_name \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/managed-job-templates"
@@ -18688,8 +18720,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(template_name) do
-        [{"templateName", template_name} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -18702,8 +18734,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(template_name) do
+        [{"templateName", template_name} | query_params]
       else
         query_params
       end
@@ -18720,14 +18752,14 @@ defmodule AWS.IoT do
   """
   @spec list_metric_values(
           map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_metric_values_response(), any()}
@@ -18736,14 +18768,14 @@ defmodule AWS.IoT do
           | {:error, list_metric_values_errors()}
   def list_metric_values(
         %Client{} = client,
-        dimension_name \\ nil,
-        dimension_value_operator \\ nil,
-        end_time,
-        max_results \\ nil,
-        metric_name,
-        next_token \\ nil,
-        start_time,
         thing_name,
+        start_time,
+        next_token \\ nil,
+        metric_name,
+        max_results \\ nil,
+        end_time,
+        dimension_value_operator \\ nil,
+        dimension_name \\ nil,
         options \\ []
       ) do
     url_path = "/metric-values"
@@ -18751,43 +18783,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(thing_name) do
-        [{"thingName", thing_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(metric_name) do
-        [{"metricName", metric_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if !is_nil(dimension_name) do
+        [{"dimensionName", dimension_name} | query_params]
       else
         query_params
       end
@@ -18800,8 +18797,43 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(dimension_name) do
-        [{"dimensionName", dimension_name} | query_params]
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(metric_name) do
+        [{"metricName", metric_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_name) do
+        [{"thingName", thing_name} | query_params]
       else
         query_params
       end
@@ -18831,9 +18863,9 @@ defmodule AWS.IoT do
           | {:error, list_mitigation_actions_errors()}
   def list_mitigation_actions(
         %Client{} = client,
-        action_type \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        action_type \\ nil,
         options \\ []
       ) do
     url_path = "/mitigationactions/actions"
@@ -18841,8 +18873,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(action_type) do
+        [{"actionType", action_type} | query_params]
       else
         query_params
       end
@@ -18855,8 +18887,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(action_type) do
-        [{"actionType", action_type} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -18886,9 +18918,9 @@ defmodule AWS.IoT do
           | {:error, list_ota_updates_errors()}
   def list_ota_updates(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         ota_update_status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/otaUpdates"
@@ -18896,8 +18928,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(ota_update_status) do
-        [{"otaUpdateStatus", ota_update_status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -18910,8 +18942,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(ota_update_status) do
+        [{"otaUpdateStatus", ota_update_status} | query_params]
       else
         query_params
       end
@@ -18941,9 +18973,9 @@ defmodule AWS.IoT do
           | {:error, list_outgoing_certificates_errors()}
   def list_outgoing_certificates(
         %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
         page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/certificates-out-going"
@@ -18951,8 +18983,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -18965,8 +18997,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -18998,9 +19030,9 @@ defmodule AWS.IoT do
   def list_package_versions(
         %Client{} = client,
         package_name,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}/versions"
@@ -19008,8 +19040,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -19022,8 +19054,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -19045,21 +19077,21 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_packages_errors()}
-  def list_packages(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_packages(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/packages"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19089,9 +19121,9 @@ defmodule AWS.IoT do
           | {:error, list_policies_errors()}
   def list_policies(
         %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
         page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/policies"
@@ -19099,8 +19131,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -19113,8 +19145,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -19149,9 +19181,9 @@ defmodule AWS.IoT do
           | {:error, list_policy_principals_errors()}
   def list_policy_principals(
         %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
         page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         policy_name,
         options \\ []
       ) do
@@ -19168,8 +19200,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -19182,8 +19214,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -19244,9 +19276,9 @@ defmodule AWS.IoT do
           | {:error, list_principal_policies_errors()}
   def list_principal_policies(
         %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
         page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         principal,
         options \\ []
       ) do
@@ -19263,8 +19295,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -19277,8 +19309,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -19313,8 +19345,8 @@ defmodule AWS.IoT do
           | {:error, list_principal_things_errors()}
   def list_principal_things(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         principal,
         options \\ []
       ) do
@@ -19331,15 +19363,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19373,9 +19405,9 @@ defmodule AWS.IoT do
           | {:error, list_principal_things_v2_errors()}
   def list_principal_things_v2(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         thing_principal_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         principal,
         options \\ []
       ) do
@@ -19392,8 +19424,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(thing_principal_type) do
-        [{"thingPrincipalType", thing_principal_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -19406,8 +19438,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(thing_principal_type) do
+        [{"thingPrincipalType", thing_principal_type} | query_params]
       else
         query_params
       end
@@ -19438,8 +19470,8 @@ defmodule AWS.IoT do
   def list_provisioning_template_versions(
         %Client{} = client,
         template_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions"
@@ -19447,15 +19479,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19484,8 +19516,8 @@ defmodule AWS.IoT do
           | {:error, list_provisioning_templates_errors()}
   def list_provisioning_templates(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/provisioning-templates"
@@ -19493,15 +19525,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19554,9 +19586,9 @@ defmodule AWS.IoT do
   """
   @spec list_related_resources_for_audit_finding(
           map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_related_resources_for_audit_finding_response(), any()}
@@ -19565,9 +19597,9 @@ defmodule AWS.IoT do
           | {:error, list_related_resources_for_audit_finding_errors()}
   def list_related_resources_for_audit_finding(
         %Client{} = client,
-        finding_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        finding_id,
         options \\ []
       ) do
     url_path = "/audit/relatedResources"
@@ -19575,8 +19607,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(finding_id) do
+        [{"findingId", finding_id} | query_params]
       else
         query_params
       end
@@ -19589,8 +19621,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(finding_id) do
-        [{"findingId", finding_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19620,9 +19652,9 @@ defmodule AWS.IoT do
           | {:error, list_role_aliases_errors()}
   def list_role_aliases(
         %Client{} = client,
-        ascending_order \\ nil,
-        marker \\ nil,
         page_size \\ nil,
+        marker \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/role-aliases"
@@ -19630,8 +19662,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -19644,8 +19676,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -19678,11 +19710,11 @@ defmodule AWS.IoT do
           | {:error, list_sbom_validation_results_errors()}
   def list_sbom_validation_results(
         %Client{} = client,
-        package_name,
         version_name,
-        max_results \\ nil,
-        next_token \\ nil,
+        package_name,
         validation_result \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -19692,8 +19724,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(validation_result) do
-        [{"validationResult", validation_result} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -19706,8 +19738,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(validation_result) do
+        [{"validationResult", validation_result} | query_params]
       else
         query_params
       end
@@ -19731,8 +19763,8 @@ defmodule AWS.IoT do
           | {:error, list_scheduled_audits_errors()}
   def list_scheduled_audits(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/audit/scheduledaudits"
@@ -19740,15 +19772,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19785,10 +19817,10 @@ defmodule AWS.IoT do
           | {:error, list_security_profiles_errors()}
   def list_security_profiles(
         %Client{} = client,
-        dimension_name \\ nil,
-        max_results \\ nil,
-        metric_name \\ nil,
         next_token \\ nil,
+        metric_name \\ nil,
+        max_results \\ nil,
+        dimension_name \\ nil,
         options \\ []
       ) do
     url_path = "/security-profiles"
@@ -19796,15 +19828,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(metric_name) do
-        [{"metricName", metric_name} | query_params]
+      if !is_nil(dimension_name) do
+        [{"dimensionName", dimension_name} | query_params]
       else
         query_params
       end
@@ -19817,8 +19842,15 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(dimension_name) do
-        [{"dimensionName", dimension_name} | query_params]
+      if !is_nil(metric_name) do
+        [{"metricName", metric_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19837,10 +19869,10 @@ defmodule AWS.IoT do
   """
   @spec list_security_profiles_for_target(
           map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_security_profiles_for_target_response(), any()}
@@ -19849,10 +19881,10 @@ defmodule AWS.IoT do
           | {:error, list_security_profiles_for_target_errors()}
   def list_security_profiles_for_target(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        recursive \\ nil,
         security_profile_target_arn,
+        recursive \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/security-profiles-for-target"
@@ -19860,15 +19892,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(security_profile_target_arn) do
-        [{"securityProfileTargetArn", security_profile_target_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(recursive) do
-        [{"recursive", recursive} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -19881,8 +19906,15 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(recursive) do
+        [{"recursive", recursive} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(security_profile_target_arn) do
+        [{"securityProfileTargetArn", security_profile_target_arn} | query_params]
       else
         query_params
       end
@@ -19912,9 +19944,9 @@ defmodule AWS.IoT do
           | {:error, list_streams_errors()}
   def list_streams(
         %Client{} = client,
-        ascending_order \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        ascending_order \\ nil,
         options \\ []
       ) do
     url_path = "/streams"
@@ -19922,8 +19954,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
       else
         query_params
       end
@@ -19936,8 +19968,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(ascending_order) do
-        [{"isAscendingOrder", ascending_order} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -19954,26 +19986,26 @@ defmodule AWS.IoT do
   [ListTagsForResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_tags_for_resource(map(), String.t() | atom() | nil, String.t() | atom(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, next_token \\ nil, resource_arn, options \\ []) do
+  def list_tags_for_resource(%Client{} = client, resource_arn, next_token \\ nil, options \\ []) do
     url_path = "/tags"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
       else
         query_params
       end
@@ -20007,8 +20039,8 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"marker", "marker"},
-        {"pageSize", "pageSize"}
+        {"pageSize", "pageSize"},
+        {"marker", "marker"}
       ]
       |> Request.build_params(input)
 
@@ -20049,8 +20081,8 @@ defmodule AWS.IoT do
   def list_targets_for_security_profile(
         %Client{} = client,
         security_profile_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
@@ -20058,15 +20090,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -20098,11 +20130,11 @@ defmodule AWS.IoT do
           | {:error, list_thing_groups_errors()}
   def list_thing_groups(
         %Client{} = client,
-        max_results \\ nil,
-        name_prefix_filter \\ nil,
-        next_token \\ nil,
-        parent_group \\ nil,
         recursive \\ nil,
+        parent_group \\ nil,
+        next_token \\ nil,
+        name_prefix_filter \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/thing-groups"
@@ -20110,22 +20142,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(recursive) do
-        [{"recursive", recursive} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(parent_group) do
-        [{"parentGroup", parent_group} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20138,8 +20156,22 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(parent_group) do
+        [{"parentGroup", parent_group} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(recursive) do
+        [{"recursive", recursive} | query_params]
       else
         query_params
       end
@@ -20170,8 +20202,8 @@ defmodule AWS.IoT do
   def list_thing_groups_for_thing(
         %Client{} = client,
         thing_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/thing-groups"
@@ -20179,15 +20211,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -20223,8 +20255,8 @@ defmodule AWS.IoT do
   def list_thing_principals(
         %Client{} = client,
         thing_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
@@ -20232,15 +20264,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -20275,9 +20307,9 @@ defmodule AWS.IoT do
   def list_thing_principals_v2(
         %Client{} = client,
         thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
         thing_principal_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals-v2"
@@ -20285,8 +20317,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(thing_principal_type) do
-        [{"thingPrincipalType", thing_principal_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20299,8 +20331,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(thing_principal_type) do
+        [{"thingPrincipalType", thing_principal_type} | query_params]
       else
         query_params
       end
@@ -20316,9 +20348,9 @@ defmodule AWS.IoT do
   @spec list_thing_registration_task_reports(
           map(),
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_thing_registration_task_reports_response(), any()}
@@ -20328,9 +20360,9 @@ defmodule AWS.IoT do
   def list_thing_registration_task_reports(
         %Client{} = client,
         task_id,
-        max_results \\ nil,
-        next_token \\ nil,
         report_type,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}/reports"
@@ -20338,8 +20370,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(report_type) do
-        [{"reportType", report_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20352,8 +20384,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(report_type) do
+        [{"reportType", report_type} | query_params]
       else
         query_params
       end
@@ -20383,9 +20415,9 @@ defmodule AWS.IoT do
           | {:error, list_thing_registration_tasks_errors()}
   def list_thing_registration_tasks(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/thing-registration-tasks"
@@ -20393,8 +20425,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20407,8 +20439,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -20438,9 +20470,9 @@ defmodule AWS.IoT do
           | {:error, list_thing_types_errors()}
   def list_thing_types(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         thing_type_name \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/thing-types"
@@ -20448,8 +20480,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(thing_type_name) do
-        [{"thingTypeName", thing_type_name} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20462,8 +20494,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(thing_type_name) do
+        [{"thingTypeName", thing_type_name} | query_params]
       else
         query_params
       end
@@ -20509,12 +20541,12 @@ defmodule AWS.IoT do
           | {:error, list_things_errors()}
   def list_things(
         %Client{} = client,
-        attribute_name \\ nil,
-        attribute_value \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        thing_type_name \\ nil,
         use_prefix_attribute_value \\ nil,
+        thing_type_name \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        attribute_value \\ nil,
+        attribute_name \\ nil,
         options \\ []
       ) do
     url_path = "/things"
@@ -20522,29 +20554,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(use_prefix_attribute_value) do
-        [{"usePrefixAttributeValue", use_prefix_attribute_value} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(thing_type_name) do
-        [{"thingTypeName", thing_type_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(attribute_name) do
+        [{"attributeName", attribute_name} | query_params]
       else
         query_params
       end
@@ -20557,8 +20568,29 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(attribute_name) do
-        [{"attributeName", attribute_name} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_type_name) do
+        [{"thingTypeName", thing_type_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(use_prefix_attribute_value) do
+        [{"usePrefixAttributeValue", use_prefix_attribute_value} | query_params]
       else
         query_params
       end
@@ -20589,8 +20621,8 @@ defmodule AWS.IoT do
   def list_things_in_billing_group(
         %Client{} = client,
         billing_group_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}/things"
@@ -20598,15 +20630,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -20638,9 +20670,9 @@ defmodule AWS.IoT do
   def list_things_in_thing_group(
         %Client{} = client,
         thing_group_name,
-        max_results \\ nil,
-        next_token \\ nil,
         recursive \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}/things"
@@ -20648,8 +20680,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(recursive) do
-        [{"recursive", recursive} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20662,8 +20694,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(recursive) do
+        [{"recursive", recursive} | query_params]
       else
         query_params
       end
@@ -20692,8 +20724,8 @@ defmodule AWS.IoT do
           | {:error, list_topic_rule_destinations_errors()}
   def list_topic_rule_destinations(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/destinations"
@@ -20701,15 +20733,15 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -20740,10 +20772,10 @@ defmodule AWS.IoT do
           | {:error, list_topic_rules_errors()}
   def list_topic_rules(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        rule_disabled \\ nil,
         topic \\ nil,
+        rule_disabled \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/rules"
@@ -20751,15 +20783,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(topic) do
-        [{"topic", topic} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(rule_disabled) do
-        [{"ruleDisabled", rule_disabled} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20772,8 +20797,15 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(rule_disabled) do
+        [{"ruleDisabled", rule_disabled} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(topic) do
+        [{"topic", topic} | query_params]
       else
         query_params
       end
@@ -20803,9 +20835,9 @@ defmodule AWS.IoT do
           | {:error, list_v2_logging_levels_errors()}
   def list_v2_logging_levels(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         target_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/v2LoggingLevel"
@@ -20813,8 +20845,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(target_type) do
-        [{"targetType", target_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -20827,8 +20859,8 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(target_type) do
+        [{"targetType", target_type} | query_params]
       else
         query_params
       end
@@ -20853,13 +20885,13 @@ defmodule AWS.IoT do
   @spec list_violation_events(
           map(),
           String.t() | atom() | nil,
-          String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           String.t() | atom() | nil,
           list()
         ) ::
@@ -20869,15 +20901,15 @@ defmodule AWS.IoT do
           | {:error, list_violation_events_errors()}
   def list_violation_events(
         %Client{} = client,
-        behavior_criteria_type \\ nil,
-        end_time,
-        list_suppressed_alerts \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        security_profile_name \\ nil,
-        start_time,
-        thing_name \\ nil,
         verification_state \\ nil,
+        thing_name \\ nil,
+        start_time,
+        security_profile_name \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        list_suppressed_alerts \\ nil,
+        end_time,
+        behavior_criteria_type \\ nil,
         options \\ []
       ) do
     url_path = "/violation-events"
@@ -20885,50 +20917,8 @@ defmodule AWS.IoT do
     query_params = []
 
     query_params =
-      if !is_nil(verification_state) do
-        [{"verificationState", verification_state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(thing_name) do
-        [{"thingName", thing_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(security_profile_name) do
-        [{"securityProfileName", security_profile_name} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(list_suppressed_alerts) do
-        [{"listSuppressedAlerts", list_suppressed_alerts} | query_params]
+      if !is_nil(behavior_criteria_type) do
+        [{"behaviorCriteriaType", behavior_criteria_type} | query_params]
       else
         query_params
       end
@@ -20941,8 +20931,50 @@ defmodule AWS.IoT do
       end
 
     query_params =
-      if !is_nil(behavior_criteria_type) do
-        [{"behaviorCriteriaType", behavior_criteria_type} | query_params]
+      if !is_nil(list_suppressed_alerts) do
+        [{"listSuppressedAlerts", list_suppressed_alerts} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(security_profile_name) do
+        [{"securityProfileName", security_profile_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_name) do
+        [{"thingName", thing_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(verification_state) do
+        [{"verificationState", verification_state} | query_params]
       else
         query_params
       end
@@ -21011,8 +21043,8 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"allowAutoRegistration", "allowAutoRegistration"},
-        {"setAsActive", "setAsActive"}
+        {"setAsActive", "setAsActive"},
+        {"allowAutoRegistration", "allowAutoRegistration"}
       ]
       |> Request.build_params(input)
 
@@ -21310,7 +21342,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  The query search index.
+  Searches the specified index.
+
+  If a device has never connected to IoT Core or was disconnected for more than 1
+  hour before fleet indexing's `thingConnectivityIndexingMode` was enabled, the
+  `connectivity` object for this device in the response will have the `connected`
+  field set to `false` with no additional session details.
 
   Requires permission to access the
   [SearchIndex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -21404,8 +21441,8 @@ defmodule AWS.IoT do
           | {:error, set_default_policy_version_errors()}
   def set_default_policy_version(
         %Client{} = client,
-        policy_name,
         policy_version_id,
+        policy_name,
         input,
         options \\ []
       ) do
@@ -22100,8 +22137,8 @@ defmodule AWS.IoT do
 
     {query_params, input} =
       [
-        {"newAutoRegistrationStatus", "newAutoRegistrationStatus"},
-        {"newStatus", "newStatus"}
+        {"newStatus", "newStatus"},
+        {"newAutoRegistrationStatus", "newAutoRegistrationStatus"}
       ]
       |> Request.build_params(input)
 
@@ -22712,7 +22749,7 @@ defmodule AWS.IoT do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_package_version_errors()}
-  def update_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
+  def update_package_version(%Client{} = client, version_name, package_name, input, options \\ []) do
     url_path =
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
 

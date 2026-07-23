@@ -24,13 +24,109 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      contact_filter() :: %{
-        "channel" => list(String.t() | atom()),
+      search_all_related_items_response_item() :: %{
+        "associationTime" => non_neg_integer(),
+        "caseId" => String.t() | atom(),
+        "content" => list(),
+        "performedBy" => list(),
+        "relatedItemId" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type search_all_related_items_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_layouts_response() :: %{
+        required("layouts") => list(layout_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_layouts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_case_request() :: %{}
+
+  """
+  @type delete_case_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      contact() :: %{
         "contactArn" => String.t() | atom()
       }
 
   """
-  @type contact_filter() :: %{(String.t() | atom()) => any()}
+  @type contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_item() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type field_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      layout_summary() :: %{
+        "layoutArn" => String.t() | atom(),
+        "layoutId" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type layout_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_template_request() :: %{}
+
+  """
+  @type delete_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_update_content() :: %{
+        "fields" => list(field_value())
+      }
+
+  """
+  @type custom_update_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_rule_summary() :: %{
+        "caseRuleArn" => String.t() | atom(),
+        "caseRuleId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "ruleType" => String.t() | atom()
+      }
+
+  """
+  @type case_rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -45,291 +141,36 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      delete_case_rule_request() :: %{}
-
-  """
-  @type delete_case_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_response() :: %{}
-
-  """
-  @type delete_domain_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_case_rule_response() :: %{}
-
-  """
-  @type update_case_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_case_filter() :: %{
-        "caseId" => String.t() | atom()
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type connect_case_filter() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      sla_filter() :: %{
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type sla_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_layout_request() :: %{
-        optional("content") => list(),
-        optional("name") => String.t() | atom()
+      parent_child_field_options_mapping() :: %{
+        "childFieldOptionValues" => list(String.t() | atom()),
+        "parentFieldOptionValue" => String.t() | atom()
       }
 
   """
-  @type update_layout_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_rule() :: %{
-        "caseRuleId" => String.t() | atom(),
-        "fieldId" => String.t() | atom()
-      }
-
-  """
-  @type template_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_case_audit_events_response() :: %{
-        "auditEvents" => list(audit_event()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_case_audit_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sla_content() :: %{
-        "slaConfiguration" => sla_configuration()
-      }
-
-  """
-  @type sla_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_related_items_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("relatedItems") => list(search_related_items_response_item())
-      }
-
-  """
-  @type search_related_items_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_fields_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_fields_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_cases_request() :: %{
-        optional("fields") => list(field_identifier()),
-        optional("filter") => list(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("searchTerm") => [String.t() | atom()],
-        optional("sorts") => list(sort())
-      }
-
-  """
-  @type search_cases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_case_audit_events_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_case_audit_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_case_rule_response() :: %{
-        "caseRuleArn" => String.t() | atom(),
-        "caseRuleId" => String.t() | atom()
-      }
-
-  """
-  @type create_case_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_templates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(String.t() | atom())
-      }
-
-  """
-  @type list_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_case_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("performedBy") => list(),
-        optional("tags") => map(),
-        required("fields") => list(field_value()),
-        required("templateId") => String.t() | atom()
-      }
-
-  """
-  @type create_case_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      field_option_error() :: %{
-        "errorCode" => [String.t() | atom()],
-        "message" => [String.t() | atom()],
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type field_option_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_layouts_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("layouts") => list(layout_summary())
-      }
-
-  """
-  @type list_layouts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compound_condition() :: %{
-        "conditions" => list(list())
-      }
-
-  """
-  @type compound_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_summary() :: %{
-        "domainArn" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type domain_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      field_options_case_rule() :: %{
-        "childFieldId" => String.t() | atom(),
-        "parentChildFieldOptionsMappings" => list(parent_child_field_options_mapping()),
-        "parentFieldId" => String.t() | atom()
-      }
-
-  """
-  @type field_options_case_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_template_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("layoutConfiguration") => layout_configuration(),
-        optional("requiredFields") => list(required_field()),
-        optional("rules") => list(template_rule()),
-        optional("status") => String.t() | atom(),
-        optional("tagPropagationConfigurations") => list(tag_propagation_configuration()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_template_response() :: %{
-        optional("createdTime") => non_neg_integer(),
-        optional("deleted") => boolean(),
-        optional("description") => String.t() | atom(),
-        optional("lastModifiedTime") => non_neg_integer(),
-        optional("layoutConfiguration") => layout_configuration(),
-        optional("requiredFields") => list(required_field()),
-        optional("rules") => list(template_rule()),
-        optional("tagPropagationConfigurations") => list(tag_propagation_configuration()),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("status") => String.t() | atom(),
-        required("templateArn") => String.t() | atom(),
-        required("templateId") => String.t() | atom()
-      }
-
-  """
-  @type get_template_response() :: %{(String.t() | atom()) => any()}
+  @type parent_child_field_options_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -344,66 +185,56 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      batch_put_field_options_request() :: %{
+      list_field_options_response() :: %{
+        optional("nextToken") => String.t() | atom(),
         required("options") => list(field_option())
       }
 
   """
-  @type batch_put_field_options_request() :: %{(String.t() | atom()) => any()}
+  @type list_field_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_field_request() :: %{}
+      empty_field_value() :: %{}
 
   """
-  @type delete_field_request() :: %{}
+  @type empty_field_value() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_case_response() :: %{
-        required("caseArn") => String.t() | atom(),
-        required("caseId") => String.t() | atom()
+      put_case_event_configuration_request() :: %{
+        required("eventBridge") => event_bridge_configuration()
       }
 
   """
-  @type create_case_response() :: %{(String.t() | atom()) => any()}
+  @type put_case_event_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      file_filter() :: %{
-        "fileArn" => String.t() | atom()
+      list_fields_response() :: %{
+        required("fields") => list(field_summary()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type file_filter() :: %{(String.t() | atom()) => any()}
+  @type list_fields_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      comment_filter() :: %{}
-
-  """
-  @type comment_filter() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_field_options_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("values") => list(String.t() | atom())
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type list_field_options_request() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,407 +252,31 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      update_template_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("layoutConfiguration") => layout_configuration(),
-        optional("name") => String.t() | atom(),
-        optional("requiredFields") => list(required_field()),
-        optional("rules") => list(template_rule()),
-        optional("status") => String.t() | atom(),
-        optional("tagPropagationConfigurations") => list(tag_propagation_configuration())
-      }
-
-  """
-  @type update_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cases_for_contact_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("cases") => list(case_summary())
-      }
-
-  """
-  @type list_cases_for_contact_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hidden_case_rule() :: %{
-        "conditions" => list(list()),
-        "defaultValue" => [boolean()]
-      }
-
-  """
-  @type hidden_case_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_field_response() :: %{
-        required("fieldArn") => String.t() | atom(),
-        required("fieldId") => String.t() | atom()
-      }
-
-  """
-  @type create_field_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_case_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("fields") => list(field_value()),
-        required("templateId") => String.t() | atom()
-      }
-
-  """
-  @type get_case_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      comment_content() :: %{
-        "body" => String.t() | atom(),
-        "contentType" => String.t() | atom()
-      }
-
-  """
-  @type comment_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      required_field() :: %{
-        "fieldId" => String.t() | atom()
-      }
-
-  """
-  @type required_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_case_rule_response() :: %{
-        "caseRuleArn" => String.t() | atom(),
-        "caseRuleId" => String.t() | atom(),
-        "createdTime" => non_neg_integer(),
-        "deleted" => boolean(),
-        "description" => String.t() | atom(),
-        "lastModifiedTime" => non_neg_integer(),
+      sla_configuration() :: %{
+        "completionTime" => non_neg_integer(),
+        "fieldId" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "rule" => list(),
-        "tags" => map()
-      }
-
-  """
-  @type get_case_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      text_attributes() :: %{
-        "isMultiline" => [boolean()]
-      }
-
-  """
-  @type text_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_layout_response() :: %{}
-
-  """
-  @type delete_layout_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_cases_response_item() :: %{
-        "caseId" => String.t() | atom(),
-        "fields" => list(field_value()),
-        "tags" => map(),
-        "templateId" => String.t() | atom()
-      }
-
-  """
-  @type search_cases_response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_related_items_request() :: %{
-        optional("filters") => list(list()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type search_related_items_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_request() :: %{}
-
-  """
-  @type delete_domain_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      basic_layout() :: %{
-        "moreInfo" => layout_sections(),
-        "topPanel" => layout_sections()
-      }
-
-  """
-  @type basic_layout() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      empty_field_value() :: %{}
-
-  """
-  @type empty_field_value() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_template_request() :: %{}
-
-  """
-  @type delete_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_case_event_configuration_request() :: %{}
-
-  """
-  @type get_case_event_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_all_related_items_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "relatedItems" => list(search_all_related_items_response_item())
-      }
-
-  """
-  @type search_all_related_items_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_value() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_all_related_items_request() :: %{
-        optional("filters") => list(list()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("sorts") => list(search_all_related_items_sort())
-      }
-
-  """
-  @type search_all_related_items_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_request() :: %{
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_field_request() :: %{
-        required("fields") => list(field_identifier())
-      }
-
-  """
-  @type batch_get_field_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_case_event_configuration_response() :: %{
-        required("eventBridge") => event_bridge_configuration()
-      }
-
-  """
-  @type get_case_event_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_case_content() :: %{
-        "caseId" => String.t() | atom()
-      }
-
-  """
-  @type connect_case_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_event_field() :: %{
-        "eventFieldId" => String.t() | atom(),
-        "newValue" => list(),
-        "oldValue" => list()
-      }
-
-  """
-  @type audit_event_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_case_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("fields") => list(field_identifier())
-      }
-
-  """
-  @type get_case_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_related_items_response_item() :: %{
-        "associationTime" => non_neg_integer(),
-        "content" => list(),
-        "performedBy" => list(),
-        "relatedItemId" => String.t() | atom(),
-        "tags" => map(),
+        "status" => String.t() | atom(),
+        "targetFieldValues" => list(list()),
+        "targetTime" => non_neg_integer(),
         "type" => String.t() | atom()
       }
 
   """
-  @type search_related_items_response_item() :: %{(String.t() | atom()) => any()}
+  @type sla_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_domains_response() :: %{
+      search_cases_response() :: %{
+        required("cases") => list(search_cases_response_item()),
         optional("nextToken") => String.t() | atom(),
-        required("domains") => list(domain_summary())
+        optional("totalCount") => float()
       }
 
   """
-  @type list_domains_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_case_rules_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_case_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_field_response() :: %{}
-
-  """
-  @type update_field_response() :: %{}
+  @type search_cases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,52 +297,127 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      create_case_rule_request() :: %{
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("rule") => list()
-      }
+      update_template_response() :: %{}
 
   """
-  @type create_case_rule_request() :: %{(String.t() | atom()) => any()}
+  @type update_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_field_request() :: %{
-        optional("attributes") => list(),
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
+      delete_case_response() :: %{}
 
   """
-  @type create_field_request() :: %{(String.t() | atom()) => any()}
+  @type delete_case_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_field_response() :: %{
-        required("errors") => list(field_error()),
-        required("fields") => list(get_field_response())
+      get_case_audit_events_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type batch_get_field_response() :: %{(String.t() | atom()) => any()}
+  @type get_case_audit_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_case_rules_response() :: %{
-        "caseRules" => list(case_rule_summary()),
-        "nextToken" => String.t() | atom()
+      field_options_case_rule() :: %{
+        "childFieldId" => String.t() | atom(),
+        "parentChildFieldOptionsMappings" => list(parent_child_field_options_mapping()),
+        "parentFieldId" => String.t() | atom()
       }
 
   """
-  @type list_case_rules_response() :: %{(String.t() | atom()) => any()}
+  @type field_options_case_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_rule_error() :: %{
+        "errorCode" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type case_rule_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      required_case_rule() :: %{
+        "conditions" => list(list()),
+        "defaultValue" => [boolean()]
+      }
+
+  """
+  @type required_case_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_layout_request() :: %{
+        optional("content") => list(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_layout_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_filter() :: %{
+        "channel" => list(String.t() | atom()),
+        "contactArn" => String.t() | atom()
+      }
+
+  """
+  @type contact_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cases_for_contact_request() :: %{
+        required("contactArn") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_cases_for_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_all_related_items_sort() :: %{
+        "sortOrder" => String.t() | atom(),
+        "sortProperty" => String.t() | atom()
+      }
+
+  """
+  @type search_all_related_items_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_request() :: %{}
+
+  """
+  @type delete_domain_request() :: %{}
 
   @typedoc """
 
@@ -908,147 +438,132 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      delete_case_rule_response() :: %{}
-
-  """
-  @type delete_case_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
+      search_related_items_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("relatedItems") => list(search_related_items_response_item())
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type search_related_items_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      comment_update_content() :: %{
+      tag_value() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_response() :: %{
+        required("domains") => list(domain_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domains_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_field_options_response() :: %{
+        optional("errors") => list(field_option_error())
+      }
+
+  """
+  @type batch_put_field_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_case_rules_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_case_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_event_field() :: %{
+        "eventFieldId" => String.t() | atom(),
+        "newValue" => list(),
+        "oldValue" => list()
+      }
+
+  """
+  @type audit_event_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      comment_content() :: %{
         "body" => String.t() | atom(),
         "contentType" => String.t() | atom()
       }
 
   """
-  @type comment_update_content() :: %{(String.t() | atom()) => any()}
+  @type comment_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_layout_response() :: %{
-        required("layoutArn") => String.t() | atom(),
-        required("layoutId") => String.t() | atom()
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type create_layout_response() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      parent_child_field_options_mapping() :: %{
-        "childFieldOptionValues" => list(String.t() | atom()),
-        "parentFieldOptionValue" => String.t() | atom()
-      }
-
-  """
-  @type parent_child_field_options_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      empty_operand_value() :: %{}
-
-  """
-  @type empty_operand_value() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_case_event_configuration_response() :: %{}
-
-  """
-  @type put_case_event_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_fields_response() :: %{
+      search_all_related_items_request() :: %{
+        optional("filters") => list(list()),
+        optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
-        required("fields") => list(field_summary())
+        optional("sorts") => list(search_all_related_items_sort())
       }
 
   """
-  @type list_fields_response() :: %{(String.t() | atom()) => any()}
+  @type search_all_related_items_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_case_response() :: %{}
-
-  """
-  @type delete_case_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sort() :: %{
-        "fieldId" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
+      list_cases_for_contact_response() :: %{
+        required("cases") => list(case_summary()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contact() :: %{
-        "contactArn" => String.t() | atom()
-      }
-
-  """
-  @type contact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_related_item_response() :: %{
-        required("relatedItemArn") => String.t() | atom(),
-        required("relatedItemId") => String.t() | atom()
-      }
-
-  """
-  @type create_related_item_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_response() :: %{
-        optional("tags") => map(),
-        required("createdTime") => non_neg_integer(),
-        required("domainArn") => String.t() | atom(),
-        required("domainId") => String.t() | atom(),
-        required("domainStatus") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type get_domain_response() :: %{(String.t() | atom()) => any()}
+  @type list_cases_for_contact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,215 +587,135 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      field_item() :: %{
-        "id" => String.t() | atom()
+      related_item_event_included_data() :: %{
+        "includeContent" => [boolean()]
       }
 
   """
-  @type field_item() :: %{(String.t() | atom()) => any()}
+  @type related_item_event_included_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      field_error() :: %{
-        "errorCode" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type field_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      field_summary() :: %{
-        "attributes" => list(),
-        "fieldArn" => String.t() | atom(),
-        "fieldId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "namespace" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type field_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_case_request() :: %{}
-
-  """
-  @type delete_case_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_related_item_response() :: %{}
-
-  """
-  @type delete_related_item_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_layouts_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_layouts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_template_response() :: %{}
-
-  """
-  @type update_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_domains_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_included_data() :: %{
-        "caseData" => case_event_included_data(),
-        "relatedItemData" => related_item_event_included_data()
-      }
-
-  """
-  @type event_included_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_case_request() :: %{
-        optional("performedBy") => list(),
-        required("fields") => list(field_value())
-      }
-
-  """
-  @type update_case_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sla_filter() :: %{
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type sla_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_bridge_configuration() :: %{
-        "enabled" => [boolean()],
-        "includedData" => event_included_data()
-      }
-
-  """
-  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_field_response() :: %{}
-
-  """
-  @type delete_field_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sla_configuration() :: %{
-        "completionTime" => non_neg_integer(),
-        "fieldId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "targetFieldValues" => list(list()),
-        "targetTime" => non_neg_integer(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type sla_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_case_rule_request() :: %{
+      update_template_request() :: %{
         optional("description") => String.t() | atom(),
+        optional("layoutConfiguration") => layout_configuration(),
         optional("name") => String.t() | atom(),
-        optional("rule") => list()
+        optional("requiredFields") => list(required_field()),
+        optional("rules") => list(template_rule()),
+        optional("status") => String.t() | atom(),
+        optional("tagPropagationConfigurations") => list(tag_propagation_configuration())
       }
 
   """
-  @type update_case_rule_request() :: %{(String.t() | atom()) => any()}
+  @type update_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_layout_request() :: %{}
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
 
   """
-  @type get_layout_request() :: %{}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      case_rule_summary() :: %{
-        "caseRuleArn" => String.t() | atom(),
-        "caseRuleId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "ruleType" => String.t() | atom()
+      delete_layout_request() :: %{}
+
+  """
+  @type delete_layout_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      file_filter() :: %{
+        "fileArn" => String.t() | atom()
       }
 
   """
-  @type case_rule_summary() :: %{(String.t() | atom()) => any()}
+  @type file_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_event_included_data() :: %{
+        "fields" => list(field_identifier())
+      }
+
+  """
+  @type case_event_included_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_event_performed_by() :: %{
+        "iamPrincipalArn" => String.t() | atom(),
+        "user" => list()
+      }
+
+  """
+  @type audit_event_performed_by() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_case_response() :: %{
+        required("caseArn") => String.t() | atom(),
+        required("caseId") => String.t() | atom()
+      }
+
+  """
+  @type create_case_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_case_rule_request() :: %{
+        required("caseRules") => list(case_rule_identifier())
+      }
+
+  """
+  @type batch_get_case_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_layout_response() :: %{}
+
+  """
+  @type delete_layout_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_case_rule_response() :: %{}
+
+  """
+  @type delete_case_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_case_event_configuration_response() :: %{
+        required("eventBridge") => event_bridge_configuration()
+      }
+
+  """
+  @type get_case_event_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1297,54 +732,154 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      batch_get_case_rule_response() :: %{
-        "caseRules" => list(get_case_rule_response()),
-        "errors" => list(case_rule_error()),
-        "unprocessedCaseRules" => list(String.t() | atom())
+      sort() :: %{
+        "fieldId" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
       }
 
   """
-  @type batch_get_case_rule_response() :: %{(String.t() | atom()) => any()}
+  @type sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_input_content() :: %{
-        "fields" => list(field_value())
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type custom_input_content() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      field_value() :: %{
-        "id" => String.t() | atom(),
-        "value" => list()
+      sla_content() :: %{
+        "slaConfiguration" => sla_configuration()
       }
 
   """
-  @type field_value() :: %{(String.t() | atom()) => any()}
+  @type sla_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_all_related_items_response_item() :: %{
-        "associationTime" => non_neg_integer(),
-        "caseId" => String.t() | atom(),
-        "content" => list(),
-        "performedBy" => list(),
-        "relatedItemId" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom()
+      connect_case_input_content() :: %{
+        "caseId" => String.t() | atom()
       }
 
   """
-  @type search_all_related_items_response_item() :: %{(String.t() | atom()) => any()}
+  @type connect_case_input_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_related_item_response() :: %{}
+
+  """
+  @type delete_related_item_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_response() :: %{
+        required("domainArn") => String.t() | atom(),
+        required("domainId") => String.t() | atom(),
+        required("domainStatus") => String.t() | atom()
+      }
+
+  """
+  @type create_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_case_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("fields") => list(field_value()),
+        optional("performedBy") => list(),
+        optional("tags") => map(),
+        required("templateId") => String.t() | atom()
+      }
+
+  """
+  @type create_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_identifier() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type field_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_field_response() :: %{}
+
+  """
+  @type update_field_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      text_attributes() :: %{
+        "isMultiline" => [boolean()]
+      }
+
+  """
+  @type text_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_template_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("layoutConfiguration") => layout_configuration(),
+        required("name") => String.t() | atom(),
+        optional("requiredFields") => list(required_field()),
+        optional("rules") => list(template_rule()),
+        optional("status") => String.t() | atom(),
+        optional("tagPropagationConfigurations") => list(tag_propagation_configuration())
+      }
+
+  """
+  @type create_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fields_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_fields_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1363,9 +898,30 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      batch_get_field_response() :: %{
+        required("errors") => list(field_error()),
+        required("fields") => list(get_field_response())
+      }
+
+  """
+  @type batch_get_field_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      empty_operand_value() :: %{}
+
+  """
+  @type empty_operand_value() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_related_item_request() :: %{
-        optional("performedBy") => list(),
-        required("content") => list()
+        required("content") => list(),
+        optional("performedBy") => list()
       }
 
   """
@@ -1388,25 +944,558 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      layout_summary() :: %{
-        "layoutArn" => String.t() | atom(),
-        "layoutId" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
+      comment_filter() :: %{}
 
   """
-  @type layout_summary() :: %{(String.t() | atom()) => any()}
+  @type comment_filter() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      connect_case_input_content() :: %{
+      search_related_items_request() :: %{
+        optional("filters") => list(list()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type search_related_items_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_content() :: %{
+        "fields" => list(field_value())
+      }
+
+  """
+  @type custom_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_case_rule_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("rule") => list()
+      }
+
+  """
+  @type create_case_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      layout_sections() :: %{
+        "sections" => list(list())
+      }
+
+  """
+  @type layout_sections() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_propagation_configuration() :: %{
+        "resourceType" => String.t() | atom(),
+        "tagMap" => map()
+      }
+
+  """
+  @type tag_propagation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compound_condition() :: %{
+        "conditions" => list(list())
+      }
+
+  """
+  @type compound_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_summary() :: %{
+        "attributes" => list(),
+        "fieldArn" => String.t() | atom(),
+        "fieldId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type field_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_layout_response() :: %{
+        required("content") => list(),
+        optional("createdTime") => non_neg_integer(),
+        optional("deleted") => boolean(),
+        optional("lastModifiedTime") => non_neg_integer(),
+        required("layoutArn") => String.t() | atom(),
+        required("layoutId") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type get_layout_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_case_rule_response() :: %{}
+
+  """
+  @type update_case_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_content() :: %{
+        "channel" => String.t() | atom(),
+        "connectedToSystemTime" => non_neg_integer(),
+        "contactArn" => String.t() | atom()
+      }
+
+  """
+  @type contact_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_cases_response_item() :: %{
+        "caseId" => String.t() | atom(),
+        "fields" => list(field_value()),
+        "tags" => map(),
+        "templateId" => String.t() | atom()
+      }
+
+  """
+  @type search_cases_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_case_request() :: %{
+        required("fields") => list(field_value()),
+        optional("performedBy") => list()
+      }
+
+  """
+  @type update_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_content() :: %{
+        "fileArn" => String.t() | atom()
+      }
+
+  """
+  @type file_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_field_request() :: %{
+        optional("attributes") => list(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type create_field_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_field_options_request() :: %{
+        required("options") => list(field_option())
+      }
+
+  """
+  @type batch_put_field_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_layouts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_layouts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_layout_response() :: %{
+        required("layoutArn") => String.t() | atom(),
+        required("layoutId") => String.t() | atom()
+      }
+
+  """
+  @type create_layout_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      comment_update_content() :: %{
+        "body" => String.t() | atom(),
+        "contentType" => String.t() | atom()
+      }
+
+  """
+  @type comment_update_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hidden_case_rule() :: %{
+        "conditions" => list(list()),
+        "defaultValue" => [boolean()]
+      }
+
+  """
+  @type hidden_case_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_error() :: %{
+        "errorCode" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type field_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_case_content() :: %{
         "caseId" => String.t() | atom()
       }
 
   """
-  @type connect_case_input_content() :: %{(String.t() | atom()) => any()}
+  @type connect_case_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_case_audit_events_response() :: %{
+        "auditEvents" => list(audit_event()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_case_audit_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_field_request() :: %{}
+
+  """
+  @type delete_field_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_case_response() :: %{}
+
+  """
+  @type update_case_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_case_request() :: %{
+        required("fields") => list(field_identifier()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_all_related_items_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "relatedItems" => list(search_all_related_items_response_item())
+      }
+
+  """
+  @type search_all_related_items_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_case_filter() :: %{
+        "caseId" => String.t() | atom()
+      }
+
+  """
+  @type connect_case_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_template_response() :: %{
+        optional("createdTime") => non_neg_integer(),
+        optional("deleted") => boolean(),
+        optional("description") => String.t() | atom(),
+        optional("lastModifiedTime") => non_neg_integer(),
+        optional("layoutConfiguration") => layout_configuration(),
+        required("name") => String.t() | atom(),
+        optional("requiredFields") => list(required_field()),
+        optional("rules") => list(template_rule()),
+        required("status") => String.t() | atom(),
+        optional("tagPropagationConfigurations") => list(tag_propagation_configuration()),
+        optional("tags") => map(),
+        required("templateArn") => String.t() | atom(),
+        required("templateId") => String.t() | atom()
+      }
+
+  """
+  @type get_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_event() :: %{
+        "eventId" => String.t() | atom(),
+        "fields" => list(audit_event_field()),
+        "performedBy" => audit_event_performed_by(),
+        "performedTime" => non_neg_integer(),
+        "relatedItemType" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type audit_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_case_rule_response() :: %{
+        "caseRuleArn" => String.t() | atom(),
+        "caseRuleId" => String.t() | atom()
+      }
+
+  """
+  @type create_case_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_filter() :: %{
+        "fields" => list()
+      }
+
+  """
+  @type custom_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_summary() :: %{
+        "domainArn" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type domain_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_related_item_request() :: %{
+        required("content") => list(),
+        optional("performedBy") => list(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type create_related_item_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_related_items_response_item() :: %{
+        "associationTime" => non_neg_integer(),
+        "content" => list(),
+        "performedBy" => list(),
+        "relatedItemId" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type search_related_items_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_cases_request() :: %{
+        optional("fields") => list(field_identifier()),
+        optional("filter") => list(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("searchTerm") => [String.t() | atom()],
+        optional("sorts") => list(sort())
+      }
+
+  """
+  @type search_cases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_template_request() :: %{}
+
+  """
+  @type get_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_group() :: %{
+        "fields" => list(field_item()),
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type field_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_case_rules_response() :: %{
+        "caseRules" => list(case_rule_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_case_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_related_item_response() :: %{
+        required("relatedItemArn") => String.t() | atom(),
+        required("relatedItemId") => String.t() | atom()
+      }
+
+  """
+  @type create_related_item_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_input_content() :: %{
+        "fields" => list(field_value())
+      }
+
+  """
+  @type custom_input_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_rule() :: %{
+        "caseRuleId" => String.t() | atom(),
+        "fieldId" => String.t() | atom()
+      }
+
+  """
+  @type template_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1424,226 +1513,14 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      put_case_event_configuration_request() :: %{
-        required("eventBridge") => event_bridge_configuration()
-      }
-
-  """
-  @type put_case_event_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      layout_sections() :: %{
-        "sections" => list(list())
-      }
-
-  """
-  @type layout_sections() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_template_request() :: %{}
-
-  """
-  @type get_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_update_content() :: %{
-        "fields" => list(field_value())
-      }
-
-  """
-  @type custom_update_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_response() :: %{
-        required("domainArn") => String.t() | atom(),
-        required("domainId") => String.t() | atom(),
-        required("domainStatus") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_filter() :: %{
-        "fields" => list()
-      }
-
-  """
-  @type custom_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_layout_response() :: %{
-        optional("createdTime") => non_neg_integer(),
-        optional("deleted") => boolean(),
-        optional("lastModifiedTime") => non_neg_integer(),
-        optional("tags") => map(),
-        required("content") => list(),
-        required("layoutArn") => String.t() | atom(),
-        required("layoutId") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type get_layout_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_cases_response() :: %{
+      list_field_options_request() :: %{
+        optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        optional("totalCount") => float(),
-        required("cases") => list(search_cases_response_item())
+        optional("values") => list(String.t() | atom())
       }
 
   """
-  @type search_cases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_all_related_items_sort() :: %{
-        "sortOrder" => String.t() | atom(),
-        "sortProperty" => String.t() | atom()
-      }
-
-  """
-  @type search_all_related_items_sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_field_options_response() :: %{
-        optional("errors") => list(field_option_error())
-      }
-
-  """
-  @type batch_put_field_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_case_response() :: %{}
-
-  """
-  @type update_case_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      case_rule_error() :: %{
-        "errorCode" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type case_rule_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_template_response() :: %{
-        required("templateArn") => String.t() | atom(),
-        required("templateId") => String.t() | atom()
-      }
-
-  """
-  @type create_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_layout_response() :: %{}
-
-  """
-  @type update_layout_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_template_response() :: %{}
-
-  """
-  @type delete_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      field_identifier() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type field_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_content() :: %{
-        "fileArn" => String.t() | atom()
-      }
-
-  """
-  @type file_content() :: %{(String.t() | atom()) => any()}
+  @type list_field_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1662,71 +1539,154 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      delete_layout_request() :: %{}
+      delete_field_response() :: %{}
 
   """
-  @type delete_layout_request() :: %{}
+  @type delete_field_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      required_case_rule() :: %{
-        "conditions" => list(list()),
-        "defaultValue" => [boolean()]
+      batch_get_case_rule_response() :: %{
+        "caseRules" => list(get_case_rule_response()),
+        "errors" => list(case_rule_error()),
+        "unprocessedCaseRules" => list(String.t() | atom())
       }
 
   """
-  @type required_case_rule() :: %{(String.t() | atom()) => any()}
+  @type batch_get_case_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_field_options_response() :: %{
+      list_templates_request() :: %{
+        optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        required("options") => list(field_option())
+        optional("status") => list(String.t() | atom())
       }
 
   """
-  @type list_field_options_response() :: %{(String.t() | atom()) => any()}
+  @type list_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      case_rule_identifier() :: %{
-        "id" => String.t() | atom()
+      layout_configuration() :: %{
+        "defaultLayout" => String.t() | atom()
       }
 
   """
-  @type case_rule_identifier() :: %{(String.t() | atom()) => any()}
+  @type layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_cases_for_contact_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("contactArn") => String.t() | atom()
+      basic_layout() :: %{
+        "moreInfo" => layout_sections(),
+        "topPanel" => layout_sections()
       }
 
   """
-  @type list_cases_for_contact_request() :: %{(String.t() | atom()) => any()}
+  @type basic_layout() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_related_item_request() :: %{
-        optional("performedBy") => list(),
-        required("content") => list(),
-        required("type") => String.t() | atom()
+      event_included_data() :: %{
+        "caseData" => case_event_included_data(),
+        "relatedItemData" => related_item_event_included_data()
       }
 
   """
-  @type create_related_item_request() :: %{(String.t() | atom()) => any()}
+  @type event_included_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_case_rule_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("rule") => list()
+      }
+
+  """
+  @type update_case_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_summary() :: %{
+        "caseId" => String.t() | atom(),
+        "templateId" => String.t() | atom()
+      }
+
+  """
+  @type case_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_request() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_template_response() :: %{}
+
+  """
+  @type delete_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_response() :: %{}
+
+  """
+  @type delete_domain_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_layout_response() :: %{}
+
+  """
+  @type update_layout_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_case_event_configuration_response() :: %{}
+
+  """
+  @type put_case_event_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_field_request() :: %{
+        required("fields") => list(field_identifier())
+      }
+
+  """
+  @type batch_get_field_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1753,459 +1713,499 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
-      case_summary() :: %{
-        "caseId" => String.t() | atom(),
-        "templateId" => String.t() | atom()
+      create_field_response() :: %{
+        required("fieldArn") => String.t() | atom(),
+        required("fieldId") => String.t() | atom()
       }
 
   """
-  @type case_summary() :: %{(String.t() | atom()) => any()}
+  @type create_field_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_content() :: %{
-        "fields" => list(field_value())
+      field_value() :: %{
+        "id" => String.t() | atom(),
+        "value" => list()
       }
 
   """
-  @type custom_content() :: %{(String.t() | atom()) => any()}
+  @type field_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      field_group() :: %{
-        "fields" => list(field_item()),
-        "name" => [String.t() | atom()]
-      }
+      delete_case_rule_request() :: %{}
 
   """
-  @type field_group() :: %{(String.t() | atom()) => any()}
+  @type delete_case_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      audit_event() :: %{
-        "eventId" => String.t() | atom(),
-        "fields" => list(audit_event_field()),
-        "performedBy" => audit_event_performed_by(),
-        "performedTime" => non_neg_integer(),
-        "relatedItemType" => String.t() | atom(),
-        "type" => String.t() | atom()
+      get_domain_response() :: %{
+        required("createdTime") => non_neg_integer(),
+        required("domainArn") => String.t() | atom(),
+        required("domainId") => String.t() | atom(),
+        required("domainStatus") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type audit_event() :: %{(String.t() | atom()) => any()}
+  @type get_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      case_event_included_data() :: %{
-        "fields" => list(field_identifier())
-      }
+      get_layout_request() :: %{}
 
   """
-  @type case_event_included_data() :: %{(String.t() | atom()) => any()}
+  @type get_layout_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      tag_propagation_configuration() :: %{
-        "resourceType" => String.t() | atom(),
-        "tagMap" => map()
+      get_case_rule_response() :: %{
+        "caseRuleArn" => String.t() | atom(),
+        "caseRuleId" => String.t() | atom(),
+        "createdTime" => non_neg_integer(),
+        "deleted" => boolean(),
+        "description" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "rule" => list(),
+        "tags" => map()
       }
 
   """
-  @type tag_propagation_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_case_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      layout_configuration() :: %{
-        "defaultLayout" => String.t() | atom()
+      create_template_response() :: %{
+        required("templateArn") => String.t() | atom(),
+        required("templateId") => String.t() | atom()
       }
 
   """
-  @type layout_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      related_item_event_included_data() :: %{
-        "includeContent" => [boolean()]
+      field_option_error() :: %{
+        "errorCode" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "value" => String.t() | atom()
       }
 
   """
-  @type related_item_event_included_data() :: %{(String.t() | atom()) => any()}
+  @type field_option_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      contact_content() :: %{
-        "channel" => String.t() | atom(),
-        "connectedToSystemTime" => non_neg_integer(),
-        "contactArn" => String.t() | atom()
+      get_case_response() :: %{
+        required("fields") => list(field_value()),
+        optional("nextToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("templateId") => String.t() | atom()
       }
 
   """
-  @type contact_content() :: %{(String.t() | atom()) => any()}
+  @type get_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audit_event_performed_by() :: %{
-        "iamPrincipalArn" => String.t() | atom(),
-        "user" => list()
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type audit_event_performed_by() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_case_rule_request() :: %{
-        required("caseRules") => list(case_rule_identifier())
+      get_case_event_configuration_request() :: %{}
+
+  """
+  @type get_case_event_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      required_field() :: %{
+        "fieldId" => String.t() | atom()
       }
 
   """
-  @type batch_get_case_rule_request() :: %{(String.t() | atom()) => any()}
+  @type required_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_rule_identifier() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type case_rule_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_configuration() :: %{
+        "enabled" => [boolean()],
+        "includedData" => event_included_data()
+      }
+
+  """
+  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_case_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type batch_get_field_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type batch_put_field_options_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type create_case_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type create_case_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type create_domain_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type create_field_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type create_layout_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type create_related_item_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type create_template_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type delete_case_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type delete_case_rule_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_domain_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type delete_field_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type delete_layout_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type delete_related_item_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type delete_template_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_case_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_case_audit_events_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_case_event_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_domain_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_layout_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_template_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_case_rules_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_cases_for_contact_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_domains_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_field_options_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_fields_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_layouts_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_templates_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type put_case_event_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type search_all_related_items_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type search_cases_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type search_related_items_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type update_case_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type update_case_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type update_field_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type update_layout_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type update_related_item_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type update_template_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -2300,7 +2300,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, batch_put_field_options_errors()}
-  def batch_put_field_options(%Client{} = client, domain_id, field_id, input, options \\ []) do
+  def batch_put_field_options(%Client{} = client, field_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}/options"
 
@@ -2571,7 +2571,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, create_related_item_errors()}
-  def create_related_item(%Client{} = client, case_id, domain_id, input, options \\ []) do
+  def create_related_item(%Client{} = client, domain_id, case_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items/"
 
@@ -2666,7 +2666,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_case_errors()}
-  def delete_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
+  def delete_case(%Client{} = client, domain_id, case_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
     headers = []
     custom_headers = []
@@ -2705,7 +2705,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_case_rule_errors()}
-  def delete_case_rule(%Client{} = client, case_rule_id, domain_id, input, options \\ []) do
+  def delete_case_rule(%Client{} = client, domain_id, case_rule_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/case-rules/#{AWS.Util.encode_uri(case_rule_id)}"
 
@@ -2814,7 +2814,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_field_errors()}
-  def delete_field(%Client{} = client, domain_id, field_id, input, options \\ []) do
+  def delete_field(%Client{} = client, field_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
 
@@ -2862,7 +2862,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_layout_errors()}
-  def delete_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
+  def delete_layout(%Client{} = client, layout_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
@@ -2907,9 +2907,9 @@ defmodule AWS.ConnectCases do
           | {:error, delete_related_item_errors()}
   def delete_related_item(
         %Client{} = client,
-        case_id,
-        domain_id,
         related_item_id,
+        domain_id,
+        case_id,
         input,
         options \\ []
       ) do
@@ -2962,7 +2962,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_template_errors()}
-  def delete_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
+  def delete_template(%Client{} = client, template_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
@@ -2993,7 +2993,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_case_errors()}
-  def get_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
+  def get_case(%Client{} = client, domain_id, case_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
     headers = []
     custom_headers = []
@@ -3028,7 +3028,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_case_audit_events_errors()}
-  def get_case_audit_events(%Client{} = client, case_id, domain_id, input, options \\ []) do
+  def get_case_audit_events(%Client{} = client, domain_id, case_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/audit-history"
 
@@ -3122,7 +3122,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_layout_errors()}
-  def get_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
+  def get_layout(%Client{} = client, layout_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
@@ -3169,7 +3169,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_template_errors()}
-  def get_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
+  def get_template(%Client{} = client, template_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
@@ -3211,8 +3211,8 @@ defmodule AWS.ConnectCases do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -3282,8 +3282,8 @@ defmodule AWS.ConnectCases do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -3316,7 +3316,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_field_options_errors()}
-  def list_field_options(%Client{} = client, domain_id, field_id, input, options \\ []) do
+  def list_field_options(%Client{} = client, field_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}/options-list"
 
@@ -3325,9 +3325,9 @@ defmodule AWS.ConnectCases do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
+        {"values", "values"},
         {"nextToken", "nextToken"},
-        {"values", "values"}
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -3361,8 +3361,8 @@ defmodule AWS.ConnectCases do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -3398,8 +3398,8 @@ defmodule AWS.ConnectCases do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -3463,9 +3463,9 @@ defmodule AWS.ConnectCases do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
+        {"status", "status"},
         {"nextToken", "nextToken"},
-        {"status", "status"}
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -3640,7 +3640,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, search_related_items_errors()}
-  def search_related_items(%Client{} = client, case_id, domain_id, input, options \\ []) do
+  def search_related_items(%Client{} = client, domain_id, case_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items-search"
 
@@ -3750,7 +3750,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_case_errors()}
-  def update_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
+  def update_case(%Client{} = client, domain_id, case_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
     headers = []
     custom_headers = []
@@ -3789,7 +3789,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_case_rule_errors()}
-  def update_case_rule(%Client{} = client, case_rule_id, domain_id, input, options \\ []) do
+  def update_case_rule(%Client{} = client, domain_id, case_rule_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/case-rules/#{AWS.Util.encode_uri(case_rule_id)}"
 
@@ -3826,7 +3826,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_field_errors()}
-  def update_field(%Client{} = client, domain_id, field_id, input, options \\ []) do
+  def update_field(%Client{} = client, field_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
 
@@ -3872,7 +3872,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_layout_errors()}
-  def update_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
+  def update_layout(%Client{} = client, layout_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
@@ -3937,9 +3937,9 @@ defmodule AWS.ConnectCases do
           | {:error, update_related_item_errors()}
   def update_related_item(
         %Client{} = client,
-        case_id,
-        domain_id,
         related_item_id,
+        domain_id,
+        case_id,
         input,
         options \\ []
       ) do
@@ -3994,7 +3994,7 @@ defmodule AWS.ConnectCases do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_template_errors()}
-  def update_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
+  def update_template(%Client{} = client, template_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 

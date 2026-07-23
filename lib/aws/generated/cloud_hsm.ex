@@ -25,143 +25,24 @@ defmodule AWS.CloudHSM do
 
   ## Example:
       
-      delete_hsm_request() :: %{
-        required("HsmArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_hsm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_hsm_response() :: %{
+      modify_hsm_response() :: %{
         "HsmArn" => String.t() | atom()
       }
       
   """
-  @type create_hsm_response() :: %{(String.t() | atom()) => any()}
+  @type modify_hsm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_hapg_response() :: %{
-        "HapgArn" => String.t() | atom()
+      cloud_hsm_service_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryable" => boolean()
       }
       
   """
-  @type modify_hapg_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_luna_client_request() :: %{
-        required("Certificate") => String.t() | atom(),
-        required("ClientArn") => String.t() | atom()
-      }
-      
-  """
-  @type modify_luna_client_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_hsm_request() :: %{
-        optional("EniIp") => String.t() | atom(),
-        optional("ExternalId") => String.t() | atom(),
-        optional("IamRoleArn") => String.t() | atom(),
-        optional("SubnetId") => String.t() | atom(),
-        optional("SyslogIp") => String.t() | atom(),
-        required("HsmArn") => String.t() | atom()
-      }
-      
-  """
-  @type modify_hsm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_hapgs_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_hapgs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_from_resource_response() :: %{
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type remove_tags_from_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_config_request() :: %{
-        required("ClientArn") => String.t() | atom(),
-        required("ClientVersion") => list(any()),
-        required("HapgList") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_hsms_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_hsms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_luna_clients_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_luna_clients_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_config_response() :: %{
-        "ConfigCred" => String.t() | atom(),
-        "ConfigFile" => String.t() | atom(),
-        "ConfigType" => String.t() | atom()
-      }
-      
-  """
-  @type get_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_hapg_request() :: %{
-        required("HapgArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_hapg_request() :: %{(String.t() | atom()) => any()}
+  @type cloud_hsm_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,13 +59,105 @@ defmodule AWS.CloudHSM do
 
   ## Example:
       
-      add_tags_to_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagList") => list(tag())
+      cloud_hsm_internal_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryable" => boolean()
       }
       
   """
-  @type add_tags_to_resource_request() :: %{(String.t() | atom()) => any()}
+  @type cloud_hsm_internal_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_hsm_request() :: %{
+        optional("HsmArn") => String.t() | atom(),
+        optional("HsmSerialNumber") => String.t() | atom()
+      }
+      
+  """
+  @type describe_hsm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_hapgs_response() :: %{
+        "HapgList" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_hapgs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryable" => boolean()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_hapg_response() :: %{
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type delete_hapg_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hapg_response() :: %{
+        "HapgArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_hapg_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_hapg_request() :: %{
+        required("HapgArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_hapg_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_from_resource_response() :: %{
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type remove_tags_from_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -221,27 +194,24 @@ defmodule AWS.CloudHSM do
 
   ## Example:
       
-      describe_luna_client_response() :: %{
-        "Certificate" => String.t() | atom(),
-        "CertificateFingerprint" => String.t() | atom(),
-        "ClientArn" => String.t() | atom(),
-        "Label" => String.t() | atom(),
-        "LastModifiedTimestamp" => String.t() | atom()
+      list_hsms_request() :: %{
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_luna_client_response() :: %{(String.t() | atom()) => any()}
+  @type list_hsms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_luna_client_response() :: %{
-        "Status" => String.t() | atom()
+      create_luna_client_request() :: %{
+        required("Certificate") => String.t() | atom(),
+        optional("Label") => String.t() | atom()
       }
       
   """
-  @type delete_luna_client_response() :: %{(String.t() | atom()) => any()}
+  @type create_luna_client_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -258,23 +228,27 @@ defmodule AWS.CloudHSM do
 
   ## Example:
       
-      delete_hsm_response() :: %{
-        "Status" => String.t() | atom()
+      delete_hsm_request() :: %{
+        required("HsmArn") => String.t() | atom()
       }
       
   """
-  @type delete_hsm_response() :: %{(String.t() | atom()) => any()}
+  @type delete_hsm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_hapg_request() :: %{
-        required("HapgArn") => String.t() | atom()
+      describe_luna_client_response() :: %{
+        "Certificate" => String.t() | atom(),
+        "CertificateFingerprint" => String.t() | atom(),
+        "ClientArn" => String.t() | atom(),
+        "Label" => String.t() | atom(),
+        "LastModifiedTimestamp" => String.t() | atom()
       }
       
   """
-  @type delete_hapg_request() :: %{(String.t() | atom()) => any()}
+  @type describe_luna_client_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,181 +265,13 @@ defmodule AWS.CloudHSM do
 
   ## Example:
       
-      modify_hapg_request() :: %{
-        optional("Label") => String.t() | atom(),
-        optional("PartitionSerialList") => list(String.t() | atom()),
-        required("HapgArn") => String.t() | atom()
-      }
-      
-  """
-  @type modify_hapg_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryable" => boolean()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_hapg_response() :: %{
-        "HapgArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_hapg_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_hsm_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("EniIp") => String.t() | atom(),
-        optional("ExternalId") => String.t() | atom(),
-        optional("SyslogIp") => String.t() | atom(),
-        required("IamRoleArn") => String.t() | atom(),
-        required("SshKey") => String.t() | atom(),
-        required("SubnetId") => String.t() | atom(),
-        required("SubscriptionType") => list(any())
-      }
-      
-  """
-  @type create_hsm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "TagList" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_from_resource_request() :: %{
+      add_tags_to_resource_request() :: %{
         required("ResourceArn") => String.t() | atom(),
-        required("TagKeyList") => list(String.t() | atom())
+        required("TagList") => list(tag())
       }
       
   """
-  @type remove_tags_from_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_to_resource_response() :: %{
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type add_tags_to_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_internal_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryable" => boolean()
-      }
-      
-  """
-  @type cloud_hsm_internal_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_hapgs_response() :: %{
-        "HapgList" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_hapgs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_hsm_request() :: %{
-        optional("HsmArn") => String.t() | atom(),
-        optional("HsmSerialNumber") => String.t() | atom()
-      }
-      
-  """
-  @type describe_hsm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_available_zones_request() :: %{}
-      
-  """
-  @type list_available_zones_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_service_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryable" => boolean()
-      }
-      
-  """
-  @type cloud_hsm_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_luna_clients_response() :: %{
-        "ClientList" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_luna_clients_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type add_tags_to_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,47 +288,110 @@ defmodule AWS.CloudHSM do
 
   ## Example:
       
-      create_hapg_request() :: %{
-        required("Label") => String.t() | atom()
-      }
-      
-  """
-  @type create_hapg_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_hsms_response() :: %{
-        "HsmList" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_hsms_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_luna_client_request() :: %{
-        optional("CertificateFingerprint") => String.t() | atom(),
-        optional("ClientArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_luna_client_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_hapg_response() :: %{
+      delete_luna_client_response() :: %{
         "Status" => String.t() | atom()
       }
       
   """
-  @type delete_hapg_response() :: %{(String.t() | atom()) => any()}
+  @type delete_luna_client_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hsm_response() :: %{
+        "HsmArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_hsm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_luna_clients_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_luna_clients_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_available_zones_request() :: %{}
+      
+  """
+  @type list_available_zones_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hsm_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("EniIp") => String.t() | atom(),
+        optional("ExternalId") => String.t() | atom(),
+        required("IamRoleArn") => String.t() | atom(),
+        required("SshKey") => String.t() | atom(),
+        required("SubnetId") => String.t() | atom(),
+        required("SubscriptionType") => list(any()),
+        optional("SyslogIp") => String.t() | atom()
+      }
+      
+  """
+  @type create_hsm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_hapg_response() :: %{
+        "HapgArn" => String.t() | atom()
+      }
+      
+  """
+  @type modify_hapg_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_hsm_request() :: %{
+        optional("EniIp") => String.t() | atom(),
+        optional("ExternalId") => String.t() | atom(),
+        required("HsmArn") => String.t() | atom(),
+        optional("IamRoleArn") => String.t() | atom(),
+        optional("SubnetId") => String.t() | atom(),
+        optional("SyslogIp") => String.t() | atom()
+      }
+      
+  """
+  @type modify_hsm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,121 +416,252 @@ defmodule AWS.CloudHSM do
 
   ## Example:
       
-      modify_hsm_response() :: %{
-        "HsmArn" => String.t() | atom()
+      list_hapgs_request() :: %{
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type modify_hsm_response() :: %{(String.t() | atom()) => any()}
+  @type list_hapgs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_luna_client_request() :: %{
-        optional("Label") => String.t() | atom(),
-        required("Certificate") => String.t() | atom()
+      list_luna_clients_response() :: %{
+        "ClientList" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type create_luna_client_request() :: %{(String.t() | atom()) => any()}
+  @type list_luna_clients_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_hapg_request() :: %{
+        required("HapgArn") => String.t() | atom(),
+        optional("Label") => String.t() | atom(),
+        optional("PartitionSerialList") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_hapg_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hapg_request() :: %{
+        required("Label") => String.t() | atom()
+      }
+      
+  """
+  @type create_hapg_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_config_request() :: %{
+        required("ClientArn") => String.t() | atom(),
+        required("ClientVersion") => list(any()),
+        required("HapgList") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_hapg_request() :: %{
+        required("HapgArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_hapg_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_hsm_response() :: %{
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type delete_hsm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_config_response() :: %{
+        "ConfigCred" => String.t() | atom(),
+        "ConfigFile" => String.t() | atom(),
+        "ConfigType" => String.t() | atom()
+      }
+      
+  """
+  @type get_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_hsms_response() :: %{
+        "HsmList" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_hsms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_from_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeyList") => list(String.t() | atom())
+      }
+      
+  """
+  @type remove_tags_from_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_luna_client_request() :: %{
+        optional("CertificateFingerprint") => String.t() | atom(),
+        optional("ClientArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_luna_client_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_luna_client_request() :: %{
+        required("Certificate") => String.t() | atom(),
+        required("ClientArn") => String.t() | atom()
+      }
+      
+  """
+  @type modify_luna_client_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_to_resource_response() :: %{
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type add_tags_to_resource_response() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_to_resource_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type create_hapg_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type create_hsm_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type create_luna_client_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type delete_hapg_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type delete_hsm_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type delete_luna_client_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type describe_hapg_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type describe_hsm_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type describe_luna_client_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type get_config_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type list_available_zones_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type list_hapgs_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type list_hsms_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type list_luna_clients_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type list_tags_for_resource_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type modify_hapg_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type modify_hsm_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   @type modify_luna_client_errors() :: cloud_hsm_service_exception()
 
   @type remove_tags_from_resource_errors() ::
-          cloud_hsm_service_exception()
+          invalid_request_exception()
           | cloud_hsm_internal_exception()
-          | invalid_request_exception()
+          | cloud_hsm_service_exception()
 
   def metadata do
     %{
@@ -703,7 +703,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -731,7 +732,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, create_hapg_errors()}
   def create_hapg(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHapg", input, options)
   end
@@ -768,7 +770,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, create_hsm_errors()}
   def create_hsm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHsm", input, options)
   end
@@ -794,7 +797,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, create_luna_client_errors()}
   def create_luna_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLunaClient", input, options)
   end
@@ -820,7 +824,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, delete_hapg_errors()}
   def delete_hapg(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHapg", input, options)
   end
@@ -848,7 +853,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, delete_hsm_errors()}
   def delete_hsm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHsm", input, options)
   end
@@ -874,7 +880,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, delete_luna_client_errors()}
   def delete_luna_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLunaClient", input, options)
   end
@@ -900,7 +907,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, describe_hapg_errors()}
   def describe_hapg(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHapg", input, options)
   end
@@ -928,7 +936,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, describe_hsm_errors()}
   def describe_hsm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHsm", input, options)
   end
@@ -954,7 +963,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, describe_luna_client_errors()}
   def describe_luna_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLunaClient", input, options)
   end
@@ -982,7 +992,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, get_config_errors()}
   def get_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConfig", input, options)
   end
@@ -1008,7 +1019,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_available_zones_errors()}
   def list_available_zones(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableZones", input, options)
   end
@@ -1039,7 +1051,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_hapgs_errors()}
   def list_hapgs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHapgs", input, options)
   end
@@ -1071,7 +1084,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_hsms_errors()}
   def list_hsms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHsms", input, options)
   end
@@ -1103,7 +1117,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_luna_clients_errors()}
   def list_luna_clients(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLunaClients", input, options)
   end
@@ -1129,7 +1144,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1155,7 +1171,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, modify_hapg_errors()}
   def modify_hapg(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyHapg", input, options)
   end
@@ -1189,7 +1206,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, modify_hsm_errors()}
   def modify_hsm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyHsm", input, options)
   end
@@ -1219,7 +1237,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, modify_luna_client_errors()}
   def modify_luna_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyLunaClient", input, options)
   end
@@ -1249,7 +1268,8 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end

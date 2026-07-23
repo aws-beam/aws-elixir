@@ -67,12 +67,13 @@ defmodule AWS.SupportApp do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      list_slack_workspace_configurations_result() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("slackWorkspaceConfigurations") => list(slack_workspace_configuration())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type list_slack_workspace_configurations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -89,230 +90,10 @@ defmodule AWS.SupportApp do
 
   ## Example:
 
-      create_slack_channel_configuration_request() :: %{
-        optional("channelName") => String.t() | atom(),
-        optional("notifyOnAddCorrespondenceToCase") => boolean(),
-        optional("notifyOnCreateOrReopenCase") => boolean(),
-        optional("notifyOnResolveCase") => boolean(),
-        required("channelId") => String.t() | atom(),
-        required("channelRoleArn") => String.t() | atom(),
-        required("notifyOnCaseSeverity") => String.t() | atom(),
-        required("teamId") => String.t() | atom()
-      }
-
-  """
-  @type create_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_slack_channel_configuration_result() :: %{}
-
-  """
-  @type create_slack_channel_configuration_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       delete_account_alias_request() :: %{}
 
   """
   @type delete_account_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_account_alias_result() :: %{}
-
-  """
-  @type delete_account_alias_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_slack_channel_configuration_request() :: %{
-        required("channelId") => String.t() | atom(),
-        required("teamId") => String.t() | atom()
-      }
-
-  """
-  @type delete_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_slack_channel_configuration_result() :: %{}
-
-  """
-  @type delete_slack_channel_configuration_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_slack_workspace_configuration_request() :: %{
-        required("teamId") => String.t() | atom()
-      }
-
-  """
-  @type delete_slack_workspace_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_slack_workspace_configuration_result() :: %{}
-
-  """
-  @type delete_slack_workspace_configuration_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_alias_request() :: %{}
-
-  """
-  @type get_account_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_alias_result() :: %{
-        optional("accountAlias") => String.t() | atom()
-      }
-
-  """
-  @type get_account_alias_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_slack_channel_configurations_request() :: %{
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_slack_channel_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_slack_channel_configurations_result() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("slackChannelConfigurations") => list(slack_channel_configuration())
-      }
-
-  """
-  @type list_slack_channel_configurations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_slack_workspace_configurations_request() :: %{
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_slack_workspace_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_slack_workspace_configurations_result() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("slackWorkspaceConfigurations") => list(slack_workspace_configuration())
-      }
-
-  """
-  @type list_slack_workspace_configurations_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_alias_request() :: %{
-        required("accountAlias") => String.t() | atom()
-      }
-
-  """
-  @type put_account_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_alias_result() :: %{}
-
-  """
-  @type put_account_alias_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      register_slack_workspace_for_organization_request() :: %{
-        required("teamId") => String.t() | atom()
-      }
-
-  """
-  @type register_slack_workspace_for_organization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_slack_workspace_for_organization_result() :: %{
-        optional("accountType") => String.t() | atom(),
-        optional("teamId") => String.t() | atom(),
-        optional("teamName") => String.t() | atom()
-      }
-
-  """
-  @type register_slack_workspace_for_organization_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -336,32 +117,10 @@ defmodule AWS.SupportApp do
 
   ## Example:
 
-      slack_workspace_configuration() :: %{
-        "allowOrganizationMemberAccount" => boolean(),
-        "teamId" => String.t() | atom(),
-        "teamName" => String.t() | atom()
-      }
+      delete_account_alias_result() :: %{}
 
   """
-  @type slack_workspace_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_slack_channel_configuration_request() :: %{
-        optional("channelName") => String.t() | atom(),
-        optional("channelRoleArn") => String.t() | atom(),
-        optional("notifyOnAddCorrespondenceToCase") => boolean(),
-        optional("notifyOnCaseSeverity") => String.t() | atom(),
-        optional("notifyOnCreateOrReopenCase") => boolean(),
-        optional("notifyOnResolveCase") => boolean(),
-        required("channelId") => String.t() | atom(),
-        required("teamId") => String.t() | atom()
-      }
-
-  """
-  @type update_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type delete_account_alias_result() :: %{}
 
   @typedoc """
 
@@ -385,6 +144,103 @@ defmodule AWS.SupportApp do
 
   ## Example:
 
+      delete_slack_channel_configuration_request() :: %{
+        required("channelId") => String.t() | atom(),
+        required("teamId") => String.t() | atom()
+      }
+
+  """
+  @type delete_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_alias_result() :: %{}
+
+  """
+  @type put_account_alias_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_slack_workspace_configurations_request() :: %{
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_slack_workspace_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slack_workspace_configuration_request() :: %{
+        required("teamId") => String.t() | atom()
+      }
+
+  """
+  @type delete_slack_workspace_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_alias_request() :: %{
+        required("accountAlias") => String.t() | atom()
+      }
+
+  """
+  @type put_account_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_slack_workspace_for_organization_request() :: %{
+        required("teamId") => String.t() | atom()
+      }
+
+  """
+  @type register_slack_workspace_for_organization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slack_channel_configuration_result() :: %{}
+
+  """
+  @type delete_slack_channel_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_slack_channel_configurations_result() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("slackChannelConfigurations") => list(slack_channel_configuration())
+      }
+
+  """
+  @type list_slack_channel_configurations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -392,54 +248,198 @@ defmodule AWS.SupportApp do
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      create_slack_channel_configuration_result() :: %{}
+
+  """
+  @type create_slack_channel_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_slack_channel_configurations_request() :: %{
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_slack_channel_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_slack_channel_configuration_request() :: %{
+        required("channelId") => String.t() | atom(),
+        optional("channelName") => String.t() | atom(),
+        optional("channelRoleArn") => String.t() | atom(),
+        optional("notifyOnAddCorrespondenceToCase") => boolean(),
+        optional("notifyOnCaseSeverity") => String.t() | atom(),
+        optional("notifyOnCreateOrReopenCase") => boolean(),
+        optional("notifyOnResolveCase") => boolean(),
+        required("teamId") => String.t() | atom()
+      }
+
+  """
+  @type update_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_alias_result() :: %{
+        optional("accountAlias") => String.t() | atom()
+      }
+
+  """
+  @type get_account_alias_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_alias_request() :: %{}
+
+  """
+  @type get_account_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slack_workspace_configuration_result() :: %{}
+
+  """
+  @type delete_slack_workspace_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      slack_workspace_configuration() :: %{
+        "allowOrganizationMemberAccount" => boolean(),
+        "teamId" => String.t() | atom(),
+        "teamName" => String.t() | atom()
+      }
+
+  """
+  @type slack_workspace_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_slack_channel_configuration_request() :: %{
+        required("channelId") => String.t() | atom(),
+        optional("channelName") => String.t() | atom(),
+        required("channelRoleArn") => String.t() | atom(),
+        optional("notifyOnAddCorrespondenceToCase") => boolean(),
+        required("notifyOnCaseSeverity") => String.t() | atom(),
+        optional("notifyOnCreateOrReopenCase") => boolean(),
+        optional("notifyOnResolveCase") => boolean(),
+        required("teamId") => String.t() | atom()
+      }
+
+  """
+  @type create_slack_channel_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_slack_workspace_for_organization_result() :: %{
+        optional("accountType") => String.t() | atom(),
+        optional("teamId") => String.t() | atom(),
+        optional("teamName") => String.t() | atom()
+      }
+
+  """
+  @type register_slack_workspace_for_organization_result() :: %{(String.t() | atom()) => any()}
+
   @type create_slack_channel_configuration_errors() ::
-          validation_exception()
+          access_denied_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | internal_server_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type delete_account_alias_errors() ::
-          resource_not_found_exception() | internal_server_exception() | access_denied_exception()
+          access_denied_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type delete_slack_channel_configuration_errors() ::
-          validation_exception()
+          access_denied_exception()
           | resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type delete_slack_workspace_configuration_errors() ::
-          validation_exception()
+          access_denied_exception()
           | resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type get_account_alias_errors() :: internal_server_exception()
 
   @type list_slack_channel_configurations_errors() ::
-          internal_server_exception() | access_denied_exception()
+          access_denied_exception() | internal_server_exception()
 
   @type list_slack_workspace_configurations_errors() ::
-          internal_server_exception() | access_denied_exception()
+          access_denied_exception() | internal_server_exception()
 
   @type put_account_alias_errors() ::
-          validation_exception() | internal_server_exception() | access_denied_exception()
+          access_denied_exception() | validation_exception() | internal_server_exception()
 
   @type register_slack_workspace_for_organization_errors() ::
-          validation_exception()
+          access_denied_exception()
           | resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type update_slack_channel_configuration_errors() ::
-          validation_exception()
+          access_denied_exception()
           | resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   def metadata do
     %{

@@ -94,31 +94,6 @@ defmodule AWS.EC2InstanceConnect do
 
   ## Example:
       
-      send_serial_console_ssh_public_key_request() :: %{
-        optional("SerialPort") => integer(),
-        required("InstanceId") => String.t() | atom(),
-        required("SSHPublicKey") => String.t() | atom()
-      }
-      
-  """
-  @type send_serial_console_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_serial_console_ssh_public_key_response() :: %{
-        "RequestId" => String.t() | atom(),
-        "Success" => boolean()
-      }
-      
-  """
-  @type send_serial_console_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       send_ssh_public_key_request() :: %{
         optional("AvailabilityZone") => String.t() | atom(),
         required("InstanceId") => String.t() | atom(),
@@ -140,6 +115,31 @@ defmodule AWS.EC2InstanceConnect do
       
   """
   @type send_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_serial_console_ssh_public_key_request() :: %{
+        required("InstanceId") => String.t() | atom(),
+        required("SSHPublicKey") => String.t() | atom(),
+        optional("SerialPort") => integer()
+      }
+      
+  """
+  @type send_serial_console_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_serial_console_ssh_public_key_response() :: %{
+        "RequestId" => String.t() | atom(),
+        "Success" => boolean()
+      }
+      
+  """
+  @type send_serial_console_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -266,7 +266,8 @@ defmodule AWS.EC2InstanceConnect do
           | {:error, term()}
           | {:error, send_serial_console_ssh_public_key_errors()}
   def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendSerialConsoleSSHPublicKey", input, options)
   end
@@ -286,7 +287,8 @@ defmodule AWS.EC2InstanceConnect do
           | {:error, term()}
           | {:error, send_ssh_public_key_errors()}
   def send_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendSSHPublicKey", input, options)
   end

@@ -13,13 +13,79 @@ defmodule AWS.SagemakerEdge do
 
   ## Example:
 
-      checksum() :: %{
-        "Sum" => String.t() | atom(),
-        "Type" => list(any())
+      get_deployments_result() :: %{
+        "Deployments" => list(edge_deployment())
       }
 
   """
-  @type checksum() :: %{(String.t() | atom()) => any()}
+  @type get_deployments_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_heartbeat_request() :: %{
+        optional("AgentMetrics") => list(edge_metric()),
+        required("AgentVersion") => String.t() | atom(),
+        optional("DeploymentResult") => deployment_result(),
+        required("DeviceFleetName") => String.t() | atom(),
+        required("DeviceName") => String.t() | atom(),
+        optional("Models") => list(model())
+      }
+
+  """
+  @type send_heartbeat_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_result() :: %{
+        "DeploymentEndTime" => non_neg_integer(),
+        "DeploymentModels" => list(deployment_model()),
+        "DeploymentName" => String.t() | atom(),
+        "DeploymentStartTime" => non_neg_integer(),
+        "DeploymentStatus" => String.t() | atom(),
+        "DeploymentStatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type deployment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployments_request() :: %{
+        required("DeviceFleetName") => String.t() | atom(),
+        required("DeviceName") => String.t() | atom()
+      }
+
+  """
+  @type get_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_registration_request() :: %{
+        required("DeviceFleetName") => String.t() | atom(),
+        required("DeviceName") => String.t() | atom()
+      }
+
+  """
+  @type get_device_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -34,6 +100,59 @@ defmodule AWS.SagemakerEdge do
 
   """
   @type definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_registration_result() :: %{
+        "CacheTTL" => String.t() | atom(),
+        "DeviceRegistration" => String.t() | atom()
+      }
+
+  """
+  @type get_device_registration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model() :: %{
+        "LatestInference" => non_neg_integer(),
+        "LatestSampleTime" => non_neg_integer(),
+        "ModelMetrics" => list(edge_metric()),
+        "ModelName" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom()
+      }
+
+  """
+  @type model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      checksum() :: %{
+        "Sum" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type checksum() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      edge_deployment() :: %{
+        "Definitions" => list(definition()),
+        "DeploymentName" => String.t() | atom(),
+        "FailureHandlingPolicy" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type edge_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -57,36 +176,6 @@ defmodule AWS.SagemakerEdge do
 
   ## Example:
 
-      deployment_result() :: %{
-        "DeploymentEndTime" => non_neg_integer(),
-        "DeploymentModels" => list(deployment_model()),
-        "DeploymentName" => String.t() | atom(),
-        "DeploymentStartTime" => non_neg_integer(),
-        "DeploymentStatus" => String.t() | atom(),
-        "DeploymentStatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type deployment_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      edge_deployment() :: %{
-        "Definitions" => list(definition()),
-        "DeploymentName" => String.t() | atom(),
-        "FailureHandlingPolicy" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type edge_deployment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       edge_metric() :: %{
         "Dimension" => String.t() | atom(),
         "MetricName" => String.t() | atom(),
@@ -96,95 +185,6 @@ defmodule AWS.SagemakerEdge do
 
   """
   @type edge_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployments_request() :: %{
-        required("DeviceFleetName") => String.t() | atom(),
-        required("DeviceName") => String.t() | atom()
-      }
-
-  """
-  @type get_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployments_result() :: %{
-        "Deployments" => list(edge_deployment())
-      }
-
-  """
-  @type get_deployments_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_registration_request() :: %{
-        required("DeviceFleetName") => String.t() | atom(),
-        required("DeviceName") => String.t() | atom()
-      }
-
-  """
-  @type get_device_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_registration_result() :: %{
-        "CacheTTL" => String.t() | atom(),
-        "DeviceRegistration" => String.t() | atom()
-      }
-
-  """
-  @type get_device_registration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model() :: %{
-        "LatestInference" => non_neg_integer(),
-        "LatestSampleTime" => non_neg_integer(),
-        "ModelMetrics" => list(edge_metric()),
-        "ModelName" => String.t() | atom(),
-        "ModelVersion" => String.t() | atom()
-      }
-
-  """
-  @type model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_heartbeat_request() :: %{
-        optional("AgentMetrics") => list(edge_metric()),
-        optional("DeploymentResult") => deployment_result(),
-        optional("Models") => list(model()),
-        required("AgentVersion") => String.t() | atom(),
-        required("DeviceFleetName") => String.t() | atom(),
-        required("DeviceName") => String.t() | atom()
-      }
-
-  """
-  @type send_heartbeat_request() :: %{(String.t() | atom()) => any()}
 
   @type get_deployments_errors() :: internal_service_exception()
 

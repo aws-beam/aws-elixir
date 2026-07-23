@@ -32,9 +32,9 @@ defmodule AWS.KinesisVideoMedia do
   ## Example:
 
       get_media_input() :: %{
+        required("StartSelector") => start_selector(),
         optional("StreamARN") => String.t() | atom(),
-        optional("StreamName") => String.t() | atom(),
-        required("StartSelector") => start_selector()
+        optional("StreamName") => String.t() | atom()
       }
 
   """

@@ -36,58 +36,57 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      set_sms_attributes_response() :: %{}
-      
-  """
-  @type set_sms_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_platform_endpoint_input() :: %{
-        optional("Attributes") => map(),
-        optional("CustomUserData") => String.t() | atom(),
-        required("PlatformApplicationArn") => String.t() | atom(),
-        required("Token") => String.t() | atom()
+      get_topic_attributes_input() :: %{
+        required("TopicArn") => String.t() | atom()
       }
       
   """
-  @type create_platform_endpoint_input() :: %{(String.t() | atom()) => any()}
+  @type get_topic_attributes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      kms_disabled_exception() :: %{
+      get_platform_application_attributes_response() :: %{
+        "Attributes" => map()
+      }
+      
+  """
+  @type get_platform_application_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type kms_disabled_exception() :: %{(String.t() | atom()) => any()}
+  @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      confirm_subscription_response() :: %{
-        "SubscriptionArn" => String.t() | atom()
+      create_platform_application_response() :: %{
+        "PlatformApplicationArn" => String.t() | atom()
       }
       
   """
-  @type confirm_subscription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_origination_numbers_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "PhoneNumbers" => list(phone_number_information())
-      }
-      
-  """
-  @type list_origination_numbers_result() :: %{(String.t() | atom()) => any()}
+  @type create_platform_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,59 +120,291 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      platform_application_disabled_exception() :: %{
+      verify_sms_sandbox_phone_number_result() :: %{}
+      
+  """
+  @type verify_sms_sandbox_phone_number_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      topic_limit_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type platform_application_disabled_exception() :: %{(String.t() | atom()) => any()}
+  @type topic_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unsubscribe_input() :: %{
-        required("SubscriptionArn") => String.t() | atom()
-      }
-      
-  """
-  @type unsubscribe_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_topic_input() :: %{
+      subscribe_input() :: %{
         optional("Attributes") => map(),
-        optional("DataProtectionPolicy") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom()
+        optional("Endpoint") => String.t() | atom(),
+        required("Protocol") => String.t() | atom(),
+        optional("ReturnSubscriptionArn") => boolean(),
+        required("TopicArn") => String.t() | atom()
       }
       
   """
-  @type create_topic_input() :: %{(String.t() | atom()) => any()}
+  @type subscribe_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      kms_opt_in_required() :: %{
+      get_endpoint_attributes_input() :: %{
+        required("EndpointArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_endpoint_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_disabled_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type kms_opt_in_required() :: %{(String.t() | atom()) => any()}
+  @type endpoint_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_sms_sandbox_phone_number_input() :: %{
-        required("PhoneNumber") => String.t() | atom()
+      get_sms_sandbox_account_status_result() :: %{
+        "IsInSandbox" => boolean()
       }
       
   """
-  @type delete_sms_sandbox_phone_number_input() :: %{(String.t() | atom()) => any()}
+  @type get_sms_sandbox_account_status_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_phone_numbers_opted_out_input() :: %{
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_phone_numbers_opted_out_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_subscriptions_by_topic_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Subscriptions" => list(subscription())
+      }
+      
+  """
+  @type list_subscriptions_by_topic_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_topic_attributes_input() :: %{
+        required("AttributeName") => String.t() | atom(),
+        optional("AttributeValue") => String.t() | atom(),
+        required("TopicArn") => String.t() | atom()
+      }
+      
+  """
+  @type set_topic_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter_policy_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type filter_policy_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_entry_ids_not_distinct_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type batch_entry_ids_not_distinct_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_endpoints_by_platform_application_response() :: %{
+        "Endpoints" => list(endpoint()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_endpoints_by_platform_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_invalid_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_platform_endpoint_input() :: %{
+        optional("Attributes") => map(),
+        optional("CustomUserData") => String.t() | atom(),
+        required("PlatformApplicationArn") => String.t() | atom(),
+        required("Token") => String.t() | atom()
+      }
+      
+  """
+  @type create_platform_endpoint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sms_sandbox_phone_number() :: %{
+        "PhoneNumber" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type sms_sandbox_phone_number() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_platform_applications_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PlatformApplications" => list(platform_application())
+      }
+      
+  """
+  @type list_platform_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_phone_numbers_opted_out_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "phoneNumbers" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_phone_numbers_opted_out_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_request_too_long_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type batch_request_too_long_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_permission_input() :: %{
+        required("Label") => String.t() | atom(),
+        required("TopicArn") => String.t() | atom()
+      }
+      
+  """
+  @type remove_permission_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_data_protection_policy_input() :: %{
+        required("DataProtectionPolicy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_data_protection_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      publish_batch_result_entry() :: %{
+        "Id" => String.t() | atom(),
+        "MessageId" => String.t() | atom(),
+        "SequenceNumber" => String.t() | atom()
+      }
+      
+  """
+  @type publish_batch_result_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verification_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type verification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,34 +421,139 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      get_subscription_attributes_response() :: %{
-        "Attributes" => map()
+      list_subscriptions_by_topic_input() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("TopicArn") => String.t() | atom()
       }
       
   """
-  @type get_subscription_attributes_response() :: %{(String.t() | atom()) => any()}
+  @type list_subscriptions_by_topic_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_topic_input() :: %{
+      publish_batch_input() :: %{
+        required("PublishBatchRequestEntries") => list(publish_batch_request_entry()),
         required("TopicArn") => String.t() | atom()
       }
       
   """
-  @type delete_topic_input() :: %{(String.t() | atom()) => any()}
+  @type publish_batch_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_topic_attributes_input() :: %{
+      create_sms_sandbox_phone_number_input() :: %{
+        optional("LanguageCode") => list(any()),
+        required("PhoneNumber") => String.t() | atom()
+      }
+      
+  """
+  @type create_sms_sandbox_phone_number_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_subscription_response() :: %{
+        "SubscriptionArn" => String.t() | atom()
+      }
+      
+  """
+  @type confirm_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_topics_input() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_topics_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stale_tag_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type stale_tag_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replay_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type replay_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_origination_numbers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_origination_numbers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      platform_application_disabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type platform_application_disabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_subscription_input() :: %{
+        optional("AuthenticateOnUnsubscribe") => String.t() | atom(),
+        required("Token") => String.t() | atom(),
         required("TopicArn") => String.t() | atom()
       }
       
   """
-  @type get_topic_attributes_input() :: %{(String.t() | atom()) => any()}
+  @type confirm_subscription_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -235,6 +571,267 @@ defmodule AWS.SNS do
 
   ## Example:
       
+      list_subscriptions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Subscriptions" => list(subscription())
+      }
+      
+  """
+  @type list_subscriptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_platform_application_attributes_input() :: %{
+        required("Attributes") => map(),
+        required("PlatformApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type set_platform_application_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_topic_input() :: %{
+        required("TopicArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_topic_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_subscription_attributes_input() :: %{
+        required("SubscriptionArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_subscription_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_protection_policy_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_data_protection_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsubscribe_input() :: %{
+        required("SubscriptionArn") => String.t() | atom()
+      }
+      
+  """
+  @type unsubscribe_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_disabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_disabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_sms_sandbox_phone_number_input() :: %{
+        required("PhoneNumber") => String.t() | atom()
+      }
+      
+  """
+  @type delete_sms_sandbox_phone_number_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_subscription_attributes_input() :: %{
+        required("AttributeName") => String.t() | atom(),
+        optional("AttributeValue") => String.t() | atom(),
+        required("SubscriptionArn") => String.t() | atom()
+      }
+      
+  """
+  @type set_subscription_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_access_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_access_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_sms_sandbox_phone_number_result() :: %{}
+      
+  """
+  @type delete_sms_sandbox_phone_number_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_endpoint_attributes_response() :: %{
+        "Attributes" => map()
+      }
+      
+  """
+  @type get_endpoint_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_topics_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Topics" => list(topic())
+      }
+      
+  """
+  @type list_topics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type tag_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subscription() :: %{
+        "Endpoint" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
+        "SubscriptionArn" => String.t() | atom(),
+        "TopicArn" => String.t() | atom()
+      }
+      
+  """
+  @type subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opt_in_phone_number_input() :: %{
+        required("phoneNumber") => String.t() | atom()
+      }
+      
+  """
+  @type opt_in_phone_number_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint() :: %{
+        "Attributes" => map(),
+        "EndpointArn" => String.t() | atom()
+      }
+      
+  """
+  @type endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sms_sandbox_phone_numbers_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "PhoneNumbers" => list(sms_sandbox_phone_number())
+      }
+      
+  """
+  @type list_sms_sandbox_phone_numbers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_sms_sandbox_phone_number_result() :: %{}
+      
+  """
+  @type create_sms_sandbox_phone_number_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_endpoint_response() :: %{
+        "EndpointArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_response() :: %{}
       
   """
@@ -244,57 +841,99 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      create_platform_application_response() :: %{
-        "PlatformApplicationArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_platform_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_throttling_exception() :: %{
+      subscription_limit_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type kms_throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type subscription_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_endpoint_attributes_input() :: %{
-        required("EndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_endpoint_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_batch_entry_id_exception() :: %{
+      invalid_security_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_batch_entry_id_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_security_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_subscriptions_by_topic_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Subscriptions" => list(subscription())
+      create_topic_response() :: %{
+        "TopicArn" => String.t() | atom()
       }
       
   """
-  @type list_subscriptions_by_topic_response() :: %{(String.t() | atom()) => any()}
+  @type create_topic_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_topic_attributes_response() :: %{
+        "Attributes" => map()
+      }
+      
+  """
+  @type get_topic_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opt_in_phone_number_response() :: %{}
+      
+  """
+  @type opt_in_phone_number_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sms_sandbox_phone_numbers_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_sms_sandbox_phone_numbers_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,76 +952,31 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      check_if_phone_number_is_opted_out_input() :: %{
-        required("phoneNumber") => String.t() | atom()
-      }
-      
-  """
-  @type check_if_phone_number_is_opted_out_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replay_limit_exceeded_exception() :: %{
+      too_many_entries_in_batch_request_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type replay_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type too_many_entries_in_batch_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_phone_numbers_opted_out_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "phoneNumbers" => list(String.t() | atom())
+      publish_input() :: %{
+        required("Message") => String.t() | atom(),
+        optional("MessageAttributes") => map(),
+        optional("MessageDeduplicationId") => String.t() | atom(),
+        optional("MessageGroupId") => String.t() | atom(),
+        optional("MessageStructure") => String.t() | atom(),
+        optional("PhoneNumber") => String.t() | atom(),
+        optional("Subject") => String.t() | atom(),
+        optional("TargetArn") => String.t() | atom(),
+        optional("TopicArn") => String.t() | atom()
       }
       
   """
-  @type list_phone_numbers_opted_out_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      opt_in_phone_number_response() :: %{}
-      
-  """
-  @type opt_in_phone_number_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_sms_sandbox_phone_number_input() :: %{
-        optional("LanguageCode") => list(any()),
-        required("PhoneNumber") => String.t() | atom()
-      }
-      
-  """
-  @type create_sms_sandbox_phone_number_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_sms_sandbox_phone_number_result() :: %{}
-      
-  """
-  @type create_sms_sandbox_phone_number_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_error_exception() :: %{(String.t() | atom()) => any()}
+  @type publish_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,97 +993,37 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      set_topic_attributes_input() :: %{
-        optional("AttributeValue") => String.t() | atom(),
-        required("AttributeName") => String.t() | atom(),
-        required("TopicArn") => String.t() | atom()
-      }
-      
-  """
-  @type set_topic_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type tag_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_platform_application_attributes_input() :: %{
-        required("PlatformApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_platform_application_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sms_sandbox_phone_numbers_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "PhoneNumbers" => list(sms_sandbox_phone_number())
-      }
-      
-  """
-  @type list_sms_sandbox_phone_numbers_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_platform_application_attributes_input() :: %{
+      create_platform_application_input() :: %{
         required("Attributes") => map(),
-        required("PlatformApplicationArn") => String.t() | atom()
+        required("Name") => String.t() | atom(),
+        required("Platform") => String.t() | atom()
       }
       
   """
-  @type set_platform_application_attributes_input() :: %{(String.t() | atom()) => any()}
+  @type create_platform_application_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_result_error_entry() :: %{
-        "Code" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "SenderFault" => boolean()
+      set_endpoint_attributes_input() :: %{
+        required("Attributes") => map(),
+        required("EndpointArn") => String.t() | atom()
       }
       
   """
-  @type batch_result_error_entry() :: %{(String.t() | atom()) => any()}
+  @type set_endpoint_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -502,18 +1036,6 @@ defmodule AWS.SNS do
       
   """
   @type publish_batch_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_sms_sandbox_phone_number_input() :: %{
-        required("OneTimePassword") => String.t() | atom(),
-        required("PhoneNumber") => String.t() | atom()
-      }
-      
-  """
-  @type verify_sms_sandbox_phone_number_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -536,120 +1058,43 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      create_topic_response() :: %{
-        "TopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_topic_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      topic_limit_exceeded_exception() :: %{
+      tag_policy_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type topic_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_security_exception() :: %{
+      get_subscription_attributes_response() :: %{
+        "Attributes" => map()
+      }
+      
+  """
+  @type get_subscription_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_batch_entry_id_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_security_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_batch_entry_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      confirm_subscription_input() :: %{
-        optional("AuthenticateOnUnsubscribe") => String.t() | atom(),
-        required("Token") => String.t() | atom(),
-        required("TopicArn") => String.t() | atom()
-      }
+      set_sms_attributes_response() :: %{}
       
   """
-  @type confirm_subscription_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_platform_application_input() :: %{
-        required("Attributes") => map(),
-        required("Name") => String.t() | atom(),
-        required("Platform") => String.t() | atom()
-      }
-      
-  """
-  @type create_platform_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type throttled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_subscription_attributes_input() :: %{
-        required("SubscriptionArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_subscription_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscribe_input() :: %{
-        optional("Attributes") => map(),
-        optional("Endpoint") => String.t() | atom(),
-        optional("ReturnSubscriptionArn") => boolean(),
-        required("Protocol") => String.t() | atom(),
-        required("TopicArn") => String.t() | atom()
-      }
-      
-  """
-  @type subscribe_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type set_sms_attributes_response() :: %{}
 
   @typedoc """
 
@@ -666,48 +1111,196 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      sms_sandbox_phone_number() :: %{
-        "PhoneNumber" => String.t() | atom(),
-        "Status" => list(any())
+      authorization_error_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type sms_sandbox_phone_number() :: %{(String.t() | atom()) => any()}
+  @type authorization_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_subscriptions_by_topic_input() :: %{
+      kms_opt_in_required() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_opt_in_required() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_platform_application_input() :: %{
+        required("PlatformApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_platform_application_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_endpoint_input() :: %{
+        required("EndpointArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_endpoint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      check_if_phone_number_is_opted_out_input() :: %{
+        required("phoneNumber") => String.t() | atom()
+      }
+      
+  """
+  @type check_if_phone_number_is_opted_out_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      publish_response() :: %{
+        "MessageId" => String.t() | atom(),
+        "SequenceNumber" => String.t() | atom()
+      }
+      
+  """
+  @type publish_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      check_if_phone_number_is_opted_out_response() :: %{
+        "isOptedOut" => boolean()
+      }
+      
+  """
+  @type check_if_phone_number_is_opted_out_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_platform_application_attributes_input() :: %{
+        required("PlatformApplicationArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_platform_application_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_sms_attributes_input() :: %{
+        required("attributes") => map()
+      }
+      
+  """
+  @type set_sms_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_origination_numbers_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "PhoneNumbers" => list(phone_number_information())
+      }
+      
+  """
+  @type list_origination_numbers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_sms_sandbox_phone_number_input() :: %{
+        required("OneTimePassword") => String.t() | atom(),
+        required("PhoneNumber") => String.t() | atom()
+      }
+      
+  """
+  @type verify_sms_sandbox_phone_number_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_sms_attributes_input() :: %{
+        optional("attributes") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_sms_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_endpoints_by_platform_application_input() :: %{
         optional("NextToken") => String.t() | atom(),
-        required("TopicArn") => String.t() | atom()
+        required("PlatformApplicationArn") => String.t() | atom()
       }
       
   """
-  @type list_subscriptions_by_topic_input() :: %{(String.t() | atom()) => any()}
+  @type list_endpoints_by_platform_application_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_sms_sandbox_phone_numbers_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      batch_result_error_entry() :: %{
+        "Code" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "SenderFault" => boolean()
       }
       
   """
-  @type list_sms_sandbox_phone_numbers_input() :: %{(String.t() | atom()) => any()}
+  @type batch_result_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      topic() :: %{
-        "TopicArn" => String.t() | atom()
+      get_sms_sandbox_account_status_input() :: %{}
+      
+  """
+  @type get_sms_sandbox_account_status_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_topic_input() :: %{
+        optional("Attributes") => map(),
+        optional("DataProtectionPolicy") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type topic() :: %{(String.t() | atom()) => any()}
+  @type create_topic_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -735,248 +1328,12 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      tag_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      topic() :: %{
+        "TopicArn" => String.t() | atom()
       }
       
   """
-  @type tag_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_endpoint_attributes_response() :: %{
-        "Attributes" => map()
-      }
-      
-  """
-  @type get_endpoint_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_sms_attributes_input() :: %{
-        optional("attributes") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_sms_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_topics_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Topics" => list(topic())
-      }
-      
-  """
-  @type list_topics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verification_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type verification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint_disabled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type endpoint_disabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_permission_input() :: %{
-        required("Label") => String.t() | atom(),
-        required("TopicArn") => String.t() | atom()
-      }
-      
-  """
-  @type remove_permission_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      publish_batch_result_entry() :: %{
-        "Id" => String.t() | atom(),
-        "MessageId" => String.t() | atom(),
-        "SequenceNumber" => String.t() | atom()
-      }
-      
-  """
-  @type publish_batch_result_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_sms_sandbox_account_status_result() :: %{
-        "IsInSandbox" => boolean()
-      }
-      
-  """
-  @type get_sms_sandbox_account_status_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      empty_batch_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type empty_batch_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint() :: %{
-        "Attributes" => map(),
-        "EndpointArn" => String.t() | atom()
-      }
-      
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_sms_sandbox_phone_number_result() :: %{}
-      
-  """
-  @type verify_sms_sandbox_phone_number_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_entry_ids_not_distinct_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type batch_entry_ids_not_distinct_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_sms_attributes_input() :: %{
-        required("attributes") => map()
-      }
-      
-  """
-  @type set_sms_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_platform_applications_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PlatformApplications" => list(platform_application())
-      }
-      
-  """
-  @type list_platform_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_subscription_attributes_input() :: %{
-        optional("AttributeValue") => String.t() | atom(),
-        required("AttributeName") => String.t() | atom(),
-        required("SubscriptionArn") => String.t() | atom()
-      }
-      
-  """
-  @type set_subscription_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_endpoint_input() :: %{
-        required("EndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_endpoint_input() :: %{(String.t() | atom()) => any()}
+  @type topic() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -988,111 +1345,6 @@ defmodule AWS.SNS do
       
   """
   @type subscribe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscription() :: %{
-        "Endpoint" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "Protocol" => String.t() | atom(),
-        "SubscriptionArn" => String.t() | atom(),
-        "TopicArn" => String.t() | atom()
-      }
-      
-  """
-  @type subscription() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_phone_numbers_opted_out_input() :: %{
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_phone_numbers_opted_out_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_subscriptions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Subscriptions" => list(subscription())
-      }
-      
-  """
-  @type list_subscriptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      publish_response() :: %{
-        "MessageId" => String.t() | atom(),
-        "SequenceNumber" => String.t() | atom()
-      }
-      
-  """
-  @type publish_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authorization_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type authorization_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      check_if_phone_number_is_opted_out_response() :: %{
-        "isOptedOut" => boolean()
-      }
-      
-  """
-  @type check_if_phone_number_is_opted_out_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_access_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_access_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1112,148 +1364,6 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      get_data_protection_policy_response() :: %{
-        "DataProtectionPolicy" => String.t() | atom()
-      }
-      
-  """
-  @type get_data_protection_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_origination_numbers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_origination_numbers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_endpoint_attributes_input() :: %{
-        required("Attributes") => map(),
-        required("EndpointArn") => String.t() | atom()
-      }
-      
-  """
-  @type set_endpoint_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      publish_input() :: %{
-        optional("MessageAttributes") => map(),
-        optional("MessageDeduplicationId") => String.t() | atom(),
-        optional("MessageGroupId") => String.t() | atom(),
-        optional("MessageStructure") => String.t() | atom(),
-        optional("PhoneNumber") => String.t() | atom(),
-        optional("Subject") => String.t() | atom(),
-        optional("TargetArn") => String.t() | atom(),
-        optional("TopicArn") => String.t() | atom(),
-        required("Message") => String.t() | atom()
-      }
-      
-  """
-  @type publish_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter_policy_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type filter_policy_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_endpoint_response() :: %{
-        "EndpointArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_endpoints_by_platform_application_response() :: %{
-        "Endpoints" => list(endpoint()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_endpoints_by_platform_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_topic_attributes_response() :: %{
-        "Attributes" => map()
-      }
-      
-  """
-  @type get_topic_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_topics_input() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_topics_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_data_protection_policy_input() :: %{
-        required("DataProtectionPolicy") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_data_protection_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscription_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subscription_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_sms_sandbox_phone_number_result() :: %{}
-      
-  """
-  @type delete_sms_sandbox_phone_number_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
       get_sms_attributes_response() :: %{
         "attributes" => map()
       }
@@ -1265,441 +1375,331 @@ defmodule AWS.SNS do
 
   ## Example:
       
-      get_sms_sandbox_account_status_input() :: %{}
+      get_data_protection_policy_response() :: %{
+        "DataProtectionPolicy" => String.t() | atom()
+      }
       
   """
-  @type get_sms_sandbox_account_status_input() :: %{}
+  @type get_data_protection_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stale_tag_exception() :: %{
+      empty_batch_request_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type stale_tag_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_invalid_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_endpoints_by_platform_application_input() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("PlatformApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_endpoints_by_platform_application_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      opt_in_phone_number_input() :: %{
-        required("phoneNumber") => String.t() | atom()
-      }
-      
-  """
-  @type opt_in_phone_number_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_platform_application_attributes_response() :: %{
-        "Attributes" => map()
-      }
-      
-  """
-  @type get_platform_application_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_entries_in_batch_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_entries_in_batch_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_request_too_long_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type batch_request_too_long_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      publish_batch_input() :: %{
-        required("PublishBatchRequestEntries") => list(publish_batch_request_entry()),
-        required("TopicArn") => String.t() | atom()
-      }
-      
-  """
-  @type publish_batch_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_data_protection_policy_input() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_data_protection_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_platform_application_input() :: %{
-        required("PlatformApplicationArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_platform_application_input() :: %{(String.t() | atom()) => any()}
+  @type empty_batch_request_exception() :: %{(String.t() | atom()) => any()}
 
   @type add_permission_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type check_if_phone_number_is_opted_out_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | throttled_exception()
 
   @type confirm_subscription_errors() ::
-          internal_error_exception()
-          | subscription_limit_exceeded_exception()
-          | filter_policy_limit_exceeded_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | subscription_limit_exceeded_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
           | replay_limit_exceeded_exception()
+          | filter_policy_limit_exceeded_exception()
 
   @type create_platform_application_errors() ::
-          internal_error_exception()
-          | authorization_error_exception()
+          authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
 
   @type create_platform_endpoint_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type create_sms_sandbox_phone_number_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
           | opted_out_exception()
-          | throttled_exception()
           | user_error_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
 
   @type create_topic_errors() ::
-          internal_error_exception()
-          | stale_tag_exception()
-          | concurrent_access_exception()
-          | authorization_error_exception()
-          | invalid_parameter_exception()
-          | tag_limit_exceeded_exception()
-          | invalid_security_exception()
-          | topic_limit_exceeded_exception()
+          authorization_error_exception()
           | tag_policy_exception()
+          | invalid_security_exception()
+          | tag_limit_exceeded_exception()
+          | internal_error_exception()
+          | concurrent_access_exception()
+          | invalid_parameter_exception()
+          | stale_tag_exception()
+          | topic_limit_exceeded_exception()
 
   @type delete_endpoint_errors() ::
-          internal_error_exception()
-          | authorization_error_exception()
+          authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
 
   @type delete_platform_application_errors() ::
-          internal_error_exception()
-          | authorization_error_exception()
+          authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
 
   @type delete_sms_sandbox_phone_number_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
-          | resource_not_found_exception()
-          | throttled_exception()
           | user_error_exception()
+          | resource_not_found_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
 
   @type delete_topic_errors() ::
-          internal_error_exception()
-          | stale_tag_exception()
-          | concurrent_access_exception()
+          not_found_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
-          | not_found_exception()
-          | invalid_state_exception()
           | tag_policy_exception()
+          | invalid_state_exception()
+          | internal_error_exception()
+          | concurrent_access_exception()
+          | invalid_parameter_exception()
+          | stale_tag_exception()
 
   @type get_data_protection_policy_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
-          | not_found_exception()
           | invalid_security_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
 
   @type get_endpoint_attributes_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type get_platform_application_attributes_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type get_sms_attributes_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | throttled_exception()
 
   @type get_sms_sandbox_account_status_errors() ::
-          internal_error_exception() | authorization_error_exception() | throttled_exception()
+          throttled_exception() | authorization_error_exception() | internal_error_exception()
 
   @type get_subscription_attributes_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type get_topic_attributes_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
-          | not_found_exception()
           | invalid_security_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
 
   @type list_endpoints_by_platform_application_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type list_origination_numbers_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
-          | validation_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | throttled_exception()
+          | validation_exception()
 
   @type list_phone_numbers_opted_out_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | throttled_exception()
 
   @type list_platform_applications_errors() ::
-          internal_error_exception()
-          | authorization_error_exception()
+          authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
 
   @type list_sms_sandbox_phone_numbers_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
 
   @type list_subscriptions_errors() ::
-          internal_error_exception()
-          | authorization_error_exception()
+          authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
 
   @type list_subscriptions_by_topic_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type list_tags_for_resource_errors() ::
-          concurrent_access_exception()
-          | authorization_error_exception()
-          | invalid_parameter_exception()
-          | resource_not_found_exception()
+          authorization_error_exception()
           | tag_policy_exception()
+          | resource_not_found_exception()
+          | concurrent_access_exception()
+          | invalid_parameter_exception()
 
   @type list_topics_errors() ::
-          internal_error_exception()
-          | authorization_error_exception()
+          authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
 
   @type opt_in_phone_number_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | throttled_exception()
 
   @type publish_errors() ::
-          internal_error_exception()
-          | kms_invalid_state_exception()
-          | authorization_error_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | kms_not_found_exception()
-          | kms_access_denied_exception()
-          | endpoint_disabled_exception()
-          | not_found_exception()
+          not_found_exception()
           | invalid_parameter_value_exception()
-          | invalid_security_exception()
-          | kms_throttling_exception()
           | kms_opt_in_required()
-          | platform_application_disabled_exception()
+          | authorization_error_exception()
+          | invalid_security_exception()
+          | kms_access_denied_exception()
+          | internal_error_exception()
           | kms_disabled_exception()
+          | invalid_parameter_exception()
+          | platform_application_disabled_exception()
+          | kms_invalid_state_exception()
+          | validation_exception()
+          | kms_throttling_exception()
+          | endpoint_disabled_exception()
+          | kms_not_found_exception()
 
   @type publish_batch_errors() ::
-          batch_request_too_long_exception()
-          | internal_error_exception()
-          | too_many_entries_in_batch_request_exception()
-          | kms_invalid_state_exception()
-          | authorization_error_exception()
-          | validation_exception()
-          | batch_entry_ids_not_distinct_exception()
-          | invalid_parameter_exception()
-          | kms_not_found_exception()
-          | kms_access_denied_exception()
-          | empty_batch_request_exception()
-          | endpoint_disabled_exception()
+          empty_batch_request_exception()
           | not_found_exception()
           | invalid_parameter_value_exception()
-          | invalid_security_exception()
-          | invalid_batch_entry_id_exception()
-          | kms_throttling_exception()
           | kms_opt_in_required()
-          | platform_application_disabled_exception()
+          | authorization_error_exception()
+          | invalid_batch_entry_id_exception()
+          | too_many_entries_in_batch_request_exception()
+          | invalid_security_exception()
+          | kms_access_denied_exception()
+          | internal_error_exception()
           | kms_disabled_exception()
+          | invalid_parameter_exception()
+          | platform_application_disabled_exception()
+          | batch_request_too_long_exception()
+          | kms_invalid_state_exception()
+          | validation_exception()
+          | kms_throttling_exception()
+          | batch_entry_ids_not_distinct_exception()
+          | endpoint_disabled_exception()
+          | kms_not_found_exception()
 
   @type put_data_protection_policy_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
-          | not_found_exception()
           | invalid_security_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
 
   @type remove_permission_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type set_endpoint_attributes_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type set_platform_application_attributes_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
 
   @type set_sms_attributes_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | throttled_exception()
 
   @type set_subscription_attributes_errors() ::
-          internal_error_exception()
-          | filter_policy_limit_exceeded_exception()
+          not_found_exception()
           | authorization_error_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
-          | not_found_exception()
           | replay_limit_exceeded_exception()
+          | filter_policy_limit_exceeded_exception()
 
   @type set_topic_attributes_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
-          | not_found_exception()
           | invalid_security_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
 
   @type subscribe_errors() ::
-          internal_error_exception()
-          | subscription_limit_exceeded_exception()
-          | filter_policy_limit_exceeded_exception()
+          not_found_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
-          | not_found_exception()
           | invalid_security_exception()
+          | subscription_limit_exceeded_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
           | replay_limit_exceeded_exception()
+          | filter_policy_limit_exceeded_exception()
 
   @type tag_resource_errors() ::
-          stale_tag_exception()
-          | concurrent_access_exception()
-          | authorization_error_exception()
-          | invalid_parameter_exception()
-          | tag_limit_exceeded_exception()
-          | resource_not_found_exception()
+          authorization_error_exception()
           | tag_policy_exception()
+          | resource_not_found_exception()
+          | tag_limit_exceeded_exception()
+          | concurrent_access_exception()
+          | invalid_parameter_exception()
+          | stale_tag_exception()
 
   @type unsubscribe_errors() ::
-          internal_error_exception()
+          not_found_exception()
           | authorization_error_exception()
-          | invalid_parameter_exception()
-          | not_found_exception()
           | invalid_security_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
 
   @type untag_resource_errors() ::
-          stale_tag_exception()
-          | concurrent_access_exception()
-          | authorization_error_exception()
-          | invalid_parameter_exception()
-          | tag_limit_exceeded_exception()
-          | resource_not_found_exception()
+          authorization_error_exception()
           | tag_policy_exception()
+          | resource_not_found_exception()
+          | tag_limit_exceeded_exception()
+          | concurrent_access_exception()
+          | invalid_parameter_exception()
+          | stale_tag_exception()
 
   @type verify_sms_sandbox_phone_number_errors() ::
-          internal_error_exception()
+          throttled_exception()
           | authorization_error_exception()
+          | resource_not_found_exception()
+          | internal_error_exception()
           | invalid_parameter_exception()
           | verification_exception()
-          | resource_not_found_exception()
-          | throttled_exception()
 
   def metadata do
     %{
@@ -1732,7 +1732,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, add_permission_errors()}
   def add_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddPermission", input, options)
   end
@@ -1757,7 +1758,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, check_if_phone_number_is_opted_out_errors()}
   def check_if_phone_number_is_opted_out(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckIfPhoneNumberIsOptedOut", input, options)
   end
@@ -1779,7 +1781,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, confirm_subscription_errors()}
   def confirm_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmSubscription", input, options)
   end
@@ -1859,7 +1862,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, create_platform_application_errors()}
   def create_platform_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlatformApplication", input, options)
   end
@@ -1889,7 +1893,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, create_platform_endpoint_errors()}
   def create_platform_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlatformEndpoint", input, options)
   end
@@ -1918,7 +1923,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, create_sms_sandbox_phone_number_errors()}
   def create_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSMSSandboxPhoneNumber", input, options)
   end
@@ -1940,7 +1946,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, create_topic_errors()}
   def create_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTopic", input, options)
   end
@@ -1961,7 +1968,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
@@ -1980,7 +1988,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, delete_platform_application_errors()}
   def delete_platform_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePlatformApplication", input, options)
   end
@@ -2009,7 +2018,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, delete_sms_sandbox_phone_number_errors()}
   def delete_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSMSSandboxPhoneNumber", input, options)
   end
@@ -2029,7 +2039,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, delete_topic_errors()}
   def delete_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTopic", input, options)
   end
@@ -2044,7 +2055,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_data_protection_policy_errors()}
   def get_data_protection_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataProtectionPolicy", input, options)
   end
@@ -2062,7 +2074,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_endpoint_attributes_errors()}
   def get_endpoint_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEndpointAttributes", input, options)
   end
@@ -2085,7 +2098,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_platform_application_attributes_errors()}
   def get_platform_application_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlatformApplicationAttributes", input, options)
   end
@@ -2102,7 +2116,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_sms_attributes_errors()}
   def get_sms_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSMSAttributes", input, options)
   end
@@ -2131,7 +2146,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_sms_sandbox_account_status_errors()}
   def get_sms_sandbox_account_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSMSSandboxAccountStatus", input, options)
   end
@@ -2145,7 +2161,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_subscription_attributes_errors()}
   def get_subscription_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSubscriptionAttributes", input, options)
   end
@@ -2162,7 +2179,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_topic_attributes_errors()}
   def get_topic_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTopicAttributes", input, options)
   end
@@ -2194,7 +2212,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_endpoints_by_platform_application_errors()}
   def list_endpoints_by_platform_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointsByPlatformApplication", input, options)
   end
@@ -2213,7 +2232,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_origination_numbers_errors()}
   def list_origination_numbers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOriginationNumbers", input, options)
   end
@@ -2236,7 +2256,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_phone_numbers_opted_out_errors()}
   def list_phone_numbers_opted_out(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPhoneNumbersOptedOut", input, options)
   end
@@ -2264,7 +2285,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_platform_applications_errors()}
   def list_platform_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlatformApplications", input, options)
   end
@@ -2293,7 +2315,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_sms_sandbox_phone_numbers_errors()}
   def list_sms_sandbox_phone_numbers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSMSSandboxPhoneNumbers", input, options)
   end
@@ -2314,7 +2337,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_subscriptions_errors()}
   def list_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscriptions", input, options)
   end
@@ -2335,7 +2359,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_subscriptions_by_topic_errors()}
   def list_subscriptions_by_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscriptionsByTopic", input, options)
   end
@@ -2352,7 +2377,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2373,7 +2399,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_topics_errors()}
   def list_topics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTopics", input, options)
   end
@@ -2391,7 +2418,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, opt_in_phone_number_errors()}
   def opt_in_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OptInPhoneNumber", input, options)
   end
@@ -2429,7 +2457,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, publish_errors()}
   def publish(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Publish", input, options)
   end
@@ -2490,7 +2519,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, publish_batch_errors()}
   def publish_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PublishBatch", input, options)
   end
@@ -2506,7 +2536,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, put_data_protection_policy_errors()}
   def put_data_protection_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDataProtectionPolicy", input, options)
   end
@@ -2524,7 +2555,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemovePermission", input, options)
   end
@@ -2542,7 +2574,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_endpoint_attributes_errors()}
   def set_endpoint_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetEndpointAttributes", input, options)
   end
@@ -2568,7 +2601,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_platform_application_attributes_errors()}
   def set_platform_application_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetPlatformApplicationAttributes", input, options)
   end
@@ -2593,7 +2627,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_sms_attributes_errors()}
   def set_sms_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSMSAttributes", input, options)
   end
@@ -2608,7 +2643,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_subscription_attributes_errors()}
   def set_subscription_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSubscriptionAttributes", input, options)
   end
@@ -2626,7 +2662,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_topic_attributes_errors()}
   def set_topic_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTopicAttributes", input, options)
   end
@@ -2650,7 +2687,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, subscribe_errors()}
   def subscribe(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Subscribe", input, options)
   end
@@ -2688,7 +2726,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2714,7 +2753,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, unsubscribe_errors()}
   def unsubscribe(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Unsubscribe", input, options)
   end
@@ -2731,7 +2771,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2760,7 +2801,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, verify_sms_sandbox_phone_number_errors()}
   def verify_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifySMSSandboxPhoneNumber", input, options)
   end

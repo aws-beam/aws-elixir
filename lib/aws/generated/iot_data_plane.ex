@@ -31,12 +31,58 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      conflict_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_timeout_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type gateway_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscriptions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_subscriptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscriptions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "subscriptions" => list(subscription_summary())
+      }
+
+  """
+  @type list_subscriptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,34 +100,48 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      delete_thing_shadow_request() :: %{
-        optional("shadowName") => String.t() | atom()
+      list_retained_messages_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "retainedTopics" => list(retained_message_summary())
       }
 
   """
-  @type delete_thing_shadow_request() :: %{(String.t() | atom()) => any()}
+  @type list_retained_messages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_thing_shadow_response() :: %{
-        "payload" => binary()
+      get_connection_request() :: %{
+        optional("includeSocketInformation") => boolean()
       }
 
   """
-  @type delete_thing_shadow_response() :: %{(String.t() | atom()) => any()}
+  @type get_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      forbidden_exception() :: %{
-        "message" => String.t() | atom()
+      get_connection_response() :: %{
+        "cleanSession" => boolean(),
+        "clientId" => String.t() | atom(),
+        "connected" => boolean(),
+        "connectedSince" => float(),
+        "disconnectReason" => String.t() | atom(),
+        "disconnectedSince" => float(),
+        "keepAliveDuration" => integer(),
+        "sessionExpiry" => float(),
+        "sourceIp" => String.t() | atom(),
+        "sourcePort" => integer(),
+        "targetIp" => String.t() | atom(),
+        "targetPort" => integer(),
+        "thingName" => String.t() | atom(),
+        "vpcEndpointId" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+  @type get_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,23 +171,31 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      get_thing_shadow_request() :: %{
-        optional("shadowName") => String.t() | atom()
+      delete_thing_shadow_response() :: %{
+        "payload" => binary()
       }
 
   """
-  @type get_thing_shadow_request() :: %{(String.t() | atom()) => any()}
+  @type delete_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_thing_shadow_response() :: %{
-        "payload" => binary()
+      send_direct_message_request() :: %{
+        optional("confirmation") => boolean(),
+        optional("contentType") => String.t() | atom(),
+        optional("correlationData") => String.t() | atom(),
+        optional("payload") => binary(),
+        optional("payloadFormatIndicator") => list(any()),
+        optional("responseTopic") => String.t() | atom(),
+        optional("timeout") => integer(),
+        required("topic") => String.t() | atom(),
+        optional("userProperties") => String.t() | atom()
       }
 
   """
-  @type get_thing_shadow_response() :: %{(String.t() | atom()) => any()}
+  @type send_direct_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,24 +212,48 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
+      retained_message_summary() :: %{
+        "lastModifiedTime" => float(),
+        "payloadSize" => float(),
+        "qos" => integer(),
+        "topic" => String.t() | atom()
+      }
+
+  """
+  @type retained_message_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_request_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_named_shadows_for_thing_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("pageSize") => integer()
-      }
-
-  """
-  @type list_named_shadows_for_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,36 +272,35 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      list_retained_messages_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      subscription_summary() :: %{
+        "qos" => integer(),
+        "topicFilter" => String.t() | atom()
       }
 
   """
-  @type list_retained_messages_request() :: %{(String.t() | atom()) => any()}
+  @type subscription_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_retained_messages_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "retainedTopics" => list(retained_message_summary())
-      }
-
-  """
-  @type list_retained_messages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      method_not_allowed_exception() :: %{
+      unsupported_document_encoding_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+  @type unsupported_document_encoding_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_shadow_request() :: %{
+        optional("shadowName") => String.t() | atom()
+      }
+
+  """
+  @type delete_thing_shadow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,37 +325,82 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      request_entity_too_large_exception() :: %{
-        "message" => String.t() | atom()
+      get_thing_shadow_request() :: %{
+        optional("shadowName") => String.t() | atom()
       }
 
   """
-  @type request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
+  @type get_thing_shadow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      list_named_shadows_for_thing_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("pageSize") => integer()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type list_named_shadows_for_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      retained_message_summary() :: %{
-        "lastModifiedTime" => float(),
-        "payloadSize" => float(),
-        "qos" => integer(),
-        "topic" => String.t() | atom()
+      update_thing_shadow_request() :: %{
+        required("payload") => binary(),
+        optional("shadowName") => String.t() | atom()
       }
 
   """
-  @type retained_message_summary() :: %{(String.t() | atom()) => any()}
+  @type update_thing_shadow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_direct_message_response() :: %{
+        "message" => String.t() | atom(),
+        "traceId" => String.t() | atom()
+      }
+
+  """
+  @type send_direct_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retained_messages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_retained_messages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_shadow_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type get_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,46 +417,12 @@ defmodule AWS.IoTDataPlane do
 
   ## Example:
 
-      throttling_exception() :: %{
+      request_entity_too_large_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_document_encoding_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unsupported_document_encoding_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_shadow_request() :: %{
-        optional("shadowName") => String.t() | atom(),
-        required("payload") => binary()
-      }
-
-  """
-  @type update_thing_shadow_request() :: %{(String.t() | atom()) => any()}
+  @type request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -333,76 +435,111 @@ defmodule AWS.IoTDataPlane do
   """
   @type update_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
   @type delete_connection_errors() ::
           throttling_exception()
-          | resource_not_found_exception()
           | invalid_request_exception()
           | internal_failure_exception()
           | forbidden_exception()
+          | resource_not_found_exception()
 
   @type delete_thing_shadow_errors() ::
-          unsupported_document_encoding_exception()
-          | unauthorized_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
+          | unsupported_document_encoding_exception()
+          | invalid_request_exception()
           | method_not_allowed_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+          | resource_not_found_exception()
+
+  @type get_connection_errors() ::
+          throttling_exception()
           | invalid_request_exception()
           | internal_failure_exception()
+          | forbidden_exception()
+          | resource_not_found_exception()
 
   @type get_retained_message_errors() ::
-          unauthorized_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
-          | method_not_allowed_exception()
           | invalid_request_exception()
+          | method_not_allowed_exception()
+          | unauthorized_exception()
           | internal_failure_exception()
+          | resource_not_found_exception()
 
   @type get_thing_shadow_errors() ::
-          unsupported_document_encoding_exception()
-          | unauthorized_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
-          | method_not_allowed_exception()
+          | unsupported_document_encoding_exception()
           | invalid_request_exception()
+          | method_not_allowed_exception()
+          | unauthorized_exception()
           | internal_failure_exception()
+          | resource_not_found_exception()
 
   @type list_named_shadows_for_thing_errors() ::
-          unauthorized_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
-          | method_not_allowed_exception()
           | invalid_request_exception()
+          | method_not_allowed_exception()
+          | unauthorized_exception()
           | internal_failure_exception()
+          | resource_not_found_exception()
 
   @type list_retained_messages_errors() ::
-          unauthorized_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_unavailable_exception()
+          | invalid_request_exception()
           | method_not_allowed_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type list_subscriptions_errors() ::
+          throttling_exception()
           | invalid_request_exception()
           | internal_failure_exception()
+          | forbidden_exception()
+          | resource_not_found_exception()
 
   @type publish_errors() ::
-          unauthorized_exception()
-          | throttling_exception()
-          | method_not_allowed_exception()
+          throttling_exception()
           | invalid_request_exception()
+          | method_not_allowed_exception()
+          | unauthorized_exception()
           | internal_failure_exception()
 
-  @type update_thing_shadow_errors() ::
-          unsupported_document_encoding_exception()
-          | unauthorized_exception()
-          | throttling_exception()
-          | service_unavailable_exception()
+  @type send_direct_message_errors() ::
+          throttling_exception()
           | request_entity_too_large_exception()
-          | method_not_allowed_exception()
           | invalid_request_exception()
+          | unauthorized_exception()
           | internal_failure_exception()
+          | forbidden_exception()
+          | gateway_timeout_exception()
+          | resource_not_found_exception()
+
+  @type update_thing_shadow_errors() ::
+          throttling_exception()
+          | request_entity_too_large_exception()
+          | service_unavailable_exception()
           | conflict_exception()
+          | unsupported_document_encoding_exception()
+          | invalid_request_exception()
+          | method_not_allowed_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
 
   def metadata do
     %{
@@ -425,6 +562,10 @@ defmodule AWS.IoTDataPlane do
 
   When you disconnect a client, Amazon Web Services IoT Core closes the client's
   network connection and optionally cleans the session state.
+
+  Requires permission to access the
+  [DeleteConnection](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
   """
   @spec delete_connection(map(), String.t() | atom(), delete_connection_request(), list()) ::
           {:ok, nil, any()}
@@ -438,8 +579,8 @@ defmodule AWS.IoTDataPlane do
 
     {query_params, input} =
       [
-        {"cleanSession", "cleanSession"},
-        {"preventWillMessage", "preventWillMessage"}
+        {"preventWillMessage", "preventWillMessage"},
+        {"cleanSession", "cleanSession"}
       ]
       |> Request.build_params(input)
 
@@ -497,6 +638,40 @@ defmodule AWS.IoTDataPlane do
       options,
       200
     )
+  end
+
+  @doc """
+  Retrieves connection information for the specified MQTT client.
+
+  Requires permission to access the
+  [GetConnection](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  @spec get_connection(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+          {:ok, get_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connection_errors()}
+  def get_connection(
+        %Client{} = client,
+        client_id,
+        include_socket_information \\ nil,
+        options \\ []
+      ) do
+    url_path = "/connections/#{AWS.Util.encode_uri(client_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(include_socket_information) do
+        [{"includeSocketInformation", include_socket_information} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -581,8 +756,8 @@ defmodule AWS.IoTDataPlane do
   def list_named_shadows_for_thing(
         %Client{} = client,
         thing_name,
-        next_token \\ nil,
         page_size \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/api/things/shadow/ListNamedShadowsForThing/#{AWS.Util.encode_uri(thing_name)}"
@@ -590,15 +765,15 @@ defmodule AWS.IoTDataPlane do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -637,13 +812,20 @@ defmodule AWS.IoTDataPlane do
           | {:error, list_retained_messages_errors()}
   def list_retained_messages(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/retainedMessage"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -652,9 +834,51 @@ defmodule AWS.IoTDataPlane do
         query_params
       end
 
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of all subscriptions for MQTT clients with active sessions,
+  including offline clients with persistent sessions.
+
+  Requires permission to access the
+  [ListSubscriptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  @spec list_subscriptions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_subscriptions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_subscriptions_errors()}
+  def list_subscriptions(
+        %Client{} = client,
+        client_id,
+        next_token \\ nil,
+        max_results \\ nil,
+        options \\ []
+      ) do
+    url_path = "/connections/#{AWS.Util.encode_uri(client_id)}/subscriptions"
+    headers = []
+    query_params = []
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -687,9 +911,9 @@ defmodule AWS.IoTDataPlane do
 
     {headers, input} =
       [
-        {"correlationData", "x-amz-mqtt5-correlation-data"},
+        {"userProperties", "x-amz-mqtt5-user-properties"},
         {"payloadFormatIndicator", "x-amz-mqtt5-payload-format-indicator"},
-        {"userProperties", "x-amz-mqtt5-user-properties"}
+        {"correlationData", "x-amz-mqtt5-correlation-data"}
       ]
       |> Request.build_params(input)
 
@@ -697,11 +921,67 @@ defmodule AWS.IoTDataPlane do
 
     {query_params, input} =
       [
-        {"contentType", "contentType"},
-        {"messageExpiry", "messageExpiry"},
-        {"qos", "qos"},
+        {"retain", "retain"},
         {"responseTopic", "responseTopic"},
-        {"retain", "retain"}
+        {"qos", "qos"},
+        {"messageExpiry", "messageExpiry"},
+        {"contentType", "contentType"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sends an MQTT message directly to a specific client identified by its client ID.
+
+  `SendDirectMessage` targets a single client ID. The receiving client does not
+  need to subscribe to the topic, but the receiver's policy must allow
+  `iot:Receive` on the specified topic.
+
+  Requires permission to access the
+  [SendDirectMessage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+
+  For more information about messaging costs, see [Amazon Web Services IoT Core
+  pricing](http://aws.amazon.com/iot-core/pricing/).
+  """
+  @spec send_direct_message(map(), String.t() | atom(), send_direct_message_request(), list()) ::
+          {:ok, send_direct_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_direct_message_errors()}
+  def send_direct_message(%Client{} = client, client_id, input, options \\ []) do
+    url_path = "/connections/#{AWS.Util.encode_uri(client_id)}/messages"
+
+    {headers, input} =
+      [
+        {"userProperties", "x-amz-mqtt5-user-properties"},
+        {"payloadFormatIndicator", "x-amz-mqtt5-payload-format-indicator"},
+        {"correlationData", "x-amz-mqtt5-correlation-data"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"topic", "topic"},
+        {"timeout", "timeout"},
+        {"responseTopic", "responseTopic"},
+        {"contentType", "contentType"},
+        {"confirmation", "confirmation"}
       ]
       |> Request.build_params(input)
 

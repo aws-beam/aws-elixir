@@ -22,52 +22,6 @@ defmodule AWS.CloudSearchDomain do
 
   ## Example:
 
-      bucket() :: %{
-        "count" => float(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type bucket() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bucket_info() :: %{
-        "buckets" => list(bucket())
-      }
-
-  """
-  @type bucket_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_service_exception() :: %{
-        "message" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type document_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_service_warning() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type document_service_warning() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       field_stats() :: %{
         "count" => float(),
         "max" => String.t() | atom(),
@@ -81,6 +35,41 @@ defmodule AWS.CloudSearchDomain do
 
   """
   @type field_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket() :: %{
+        "count" => float(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type bucket() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suggest_response() :: %{
+        "status" => suggest_status(),
+        "suggest" => suggest_model()
+      }
+
+  """
+  @type suggest_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_info() :: %{
+        "buckets" => list(bucket())
+      }
+
+  """
+  @type bucket_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,50 +89,25 @@ defmodule AWS.CloudSearchDomain do
 
   ## Example:
 
-      hits() :: %{
-        "cursor" => String.t() | atom(),
-        "found" => float(),
-        "hit" => list(hit()),
-        "start" => float()
+      suggest_request() :: %{
+        required("query") => String.t() | atom(),
+        optional("size") => float(),
+        required("suggester") => String.t() | atom()
       }
 
   """
-  @type hits() :: %{(String.t() | atom()) => any()}
+  @type suggest_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_exception() :: %{
+      document_service_warning() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type search_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_request() :: %{
-        optional("cursor") => String.t() | atom(),
-        optional("expr") => String.t() | atom(),
-        optional("facet") => String.t() | atom(),
-        optional("filterQuery") => String.t() | atom(),
-        optional("highlight") => String.t() | atom(),
-        optional("partial") => boolean(),
-        optional("queryOptions") => String.t() | atom(),
-        optional("queryParser") => list(any()),
-        optional("return") => String.t() | atom(),
-        optional("size") => float(),
-        optional("sort") => String.t() | atom(),
-        optional("start") => float(),
-        optional("stats") => String.t() | atom(),
-        required("query") => String.t() | atom()
-      }
-
-  """
-  @type search_request() :: %{(String.t() | atom()) => any()}
+  @type document_service_warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,63 +127,50 @@ defmodule AWS.CloudSearchDomain do
 
   ## Example:
 
-      search_status() :: %{
-        "rid" => String.t() | atom(),
-        "timems" => float()
+      search_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type search_status() :: %{(String.t() | atom()) => any()}
+  @type search_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      suggest_model() :: %{
+      hits() :: %{
+        "cursor" => String.t() | atom(),
         "found" => float(),
-        "query" => String.t() | atom(),
-        "suggestions" => list(suggestion_match())
+        "hit" => list(hit()),
+        "start" => float()
       }
 
   """
-  @type suggest_model() :: %{(String.t() | atom()) => any()}
+  @type hits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      suggest_request() :: %{
-        optional("size") => float(),
+      search_request() :: %{
+        optional("cursor") => String.t() | atom(),
+        optional("expr") => String.t() | atom(),
+        optional("facet") => String.t() | atom(),
+        optional("filterQuery") => String.t() | atom(),
+        optional("highlight") => String.t() | atom(),
+        optional("partial") => boolean(),
         required("query") => String.t() | atom(),
-        required("suggester") => String.t() | atom()
+        optional("queryOptions") => String.t() | atom(),
+        optional("queryParser") => list(any()),
+        optional("return") => String.t() | atom(),
+        optional("size") => float(),
+        optional("sort") => String.t() | atom(),
+        optional("start") => float(),
+        optional("stats") => String.t() | atom()
       }
 
   """
-  @type suggest_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suggest_response() :: %{
-        "status" => suggest_status(),
-        "suggest" => suggest_model()
-      }
-
-  """
-  @type suggest_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suggest_status() :: %{
-        "rid" => String.t() | atom(),
-        "timems" => float()
-      }
-
-  """
-  @type suggest_status() :: %{(String.t() | atom()) => any()}
+  @type search_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -238,6 +189,56 @@ defmodule AWS.CloudSearchDomain do
 
   ## Example:
 
+      upload_documents_response() :: %{
+        "adds" => float(),
+        "deletes" => float(),
+        "status" => String.t() | atom(),
+        "warnings" => list(document_service_warning())
+      }
+
+  """
+  @type upload_documents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suggest_status() :: %{
+        "rid" => String.t() | atom(),
+        "timems" => float()
+      }
+
+  """
+  @type suggest_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_service_exception() :: %{
+        "message" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type document_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_status() :: %{
+        "rid" => String.t() | atom(),
+        "timems" => float()
+      }
+
+  """
+  @type search_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       upload_documents_request() :: %{
         required("contentType") => list(any()),
         required("documents") => binary()
@@ -250,15 +251,14 @@ defmodule AWS.CloudSearchDomain do
 
   ## Example:
 
-      upload_documents_response() :: %{
-        "adds" => float(),
-        "deletes" => float(),
-        "status" => String.t() | atom(),
-        "warnings" => list(document_service_warning())
+      suggest_model() :: %{
+        "found" => float(),
+        "query" => String.t() | atom(),
+        "suggestions" => list(suggestion_match())
       }
 
   """
-  @type upload_documents_response() :: %{(String.t() | atom()) => any()}
+  @type suggest_model() :: %{(String.t() | atom()) => any()}
 
   @type search_errors() :: search_exception()
 
@@ -318,8 +318,8 @@ defmodule AWS.CloudSearchDomain do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
-          String.t() | atom(),
           String.t() | atom() | nil,
+          String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -334,20 +334,20 @@ defmodule AWS.CloudSearchDomain do
           | {:error, search_errors()}
   def search(
         %Client{} = client,
-        cursor \\ nil,
-        expr \\ nil,
-        facet \\ nil,
-        filter_query \\ nil,
-        highlight \\ nil,
-        partial \\ nil,
-        query,
-        query_options \\ nil,
-        query_parser \\ nil,
-        return \\ nil,
-        size \\ nil,
-        sort \\ nil,
-        start \\ nil,
         stats \\ nil,
+        start \\ nil,
+        sort \\ nil,
+        size \\ nil,
+        return \\ nil,
+        query_parser \\ nil,
+        query_options \\ nil,
+        query,
+        partial \\ nil,
+        highlight \\ nil,
+        filter_query \\ nil,
+        facet \\ nil,
+        expr \\ nil,
+        cursor \\ nil,
         options \\ []
       ) do
     url_path = "/2013-01-01/search?format=sdk&pretty=true"
@@ -355,85 +355,8 @@ defmodule AWS.CloudSearchDomain do
     query_params = []
 
     query_params =
-      if !is_nil(stats) do
-        [{"stats", stats} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(start) do
-        [{"start", start} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(sort) do
-        [{"sort", sort} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(size) do
-        [{"size", size} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(return) do
-        [{"return", return} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query_parser) do
-        [{"q.parser", query_parser} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query_options) do
-        [{"q.options", query_options} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(query) do
-        [{"q", query} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(partial) do
-        [{"partial", partial} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(highlight) do
-        [{"highlight", highlight} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(filter_query) do
-        [{"fq", filter_query} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(facet) do
-        [{"facet", facet} | query_params]
+      if !is_nil(cursor) do
+        [{"cursor", cursor} | query_params]
       else
         query_params
       end
@@ -446,8 +369,85 @@ defmodule AWS.CloudSearchDomain do
       end
 
     query_params =
-      if !is_nil(cursor) do
-        [{"cursor", cursor} | query_params]
+      if !is_nil(facet) do
+        [{"facet", facet} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter_query) do
+        [{"fq", filter_query} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(highlight) do
+        [{"highlight", highlight} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(partial) do
+        [{"partial", partial} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query) do
+        [{"q", query} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query_options) do
+        [{"q.options", query_options} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query_parser) do
+        [{"q.parser", query_parser} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(return) do
+        [{"return", return} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(size) do
+        [{"size", size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort) do
+        [{"sort", sort} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start) do
+        [{"start", start} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(stats) do
+        [{"stats", stats} | query_params]
       else
         query_params
       end
@@ -488,14 +488,14 @@ defmodule AWS.CloudSearchDomain do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, suggest_errors()}
-  def suggest(%Client{} = client, query, size \\ nil, suggester, options \\ []) do
+  def suggest(%Client{} = client, suggester, size \\ nil, query, options \\ []) do
     url_path = "/2013-01-01/suggest?format=sdk&pretty=true"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(suggester) do
-        [{"suggester", suggester} | query_params]
+      if !is_nil(query) do
+        [{"q", query} | query_params]
       else
         query_params
       end
@@ -508,8 +508,8 @@ defmodule AWS.CloudSearchDomain do
       end
 
     query_params =
-      if !is_nil(query) do
-        [{"q", query} | query_params]
+      if !is_nil(suggester) do
+        [{"suggester", suggester} | query_params]
       else
         query_params
       end

@@ -13,36 +13,23 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      asset_processing_configuration() :: %{
-        "video" => video_asset_processing_configuration()
+      event_bridge_configuration() :: %{
+        "eventBridgeEnabled" => [boolean()]
       }
       
   """
-  @type asset_processing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      blueprint() :: %{
-        "blueprintArn" => String.t() | atom(),
-        "stage" => list(any()),
-        "version" => String.t() | atom()
-      }
-      
-  """
-  @type blueprint() :: %{(String.t() | atom()) => any()}
+  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,33 +47,24 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
-      encryption_configuration() :: %{
-        "kmsEncryptionContext" => map(),
-        "kmsKeyId" => String.t() | atom()
+      asset_processing_configuration() :: %{
+        "video" => video_asset_processing_configuration()
       }
       
   """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type asset_processing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      event_bridge_configuration() :: %{
-        "eventBridgeEnabled" => [boolean()]
+      sync_input_configuration() :: %{
+        "bytes" => [binary()],
+        "s3Uri" => String.t() | atom()
       }
       
   """
-  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_data_automation_status_request() :: %{}
-      
-  """
-  @type get_data_automation_status_request() :: %{}
+  @type sync_input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,13 +87,80 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
-      input_configuration() :: %{
-        "assetProcessingConfiguration" => asset_processing_configuration(),
+      get_data_automation_status_request() :: %{}
+      
+  """
+  @type get_data_automation_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      video_asset_processing_configuration() :: %{
+        "segmentConfiguration" => list()
+      }
+      
+  """
+  @type video_asset_processing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoke_data_automation_response() :: %{
+        "outputConfiguration" => output_configuration(),
+        "outputSegments" => list(output_segment()),
+        "semanticModality" => list(any())
+      }
+      
+  """
+  @type invoke_data_automation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_configuration() :: %{
         "s3Uri" => String.t() | atom()
       }
       
   """
-  @type input_configuration() :: %{(String.t() | atom()) => any()}
+  @type output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoke_data_automation_async_response() :: %{
+        "invocationArn" => String.t() | atom()
+      }
+      
+  """
+  @type invoke_data_automation_async_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_segment() :: %{
+        "customOutput" => [String.t() | atom()],
+        "customOutputStatus" => list(any()),
+        "standardOutput" => [String.t() | atom()]
+      }
+      
+  """
+  @type output_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,214 +181,16 @@ defmodule AWS.BedrockDataAutomationRuntime do
         optional("blueprints") => list(blueprint()),
         optional("clientToken") => String.t() | atom(),
         optional("dataAutomationConfiguration") => data_automation_configuration(),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("notificationConfiguration") => notification_configuration(),
-        optional("tags") => list(tag()),
         required("dataAutomationProfileArn") => String.t() | atom(),
+        optional("encryptionConfiguration") => encryption_configuration(),
         required("inputConfiguration") => input_configuration(),
-        required("outputConfiguration") => output_configuration()
+        optional("notificationConfiguration") => notification_configuration(),
+        required("outputConfiguration") => output_configuration(),
+        optional("tags") => list(tag())
       }
       
   """
   @type invoke_data_automation_async_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoke_data_automation_async_response() :: %{
-        "invocationArn" => String.t() | atom()
-      }
-      
-  """
-  @type invoke_data_automation_async_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoke_data_automation_request() :: %{
-        optional("blueprints") => list(blueprint()),
-        optional("dataAutomationConfiguration") => data_automation_configuration(),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("outputConfiguration") => output_configuration(),
-        required("dataAutomationProfileArn") => String.t() | atom(),
-        required("inputConfiguration") => sync_input_configuration()
-      }
-      
-  """
-  @type invoke_data_automation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoke_data_automation_response() :: %{
-        "outputConfiguration" => output_configuration(),
-        "outputSegments" => list(output_segment()),
-        "semanticModality" => list(any())
-      }
-      
-  """
-  @type invoke_data_automation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notification_configuration() :: %{
-        "eventBridgeConfiguration" => event_bridge_configuration()
-      }
-      
-  """
-  @type notification_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_configuration() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-      
-  """
-  @type output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_segment() :: %{
-        "customOutput" => [String.t() | atom()],
-        "customOutputStatus" => list(any()),
-        "standardOutput" => [String.t() | atom()]
-      }
-      
-  """
-  @type output_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sync_input_configuration() :: %{
-        "bytes" => [binary()],
-        "s3Uri" => String.t() | atom()
-      }
-      
-  """
-  @type sync_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceARN") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      timestamp_segment() :: %{
-        "endTimeMillis" => [float()],
-        "startTimeMillis" => [float()]
-      }
-      
-  """
-  @type timestamp_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,10 +208,12 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
-      untag_resource_response() :: %{}
+      list_tags_for_resource_request() :: %{
+        required("resourceARN") => String.t() | atom()
+      }
       
   """
-  @type untag_resource_response() :: %{}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,55 +230,206 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
-      video_asset_processing_configuration() :: %{
-        "segmentConfiguration" => list()
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type video_asset_processing_configuration() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_configuration() :: %{
+        "assetProcessingConfiguration" => asset_processing_configuration(),
+        "s3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoke_data_automation_request() :: %{
+        optional("blueprints") => list(blueprint()),
+        optional("dataAutomationConfiguration") => data_automation_configuration(),
+        required("dataAutomationProfileArn") => String.t() | atom(),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        required("inputConfiguration") => sync_input_configuration(),
+        optional("outputConfiguration") => output_configuration()
+      }
+      
+  """
+  @type invoke_data_automation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceARN") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notification_configuration() :: %{
+        "eventBridgeConfiguration" => event_bridge_configuration()
+      }
+      
+  """
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestamp_segment() :: %{
+        "endTimeMillis" => [float()],
+        "startTimeMillis" => [float()]
+      }
+      
+  """
+  @type timestamp_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      blueprint() :: %{
+        "blueprintArn" => String.t() | atom(),
+        "stage" => list(any()),
+        "version" => String.t() | atom()
+      }
+      
+  """
+  @type blueprint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration() :: %{
+        "kmsEncryptionContext" => map(),
+        "kmsKeyId" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @type get_data_automation_status_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
           | internal_server_exception()
-          | access_denied_exception()
 
   @type invoke_data_automation_errors() ::
-          validation_exception()
+          access_denied_exception()
           | throttling_exception()
-          | service_unavailable_exception()
+          | validation_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | service_unavailable_exception()
 
   @type invoke_data_automation_async_errors() ::
-          validation_exception()
+          access_denied_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | internal_server_exception()
-          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
           | internal_server_exception()
-          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          validation_exception()
+          access_denied_exception()
+          | resource_not_found_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
-          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | resource_not_found_exception()
+          | throttling_exception()
+          | validation_exception()
           | internal_server_exception()
-          | access_denied_exception()
 
   def metadata do
     %{
@@ -456,7 +456,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, get_data_automation_status_errors()}
   def get_data_automation_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataAutomationStatus", input, options)
   end
@@ -470,7 +471,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, invoke_data_automation_errors()}
   def invoke_data_automation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvokeDataAutomation", input, options)
   end
@@ -484,7 +486,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, invoke_data_automation_async_errors()}
   def invoke_data_automation_async(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvokeDataAutomationAsync", input, options)
   end
@@ -498,7 +501,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -512,7 +516,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -526,7 +531,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

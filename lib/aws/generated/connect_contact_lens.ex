@@ -35,6 +35,18 @@ defmodule AWS.ConnectContactLens do
 
   ## Example:
 
+      list_realtime_contact_analysis_segments_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Segments" => list(realtime_contact_analysis_segment())
+      }
+
+  """
+  @type list_realtime_contact_analysis_segments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -58,83 +70,14 @@ defmodule AWS.ConnectContactLens do
 
   ## Example:
 
-      category_details() :: %{
-        "PointsOfInterest" => list(point_of_interest())
+      realtime_contact_analysis_segment() :: %{
+        "Categories" => categories(),
+        "PostContactSummary" => post_contact_summary(),
+        "Transcript" => transcript()
       }
 
   """
-  @type category_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      character_offsets() :: %{
-        "BeginOffsetChar" => integer(),
-        "EndOffsetChar" => integer()
-      }
-
-  """
-  @type character_offsets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      issue_detected() :: %{
-        "CharacterOffsets" => character_offsets()
-      }
-
-  """
-  @type issue_detected() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_realtime_contact_analysis_segments_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ContactId") => String.t() | atom(),
-        required("InstanceId") => String.t() | atom()
-      }
-
-  """
-  @type list_realtime_contact_analysis_segments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_realtime_contact_analysis_segments_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Segments" => list(realtime_contact_analysis_segment())
-      }
-
-  """
-  @type list_realtime_contact_analysis_segments_response() :: %{(String.t() | atom()) => any()}
+  @type realtime_contact_analysis_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,25 +108,60 @@ defmodule AWS.ConnectContactLens do
 
   ## Example:
 
-      realtime_contact_analysis_segment() :: %{
-        "Categories" => categories(),
-        "PostContactSummary" => post_contact_summary(),
-        "Transcript" => transcript()
+      category_details() :: %{
+        "PointsOfInterest" => list(point_of_interest())
       }
 
   """
-  @type realtime_contact_analysis_segment() :: %{(String.t() | atom()) => any()}
+  @type category_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
+      internal_service_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_realtime_contact_analysis_segments_request() :: %{
+        required("ContactId") => String.t() | atom(),
+        required("InstanceId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_realtime_contact_analysis_segments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      character_offsets() :: %{
+        "BeginOffsetChar" => integer(),
+        "EndOffsetChar" => integer()
+      }
+
+  """
+  @type character_offsets() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -195,6 +173,17 @@ defmodule AWS.ConnectContactLens do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -214,9 +203,20 @@ defmodule AWS.ConnectContactLens do
   """
   @type transcript() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      issue_detected() :: %{
+        "CharacterOffsets" => character_offsets()
+      }
+
+  """
+  @type issue_detected() :: %{(String.t() | atom()) => any()}
+
   @type list_realtime_contact_analysis_segments_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | internal_service_exception()
           | access_denied_exception()

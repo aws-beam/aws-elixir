@@ -21,133 +21,33 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      certificate_summary() :: %{
+        "issuer" => String.t() | atom(),
+        "notValidAfter" => non_neg_integer(),
+        "notValidBefore" => non_neg_integer(),
+        "subject" => String.t() | atom(),
+        "thumbprint" => String.t() | atom()
+      }
+
+  """
+  @type certificate_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_ip_access_settings_request() :: %{
         optional("additionalEncryptionContext") => map(),
         optional("clientToken") => String.t() | atom(),
         optional("customerManagedKey") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("displayName") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("ipRules") => list(ip_rule())
+        required("ipRules") => list(ip_rule()),
+        optional("tags") => list(tag())
       }
 
   """
   @type create_ip_access_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_rule() :: %{
-        "description" => String.t() | atom(),
-        "ipRange" => String.t() | atom()
-      }
-
-  """
-  @type ip_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_browser_settings_response() :: %{
-        "browserSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type create_browser_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      expire_session_response() :: %{}
-
-  """
-  @type expire_session_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trust_store_certificate_request() :: %{
-        required("thumbprint") => String.t() | atom()
-      }
-
-  """
-  @type get_trust_store_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ip_access_settings_response() :: %{
-        "ipAccessSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type create_ip_access_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_access_settings_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "ipAccessSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type ip_access_settings_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_user_settings_response() :: %{
-        "portalArn" => String.t() | atom(),
-        "userSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_user_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cookie_synchronization_configuration() :: %{
-        "allowlist" => list(cookie_specification()),
-        "blocklist" => list(cookie_specification())
-      }
-
-  """
-  @type cookie_synchronization_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trust_store_summary() :: %{
-        "trustStoreArn" => String.t() | atom()
-      }
-
-  """
-  @type trust_store_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,246 +65,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      get_portal_request() :: %{}
-
-  """
-  @type get_portal_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_settings_request() :: %{}
-
-  """
-  @type get_network_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_access_logging_settings_response() :: %{
-        "userAccessLoggingSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type create_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_summary() :: %{
-        "endTime" => non_neg_integer(),
-        "portalArn" => String.t() | atom(),
-        "sessionId" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_providers_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_identity_providers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_response() :: %{
-        "session" => session()
-      }
-
-  """
-  @type get_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portal_service_provider_metadata_request() :: %{}
-
-  """
-  @type get_portal_service_provider_metadata_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trust_store_certificates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_trust_store_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_session_logger_request() :: %{
-        optional("displayName") => String.t() | atom(),
-        optional("eventFilter") => list(),
-        optional("logConfiguration") => log_configuration()
-      }
-
-  """
-  @type update_session_logger_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_identity_provider_response() :: %{
-        "identityProvider" => identity_provider()
-      }
-
-  """
-  @type update_identity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_identity_provider_response() :: %{
-        "identityProvider" => identity_provider()
-      }
-
-  """
-  @type get_identity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_browser_settings_request() :: %{
-        optional("browserPolicy") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("webContentFilteringPolicy") => web_content_filtering_policy()
-      }
-
-  """
-  @type update_browser_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_user_access_logging_settings_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_user_access_logging_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_network_settings_response() :: %{
-        "networkSettings" => network_settings()
-      }
-
-  """
-  @type update_network_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_network_settings_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("securityGroupIds") => list(String.t() | atom()),
-        required("subnetIds") => list(String.t() | atom()),
-        required("vpcId") => String.t() | atom()
-      }
-
-  """
-  @type create_network_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trust_store_request() :: %{}
-
-  """
-  @type get_trust_store_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      inline_redaction_configuration() :: %{
-        "globalConfidenceLevel" => integer(),
-        "globalEnforcedUrls" => list(String.t() | atom()),
-        "globalExemptUrls" => list(String.t() | atom()),
-        "inlineRedactionPatterns" => list(inline_redaction_pattern())
-      }
-
-  """
-  @type inline_redaction_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_trust_store_request() :: %{
-        required("trustStoreArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_trust_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cookie_specification() :: %{
-        "domain" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "path" => String.t() | atom()
-      }
-
-  """
-  @type cookie_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_trust_store_response() :: %{}
-
-  """
-  @type disassociate_trust_store_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       associate_user_access_logging_settings_request() :: %{
         required("userAccessLoggingSettingsArn") => String.t() | atom()
       }
@@ -416,55 +76,22 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      associate_user_settings_request() :: %{
-        required("userSettingsArn") => String.t() | atom()
+      associate_trust_store_response() :: %{
+        "portalArn" => String.t() | atom(),
+        "trustStoreArn" => String.t() | atom()
       }
 
   """
-  @type associate_user_settings_request() :: %{(String.t() | atom()) => any()}
+  @type associate_trust_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_session_logger_response() :: %{
-        "sessionLogger" => session_logger()
-      }
+      disassociate_data_protection_settings_response() :: %{}
 
   """
-  @type get_session_logger_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_identity_provider_response() :: %{
-        "identityProviderArn" => String.t() | atom()
-      }
-
-  """
-  @type create_identity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_browser_settings_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_browser_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_access_logging_settings_request() :: %{}
-
-  """
-  @type delete_user_access_logging_settings_request() :: %{}
+  @type disassociate_data_protection_settings_response() :: %{}
 
   @typedoc """
 
@@ -477,68 +104,6 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type create_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_ip_access_settings_response() :: %{
-        "ipAccessSettingsArn" => String.t() | atom(),
-        "portalArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_ip_access_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_user_settings_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "userSettings" => list(user_settings_summary())
-      }
-
-  """
-  @type list_user_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      branding_configuration() :: %{
-        "colorTheme" => list(any()),
-        "favicon" => image_metadata(),
-        "localizedStrings" => map(),
-        "logo" => image_metadata(),
-        "termsOfService" => String.t() | atom(),
-        "wallpaper" => image_metadata()
-      }
-
-  """
-  @type branding_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trust_store_response() :: %{
-        "trustStore" => trust_store()
-      }
-
-  """
-  @type get_trust_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_protection_settings_response() :: %{
-        "dataProtectionSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type create_data_protection_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,49 +122,48 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      get_user_access_logging_settings_request() :: %{}
-
-  """
-  @type get_user_access_logging_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_identity_provider_request() :: %{}
-
-  """
-  @type delete_identity_provider_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      expire_session_request() :: %{}
-
-  """
-  @type expire_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_session_logger_request() :: %{}
-
-  """
-  @type delete_session_logger_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_session_loggers_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      update_browser_settings_request() :: %{
+        optional("browserPolicy") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("webContentFilteringPolicy") => web_content_filtering_policy()
       }
 
   """
-  @type list_session_loggers_request() :: %{(String.t() | atom()) => any()}
+  @type update_browser_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_session_logger_response() :: %{}
+
+  """
+  @type disassociate_session_logger_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ip_access_settings_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("ipRules") => list(ip_rule())
+      }
+
+  """
+  @type update_ip_access_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        "session" => session()
+      }
+
+  """
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,1007 +178,22 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      list_ip_access_settings_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
+      delete_identity_provider_response() :: %{}
 
   """
-  @type list_ip_access_settings_request() :: %{(String.t() | atom()) => any()}
+  @type delete_identity_provider_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_user_settings_response() :: %{
-        "userSettings" => user_settings()
-      }
-
-  """
-  @type get_user_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ip_access_settings_response() :: %{
-        "ipAccessSettings" => ip_access_settings()
-      }
-
-  """
-  @type update_ip_access_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_trust_store_response() :: %{
-        "portalArn" => String.t() | atom(),
-        "trustStoreArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_trust_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_trust_store_request() :: %{
-        optional("certificatesToAdd") => list(binary()),
-        optional("certificatesToDelete") => list(String.t() | atom()),
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type update_trust_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_settings_summary() :: %{
-        "brandingConfiguration" => branding_configuration(),
-        "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
-        "copyAllowed" => String.t() | atom(),
-        "deepLinkAllowed" => String.t() | atom(),
-        "disconnectTimeoutInMinutes" => integer(),
-        "downloadAllowed" => String.t() | atom(),
-        "idleDisconnectTimeoutInMinutes" => integer(),
-        "pasteAllowed" => String.t() | atom(),
-        "printAllowed" => String.t() | atom(),
-        "toolbarConfiguration" => toolbar_configuration(),
-        "uploadAllowed" => String.t() | atom(),
-        "userSettingsArn" => String.t() | atom(),
-        "webAuthnAllowed" => String.t() | atom()
-      }
-
-  """
-  @type user_settings_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_access_logging_settings_summary() :: %{
-        "kinesisStreamArn" => String.t() | atom(),
-        "userAccessLoggingSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type user_access_logging_settings_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_settings_response() :: %{}
-
-  """
-  @type delete_user_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_network_settings_request() :: %{
-        required("networkSettingsArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_network_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      branding_configuration_create_input() :: %{
-        "colorTheme" => list(any()),
-        "favicon" => list(),
-        "localizedStrings" => map(),
-        "logo" => list(),
-        "termsOfService" => String.t() | atom(),
-        "wallpaper" => list()
-      }
-
-  """
-  @type branding_configuration_create_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_request() :: %{}
-
-  """
-  @type get_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_browser_settings_request() :: %{
-        required("browserSettingsArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_browser_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_protection_settings_response() :: %{}
-
-  """
-  @type delete_data_protection_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trust_stores_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_trust_stores_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_trust_store_request() :: %{}
-
-  """
-  @type delete_trust_store_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_browser_settings_request() :: %{}
-
-  """
-  @type delete_browser_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_summary() :: %{
-        "issuer" => String.t() | atom(),
-        "notValidAfter" => non_neg_integer(),
-        "notValidBefore" => non_neg_integer(),
-        "subject" => String.t() | atom(),
-        "thumbprint" => String.t() | atom()
-      }
-
-  """
-  @type certificate_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_browser_settings_request() :: %{}
-
-  """
-  @type get_browser_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ip_access_settings_response() :: %{
-        "ipAccessSettings" => ip_access_settings()
-      }
-
-  """
-  @type get_ip_access_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_settings() :: %{
-        "associatedPortalArns" => list(String.t() | atom()),
-        "networkSettingsArn" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type network_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_session_logger_request() :: %{
-        required("sessionLoggerArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_session_logger_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_portals_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_portals_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_log_configuration() :: %{
-        "bucket" => String.t() | atom(),
-        "bucketOwner" => String.t() | atom(),
-        "folderStructure" => list(any()),
-        "keyPrefix" => String.t() | atom(),
-        "logFileFormat" => list(any())
-      }
-
-  """
-  @type s3_log_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inline_redaction_pattern() :: %{
-        "builtInPatternId" => String.t() | atom(),
-        "confidenceLevel" => integer(),
-        "customPattern" => custom_pattern(),
-        "enforcedUrls" => list(String.t() | atom()),
-        "exemptUrls" => list(String.t() | atom()),
-        "redactionPlaceHolder" => redaction_place_holder()
-      }
-
-  """
-  @type inline_redaction_pattern() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sessions_response() :: %{
+      list_user_access_logging_settings_response() :: %{
         "nextToken" => String.t() | atom(),
-        "sessions" => list(session_summary())
+        "userAccessLoggingSettings" => list(user_access_logging_settings_summary())
       }
 
   """
-  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ip_access_settings_request() :: %{}
-
-  """
-  @type delete_ip_access_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_portal_request() :: %{}
-
-  """
-  @type delete_portal_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_settings_response() :: %{
-        "userSettings" => user_settings()
-      }
-
-  """
-  @type update_user_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_session_logger_request() :: %{
-        optional("additionalEncryptionContext") => map(),
-        optional("clientToken") => String.t() | atom(),
-        optional("customerManagedKey") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("eventFilter") => list(),
-        required("logConfiguration") => log_configuration()
-      }
-
-  """
-  @type create_session_logger_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_trust_store_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("certificateList") => list(binary())
-      }
-
-  """
-  @type create_trust_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_network_settings_response() :: %{
-        "networkSettingsArn" => String.t() | atom(),
-        "portalArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_network_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_session_loggers_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "sessionLoggers" => list(session_logger_summary())
-      }
-
-  """
-  @type list_session_loggers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_access_logging_settings_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("kinesisStreamArn") => String.t() | atom()
-      }
-
-  """
-  @type update_user_access_logging_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_settings_request() :: %{}
-
-  """
-  @type get_user_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_network_settings_response() :: %{
-        "networkSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type create_network_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_browser_settings_request() :: %{
-        optional("additionalEncryptionContext") => map(),
-        optional("browserPolicy") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("customerManagedKey") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("webContentFilteringPolicy") => web_content_filtering_policy()
-      }
-
-  """
-  @type create_browser_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_network_settings_request() :: %{}
-
-  """
-  @type disassociate_network_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_portal_response() :: %{}
-
-  """
-  @type delete_portal_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_data_protection_settings_response() :: %{
-        "dataProtectionSettingsArn" => String.t() | atom(),
-        "portalArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_data_protection_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_settings_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_network_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_portal_request() :: %{
-        optional("additionalEncryptionContext") => map(),
-        optional("authenticationType") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("customerManagedKey") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("instanceType") => String.t() | atom(),
-        optional("maxConcurrentSessions") => integer(),
-        optional("portalCustomDomain") => String.t() | atom(),
-        optional("tags") => list(tag())
-      }
-
-  """
-  @type create_portal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_network_settings_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("subnetIds") => list(String.t() | atom()),
-        optional("vpcId") => String.t() | atom()
-      }
-
-  """
-  @type update_network_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_portal_response() :: %{
-        "portal" => portal()
-      }
-
-  """
-  @type update_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_settings_response() :: %{
-        "networkSettings" => network_settings()
-      }
-
-  """
-  @type get_network_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_protection_settings() :: %{
-        "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t() | atom()),
-        "creationDate" => non_neg_integer(),
-        "customerManagedKey" => String.t() | atom(),
-        "dataProtectionSettingsArn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "inlineRedactionConfiguration" => inline_redaction_configuration()
-      }
-
-  """
-  @type data_protection_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_content_filtering_policy() :: %{
-        "allowedUrls" => list(String.t() | atom()),
-        "blockedCategories" => list(list(any())()),
-        "blockedUrls" => list(String.t() | atom())
-      }
-
-  """
-  @type web_content_filtering_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_user_settings_response() :: %{}
-
-  """
-  @type disassociate_user_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_protection_settings_response() :: %{
-        "dataProtectionSettings" => data_protection_settings()
-      }
-
-  """
-  @type update_data_protection_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_session_logger_response() :: %{}
-
-  """
-  @type delete_session_logger_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_settings_summary() :: %{
-        "browserSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type browser_settings_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_session_logger_response() :: %{
-        "portalArn" => String.t() | atom(),
-        "sessionLoggerArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_session_logger_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_protection_settings_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("inlineRedactionConfiguration") => inline_redaction_configuration()
-      }
-
-  """
-  @type update_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_settings_response() :: %{
-        "userSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type create_user_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trust_stores_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "trustStores" => list(trust_store_summary())
-      }
-
-  """
-  @type list_trust_stores_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_browser_settings_request() :: %{}
-
-  """
-  @type disassociate_browser_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_network_settings_request() :: %{}
-
-  """
-  @type delete_network_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_provider_summary() :: %{
-        "identityProviderArn" => String.t() | atom(),
-        "identityProviderName" => String.t() | atom(),
-        "identityProviderType" => String.t() | atom()
-      }
-
-  """
-  @type identity_provider_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_session_logger_request() :: %{}
-
-  """
-  @type disassociate_session_logger_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_ip_access_settings_request() :: %{
-        required("ipAccessSettingsArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_ip_access_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sessions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sessionId") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("status") => list(any()),
-        optional("username") => String.t() | atom()
-      }
-
-  """
-  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_protection_settings_response() :: %{
-        "dataProtectionSettings" => list(data_protection_settings_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_protection_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_settings_summary() :: %{
-        "networkSettingsArn" => String.t() | atom(),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type network_settings_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_user_access_logging_settings_response() :: %{}
-
-  """
-  @type disassociate_user_access_logging_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      image_metadata() :: %{
-        "fileExtension" => String.t() | atom(),
-        "lastUploadTimestamp" => non_neg_integer(),
-        "mimeType" => list(any())
-      }
-
-  """
-  @type image_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session() :: %{
-        "clientIpAddresses" => list(String.t() | atom()),
-        "endTime" => non_neg_integer(),
-        "portalArn" => String.t() | atom(),
-        "sessionId" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portal_service_provider_metadata_response() :: %{
-        "portalArn" => String.t() | atom(),
-        "serviceProviderSamlMetadata" => String.t() | atom()
-      }
-
-  """
-  @type get_portal_service_provider_metadata_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_settings_request() :: %{
-        optional("brandingConfigurationInput") => branding_configuration_update_input(),
-        optional("clientToken") => String.t() | atom(),
-        optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
-        optional("copyAllowed") => String.t() | atom(),
-        optional("deepLinkAllowed") => String.t() | atom(),
-        optional("disconnectTimeoutInMinutes") => integer(),
-        optional("downloadAllowed") => String.t() | atom(),
-        optional("idleDisconnectTimeoutInMinutes") => integer(),
-        optional("pasteAllowed") => String.t() | atom(),
-        optional("printAllowed") => String.t() | atom(),
-        optional("toolbarConfiguration") => toolbar_configuration(),
-        optional("uploadAllowed") => String.t() | atom(),
-        optional("webAuthnAllowed") => String.t() | atom()
-      }
-
-  """
-  @type update_user_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_ip_access_settings_response() :: %{}
-
-  """
-  @type disassociate_ip_access_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_settings_response() :: %{
-        "networkSettings" => list(network_settings_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_provider() :: %{
-        "identityProviderArn" => String.t() | atom(),
-        "identityProviderDetails" => map(),
-        "identityProviderName" => String.t() | atom(),
-        "identityProviderType" => String.t() | atom()
-      }
-
-  """
-  @type identity_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ip_access_settings_response() :: %{}
-
-  """
-  @type delete_ip_access_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_browser_settings_response() :: %{
-        "browserSettings" => browser_settings()
-      }
-
-  """
-  @type get_browser_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trust_store_certificates_response() :: %{
-        "certificateList" => list(certificate_summary()),
-        "nextToken" => String.t() | atom(),
-        "trustStoreArn" => String.t() | atom()
-      }
-
-  """
-  @type list_trust_store_certificates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_portals_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "portals" => list(portal_summary())
-      }
-
-  """
-  @type list_portals_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => integer()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_protection_settings_request() :: %{}
-
-  """
-  @type delete_data_protection_settings_request() :: %{}
+  @type list_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1636,172 +215,75 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      certificate() :: %{
-        "body" => binary(),
-        "issuer" => String.t() | atom(),
-        "notValidAfter" => non_neg_integer(),
-        "notValidBefore" => non_neg_integer(),
-        "subject" => String.t() | atom(),
-        "thumbprint" => String.t() | atom()
+      disassociate_trust_store_response() :: %{}
+
+  """
+  @type disassociate_trust_store_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_settings_request() :: %{}
+
+  """
+  @type delete_network_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type certificate() :: %{(String.t() | atom()) => any()}
+  @type list_user_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_ip_access_settings_request() :: %{}
-
-  """
-  @type disassociate_ip_access_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trust_store_certificate_response() :: %{
-        "certificate" => certificate(),
-        "trustStoreArn" => String.t() | atom()
+      list_network_settings_response() :: %{
+        "networkSettings" => list(network_settings_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_trust_store_certificate_response() :: %{(String.t() | atom()) => any()}
+  @type list_network_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_identity_provider_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("identityProviderDetails") => map(),
-        required("identityProviderName") => String.t() | atom(),
-        required("identityProviderType") => String.t() | atom(),
-        required("portalArn") => String.t() | atom()
+      list_ip_access_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type create_identity_provider_request() :: %{(String.t() | atom()) => any()}
+  @type list_ip_access_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_browser_settings_response() :: %{
+      delete_portal_request() :: %{}
+
+  """
+  @type delete_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_settings_response() :: %{
         "browserSettings" => browser_settings()
       }
 
   """
-  @type update_browser_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_network_settings_response() :: %{}
-
-  """
-  @type delete_network_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_trust_store_response() :: %{
-        "trustStoreArn" => String.t() | atom()
-      }
-
-  """
-  @type create_trust_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_session_logger_response() :: %{
-        "sessionLogger" => session_logger()
-      }
-
-  """
-  @type update_session_logger_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_identity_provider_response() :: %{}
-
-  """
-  @type delete_identity_provider_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      redaction_place_holder() :: %{
-        "redactionPlaceHolderText" => String.t() | atom(),
-        "redactionPlaceHolderType" => String.t() | atom()
-      }
-
-  """
-  @type redaction_place_holder() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_settings_request() :: %{
-        optional("additionalEncryptionContext") => map(),
-        optional("brandingConfigurationInput") => branding_configuration_create_input(),
-        optional("clientToken") => String.t() | atom(),
-        optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
-        optional("customerManagedKey") => String.t() | atom(),
-        optional("deepLinkAllowed") => String.t() | atom(),
-        optional("disconnectTimeoutInMinutes") => integer(),
-        optional("idleDisconnectTimeoutInMinutes") => integer(),
-        optional("tags") => list(tag()),
-        optional("toolbarConfiguration") => toolbar_configuration(),
-        optional("webAuthnAllowed") => String.t() | atom(),
-        required("copyAllowed") => String.t() | atom(),
-        required("downloadAllowed") => String.t() | atom(),
-        required("pasteAllowed") => String.t() | atom(),
-        required("printAllowed") => String.t() | atom(),
-        required("uploadAllowed") => String.t() | atom()
-      }
-
-  """
-  @type create_user_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_settings_request() :: %{}
-
-  """
-  @type delete_user_settings_request() :: %{}
+  @type get_browser_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1821,420 +303,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      update_portal_request() :: %{
-        optional("authenticationType") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("instanceType") => String.t() | atom(),
-        optional("maxConcurrentSessions") => integer(),
-        optional("portalCustomDomain") => String.t() | atom()
-      }
-
-  """
-  @type update_portal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_protection_settings_request() :: %{}
-
-  """
-  @type get_data_protection_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_protection_settings_request() :: %{
-        optional("additionalEncryptionContext") => map(),
-        optional("clientToken") => String.t() | atom(),
-        optional("customerManagedKey") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("inlineRedactionConfiguration") => inline_redaction_configuration(),
-        optional("tags") => list(tag())
-      }
-
-  """
-  @type create_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      localized_branding_strings() :: %{
-        "browserTabTitle" => String.t() | atom(),
-        "contactButtonText" => String.t() | atom(),
-        "contactLink" => String.t() | atom(),
-        "loadingText" => String.t() | atom(),
-        "loginButtonText" => String.t() | atom(),
-        "loginDescription" => String.t() | atom(),
-        "loginTitle" => String.t() | atom(),
-        "welcomeText" => String.t() | atom()
-      }
-
-  """
-  @type localized_branding_strings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_access_settings() :: %{
-        "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t() | atom()),
-        "creationDate" => non_neg_integer(),
-        "customerManagedKey" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "ipAccessSettingsArn" => String.t() | atom(),
-        "ipRules" => list(ip_rule())
-      }
-
-  """
-  @type ip_access_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_data_protection_settings_response() :: %{}
-
-  """
-  @type disassociate_data_protection_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ip_access_settings_request() :: %{}
-
-  """
-  @type get_ip_access_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_providers_response() :: %{
-        "identityProviders" => list(identity_provider_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_identity_providers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_user_access_logging_settings_request() :: %{}
-
-  """
-  @type disassociate_user_access_logging_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => integer(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_data_protection_settings_request() :: %{
-        required("dataProtectionSettingsArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_browser_settings_response() :: %{
-        "browserSettings" => list(browser_settings_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_browser_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      toolbar_configuration() :: %{
-        "hiddenToolbarItems" => list(String.t() | atom()),
-        "maxDisplayResolution" => String.t() | atom(),
-        "toolbarType" => String.t() | atom(),
-        "visualMode" => String.t() | atom()
-      }
-
-  """
-  @type toolbar_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_protection_settings_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_user_access_logging_settings_response() :: %{
-        "portalArn" => String.t() | atom(),
-        "userAccessLoggingSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      portal_summary() :: %{
-        "authenticationType" => String.t() | atom(),
-        "browserSettingsArn" => String.t() | atom(),
-        "browserType" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "dataProtectionSettingsArn" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "instanceType" => String.t() | atom(),
-        "ipAccessSettingsArn" => String.t() | atom(),
-        "maxConcurrentSessions" => integer(),
-        "networkSettingsArn" => String.t() | atom(),
-        "portalArn" => String.t() | atom(),
-        "portalCustomDomain" => String.t() | atom(),
-        "portalEndpoint" => String.t() | atom(),
-        "portalStatus" => String.t() | atom(),
-        "rendererType" => String.t() | atom(),
-        "sessionLoggerArn" => String.t() | atom(),
-        "trustStoreArn" => String.t() | atom(),
-        "userAccessLoggingSettingsArn" => String.t() | atom(),
-        "userSettingsArn" => String.t() | atom()
-      }
-
-  """
-  @type portal_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_logger() :: %{
-        "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t() | atom()),
-        "creationDate" => non_neg_integer(),
-        "customerManagedKey" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "eventFilter" => list(),
-        "logConfiguration" => log_configuration(),
-        "sessionLoggerArn" => String.t() | atom()
-      }
-
-  """
-  @type session_logger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_identity_provider_request() :: %{}
-
-  """
-  @type get_identity_provider_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_browser_settings_response() :: %{
-        "browserSettingsArn" => String.t() | atom(),
-        "portalArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_browser_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_settings() :: %{
-        "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t() | atom()),
-        "brandingConfiguration" => branding_configuration(),
-        "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
-        "copyAllowed" => String.t() | atom(),
-        "customerManagedKey" => String.t() | atom(),
-        "deepLinkAllowed" => String.t() | atom(),
-        "disconnectTimeoutInMinutes" => integer(),
-        "downloadAllowed" => String.t() | atom(),
-        "idleDisconnectTimeoutInMinutes" => integer(),
-        "pasteAllowed" => String.t() | atom(),
-        "printAllowed" => String.t() | atom(),
-        "toolbarConfiguration" => toolbar_configuration(),
-        "uploadAllowed" => String.t() | atom(),
-        "userSettingsArn" => String.t() | atom(),
-        "webAuthnAllowed" => String.t() | atom()
-      }
-
-  """
-  @type user_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portal_response() :: %{
-        "portal" => portal()
-      }
-
-  """
-  @type get_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_logger_summary() :: %{
-        "creationDate" => non_neg_integer(),
-        "displayName" => String.t() | atom(),
-        "logConfiguration" => log_configuration(),
-        "sessionLoggerArn" => String.t() | atom()
-      }
-
-  """
-  @type session_logger_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_pattern() :: %{
-        "keywordRegex" => String.t() | atom(),
-        "patternDescription" => String.t() | atom(),
-        "patternName" => String.t() | atom(),
-        "patternRegex" => String.t() | atom()
-      }
-
-  """
-  @type custom_pattern() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_access_logging_settings_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("kinesisStreamArn") => String.t() | atom()
-      }
-
-  """
-  @type create_user_access_logging_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_identity_provider_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("identityProviderDetails") => map(),
-        optional("identityProviderName") => String.t() | atom(),
-        optional("identityProviderType") => String.t() | atom()
-      }
-
-  """
-  @type update_identity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_logger_request() :: %{}
-
-  """
-  @type get_session_logger_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_session_logger_response() :: %{}
-
-  """
-  @type disassociate_session_logger_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      log_configuration() :: %{
-        "s3" => s3_log_configuration()
-      }
-
-  """
-  @type log_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_user_access_logging_settings_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "userAccessLoggingSettings" => list(user_access_logging_settings_summary())
-      }
-
-  """
-  @type list_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       get_data_protection_settings_response() :: %{
         "dataProtectionSettings" => data_protection_settings()
       }
@@ -2246,131 +314,60 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      disassociate_user_settings_request() :: %{}
+      update_browser_settings_response() :: %{
+        "browserSettings" => browser_settings()
+      }
 
   """
-  @type disassociate_user_settings_request() :: %{}
+  @type update_browser_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_data_protection_settings_request() :: %{}
-
-  """
-  @type disassociate_data_protection_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ip_access_settings_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
+      update_session_logger_request() :: %{
         optional("displayName") => String.t() | atom(),
-        optional("ipRules") => list(ip_rule())
+        optional("eventFilter") => list(),
+        optional("logConfiguration") => log_configuration()
       }
 
   """
-  @type update_ip_access_settings_request() :: %{(String.t() | atom()) => any()}
+  @type update_session_logger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      browser_settings() :: %{
-        "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t() | atom()),
-        "browserPolicy" => String.t() | atom(),
-        "browserSettingsArn" => String.t() | atom(),
-        "customerManagedKey" => String.t() | atom(),
-        "webContentFilteringPolicy" => web_content_filtering_policy()
+      associate_user_settings_response() :: %{
+        "portalArn" => String.t() | atom(),
+        "userSettingsArn" => String.t() | atom()
       }
 
   """
-  @type browser_settings() :: %{(String.t() | atom()) => any()}
+  @type associate_user_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_user_access_logging_settings_response() :: %{
-        "userAccessLoggingSettings" => user_access_logging_settings()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type update_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_user_settings_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      associate_network_settings_request() :: %{
+        required("networkSettingsArn") => String.t() | atom()
       }
 
   """
-  @type list_user_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceName" => String.t() | atom()
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_browser_settings_response() :: %{}
-
-  """
-  @type delete_browser_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_network_settings_response() :: %{}
-
-  """
-  @type disassociate_network_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_access_logging_settings_response() :: %{}
-
-  """
-  @type delete_user_access_logging_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_trust_store_response() :: %{}
-
-  """
-  @type delete_trust_store_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_access_logging_settings_response() :: %{
-        "userAccessLoggingSettings" => user_access_logging_settings()
-      }
-
-  """
-  @type get_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
+  @type associate_network_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2408,12 +405,1383 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      create_session_logger_response() :: %{
+      ip_access_settings_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "ipAccessSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type ip_access_settings_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_settings_request() :: %{}
+
+  """
+  @type get_browser_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_response() :: %{}
+
+  """
+  @type delete_portal_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_settings_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "userSettings" => list(user_settings_summary())
+      }
+
+  """
+  @type list_user_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_provider_request() :: %{}
+
+  """
+  @type get_identity_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_request() :: %{}
+
+  """
+  @type get_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_trust_store_request() :: %{}
+
+  """
+  @type disassociate_trust_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      session_logger_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "displayName" => String.t() | atom(),
+        "logConfiguration" => log_configuration(),
         "sessionLoggerArn" => String.t() | atom()
       }
 
   """
-  @type create_session_logger_response() :: %{(String.t() | atom()) => any()}
+  @type session_logger_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_access_logging_settings_response() :: %{}
+
+  """
+  @type disassociate_user_access_logging_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trust_stores_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "trustStores" => list(trust_store_summary())
+      }
+
+  """
+  @type list_trust_stores_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_settings_request() :: %{}
+
+  """
+  @type get_user_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_provider_response() :: %{
+        "identityProvider" => identity_provider()
+      }
+
+  """
+  @type get_identity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_access_logging_settings_summary() :: %{
+        "kinesisStreamArn" => String.t() | atom(),
+        "userAccessLoggingSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type user_access_logging_settings_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_providers_response() :: %{
+        "identityProviders" => list(identity_provider_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_identity_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_logger_request() :: %{}
+
+  """
+  @type get_session_logger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trust_stores_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_trust_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_response() :: %{
+        "trustStore" => trust_store()
+      }
+
+  """
+  @type get_trust_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_access_logging_settings_response() :: %{}
+
+  """
+  @type delete_user_access_logging_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_session_logger_response() :: %{
+        "sessionLogger" => session_logger()
+      }
+
+  """
+  @type update_session_logger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_protection_settings() :: %{
+        "additionalEncryptionContext" => map(),
+        "associatedPortalArns" => list(String.t() | atom()),
+        "creationDate" => non_neg_integer(),
+        "customerManagedKey" => String.t() | atom(),
+        "dataProtectionSettingsArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "inlineRedactionConfiguration" => inline_redaction_configuration()
+      }
+
+  """
+  @type data_protection_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_trust_store_request() :: %{}
+
+  """
+  @type delete_trust_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_ip_access_settings_request() :: %{}
+
+  """
+  @type disassociate_ip_access_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate() :: %{
+        "body" => binary(),
+        "issuer" => String.t() | atom(),
+        "notValidAfter" => non_neg_integer(),
+        "notValidBefore" => non_neg_integer(),
+        "subject" => String.t() | atom(),
+        "thumbprint" => String.t() | atom()
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_session_loggers_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sessionLoggers" => list(session_logger_summary())
+      }
+
+  """
+  @type list_session_loggers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_user_access_logging_settings_response() :: %{
+        "portalArn" => String.t() | atom(),
+        "userAccessLoggingSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sessionId") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("status") => list(any()),
+        optional("username") => String.t() | atom()
+      }
+
+  """
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_response() :: %{
+        "portal" => portal()
+      }
+
+  """
+  @type get_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_provider_summary() :: %{
+        "identityProviderArn" => String.t() | atom(),
+        "identityProviderName" => String.t() | atom(),
+        "identityProviderType" => String.t() | atom()
+      }
+
+  """
+  @type identity_provider_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_summary() :: %{
+        "authenticationType" => String.t() | atom(),
+        "browserSettingsArn" => String.t() | atom(),
+        "browserType" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "dataProtectionSettingsArn" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "instanceType" => String.t() | atom(),
+        "ipAccessSettingsArn" => String.t() | atom(),
+        "maxConcurrentSessions" => integer(),
+        "networkSettingsArn" => String.t() | atom(),
+        "portalArn" => String.t() | atom(),
+        "portalCustomDomain" => String.t() | atom(),
+        "portalEndpoint" => String.t() | atom(),
+        "portalStatus" => String.t() | atom(),
+        "rendererType" => String.t() | atom(),
+        "sessionLoggerArn" => String.t() | atom(),
+        "trustStoreArn" => String.t() | atom(),
+        "userAccessLoggingSettingsArn" => String.t() | atom(),
+        "userSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type portal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_response() :: %{
+        "portal" => portal()
+      }
+
+  """
+  @type update_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_pattern() :: %{
+        "keywordRegex" => String.t() | atom(),
+        "patternDescription" => String.t() | atom(),
+        "patternName" => String.t() | atom(),
+        "patternRegex" => String.t() | atom()
+      }
+
+  """
+  @type custom_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_configuration() :: %{
+        "s3" => s3_log_configuration()
+      }
+
+  """
+  @type log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_request() :: %{}
+
+  """
+  @type get_trust_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_user_access_logging_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_user_access_logging_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_settings_request() :: %{}
+
+  """
+  @type get_network_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_redaction_configuration() :: %{
+        "globalConfidenceLevel" => integer(),
+        "globalEnforcedUrls" => list(String.t() | atom()),
+        "globalExemptUrls" => list(String.t() | atom()),
+        "inlineRedactionPatterns" => list(inline_redaction_pattern())
+      }
+
+  """
+  @type inline_redaction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_protection_settings_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("inlineRedactionConfiguration") => inline_redaction_configuration()
+      }
+
+  """
+  @type update_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_ip_access_settings_request() :: %{
+        required("ipAccessSettingsArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_ip_access_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ip_access_settings_request() :: %{}
+
+  """
+  @type get_ip_access_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_protection_settings_response() :: %{
+        "dataProtectionSettings" => list(data_protection_settings_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_protection_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_browser_settings_request() :: %{}
+
+  """
+  @type disassociate_browser_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_certificate_response() :: %{
+        "certificate" => certificate(),
+        "trustStoreArn" => String.t() | atom()
+      }
+
+  """
+  @type get_trust_store_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_network_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_access_logging_settings_request() :: %{}
+
+  """
+  @type get_user_access_logging_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_network_settings_request() :: %{}
+
+  """
+  @type disassociate_network_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_request() :: %{
+        optional("authenticationType") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("instanceType") => String.t() | atom(),
+        optional("maxConcurrentSessions") => integer(),
+        optional("portalCustomDomain") => String.t() | atom()
+      }
+
+  """
+  @type update_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trust_store_response() :: %{
+        "trustStoreArn" => String.t() | atom()
+      }
+
+  """
+  @type create_trust_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_network_settings_response() :: %{
+        "networkSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type create_network_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("authenticationType") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customerManagedKey") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("instanceType") => String.t() | atom(),
+        optional("maxConcurrentSessions") => integer(),
+        optional("portalCustomDomain") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_settings_response() :: %{
+        "networkSettings" => network_settings()
+      }
+
+  """
+  @type update_network_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_settings_response() :: %{}
+
+  """
+  @type delete_user_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_identity_provider_request() :: %{}
+
+  """
+  @type delete_identity_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_access_logging_settings_request() :: %{}
+
+  """
+  @type delete_user_access_logging_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_store_summary() :: %{
+        "trustStoreArn" => String.t() | atom()
+      }
+
+  """
+  @type trust_store_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redaction_place_holder() :: %{
+        "redactionPlaceHolderText" => String.t() | atom(),
+        "redactionPlaceHolderType" => String.t() | atom()
+      }
+
+  """
+  @type redaction_place_holder() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_access_settings() :: %{
+        "additionalEncryptionContext" => map(),
+        "associatedPortalArns" => list(String.t() | atom()),
+        "creationDate" => non_neg_integer(),
+        "customerManagedKey" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "ipAccessSettingsArn" => String.t() | atom(),
+        "ipRules" => list(ip_rule())
+      }
+
+  """
+  @type ip_access_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_logger_request() :: %{}
+
+  """
+  @type delete_session_logger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_access_logging_settings_response() :: %{
+        "userAccessLoggingSettings" => user_access_logging_settings()
+      }
+
+  """
+  @type get_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_portals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ip_access_settings_request() :: %{}
+
+  """
+  @type delete_ip_access_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_provider() :: %{
+        "identityProviderArn" => String.t() | atom(),
+        "identityProviderDetails" => map(),
+        "identityProviderName" => String.t() | atom(),
+        "identityProviderType" => String.t() | atom()
+      }
+
+  """
+  @type identity_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_trust_store_request() :: %{
+        required("trustStoreArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_trust_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_service_provider_metadata_response() :: %{
+        "portalArn" => String.t() | atom(),
+        "serviceProviderSamlMetadata" => String.t() | atom()
+      }
+
+  """
+  @type get_portal_service_provider_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_network_settings_response() :: %{}
+
+  """
+  @type disassociate_network_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_settings_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("subnetIds") => list(String.t() | atom()),
+        optional("vpcId") => String.t() | atom()
+      }
+
+  """
+  @type update_network_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_ip_access_settings_response() :: %{
+        "ipAccessSettingsArn" => String.t() | atom(),
+        "portalArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_ip_access_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_protection_settings_request() :: %{}
+
+  """
+  @type delete_data_protection_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      web_content_filtering_policy() :: %{
+        "allowedUrls" => list(String.t() | atom()),
+        "blockedCategories" => list(list(any())()),
+        "blockedUrls" => list(String.t() | atom())
+      }
+
+  """
+  @type web_content_filtering_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expire_session_request() :: %{}
+
+  """
+  @type expire_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_settings_response() :: %{
+        "userSettings" => user_settings()
+      }
+
+  """
+  @type update_user_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_browser_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_browser_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_settings_summary() :: %{
+        "brandingConfiguration" => branding_configuration(),
+        "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
+        "copyAllowed" => String.t() | atom(),
+        "deepLinkAllowed" => String.t() | atom(),
+        "disconnectTimeoutInMinutes" => integer(),
+        "downloadAllowed" => String.t() | atom(),
+        "idleDisconnectTimeoutInMinutes" => integer(),
+        "pasteAllowed" => String.t() | atom(),
+        "printAllowed" => String.t() | atom(),
+        "toolbarConfiguration" => toolbar_configuration(),
+        "uploadAllowed" => String.t() | atom(),
+        "userSettingsArn" => String.t() | atom(),
+        "webAuthnAllowed" => String.t() | atom()
+      }
+
+  """
+  @type user_settings_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_settings_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("browserPolicy") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customerManagedKey") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("webContentFilteringPolicy") => web_content_filtering_policy()
+      }
+
+  """
+  @type create_browser_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_settings_response() :: %{}
+
+  """
+  @type disassociate_user_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_redaction_pattern() :: %{
+        "builtInPatternId" => String.t() | atom(),
+        "confidenceLevel" => integer(),
+        "customPattern" => custom_pattern(),
+        "enforcedUrls" => list(String.t() | atom()),
+        "exemptUrls" => list(String.t() | atom()),
+        "redactionPlaceHolder" => redaction_place_holder()
+      }
+
+  """
+  @type inline_redaction_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_settings_response() :: %{
+        "userSettings" => user_settings()
+      }
+
+  """
+  @type get_user_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_settings_response() :: %{}
+
+  """
+  @type delete_network_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ip_access_settings_response() :: %{
+        "ipAccessSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type create_ip_access_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_trust_store_response() :: %{
+        "trustStoreArn" => String.t() | atom()
+      }
+
+  """
+  @type update_trust_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_session_logger_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customerManagedKey") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        required("eventFilter") => list(),
+        required("logConfiguration") => log_configuration(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_session_logger_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cookie_specification() :: %{
+        "domain" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "path" => String.t() | atom()
+      }
+
+  """
+  @type cookie_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_settings_request() :: %{}
+
+  """
+  @type disassociate_user_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      network_settings() :: %{
+        "associatedPortalArns" => list(String.t() | atom()),
+        "networkSettingsArn" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type network_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_metadata() :: %{
+        "fileExtension" => String.t() | atom(),
+        "lastUploadTimestamp" => non_neg_integer(),
+        "mimeType" => list(any())
+      }
+
+  """
+  @type image_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_session_logger_response() :: %{
+        "portalArn" => String.t() | atom(),
+        "sessionLoggerArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_session_logger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      branding_configuration_create_input() :: %{
+        "colorTheme" => list(any()),
+        "favicon" => list(),
+        "localizedStrings" => map(),
+        "logo" => list(),
+        "termsOfService" => String.t() | atom(),
+        "wallpaper" => list()
+      }
+
+  """
+  @type branding_configuration_create_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "portals" => list(portal_summary())
+      }
+
+  """
+  @type list_portals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_protection_settings_request() :: %{}
+
+  """
+  @type get_data_protection_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_access_logging_settings_request() :: %{}
+
+  """
+  @type disassociate_user_access_logging_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_data_protection_settings_request() :: %{}
+
+  """
+  @type disassociate_data_protection_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_request() :: %{}
+
+  """
+  @type get_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_network_settings_response() :: %{
+        "networkSettingsArn" => String.t() | atom(),
+        "portalArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_network_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ip_access_settings_response() :: %{}
+
+  """
+  @type delete_ip_access_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_browser_settings_response() :: %{
+        "browserSettings" => list(browser_settings_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_browser_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_settings() :: %{
+        "additionalEncryptionContext" => map(),
+        "associatedPortalArns" => list(String.t() | atom()),
+        "browserPolicy" => String.t() | atom(),
+        "browserSettingsArn" => String.t() | atom(),
+        "customerManagedKey" => String.t() | atom(),
+        "webContentFilteringPolicy" => web_content_filtering_policy()
+      }
+
+  """
+  @type browser_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_access_logging_settings_response() :: %{
+        "userAccessLoggingSettings" => user_access_logging_settings()
+      }
+
+  """
+  @type update_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_settings_request() :: %{}
+
+  """
+  @type delete_browser_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_ip_access_settings_response() :: %{}
+
+  """
+  @type disassociate_ip_access_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trust_store_certificate_request() :: %{
+        required("thumbprint") => String.t() | atom()
+      }
+
+  """
+  @type get_trust_store_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_log_configuration() :: %{
+        "bucket" => String.t() | atom(),
+        "bucketOwner" => String.t() | atom(),
+        "folderStructure" => list(any()),
+        "keyPrefix" => String.t() | atom(),
+        "logFileFormat" => list(any())
+      }
+
+  """
+  @type s3_log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_session_logger_request() :: %{
+        required("sessionLoggerArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_session_logger_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_settings_summary() :: %{
+        "browserSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type browser_settings_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_settings_response() :: %{
+        "networkSettings" => network_settings()
+      }
+
+  """
+  @type get_network_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_settings_response() :: %{
+        "browserSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type create_browser_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session() :: %{
+        "clientIpAddresses" => list(String.t() | atom()),
+        "endTime" => non_neg_integer(),
+        "portalArn" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_session_loggers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_session_loggers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_settings_response() :: %{
+        "userSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type create_user_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2431,570 +1799,1202 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
-      update_trust_store_response() :: %{
-        "trustStoreArn" => String.t() | atom()
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
 
   """
-  @type update_trust_store_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_trust_store_request() :: %{}
+      delete_session_logger_response() :: %{}
 
   """
-  @type disassociate_trust_store_request() :: %{}
+  @type delete_session_logger_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_browser_settings_request() :: %{
+        required("browserSettingsArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_browser_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_access_logging_settings_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("kinesisStreamArn") => String.t() | atom()
+      }
+
+  """
+  @type update_user_access_logging_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expire_session_response() :: %{}
+
+  """
+  @type expire_session_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      localized_branding_strings() :: %{
+        "browserTabTitle" => String.t() | atom(),
+        "contactButtonText" => String.t() | atom(),
+        "contactLink" => String.t() | atom(),
+        "loadingText" => String.t() | atom(),
+        "loginButtonText" => String.t() | atom(),
+        "loginDescription" => String.t() | atom(),
+        "loginTitle" => String.t() | atom(),
+        "welcomeText" => String.t() | atom()
+      }
+
+  """
+  @type localized_branding_strings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_settings_request() :: %{
+        optional("brandingConfigurationInput") => branding_configuration_update_input(),
+        optional("clientToken") => String.t() | atom(),
+        optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
+        optional("copyAllowed") => String.t() | atom(),
+        optional("deepLinkAllowed") => String.t() | atom(),
+        optional("disconnectTimeoutInMinutes") => integer(),
+        optional("downloadAllowed") => String.t() | atom(),
+        optional("idleDisconnectTimeoutInMinutes") => integer(),
+        optional("pasteAllowed") => String.t() | atom(),
+        optional("printAllowed") => String.t() | atom(),
+        optional("toolbarConfiguration") => toolbar_configuration(),
+        optional("uploadAllowed") => String.t() | atom(),
+        optional("webAuthnAllowed") => String.t() | atom()
+      }
+
+  """
+  @type update_user_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_logger_response() :: %{
+        "sessionLogger" => session_logger()
+      }
+
+  """
+  @type get_session_logger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_data_protection_settings_request() :: %{
+        required("dataProtectionSettingsArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_protection_settings_response() :: %{
+        "dataProtectionSettings" => data_protection_settings()
+      }
+
+  """
+  @type update_data_protection_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_summary() :: %{
+        "endTime" => non_neg_integer(),
+        "portalArn" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_protection_settings_response() :: %{
+        "dataProtectionSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type create_data_protection_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      toolbar_configuration() :: %{
+        "hiddenToolbarItems" => list(String.t() | atom()),
+        "maxDisplayResolution" => String.t() | atom(),
+        "toolbarType" => String.t() | atom(),
+        "visualMode" => String.t() | atom()
+      }
+
+  """
+  @type toolbar_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trust_store_certificates_response() :: %{
+        "certificateList" => list(certificate_summary()),
+        "nextToken" => String.t() | atom(),
+        "trustStoreArn" => String.t() | atom()
+      }
+
+  """
+  @type list_trust_store_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_data_protection_settings_response() :: %{
+        "dataProtectionSettingsArn" => String.t() | atom(),
+        "portalArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_data_protection_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_session_logger_response() :: %{
+        "sessionLoggerArn" => String.t() | atom()
+      }
+
+  """
+  @type create_session_logger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_identity_provider_response() :: %{
+        "identityProvider" => identity_provider()
+      }
+
+  """
+  @type update_identity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_settings_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("brandingConfigurationInput") => branding_configuration_create_input(),
+        optional("clientToken") => String.t() | atom(),
+        optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
+        required("copyAllowed") => String.t() | atom(),
+        optional("customerManagedKey") => String.t() | atom(),
+        optional("deepLinkAllowed") => String.t() | atom(),
+        optional("disconnectTimeoutInMinutes") => integer(),
+        required("downloadAllowed") => String.t() | atom(),
+        optional("idleDisconnectTimeoutInMinutes") => integer(),
+        required("pasteAllowed") => String.t() | atom(),
+        required("printAllowed") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("toolbarConfiguration") => toolbar_configuration(),
+        required("uploadAllowed") => String.t() | atom(),
+        optional("webAuthnAllowed") => String.t() | atom()
+      }
+
+  """
+  @type create_user_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_access_logging_settings_response() :: %{
+        "userAccessLoggingSettingsArn" => String.t() | atom()
+      }
+
+  """
+  @type create_user_access_logging_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trust_store_certificates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_trust_store_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_settings_request() :: %{}
+
+  """
+  @type delete_user_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_access_logging_settings_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("kinesisStreamArn") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_user_access_logging_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sessions" => list(session_summary())
+      }
+
+  """
+  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_protection_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ip_access_settings_response() :: %{
+        "ipAccessSettings" => ip_access_settings()
+      }
+
+  """
+  @type update_ip_access_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_identity_provider_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("identityProviderDetails") => map(),
+        optional("identityProviderName") => String.t() | atom(),
+        optional("identityProviderType") => String.t() | atom()
+      }
+
+  """
+  @type update_identity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_service_provider_metadata_request() :: %{}
+
+  """
+  @type get_portal_service_provider_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cookie_synchronization_configuration() :: %{
+        "allowlist" => list(cookie_specification()),
+        "blocklist" => list(cookie_specification())
+      }
+
+  """
+  @type cookie_synchronization_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_settings_response() :: %{}
+
+  """
+  @type delete_browser_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      session_logger() :: %{
+        "additionalEncryptionContext" => map(),
+        "associatedPortalArns" => list(String.t() | atom()),
+        "creationDate" => non_neg_integer(),
+        "customerManagedKey" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "eventFilter" => list(),
+        "logConfiguration" => log_configuration(),
+        "sessionLoggerArn" => String.t() | atom()
+      }
+
+  """
+  @type session_logger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_settings_summary() :: %{
+        "networkSettingsArn" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type network_settings_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_network_settings_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("securityGroupIds") => list(String.t() | atom()),
+        required("subnetIds") => list(String.t() | atom()),
+        optional("tags") => list(tag()),
+        required("vpcId") => String.t() | atom()
+      }
+
+  """
+  @type create_network_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_session_logger_request() :: %{}
+
+  """
+  @type disassociate_session_logger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_protection_settings_response() :: %{}
+
+  """
+  @type delete_data_protection_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ip_access_settings_response() :: %{
+        "ipAccessSettings" => ip_access_settings()
+      }
+
+  """
+  @type get_ip_access_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => integer()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_trust_store_response() :: %{}
+
+  """
+  @type delete_trust_store_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_identity_provider_response() :: %{
+        "identityProviderArn" => String.t() | atom()
+      }
+
+  """
+  @type create_identity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_identity_provider_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("identityProviderDetails") => map(),
+        required("identityProviderName") => String.t() | atom(),
+        required("identityProviderType") => String.t() | atom(),
+        required("portalArn") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_identity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      branding_configuration() :: %{
+        "colorTheme" => list(any()),
+        "favicon" => image_metadata(),
+        "localizedStrings" => map(),
+        "logo" => image_metadata(),
+        "termsOfService" => String.t() | atom(),
+        "wallpaper" => image_metadata()
+      }
+
+  """
+  @type branding_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_trust_store_request() :: %{
+        optional("certificatesToAdd") => list(binary()),
+        optional("certificatesToDelete") => list(String.t() | atom()),
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type update_trust_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_protection_settings_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customerManagedKey") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("inlineRedactionConfiguration") => inline_redaction_configuration(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_data_protection_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_providers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_identity_providers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_user_settings_request() :: %{
+        required("userSettingsArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_user_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_rule() :: %{
+        "description" => String.t() | atom(),
+        "ipRange" => String.t() | atom()
+      }
+
+  """
+  @type ip_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trust_store_request() :: %{
+        required("certificateList") => list(binary()),
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_trust_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_settings() :: %{
+        "additionalEncryptionContext" => map(),
+        "associatedPortalArns" => list(String.t() | atom()),
+        "brandingConfiguration" => branding_configuration(),
+        "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
+        "copyAllowed" => String.t() | atom(),
+        "customerManagedKey" => String.t() | atom(),
+        "deepLinkAllowed" => String.t() | atom(),
+        "disconnectTimeoutInMinutes" => integer(),
+        "downloadAllowed" => String.t() | atom(),
+        "idleDisconnectTimeoutInMinutes" => integer(),
+        "pasteAllowed" => String.t() | atom(),
+        "printAllowed" => String.t() | atom(),
+        "toolbarConfiguration" => toolbar_configuration(),
+        "uploadAllowed" => String.t() | atom(),
+        "userSettingsArn" => String.t() | atom(),
+        "webAuthnAllowed" => String.t() | atom()
+      }
+
+  """
+  @type user_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_browser_settings_response() :: %{
+        "browserSettingsArn" => String.t() | atom(),
+        "portalArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_browser_settings_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_browser_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type associate_data_protection_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type associate_ip_access_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type associate_network_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type associate_session_logger_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type associate_trust_store_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type associate_user_access_logging_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type associate_user_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_browser_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_data_protection_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_identity_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_ip_access_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_network_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_portal_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_session_logger_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_trust_store_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_user_access_logging_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_user_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_browser_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_data_protection_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_identity_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_ip_access_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_network_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_portal_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_session_logger_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_trust_store_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_user_access_logging_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_user_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_browser_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_data_protection_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_ip_access_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_network_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_session_logger_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_trust_store_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_user_access_logging_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_user_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type expire_session_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_browser_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_protection_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_identity_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_ip_access_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_network_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_portal_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_portal_service_provider_metadata_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_session_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_session_logger_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_trust_store_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_trust_store_certificate_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_user_access_logging_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_user_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_browser_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_data_protection_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_identity_providers_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_ip_access_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_network_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_portals_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_session_loggers_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_sessions_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_trust_store_certificates_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_trust_stores_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_user_access_logging_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_user_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | too_many_tags_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_browser_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_data_protection_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_identity_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_ip_access_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_network_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_portal_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_session_logger_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_trust_store_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_user_access_logging_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_user_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | resource_not_found_exception()
+          | throttling_exception()
 
   def metadata do
     %{
@@ -4259,7 +4259,7 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, expire_session_errors()}
-  def expire_session(%Client{} = client, portal_id, session_id, input, options \\ []) do
+  def expire_session(%Client{} = client, session_id, portal_id, input, options \\ []) do
     url_path =
       "/portals/#{AWS.Util.encode_uri(portal_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
@@ -4422,7 +4422,7 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_session_errors()}
-  def get_session(%Client{} = client, portal_id, session_id, options \\ []) do
+  def get_session(%Client{} = client, session_id, portal_id, options \\ []) do
     url_path =
       "/portals/#{AWS.Util.encode_uri(portal_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
@@ -4547,8 +4547,8 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, list_browser_settings_errors()}
   def list_browser_settings(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/browserSettings"
@@ -4556,15 +4556,15 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4589,8 +4589,8 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, list_data_protection_settings_errors()}
   def list_data_protection_settings(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/dataProtectionSettings"
@@ -4598,15 +4598,15 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4633,8 +4633,8 @@ defmodule AWS.WorkSpacesWeb do
   def list_identity_providers(
         %Client{} = client,
         portal_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/identityProviders"
@@ -4642,15 +4642,15 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4675,8 +4675,8 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, list_ip_access_settings_errors()}
   def list_ip_access_settings(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/ipAccessSettings"
@@ -4684,15 +4684,15 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4712,8 +4712,8 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, list_network_settings_errors()}
   def list_network_settings(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/networkSettings"
@@ -4721,15 +4721,15 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4747,21 +4747,21 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_portals_errors()}
-  def list_portals(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_portals(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/portals"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4781,8 +4781,8 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, list_session_loggers_errors()}
   def list_session_loggers(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/sessionLoggers"
@@ -4790,15 +4790,15 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4829,12 +4829,12 @@ defmodule AWS.WorkSpacesWeb do
   def list_sessions(
         %Client{} = client,
         portal_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        session_id \\ nil,
-        sort_by \\ nil,
-        status \\ nil,
         username \\ nil,
+        status \\ nil,
+        sort_by \\ nil,
+        session_id \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}/sessions"
@@ -4842,29 +4842,8 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(username) do
-        [{"username", username} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(session_id) do
-        [{"sessionId", session_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -4877,8 +4856,29 @@ defmodule AWS.WorkSpacesWeb do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(session_id) do
+        [{"sessionId", session_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(username) do
+        [{"username", username} | query_params]
       else
         query_params
       end
@@ -4923,8 +4923,8 @@ defmodule AWS.WorkSpacesWeb do
   def list_trust_store_certificates(
         %Client{} = client,
         trust_store_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}/certificates"
@@ -4932,15 +4932,15 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4958,21 +4958,21 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_trust_stores_errors()}
-  def list_trust_stores(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_trust_stores(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/trustStores"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4997,8 +4997,8 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, list_user_access_logging_settings_errors()}
   def list_user_access_logging_settings(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/userAccessLoggingSettings"
@@ -5006,15 +5006,15 @@ defmodule AWS.WorkSpacesWeb do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5032,21 +5032,21 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_user_settings_errors()}
-  def list_user_settings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_user_settings(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/userSettings"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

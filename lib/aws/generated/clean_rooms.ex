@@ -25,1913 +25,24 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      protected_job_worker_compute_configuration() :: %{
-        "number" => [integer()],
-        "properties" => list(),
-        "type" => list(any())
-      }
-
-  """
-  @type protected_job_worker_compute_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_distribute_output_configuration() :: %{
-        "locations" => list(list())
-      }
-
-  """
-  @type protected_query_distribute_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table_summary() :: %{
-        "analysisMethod" => list(any()),
-        "analysisRuleTypes" => list(list(any())()),
-        "arn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "selectedAnalysisMethods" => list(list(any())()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_table_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schemas_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("schemaType") => list(any())
-      }
-
-  """
-  @type list_schemas_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_table_association_input() :: %{}
-
-  """
-  @type get_configured_table_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_audience_model_associations_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configured_audience_model_associations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_protected_jobs_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_protected_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_audience_model_association_output() :: %{}
-
-  """
-  @type delete_configured_audience_model_association_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_analysis_templates_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_analysis_templates_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_analysis_templates_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("collaborationAnalysisTemplateSummaries") => list(collaboration_analysis_template_summary())
-      }
-
-  """
-  @type list_collaboration_analysis_templates_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_table_output() :: %{
-        required("configuredTable") => configured_table()
-      }
-
-  """
-  @type create_configured_table_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_privacy_budget_template_output() :: %{
-        "privacyBudgetTemplate" => privacy_budget_template()
-      }
-
-  """
-  @type create_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_preview_parameters_input() :: %{
-        "epsilon" => integer(),
-        "usersNoisePerQuery" => integer()
-      }
-
-  """
-  @type differential_privacy_preview_parameters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_table_input() :: %{}
-
-  """
-  @type delete_configured_table_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      change() :: %{
-        "specification" => list(),
-        "specificationType" => list(any()),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_id_mapping_tables_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_id_mapping_tables_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_members_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("memberSummaries") => list(member_summary())
-      }
-
-  """
-  @type list_members_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_change_specification() :: %{
-        "accountId" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "memberAbilities" => list(list(any())())
-      }
-
-  """
-  @type member_change_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_id_namespace_associations_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_id_namespace_associations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_membership_input() :: %{
-        optional("defaultJobResultConfiguration") => membership_protected_job_result_configuration(),
-        optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
-        optional("isMetricsEnabled") => [boolean()],
-        optional("jobLogStatus") => list(any()),
-        optional("paymentConfiguration") => membership_payment_configuration(),
-        optional("tags") => map(),
-        required("collaborationIdentifier") => String.t() | atom(),
-        required("queryLogStatus") => list(any())
-      }
-
-  """
-  @type create_membership_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_collaboration_analysis_template_input() :: %{
-        required("analysisTemplateArns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_collaboration_analysis_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_table_analysis_rule_output() :: %{
-        required("analysisRule") => configured_table_analysis_rule()
-      }
-
-  """
-  @type get_configured_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_table_association_analysis_rule_input() :: %{
-        required("analysisRulePolicy") => list(),
-        required("analysisRuleType") => list(any())
-      }
-
-  """
-  @type create_configured_table_association_analysis_rule_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_table_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("selectedAnalysisMethods") => list(list(any())()),
-        optional("tags") => map(),
-        required("allowedColumns") => list(String.t() | atom()),
-        required("analysisMethod") => list(any()),
-        required("name") => String.t() | atom(),
-        required("tableReference") => list()
-      }
-
-  """
-  @type create_configured_table_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_rule() :: %{
-        "collaborationId" => String.t() | atom(),
-        "collaborationPolicy" => list(),
-        "consolidatedPolicy" => list(),
-        "createTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "policy" => list(),
-        "type" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type analysis_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_protected_query_output() :: %{
-        required("protectedQuery") => protected_query()
-      }
-
-  """
-  @type get_protected_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_template_artifacts() :: %{
-        "additionalArtifacts" => list(analysis_template_artifact()),
-        "entryPoint" => analysis_template_artifact(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type analysis_template_artifacts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_table_associations_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("configuredTableAssociationSummaries") => list(configured_table_association_summary())
-      }
-
-  """
-  @type list_configured_table_associations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_analysis_template() :: %{
-        "analysisParameters" => list(analysis_parameter()),
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "errorMessageConfiguration" => error_message_configuration(),
-        "format" => list(any()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "schema" => analysis_schema(),
-        "source" => list(),
-        "sourceMetadata" => list(),
-        "syntheticDataParameters" => list(),
-        "updateTime" => [non_neg_integer()],
-        "validations" => list(analysis_template_validation_status_detail())
-      }
-
-  """
-  @type collaboration_analysis_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_analysis_template_input() :: %{}
-
-  """
-  @type get_analysis_template_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_member_output_configuration() :: %{
+      protected_job_single_member_output() :: %{
         "accountId" => String.t() | atom()
       }
 
   """
-  @type protected_query_member_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type protected_job_single_member_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      protected_job() :: %{
-        "computeConfiguration" => list(),
-        "createTime" => [non_neg_integer()],
-        "error" => protected_job_error(),
-        "id" => String.t() | atom(),
-        "jobParameters" => protected_job_parameters(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "result" => protected_job_result(),
-        "resultConfiguration" => protected_job_result_configuration_output(),
-        "statistics" => protected_job_statistics(),
-        "status" => list(any())
+      protected_job_parameters() :: %{
+        "analysisTemplateArn" => String.t() | atom(),
+        "parameters" => map()
       }
 
   """
-  @type protected_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_budget() :: %{
-        "aggregateRemainingBudget" => integer(),
-        "details" => list(access_budget_details()),
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type access_budget() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_analysis_templates_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("analysisTemplateSummaries") => list(analysis_template_summary())
-      }
-
-  """
-  @type list_analysis_templates_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_id_namespace_association_output() :: %{}
-
-  """
-  @type delete_id_namespace_association_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      budget_parameter() :: %{
-        "autoRefresh" => list(any()),
-        "budget" => integer(),
-        "type" => list(any())
-      }
-
-  """
-  @type budget_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_id_namespace_association_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
-        "inputReferenceProperties" => id_namespace_association_input_reference_properties_summary(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_id_namespace_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_summary() :: %{
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "receiverConfigurations" => list(receiver_configuration()),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type protected_query_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_analysis_template_input() :: %{}
-
-  """
-  @type get_collaboration_analysis_template_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_table_associations_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configured_table_associations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_privacy_budget_template_input() :: %{}
-
-  """
-  @type delete_privacy_budget_template_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_id_mapping_table_input() :: %{}
-
-  """
-  @type delete_id_mapping_table_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_membership_output() :: %{}
-
-  """
-  @type delete_membership_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      receiver_configuration() :: %{
-        "analysisType" => list(any()),
-        "configurationDetails" => list()
-      }
-
-  """
-  @type receiver_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_analysis_template_input() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_analysis_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      column() :: %{
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type column() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_namespace_association_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
-        "inputReferenceProperties" => id_namespace_association_input_reference_properties_summary(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type id_namespace_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_s3_output() :: %{
-        "location" => [String.t() | atom()]
-      }
-
-  """
-  @type protected_job_s3_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_id_namespace_association_input() :: %{}
-
-  """
-  @type get_collaboration_id_namespace_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_tables_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configured_tables_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_collaboration_output() :: %{
-        required("collaboration") => collaboration()
-      }
-
-  """
-  @type create_collaboration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_namespace_association_input_reference_config() :: %{
-        "inputReferenceArn" => String.t() | atom(),
-        "manageResourcePolicies" => [boolean()]
-      }
-
-  """
-  @type id_namespace_association_input_reference_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_memberships_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("membershipSummaries") => list(membership_summary())
-      }
-
-  """
-  @type list_memberships_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_error() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type protected_job_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_audience_model_association_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "configuredAudienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_audience_model_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_table_analysis_rule_output() :: %{
-        required("analysisRule") => configured_table_analysis_rule()
-      }
-
-  """
-  @type update_configured_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_template_validation_status_detail() :: %{
-        "reasons" => list(analysis_template_validation_status_reason()),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type analysis_template_validation_status_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_protected_queries_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("protectedQueries") => list(protected_query_summary())
-      }
-
-  """
-  @type list_protected_queries_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_distribute_output() :: %{
-        "memberList" => list(protected_query_single_member_output()),
-        "s3" => protected_query_s3_output()
-      }
-
-  """
-  @type protected_query_distribute_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_protected_queries_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type list_protected_queries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_table_analysis_rule_input() :: %{
-        required("analysisRulePolicy") => list()
-      }
-
-  """
-  @type update_configured_table_analysis_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_parameters() :: %{
-        "sensitivityParameters" => list(differential_privacy_sensitivity_parameters())
-      }
-
-  """
-  @type differential_privacy_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_privacy_budget_template_input() :: %{}
-
-  """
-  @type get_collaboration_privacy_budget_template_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      change_input() :: %{
-        "specification" => list(),
-        "specificationType" => list(any())
-      }
-
-  """
-  @type change_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_audience_model_association_input() :: %{}
-
-  """
-  @type delete_configured_audience_model_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_table_output() :: %{
-        required("configuredTable") => configured_table()
-      }
-
-  """
-  @type update_configured_table_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table_association() :: %{
-        "analysisRuleTypes" => list(list(any())()),
-        "arn" => String.t() | atom(),
-        "configuredTableArn" => String.t() | atom(),
-        "configuredTableId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_table_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_membership_output() :: %{
-        required("membership") => membership()
-      }
-
-  """
-  @type get_membership_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_table_association_analysis_rule_output() :: %{}
-
-  """
-  @type delete_configured_table_association_analysis_rule_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_privacy_budget_aggregation() :: %{
-        "maxCount" => [integer()],
-        "remainingCount" => [integer()],
-        "type" => list(any())
-      }
-
-  """
-  @type differential_privacy_privacy_budget_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration() :: %{
-        "allowedResultRegions" => list(list(any())()),
-        "analyticsEngine" => list(any()),
-        "arn" => String.t() | atom(),
-        "autoApprovedChangeTypes" => list(list(any())()),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "creatorDisplayName" => String.t() | atom(),
-        "dataEncryptionMetadata" => data_encryption_metadata(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "isMetricsEnabled" => [boolean()],
-        "jobLogStatus" => list(any()),
-        "memberStatus" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "queryLogStatus" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_rule_aggregation() :: %{
-        "additionalAnalyses" => list(any()),
-        "aggregateColumns" => list(aggregate_column()),
-        "allowedJoinOperators" => list(String.t() | atom()),
-        "dimensionColumns" => list(String.t() | atom()),
-        "joinColumns" => list(String.t() | atom()),
-        "joinRequired" => String.t() | atom(),
-        "outputConstraints" => list(aggregation_constraint()),
-        "scalarFunctions" => list(String.t() | atom())
-      }
-
-  """
-  @type analysis_rule_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_privacy_budget() :: %{
-        "aggregations" => list(differential_privacy_privacy_budget_aggregation()),
-        "epsilon" => integer()
-      }
-
-  """
-  @type differential_privacy_privacy_budget() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_privacy_budget_templates_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_privacy_budget_templates_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_analysis_template_output() :: %{
-        required("analysisTemplate") => analysis_template()
-      }
-
-  """
-  @type update_analysis_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_schema() :: %{
-        "referencedTables" => list(String.t() | atom())
-      }
-
-  """
-  @type analysis_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_receiver_configuration() :: %{
-        "analysisType" => list(any()),
-        "configurationDetails" => list()
-      }
-
-  """
-  @type protected_job_receiver_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_id_mapping_table_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom()
-      }
-
-  """
-  @type update_id_mapping_table_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_id_namespace_association_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("idMappingConfig") => id_mapping_config(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_id_namespace_association_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_collaboration_output() :: %{
-        required("collaboration") => collaboration()
-      }
-
-  """
-  @type update_collaboration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_id_mapping_table_output() :: %{
-        "idMappingTable" => id_mapping_table()
-      }
-
-  """
-  @type create_id_mapping_table_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_privacy_budgets_input() :: %{
-        optional("accessBudgetResourceArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("privacyBudgetType") => list(any())
-      }
-
-  """
-  @type list_collaboration_privacy_budgets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_status_detail() :: %{
-        "analysisRuleType" => list(any()),
-        "analysisType" => list(any()),
-        "configurations" => list(list(any())()),
-        "reasons" => list(schema_status_reason()),
-        "status" => list(any())
-      }
-
-  """
-  @type schema_status_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_table_association_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_configured_table_association_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_preview_aggregation() :: %{
-        "maxCount" => [integer()],
-        "type" => list(any())
-      }
-
-  """
-  @type differential_privacy_preview_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_inference_payment_config() :: %{
-        "isResponsible" => [boolean()]
-      }
-
-  """
-  @type model_inference_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_result_configuration_output() :: %{
-        "outputConfiguration" => list()
-      }
-
-  """
-  @type protected_job_result_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ml_member_abilities() :: %{
-        "customMLMemberAbilities" => list(list(any())())
-      }
-
-  """
-  @type ml_member_abilities() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_compute_payment_config() :: %{
-        "isResponsible" => [boolean()]
-      }
-
-  """
-  @type job_compute_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_collaboration_input() :: %{
-        optional("analyticsEngine") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_collaboration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      preview_privacy_impact_input() :: %{
-        required("parameters") => list()
-      }
-
-  """
-  @type preview_privacy_impact_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_mapping_table_schema_type_properties() :: %{
-        "idMappingTableInputSource" => list(id_mapping_table_input_source())
-      }
-
-  """
-  @type id_mapping_table_schema_type_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_change_requests_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_collaboration_change_requests_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_memberships_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type list_memberships_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_message_configuration() :: %{
-        "type" => list(any())
-      }
-
-  """
-  @type error_message_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_id_namespace_association_output() :: %{
-        "idNamespaceAssociation" => id_namespace_association()
-      }
-
-  """
-  @type get_id_namespace_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schemas_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("schemaSummaries") => list(schema_summary())
-      }
-
-  """
-  @type list_schemas_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_analysis_template_input() :: %{}
-
-  """
-  @type delete_analysis_template_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      consolidated_policy_list() :: %{
-        "additionalAnalyses" => list(any()),
-        "allowedAdditionalAnalyses" => list(String.t() | atom()),
-        "allowedJoinOperators" => list(String.t() | atom()),
-        "allowedResultReceivers" => list(String.t() | atom()),
-        "joinColumns" => list(String.t() | atom()),
-        "listColumns" => list(String.t() | atom())
-      }
-
-  """
-  @type consolidated_policy_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_privacy_budget_template_output() :: %{
-        "collaborationPrivacyBudgetTemplate" => collaboration_privacy_budget_template()
-      }
-
-  """
-  @type get_collaboration_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      approval_status_details() :: %{
-        "status" => list(any())
-      }
-
-  """
-  @type approval_status_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_table_analysis_rule_output() :: %{}
-
-  """
-  @type delete_configured_table_analysis_rule_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_privacy_budget_template_input() :: %{
-        optional("parameters") => list(),
-        required("privacyBudgetType") => list(any())
-      }
-
-  """
-  @type update_privacy_budget_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_rule_custom() :: %{
-        "additionalAnalyses" => list(any()),
-        "allowedAnalyses" => list(String.t() | atom()),
-        "allowedAnalysisProviders" => list(String.t() | atom()),
-        "differentialPrivacy" => differential_privacy_configuration(),
-        "disallowedOutputColumns" => list(String.t() | atom())
-      }
-
-  """
-  @type analysis_rule_custom() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_member_output() :: %{}
-
-  """
-  @type delete_member_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_analysis_rule_request() :: %{
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type schema_analysis_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_table_association_output() :: %{}
-
-  """
-  @type delete_configured_table_association_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      athena_table_reference() :: %{
-        "catalogName" => String.t() | atom(),
-        "databaseName" => String.t() | atom(),
-        "outputLocation" => String.t() | atom(),
-        "region" => list(any()),
-        "tableName" => String.t() | atom(),
-        "workGroup" => String.t() | atom()
-      }
-
-  """
-  @type athena_table_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_analysis_template_output() :: %{
-        required("analysisTemplate") => analysis_template()
-      }
-
-  """
-  @type create_analysis_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_input() :: %{}
-
-  """
-  @type get_collaboration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_protected_query_input() :: %{}
-
-  """
-  @type get_protected_query_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_change_request_output() :: %{
-        "collaborationChangeRequest" => collaboration_change_request()
-      }
-
-  """
-  @type get_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_model_inference_payment_config() :: %{
-        "isResponsible" => [boolean()]
-      }
-
-  """
-  @type membership_model_inference_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      billed_job_resource_utilization() :: %{
-        "units" => [float()]
-      }
-
-  """
-  @type billed_job_resource_utilization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      privacy_budget_template_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "privacyBudgetType" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type privacy_budget_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_table_association_analysis_rule_output() :: %{
-        "analysisRule" => configured_table_association_analysis_rule()
-      }
-
-  """
-  @type create_configured_table_association_analysis_rule_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_collaboration_input() :: %{}
-
-  """
-  @type delete_collaboration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_protected_query_input() :: %{
-        required("targetStatus") => String.t() | atom()
-      }
-
-  """
-  @type update_protected_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table_association_analysis_rule_custom() :: %{
-        "allowedAdditionalAnalyses" => list(String.t() | atom()),
-        "allowedResultReceivers" => list(String.t() | atom())
-      }
-
-  """
-  @type configured_table_association_analysis_rule_custom() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_protected_query_result_configuration() :: %{
-        "outputConfiguration" => list(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type membership_protected_query_result_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_member_input() :: %{}
-
-  """
-  @type delete_member_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_change_specification() :: %{
-        "autoApprovedChangeTypes" => list(list(any())())
-      }
-
-  """
-  @type collaboration_change_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_audience_model_association_output() :: %{
-        "configuredAudienceModelAssociation" => configured_audience_model_association()
-      }
-
-  """
-  @type get_configured_audience_model_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_audience_model_associations_output() :: %{
-        "configuredAudienceModelAssociationSummaries" => list(configured_audience_model_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configured_audience_model_associations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      consolidated_policy_custom() :: %{
-        "additionalAnalyses" => list(any()),
-        "allowedAdditionalAnalyses" => list(String.t() | atom()),
-        "allowedAnalyses" => list(String.t() | atom()),
-        "allowedAnalysisProviders" => list(String.t() | atom()),
-        "allowedResultReceivers" => list(String.t() | atom()),
-        "differentialPrivacy" => differential_privacy_configuration(),
-        "disallowedOutputColumns" => list(String.t() | atom())
-      }
-
-  """
-  @type consolidated_policy_custom() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_privacy_budget_templates_output() :: %{
-        "collaborationPrivacyBudgetTemplateSummaries" => list(collaboration_privacy_budget_template_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_privacy_budget_templates_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_change_request_summary() :: %{
-        "approvals" => map(),
-        "changes" => list(change()),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "isAutoApproved" => [boolean()],
-        "status" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_change_request_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "reason" => String.t() | atom(),
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_id_mapping_table_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("inputReferenceConfig") => id_mapping_table_input_reference_config(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_id_mapping_table_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_table_analysis_rule_input() :: %{
-        required("analysisRulePolicy") => list(),
-        required("analysisRuleType") => list(any())
-      }
-
-  """
-  @type create_configured_table_analysis_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_id_namespace_association_output() :: %{
-        "idNamespaceAssociation" => id_namespace_association()
-      }
-
-  """
-  @type update_id_namespace_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_constraint_require_overlap() :: %{
-        "columns" => list(String.t() | atom())
-      }
-
-  """
-  @type query_constraint_require_overlap() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query() :: %{
-        "computeConfiguration" => list(),
-        "createTime" => [non_neg_integer()],
-        "differentialPrivacy" => differential_privacy_parameters(),
-        "error" => protected_query_error(),
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "result" => protected_query_result(),
-        "resultConfiguration" => protected_query_result_configuration(),
-        "sqlParameters" => protected_query_s_q_l_parameters(),
-        "statistics" => protected_query_statistics(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type protected_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_result_configuration_input() :: %{
-        "outputConfiguration" => list()
-      }
-
-  """
-  @type protected_job_result_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_namespace_association_input_reference_properties() :: %{
-        "idMappingWorkflowsSupported" => list([any()]()),
-        "idNamespaceType" => list(any())
-      }
-
-  """
-  @type id_namespace_association_input_reference_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_result_configuration() :: %{
-        "outputConfiguration" => list()
-      }
-
-  """
-  @type protected_query_result_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_table_association_output() :: %{
-        required("configuredTableAssociation") => configured_table_association()
-      }
-
-  """
-  @type update_configured_table_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_result() :: %{
-        "output" => list()
-      }
-
-  """
-  @type protected_job_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_table_association_analysis_rule_input() :: %{
-        required("analysisRulePolicy") => list()
-      }
-
-  """
-  @type update_configured_table_association_analysis_rule_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_statistics() :: %{
-        "billedResourceUtilization" => billed_job_resource_utilization(),
-        "totalDurationInMillis" => [float()]
-      }
-
-  """
-  @type protected_job_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_schema_analysis_rule_output() :: %{
-        "analysisRules" => list(analysis_rule()),
-        "errors" => list(batch_get_schema_analysis_rule_error())
-      }
-
-  """
-  @type batch_get_schema_analysis_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_s3_output_configuration_input() :: %{
-        "bucket" => [String.t() | atom()],
-        "keyPrefix" => String.t() | atom()
-      }
-
-  """
-  @type protected_job_s3_output_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_summary() :: %{
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "receiverConfigurations" => list(protected_job_receiver_configuration()),
-        "status" => list(any())
-      }
-
-  """
-  @type protected_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaName" => [String.t() | atom()],
-        "quotaValue" => [float()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_configured_audience_model_association() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "configuredAudienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_configured_audience_model_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_audience_model_association_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("configuredAudienceModelArn") => String.t() | atom(),
-        required("configuredAudienceModelAssociationName") => String.t() | atom(),
-        required("manageResourcePolicies") => [boolean()]
-      }
-
-  """
-  @type create_configured_audience_model_association_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_template_parameters_input() :: %{
-        "epsilon" => integer(),
-        "usersNoisePerQuery" => integer()
-      }
-
-  """
-  @type differential_privacy_template_parameters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_budgets_privacy_template_parameters_output() :: %{
-        "budgetParameters" => list(budget_parameter()),
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type access_budgets_privacy_template_parameters_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_query_compute_payment_config() :: %{
-        "isResponsible" => [boolean()]
-      }
-
-  """
-  @type membership_query_compute_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_result() :: %{
-        "output" => list()
-      }
-
-  """
-  @type protected_query_result() :: %{(String.t() | atom()) => any()}
+  @type protected_job_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1958,1090 +69,62 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      start_protected_job_input() :: %{
-        optional("computeConfiguration") => list(),
-        optional("resultConfiguration") => protected_job_result_configuration_input(),
-        required("jobParameters") => protected_job_parameters(),
-        required("type") => list(any())
-      }
-
-  """
-  @type start_protected_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_table_analysis_rule_input() :: %{}
-
-  """
-  @type delete_configured_table_analysis_rule_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      populate_id_mapping_table_output() :: %{
-        "idMappingJobId" => String.t() | atom()
-      }
-
-  """
-  @type populate_id_mapping_table_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      privacy_budget_template() :: %{
-        "arn" => String.t() | atom(),
-        "autoRefresh" => list(any()),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "parameters" => list(),
-        "privacyBudgetType" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type privacy_budget_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table_association_analysis_rule_aggregation() :: %{
-        "allowedAdditionalAnalyses" => list(String.t() | atom()),
-        "allowedResultReceivers" => list(String.t() | atom())
-      }
-
-  """
-  @type configured_table_association_analysis_rule_aggregation() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      privacy_budget_summary() :: %{
-        "budget" => list(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "privacyBudgetTemplateArn" => String.t() | atom(),
-        "privacyBudgetTemplateId" => String.t() | atom(),
-        "type" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type privacy_budget_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schema_output() :: %{
-        required("schema") => schema()
-      }
-
-  """
-  @type get_schema_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hash() :: %{
-        "sha256" => [String.t() | atom()]
-      }
-
-  """
-  @type hash() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_single_member_output() :: %{
-        "accountId" => String.t() | atom()
-      }
-
-  """
-  @type protected_job_single_member_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_configured_audience_model_association_output() :: %{
-        "collaborationConfiguredAudienceModelAssociation" => collaboration_configured_audience_model_association()
-      }
-
-  """
-  @type get_collaboration_configured_audience_model_association_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_schema_output() :: %{
-        required("errors") => list(batch_get_schema_error()),
-        required("schemas") => list(schema())
-      }
-
-  """
-  @type batch_get_schema_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_summary() :: %{
-        "analyticsEngine" => list(any()),
-        "arn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "creatorDisplayName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "memberStatus" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schema() :: %{
-        "analysisMethod" => list(any()),
-        "analysisRuleTypes" => list(list(any())()),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "columns" => list(column()),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "partitionKeys" => list(column()),
-        "resourceArn" => String.t() | atom(),
-        "schemaStatusDetails" => list(schema_status_detail()),
-        "schemaTypeProperties" => list(),
-        "selectedAnalysisMethods" => list(list(any())()),
-        "type" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_table_association_analysis_rule_input() :: %{}
-
-  """
-  @type get_configured_table_association_analysis_rule_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_column() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type differential_privacy_column() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_synthetic_data_generation_payment_config() :: %{
-        "isResponsible" => [boolean()]
-      }
-
-  """
-  @type membership_synthetic_data_generation_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_protected_job_result_configuration() :: %{
-        "outputConfiguration" => list(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type membership_protected_job_result_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_privacy_budget_templates_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_privacy_budget_templates_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_table_association_analysis_rule_output() :: %{
-        "analysisRule" => configured_table_association_analysis_rule()
-      }
-
-  """
-  @type get_configured_table_association_analysis_rule_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_privacy_budgets_input() :: %{
-        optional("accessBudgetResourceArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("privacyBudgetType") => list(any())
-      }
-
-  """
-  @type list_privacy_budgets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_configured_audience_model_associations_output() :: %{
-        "collaborationConfiguredAudienceModelAssociationSummaries" => list(collaboration_configured_audience_model_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_configured_audience_model_associations_output() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_table_association_input() :: %{}
-
-  """
-  @type delete_configured_table_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_privacy_budget_templates_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "privacyBudgetTemplateSummaries" => list(privacy_budget_template_summary())
-      }
-
-  """
-  @type list_privacy_budget_templates_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_mapping_config() :: %{
-        "allowUseAsDimensionColumn" => [boolean()]
-      }
-
-  """
-  @type id_mapping_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_rule_list() :: %{
-        "additionalAnalyses" => list(any()),
-        "allowedJoinOperators" => list(String.t() | atom()),
-        "joinColumns" => list(String.t() | atom()),
-        "listColumns" => list(String.t() | atom())
-      }
-
-  """
-  @type analysis_rule_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_protected_job_output() :: %{
-        "protectedJob" => protected_job()
-      }
-
-  """
-  @type update_protected_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_collaboration_change_request_output() :: %{
-        "collaborationChangeRequest" => collaboration_change_request()
-      }
-
-  """
-  @type create_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationCreatorAccountId" => String.t() | atom(),
-        "collaborationCreatorDisplayName" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "collaborationName" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "memberAbilities" => list(list(any())()),
-        "mlMemberAbilities" => ml_member_abilities(),
-        "paymentConfiguration" => membership_payment_configuration(),
-        "status" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type membership_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ml_synthetic_data_parameters() :: %{
-        "columnClassification" => column_classification_details(),
-        "epsilon" => [float()],
-        "maxMembershipInferenceAttackScore" => float()
-      }
-
-  """
-  @type ml_synthetic_data_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_id_namespace_association_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("idMappingConfig") => id_mapping_config(),
-        optional("tags") => map(),
-        required("inputReferenceConfig") => id_namespace_association_input_reference_config(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_id_namespace_association_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_table_analysis_rule_input() :: %{}
-
-  """
-  @type get_configured_table_analysis_rule_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_rule_id_mapping_table() :: %{
-        "dimensionColumns" => list(String.t() | atom()),
-        "joinColumns" => list(String.t() | atom()),
-        "queryConstraints" => list(list())
-      }
-
-  """
-  @type analysis_rule_id_mapping_table() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_direct_analysis_configuration_details() :: %{
-        "receiverAccountIds" => list(String.t() | atom())
-      }
-
-  """
-  @type protected_job_direct_analysis_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "bucket" => [String.t() | atom()],
-        "key" => [String.t() | atom()]
-      }
-
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_analysis_templates_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_analysis_templates_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_s3_output() :: %{
-        "location" => [String.t() | atom()]
-      }
-
-  """
-  @type protected_query_s3_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_collaboration_change_request_input() :: %{
-        required("action") => list(any())
-      }
-
-  """
-  @type update_collaboration_change_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_privacy_budget_summary() :: %{
-        "budget" => list(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "privacyBudgetTemplateArn" => String.t() | atom(),
-        "privacyBudgetTemplateId" => String.t() | atom(),
-        "type" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_privacy_budget_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_audience_model_association_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_configured_audience_model_association_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_configured_audience_model_associations_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_configured_audience_model_associations_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_collaboration_change_request_input() :: %{
-        required("changes") => list(change_input())
-      }
-
-  """
-  @type create_collaboration_change_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_privacy_budget_template_input() :: %{
-        optional("autoRefresh") => list(any()),
-        optional("tags") => map(),
-        required("parameters") => list(),
-        required("privacyBudgetType") => list(any())
-      }
-
-  """
-  @type create_privacy_budget_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_privacy_budget_template_output() :: %{
-        "privacyBudgetTemplate" => privacy_budget_template()
-      }
-
-  """
-  @type get_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_protected_query_output() :: %{
-        required("protectedQuery") => protected_query()
-      }
-
-  """
-  @type update_protected_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_table_association_output() :: %{
+      get_configured_table_association_output() :: %{
         required("configuredTableAssociation") => configured_table_association()
       }
 
   """
-  @type create_configured_table_association_output() :: %{(String.t() | atom()) => any()}
+  @type get_configured_table_association_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      differential_privacy_privacy_impact() :: %{
-        "aggregations" => list(differential_privacy_preview_aggregation())
+      consolidated_policy_custom() :: %{
+        "additionalAnalyses" => list(any()),
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedAnalyses" => list(String.t() | atom()),
+        "allowedAnalysisProviders" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom()),
+        "differentialPrivacy" => differential_privacy_configuration(),
+        "disallowedOutputColumns" => list(String.t() | atom())
       }
 
   """
-  @type differential_privacy_privacy_impact() :: %{(String.t() | atom()) => any()}
+  @type consolidated_policy_custom() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      synthetic_data_generation_payment_config() :: %{
-        "isResponsible" => [boolean()]
+      get_analysis_template_input() :: %{}
+
+  """
+  @type get_analysis_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_s3_output() :: %{
+        "location" => [String.t() | atom()]
       }
 
   """
-  @type synthetic_data_generation_payment_config() :: %{(String.t() | atom()) => any()}
+  @type protected_job_s3_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      analysis_parameter() :: %{
-        "defaultValue" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => list(any())
+      change() :: %{
+        "specification" => list(),
+        "specificationType" => list(any()),
+        "types" => list(list(any())())
       }
 
   """
-  @type analysis_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_mapping_table() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "inputReferenceConfig" => id_mapping_table_input_reference_config(),
-        "inputReferenceProperties" => id_mapping_table_input_reference_properties(),
-        "kmsKeyArn" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type id_mapping_table() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_id_mapping_table_output() :: %{}
-
-  """
-  @type delete_id_mapping_table_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_collaboration_input() :: %{
-        optional("allowedResultRegions") => list(list(any())()),
-        optional("analyticsEngine") => list(any()),
-        optional("autoApprovedChangeRequestTypes") => list(list(any())()),
-        optional("creatorMLMemberAbilities") => ml_member_abilities(),
-        optional("creatorPaymentConfiguration") => payment_configuration(),
-        optional("dataEncryptionMetadata") => data_encryption_metadata(),
-        optional("isMetricsEnabled") => [boolean()],
-        optional("jobLogStatus") => list(any()),
-        optional("tags") => map(),
-        required("creatorDisplayName") => String.t() | atom(),
-        required("creatorMemberAbilities") => list(list(any())()),
-        required("description") => String.t() | atom(),
-        required("members") => list(member_specification()),
-        required("name") => String.t() | atom(),
-        required("queryLogStatus") => list(any())
-      }
-
-  """
-  @type create_collaboration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table_analysis_rule() :: %{
-        "configuredTableArn" => String.t() | atom(),
-        "configuredTableId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "policy" => list(),
-        "type" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_table_analysis_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_id_mapping_table_output() :: %{
-        "idMappingTable" => id_mapping_table()
-      }
-
-  """
-  @type update_id_mapping_table_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_compute_payment_config() :: %{
-        "isResponsible" => [boolean()]
-      }
-
-  """
-  @type query_compute_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_members_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_members_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_template_update_parameters() :: %{
-        "epsilon" => integer(),
-        "usersNoisePerQuery" => integer()
-      }
-
-  """
-  @type differential_privacy_template_update_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_id_mapping_table_output() :: %{
-        "idMappingTable" => id_mapping_table()
-      }
-
-  """
-  @type get_id_mapping_table_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_constraint() :: %{
-        "columnName" => String.t() | atom(),
-        "minimum" => [integer()],
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type aggregation_constraint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_id_namespace_association_output() :: %{
-        "collaborationIdNamespaceAssociation" => collaboration_id_namespace_association()
-      }
-
-  """
-  @type get_collaboration_id_namespace_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      synthetic_data_column_properties() :: %{
-        "columnName" => String.t() | atom(),
-        "columnType" => list(any()),
-        "isPredictiveValue" => [boolean()]
-      }
-
-  """
-  @type synthetic_data_column_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_privacy_budgets_output() :: %{
-        "collaborationPrivacyBudgetSummaries" => list(collaboration_privacy_budget_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_privacy_budgets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_privacy_budget_template() :: %{
-        "arn" => String.t() | atom(),
-        "autoRefresh" => list(any()),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "parameters" => list(),
-        "privacyBudgetType" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_privacy_budget_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_template_artifact_metadata() :: %{
-        "additionalArtifactHashes" => list(hash()),
-        "entryPointHash" => hash()
-      }
-
-  """
-  @type analysis_template_artifact_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_change_request() :: %{
-        "approvals" => map(),
-        "changes" => list(change()),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "isAutoApproved" => [boolean()],
-        "status" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_change_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_id_namespace_associations_output() :: %{
-        "idNamespaceAssociationSummaries" => list(id_namespace_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_id_namespace_associations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_job_compute_payment_config() :: %{
-        "isResponsible" => [boolean()]
-      }
-
-  """
-  @type membership_job_compute_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      billed_resource_utilization() :: %{
-        "units" => [float()]
-      }
-
-  """
-  @type billed_resource_utilization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schema_analysis_rule_input() :: %{}
-
-  """
-  @type get_schema_analysis_rule_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_member_output_configuration_output() :: %{
-        "accountId" => String.t() | atom()
-      }
-
-  """
-  @type protected_job_member_output_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_audience_model_association() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "configuredAudienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "manageResourcePolicies" => [boolean()],
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_audience_model_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_privacy_budget_template_output() :: %{
-        "privacyBudgetTemplate" => privacy_budget_template()
-      }
-
-  """
-  @type update_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      column_classification_details() :: %{
-        "columnMapping" => list(synthetic_data_column_properties())
-      }
-
-  """
-  @type column_classification_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_status_reason() :: %{
-        "code" => list(any()),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type schema_status_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_single_member_output() :: %{
-        "accountId" => String.t() | atom()
-      }
-
-  """
-  @type protected_query_single_member_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_id_namespace_association_output() :: %{
-        "idNamespaceAssociation" => id_namespace_association()
-      }
-
-  """
-  @type create_id_namespace_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()],
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_configuration() :: %{
-        "columns" => list(differential_privacy_column())
-      }
-
-  """
-  @type differential_privacy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      direct_analysis_configuration_details() :: %{
-        "receiverAccountIds" => list(String.t() | atom())
-      }
-
-  """
-  @type direct_analysis_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_change_requests_output() :: %{
-        "collaborationChangeRequestSummaries" => list(collaboration_change_request_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_change_requests_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3058,1026 +141,26 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      start_protected_query_output() :: %{
-        required("protectedQuery") => protected_query()
+      create_privacy_budget_template_input() :: %{
+        optional("autoRefresh") => list(any()),
+        required("parameters") => list(),
+        required("privacyBudgetType") => list(any()),
+        optional("tags") => map()
       }
 
   """
-  @type start_protected_query_output() :: %{(String.t() | atom()) => any()}
+  @type create_privacy_budget_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_configured_table_analysis_rule_output() :: %{
-        required("analysisRule") => configured_table_analysis_rule()
+      access_budgets_privacy_template_update_parameters() :: %{
+        "budgetParameters" => list(budget_parameter())
       }
 
   """
-  @type create_configured_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_template() :: %{
-        "analysisParameters" => list(analysis_parameter()),
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "errorMessageConfiguration" => error_message_configuration(),
-        "format" => list(any()),
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "schema" => analysis_schema(),
-        "source" => list(),
-        "sourceMetadata" => list(),
-        "syntheticDataParameters" => list(),
-        "updateTime" => [non_neg_integer()],
-        "validations" => list(analysis_template_validation_status_detail())
-      }
-
-  """
-  @type analysis_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_compute_configuration() :: %{
-        "number" => [integer()],
-        "properties" => list(),
-        "type" => list(any())
-      }
-
-  """
-  @type worker_compute_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_analysis_template_output() :: %{
-        required("analysisTemplate") => analysis_template()
-      }
-
-  """
-  @type get_analysis_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_schema_analysis_rule_error() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type batch_get_schema_analysis_rule_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_table_input() :: %{
-        optional("allowedColumns") => list(String.t() | atom()),
-        optional("analysisMethod") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("selectedAnalysisMethods") => list(list(any())()),
-        optional("tableReference") => list()
-      }
-
-  """
-  @type update_configured_table_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table_association_analysis_rule_list() :: %{
-        "allowedAdditionalAnalyses" => list(String.t() | atom()),
-        "allowedResultReceivers" => list(String.t() | atom())
-      }
-
-  """
-  @type configured_table_association_analysis_rule_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table_association_analysis_rule() :: %{
-        "configuredTableAssociationArn" => String.t() | atom(),
-        "configuredTableAssociationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "membershipIdentifier" => String.t() | atom(),
-        "policy" => list(),
-        "type" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_table_association_analysis_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schema_input() :: %{}
-
-  """
-  @type get_schema_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_collaboration_analysis_template_error() :: %{
-        "arn" => String.t() | atom(),
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_get_collaboration_analysis_template_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_protected_job_input() :: %{}
-
-  """
-  @type get_protected_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaborations_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("collaborationList") => list(collaboration_summary())
-      }
-
-  """
-  @type list_collaborations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_id_namespace_association_input() :: %{}
-
-  """
-  @type delete_id_namespace_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table_association_summary() :: %{
-        "analysisRuleTypes" => list(list(any())()),
-        "arn" => String.t() | atom(),
-        "configuredTableId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_table_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_configured_audience_model_association_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_configured_audience_model_association_summary() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_id_namespace_association() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "idMappingConfig" => id_mapping_config(),
-        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
-        "inputReferenceProperties" => id_namespace_association_input_reference_properties(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_id_namespace_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      differential_privacy_template_parameters_output() :: %{
-        "epsilon" => integer(),
-        "usersNoisePerQuery" => integer()
-      }
-
-  """
-  @type differential_privacy_template_parameters_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_collaboration_output() :: %{}
-
-  """
-  @type delete_collaboration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      snowflake_table_reference() :: %{
-        "accountIdentifier" => String.t() | atom(),
-        "databaseName" => String.t() | atom(),
-        "schemaName" => String.t() | atom(),
-        "secretArn" => String.t() | atom(),
-        "tableName" => String.t() | atom(),
-        "tableSchema" => list()
-      }
-
-  """
-  @type snowflake_table_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_protected_jobs_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "protectedJobs" => list(protected_job_summary())
-      }
-
-  """
-  @type list_protected_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_protected_job_output() :: %{
-        "protectedJob" => protected_job()
-      }
-
-  """
-  @type get_protected_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schema_analysis_rule_output() :: %{
-        required("analysisRule") => analysis_rule()
-      }
-
-  """
-  @type get_schema_analysis_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_analysis_template_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "isSyntheticData" => [boolean()],
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_analysis_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_s_q_l_parameters() :: %{
-        "analysisTemplateArn" => String.t() | atom(),
-        "parameters" => map(),
-        "queryString" => [String.t() | atom()]
-      }
-
-  """
-  @type protected_query_s_q_l_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_id_namespace_association_input() :: %{}
-
-  """
-  @type get_id_namespace_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_protected_job_input() :: %{
-        required("targetStatus") => list(any())
-      }
-
-  """
-  @type update_protected_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_member_output_configuration_input() :: %{
-        "accountId" => String.t() | atom()
-      }
-
-  """
-  @type protected_job_member_output_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_budgets_privacy_template_parameters_input() :: %{
-        "budgetParameters" => list(budget_parameter()),
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type access_budgets_privacy_template_parameters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_output() :: %{
-        required("collaboration") => collaboration()
-      }
-
-  """
-  @type get_collaboration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_id_mapping_table_input() :: %{}
-
-  """
-  @type get_id_mapping_table_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_change_request_input() :: %{}
-
-  """
-  @type get_collaboration_change_request_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_table_association_analysis_rule_input() :: %{}
-
-  """
-  @type delete_configured_table_association_analysis_rule_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_statistics() :: %{
-        "billedResourceUtilization" => billed_resource_utilization(),
-        "totalDurationInMillis" => [float()]
-      }
-
-  """
-  @type protected_query_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_template_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "isSyntheticData" => [boolean()],
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type analysis_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_audience_model_association_output() :: %{
-        "configuredAudienceModelAssociation" => configured_audience_model_association()
-      }
-
-  """
-  @type update_configured_audience_model_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_membership_output() :: %{
-        required("membership") => membership()
-      }
-
-  """
-  @type update_membership_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_membership_input() :: %{
-        optional("defaultJobResultConfiguration") => membership_protected_job_result_configuration(),
-        optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
-        optional("jobLogStatus") => list(any()),
-        optional("queryLogStatus") => list(any())
-      }
-
-  """
-  @type update_membership_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_summary() :: %{
-        "abilities" => list(list(any())()),
-        "accountId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "displayName" => String.t() | atom(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "mlAbilities" => ml_member_abilities(),
-        "paymentConfiguration" => payment_configuration(),
-        "status" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type member_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_collaboration_analysis_template_output() :: %{
-        required("collaborationAnalysisTemplates") => list(collaboration_analysis_template()),
-        required("errors") => list(batch_get_collaboration_analysis_template_error())
-      }
-
-  """
-  @type batch_get_collaboration_analysis_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_schema_input() :: %{
-        required("names") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_schema_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_table_reference() :: %{
-        "databaseName" => String.t() | atom(),
-        "region" => list(any()),
-        "tableName" => String.t() | atom()
-      }
-
-  """
-  @type glue_table_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_error() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type protected_query_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_analysis_template_output() :: %{}
-
-  """
-  @type delete_analysis_template_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_table_association_output() :: %{
-        required("configuredTableAssociation") => configured_table_association()
-      }
-
-  """
-  @type get_configured_table_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_membership_output() :: %{
-        required("membership") => membership()
-      }
-
-  """
-  @type create_membership_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_payment_configuration() :: %{
-        "jobCompute" => membership_job_compute_payment_config(),
-        "machineLearning" => membership_ml_payment_config(),
-        "queryCompute" => membership_query_compute_payment_config()
-      }
-
-  """
-  @type membership_payment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_membership_input() :: %{}
-
-  """
-  @type get_membership_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      consolidated_policy_aggregation() :: %{
-        "additionalAnalyses" => list(any()),
-        "aggregateColumns" => list(aggregate_column()),
-        "allowedAdditionalAnalyses" => list(String.t() | atom()),
-        "allowedJoinOperators" => list(String.t() | atom()),
-        "allowedResultReceivers" => list(String.t() | atom()),
-        "dimensionColumns" => list(String.t() | atom()),
-        "joinColumns" => list(String.t() | atom()),
-        "joinRequired" => String.t() | atom(),
-        "outputConstraints" => list(aggregation_constraint()),
-        "scalarFunctions" => list(String.t() | atom())
-      }
-
-  """
-  @type consolidated_policy_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_ml_payment_config() :: %{
-        "modelInference" => membership_model_inference_payment_config(),
-        "modelTraining" => membership_model_training_payment_config(),
-        "syntheticDataGeneration" => membership_synthetic_data_generation_payment_config()
-      }
-
-  """
-  @type membership_ml_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_audience_model_association_input() :: %{}
-
-  """
-  @type get_configured_audience_model_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_audience_model_association_output() :: %{
-        "configuredAudienceModelAssociation" => configured_audience_model_association()
-      }
-
-  """
-  @type create_configured_audience_model_association_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_mapping_table_input_source() :: %{
-        "idNamespaceAssociationId" => [String.t() | atom()],
-        "type" => list(any())
-      }
-
-  """
-  @type id_mapping_table_input_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_protected_query_input() :: %{
-        optional("computeConfiguration") => list(),
-        optional("resultConfiguration") => protected_query_result_configuration(),
-        required("sqlParameters") => protected_query_s_q_l_parameters(),
-        required("type") => String.t() | atom()
-      }
-
-  """
-  @type start_protected_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_privacy_budget_template_summary() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "privacyBudgetType" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_privacy_budget_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payment_configuration() :: %{
-        "jobCompute" => job_compute_payment_config(),
-        "machineLearning" => ml_payment_config(),
-        "queryCompute" => query_compute_payment_config()
-      }
-
-  """
-  @type payment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_table() :: %{
-        "allowedColumns" => list(String.t() | atom()),
-        "analysisMethod" => list(any()),
-        "analysisRuleTypes" => list(list(any())()),
-        "arn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "selectedAnalysisMethods" => list(list(any())()),
-        "tableReference" => list(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_table() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_analysis_template_output() :: %{
-        required("collaborationAnalysisTemplate") => collaboration_analysis_template()
-      }
-
-  """
-  @type get_collaboration_analysis_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ml_payment_config() :: %{
-        "modelInference" => model_inference_payment_config(),
-        "modelTraining" => model_training_payment_config(),
-        "syntheticDataGeneration" => synthetic_data_generation_payment_config()
-      }
-
-  """
-  @type ml_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_s3_output_configuration_output() :: %{
-        "bucket" => [String.t() | atom()],
-        "keyPrefix" => String.t() | atom()
-      }
-
-  """
-  @type protected_job_s3_output_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_template_validation_status_reason() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type analysis_template_validation_status_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snowflake_table_schema_v1() :: %{
-        "columnName" => String.t() | atom(),
-        "columnType" => String.t() | atom()
-      }
-
-  """
-  @type snowflake_table_schema_v1() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_table_input() :: %{}
-
-  """
-  @type get_configured_table_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      model_training_payment_config() :: %{
-        "isResponsible" => [boolean()]
-      }
-
-  """
-  @type model_training_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_budget_details() :: %{
-        "autoRefresh" => list(any()),
-        "budget" => integer(),
-        "budgetType" => list(any()),
-        "endTime" => [non_neg_integer()],
-        "remainingBudget" => integer(),
-        "startTime" => [non_neg_integer()]
-      }
-
-  """
-  @type access_budget_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregate_column() :: %{
-        "columnNames" => list(String.t() | atom()),
-        "function" => String.t() | atom()
-      }
-
-  """
-  @type aggregate_column() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_privacy_budget_template_input() :: %{}
-
-  """
-  @type get_privacy_budget_template_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_analysis_template_input() :: %{
-        optional("analysisParameters") => list(analysis_parameter()),
-        optional("description") => String.t() | atom(),
-        optional("errorMessageConfiguration") => error_message_configuration(),
-        optional("schema") => analysis_schema(),
-        optional("syntheticDataParameters") => list(),
-        optional("tags") => map(),
-        required("format") => list(any()),
-        required("name") => String.t() | atom(),
-        required("source") => list()
-      }
-
-  """
-  @type create_analysis_template_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_id_namespace_associations_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_id_namespace_associations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_tables_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("configuredTableSummaries") => list(configured_table_summary())
-      }
-
-  """
-  @type list_configured_tables_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_namespace_association() :: %{
-        "arn" => String.t() | atom(),
-        "collaborationArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "idMappingConfig" => id_mapping_config(),
-        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
-        "inputReferenceProperties" => id_namespace_association_input_reference_properties(),
-        "membershipArn" => String.t() | atom(),
-        "membershipId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type id_namespace_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_job_parameters() :: %{
-        "analysisTemplateArn" => String.t() | atom(),
-        "parameters" => map()
-      }
-
-  """
-  @type protected_job_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_configured_audience_model_association_input() :: %{}
-
-  """
-  @type get_collaboration_configured_audience_model_association_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaborations_input() :: %{
-        optional("maxResults") => integer(),
-        optional("memberStatus") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collaborations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_s3_output_configuration() :: %{
-        "bucket" => [String.t() | atom()],
-        "keyPrefix" => String.t() | atom(),
-        "resultFormat" => list(any()),
-        "singleFileOutput" => [boolean()]
-      }
-
-  """
-  @type protected_query_s3_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type access_budgets_privacy_template_update_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4097,117 +180,29 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      access_budgets_privacy_template_update_parameters() :: %{
-        "budgetParameters" => list(budget_parameter())
+      update_intermediate_table_input() :: %{
+        optional("columns") => list(intermediate_table_column()),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom()
       }
 
   """
-  @type access_budgets_privacy_template_update_parameters() :: %{(String.t() | atom()) => any()}
+  @type update_intermediate_table_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      membership_model_training_payment_config() :: %{
-        "isResponsible" => [boolean()]
+      differential_privacy_sensitivity_parameters() :: %{
+        "aggregationExpression" => String.t() | atom(),
+        "aggregationType" => list(any()),
+        "maxColumnValue" => [float()],
+        "minColumnValue" => [float()],
+        "userContributionLimit" => [integer()]
       }
 
   """
-  @type membership_model_training_payment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_protected_job_output() :: %{
-        "protectedJob" => protected_job()
-      }
-
-  """
-  @type start_protected_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_namespace_association_input_reference_properties_summary() :: %{
-        "idNamespaceType" => list(any())
-      }
-
-  """
-  @type id_namespace_association_input_reference_properties_summary() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_schema_error() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type batch_get_schema_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      preview_privacy_impact_output() :: %{
-        "privacyImpact" => list()
-      }
-
-  """
-  @type preview_privacy_impact_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_specification() :: %{
-        "accountId" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "memberAbilities" => list(list(any())()),
-        "mlMemberAbilities" => ml_member_abilities(),
-        "paymentConfiguration" => payment_configuration()
-      }
-
-  """
-  @type member_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_membership_input() :: %{}
-
-  """
-  @type delete_membership_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_collaboration_change_request_output() :: %{
-        "collaborationChangeRequest" => collaboration_change_request()
-      }
-
-  """
-  @type update_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_mapping_table_input_reference_properties() :: %{
-        "idMappingTableInputSource" => list(id_mapping_table_input_source())
-      }
-
-  """
-  @type id_mapping_table_input_reference_properties() :: %{(String.t() | atom()) => any()}
+  @type differential_privacy_sensitivity_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4241,12 +236,177 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      update_configured_table_association_analysis_rule_output() :: %{
-        "analysisRule" => configured_table_association_analysis_rule()
+      list_members_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type update_configured_table_association_analysis_rule_output() :: %{
+  @type list_members_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_analysis_template_input() :: %{
+        optional("analysisParameters") => list(analysis_parameter()),
+        optional("description") => String.t() | atom(),
+        optional("errorMessageConfiguration") => error_message_configuration(),
+        required("format") => list(any()),
+        required("name") => String.t() | atom(),
+        optional("schema") => analysis_schema(),
+        required("source") => list(),
+        optional("syntheticDataParameters") => list(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_analysis_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_status_reason() :: %{
+        "code" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type schema_status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_intermediate_table_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list(),
+        required("analysisRuleType") => list(any())
+      }
+
+  """
+  @type create_intermediate_table_analysis_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_privacy_budget_template_output() :: %{
+        "privacyBudgetTemplate" => privacy_budget_template()
+      }
+
+  """
+  @type update_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_id_mapping_table_input() :: %{}
+
+  """
+  @type delete_id_mapping_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_constraint() :: %{
+        "columnName" => String.t() | atom(),
+        "minimum" => [integer()],
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type aggregation_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_mapping_table() :: %{
+        "arn" => String.t() | atom(),
+        "childResources" => list(child_resource()),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "inputReferenceConfig" => id_mapping_table_input_reference_config(),
+        "inputReferenceProperties" => id_mapping_table_input_reference_properties(),
+        "kmsKeyArn" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type id_mapping_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_inherited_constraints() :: %{
+        "additionalAnalyses" => inherited_additional_analyses(),
+        "allowedAdditionalAnalyses" => inherited_allowed_additional_analyses(),
+        "allowedResultReceivers" => inherited_allowed_result_receivers(),
+        "disallowedOutputColumns" => inherited_disallowed_output_columns()
+      }
+
+  """
+  @type intermediate_table_inherited_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_association_input() :: %{}
+
+  """
+  @type get_configured_audience_model_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      column_lineage_entry() :: %{
+        "column" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "sourceColumn" => String.t() | atom(),
+        "sourceId" => String.t() | atom(),
+        "sourceName" => String.t() | atom(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type column_lineage_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_id_namespace_association_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("idMappingConfig") => id_mapping_config(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_id_namespace_association_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_configured_audience_model_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_configured_audience_model_associations_input() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4254,10 +414,749 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      delete_configured_table_output() :: %{}
+      list_id_mapping_tables_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
 
   """
-  @type delete_configured_table_output() :: %{}
+  @type list_id_mapping_tables_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_analysis_template_output() :: %{}
+
+  """
+  @type delete_analysis_template_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_audience_model_associations_output() :: %{
+        "configuredAudienceModelAssociationSummaries" => list(configured_audience_model_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configured_audience_model_associations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_disallowed_output_columns() :: %{
+        "columnLineage" => list(column_lineage_entry()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_disallowed_output_columns() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_summary() :: %{
+        "analysisMethod" => list(any()),
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "selectedAnalysisMethods" => list(list(any())()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_table_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_compute_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type job_compute_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_privacy_budget_template_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "privacyBudgetType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_privacy_budget_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_analysis_template_input() :: %{}
+
+  """
+  @type delete_analysis_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_table_output() :: %{
+        required("configuredTable") => configured_table()
+      }
+
+  """
+  @type get_configured_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_statistics() :: %{
+        "billedResourceUtilization" => billed_resource_utilization(),
+        "totalDurationInMillis" => [float()]
+      }
+
+  """
+  @type protected_query_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      privacy_budget_template() :: %{
+        "arn" => String.t() | atom(),
+        "autoRefresh" => list(any()),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "parameters" => list(),
+        "privacyBudgetType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type privacy_budget_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_summary() :: %{
+        "analyticsEngine" => list(any()),
+        "arn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "creatorDisplayName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "memberStatus" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_privacy_budget_template_output() :: %{
+        "privacyBudgetTemplate" => privacy_budget_template()
+      }
+
+  """
+  @type get_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_budgets_privacy_template_parameters_input() :: %{
+        "budgetParameters" => list(budget_parameter()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type access_budgets_privacy_template_parameters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_allowed_result_receivers_source() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_allowed_result_receivers_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schema_input() :: %{}
+
+  """
+  @type get_schema_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      receiver_configuration() :: %{
+        "analysisType" => list(any()),
+        "configurationDetails" => list()
+      }
+
+  """
+  @type receiver_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_output_configuration() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_input() :: %{}
+
+  """
+  @type delete_configured_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule() :: %{
+        "collaborationId" => String.t() | atom(),
+        "collaborationPolicy" => list(),
+        "consolidatedPolicy" => list(),
+        "createTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "policy" => list(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type analysis_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_result_configuration_output() :: %{
+        "outputConfiguration" => list()
+      }
+
+  """
+  @type protected_job_result_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_protected_job_output() :: %{
+        "protectedJob" => protected_job()
+      }
+
+  """
+  @type start_protected_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type protected_job_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_analysis_rule_input() :: %{}
+
+  """
+  @type delete_configured_table_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_additional_analyses() :: %{
+        "sources" => list(inherited_additional_analyses_source()),
+        "value" => list(any())
+      }
+
+  """
+  @type inherited_additional_analyses() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_analysis_rule_output() :: %{}
+
+  """
+  @type delete_configured_table_analysis_rule_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_change_specification() :: %{
+        "autoApprovedChangeTypes" => list(list(any())())
+      }
+
+  """
+  @type collaboration_change_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_id_mapping_table_output() :: %{
+        "idMappingTable" => id_mapping_table()
+      }
+
+  """
+  @type update_id_mapping_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_id_namespace_association_input() :: %{}
+
+  """
+  @type get_collaboration_id_namespace_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_result() :: %{
+        "output" => list()
+      }
+
+  """
+  @type protected_job_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_active_version() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "expirationTime" => [non_neg_integer()],
+        "inheritedConstraints" => intermediate_table_inherited_constraints(),
+        "kmsKeyArn" => String.t() | atom(),
+        "parameters" => map(),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_active_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_job_compute_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_job_compute_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_table_schema_v1() :: %{
+        "columnName" => String.t() | atom(),
+        "columnType" => String.t() | atom()
+      }
+
+  """
+  @type snowflake_table_schema_v1() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_association_analysis_rule_input() :: %{}
+
+  """
+  @type delete_configured_table_association_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_id_namespace_association() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "idMappingConfig" => id_mapping_config(),
+        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
+        "inputReferenceProperties" => id_namespace_association_input_reference_properties(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_id_namespace_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_table_association_analysis_rule_input() :: %{}
+
+  """
+  @type get_configured_table_association_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_jobs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_protected_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_membership_input() :: %{
+        required("collaborationIdentifier") => String.t() | atom(),
+        optional("defaultJobResultConfiguration") => membership_protected_job_result_configuration(),
+        optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
+        optional("isMetricsEnabled") => [boolean()],
+        optional("jobLogStatus") => list(any()),
+        optional("paymentConfiguration") => membership_payment_configuration(),
+        required("queryLogStatus") => list(any()),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_membership_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_result_configuration() :: %{
+        "outputConfiguration" => list()
+      }
+
+  """
+  @type protected_query_result_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_privacy_budget_template() :: %{
+        "arn" => String.t() | atom(),
+        "autoRefresh" => list(any()),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "parameters" => list(),
+        "privacyBudgetType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_privacy_budget_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_privacy_budget_summary() :: %{
+        "budget" => list(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "privacyBudgetTemplateArn" => String.t() | atom(),
+        "privacyBudgetTemplateId" => String.t() | atom(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_privacy_budget_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_template_parameters_output() :: %{
+        "epsilon" => integer(),
+        "usersNoisePerQuery" => integer()
+      }
+
+  """
+  @type differential_privacy_template_parameters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_id_mapping_table_input() :: %{
+        optional("description") => String.t() | atom(),
+        required("inputReferenceConfig") => id_mapping_table_input_reference_config(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_id_mapping_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_association_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list(),
+        required("analysisRuleType") => list(any())
+      }
+
+  """
+  @type create_configured_table_association_analysis_rule_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_analysis_template_output() :: %{
+        required("analysisTemplate") => analysis_template()
+      }
+
+  """
+  @type get_analysis_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_membership_input() :: %{
+        optional("defaultJobResultConfiguration") => membership_protected_job_result_configuration(),
+        optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
+        optional("jobLogStatus") => list(any()),
+        optional("membershipPaymentConfiguration") => update_membership_payment_configuration(),
+        optional("queryLogStatus") => list(any())
+      }
+
+  """
+  @type update_membership_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      population_analysis_sql_parameters() :: %{
+        "analysisTemplateArn" => String.t() | atom(),
+        "queryString" => [String.t() | atom()]
+      }
+
+  """
+  @type population_analysis_sql_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_message_configuration() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type error_message_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ml_synthetic_data_parameters() :: %{
+        "columnClassification" => column_classification_details(),
+        "epsilon" => [float()],
+        "maxMembershipInferenceAttackScore" => float()
+      }
+
+  """
+  @type ml_synthetic_data_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_change_specification() :: %{
+        "accountId" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "memberAbilities" => list(list(any())()),
+        "mlMemberAbilities" => ml_member_abilities(),
+        "paymentConfiguration" => payment_configuration()
+      }
+
+  """
+  @type member_change_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_member_output_configuration() :: %{
+        "accountId" => String.t() | atom()
+      }
+
+  """
+  @type protected_query_member_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schemas_output() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("schemaSummaries") => list(schema_summary())
+      }
+
+  """
+  @type list_schemas_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_change_request_input() :: %{}
+
+  """
+  @type get_collaboration_change_request_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_membership_input() :: %{}
+
+  """
+  @type get_membership_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_table_analysis_rule_output() :: %{
+        required("analysisRule") => configured_table_analysis_rule()
+      }
+
+  """
+  @type get_configured_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_privacy_impact() :: %{
+        "aggregations" => list(differential_privacy_preview_aggregation())
+      }
+
+  """
+  @type differential_privacy_privacy_impact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_association() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "idMappingConfig" => id_mapping_config(),
+        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
+        "inputReferenceProperties" => id_namespace_association_input_reference_properties(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type id_namespace_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4284,27 +1183,49 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      populate_id_mapping_table_input() :: %{
-        optional("jobType") => list(any())
+      approval_status_details() :: %{
+        "status" => list(any())
       }
 
   """
-  @type populate_id_mapping_table_input() :: %{(String.t() | atom()) => any()}
+  @type approval_status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_configured_table_association_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("configuredTableIdentifier") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
+      list_collaborations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("memberStatus") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type create_configured_table_association_input() :: %{(String.t() | atom()) => any()}
+  @type list_collaborations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      budget_parameter() :: %{
+        "autoRefresh" => list(any()),
+        "budget" => integer(),
+        "type" => list(any())
+      }
+
+  """
+  @type budget_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_protected_query_input() :: %{
+        required("targetStatus") => String.t() | atom()
+      }
+
+  """
+  @type update_protected_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4322,50 +1243,372 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      analysis_template_artifact() :: %{
-        "location" => s3_location()
+      differential_privacy_preview_parameters_input() :: %{
+        "epsilon" => integer(),
+        "usersNoisePerQuery" => integer()
       }
 
   """
-  @type analysis_template_artifact() :: %{(String.t() | atom()) => any()}
+  @type differential_privacy_preview_parameters_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      differential_privacy_sensitivity_parameters() :: %{
-        "aggregationExpression" => String.t() | atom(),
-        "aggregationType" => list(any()),
-        "maxColumnValue" => [float()],
-        "minColumnValue" => [float()],
-        "userContributionLimit" => [integer()]
+      get_id_mapping_table_output() :: %{
+        "idMappingTable" => id_mapping_table()
       }
 
   """
-  @type differential_privacy_sensitivity_parameters() :: %{(String.t() | atom()) => any()}
+  @type get_id_mapping_table_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_id_mapping_tables_output() :: %{
-        "idMappingTableSummaries" => list(id_mapping_table_summary()),
+      list_intermediate_table_versions_output() :: %{
+        "intermediateTableVersionSummaries" => list(intermediate_table_version_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_id_mapping_tables_output() :: %{(String.t() | atom()) => any()}
+  @type list_intermediate_table_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_configured_table_output() :: %{
-        required("configuredTable") => configured_table()
+      get_configured_table_association_analysis_rule_output() :: %{
+        "analysisRule" => configured_table_association_analysis_rule()
       }
 
   """
-  @type get_configured_table_output() :: %{(String.t() | atom()) => any()}
+  @type get_configured_table_association_analysis_rule_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom(),
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_protected_query_input() :: %{}
+
+  """
+  @type get_protected_query_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_intermediate_table_versions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_intermediate_table_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_table_reference() :: %{
+        "accountIdentifier" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "schemaName" => String.t() | atom(),
+        "secretArn" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
+        "tableSchema" => list()
+      }
+
+  """
+  @type snowflake_table_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_payment_configuration() :: %{
+        "jobCompute" => membership_job_compute_payment_config(),
+        "machineLearning" => membership_ml_payment_config(),
+        "queryCompute" => membership_query_compute_payment_config()
+      }
+
+  """
+  @type membership_payment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type protected_query_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_table_associations_output() :: %{
+        required("configuredTableAssociationSummaries") => list(configured_table_association_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configured_table_associations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_model_training_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_model_training_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_audience_model_association_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_configured_audience_model_association_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema() :: %{
+        "analysisMethod" => list(any()),
+        "analysisRuleTypes" => list(list(any())()),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "columns" => list(column()),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "partitionKeys" => list(column()),
+        "resourceArn" => String.t() | atom(),
+        "schemaStatusDetails" => list(schema_status_detail()),
+        "schemaTypeProperties" => list(),
+        "selectedAnalysisMethods" => list(list(any())()),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_mapping_table_input_reference_properties() :: %{
+        "idMappingTableInputSource" => list(id_mapping_table_input_source())
+      }
+
+  """
+  @type id_mapping_table_input_reference_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_configured_audience_model_association_output() :: %{
+        "collaborationConfiguredAudienceModelAssociation" => collaboration_configured_audience_model_association()
+      }
+
+  """
+  @type get_collaboration_configured_audience_model_association_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      change_input() :: %{
+        "specification" => list(),
+        "specificationType" => list(any())
+      }
+
+  """
+  @type change_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_budget_details() :: %{
+        "autoRefresh" => list(any()),
+        "budget" => integer(),
+        "budgetType" => list(any()),
+        "endTime" => [non_neg_integer()],
+        "remainingBudget" => integer(),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type access_budget_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_collaboration_analysis_template_output() :: %{
+        required("collaborationAnalysisTemplates") => list(collaboration_analysis_template()),
+        required("errors") => list(batch_get_collaboration_analysis_template_error())
+      }
+
+  """
+  @type batch_get_collaboration_analysis_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_privacy_budget_template_output() :: %{
+        "privacyBudgetTemplate" => privacy_budget_template()
+      }
+
+  """
+  @type create_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_id_namespace_association_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
+        "inputReferenceProperties" => id_namespace_association_input_reference_properties_summary(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_id_namespace_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_protected_job_input() :: %{
+        optional("computeConfiguration") => list(),
+        optional("jobComputePayerAccountId") => String.t() | atom(),
+        required("jobParameters") => protected_job_parameters(),
+        optional("resultConfiguration") => protected_job_result_configuration_input(),
+        required("type") => list(any())
+      }
+
+  """
+  @type start_protected_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template() :: %{
+        "analysisParameters" => list(analysis_parameter()),
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "errorMessageConfiguration" => error_message_configuration(),
+        "format" => list(any()),
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "schema" => analysis_schema(),
+        "source" => list(),
+        "sourceMetadata" => list(),
+        "syntheticDataParameters" => list(),
+        "updateTime" => [non_neg_integer()],
+        "validations" => list(analysis_template_validation_status_detail())
+      }
+
+  """
+  @type analysis_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_collaboration_input() :: %{
+        optional("allowedResultRegions") => list(list(any())()),
+        optional("analyticsEngine") => list(any()),
+        optional("autoApprovedChangeRequestTypes") => list(list(any())()),
+        required("creatorDisplayName") => String.t() | atom(),
+        optional("creatorMLMemberAbilities") => ml_member_abilities(),
+        required("creatorMemberAbilities") => list(list(any())()),
+        optional("creatorPaymentConfiguration") => payment_configuration(),
+        optional("dataEncryptionMetadata") => data_encryption_metadata(),
+        optional("description") => String.t() | atom(),
+        optional("isMetricsEnabled") => [boolean()],
+        optional("jobLogStatus") => list(any()),
+        required("members") => list(member_specification()),
+        required("name") => String.t() | atom(),
+        required("queryLogStatus") => list(any()),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_collaboration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_synthetic_data_generation_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_synthetic_data_generation_payment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4383,6 +1626,2980 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      intermediate_table_schema_type_properties() :: %{
+        "intermediateTableId" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_schema_type_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_configuration() :: %{
+        "jobCompute" => job_compute_payment_config(),
+        "machineLearning" => ml_payment_config(),
+        "queryCompute" => query_compute_payment_config()
+      }
+
+  """
+  @type payment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_id_namespace_association_output() :: %{
+        "idNamespaceAssociation" => id_namespace_association()
+      }
+
+  """
+  @type create_id_namespace_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      direct_analysis_configuration_details() :: %{
+        "receiverAccountIds" => list(String.t() | atom())
+      }
+
+  """
+  @type direct_analysis_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_id_namespace_association_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("idMappingConfig") => id_mapping_config(),
+        required("inputReferenceConfig") => id_namespace_association_input_reference_config(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_id_namespace_association_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_compute_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type query_compute_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_analysis_rule_output() :: %{
+        required("analysisRule") => configured_table_analysis_rule()
+      }
+
+  """
+  @type update_configured_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_schema() :: %{
+        "referencedTables" => list(String.t() | atom())
+      }
+
+  """
+  @type analysis_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_association_analysis_rule_output() :: %{
+        "analysisRule" => configured_table_association_analysis_rule()
+      }
+
+  """
+  @type update_configured_table_association_analysis_rule_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_membership_output() :: %{
+        required("membership") => membership()
+      }
+
+  """
+  @type update_membership_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_budget() :: %{
+        "aggregateRemainingBudget" => integer(),
+        "details" => list(access_budget_details()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type access_budget() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_distribute_output() :: %{
+        "memberList" => list(protected_query_single_member_output()),
+        "s3" => protected_query_s3_output()
+      }
+
+  """
+  @type protected_query_distribute_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_schema_input() :: %{
+        required("names") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_schema_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_analysis_template_input() :: %{}
+
+  """
+  @type get_collaboration_analysis_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_id_mapping_table_input() :: %{}
+
+  """
+  @type get_id_mapping_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      id_mapping_config() :: %{
+        "allowUseAsDimensionColumn" => [boolean()]
+      }
+
+  """
+  @type id_mapping_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_single_member_output() :: %{
+        "accountId" => String.t() | atom()
+      }
+
+  """
+  @type protected_query_single_member_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_privacy_budgets_input() :: %{
+        optional("accessBudgetResourceArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("privacyBudgetType") => list(any())
+      }
+
+  """
+  @type list_collaboration_privacy_budgets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_membership_input() :: %{}
+
+  """
+  @type delete_membership_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_association_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_configured_table_association_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_analysis_rule() :: %{
+        "configuredTableArn" => String.t() | atom(),
+        "configuredTableId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "policy" => list(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_table_analysis_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_input() :: %{
+        optional("allowedColumns") => list(String.t() | atom()),
+        optional("analysisMethod") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("selectedAnalysisMethods") => list(list(any())()),
+        optional("tableReference") => list()
+      }
+
+  """
+  @type update_configured_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule_list() :: %{
+        "additionalAnalyses" => list(any()),
+        "allowedJoinOperators" => list(String.t() | atom()),
+        "joinColumns" => list(String.t() | atom()),
+        "listColumns" => list(String.t() | atom())
+      }
+
+  """
+  @type analysis_rule_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_intermediate_table_output() :: %{
+        "intermediateTable" => intermediate_table()
+      }
+
+  """
+  @type update_intermediate_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_privacy_budget_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_privacy_budget_templates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_membership_output() :: %{
+        required("membership") => membership()
+      }
+
+  """
+  @type create_membership_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_summary() :: %{
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "jobComputePayerAccountId" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "receiverConfigurations" => list(protected_job_receiver_configuration()),
+        "status" => list(any())
+      }
+
+  """
+  @type protected_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_protected_query_result_configuration() :: %{
+        "outputConfiguration" => list(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type membership_protected_query_result_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association() :: %{
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t() | atom(),
+        "childResources" => list(child_resource()),
+        "configuredTableArn" => String.t() | atom(),
+        "configuredTableId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_table_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_id_namespace_association_output() :: %{
+        "idNamespaceAssociation" => id_namespace_association()
+      }
+
+  """
+  @type get_id_namespace_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_intermediate_table_analysis_rule_output() :: %{
+        "analysisRule" => intermediate_table_analysis_rule()
+      }
+
+  """
+  @type update_intermediate_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_intermediate_table_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list()
+      }
+
+  """
+  @type update_intermediate_table_analysis_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intermediate_table_analysis_rule_output() :: %{
+        "analysisRule" => intermediate_table_analysis_rule()
+      }
+
+  """
+  @type get_intermediate_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_table_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configured_table_associations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job() :: %{
+        "computeConfiguration" => list(),
+        "createTime" => [non_neg_integer()],
+        "error" => protected_job_error(),
+        "id" => String.t() | atom(),
+        "jobComputePayerAccountId" => String.t() | atom(),
+        "jobParameters" => protected_job_parameters(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "result" => protected_job_result(),
+        "resultConfiguration" => protected_job_result_configuration_output(),
+        "statistics" => protected_job_statistics(),
+        "status" => list(any())
+      }
+
+  """
+  @type protected_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_input() :: %{}
+
+  """
+  @type get_collaboration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_output() :: %{}
+
+  """
+  @type delete_configured_table_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_intermediate_tables_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_intermediate_tables_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_analysis_template_output() :: %{
+        required("analysisTemplate") => analysis_template()
+      }
+
+  """
+  @type update_analysis_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_member_output() :: %{}
+
+  """
+  @type delete_member_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intermediate_table_analysis_rule_input() :: %{}
+
+  """
+  @type delete_intermediate_table_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_collaboration_output() :: %{
+        required("collaboration") => collaboration()
+      }
+
+  """
+  @type update_collaboration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_association_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
+        "inputReferenceProperties" => id_namespace_association_input_reference_properties_summary(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type id_namespace_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_template_update_parameters() :: %{
+        "epsilon" => integer(),
+        "usersNoisePerQuery" => integer()
+      }
+
+  """
+  @type differential_privacy_template_update_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_classification_details() :: %{
+        "columnMapping" => list(synthetic_data_column_properties())
+      }
+
+  """
+  @type column_classification_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_id_namespace_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_id_namespace_associations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_schema_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_schema_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_table_association_input() :: %{}
+
+  """
+  @type get_configured_table_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_analysis_rule() :: %{
+        "analysisRulePolicy" => list(),
+        "analysisRuleType" => list(any()),
+        "createTime" => [non_neg_integer()],
+        "intermediateTableArn" => String.t() | atom(),
+        "intermediateTableIdentifier" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type intermediate_table_analysis_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_memberships_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_memberships_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_analysis_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_analysis_templates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_audience_model_association_output() :: %{}
+
+  """
+  @type delete_configured_audience_model_association_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_collaboration_input() :: %{
+        optional("analyticsEngine") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_collaboration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_id_namespace_association_output() :: %{}
+
+  """
+  @type delete_id_namespace_association_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_change_request_output() :: %{
+        "collaborationChangeRequest" => collaboration_change_request()
+      }
+
+  """
+  @type get_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_association_output() :: %{
+        required("configuredTableAssociation") => configured_table_association()
+      }
+
+  """
+  @type update_configured_table_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preview_privacy_impact_output() :: %{
+        "privacyImpact" => list()
+      }
+
+  """
+  @type preview_privacy_impact_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_association_analysis_rule_output() :: %{}
+
+  """
+  @type delete_configured_table_association_analysis_rule_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_allowed_additional_analyses_source() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_allowed_additional_analyses_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_id_mapping_table_output() :: %{
+        "idMappingTable" => id_mapping_table()
+      }
+
+  """
+  @type create_id_mapping_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_memberships_output() :: %{
+        required("membershipSummaries") => list(membership_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_memberships_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_collaboration_change_request_output() :: %{
+        "collaborationChangeRequest" => collaboration_change_request()
+      }
+
+  """
+  @type create_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_training_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type model_training_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_distribute_output_configuration() :: %{
+        "locations" => list(list())
+      }
+
+  """
+  @type protected_query_distribute_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_id_namespace_associations_output() :: %{
+        "idNamespaceAssociationSummaries" => list(id_namespace_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_id_namespace_associations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      child_resource() :: %{
+        "ownerAccountId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceName" => String.t() | atom(),
+        "resourceStatus" => list(any()),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type child_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      populate_intermediate_table_output() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type populate_intermediate_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_s3_output_configuration_output() :: %{
+        "bucket" => [String.t() | atom()],
+        "keyPrefix" => String.t() | atom()
+      }
+
+  """
+  @type protected_job_s3_output_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intermediate_table_input() :: %{}
+
+  """
+  @type get_intermediate_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_result_configuration_input() :: %{
+        "outputConfiguration" => list()
+      }
+
+  """
+  @type protected_job_result_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_privacy_budget_template_input() :: %{
+        optional("parameters") => list(),
+        required("privacyBudgetType") => list(any())
+      }
+
+  """
+  @type update_privacy_budget_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_intermediate_table_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("populationAnalysisConfiguration") => list(),
+        optional("retentionInDays") => [integer()],
+        optional("tags") => map()
+      }
+
+  """
+  @type create_intermediate_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_configured_audience_model_associations_output() :: %{
+        "collaborationConfiguredAudienceModelAssociationSummaries" => list(collaboration_configured_audience_model_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_configured_audience_model_associations_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_id_namespace_association_output() :: %{
+        "collaborationIdNamespaceAssociation" => collaboration_id_namespace_association()
+      }
+
+  """
+  @type get_collaboration_id_namespace_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      privacy_budget_template_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "privacyBudgetType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type privacy_budget_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_privacy_budget_template_input() :: %{}
+
+  """
+  @type delete_privacy_budget_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_artifacts() :: %{
+        "additionalArtifacts" => list(analysis_template_artifact()),
+        "entryPoint" => analysis_template_artifact(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type analysis_template_artifacts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_summary() :: %{
+        "abilities" => list(list(any())()),
+        "accountId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "displayName" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "mlAbilities" => ml_member_abilities(),
+        "paymentConfiguration" => payment_configuration(),
+        "status" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type member_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_id_namespace_association_input() :: %{}
+
+  """
+  @type get_id_namespace_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_schema_analysis_rule_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type batch_get_schema_analysis_rule_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_s3_output_configuration_input() :: %{
+        "bucket" => [String.t() | atom()],
+        "keyPrefix" => String.t() | atom()
+      }
+
+  """
+  @type protected_job_s3_output_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table() :: %{
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t() | atom(),
+        "childResources" => list(child_resource()),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "intermediateTableVersion" => intermediate_table_active_version(),
+        "kmsKeyArn" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "populationAnalysisConfiguration" => list(),
+        "retentionInDays" => [integer()],
+        "schema" => intermediate_table_schema(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "tableDependencies" => list(intermediate_table_dependency()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type intermediate_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hash() :: %{
+        "sha256" => [String.t() | atom()]
+      }
+
+  """
+  @type hash() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_analysis_templates_output() :: %{
+        required("analysisTemplateSummaries") => list(analysis_template_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_analysis_templates_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_privacy_budgets_input() :: %{
+        optional("accessBudgetResourceArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("privacyBudgetType") => list(any())
+      }
+
+  """
+  @type list_privacy_budgets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_budgets_privacy_template_parameters_output() :: %{
+        "budgetParameters" => list(budget_parameter()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type access_budgets_privacy_template_parameters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_member_input() :: %{}
+
+  """
+  @type delete_member_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      consolidated_policy_aggregation() :: %{
+        "additionalAnalyses" => list(any()),
+        "aggregateColumns" => list(aggregate_column()),
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedJoinOperators" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom()),
+        "dimensionColumns" => list(String.t() | atom()),
+        "joinColumns" => list(String.t() | atom()),
+        "joinRequired" => String.t() | atom(),
+        "outputConstraints" => list(aggregation_constraint()),
+        "scalarFunctions" => list(String.t() | atom())
+      }
+
+  """
+  @type consolidated_policy_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_audience_model_association_output() :: %{
+        "configuredAudienceModelAssociation" => configured_audience_model_association()
+      }
+
+  """
+  @type create_configured_audience_model_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_id_mapping_tables_output() :: %{
+        "idMappingTableSummaries" => list(id_mapping_table_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_id_mapping_tables_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_privacy_budget_templates_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "privacyBudgetTemplateSummaries" => list(privacy_budget_template_summary())
+      }
+
+  """
+  @type list_privacy_budget_templates_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      athena_table_reference() :: %{
+        "catalogName" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "outputLocation" => String.t() | atom(),
+        "region" => list(any()),
+        "tableName" => String.t() | atom(),
+        "workGroup" => String.t() | atom()
+      }
+
+  """
+  @type athena_table_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_analysis_templates_output() :: %{
+        required("collaborationAnalysisTemplateSummaries") => list(collaboration_analysis_template_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_analysis_templates_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association_summary() :: %{
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t() | atom(),
+        "configuredTableId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_table_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_intermediate_table_output() :: %{
+        "intermediateTable" => intermediate_table()
+      }
+
+  """
+  @type create_intermediate_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_configured_audience_model_association_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_configured_audience_model_association_summary() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_schema_analysis_rule_output() :: %{
+        required("analysisRule") => analysis_rule()
+      }
+
+  """
+  @type get_schema_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_protected_query_input() :: %{
+        optional("computeConfiguration") => list(),
+        optional("queryComputePayerAccountId") => String.t() | atom(),
+        optional("resultConfiguration") => protected_query_result_configuration(),
+        required("sqlParameters") => protected_query_s_q_l_parameters(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type start_protected_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_parameter() :: %{
+        "defaultValue" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type analysis_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_allowed_result_receivers() :: %{
+        "sources" => list(inherited_allowed_result_receivers_source()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_allowed_result_receivers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_association_input_reference_config() :: %{
+        "inputReferenceArn" => String.t() | atom(),
+        "manageResourcePolicies" => [boolean()]
+      }
+
+  """
+  @type id_namespace_association_input_reference_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_association_input_reference_properties_summary() :: %{
+        "idNamespaceType" => list(any())
+      }
+
+  """
+  @type id_namespace_association_input_reference_properties_summary() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aggregate_column() :: %{
+        "columnNames" => list(String.t() | atom()),
+        "function" => String.t() | atom()
+      }
+
+  """
+  @type aggregate_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_jobs_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "protectedJobs" => list(protected_job_summary())
+      }
+
+  """
+  @type list_protected_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_association_output() :: %{
+        required("configuredTableAssociation") => configured_table_association()
+      }
+
+  """
+  @type create_configured_table_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_additional_analyses_source() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => list(any())
+      }
+
+  """
+  @type inherited_additional_analyses_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_summary() :: %{
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "retentionInDays" => [integer()],
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type intermediate_table_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_worker_compute_configuration() :: %{
+        "number" => [integer()],
+        "properties" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type protected_job_worker_compute_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_id_mapping_table_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom()
+      }
+
+  """
+  @type update_id_mapping_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_receiver_configuration() :: %{
+        "analysisType" => list(any()),
+        "configurationDetails" => list()
+      }
+
+  """
+  @type protected_job_receiver_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_configured_audience_model_association_input() :: %{}
+
+  """
+  @type get_collaboration_configured_audience_model_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_summary() :: %{
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "intermediateTableConfiguration" => intermediate_table_output_configuration(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "queryComputePayerAccountId" => String.t() | atom(),
+        "receiverConfigurations" => list(receiver_configuration()),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type protected_query_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_compute_configuration() :: %{
+        "number" => [integer()],
+        "properties" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type worker_compute_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association_analysis_rule() :: %{
+        "configuredTableAssociationArn" => String.t() | atom(),
+        "configuredTableAssociationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "membershipIdentifier" => String.t() | atom(),
+        "policy" => list(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_table_association_analysis_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_preview_aggregation() :: %{
+        "maxCount" => [integer()],
+        "type" => list(any())
+      }
+
+  """
+  @type differential_privacy_preview_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_member_output_configuration_input() :: %{
+        "accountId" => String.t() | atom()
+      }
+
+  """
+  @type protected_job_member_output_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_collaboration_analysis_template_error() :: %{
+        "arn" => String.t() | atom(),
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_collaboration_analysis_template_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaName" => [String.t() | atom()],
+        "quotaValue" => [float()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_queries_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_protected_queries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_privacy_budget() :: %{
+        "aggregations" => list(differential_privacy_privacy_budget_aggregation()),
+        "epsilon" => integer()
+      }
+
+  """
+  @type differential_privacy_privacy_budget() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_configuration() :: %{
+        "columns" => list(differential_privacy_column())
+      }
+
+  """
+  @type differential_privacy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_protected_job_output() :: %{
+        "protectedJob" => protected_job()
+      }
+
+  """
+  @type update_protected_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_collaboration_change_request_input() :: %{
+        required("changes") => list(change_input())
+      }
+
+  """
+  @type create_collaboration_change_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_table_reference() :: %{
+        "databaseName" => String.t() | atom(),
+        "region" => list(any()),
+        "tableName" => String.t() | atom()
+      }
+
+  """
+  @type glue_table_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_membership_payment_configuration() :: %{
+        "jobCompute" => membership_job_compute_payment_config(),
+        "machineLearning" => membership_ml_payment_config(),
+        "queryCompute" => membership_query_compute_payment_config()
+      }
+
+  """
+  @type update_membership_payment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list()
+      }
+
+  """
+  @type update_configured_table_analysis_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_protected_query_output() :: %{
+        required("protectedQuery") => protected_query()
+      }
+
+  """
+  @type start_protected_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_association_input() :: %{}
+
+  """
+  @type delete_configured_table_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intermediate_table_output() :: %{}
+
+  """
+  @type delete_intermediate_table_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      id_mapping_table_input_source() :: %{
+        "idNamespaceAssociationId" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type id_mapping_table_input_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disallow_intermediate_table_output() :: %{}
+
+  """
+  @type disallow_intermediate_table_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_analysis_template_output() :: %{
+        required("collaborationAnalysisTemplate") => collaboration_analysis_template()
+      }
+
+  """
+  @type get_collaboration_analysis_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synthetic_data_column_properties() :: %{
+        "columnName" => String.t() | atom(),
+        "columnType" => list(any()),
+        "isPredictiveValue" => [boolean()]
+      }
+
+  """
+  @type synthetic_data_column_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_audience_model_association_output() :: %{
+        "configuredAudienceModelAssociation" => configured_audience_model_association()
+      }
+
+  """
+  @type update_configured_audience_model_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration() :: %{
+        "allowedResultRegions" => list(list(any())()),
+        "analyticsEngine" => list(any()),
+        "arn" => String.t() | atom(),
+        "autoApprovedChangeTypes" => list(list(any())()),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "creatorDisplayName" => String.t() | atom(),
+        "dataEncryptionMetadata" => data_encryption_metadata(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "isMetricsEnabled" => [boolean()],
+        "jobLogStatus" => list(any()),
+        "memberStatus" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "queryLogStatus" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      populate_intermediate_table_input() :: %{
+        optional("analysisPayerAccountId") => String.t() | atom(),
+        optional("computeConfiguration") => list(),
+        optional("parameters") => map()
+      }
+
+  """
+  @type populate_intermediate_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_schema_analysis_rule_output() :: %{
+        "analysisRules" => list(analysis_rule()),
+        "errors" => list(batch_get_schema_analysis_rule_error())
+      }
+
+  """
+  @type batch_get_schema_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_collaboration_change_request_input() :: %{
+        required("action") => list(any())
+      }
+
+  """
+  @type update_collaboration_change_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_protected_query_output() :: %{
+        required("protectedQuery") => protected_query()
+      }
+
+  """
+  @type update_protected_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schemas_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("schemaType") => list(any())
+      }
+
+  """
+  @type list_schemas_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_collaboration_output() :: %{}
+
+  """
+  @type delete_collaboration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule_aggregation() :: %{
+        "additionalAnalyses" => list(any()),
+        "aggregateColumns" => list(aggregate_column()),
+        "allowedJoinOperators" => list(String.t() | atom()),
+        "dimensionColumns" => list(String.t() | atom()),
+        "joinColumns" => list(String.t() | atom()),
+        "joinRequired" => String.t() | atom(),
+        "outputConstraints" => list(aggregation_constraint()),
+        "scalarFunctions" => list(String.t() | atom())
+      }
+
+  """
+  @type analysis_rule_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_audience_model_association_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_audience_model_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_association_analysis_rule_output() :: %{
+        "analysisRule" => configured_table_association_analysis_rule()
+      }
+
+  """
+  @type create_configured_table_association_analysis_rule_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_id_namespace_association_input() :: %{}
+
+  """
+  @type delete_id_namespace_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_validation_status_reason() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type analysis_template_validation_status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_configured_audience_model_association() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_configured_audience_model_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_protected_job_input() :: %{
+        required("targetStatus") => list(any())
+      }
+
+  """
+  @type update_protected_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_tables_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configured_tables_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_id_namespace_association_output() :: %{
+        "idNamespaceAssociation" => id_namespace_association()
+      }
+
+  """
+  @type update_id_namespace_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_collaboration_input() :: %{}
+
+  """
+  @type delete_collaboration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_audience_model_association_input() :: %{}
+
+  """
+  @type delete_configured_audience_model_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      id_mapping_table_schema_type_properties() :: %{
+        "idMappingTableId" => String.t() | atom(),
+        "idMappingTableInputSource" => list(id_mapping_table_input_source())
+      }
+
+  """
+  @type id_mapping_table_schema_type_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_change_requests_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_collaboration_change_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_analysis_rule_output() :: %{
+        required("analysisRule") => configured_table_analysis_rule()
+      }
+
+  """
+  @type create_configured_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_audience_model_association_input() :: %{
+        required("configuredAudienceModelArn") => String.t() | atom(),
+        required("configuredAudienceModelAssociationName") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("manageResourcePolicies") => [boolean()],
+        optional("tags") => map()
+      }
+
+  """
+  @type create_configured_audience_model_association_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_privacy_budget_templates_output() :: %{
+        "collaborationPrivacyBudgetTemplateSummaries" => list(collaboration_privacy_budget_template_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_privacy_budget_templates_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_change_requests_output() :: %{
+        "collaborationChangeRequestSummaries" => list(collaboration_change_request_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_change_requests_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_privacy_budget_aggregation() :: %{
+        "maxCount" => [integer()],
+        "remainingCount" => [integer()],
+        "type" => list(any())
+      }
+
+  """
+  @type differential_privacy_privacy_budget_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association_analysis_rule_list() :: %{
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom())
+      }
+
+  """
+  @type configured_table_association_analysis_rule_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intermediate_table_analysis_rule_input() :: %{}
+
+  """
+  @type get_intermediate_table_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      populate_id_mapping_table_output() :: %{
+        "idMappingJobId" => String.t() | atom()
+      }
+
+  """
+  @type populate_id_mapping_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intermediate_table_input() :: %{}
+
+  """
+  @type delete_intermediate_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      privacy_budget_summary() :: %{
+        "budget" => list(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "privacyBudgetTemplateArn" => String.t() | atom(),
+        "privacyBudgetTemplateId" => String.t() | atom(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type privacy_budget_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_artifact() :: %{
+        "location" => s3_location()
+      }
+
+  """
+  @type analysis_template_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "bucket" => [String.t() | atom()],
+        "key" => [String.t() | atom()]
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      billed_resource_utilization() :: %{
+        "units" => [float()]
+      }
+
+  """
+  @type billed_resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_template_parameters_input() :: %{
+        "epsilon" => integer(),
+        "usersNoisePerQuery" => integer()
+      }
+
+  """
+  @type differential_privacy_template_parameters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_output() :: %{
+        required("collaboration") => collaboration()
+      }
+
+  """
+  @type get_collaboration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_privacy_budget_template_output() :: %{}
+
+  """
+  @type delete_privacy_budget_template_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_schema() :: %{
+        "columns" => list(column())
+      }
+
+  """
+  @type intermediate_table_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_privacy_budget_template_output() :: %{
+        "collaborationPrivacyBudgetTemplate" => collaboration_privacy_budget_template()
+      }
+
+  """
+  @type get_collaboration_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_analysis_template_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "isSyntheticData" => [boolean()],
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_analysis_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list(),
+        required("analysisRuleType") => list(any())
+      }
+
+  """
+  @type create_configured_table_analysis_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_audience_model_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configured_audience_model_associations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_audience_model_association() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "manageResourcePolicies" => [boolean()],
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_audience_model_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schema_output() :: %{
+        required("schema") => schema()
+      }
+
+  """
+  @type get_schema_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_direct_analysis_configuration_details() :: %{
+        "receiverAccountIds" => list(String.t() | atom())
+      }
+
+  """
+  @type protected_job_direct_analysis_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_association_output() :: %{
+        "configuredAudienceModelAssociation" => configured_audience_model_association()
+      }
+
+  """
+  @type get_configured_audience_model_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_association_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list()
+      }
+
+  """
+  @type update_configured_table_association_analysis_rule_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_association_input_reference_properties() :: %{
+        "idMappingWorkflowsSupported" => list([any()]()),
+        "idNamespaceType" => list(any())
+      }
+
+  """
+  @type id_namespace_association_input_reference_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_analysis_rule_request() :: %{
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type schema_analysis_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_member_output_configuration_output() :: %{
+        "accountId" => String.t() | atom()
+      }
+
+  """
+  @type protected_job_member_output_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_privacy_budget_template_input() :: %{}
+
+  """
+  @type get_collaboration_privacy_budget_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_status_detail() :: %{
+        "analysisRuleType" => list(any()),
+        "analysisType" => list(any()),
+        "configurations" => list(list(any())()),
+        "reasons" => list(schema_status_reason()),
+        "status" => list(any())
+      }
+
+  """
+  @type schema_status_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intermediate_table_analysis_rule_output() :: %{}
+
+  """
+  @type delete_intermediate_table_analysis_rule_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association_analysis_rule_aggregation() :: %{
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom())
+      }
+
+  """
+  @type configured_table_association_analysis_rule_aggregation() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_membership_output() :: %{}
+
+  """
+  @type delete_membership_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule_id_mapping_table() :: %{
+        "dimensionColumns" => list(String.t() | atom()),
+        "joinColumns" => list(String.t() | atom()),
+        "queryConstraints" => list(list())
+      }
+
+  """
+  @type analysis_rule_id_mapping_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_output() :: %{
+        required("configuredTable") => configured_table()
+      }
+
+  """
+  @type create_configured_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_version_summary() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "createTime" => [non_neg_integer()],
+        "expirationTime" => [non_neg_integer()],
+        "kmsKeyArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tableId" => String.t() | atom(),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_analysis_rule_custom() :: %{
+        "additionalAnalyses" => list(any()),
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedAnalyses" => list(String.t() | atom()),
+        "allowedAnalysisProviders" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom()),
+        "differentialPrivacy" => differential_privacy_configuration(),
+        "disallowedOutputColumns" => list(String.t() | atom())
+      }
+
+  """
+  @type intermediate_table_analysis_rule_custom() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intermediate_table_output() :: %{
+        "intermediateTable" => intermediate_table()
+      }
+
+  """
+  @type get_intermediate_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      query_constraint_require_overlap() :: %{
+        "columns" => list(String.t() | atom())
+      }
+
+  """
+  @type query_constraint_require_overlap() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_table_analysis_rule_input() :: %{}
+
+  """
+  @type get_configured_table_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_validation_status_detail() :: %{
+        "reasons" => list(analysis_template_validation_status_reason()),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type analysis_template_validation_status_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "isSyntheticData" => [boolean()],
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type analysis_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_analysis_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_analysis_templates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_allowed_additional_analyses() :: %{
+        "sources" => list(inherited_allowed_additional_analyses_source()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_allowed_additional_analyses() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_model_inference_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_model_inference_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_query_compute_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_query_compute_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_association_input() :: %{
+        required("configuredTableIdentifier") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_configured_table_association_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_specification() :: %{
+        "accountId" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "memberAbilities" => list(list(any())()),
+        "mlMemberAbilities" => ml_member_abilities(),
+        "paymentConfiguration" => payment_configuration()
+      }
+
+  """
+  @type member_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_protected_job_output() :: %{
+        "protectedJob" => protected_job()
+      }
+
+  """
+  @type get_protected_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_protected_query_output() :: %{
+        required("protectedQuery") => protected_query()
+      }
+
+  """
+  @type get_protected_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      billed_job_resource_utilization() :: %{
+        "units" => [float()]
+      }
+
+  """
+  @type billed_job_resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_tables_output() :: %{
+        required("configuredTableSummaries") => list(configured_table_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configured_tables_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_privacy_budget_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_privacy_budget_templates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_collaboration_output() :: %{
+        required("collaboration") => collaboration()
+      }
+
+  """
+  @type create_collaboration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_summary() :: %{
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationCreatorAccountId" => String.t() | atom(),
+        "collaborationCreatorDisplayName" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "collaborationName" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "memberAbilities" => list(list(any())()),
+        "mlMemberAbilities" => ml_member_abilities(),
+        "paymentConfiguration" => membership_payment_configuration(),
+        "status" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type membership_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_queries_output() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("protectedQueries") => list(protected_query_summary())
+      }
+
+  """
+  @type list_protected_queries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ml_payment_config() :: %{
+        "modelInference" => model_inference_payment_config(),
+        "modelTraining" => model_training_payment_config(),
+        "syntheticDataGeneration" => synthetic_data_generation_payment_config()
+      }
+
+  """
+  @type ml_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_collaboration_change_request_output() :: %{
+        "collaborationChangeRequest" => collaboration_change_request()
+      }
+
+  """
+  @type update_collaboration_change_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_schema_output() :: %{
+        required("errors") => list(batch_get_schema_error()),
+        required("schemas") => list(schema())
+      }
+
+  """
+  @type batch_get_schema_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_id_mapping_table_output() :: %{}
+
+  """
+  @type delete_id_mapping_table_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      consolidated_policy_list() :: %{
+        "additionalAnalyses" => list(any()),
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedJoinOperators" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom()),
+        "joinColumns" => list(String.t() | atom()),
+        "listColumns" => list(String.t() | atom())
+      }
+
+  """
+  @type consolidated_policy_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ml_member_abilities() :: %{
+        "customMLMemberAbilities" => list(list(any())())
+      }
+
+  """
+  @type ml_member_abilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association_analysis_rule_custom() :: %{
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom())
+      }
+
+  """
+  @type configured_table_association_analysis_rule_custom() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule_custom() :: %{
+        "additionalAnalyses" => list(any()),
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedAnalyses" => list(String.t() | atom()),
+        "allowedAnalysisProviders" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom()),
+        "differentialPrivacy" => differential_privacy_configuration(),
+        "disallowedOutputColumns" => list(String.t() | atom())
+      }
+
+  """
+  @type analysis_rule_custom() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_analysis_template_input() :: %{
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_analysis_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_change_request() :: %{
+        "approvals" => map(),
+        "changes" => list(change()),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "isAutoApproved" => [boolean()],
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_change_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_id_namespace_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_id_namespace_associations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synthetic_data_generation_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type synthetic_data_generation_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_artifact_metadata() :: %{
+        "additionalArtifactHashes" => list(hash()),
+        "entryPointHash" => hash()
+      }
+
+  """
+  @type analysis_template_artifact_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_s3_output_configuration() :: %{
+        "bucket" => [String.t() | atom()],
+        "keyPrefix" => String.t() | atom(),
+        "resultFormat" => list(any()),
+        "singleFileOutput" => [boolean()]
+      }
+
+  """
+  @type protected_query_s3_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_privacy_budgets_output() :: %{
         "nextToken" => String.t() | atom(),
         "privacyBudgetSummaries" => list(privacy_budget_summary())
@@ -4395,646 +4612,1162 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
-      delete_privacy_budget_template_output() :: %{}
+      configured_table_association_schema_type_properties() :: %{
+        "configuredTableAssociationId" => String.t() | atom()
+      }
 
   """
-  @type delete_privacy_budget_template_output() :: %{}
+  @type configured_table_association_schema_type_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_intermediate_tables_output() :: %{
+        "intermediateTableSummaries" => list(intermediate_table_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_intermediate_tables_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_dependency() :: %{
+        "creatorAccountId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "parentType" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type intermediate_table_dependency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preview_privacy_impact_input() :: %{
+        required("parameters") => list()
+      }
+
+  """
+  @type preview_privacy_impact_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_input() :: %{
+        required("allowedColumns") => list(String.t() | atom()),
+        required("analysisMethod") => list(any()),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("selectedAnalysisMethods") => list(list(any())()),
+        required("tableReference") => list(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_configured_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaborations_output() :: %{
+        required("collaborationList") => list(collaboration_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collaborations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_ml_payment_config() :: %{
+        "modelInference" => membership_model_inference_payment_config(),
+        "modelTraining" => membership_model_training_payment_config(),
+        "syntheticDataGeneration" => membership_synthetic_data_generation_payment_config()
+      }
+
+  """
+  @type membership_ml_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_s_q_l_parameters() :: %{
+        "analysisTemplateArn" => String.t() | atom(),
+        "parameters" => map(),
+        "queryString" => [String.t() | atom()]
+      }
+
+  """
+  @type protected_query_s_q_l_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_parameters() :: %{
+        "sensitivityParameters" => list(differential_privacy_sensitivity_parameters())
+      }
+
+  """
+  @type differential_privacy_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_analysis_template_output() :: %{
+        required("analysisTemplate") => analysis_template()
+      }
+
+  """
+  @type create_analysis_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_protected_job_result_configuration() :: %{
+        "outputConfiguration" => list(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type membership_protected_job_result_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_privacy_budgets_output() :: %{
+        "collaborationPrivacyBudgetSummaries" => list(collaboration_privacy_budget_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_privacy_budgets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_output() :: %{
+        required("configuredTable") => configured_table()
+      }
+
+  """
+  @type update_configured_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_change_request_summary() :: %{
+        "approvals" => map(),
+        "changes" => list(change()),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "isAutoApproved" => [boolean()],
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_change_request_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_collaboration_analysis_template_input() :: %{
+        required("analysisTemplateArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_collaboration_analysis_template_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table() :: %{
+        "allowedColumns" => list(String.t() | atom()),
+        "analysisMethod" => list(any()),
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "selectedAnalysisMethods" => list(list(any())()),
+        "tableReference" => list(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_table_input() :: %{}
+
+  """
+  @type get_configured_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_result() :: %{
+        "output" => list()
+      }
+
+  """
+  @type protected_query_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_association_output() :: %{}
+
+  """
+  @type delete_configured_table_association_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_protected_job_input() :: %{}
+
+  """
+  @type get_protected_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      differential_privacy_column() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type differential_privacy_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schema_analysis_rule_input() :: %{}
+
+  """
+  @type get_schema_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_statistics() :: %{
+        "billedResourceUtilization" => billed_job_resource_utilization(),
+        "totalDurationInMillis" => [float()]
+      }
+
+  """
+  @type protected_job_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_members_output() :: %{
+        required("memberSummaries") => list(member_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_members_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_privacy_budget_template_input() :: %{}
+
+  """
+  @type get_privacy_budget_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      populate_id_mapping_table_input() :: %{
+        optional("jobType") => list(any())
+      }
+
+  """
+  @type populate_id_mapping_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_membership_output() :: %{
+        required("membership") => membership()
+      }
+
+  """
+  @type get_membership_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_s3_output() :: %{
+        "location" => [String.t() | atom()]
+      }
+
+  """
+  @type protected_query_s3_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_analysis_template() :: %{
+        "analysisParameters" => list(analysis_parameter()),
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "errorMessageConfiguration" => error_message_configuration(),
+        "format" => list(any()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "schema" => analysis_schema(),
+        "source" => list(),
+        "sourceMetadata" => list(),
+        "syntheticDataParameters" => list(),
+        "updateTime" => [non_neg_integer()],
+        "validations" => list(analysis_template_validation_status_detail())
+      }
+
+  """
+  @type collaboration_analysis_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_column() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_intermediate_table_analysis_rule_output() :: %{
+        "analysisRule" => intermediate_table_analysis_rule()
+      }
+
+  """
+  @type create_intermediate_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_inference_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type model_inference_payment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disallow_intermediate_table_input() :: %{
+        optional("includeDescendants") => [boolean()],
+        required("intermediateTableName") => String.t() | atom()
+      }
+
+  """
+  @type disallow_intermediate_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query() :: %{
+        "computeConfiguration" => list(),
+        "createTime" => [non_neg_integer()],
+        "differentialPrivacy" => differential_privacy_parameters(),
+        "error" => protected_query_error(),
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "queryComputePayerAccountId" => String.t() | atom(),
+        "result" => protected_query_result(),
+        "resultConfiguration" => protected_query_result_configuration(),
+        "sqlParameters" => protected_query_s_q_l_parameters(),
+        "statistics" => protected_query_statistics(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type protected_query() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_collaboration_analysis_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type batch_get_schema_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type batch_get_schema_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_analysis_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_collaboration_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_collaboration_change_request_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_configured_audience_model_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_configured_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_configured_table_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_configured_table_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_configured_table_association_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_id_mapping_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_id_namespace_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
+
+  @type create_intermediate_table_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | conflict_exception()
+          | throttling_exception()
+
+  @type create_intermediate_table_analysis_rule_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | conflict_exception()
+          | throttling_exception()
 
   @type create_membership_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_privacy_budget_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_analysis_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_collaboration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_configured_audience_model_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_configured_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_configured_table_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_configured_table_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_configured_table_association_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_id_mapping_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_id_namespace_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
+
+  @type delete_intermediate_table_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | conflict_exception()
+          | throttling_exception()
+
+  @type delete_intermediate_table_analysis_rule_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | conflict_exception()
+          | throttling_exception()
 
   @type delete_member_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_membership_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_privacy_budget_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
+
+  @type disallow_intermediate_table_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | conflict_exception()
+          | throttling_exception()
 
   @type get_analysis_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_collaboration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_collaboration_analysis_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_collaboration_change_request_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_collaboration_configured_audience_model_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_collaboration_id_namespace_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_collaboration_privacy_budget_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_configured_audience_model_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_configured_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_configured_table_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_configured_table_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_configured_table_association_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_id_mapping_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_id_namespace_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
+
+  @type get_intermediate_table_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
+
+  @type get_intermediate_table_analysis_rule_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_membership_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_privacy_budget_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_protected_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_protected_query_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_schema_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_schema_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_analysis_templates_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_collaboration_analysis_templates_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_collaboration_change_requests_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_collaboration_configured_audience_model_associations_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_collaboration_id_namespace_associations_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_collaboration_privacy_budget_templates_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_collaboration_privacy_budgets_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_collaborations_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_configured_audience_model_associations_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_configured_table_associations_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_configured_tables_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_id_mapping_tables_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_id_namespace_associations_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
+
+  @type list_intermediate_table_versions_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
+
+  @type list_intermediate_tables_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_members_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_memberships_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_privacy_budget_templates_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_privacy_budgets_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_protected_jobs_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_protected_queries_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_schemas_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
-  @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type list_tags_for_resource_errors() :: resource_not_found_exception() | validation_exception()
 
   @type populate_id_mapping_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
+
+  @type populate_intermediate_table_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | conflict_exception()
+          | throttling_exception()
 
   @type preview_privacy_impact_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_protected_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_protected_query_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
-  @type tag_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type tag_resource_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type untag_resource_errors() :: resource_not_found_exception() | validation_exception()
 
   @type update_analysis_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_collaboration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_collaboration_change_request_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_configured_audience_model_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_configured_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_configured_table_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_configured_table_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_configured_table_association_analysis_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_id_mapping_table_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_id_namespace_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
+
+  @type update_intermediate_table_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
+
+  @type update_intermediate_table_analysis_rule_errors() ::
+          internal_server_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | conflict_exception()
+          | throttling_exception()
 
   @type update_membership_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_privacy_budget_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_protected_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_protected_query_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{
@@ -5442,8 +6175,8 @@ defmodule AWS.CleanRooms do
           | {:error, create_configured_table_association_analysis_rule_errors()}
   def create_configured_table_association_analysis_rule(
         %Client{} = client,
-        configured_table_association_identifier,
         membership_identifier,
+        configured_table_association_identifier,
         input,
         options \\ []
       ) do
@@ -5524,6 +6257,93 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an intermediate table in a membership.
+
+  An intermediate table stores a query definition that you can execute later using
+  `PopulateIntermediateTable` to materialize cached results. The intermediate
+  table is owned by the member with the CAN_QUERY ability. This operation does not
+  execute the stored query.
+  """
+  @spec create_intermediate_table(
+          map(),
+          String.t() | atom(),
+          create_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, create_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_intermediate_table_errors()}
+  def create_intermediate_table(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an analysis rule for an intermediate table.
+
+  Only the CUSTOM analysis rule type is supported. The service automatically
+  determines whether the rule is first-party or multi-party restricted based on
+  the intermediate table's inherited constraints. Only the intermediate table
+  owner can call this operation.
+  """
+  @spec create_intermediate_table_analysis_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_intermediate_table_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, create_intermediate_table_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_intermediate_table_analysis_rule_errors()}
+  def create_intermediate_table_analysis_rule(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/analysisRule"
 
     headers = []
     custom_headers = []
@@ -5633,8 +6453,8 @@ defmodule AWS.CleanRooms do
           | {:error, delete_analysis_template_errors()}
   def delete_analysis_template(
         %Client{} = client,
-        analysis_template_identifier,
         membership_identifier,
+        analysis_template_identifier,
         input,
         options \\ []
       ) do
@@ -5708,8 +6528,8 @@ defmodule AWS.CleanRooms do
           | {:error, delete_configured_audience_model_association_errors()}
   def delete_configured_audience_model_association(
         %Client{} = client,
-        configured_audience_model_association_identifier,
         membership_identifier,
+        configured_audience_model_association_identifier,
         input,
         options \\ []
       ) do
@@ -5790,8 +6610,8 @@ defmodule AWS.CleanRooms do
           | {:error, delete_configured_table_analysis_rule_errors()}
   def delete_configured_table_analysis_rule(
         %Client{} = client,
-        analysis_rule_type,
         configured_table_identifier,
+        analysis_rule_type,
         input,
         options \\ []
       ) do
@@ -5833,8 +6653,8 @@ defmodule AWS.CleanRooms do
           | {:error, delete_configured_table_association_errors()}
   def delete_configured_table_association(
         %Client{} = client,
-        configured_table_association_identifier,
         membership_identifier,
+        configured_table_association_identifier,
         input,
         options \\ []
       ) do
@@ -5877,9 +6697,9 @@ defmodule AWS.CleanRooms do
           | {:error, delete_configured_table_association_analysis_rule_errors()}
   def delete_configured_table_association_analysis_rule(
         %Client{} = client,
-        analysis_rule_type,
-        configured_table_association_identifier,
         membership_identifier,
+        configured_table_association_identifier,
+        analysis_rule_type,
         input,
         options \\ []
       ) do
@@ -5921,8 +6741,8 @@ defmodule AWS.CleanRooms do
           | {:error, delete_id_mapping_table_errors()}
   def delete_id_mapping_table(
         %Client{} = client,
-        id_mapping_table_identifier,
         membership_identifier,
+        id_mapping_table_identifier,
         input,
         options \\ []
       ) do
@@ -5964,13 +6784,109 @@ defmodule AWS.CleanRooms do
           | {:error, delete_id_namespace_association_errors()}
   def delete_id_namespace_association(
         %Client{} = client,
-        id_namespace_association_identifier,
         membership_identifier,
+        id_namespace_association_identifier,
         input,
         options \\ []
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an intermediate table.
+
+  When you delete the table, the service marks it as DELETED, removes its analysis
+  rule and schema, and triggers storage cleanup. This operation is idempotent.
+  Only the intermediate table owner can call this operation.
+  """
+  @spec delete_intermediate_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, delete_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_intermediate_table_errors()}
+  def delete_intermediate_table(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an analysis rule from an intermediate table.
+
+  After the analysis rule is deleted, the intermediate table becomes unqueryable
+  until a new analysis rule is attached. Only the intermediate table owner can
+  call this operation.
+  """
+  @spec delete_intermediate_table_analysis_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_intermediate_table_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, delete_intermediate_table_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_intermediate_table_analysis_rule_errors()}
+  def delete_intermediate_table_analysis_rule(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        analysis_rule_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
     custom_headers = []
@@ -6011,8 +6927,8 @@ defmodule AWS.CleanRooms do
           | {:error, delete_member_errors()}
   def delete_member(
         %Client{} = client,
-        account_id,
         collaboration_identifier,
+        account_id,
         input,
         options \\ []
       ) do
@@ -6085,8 +7001,8 @@ defmodule AWS.CleanRooms do
           | {:error, delete_privacy_budget_template_errors()}
   def delete_privacy_budget_template(
         %Client{} = client,
-        membership_identifier,
         privacy_budget_template_identifier,
+        membership_identifier,
         input,
         options \\ []
       ) do
@@ -6113,6 +7029,47 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Invalidates a specific intermediate table that references the caller's base
+  table.
+
+  The data provider (base table owner) calls this operation, not the intermediate
+  table owner. By default, invalidation cascades to descendant intermediate
+  tables.
+  """
+  @spec disallow_intermediate_table(
+          map(),
+          String.t() | atom(),
+          disallow_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, disallow_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disallow_intermediate_table_errors()}
+  def disallow_intermediate_table(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/disallowIntermediateTable"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves an analysis template.
   """
   @spec get_analysis_template(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -6122,8 +7079,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_analysis_template_errors()}
   def get_analysis_template(
         %Client{} = client,
-        analysis_template_identifier,
         membership_identifier,
+        analysis_template_identifier,
         options \\ []
       ) do
     url_path =
@@ -6170,8 +7127,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_collaboration_analysis_template_errors()}
   def get_collaboration_analysis_template(
         %Client{} = client,
-        analysis_template_arn,
         collaboration_identifier,
+        analysis_template_arn,
         options \\ []
       ) do
     url_path =
@@ -6195,8 +7152,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_collaboration_change_request_errors()}
   def get_collaboration_change_request(
         %Client{} = client,
-        change_request_identifier,
         collaboration_identifier,
+        change_request_identifier,
         options \\ []
       ) do
     url_path =
@@ -6225,8 +7182,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_collaboration_configured_audience_model_association_errors()}
   def get_collaboration_configured_audience_model_association(
         %Client{} = client,
-        collaboration_identifier,
         configured_audience_model_association_identifier,
+        collaboration_identifier,
         options \\ []
       ) do
     url_path =
@@ -6255,8 +7212,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_collaboration_id_namespace_association_errors()}
   def get_collaboration_id_namespace_association(
         %Client{} = client,
-        collaboration_identifier,
         id_namespace_association_identifier,
+        collaboration_identifier,
         options \\ []
       ) do
     url_path =
@@ -6285,8 +7242,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_collaboration_privacy_budget_template_errors()}
   def get_collaboration_privacy_budget_template(
         %Client{} = client,
-        collaboration_identifier,
         privacy_budget_template_identifier,
+        collaboration_identifier,
         options \\ []
       ) do
     url_path =
@@ -6315,8 +7272,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_configured_audience_model_association_errors()}
   def get_configured_audience_model_association(
         %Client{} = client,
-        configured_audience_model_association_identifier,
         membership_identifier,
+        configured_audience_model_association_identifier,
         options \\ []
       ) do
     url_path =
@@ -6363,8 +7320,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_configured_table_analysis_rule_errors()}
   def get_configured_table_analysis_rule(
         %Client{} = client,
-        analysis_rule_type,
         configured_table_identifier,
+        analysis_rule_type,
         options \\ []
       ) do
     url_path =
@@ -6388,8 +7345,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_configured_table_association_errors()}
   def get_configured_table_association(
         %Client{} = client,
-        configured_table_association_identifier,
         membership_identifier,
+        configured_table_association_identifier,
         options \\ []
       ) do
     url_path =
@@ -6419,9 +7376,9 @@ defmodule AWS.CleanRooms do
           | {:error, get_configured_table_association_analysis_rule_errors()}
   def get_configured_table_association_analysis_rule(
         %Client{} = client,
-        analysis_rule_type,
-        configured_table_association_identifier,
         membership_identifier,
+        configured_table_association_identifier,
+        analysis_rule_type,
         options \\ []
       ) do
     url_path =
@@ -6445,8 +7402,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_id_mapping_table_errors()}
   def get_id_mapping_table(
         %Client{} = client,
-        id_mapping_table_identifier,
         membership_identifier,
+        id_mapping_table_identifier,
         options \\ []
       ) do
     url_path =
@@ -6470,12 +7427,73 @@ defmodule AWS.CleanRooms do
           | {:error, get_id_namespace_association_errors()}
   def get_id_namespace_association(
         %Client{} = client,
-        id_namespace_association_identifier,
         membership_identifier,
+        id_namespace_association_identifier,
         options \\ []
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves an intermediate table.
+
+  Returns the full details of the intermediate table, including schema, table
+  dependencies, inherited constraints, child resources, and status. Only the
+  intermediate table owner can call this operation.
+  """
+  @spec get_intermediate_table(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_intermediate_table_errors()}
+  def get_intermediate_table(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the analysis rule for an intermediate table.
+  """
+  @spec get_intermediate_table_analysis_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_intermediate_table_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_intermediate_table_analysis_rule_errors()}
+  def get_intermediate_table_analysis_rule(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        analysis_rule_type,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
     query_params = []
@@ -6513,8 +7531,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_privacy_budget_template_errors()}
   def get_privacy_budget_template(
         %Client{} = client,
-        membership_identifier,
         privacy_budget_template_identifier,
+        membership_identifier,
         options \\ []
       ) do
     url_path =
@@ -6538,8 +7556,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_protected_job_errors()}
   def get_protected_job(
         %Client{} = client,
-        membership_identifier,
         protected_job_identifier,
+        membership_identifier,
         options \\ []
       ) do
     url_path =
@@ -6563,8 +7581,8 @@ defmodule AWS.CleanRooms do
           | {:error, get_protected_query_errors()}
   def get_protected_query(
         %Client{} = client,
-        membership_identifier,
         protected_query_identifier,
+        membership_identifier,
         options \\ []
       ) do
     url_path =
@@ -6586,7 +7604,7 @@ defmodule AWS.CleanRooms do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_schema_errors()}
-  def get_schema(%Client{} = client, collaboration_identifier, name, options \\ []) do
+  def get_schema(%Client{} = client, name, collaboration_identifier, options \\ []) do
     url_path =
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/schemas/#{AWS.Util.encode_uri(name)}"
 
@@ -6614,9 +7632,9 @@ defmodule AWS.CleanRooms do
           | {:error, get_schema_analysis_rule_errors()}
   def get_schema_analysis_rule(
         %Client{} = client,
-        collaboration_identifier,
-        name,
         type,
+        name,
+        collaboration_identifier,
         options \\ []
       ) do
     url_path =
@@ -6647,8 +7665,8 @@ defmodule AWS.CleanRooms do
   def list_analysis_templates(
         %Client{} = client,
         membership_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates"
@@ -6656,15 +7674,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6691,8 +7709,8 @@ defmodule AWS.CleanRooms do
   def list_collaboration_analysis_templates(
         %Client{} = client,
         collaboration_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -6702,15 +7720,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6740,9 +7758,9 @@ defmodule AWS.CleanRooms do
   def list_collaboration_change_requests(
         %Client{} = client,
         collaboration_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/changeRequests"
@@ -6750,8 +7768,8 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -6764,8 +7782,8 @@ defmodule AWS.CleanRooms do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -6792,8 +7810,8 @@ defmodule AWS.CleanRooms do
   def list_collaboration_configured_audience_model_associations(
         %Client{} = client,
         collaboration_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -6803,15 +7821,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6838,8 +7856,8 @@ defmodule AWS.CleanRooms do
   def list_collaboration_id_namespace_associations(
         %Client{} = client,
         collaboration_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -6849,15 +7867,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6885,8 +7903,8 @@ defmodule AWS.CleanRooms do
   def list_collaboration_privacy_budget_templates(
         %Client{} = client,
         collaboration_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -6896,15 +7914,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6924,10 +7942,10 @@ defmodule AWS.CleanRooms do
   @spec list_collaboration_privacy_budgets(
           map(),
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_collaboration_privacy_budgets_output(), any()}
@@ -6937,10 +7955,10 @@ defmodule AWS.CleanRooms do
   def list_collaboration_privacy_budgets(
         %Client{} = client,
         collaboration_identifier,
-        access_budget_resource_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         privacy_budget_type,
+        next_token \\ nil,
+        max_results \\ nil,
+        access_budget_resource_arn \\ nil,
         options \\ []
       ) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/privacybudgets"
@@ -6948,15 +7966,8 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(privacy_budget_type) do
-        [{"privacyBudgetType", privacy_budget_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(access_budget_resource_arn) do
+        [{"accessBudgetResourceArn", access_budget_resource_arn} | query_params]
       else
         query_params
       end
@@ -6969,8 +7980,15 @@ defmodule AWS.CleanRooms do
       end
 
     query_params =
-      if !is_nil(access_budget_resource_arn) do
-        [{"accessBudgetResourceArn", access_budget_resource_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(privacy_budget_type) do
+        [{"privacyBudgetType", privacy_budget_type} | query_params]
       else
         query_params
       end
@@ -6996,9 +8014,9 @@ defmodule AWS.CleanRooms do
           | {:error, list_collaborations_errors()}
   def list_collaborations(
         %Client{} = client,
-        max_results \\ nil,
-        member_status \\ nil,
         next_token \\ nil,
+        member_status \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/collaborations"
@@ -7006,8 +8024,8 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7020,8 +8038,8 @@ defmodule AWS.CleanRooms do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7048,8 +8066,8 @@ defmodule AWS.CleanRooms do
   def list_configured_audience_model_associations(
         %Client{} = client,
         membership_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7059,15 +8077,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7094,8 +8112,8 @@ defmodule AWS.CleanRooms do
   def list_configured_table_associations(
         %Client{} = client,
         membership_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7105,15 +8123,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7138,8 +8156,8 @@ defmodule AWS.CleanRooms do
           | {:error, list_configured_tables_errors()}
   def list_configured_tables(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/configuredTables"
@@ -7147,15 +8165,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7182,8 +8200,8 @@ defmodule AWS.CleanRooms do
   def list_id_mapping_tables(
         %Client{} = client,
         membership_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables"
@@ -7191,15 +8209,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7226,8 +8244,8 @@ defmodule AWS.CleanRooms do
   def list_id_namespace_associations(
         %Client{} = client,
         membership_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7237,15 +8255,113 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
 
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the version history of an intermediate table.
+
+  Each call to `PopulateIntermediateTable` creates a new version. We recommend
+  using pagination to ensure that the operation returns quickly and successfully.
+  """
+  @spec list_intermediate_table_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_intermediate_table_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_intermediate_table_versions_errors()}
+  def list_intermediate_table_versions(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        next_token \\ nil,
+        max_results \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/versions"
+
+    headers = []
+    query_params = []
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists intermediate tables owned by the caller in a membership.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec list_intermediate_tables(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_intermediate_tables_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_intermediate_tables_errors()}
+  def list_intermediate_tables(
+        %Client{} = client,
+        membership_identifier,
+        next_token \\ nil,
+        max_results \\ nil,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7272,8 +8388,8 @@ defmodule AWS.CleanRooms do
   def list_members(
         %Client{} = client,
         collaboration_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/members"
@@ -7281,15 +8397,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7315,9 +8431,9 @@ defmodule AWS.CleanRooms do
           | {:error, list_memberships_errors()}
   def list_memberships(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/memberships"
@@ -7325,8 +8441,8 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7339,8 +8455,8 @@ defmodule AWS.CleanRooms do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -7368,8 +8484,8 @@ defmodule AWS.CleanRooms do
   def list_privacy_budget_templates(
         %Client{} = client,
         membership_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates"
@@ -7377,15 +8493,15 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7402,10 +8518,10 @@ defmodule AWS.CleanRooms do
   @spec list_privacy_budgets(
           map(),
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_privacy_budgets_output(), any()}
@@ -7415,10 +8531,10 @@ defmodule AWS.CleanRooms do
   def list_privacy_budgets(
         %Client{} = client,
         membership_identifier,
-        access_budget_resource_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         privacy_budget_type,
+        next_token \\ nil,
+        max_results \\ nil,
+        access_budget_resource_arn \\ nil,
         options \\ []
       ) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgets"
@@ -7426,15 +8542,8 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(privacy_budget_type) do
-        [{"privacyBudgetType", privacy_budget_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(access_budget_resource_arn) do
+        [{"accessBudgetResourceArn", access_budget_resource_arn} | query_params]
       else
         query_params
       end
@@ -7447,8 +8556,15 @@ defmodule AWS.CleanRooms do
       end
 
     query_params =
-      if !is_nil(access_budget_resource_arn) do
-        [{"accessBudgetResourceArn", access_budget_resource_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(privacy_budget_type) do
+        [{"privacyBudgetType", privacy_budget_type} | query_params]
       else
         query_params
       end
@@ -7476,9 +8592,9 @@ defmodule AWS.CleanRooms do
   def list_protected_jobs(
         %Client{} = client,
         membership_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedJobs"
@@ -7486,8 +8602,8 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7500,8 +8616,8 @@ defmodule AWS.CleanRooms do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -7529,9 +8645,9 @@ defmodule AWS.CleanRooms do
   def list_protected_queries(
         %Client{} = client,
         membership_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries"
@@ -7539,8 +8655,8 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7553,8 +8669,8 @@ defmodule AWS.CleanRooms do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -7582,9 +8698,9 @@ defmodule AWS.CleanRooms do
   def list_schemas(
         %Client{} = client,
         collaboration_identifier,
-        max_results \\ nil,
-        next_token \\ nil,
         schema_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/schemas"
@@ -7592,8 +8708,8 @@ defmodule AWS.CleanRooms do
     query_params = []
 
     query_params =
-      if !is_nil(schema_type) do
-        [{"schemaType", schema_type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7606,8 +8722,8 @@ defmodule AWS.CleanRooms do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(schema_type) do
+        [{"schemaType", schema_type} | query_params]
       else
         query_params
       end
@@ -7651,13 +8767,62 @@ defmodule AWS.CleanRooms do
           | {:error, populate_id_mapping_table_errors()}
   def populate_id_mapping_table(
         %Client{} = client,
-        id_mapping_table_identifier,
         membership_identifier,
+        id_mapping_table_identifier,
         input,
         options \\ []
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}/populate"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Executes the stored query of an intermediate table to materialize data into
+  managed storage.
+
+  With this operation, you can perform initial population and subsequent
+  refreshes. Each call creates a new version. The returned analysis ID can be
+  tracked using `GetProtectedQuery`. Only the intermediate table owner can call
+  this operation.
+  """
+  @spec populate_intermediate_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          populate_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, populate_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, populate_intermediate_table_errors()}
+  def populate_intermediate_table(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/populate"
 
     headers = []
     custom_headers = []
@@ -7845,8 +9010,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_analysis_template_errors()}
   def update_analysis_template(
         %Client{} = client,
-        analysis_template_identifier,
         membership_identifier,
+        analysis_template_identifier,
         input,
         options \\ []
       ) do
@@ -7925,8 +9090,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_collaboration_change_request_errors()}
   def update_collaboration_change_request(
         %Client{} = client,
-        change_request_identifier,
         collaboration_identifier,
+        change_request_identifier,
         input,
         options \\ []
       ) do
@@ -7969,8 +9134,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_configured_audience_model_association_errors()}
   def update_configured_audience_model_association(
         %Client{} = client,
-        configured_audience_model_association_identifier,
         membership_identifier,
+        configured_audience_model_association_identifier,
         input,
         options \\ []
       ) do
@@ -8051,8 +9216,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_configured_table_analysis_rule_errors()}
   def update_configured_table_analysis_rule(
         %Client{} = client,
-        analysis_rule_type,
         configured_table_identifier,
+        analysis_rule_type,
         input,
         options \\ []
       ) do
@@ -8094,8 +9259,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_configured_table_association_errors()}
   def update_configured_table_association(
         %Client{} = client,
-        configured_table_association_identifier,
         membership_identifier,
+        configured_table_association_identifier,
         input,
         options \\ []
       ) do
@@ -8138,9 +9303,9 @@ defmodule AWS.CleanRooms do
           | {:error, update_configured_table_association_analysis_rule_errors()}
   def update_configured_table_association_analysis_rule(
         %Client{} = client,
-        analysis_rule_type,
-        configured_table_association_identifier,
         membership_identifier,
+        configured_table_association_identifier,
+        analysis_rule_type,
         input,
         options \\ []
       ) do
@@ -8182,8 +9347,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_id_mapping_table_errors()}
   def update_id_mapping_table(
         %Client{} = client,
-        id_mapping_table_identifier,
         membership_identifier,
+        id_mapping_table_identifier,
         input,
         options \\ []
       ) do
@@ -8225,13 +9390,106 @@ defmodule AWS.CleanRooms do
           | {:error, update_id_namespace_association_errors()}
   def update_id_namespace_association(
         %Client{} = client,
-        id_namespace_association_identifier,
         membership_identifier,
+        id_namespace_association_identifier,
         input,
         options \\ []
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an intermediate table.
+
+  You can update the description, KMS key ARN, and column types of existing
+  columns. Only the intermediate table owner can call this operation.
+  """
+  @spec update_intermediate_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, update_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_intermediate_table_errors()}
+  def update_intermediate_table(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the analysis rule policy for an intermediate table.
+
+  Only the intermediate table owner can call this operation.
+  """
+  @spec update_intermediate_table_analysis_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_intermediate_table_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, update_intermediate_table_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_intermediate_table_analysis_rule_errors()}
+  def update_intermediate_table_analysis_rule(
+        %Client{} = client,
+        membership_identifier,
+        intermediate_table_identifier,
+        analysis_rule_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
     custom_headers = []
@@ -8297,8 +9555,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_privacy_budget_template_errors()}
   def update_privacy_budget_template(
         %Client{} = client,
-        membership_identifier,
         privacy_budget_template_identifier,
+        membership_identifier,
         input,
         options \\ []
       ) do
@@ -8340,8 +9598,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_protected_job_errors()}
   def update_protected_job(
         %Client{} = client,
-        membership_identifier,
         protected_job_identifier,
+        membership_identifier,
         input,
         options \\ []
       ) do
@@ -8383,8 +9641,8 @@ defmodule AWS.CleanRooms do
           | {:error, update_protected_query_errors()}
   def update_protected_query(
         %Client{} = client,
-        membership_identifier,
         protected_query_identifier,
+        membership_identifier,
         input,
         options \\ []
       ) do

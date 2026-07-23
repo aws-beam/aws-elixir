@@ -34,14 +34,14 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      update_problem_request() :: %{
-        optional("UpdateStatus") => list(any()),
-        optional("Visibility") => list(any()),
-        required("ProblemId") => String.t() | atom()
+      describe_component_configuration_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type update_problem_request() :: %{(String.t() | atom()) => any()}
+  @type describe_component_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,112 +62,60 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      add_workload_response() :: %{
+      describe_workload_response() :: %{
         "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t() | atom()
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadRemarks" => String.t() | atom()
       }
       
   """
-  @type add_workload_response() :: %{(String.t() | atom()) => any()}
+  @type describe_workload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workloads_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "WorkloadList" => list(workload())
-      }
-      
-  """
-  @type list_workloads_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_log_pattern_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("PatternName") => String.t() | atom(),
-        required("PatternSetName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_log_pattern_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_workloads_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
+      update_component_configuration_request() :: %{
+        optional("AutoConfigEnabled") => boolean(),
+        optional("ComponentConfiguration") => String.t() | atom(),
         required("ComponentName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
+        optional("Monitor") => boolean(),
+        required("ResourceGroupName") => String.t() | atom(),
+        optional("Tier") => list(any())
       }
       
   """
-  @type list_workloads_request() :: %{(String.t() | atom()) => any()}
+  @type update_component_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_problem_observations_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("ProblemId") => String.t() | atom()
-      }
+      delete_application_response() :: %{}
       
   """
-  @type describe_problem_observations_request() :: %{(String.t() | atom()) => any()}
+  @type delete_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_response() :: %{}
+      too_many_tags_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
       
   """
-  @type untag_resource_response() :: %{}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      delete_log_pattern_response() :: %{}
       
   """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_problems_response() :: %{
-        "AccountId" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "ProblemList" => list(problem()),
-        "ResourceGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type list_problems_response() :: %{(String.t() | atom()) => any()}
+  @type delete_log_pattern_response() :: %{}
 
   @typedoc """
 
@@ -184,44 +132,28 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      describe_component_configuration_recommendation_request() :: %{
-        optional("RecommendationType") => list(any()),
-        optional("WorkloadName") => String.t() | atom(),
-        required("ComponentName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom(),
-        required("Tier") => list(any())
-      }
-      
-  """
-  @type describe_component_configuration_recommendation_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      log_pattern() :: %{
-        "Pattern" => String.t() | atom(),
-        "PatternName" => String.t() | atom(),
-        "PatternSetName" => String.t() | atom(),
-        "Rank" => integer()
-      }
-      
-  """
-  @type log_pattern() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_component_request() :: %{
-        required("ComponentName") => String.t() | atom(),
+      list_components_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
         required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_component_request() :: %{(String.t() | atom()) => any()}
+  @type list_components_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_workload_request() :: %{
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
+        required("WorkloadId") => String.t() | atom()
+      }
+      
+  """
+  @type remove_workload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -239,143 +171,12 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      tags_already_exist_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_component_configuration_response() :: %{
-        "ComponentConfiguration" => String.t() | atom(),
-        "Monitor" => boolean(),
-        "Tier" => list(any())
-      }
-      
-  """
-  @type describe_component_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_component_response() :: %{}
-      
-  """
-  @type update_component_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_log_pattern_response() :: %{
-        "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type update_log_pattern_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_problem_observations_response() :: %{
-        "RelatedObservations" => related_observations()
-      }
-      
-  """
-  @type describe_problem_observations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      observation() :: %{
-        "XRayRequestCount" => integer(),
-        "Value" => float(),
-        "SourceType" => String.t() | atom(),
-        "Unit" => String.t() | atom(),
-        "StatesInput" => String.t() | atom(),
-        "EbsCause" => String.t() | atom(),
-        "EbsResult" => String.t() | atom(),
-        "XRayNodeType" => String.t() | atom(),
-        "HealthEventArn" => String.t() | atom(),
-        "LineTime" => non_neg_integer(),
-        "HealthEventDescription" => String.t() | atom(),
-        "CloudWatchEventSource" => list(any()),
-        "RdsEventCategories" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "XRayErrorPercent" => integer(),
-        "XRayFaultPercent" => integer(),
-        "StatesStatus" => String.t() | atom(),
-        "MetricNamespace" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MetricName" => String.t() | atom(),
-        "XRayRequestAverageLatency" => float(),
-        "HealthEventTypeCode" => String.t() | atom(),
-        "CodeDeployApplication" => String.t() | atom(),
-        "LogGroup" => String.t() | atom(),
-        "LogFilter" => list(any()),
-        "Ec2State" => String.t() | atom(),
-        "CodeDeployInstanceGroupId" => String.t() | atom(),
-        "CodeDeployDeploymentGroup" => String.t() | atom(),
-        "CloudWatchEventId" => String.t() | atom(),
-        "LogText" => String.t() | atom(),
-        "HealthEventTypeCategory" => String.t() | atom(),
-        "CodeDeployDeploymentId" => String.t() | atom(),
-        "SourceARN" => String.t() | atom(),
-        "HealthService" => String.t() | atom(),
-        "StatesArn" => String.t() | atom(),
-        "EbsEvent" => String.t() | atom(),
-        "XRayThrottlePercent" => integer(),
-        "XRayNodeName" => String.t() | atom(),
-        "RdsEventMessage" => String.t() | atom(),
-        "StatesExecutionArn" => String.t() | atom(),
-        "EndTime" => non_neg_integer(),
-        "EbsRequestId" => String.t() | atom(),
-        "CodeDeployState" => String.t() | atom(),
-        "S3EventName" => String.t() | atom(),
-        "CloudWatchEventDetailType" => String.t() | atom()
-      }
-      
-  """
-  @type observation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_component_response() :: %{}
-      
-  """
-  @type create_component_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_component_configuration_response() :: %{}
-      
-  """
-  @type update_component_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_problem_response() :: %{
-        "Problem" => problem(),
-        "SNSNotificationArn" => String.t() | atom()
-      }
-      
-  """
-  @type describe_problem_response() :: %{(String.t() | atom()) => any()}
+  @type tags_already_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,376 +198,6 @@ defmodule AWS.ApplicationInsights do
       
   """
   @type application_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_component_request() :: %{
-        optional("NewComponentName") => String.t() | atom(),
-        optional("ResourceList") => list(String.t() | atom()),
-        required("ComponentName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type update_component_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      workload() :: %{
-        "ComponentName" => String.t() | atom(),
-        "MissingWorkloadConfig" => boolean(),
-        "Tier" => list(any()),
-        "WorkloadId" => String.t() | atom(),
-        "WorkloadName" => String.t() | atom(),
-        "WorkloadRemarks" => String.t() | atom()
-      }
-      
-  """
-  @type workload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_components_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type list_components_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_log_pattern_sets_response() :: %{
-        "AccountId" => String.t() | atom(),
-        "LogPatternSets" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom(),
-        "ResourceGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type list_log_pattern_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_log_pattern_response() :: %{}
-      
-  """
-  @type delete_log_pattern_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      workload_configuration() :: %{
-        "Configuration" => String.t() | atom(),
-        "Tier" => list(any()),
-        "WorkloadName" => String.t() | atom()
-      }
-      
-  """
-  @type workload_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_workload_response() :: %{
-        "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t() | atom(),
-        "WorkloadRemarks" => String.t() | atom()
-      }
-      
-  """
-  @type describe_workload_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_component_request() :: %{
-        required("ComponentName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom(),
-        required("ResourceList") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_component_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_log_pattern_request() :: %{
-        required("Pattern") => String.t() | atom(),
-        required("PatternName") => String.t() | atom(),
-        required("PatternSetName") => String.t() | atom(),
-        required("Rank") => integer(),
-        required("ResourceGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type create_log_pattern_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_workload_response() :: %{}
-      
-  """
-  @type remove_workload_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_request() :: %{
-        optional("AttachMissingPermission") => boolean(),
-        optional("AutoConfigEnabled") => boolean(),
-        optional("AutoCreate") => boolean(),
-        optional("CWEMonitorEnabled") => boolean(),
-        optional("GroupingType") => list(any()),
-        optional("OpsCenterEnabled") => boolean(),
-        optional("OpsItemSNSTopicArn") => String.t() | atom(),
-        optional("ResourceGroupName") => String.t() | atom(),
-        optional("SNSNotificationArn") => String.t() | atom(),
-        optional("Tags") => list(tag())
-      }
-      
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_log_patterns_response() :: %{
-        "AccountId" => String.t() | atom(),
-        "LogPatterns" => list(log_pattern()),
-        "NextToken" => String.t() | atom(),
-        "ResourceGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type list_log_patterns_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_application_response() :: %{
-        "ApplicationInfo" => application_info()
-      }
-      
-  """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_log_pattern_request() :: %{
-        optional("Pattern") => String.t() | atom(),
-        optional("Rank") => integer(),
-        required("PatternName") => String.t() | atom(),
-        required("PatternSetName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type update_log_pattern_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_workload_response() :: %{
-        "WorkloadConfiguration" => workload_configuration(),
-        "WorkloadId" => String.t() | atom()
-      }
-      
-  """
-  @type update_workload_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_application_response() :: %{}
-      
-  """
-  @type delete_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_log_pattern_response() :: %{
-        "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type create_log_pattern_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_component_response() :: %{}
-      
-  """
-  @type delete_component_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_request() :: %{
-        optional("AttachMissingPermission") => boolean(),
-        optional("AutoConfigEnabled") => boolean(),
-        optional("CWEMonitorEnabled") => boolean(),
-        optional("OpsCenterEnabled") => boolean(),
-        optional("OpsItemSNSTopicArn") => String.t() | atom(),
-        optional("RemoveSNSTopic") => boolean(),
-        optional("SNSNotificationArn") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_application_response() :: %{
-        "ApplicationInfo" => application_info()
-      }
-      
-  """
-  @type update_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_workload_request() :: %{
-        required("ComponentName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom(),
-        required("WorkloadId") => String.t() | atom()
-      }
-      
-  """
-  @type remove_workload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_configuration_history_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("EndTime") => non_neg_integer(),
-        optional("EventStatus") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceGroupName") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type list_configuration_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_problem_response() :: %{}
-      
-  """
-  @type update_problem_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_applications_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -798,24 +229,57 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      describe_observation_request() :: %{
+      describe_application_request() :: %{
         optional("AccountId") => String.t() | atom(),
-        required("ObservationId") => String.t() | atom()
+        required("ResourceGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_observation_request() :: %{(String.t() | atom()) => any()}
+  @type describe_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+      application_component() :: %{
+        "ComponentName" => String.t() | atom(),
+        "ComponentRemarks" => String.t() | atom(),
+        "DetectedWorkload" => map(),
+        "Monitor" => boolean(),
+        "OsType" => list(any()),
+        "ResourceType" => String.t() | atom(),
+        "Tier" => list(any())
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type application_component() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      workload() :: %{
+        "ComponentName" => String.t() | atom(),
+        "MissingWorkloadConfig" => boolean(),
+        "Tier" => list(any()),
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom(),
+        "WorkloadRemarks" => String.t() | atom()
+      }
+      
+  """
+  @type workload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      related_observations() :: %{
+        "ObservationList" => list(observation())
+      }
+      
+  """
+  @type related_observations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -839,45 +303,50 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      tag_resource_response() :: %{}
+      create_application_request() :: %{
+        optional("AttachMissingPermission") => boolean(),
+        optional("AutoConfigEnabled") => boolean(),
+        optional("AutoCreate") => boolean(),
+        optional("CWEMonitorEnabled") => boolean(),
+        optional("GroupingType") => list(any()),
+        optional("OpsCenterEnabled") => boolean(),
+        optional("OpsItemSNSTopicArn") => String.t() | atom(),
+        optional("ResourceGroupName") => String.t() | atom(),
+        optional("SNSNotificationArn") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
       
   """
-  @type tag_resource_response() :: %{}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_log_pattern_request() :: %{
-        required("PatternName") => String.t() | atom(),
-        required("PatternSetName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
+      list_configuration_history_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("EndTime") => non_neg_integer(),
+        optional("EventStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceGroupName") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type delete_log_pattern_request() :: %{(String.t() | atom()) => any()}
+  @type list_configuration_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tags_already_exist_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_problem_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("ProblemId") => String.t() | atom()
       }
       
   """
-  @type tags_already_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_problem_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -894,39 +363,12 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      describe_component_configuration_recommendation_response() :: %{
-        "ComponentConfiguration" => String.t() | atom()
+      create_application_response() :: %{
+        "ApplicationInfo" => application_info()
       }
       
   """
-  @type describe_component_configuration_recommendation_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_log_pattern_response() :: %{
-        "AccountId" => String.t() | atom(),
-        "LogPattern" => log_pattern(),
-        "ResourceGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type describe_log_pattern_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_component_response() :: %{
-        "ApplicationComponent" => application_component(),
-        "ResourceList" => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_component_response() :: %{(String.t() | atom()) => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -950,73 +392,25 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      related_observations() :: %{
-        "ObservationList" => list(observation())
-      }
-      
-  """
-  @type related_observations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_components_response() :: %{
-        "ApplicationComponentList" => list(application_component()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_components_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_applications_response() :: %{
-        "ApplicationInfoList" => list(application_info()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      bad_request_exception() :: %{
+      resource_in_use_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      add_workload_request() :: %{
+      create_component_request() :: %{
         required("ComponentName") => String.t() | atom(),
         required("ResourceGroupName") => String.t() | atom(),
-        required("WorkloadConfiguration") => workload_configuration()
+        required("ResourceList") => list(String.t() | atom())
       }
       
   """
-  @type add_workload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_component_configuration_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("ComponentName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_component_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type create_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1035,18 +429,374 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      application_component() :: %{
-        "ComponentName" => String.t() | atom(),
-        "ComponentRemarks" => String.t() | atom(),
-        "DetectedWorkload" => map(),
+      delete_component_response() :: %{}
+      
+  """
+  @type delete_component_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_log_pattern_request() :: %{
+        required("PatternName") => String.t() | atom(),
+        required("PatternSetName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_log_pattern_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_component_request() :: %{
+        required("ComponentName") => String.t() | atom(),
+        optional("NewComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
+        optional("ResourceList") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_component_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_problems_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "ProblemList" => list(problem()),
+        "ResourceGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type list_problems_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_response() :: %{
+        "ApplicationInfo" => application_info()
+      }
+      
+  """
+  @type describe_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_workload_response() :: %{
+        "WorkloadConfiguration" => workload_configuration(),
+        "WorkloadId" => String.t() | atom()
+      }
+      
+  """
+  @type update_workload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workloads_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("ComponentName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type list_workloads_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_component_request() :: %{
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_component_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_problem_response() :: %{
+        "Problem" => problem(),
+        "SNSNotificationArn" => String.t() | atom()
+      }
+      
+  """
+  @type describe_problem_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_log_pattern_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "LogPattern" => log_pattern(),
+        "ResourceGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type describe_log_pattern_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_workload_request() :: %{
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
+        required("WorkloadConfiguration") => workload_configuration()
+      }
+      
+  """
+  @type add_workload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_components_response() :: %{
+        "ApplicationComponentList" => list(application_component()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_components_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_workload_response() :: %{}
+      
+  """
+  @type remove_workload_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_problem_observations_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("ProblemId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_problem_observations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_workload_request() :: %{
+        required("ComponentName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom(),
+        required("WorkloadConfiguration") => workload_configuration(),
+        optional("WorkloadId") => String.t() | atom()
+      }
+      
+  """
+  @type update_workload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_log_pattern_request() :: %{
+        required("Pattern") => String.t() | atom(),
+        required("PatternName") => String.t() | atom(),
+        required("PatternSetName") => String.t() | atom(),
+        required("Rank") => integer(),
+        required("ResourceGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type create_log_pattern_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_component_configuration_recommendation_response() :: %{
+        "ComponentConfiguration" => String.t() | atom()
+      }
+      
+  """
+  @type describe_component_configuration_recommendation_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_observation_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("ObservationId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_observation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_patterns_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "LogPatterns" => list(log_pattern()),
+        "NextToken" => String.t() | atom(),
+        "ResourceGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type list_log_patterns_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_log_pattern_request() :: %{
+        optional("Pattern") => String.t() | atom(),
+        required("PatternName") => String.t() | atom(),
+        required("PatternSetName") => String.t() | atom(),
+        optional("Rank") => integer(),
+        required("ResourceGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type update_log_pattern_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_applications_response() :: %{
+        "ApplicationInfoList" => list(application_info()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_component_configuration_response() :: %{}
+      
+  """
+  @type update_component_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_component_configuration_response() :: %{
+        "ComponentConfiguration" => String.t() | atom(),
         "Monitor" => boolean(),
-        "OsType" => list(any()),
-        "ResourceType" => String.t() | atom(),
         "Tier" => list(any())
       }
       
   """
-  @type application_component() :: %{(String.t() | atom()) => any()}
+  @type describe_component_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_component_response() :: %{
+        "ApplicationComponent" => application_component(),
+        "ResourceList" => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_component_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1066,6 +816,215 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_component_response() :: %{}
+      
+  """
+  @type create_component_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_log_pattern_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("PatternName") => String.t() | atom(),
+        required("PatternSetName") => String.t() | atom(),
+        required("ResourceGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_log_pattern_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_log_pattern_response() :: %{
+        "LogPattern" => log_pattern(),
+        "ResourceGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type update_log_pattern_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_log_pattern_response() :: %{
+        "LogPattern" => log_pattern(),
+        "ResourceGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type create_log_pattern_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_application_request() :: %{
+        required("ResourceGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_workload_response() :: %{
+        "WorkloadConfiguration" => workload_configuration(),
+        "WorkloadId" => String.t() | atom()
+      }
+      
+  """
+  @type add_workload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_problem_request() :: %{
+        required("ProblemId") => String.t() | atom(),
+        optional("UpdateStatus") => list(any()),
+        optional("Visibility") => list(any())
+      }
+      
+  """
+  @type update_problem_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_pattern() :: %{
+        "Pattern" => String.t() | atom(),
+        "PatternName" => String.t() | atom(),
+        "PatternSetName" => String.t() | atom(),
+        "Rank" => integer()
+      }
+      
+  """
+  @type log_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      workload_configuration() :: %{
+        "Configuration" => String.t() | atom(),
+        "Tier" => list(any()),
+        "WorkloadName" => String.t() | atom()
+      }
+      
+  """
+  @type workload_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_problem_response() :: %{}
+      
+  """
+  @type update_problem_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_component_response() :: %{}
+      
+  """
+  @type update_component_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_application_request() :: %{
+        optional("AttachMissingPermission") => boolean(),
+        optional("AutoConfigEnabled") => boolean(),
+        optional("CWEMonitorEnabled") => boolean(),
+        optional("OpsCenterEnabled") => boolean(),
+        optional("OpsItemSNSTopicArn") => String.t() | atom(),
+        optional("RemoveSNSTopic") => boolean(),
+        required("ResourceGroupName") => String.t() | atom(),
+        optional("SNSNotificationArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workloads_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "WorkloadList" => list(workload())
+      }
+      
+  """
+  @type list_workloads_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_problem_observations_response() :: %{
+        "RelatedObservations" => related_observations()
+      }
+      
+  """
+  @type describe_problem_observations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_component_configuration_recommendation_request() :: %{
+        required("ComponentName") => String.t() | atom(),
+        optional("RecommendationType") => list(any()),
+        required("ResourceGroupName") => String.t() | atom(),
+        required("Tier") => list(any()),
+        optional("WorkloadName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_component_configuration_recommendation_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       list_log_pattern_sets_request() :: %{
         optional("AccountId") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -1080,202 +1039,243 @@ defmodule AWS.ApplicationInsights do
 
   ## Example:
       
-      describe_problem_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("ProblemId") => String.t() | atom()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type describe_problem_request() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_workload_request() :: %{
-        optional("WorkloadId") => String.t() | atom(),
-        required("ComponentName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom(),
-        required("WorkloadConfiguration") => workload_configuration()
-      }
-      
-  """
-  @type update_workload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_application_response() :: %{
+      update_application_response() :: %{
         "ApplicationInfo" => application_info()
       }
       
   """
-  @type describe_application_response() :: %{(String.t() | atom()) => any()}
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      too_many_tags_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
+      observation() :: %{
+        "SourceType" => String.t() | atom(),
+        "StatesArn" => String.t() | atom(),
+        "Ec2State" => String.t() | atom(),
+        "LogGroup" => String.t() | atom(),
+        "StatesInput" => String.t() | atom(),
+        "HealthEventTypeCode" => String.t() | atom(),
+        "XRayNodeName" => String.t() | atom(),
+        "StatesStatus" => String.t() | atom(),
+        "S3EventName" => String.t() | atom(),
+        "MetricName" => String.t() | atom(),
+        "XRayNodeType" => String.t() | atom(),
+        "HealthEventArn" => String.t() | atom(),
+        "CodeDeployDeploymentGroup" => String.t() | atom(),
+        "XRayRequestCount" => integer(),
+        "Id" => String.t() | atom(),
+        "HealthService" => String.t() | atom(),
+        "CodeDeployApplication" => String.t() | atom(),
+        "XRayErrorPercent" => integer(),
+        "MetricNamespace" => String.t() | atom(),
+        "XRayThrottlePercent" => integer(),
+        "RdsEventMessage" => String.t() | atom(),
+        "Unit" => String.t() | atom(),
+        "LogFilter" => list(any()),
+        "RdsEventCategories" => String.t() | atom(),
+        "StatesExecutionArn" => String.t() | atom(),
+        "EbsRequestId" => String.t() | atom(),
+        "HealthEventTypeCategory" => String.t() | atom(),
+        "XRayFaultPercent" => integer(),
+        "CodeDeployState" => String.t() | atom(),
+        "LogText" => String.t() | atom(),
+        "CodeDeployDeploymentId" => String.t() | atom(),
+        "CloudWatchEventDetailType" => String.t() | atom(),
+        "CloudWatchEventSource" => list(any()),
+        "HealthEventDescription" => String.t() | atom(),
+        "Value" => float(),
+        "EbsEvent" => String.t() | atom(),
+        "CloudWatchEventId" => String.t() | atom(),
+        "SourceARN" => String.t() | atom(),
+        "EbsCause" => String.t() | atom(),
+        "CodeDeployInstanceGroupId" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "XRayRequestAverageLatency" => float(),
+        "EbsResult" => String.t() | atom(),
+        "LineTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
       }
       
   """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+  @type observation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_component_configuration_request() :: %{
-        optional("AutoConfigEnabled") => boolean(),
-        optional("ComponentConfiguration") => String.t() | atom(),
-        optional("Monitor") => boolean(),
-        optional("Tier") => list(any()),
-        required("ComponentName") => String.t() | atom(),
-        required("ResourceGroupName") => String.t() | atom()
+      list_applications_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type update_component_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_application_request() :: %{
-        required("ResourceGroupName") => String.t() | atom()
+      list_log_pattern_sets_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "LogPatternSets" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom(),
+        "ResourceGroupName" => String.t() | atom()
       }
       
   """
-  @type delete_application_request() :: %{(String.t() | atom()) => any()}
+  @type list_log_pattern_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @type add_workload_errors() ::
-          validation_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
 
   @type create_application_errors() ::
-          validation_exception()
-          | tags_already_exist_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | tags_already_exist_exception()
 
   @type create_component_errors() ::
-          validation_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
 
   @type create_log_pattern_errors() ::
-          validation_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
 
   @type delete_application_errors() ::
-          bad_request_exception()
+          resource_not_found_exception()
+          | bad_request_exception()
           | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type delete_component_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type delete_log_pattern_errors() ::
-          bad_request_exception()
+          resource_not_found_exception()
+          | bad_request_exception()
           | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_application_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type describe_component_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type describe_component_configuration_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type describe_component_configuration_recommendation_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type describe_log_pattern_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type describe_observation_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type describe_problem_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type describe_problem_observations_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type describe_workload_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type list_applications_errors() :: validation_exception() | internal_server_exception()
 
   @type list_components_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type list_configuration_history_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type list_log_pattern_sets_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type list_log_patterns_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type list_problems_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
-  @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type list_tags_for_resource_errors() :: resource_not_found_exception() | validation_exception()
 
   @type list_workloads_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type remove_workload_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception() | validation_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | too_many_tags_exception()
 
-  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type untag_resource_errors() :: resource_not_found_exception() | validation_exception()
 
   @type update_application_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type update_component_errors() ::
-          validation_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
 
   @type update_component_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
 
   @type update_log_pattern_errors() ::
-          validation_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
 
   @type update_problem_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   @type update_workload_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | internal_server_exception()
 
   def metadata do
     %{
@@ -1304,7 +1304,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, add_workload_errors()}
   def add_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddWorkload", input, options)
   end
@@ -1318,7 +1319,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -1332,7 +1334,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComponent", input, options)
   end
@@ -1346,7 +1349,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, create_log_pattern_errors()}
   def create_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLogPattern", input, options)
   end
@@ -1363,7 +1367,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -1382,7 +1387,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteComponent", input, options)
   end
@@ -1396,7 +1402,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, delete_log_pattern_errors()}
   def delete_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLogPattern", input, options)
   end
@@ -1410,7 +1417,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -1425,7 +1433,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComponent", input, options)
   end
@@ -1443,7 +1452,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_configuration_errors()}
   def describe_component_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComponentConfiguration", input, options)
   end
@@ -1461,7 +1471,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_component_configuration_recommendation_errors()}
   def describe_component_configuration_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1481,7 +1492,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_log_pattern_errors()}
   def describe_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLogPattern", input, options)
   end
@@ -1495,7 +1507,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_observation_errors()}
   def describe_observation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeObservation", input, options)
   end
@@ -1509,7 +1522,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_problem_errors()}
   def describe_problem(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProblem", input, options)
   end
@@ -1523,7 +1537,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_problem_observations_errors()}
   def describe_problem_observations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProblemObservations", input, options)
   end
@@ -1537,7 +1552,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, describe_workload_errors()}
   def describe_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkload", input, options)
   end
@@ -1551,7 +1567,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -1565,7 +1582,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComponents", input, options)
   end
@@ -1593,7 +1611,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_configuration_history_errors()}
   def list_configuration_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConfigurationHistory", input, options)
   end
@@ -1607,7 +1626,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_log_pattern_sets_errors()}
   def list_log_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogPatternSets", input, options)
   end
@@ -1621,7 +1641,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_log_patterns_errors()}
   def list_log_patterns(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogPatterns", input, options)
   end
@@ -1635,7 +1656,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_problems_errors()}
   def list_problems(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProblems", input, options)
   end
@@ -1658,7 +1680,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1672,7 +1695,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, list_workloads_errors()}
   def list_workloads(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkloads", input, options)
   end
@@ -1686,7 +1710,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, remove_workload_errors()}
   def remove_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveWorkload", input, options)
   end
@@ -1712,7 +1737,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1726,7 +1752,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1740,7 +1767,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -1755,7 +1783,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComponent", input, options)
   end
@@ -1774,7 +1803,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_component_configuration_errors()}
   def update_component_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComponentConfiguration", input, options)
   end
@@ -1788,7 +1818,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_log_pattern_errors()}
   def update_log_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLogPattern", input, options)
   end
@@ -1803,7 +1834,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_problem_errors()}
   def update_problem(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProblem", input, options)
   end
@@ -1819,7 +1851,8 @@ defmodule AWS.ApplicationInsights do
           | {:error, term()}
           | {:error, update_workload_errors()}
   def update_workload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkload", input, options)
   end

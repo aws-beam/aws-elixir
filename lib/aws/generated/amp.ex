@@ -34,91 +34,6 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      query_logging_configuration_metadata() :: %{
-        "createdAt" => [non_neg_integer()],
-        "destinations" => list(logging_destination()),
-        "modifiedAt" => [non_neg_integer()],
-        "status" => query_logging_configuration_status(),
-        "workspace" => String.t() | atom()
-      }
-
-  """
-  @type query_logging_configuration_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_scraper_logging_configuration_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_scraper_logging_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_alert_manager_definition_request() :: %{
-        "clientToken" => String.t() | atom(),
-        "data" => binary()
-      }
-
-  """
-  @type put_alert_manager_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_configuration() :: %{
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_workspace_configuration_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("limitsPerLabelSet") => list(limits_per_label_set()),
-        optional("retentionPeriodInDays") => [integer()]
-      }
-
-  """
-  @type update_workspace_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_query_logging_configuration_response() :: %{
-        "queryLoggingConfiguration" => query_logging_configuration_metadata()
-      }
-
-  """
-  @type describe_query_logging_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       update_scraper_request() :: %{
         optional("alias") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
@@ -134,138 +49,66 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      list_rule_groups_namespaces_response() :: %{
+      describe_resource_policy_response() :: %{
+        "policyDocument" => [String.t() | atom()],
+        "policyStatus" => String.t() | atom(),
+        "revisionId" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workspaces_response() :: %{
         "nextToken" => String.t() | atom(),
-        "ruleGroupsNamespaces" => list(rule_groups_namespace_summary())
+        "workspaces" => list(workspace_summary())
       }
 
   """
-  @type list_rule_groups_namespaces_response() :: %{(String.t() | atom()) => any()}
+  @type list_workspaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scrapers_request() :: %{
-        optional("filters") => map(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
+      put_anomaly_detector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("configuration") => list(),
+        optional("evaluationIntervalInSeconds") => integer(),
+        optional("labels") => map(),
+        optional("missingDataAction") => list()
       }
 
   """
-  @type list_scrapers_request() :: %{(String.t() | atom()) => any()}
+  @type put_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_query_logging_configuration_response() :: %{
-        "status" => query_logging_configuration_status()
+      put_resource_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("policyDocument") => [String.t() | atom()],
+        optional("revisionId") => [String.t() | atom()]
       }
 
   """
-  @type create_query_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rule_groups_namespace_status() :: %{
-        "statusCode" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()]
+      update_logging_configuration_request() :: %{
+        "clientToken" => String.t() | atom(),
+        "logGroupArn" => String.t() | atom()
       }
 
   """
-  @type rule_groups_namespace_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_query_logging_configuration_request() :: %{}
-
-  """
-  @type describe_query_logging_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_groups_namespace_description() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "data" => binary(),
-        "modifiedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "status" => rule_groups_namespace_status(),
-        "tags" => map()
-      }
-
-  """
-  @type rule_groups_namespace_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workspace_status() :: %{
-        "statusCode" => String.t() | atom()
-      }
-
-  """
-  @type workspace_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_scraper_logging_configuration_response() :: %{
-        "loggingDestination" => list(),
-        "modifiedAt" => [non_neg_integer()],
-        "scraperComponents" => list(scraper_component()),
-        "scraperId" => String.t() | atom(),
-        "status" => scraper_logging_configuration_status()
-      }
-
-  """
-  @type describe_scraper_logging_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scraper_status() :: %{
-        "statusCode" => String.t() | atom()
-      }
-
-  """
-  @type scraper_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workspace_summary() :: %{
-        "alias" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "kmsKeyArn" => String.t() | atom(),
-        "status" => workspace_status(),
-        "tags" => map(),
-        "workspaceId" => String.t() | atom()
-      }
-
-  """
-  @type workspace_summary() :: %{(String.t() | atom()) => any()}
+  @type update_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -285,37 +128,76 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      logging_configuration_metadata() :: %{
-        "createdAt" => [non_neg_integer()],
-        "logGroupArn" => String.t() | atom(),
-        "modifiedAt" => [non_neg_integer()],
-        "status" => logging_configuration_status(),
-        "workspace" => String.t() | atom()
+      update_logging_configuration_response() :: %{
+        "status" => logging_configuration_status()
       }
 
   """
-  @type logging_configuration_metadata() :: %{(String.t() | atom()) => any()}
+  @type update_logging_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_workspace_configuration_request() :: %{}
+      scraper_status() :: %{
+        "statusCode" => String.t() | atom()
+      }
 
   """
-  @type describe_workspace_configuration_request() :: %{}
+  @type scraper_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_logging_configuration_request() :: %{
+      describe_workspace_response() :: %{
+        "workspace" => workspace_description()
+      }
+
+  """
+  @type describe_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scraper_logging_configuration_status() :: %{
+        "statusCode" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type scraper_logging_configuration_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_scraper_configuration_request() :: %{}
+
+  """
+  @type get_default_scraper_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_resource_policy_request() :: %{}
+
+  """
+  @type describe_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_alert_manager_definition_request() :: %{
         "clientToken" => String.t() | atom(),
-        "logGroupArn" => String.t() | atom()
+        "data" => binary()
       }
 
   """
-  @type update_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type create_alert_manager_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,83 +214,85 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      anomaly_detector_description() :: %{
-        "alias" => String.t() | atom(),
-        "anomalyDetectorId" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "configuration" => list(),
-        "createdAt" => [non_neg_integer()],
-        "evaluationIntervalInSeconds" => integer(),
-        "labels" => map(),
-        "missingDataAction" => list(),
-        "modifiedAt" => [non_neg_integer()],
-        "status" => anomaly_detector_status(),
-        "tags" => map()
-      }
+      describe_workspace_configuration_request() :: %{}
 
   """
-  @type anomaly_detector_description() :: %{(String.t() | atom()) => any()}
+  @type describe_workspace_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      query_logging_configuration_status() :: %{
-        "statusCode" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()]
+      tag_resource_request() :: %{
+        required("tags") => map()
       }
 
   """
-  @type query_logging_configuration_status() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_rule_groups_namespace_response() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => rule_groups_namespace_status(),
-        "tags" => map()
+      delete_resource_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("revisionId") => [String.t() | atom()]
       }
 
   """
-  @type create_rule_groups_namespace_response() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      anomaly_detector_status() :: %{
-        "statusCode" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-
-  """
-  @type anomaly_detector_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_alert_manager_definition_request() :: %{
-        "clientToken" => String.t() | atom()
-      }
-
-  """
-  @type delete_alert_manager_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_logging_configuration_request() :: %{
+      create_rule_groups_namespace_request() :: %{
         "clientToken" => String.t() | atom(),
-        "logGroupArn" => String.t() | atom()
+        "data" => binary(),
+        "name" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type create_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type create_rule_groups_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_config() :: %{
+        "options" => map()
+      }
+
+  """
+  @type component_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scrapers_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scrapers" => list(scraper_summary())
+      }
+
+  """
+  @type list_scrapers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workspace_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("limitsPerLabelSet") => list(limits_per_label_set()),
+        optional("outOfOrderTimeWindowInSeconds") => [integer()],
+        optional("retentionPeriodInDays") => [integer()],
+        optional("ruleQueryOffsetInSeconds") => [integer()]
+      }
+
+  """
+  @type update_workspace_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -436,199 +320,10 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      put_rule_groups_namespace_response() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => rule_groups_namespace_status(),
-        "tags" => map()
-      }
+      describe_workspace_request() :: %{}
 
   """
-  @type put_rule_groups_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_log_destination() :: %{
-        "logGroupArn" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_log_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_scraper_response() :: %{
-        "arn" => String.t() | atom(),
-        "scraperId" => String.t() | atom(),
-        "status" => scraper_status(),
-        "tags" => map()
-      }
-
-  """
-  @type update_scraper_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_workspace_configuration_response() :: %{
-        "status" => workspace_configuration_status()
-      }
-
-  """
-  @type update_workspace_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_anomaly_detector_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("evaluationIntervalInSeconds") => integer(),
-        optional("labels") => map(),
-        optional("missingDataAction") => list(),
-        required("configuration") => list()
-      }
-
-  """
-  @type put_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_workspace_alias_request() :: %{
-        "alias" => String.t() | atom(),
-        "clientToken" => String.t() | atom()
-      }
-
-  """
-  @type update_workspace_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_workspace_response() :: %{
-        "workspace" => workspace_description()
-      }
-
-  """
-  @type describe_workspace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_default_scraper_configuration_request() :: %{}
-
-  """
-  @type get_default_scraper_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      workspace_configuration_description() :: %{
-        "limitsPerLabelSet" => list(limits_per_label_set()),
-        "retentionPeriodInDays" => [integer()],
-        "status" => workspace_configuration_status()
-      }
-
-  """
-  @type workspace_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_workspace_configuration_response() :: %{
-        "workspaceConfiguration" => workspace_configuration_description()
-      }
-
-  """
-  @type describe_workspace_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_rule_groups_namespace_request() :: %{
-        "clientToken" => String.t() | atom()
-      }
-
-  """
-  @type delete_rule_groups_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_rule_groups_namespace_request() :: %{}
-
-  """
-  @type describe_rule_groups_namespace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_logging_configuration_response() :: %{
-        "status" => logging_configuration_status()
-      }
-
-  """
-  @type create_logging_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_anomaly_detector_response() :: %{
-        "anomalyDetector" => anomaly_detector_description()
-      }
-
-  """
-  @type describe_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_logging_configuration_request() :: %{}
-
-  """
-  @type describe_logging_configuration_request() :: %{}
+  @type describe_workspace_request() :: %{}
 
   @typedoc """
 
@@ -646,214 +341,69 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      logging_configuration_status() :: %{
-        "statusCode" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()]
+      list_scrapers_request() :: %{
+        optional("filters") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type logging_configuration_status() :: %{(String.t() | atom()) => any()}
+  @type list_scrapers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_scraper_response() :: %{
-        "scraper" => scraper_description()
-      }
-
-  """
-  @type describe_scraper_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_config() :: %{
-        "options" => map()
-      }
-
-  """
-  @type component_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_query_logging_configuration_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_query_logging_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_scraper_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_scraper_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      eks_configuration() :: %{
-        "clusterArn" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type eks_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_workspace_request() :: %{}
-
-  """
-  @type describe_workspace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_query_logging_configuration_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("destinations") => list(logging_destination())
-      }
-
-  """
-  @type update_query_logging_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_anomaly_detector_response() :: %{
-        "anomalyDetectorId" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "status" => anomaly_detector_status(),
-        "tags" => map()
-      }
-
-  """
-  @type create_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_workspace_request() :: %{
-        "clientToken" => String.t() | atom()
-      }
-
-  """
-  @type delete_workspace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_groups_namespace_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "modifiedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "status" => rule_groups_namespace_status(),
-        "tags" => map()
-      }
-
-  """
-  @type rule_groups_namespace_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_rule_groups_namespace_request() :: %{
-        "clientToken" => String.t() | atom(),
-        "data" => binary(),
-        "name" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type create_rule_groups_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_alert_manager_definition_request() :: %{
+      put_rule_groups_namespace_request() :: %{
         "clientToken" => String.t() | atom(),
         "data" => binary()
       }
 
   """
-  @type create_alert_manager_definition_request() :: %{(String.t() | atom()) => any()}
+  @type put_rule_groups_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      workspace_description() :: %{
-        "alias" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "kmsKeyArn" => String.t() | atom(),
-        "prometheusEndpoint" => String.t() | atom(),
-        "status" => workspace_status(),
-        "tags" => map(),
-        "workspaceId" => String.t() | atom()
+      create_scraper_request() :: %{
+        optional("alias") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("destination") => list(),
+        optional("roleConfiguration") => role_configuration(),
+        required("scrapeConfiguration") => list(),
+        required("source") => list(),
+        optional("tags") => map()
       }
 
   """
-  @type workspace_description() :: %{(String.t() | atom()) => any()}
+  @type create_scraper_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alert_manager_definition_description() :: %{
+        "createdAt" => [non_neg_integer()],
+        "data" => binary(),
+        "modifiedAt" => [non_neg_integer()],
+        "status" => alert_manager_definition_status()
+      }
+
+  """
+  @type alert_manager_definition_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "policyStatus" => String.t() | atom(),
+        "revisionId" => [String.t() | atom()]
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -871,80 +421,120 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      create_workspace_response() :: %{
-        "arn" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "status" => workspace_status(),
-        "tags" => map(),
-        "workspaceId" => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
       }
 
   """
-  @type create_workspace_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      anomaly_detector_summary() :: %{
-        "alias" => String.t() | atom(),
-        "anomalyDetectorId" => String.t() | atom(),
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_configuration() :: %{
+        "datasetArn" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_alert_manager_definition_request() :: %{
+        "clientToken" => String.t() | atom(),
+        "data" => binary()
+      }
+
+  """
+  @type put_alert_manager_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rule_groups_namespace_response() :: %{
         "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "modifiedAt" => [non_neg_integer()],
-        "status" => anomaly_detector_status(),
+        "name" => String.t() | atom(),
+        "status" => rule_groups_namespace_status(),
         "tags" => map()
       }
 
   """
-  @type anomaly_detector_summary() :: %{(String.t() | atom()) => any()}
+  @type put_rule_groups_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_workspaces_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "workspaces" => list(workspace_summary())
+      rule_groups_namespace_description() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "data" => binary(),
+        "modifiedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "status" => rule_groups_namespace_status(),
+        "tags" => map()
       }
 
   """
-  @type list_workspaces_response() :: %{(String.t() | atom()) => any()}
+  @type rule_groups_namespace_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_query_logging_configuration_response() :: %{
-        "status" => query_logging_configuration_status()
+      list_anomaly_detectors_request() :: %{
+        optional("alias") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type update_query_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type list_anomaly_detectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_default_scraper_configuration_response() :: %{
-        "configuration" => [binary()]
+      query_logging_configuration_status() :: %{
+        "statusCode" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
       }
 
   """
-  @type get_default_scraper_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type query_logging_configuration_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_resource_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("revisionId") => [String.t() | atom()],
-        required("policyDocument") => [String.t() | atom()]
+      query_logging_configuration_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "destinations" => list(logging_destination()),
+        "modifiedAt" => [non_neg_integer()],
+        "status" => query_logging_configuration_status(),
+        "workspace" => String.t() | atom()
       }
 
   """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+  @type query_logging_configuration_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -973,42 +563,53 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      describe_scraper_logging_configuration_response() :: %{
+        "loggingDestination" => list(),
+        "modifiedAt" => [non_neg_integer()],
+        "scraperComponents" => list(scraper_component()),
+        "scraperId" => String.t() | atom(),
+        "status" => scraper_logging_configuration_status()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_scraper_logging_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_scraper_logging_configuration_request() :: %{}
-
-  """
-  @type describe_scraper_logging_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      workspace_configuration_status() :: %{
-        "statusCode" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()]
+      create_anomaly_detector_request() :: %{
+        required("alias") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("configuration") => list(),
+        optional("evaluationIntervalInSeconds") => integer(),
+        optional("labels") => map(),
+        optional("missingDataAction") => list(),
+        optional("tags") => map()
       }
 
   """
-  @type workspace_configuration_status() :: %{(String.t() | atom()) => any()}
+  @type create_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      update_query_logging_configuration_response() :: %{
+        "status" => query_logging_configuration_status()
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type update_query_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_logging_configuration_request() :: %{}
+
+  """
+  @type describe_logging_configuration_request() :: %{}
 
   @typedoc """
 
@@ -1021,54 +622,6 @@ defmodule AWS.Amp do
 
   """
   @type role_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_alert_manager_definition_response() :: %{
-        "status" => alert_manager_definition_status()
-      }
-
-  """
-  @type put_alert_manager_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_filter() :: %{
-        "qspThreshold" => [float()]
-      }
-
-  """
-  @type logging_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alert_manager_definition_description() :: %{
-        "createdAt" => [non_neg_integer()],
-        "data" => binary(),
-        "modifiedAt" => [non_neg_integer()],
-        "status" => alert_manager_definition_status()
-      }
-
-  """
-  @type alert_manager_definition_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_scraper_response() :: %{
-        "scraperId" => String.t() | atom(),
-        "status" => scraper_status()
-      }
-
-  """
-  @type delete_scraper_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1087,81 +640,46 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      delete_alert_manager_definition_request() :: %{
+        "clientToken" => String.t() | atom()
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type delete_alert_manager_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_workspaces_request() :: %{
+      workspace_summary() :: %{
         "alias" => String.t() | atom(),
-        "maxResults" => [integer()],
-        "nextToken" => String.t() | atom()
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "kmsKeyArn" => String.t() | atom(),
+        "status" => workspace_status(),
+        "tags" => map(),
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type list_workspaces_request() :: %{(String.t() | atom()) => any()}
+  @type workspace_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_anomaly_detectors_request() :: %{
-        optional("alias") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
+      describe_query_logging_configuration_request() :: %{}
 
   """
-  @type list_anomaly_detectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scraper_logging_configuration_status() :: %{
-        "statusCode" => String.t() | atom(),
-        "statusReason" => [String.t() | atom()]
-      }
-
-  """
-  @type scraper_logging_configuration_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_anomaly_detector_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_query_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
       update_scraper_logging_configuration_request() :: %{
-        optional("scraperComponents") => list(scraper_component()),
-        required("loggingDestination") => list()
+        required("loggingDestination") => list(),
+        optional("scraperComponents") => list(scraper_component())
       }
 
   """
@@ -1171,53 +689,37 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      describe_logging_configuration_response() :: %{
-        "loggingConfiguration" => logging_configuration_metadata()
+      list_rule_groups_namespaces_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "ruleGroupsNamespaces" => list(rule_groups_namespace_summary())
       }
 
   """
-  @type describe_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type list_rule_groups_namespaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_resource_policy_response() :: %{
-        "policyDocument" => [String.t() | atom()],
-        "policyStatus" => String.t() | atom(),
-        "revisionId" => [String.t() | atom()]
+      delete_scraper_response() :: %{
+        "scraperId" => String.t() | atom(),
+        "status" => scraper_status()
       }
 
   """
-  @type describe_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type delete_scraper_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      amp_configuration() :: %{
-        "workspaceArn" => String.t() | atom()
+      list_anomaly_detectors_response() :: %{
+        "anomalyDetectors" => list(anomaly_detector_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type amp_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_scraper_request() :: %{
-        optional("alias") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("roleConfiguration") => role_configuration(),
-        optional("tags") => map(),
-        required("destination") => list(),
-        required("scrapeConfiguration") => list(),
-        required("source") => list()
-      }
-
-  """
-  @type create_scraper_request() :: %{(String.t() | atom()) => any()}
+  @type list_anomaly_detectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1229,6 +731,149 @@ defmodule AWS.Amp do
 
   """
   @type create_alert_manager_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_scraper_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_scraper_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_description() :: %{
+        "alias" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "kmsKeyArn" => String.t() | atom(),
+        "prometheusEndpoint" => String.t() | atom(),
+        "status" => workspace_status(),
+        "tags" => map(),
+        "workspaceId" => String.t() | atom()
+      }
+
+  """
+  @type workspace_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_anomaly_detector_response() :: %{
+        "anomalyDetectorId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "status" => anomaly_detector_status(),
+        "tags" => map()
+      }
+
+  """
+  @type create_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_scraper_response() :: %{
+        "scraper" => scraper_description()
+      }
+
+  """
+  @type describe_scraper_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_anomaly_detector_request() :: %{}
+
+  """
+  @type describe_anomaly_detector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      anomaly_detector_summary() :: %{
+        "alias" => String.t() | atom(),
+        "anomalyDetectorId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "modifiedAt" => [non_neg_integer()],
+        "status" => anomaly_detector_status(),
+        "tags" => map()
+      }
+
+  """
+  @type anomaly_detector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_scraper_logging_configuration_request() :: %{}
+
+  """
+  @type describe_scraper_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_status() :: %{
+        "statusCode" => String.t() | atom()
+      }
+
+  """
+  @type workspace_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anomaly_detector_description() :: %{
+        "alias" => String.t() | atom(),
+        "anomalyDetectorId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "configuration" => list(),
+        "createdAt" => [non_neg_integer()],
+        "evaluationIntervalInSeconds" => integer(),
+        "labels" => map(),
+        "missingDataAction" => list(),
+        "modifiedAt" => [non_neg_integer()],
+        "status" => anomaly_detector_status(),
+        "tags" => map()
+      }
+
+  """
+  @type anomaly_detector_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1246,22 +891,50 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      put_resource_policy_response() :: %{
-        "policyStatus" => String.t() | atom(),
-        "revisionId" => [String.t() | atom()]
+      delete_scraper_logging_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type delete_scraper_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_alert_manager_definition_request() :: %{}
+      rule_groups_namespace_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "modifiedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "status" => rule_groups_namespace_status(),
+        "tags" => map()
+      }
 
   """
-  @type describe_alert_manager_definition_request() :: %{}
+  @type rule_groups_namespace_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_query_logging_configuration_response() :: %{
+        "status" => query_logging_configuration_status()
+      }
+
+  """
+  @type create_query_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_scraper_configuration_response() :: %{
+        "configuration" => [binary()]
+      }
+
+  """
+  @type get_default_scraper_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1278,12 +951,36 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      limits_per_label_set_entry() :: %{
-        "maxSeries" => [float()]
+      list_rule_groups_namespaces_request() :: %{
+        "maxResults" => [integer()],
+        "name" => String.t() | atom(),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type limits_per_label_set_entry() :: %{(String.t() | atom()) => any()}
+  @type list_rule_groups_namespaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_workspace_configuration_response() :: %{
+        "workspaceConfiguration" => workspace_configuration_description()
+      }
+
+  """
+  @type describe_workspace_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_query_logging_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_query_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1298,24 +995,79 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      delete_resource_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("revisionId") => [String.t() | atom()]
+      create_rule_groups_namespace_response() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => rule_groups_namespace_status(),
+        "tags" => map()
       }
 
   """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+  @type create_rule_groups_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_logging_configuration_request() :: %{
-        "clientToken" => String.t() | atom()
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type delete_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_logging_configuration_response() :: %{
+        "status" => logging_configuration_status()
+      }
+
+  """
+  @type create_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_configuration() :: %{
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scraper_response() :: %{
+        "arn" => String.t() | atom(),
+        "scraperId" => String.t() | atom(),
+        "status" => scraper_status(),
+        "tags" => map()
+      }
+
+  """
+  @type update_scraper_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1335,37 +1087,155 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      list_anomaly_detectors_response() :: %{
-        "anomalyDetectors" => list(anomaly_detector_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_anomaly_detectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_rule_groups_namespace_request() :: %{
+      create_workspace_request() :: %{
+        "alias" => String.t() | atom(),
         "clientToken" => String.t() | atom(),
-        "data" => binary()
+        "kmsKeyArn" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type put_rule_groups_namespace_request() :: %{(String.t() | atom()) => any()}
+  @type create_workspace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_query_logging_configuration_request() :: %{
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_anomaly_detector_response() :: %{
+        "anomalyDetector" => anomaly_detector_description()
+      }
+
+  """
+  @type describe_anomaly_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_rule_groups_namespace_request() :: %{}
+
+  """
+  @type describe_rule_groups_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_filter() :: %{
+        "qspThreshold" => [float()]
+      }
+
+  """
+  @type logging_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workspace_configuration_response() :: %{
+        "status" => workspace_configuration_status()
+      }
+
+  """
+  @type update_workspace_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_log_destination() :: %{
+        "logGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_log_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alert_manager_definition_status() :: %{
+        "statusCode" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type alert_manager_definition_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_logging_configuration_response() :: %{
+        "loggingConfiguration" => logging_configuration_metadata()
+      }
+
+  """
+  @type describe_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_logging_configuration_request() :: %{
+        "clientToken" => String.t() | atom(),
+        "logGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type create_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_query_logging_configuration_response() :: %{
+        "queryLoggingConfiguration" => query_logging_configuration_metadata()
+      }
+
+  """
+  @type describe_query_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_alert_manager_definition_request() :: %{}
+
+  """
+  @type describe_alert_manager_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_query_logging_configuration_request() :: %{
         optional("clientToken") => String.t() | atom(),
         required("destinations") => list(logging_destination())
       }
 
   """
-  @type create_query_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type update_query_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1386,75 +1256,135 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      list_scrapers_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "scrapers" => list(scraper_summary())
+      limits_per_label_set_entry() :: %{
+        "maxSeries" => [float()]
       }
 
   """
-  @type list_scrapers_response() :: %{(String.t() | atom()) => any()}
+  @type limits_per_label_set_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_logging_configuration_response() :: %{
-        "status" => logging_configuration_status()
+      anomaly_detector_status() :: %{
+        "statusCode" => list(any()),
+        "statusReason" => [String.t() | atom()]
       }
 
   """
-  @type update_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type anomaly_detector_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_anomaly_detector_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("evaluationIntervalInSeconds") => integer(),
-        optional("labels") => map(),
-        optional("missingDataAction") => list(),
-        optional("tags") => map(),
-        required("alias") => String.t() | atom(),
-        required("configuration") => list()
-      }
-
-  """
-  @type create_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rule_groups_namespaces_request() :: %{
+      list_workspaces_request() :: %{
+        "alias" => String.t() | atom(),
         "maxResults" => [integer()],
-        "name" => String.t() | atom(),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_rule_groups_namespaces_request() :: %{(String.t() | atom()) => any()}
+  @type list_workspaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      alert_manager_definition_status() :: %{
+      logging_configuration_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "logGroupArn" => String.t() | atom(),
+        "modifiedAt" => [non_neg_integer()],
+        "status" => logging_configuration_status(),
+        "workspace" => String.t() | atom()
+      }
+
+  """
+  @type logging_configuration_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_alert_manager_definition_response() :: %{
+        "status" => alert_manager_definition_status()
+      }
+
+  """
+  @type put_alert_manager_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workspace_alias_request() :: %{
+        "alias" => String.t() | atom(),
+        "clientToken" => String.t() | atom()
+      }
+
+  """
+  @type update_workspace_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_configuration_status() :: %{
         "statusCode" => String.t() | atom(),
         "statusReason" => [String.t() | atom()]
       }
 
   """
-  @type alert_manager_definition_status() :: %{(String.t() | atom()) => any()}
+  @type logging_configuration_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_anomaly_detector_request() :: %{}
+      create_query_logging_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("destinations") => list(logging_destination())
+      }
 
   """
-  @type describe_anomaly_detector_request() :: %{}
+  @type create_query_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_logging_configuration_request() :: %{
+        "clientToken" => String.t() | atom()
+      }
+
+  """
+  @type delete_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_configuration_status() :: %{
+        "statusCode" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type workspace_configuration_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1472,24 +1402,109 @@ defmodule AWS.Amp do
 
   ## Example:
 
-      describe_resource_policy_request() :: %{}
+      workspace_configuration_description() :: %{
+        "limitsPerLabelSet" => list(limits_per_label_set()),
+        "outOfOrderTimeWindowInSeconds" => [integer()],
+        "retentionPeriodInDays" => [integer()],
+        "ruleQueryOffsetInSeconds" => [integer()],
+        "status" => workspace_configuration_status()
+      }
 
   """
-  @type describe_resource_policy_request() :: %{}
+  @type workspace_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_workspace_request() :: %{
-        "alias" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
+      create_workspace_response() :: %{
+        "arn" => String.t() | atom(),
         "kmsKeyArn" => String.t() | atom(),
-        "tags" => map()
+        "status" => workspace_status(),
+        "tags" => map(),
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type create_workspace_request() :: %{(String.t() | atom()) => any()}
+  @type create_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rule_groups_namespace_request() :: %{
+        "clientToken" => String.t() | atom()
+      }
+
+  """
+  @type delete_rule_groups_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workspace_request() :: %{
+        "clientToken" => String.t() | atom()
+      }
+
+  """
+  @type delete_workspace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_configuration() :: %{
+        "clusterArn" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type eks_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amp_configuration() :: %{
+        "workspaceArn" => String.t() | atom()
+      }
+
+  """
+  @type amp_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_anomaly_detector_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_anomaly_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_groups_namespace_status() :: %{
+        "statusCode" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type rule_groups_namespace_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1514,327 +1529,327 @@ defmodule AWS.Amp do
   @type scraper_summary() :: %{(String.t() | atom()) => any()}
 
   @type create_alert_manager_definition_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type create_anomaly_detector_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type create_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type create_query_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type create_rule_groups_namespace_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type create_scraper_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type create_workspace_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type delete_alert_manager_definition_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type delete_anomaly_detector_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type delete_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_query_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_resource_policy_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type delete_rule_groups_namespace_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type delete_scraper_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type delete_scraper_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_workspace_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type describe_alert_manager_definition_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_anomaly_detector_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_query_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_resource_policy_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_rule_groups_namespace_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_scraper_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_scraper_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_workspace_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type describe_workspace_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type get_default_scraper_configuration_errors() ::
-          throttling_exception() | access_denied_exception() | internal_server_exception()
+          access_denied_exception() | throttling_exception() | internal_server_exception()
 
   @type list_anomaly_detectors_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type list_rule_groups_namespaces_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type list_scrapers_errors() ::
-          throttling_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type list_workspaces_errors() ::
-          throttling_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
 
   @type put_alert_manager_definition_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type put_anomaly_detector_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          access_denied_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type put_resource_policy_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type put_rule_groups_namespace_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
 
   @type update_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_query_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_scraper_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type update_scraper_logging_configuration_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_workspace_alias_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   @type update_workspace_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
 
   def metadata do
     %{
@@ -2050,15 +2065,14 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateScraper` operation creates a scraper to collect metrics.
+  Creates a scraper to collect metrics from Prometheus-compatible sources.
 
-  A scraper pulls metrics from Prometheus-compatible sources and sends them to
-  your Amazon Managed Service for Prometheus workspace. You can configure scrapers
-  to collect metrics from Amazon EKS clusters, Amazon MSK clusters, or from
-  VPC-based sources that support DNS-based service discovery. Scrapers are
-  flexible, and can be configured to control what metrics are collected, the
-  frequency of collection, what transformations are applied to the metrics, and
-  more.
+  The scraper sends the collected metrics to Amazon Managed Service for Prometheus
+  workspaces or CloudWatch datasets. You can configure scrapers to collect metrics
+  from Amazon EKS clusters, Amazon MSK clusters, or from VPC-based sources that
+  support DNS-based service discovery. Scrapers are flexible. You can configure a
+  scraper to control which metrics to collect, the frequency of collection, which
+  transformations to apply to the metrics, and more.
 
   An IAM role will be created for you that Amazon Managed Service for Prometheus
   uses to access the metrics in your source. You must configure this role with a
@@ -2194,8 +2208,8 @@ defmodule AWS.Amp do
           | {:error, delete_anomaly_detector_errors()}
   def delete_anomaly_detector(
         %Client{} = client,
-        anomaly_detector_id,
         workspace_id,
+        anomaly_detector_id,
         input,
         options \\ []
       ) do
@@ -2327,8 +2341,8 @@ defmodule AWS.Amp do
 
     {query_params, input} =
       [
-        {"clientToken", "clientToken"},
-        {"revisionId", "revisionId"}
+        {"revisionId", "revisionId"},
+        {"clientToken", "clientToken"}
       ]
       |> Request.build_params(input)
 
@@ -2361,7 +2375,7 @@ defmodule AWS.Amp do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_rule_groups_namespace_errors()}
-  def delete_rule_groups_namespace(%Client{} = client, name, workspace_id, input, options \\ []) do
+  def delete_rule_groups_namespace(%Client{} = client, workspace_id, name, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
 
@@ -2531,8 +2545,8 @@ defmodule AWS.Amp do
           | {:error, describe_anomaly_detector_errors()}
   def describe_anomaly_detector(
         %Client{} = client,
-        anomaly_detector_id,
         workspace_id,
+        anomaly_detector_id,
         options \\ []
       ) do
     url_path =
@@ -2615,7 +2629,7 @@ defmodule AWS.Amp do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, describe_rule_groups_namespace_errors()}
-  def describe_rule_groups_namespace(%Client{} = client, name, workspace_id, options \\ []) do
+  def describe_rule_groups_namespace(%Client{} = client, workspace_id, name, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
 
@@ -2741,9 +2755,9 @@ defmodule AWS.Amp do
   def list_anomaly_detectors(
         %Client{} = client,
         workspace_id,
-        alias \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        alias \\ nil,
         options \\ []
       ) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/anomalydetectors"
@@ -2751,8 +2765,8 @@ defmodule AWS.Amp do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(alias) do
+        [{"alias", alias} | query_params]
       else
         query_params
       end
@@ -2765,8 +2779,8 @@ defmodule AWS.Amp do
       end
 
     query_params =
-      if !is_nil(alias) do
-        [{"alias", alias} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2794,9 +2808,9 @@ defmodule AWS.Amp do
   def list_rule_groups_namespaces(
         %Client{} = client,
         workspace_id,
-        max_results \\ nil,
-        name \\ nil,
         next_token \\ nil,
+        name \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces"
@@ -2804,8 +2818,8 @@ defmodule AWS.Amp do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2818,8 +2832,8 @@ defmodule AWS.Amp do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2849,8 +2863,8 @@ defmodule AWS.Amp do
   def list_scrapers(
         %Client{} = client,
         filters \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/scrapers"
@@ -2858,15 +2872,15 @@ defmodule AWS.Amp do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2924,9 +2938,9 @@ defmodule AWS.Amp do
           | {:error, list_workspaces_errors()}
   def list_workspaces(
         %Client{} = client,
-        alias \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        alias \\ nil,
         options \\ []
       ) do
     url_path = "/workspaces"
@@ -2934,8 +2948,8 @@ defmodule AWS.Amp do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(alias) do
+        [{"alias", alias} | query_params]
       else
         query_params
       end
@@ -2948,8 +2962,8 @@ defmodule AWS.Amp do
       end
 
     query_params =
-      if !is_nil(alias) do
-        [{"alias", alias} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3020,8 +3034,8 @@ defmodule AWS.Amp do
           | {:error, put_anomaly_detector_errors()}
   def put_anomaly_detector(
         %Client{} = client,
-        anomaly_detector_id,
         workspace_id,
+        anomaly_detector_id,
         input,
         options \\ []
       ) do
@@ -3122,7 +3136,7 @@ defmodule AWS.Amp do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, put_rule_groups_namespace_errors()}
-  def put_rule_groups_namespace(%Client{} = client, name, workspace_id, input, options \\ []) do
+  def put_rule_groups_namespace(%Client{} = client, workspace_id, name, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
 

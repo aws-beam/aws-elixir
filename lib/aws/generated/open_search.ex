@@ -21,75 +21,237 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      insight_field() :: %{
-        "Name" => String.t() | atom(),
+      describe_domain_auto_tunes_response() :: %{
+        "AutoTunes" => list(auto_tune()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_domain_auto_tunes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_endpoints_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
+      }
+
+  """
+  @type list_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_service_software_update_request() :: %{
+        required("DomainName") => String.t() | atom()
+      }
+
+  """
+  @type cancel_service_software_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        "ApplicationSummaries" => list(application_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_not_available_exception() :: %{
+        "SlotSuggestions" => list(float()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type slot_not_available_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_information_container() :: %{
+        "AWSDomainInformation" => aws_domain_information()
+      }
+
+  """
+  @type domain_information_container() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cognito_options() :: %{
+        "Enabled" => boolean(),
+        "IdentityPoolId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "UserPoolId" => String.t() | atom()
+      }
+
+  """
+  @type cognito_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_center_options() :: %{
+        "EnabledAPIAccess" => boolean(),
+        "IdentityCenterApplicationARN" => String.t() | atom(),
+        "IdentityCenterInstanceARN" => String.t() | atom(),
+        "IdentityCenterInstanceRegion" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom(),
+        "RolesKey" => list(any()),
+        "SubjectKey" => list(any())
+      }
+
+  """
+  @type identity_center_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      off_peak_window_options_status() :: %{
+        "Options" => off_peak_window_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type off_peak_window_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tune_options() :: %{
+        "DesiredState" => list(any()),
+        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()),
+        "RollbackOnDisable" => list(any()),
+        "UseOffPeakWindow" => boolean()
+      }
+
+  """
+  @type auto_tune_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_feedback_entity() :: %{
         "Type" => list(any()),
         "Value" => String.t() | atom()
       }
 
   """
-  @type insight_field() :: %{(String.t() | atom()) => any()}
+  @type insight_feedback_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      add_data_source_response() :: %{
-        "Message" => String.t() | atom()
+      purchase_reserved_instance_offering_request() :: %{
+        optional("InstanceCount") => integer(),
+        required("ReservationName") => String.t() | atom(),
+        required("ReservedInstanceOfferingId") => String.t() | atom()
       }
 
   """
-  @type add_data_source_response() :: %{(String.t() | atom()) => any()}
+  @type purchase_reserved_instance_offering_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inbound_connection_status() :: %{
-        "Message" => String.t() | atom(),
-        "StatusCode" => list(any())
+      package_configuration() :: %{
+        "ConfigurationRequirement" => list(any()),
+        "LicenseFilepath" => String.t() | atom(),
+        "LicenseRequirement" => list(any()),
+        "RequiresRestartForConfigurationUpdate" => boolean()
       }
 
   """
-  @type inbound_connection_status() :: %{(String.t() | atom()) => any()}
+  @type package_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dry_run_progress_status() :: %{
-        "CreationDate" => String.t() | atom(),
-        "DryRunId" => String.t() | atom(),
-        "DryRunStatus" => String.t() | atom(),
-        "UpdateDate" => String.t() | atom(),
-        "ValidationFailures" => list(validation_failure())
+      list_domain_names_response() :: %{
+        "DomainNames" => list(domain_info())
       }
 
   """
-  @type dry_run_progress_status() :: %{(String.t() | atom()) => any()}
+  @type list_domain_names_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      window_start_time() :: %{
-        "Hours" => float(),
-        "Minutes" => float()
+      list_domains_for_package_response() :: %{
+        "DomainPackageDetailsList" => list(domain_package_details()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type window_start_time() :: %{(String.t() | atom()) => any()}
+  @type list_domains_for_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_domain_names_request() :: %{
-        optional("EngineType") => list(any())
+      vpc_endpoint_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "VpcEndpointId" => String.t() | atom()
       }
 
   """
-  @type list_domain_names_request() :: %{(String.t() | atom()) => any()}
+  @type vpc_endpoint_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_instance_type_limits_request() :: %{
+        optional("DomainName") => String.t() | atom()
+      }
+
+  """
+  @type describe_instance_type_limits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_direct_query_data_source_response() :: %{
+        "DataSourceArn" => String.t() | atom()
+      }
+
+  """
+  @type update_direct_query_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,223 +274,208 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      modifying_properties() :: %{
-        "ActiveValue" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PendingValue" => String.t() | atom(),
-        "ValueType" => list(any())
+      iam_federation_options_input() :: %{
+        "Enabled" => boolean(),
+        "RolesKey" => String.t() | atom(),
+        "SubjectKey" => String.t() | atom()
       }
 
   """
-  @type modifying_properties() :: %{(String.t() | atom()) => any()}
+  @type iam_federation_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      auto_tune_options_output() :: %{
-        "ErrorMessage" => String.t() | atom(),
-        "State" => list(any()),
-        "UseOffPeakWindow" => boolean()
+      describe_vpc_endpoints_request() :: %{
+        required("VpcEndpointIds") => list(String.t() | atom())
       }
 
   """
-  @type auto_tune_options_output() :: %{(String.t() | atom()) => any()}
+  @type describe_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      register_capability_response() :: %{
-        "applicationId" => String.t() | atom(),
-        "capabilityConfig" => list(),
-        "capabilityName" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type register_capability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_scope_request() :: %{
-        required("Operation") => list(any()),
-        required("PackageID") => String.t() | atom(),
-        required("PackageUserList") => list(String.t() | atom())
-      }
-
-  """
-  @type update_package_scope_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_response() :: %{
-        "DomainStatus" => domain_status()
-      }
-
-  """
-  @type delete_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_auto_tunes_response() :: %{
-        "AutoTunes" => list(auto_tune()),
+      list_vpc_endpoint_access_response() :: %{
+        "AuthorizedPrincipalList" => list(authorized_principal()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_domain_auto_tunes_response() :: %{(String.t() | atom()) => any()}
+  @type list_vpc_endpoint_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_insights_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortOrder") => list(any()),
-        optional("TimeRange") => insight_time_range(),
-        required("Entity") => insight_entity()
-      }
-
-  """
-  @type list_insights_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_vending_options() :: %{
-        "VendingEnabled" => boolean()
-      }
-
-  """
-  @type package_vending_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vpc_endpoints_for_domain_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
-      }
-
-  """
-  @type list_vpc_endpoints_for_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_auto_tunes_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_domain_auto_tunes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_source() :: %{
-        "S3BucketName" => String.t() | atom(),
-        "S3Key" => String.t() | atom()
-      }
-
-  """
-  @type package_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_outbound_connections_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_outbound_connections_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compatible_versions_map() :: %{
-        "SourceVersion" => String.t() | atom(),
-        "TargetVersions" => list(String.t() | atom())
-      }
-
-  """
-  @type compatible_versions_map() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_scope_response() :: %{
-        "Operation" => list(any()),
+      package_details_for_association() :: %{
+        "AssociationConfiguration" => package_association_configuration(),
         "PackageID" => String.t() | atom(),
-        "PackageUserList" => list(String.t() | atom())
+        "PrerequisitePackageIDList" => list(String.t() | atom())
       }
 
   """
-  @type update_package_scope_response() :: %{(String.t() | atom()) => any()}
+  @type package_details_for_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      snapshot_options() :: %{
-        "AutomatedSnapshotStartHour" => integer()
+      list_scheduled_actions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ScheduledActions" => list(scheduled_action())
       }
 
   """
-  @type snapshot_options() :: %{(String.t() | atom()) => any()}
+  @type list_scheduled_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      auto_tune_details() :: %{
-        "ScheduledAutoTuneDetails" => scheduled_auto_tune_details()
+      inbound_connection_status() :: %{
+        "Message" => String.t() | atom(),
+        "StatusCode" => list(any())
       }
 
   """
-  @type auto_tune_details() :: %{(String.t() | atom()) => any()}
+  @type inbound_connection_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dissociate_packages_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details())
+      invalid_type_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type dissociate_packages_response() :: %{(String.t() | atom()) => any()}
+  @type invalid_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_outbound_connections_response() :: %{
-        "Connections" => list(outbound_connection()),
-        "NextToken" => String.t() | atom()
+      create_outbound_connection_request() :: %{
+        required("ConnectionAlias") => String.t() | atom(),
+        optional("ConnectionMode") => list(any()),
+        optional("ConnectionProperties") => connection_properties(),
+        required("LocalDomainInfo") => domain_information_container(),
+        required("RemoteDomainInfo") => domain_information_container()
       }
 
   """
-  @type describe_outbound_connections_response() :: %{(String.t() | atom()) => any()}
+  @type create_outbound_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_domain_config_change_request() :: %{
+        optional("DryRun") => boolean()
+      }
+
+  """
+  @type cancel_domain_config_change_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_response() :: %{
+        "DataSourceType" => list(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      natural_language_query_generation_options_output() :: %{
+        "CurrentState" => list(any()),
+        "DesiredState" => list(any())
+      }
+
+  """
+  @type natural_language_query_generation_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_inbound_connection_request() :: %{}
+
+  """
+  @type delete_inbound_connection_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_application_setting_request() :: %{}
+
+  """
+  @type get_default_application_setting_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      plugin_properties() :: %{
+        "ClassName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "UncompressedSizeInBytes" => float(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type plugin_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_endpoints_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DisplayName" => String.t() | atom(),
+        "InsightId" => String.t() | atom(),
+        "IsExperimental" => boolean(),
+        "Priority" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_nodes_request() :: %{}
+
+  """
+  @type describe_domain_nodes_request() :: %{}
 
   @typedoc """
 
@@ -340,6 +487,65 @@ defmodule AWS.OpenSearch do
 
   """
   @type authorize_vpc_endpoint_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_direct_query_data_source_request() :: %{}
+
+  """
+  @type get_direct_query_data_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_endpoint_summary() :: %{
+        "DomainArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcEndpointOwner" => String.t() | atom()
+      }
+
+  """
+  @type vpc_endpoint_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_inbound_connection_response() :: %{
+        "Connection" => inbound_connection()
+      }
+
+  """
+  @type delete_inbound_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_configuration_input() :: %{
+        "name" => String.t() | atom(),
+        "workspaceType" => String.t() | atom()
+      }
+
+  """
+  @type workspace_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_config() :: %{
+        "Count" => integer(),
+        "Enabled" => boolean(),
+        "Type" => list(any())
+      }
+
+  """
+  @type node_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,12 +567,618 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      deregister_capability_response() :: %{
+      add_direct_query_data_source_response() :: %{
+        "DataSourceArn" => String.t() | atom()
+      }
+
+  """
+  @type add_direct_query_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      j_w_t_options_output() :: %{
+        "Enabled" => boolean(),
+        "JwksUrl" => String.t() | atom(),
+        "PublicKey" => String.t() | atom(),
+        "RolesKey" => String.t() | atom(),
+        "SubjectKey" => String.t() | atom()
+      }
+
+  """
+  @type j_w_t_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_request() :: %{
+        optional("AIMLOptions") => a_i_ml_options_input(),
+        optional("AccessPolicies") => String.t() | atom(),
+        optional("AdvancedOptions") => map(),
+        optional("AdvancedSecurityOptions") => advanced_security_options_input(),
+        optional("AutoTuneOptions") => auto_tune_options_input(),
+        optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
+        optional("ClusterConfig") => cluster_config(),
+        optional("CognitoOptions") => cognito_options(),
+        optional("DeploymentStrategyOptions") => deployment_strategy_options(),
+        optional("DomainEndpointOptions") => domain_endpoint_options(),
+        required("DomainName") => String.t() | atom(),
+        optional("EBSOptions") => ebs_options(),
+        optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
+        optional("EngineMode") => list(any()),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("IPAddressType") => list(any()),
+        optional("IdentityCenterOptions") => identity_center_options_input(),
+        optional("LogPublishingOptions") => map(),
+        optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
+        optional("OffPeakWindowOptions") => off_peak_window_options(),
+        optional("SnapshotOptions") => snapshot_options(),
+        optional("SoftwareUpdateOptions") => software_update_options(),
+        optional("TagList") => list(tag()),
+        optional("UseCase") => list(any()),
+        optional("VPCOptions") => vpc_options()
+      }
+
+  """
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tune_options_output() :: %{
+        "ErrorMessage" => String.t() | atom(),
+        "State" => list(any()),
+        "UseOffPeakWindow" => boolean()
+      }
+
+  """
+  @type auto_tune_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_packages_request() :: %{
+        optional("Filters") => list(describe_packages_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_packages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_request() :: %{}
+
+  """
+  @type delete_package_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_response() :: %{}
+
+  """
+  @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      off_peak_window_options() :: %{
+        "Enabled" => boolean(),
+        "OffPeakWindow" => off_peak_window()
+      }
+
+  """
+  @type off_peak_window_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reserved_instance_offering() :: %{
+        "CurrencyCode" => String.t() | atom(),
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "InstanceType" => list(any()),
+        "PaymentOption" => list(any()),
+        "RecurringCharges" => list(recurring_charge()),
+        "ReservedInstanceOfferingId" => String.t() | atom(),
+        "UsagePrice" => float()
+      }
+
+  """
+  @type reserved_instance_offering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_source_request() :: %{}
+
+  """
+  @type delete_data_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_glue_data_catalog() :: %{
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_glue_data_catalog() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_package_response() :: %{
+        "DomainPackageDetails" => domain_package_details()
+      }
+
+  """
+  @type associate_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_nodes_response() :: %{
+        "DomainNodesStatusList" => list(domain_nodes_status())
+      }
+
+  """
+  @type describe_domain_nodes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_request() :: %{
+        required("ARN") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_feedback_request() :: %{
+        required("Entity") => insight_feedback_entity(),
+        optional("FeedbackText") => String.t() | atom(),
+        required("InsightId") => String.t() | atom(),
+        required("Thumbs") => list(any())
+      }
+
+  """
+  @type insight_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_source_attachments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_source_attachments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_insights_request() :: %{
+        required("Entity") => insight_entity(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortOrder") => list(any()),
+        optional("TimeRange") => insight_time_range()
+      }
+
+  """
+  @type list_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_migration_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "error" => migration_error(),
+        "exportedCount" => integer(),
+        "importedCount" => integer(),
+        "migrationId" => String.t() | atom(),
+        "source" => migration_source(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_index_response() :: %{
+        "IndexSchema" => any()
+      }
+
+  """
+  @type get_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      master_user_options() :: %{
+        "MasterUserARN" => String.t() | atom(),
+        "MasterUserName" => String.t() | atom(),
+        "MasterUserPassword" => String.t() | atom()
+      }
+
+  """
+  @type master_user_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_software_options() :: %{
+        "AutomatedUpdateDate" => non_neg_integer(),
+        "Cancellable" => boolean(),
+        "CurrentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "NewVersion" => String.t() | atom(),
+        "OptionalDeployment" => boolean(),
+        "UpdateAvailable" => boolean(),
+        "UpdateStatus" => list(any())
+      }
+
+  """
+  @type service_software_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snapshot_options() :: %{
+        "AutomatedSnapshotStartHour" => integer()
+      }
+
+  """
+  @type snapshot_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_info() :: %{
+        "DomainName" => String.t() | atom(),
+        "EngineType" => list(any())
+      }
+
+  """
+  @type domain_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_migration_response() :: %{
+        "migrationId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type start_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_config() :: %{
+        "AIMLOptions" => a_i_ml_options_status(),
+        "AccessPolicies" => access_policies_status(),
+        "AdvancedOptions" => advanced_options_status(),
+        "AdvancedSecurityOptions" => advanced_security_options_status(),
+        "AutoTuneOptions" => auto_tune_options_status(),
+        "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options_status(),
+        "ChangeProgressDetails" => change_progress_details(),
+        "ClusterConfig" => cluster_config_status(),
+        "CognitoOptions" => cognito_options_status(),
+        "DeploymentStrategyOptions" => deployment_strategy_options_status(),
+        "DomainEndpointOptions" => domain_endpoint_options_status(),
+        "EBSOptions" => ebs_options_status(),
+        "EncryptionAtRestOptions" => encryption_at_rest_options_status(),
+        "EngineMode" => engine_mode_status(),
+        "EngineVersion" => version_status(),
+        "IPAddressType" => ip_address_type_status(),
+        "IdentityCenterOptions" => identity_center_options_status(),
+        "LogPublishingOptions" => log_publishing_options_status(),
+        "ModifyingProperties" => list(modifying_properties()),
+        "NodeToNodeEncryptionOptions" => node_to_node_encryption_options_status(),
+        "OffPeakWindowOptions" => off_peak_window_options_status(),
+        "SnapshotOptions" => snapshot_options_status(),
+        "SoftwareUpdateOptions" => software_update_options_status(),
+        "UseCase" => use_case_status(),
+        "VPCOptions" => vpc_derived_info_status()
+      }
+
+  """
+  @type domain_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_attachment_summary() :: %{
+        "attachmentId" => String.t() | atom(),
+        "dataSourceArn" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type deregister_capability_response() :: %{(String.t() | atom()) => any()}
+  @type data_source_attachment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_strategy_options() :: %{
+        "DeploymentStrategy" => list(any())
+      }
+
+  """
+  @type deployment_strategy_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_scope_response() :: %{
+        "Operation" => list(any()),
+        "PackageID" => String.t() | atom(),
+        "PackageUserList" => list(String.t() | atom())
+      }
+
+  """
+  @type update_package_scope_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_request() :: %{}
+
+  """
+  @type delete_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_type_details() :: %{
+        "AdvancedSecurityEnabled" => boolean(),
+        "AppLogsEnabled" => boolean(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "CognitoEnabled" => boolean(),
+        "EncryptionEnabled" => boolean(),
+        "InstanceRole" => list(String.t() | atom()),
+        "InstanceType" => list(any()),
+        "WarmEnabled" => boolean()
+      }
+
+  """
+  @type instance_type_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_outbound_connection_response() :: %{
+        "Connection" => outbound_connection()
+      }
+
+  """
+  @type delete_outbound_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_progress_details() :: %{
+        "ChangeId" => String.t() | atom(),
+        "ConfigChangeStatus" => list(any()),
+        "InitiatedBy" => list(any()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type change_progress_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_capability_request() :: %{}
+
+  """
+  @type deregister_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_properties() :: %{
+        "CrossClusterSearch" => cross_cluster_search_connection_properties(),
+        "Endpoint" => String.t() | atom()
+      }
+
+  """
+  @type connection_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reserved_instance() :: %{
+        "BillingSubscriptionId" => float(),
+        "CurrencyCode" => String.t() | atom(),
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "PaymentOption" => list(any()),
+        "RecurringCharges" => list(recurring_charge()),
+        "ReservationName" => String.t() | atom(),
+        "ReservedInstanceId" => String.t() | atom(),
+        "ReservedInstanceOfferingId" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "State" => String.t() | atom(),
+        "UsagePrice" => float()
+      }
+
+  """
+  @type reserved_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "error" => migration_error(),
+        "exportedCount" => integer(),
+        "importedCount" => integer(),
+        "migrationId" => String.t() | atom(),
+        "source" => migration_source(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type migration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_insights_response() :: %{
+        "Insights" => list(insight()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_outbound_connection_response() :: %{
+        "ConnectionAlias" => String.t() | atom(),
+        "ConnectionId" => String.t() | atom(),
+        "ConnectionMode" => list(any()),
+        "ConnectionProperties" => connection_properties(),
+        "ConnectionStatus" => outbound_connection_status(),
+        "LocalDomainInfo" => domain_information_container(),
+        "RemoteDomainInfo" => domain_information_container()
+      }
+
+  """
+  @type create_outbound_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_service_software_update_response() :: %{
+        "RollbackServiceSoftwareOptions" => rollback_service_software_options()
+      }
+
+  """
+  @type rollback_service_software_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_options() :: %{
+        "EgressEnabled" => boolean(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_packages_for_domain_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_packages_for_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inbound_connection() :: %{
+        "ConnectionId" => String.t() | atom(),
+        "ConnectionMode" => list(any()),
+        "ConnectionStatus" => inbound_connection_status(),
+        "LocalDomainInfo" => domain_information_container(),
+        "RemoteDomainInfo" => domain_information_container()
+      }
+
+  """
+  @type inbound_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -398,2560 +1210,13 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      describe_domain_change_progress_request() :: %{
-        optional("ChangeId") => String.t() | atom()
+      auto_tune() :: %{
+        "AutoTuneDetails" => auto_tune_details(),
+        "AutoTuneType" => list(any())
       }
 
   """
-  @type describe_domain_change_progress_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_insight_details_response() :: %{
-        "Fields" => list(insight_field())
-      }
-
-  """
-  @type describe_insight_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cluster_config_status() :: %{
-        "Options" => cluster_config(),
-        "Status" => option_status()
-      }
-
-  """
-  @type cluster_config_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_default_application_setting_request() :: %{}
-
-  """
-  @type get_default_application_setting_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_outbound_connection_request() :: %{
-        optional("ConnectionMode") => list(any()),
-        optional("ConnectionProperties") => connection_properties(),
-        required("ConnectionAlias") => String.t() | atom(),
-        required("LocalDomainInfo") => domain_information_container(),
-        required("RemoteDomainInfo") => domain_information_container()
-      }
-
-  """
-  @type create_outbound_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_request() :: %{
-        optional("EngineVersion") => String.t() | atom(),
-        optional("PackageConfiguration") => package_configuration(),
-        optional("PackageDescription") => String.t() | atom(),
-        optional("PackageEncryptionOptions") => package_encryption_options(),
-        optional("PackageVendingOptions") => package_vending_options(),
-        required("PackageName") => String.t() | atom(),
-        required("PackageSource") => package_source(),
-        required("PackageType") => list(any())
-      }
-
-  """
-  @type create_package_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_tune_status() :: %{
-        "CreationDate" => non_neg_integer(),
-        "ErrorMessage" => String.t() | atom(),
-        "PendingDeletion" => boolean(),
-        "State" => list(any()),
-        "UpdateDate" => non_neg_integer(),
-        "UpdateVersion" => integer()
-      }
-
-  """
-  @type auto_tune_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_index_request() :: %{}
-
-  """
-  @type delete_index_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      package_configuration() :: %{
-        "ConfigurationRequirement" => list(any()),
-        "LicenseFilepath" => String.t() | atom(),
-        "LicenseRequirement" => list(any()),
-        "RequiresRestartForConfigurationUpdate" => boolean()
-      }
-
-  """
-  @type package_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vpc_endpoints_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cold_storage_options() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type cold_storage_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_vpc_endpoints_request() :: %{
-        required("VpcEndpointIds") => list(String.t() | atom())
-      }
-
-  """
-  @type describe_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_tune_options_status() :: %{
-        "Options" => auto_tune_options(),
-        "Status" => auto_tune_status()
-      }
-
-  """
-  @type auto_tune_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      natural_language_query_generation_options_output() :: %{
-        "CurrentState" => list(any()),
-        "DesiredState" => list(any())
-      }
-
-  """
-  @type natural_language_query_generation_options_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snapshot_options_status() :: %{
-        "Options" => snapshot_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type snapshot_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_direct_query_data_source() :: %{
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_direct_query_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_endpoint_summary() :: %{
-        "DomainArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "VpcEndpointId" => String.t() | atom(),
-        "VpcEndpointOwner" => String.t() | atom()
-      }
-
-  """
-  @type vpc_endpoint_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recurring_charge() :: %{
-        "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t() | atom()
-      }
-
-  """
-  @type recurring_charge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_reserved_instance_offerings_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ReservedInstanceOfferings" => list(reserved_instance_offering())
-      }
-
-  """
-  @type describe_reserved_instance_offerings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vpc_endpoints_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
-      }
-
-  """
-  @type list_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dry_run_progress_response() :: %{
-        "DryRunConfig" => domain_status(),
-        "DryRunProgressStatus" => dry_run_progress_status(),
-        "DryRunResults" => dry_run_results()
-      }
-
-  """
-  @type describe_dry_run_progress_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_type_details() :: %{
-        "AdvancedSecurityEnabled" => boolean(),
-        "AppLogsEnabled" => boolean(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "CognitoEnabled" => boolean(),
-        "EncryptionEnabled" => boolean(),
-        "InstanceRole" => list(String.t() | atom()),
-        "InstanceType" => list(any()),
-        "WarmEnabled" => boolean()
-      }
-
-  """
-  @type instance_type_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_association_configuration() :: %{
-        "KeyStoreAccessOption" => key_store_access_option()
-      }
-
-  """
-  @type package_association_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domains_request() :: %{
-        required("DomainNames") => list(String.t() | atom())
-      }
-
-  """
-  @type describe_domains_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_derived_info() :: %{
-        "AvailabilityZones" => list(String.t() | atom()),
-        "EgressEnabled" => boolean(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "VPCId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_derived_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_inbound_connection_request() :: %{}
-
-  """
-  @type reject_inbound_connection_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_capability_response() :: %{
-        "applicationId" => String.t() | atom(),
-        "capabilityConfig" => list(),
-        "capabilityName" => String.t() | atom(),
-        "failures" => list(capability_failure()),
-        "status" => list(any())
-      }
-
-  """
-  @type get_capability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      saml_idp() :: %{
-        "EntityId" => String.t() | atom(),
-        "MetadataContent" => String.t() | atom()
-      }
-
-  """
-  @type saml_idp() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_config() :: %{
-        "AIMLOptions" => a_i_ml_options_status(),
-        "AccessPolicies" => access_policies_status(),
-        "AdvancedOptions" => advanced_options_status(),
-        "AdvancedSecurityOptions" => advanced_security_options_status(),
-        "AutoTuneOptions" => auto_tune_options_status(),
-        "ChangeProgressDetails" => change_progress_details(),
-        "ClusterConfig" => cluster_config_status(),
-        "CognitoOptions" => cognito_options_status(),
-        "DeploymentStrategyOptions" => deployment_strategy_options_status(),
-        "DomainEndpointOptions" => domain_endpoint_options_status(),
-        "EBSOptions" => ebs_options_status(),
-        "EncryptionAtRestOptions" => encryption_at_rest_options_status(),
-        "EngineVersion" => version_status(),
-        "IPAddressType" => ip_address_type_status(),
-        "IdentityCenterOptions" => identity_center_options_status(),
-        "LogPublishingOptions" => log_publishing_options_status(),
-        "ModifyingProperties" => list(modifying_properties()),
-        "NodeToNodeEncryptionOptions" => node_to_node_encryption_options_status(),
-        "OffPeakWindowOptions" => off_peak_window_options_status(),
-        "SnapshotOptions" => snapshot_options_status(),
-        "SoftwareUpdateOptions" => software_update_options_status(),
-        "VPCOptions" => vpc_derived_info_status()
-      }
-
-  """
-  @type domain_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_insights_response() :: %{
-        "Insights" => list(insight()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_maintenance_status_request() :: %{
-        required("MaintenanceId") => String.t() | atom()
-      }
-
-  """
-  @type get_domain_maintenance_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_maintenance_status_response() :: %{
-        "Action" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "NodeId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_domain_maintenance_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_response() :: %{
-        "TagList" => list(tag())
-      }
-
-  """
-  @type list_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_inbound_connection_request() :: %{}
-
-  """
-  @type delete_inbound_connection_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      outbound_connection_status() :: %{
-        "Message" => String.t() | atom(),
-        "StatusCode" => list(any())
-      }
-
-  """
-  @type outbound_connection_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_domain_maintenance_request() :: %{
-        optional("NodeId") => String.t() | atom(),
-        required("Action") => list(any())
-      }
-
-  """
-  @type start_domain_maintenance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_type_limit() :: %{
-        "LimitName" => String.t() | atom(),
-        "LimitValues" => list(String.t() | atom())
-      }
-
-  """
-  @type storage_type_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_direct_query_data_sources_response() :: %{
-        "DirectQueryDataSources" => list(direct_query_data_source()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_direct_query_data_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_outbound_connection_response() :: %{
-        "ConnectionAlias" => String.t() | atom(),
-        "ConnectionId" => String.t() | atom(),
-        "ConnectionMode" => list(any()),
-        "ConnectionProperties" => connection_properties(),
-        "ConnectionStatus" => outbound_connection_status(),
-        "LocalDomainInfo" => domain_information_container(),
-        "RemoteDomainInfo" => domain_information_container()
-      }
-
-  """
-  @type create_outbound_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ebs_options_status() :: %{
-        "Options" => ebs_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type ebs_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authorized_principal() :: %{
-        "Principal" => String.t() | atom(),
-        "PrincipalType" => list(any()),
-        "ServiceOptions" => service_options()
-      }
-
-  """
-  @type authorized_principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disabled_operation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type disabled_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vpc_endpoint_response() :: %{
-        "VpcEndpointSummary" => vpc_endpoint_summary()
-      }
-
-  """
-  @type delete_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_type() :: %{
-        "StorageSubTypeName" => String.t() | atom(),
-        "StorageTypeLimits" => list(storage_type_limit()),
-        "StorageTypeName" => String.t() | atom()
-      }
-
-  """
-  @type storage_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_response() :: %{
-        "PackageDetails" => package_details()
-      }
-
-  """
-  @type update_package_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_source_response() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type update_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_packages_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details())
-      }
-
-  """
-  @type associate_packages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_capability_request() :: %{
-        required("capabilityConfig") => list(),
-        required("capabilityName") => String.t() | atom()
-      }
-
-  """
-  @type register_capability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      additional_limit() :: %{
-        "LimitName" => String.t() | atom(),
-        "LimitValues" => list(String.t() | atom())
-      }
-
-  """
-  @type additional_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_inbound_connection_response() :: %{
-        "Connection" => inbound_connection()
-      }
-
-  """
-  @type reject_inbound_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_center_options_input() :: %{
-        "EnabledAPIAccess" => boolean(),
-        "IdentityCenterInstanceARN" => String.t() | atom(),
-        "IdentityCenterInstanceRegion" => String.t() | atom(),
-        "RolesKey" => list(any()),
-        "SubjectKey" => list(any())
-      }
-
-  """
-  @type identity_center_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_derived_info_status() :: %{
-        "Options" => vpc_derived_info(),
-        "Status" => option_status()
-      }
-
-  """
-  @type vpc_derived_info_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_config_request() :: %{}
-
-  """
-  @type describe_domain_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_scheduled_action_response() :: %{
-        "ScheduledAction" => scheduled_action()
-      }
-
-  """
-  @type update_scheduled_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_maintenance_details() :: %{
-        "Action" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | atom(),
-        "MaintenanceId" => String.t() | atom(),
-        "NodeId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type domain_maintenance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_health_response() :: %{
-        "ActiveAvailabilityZoneCount" => String.t() | atom(),
-        "AvailabilityZoneCount" => String.t() | atom(),
-        "ClusterHealth" => list(any()),
-        "DataNodeCount" => String.t() | atom(),
-        "DedicatedMaster" => boolean(),
-        "DomainState" => list(any()),
-        "EnvironmentInformation" => list(environment_info()),
-        "MasterEligibleNodeCount" => String.t() | atom(),
-        "MasterNode" => list(any()),
-        "StandByAvailabilityZoneCount" => String.t() | atom(),
-        "TotalShards" => String.t() | atom(),
-        "TotalUnAssignedShards" => String.t() | atom(),
-        "WarmNodeCount" => String.t() | atom()
-      }
-
-  """
-  @type describe_domain_health_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_service_software_update_response() :: %{
-        "ServiceSoftwareOptions" => service_software_options()
-      }
-
-  """
-  @type start_service_software_update_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_inbound_connection_response() :: %{
-        "Connection" => inbound_connection()
-      }
-
-  """
-  @type accept_inbound_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_inbound_connections_response() :: %{
-        "Connections" => list(inbound_connection()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_inbound_connections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_index_response() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type delete_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_domain_config_change_request() :: %{
-        optional("DryRun") => boolean()
-      }
-
-  """
-  @type cancel_domain_config_change_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      saml_options_output() :: %{
-        "Enabled" => boolean(),
-        "Idp" => saml_idp(),
-        "RolesKey" => String.t() | atom(),
-        "SessionTimeoutMinutes" => integer(),
-        "SubjectKey" => String.t() | atom()
-      }
-
-  """
-  @type saml_options_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cognito_options_status() :: %{
-        "Options" => cognito_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type cognito_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_config() :: %{}
-
-  """
-  @type a_i_config() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rollback_service_software_options() :: %{
-        "CurrentVersion" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "NewVersion" => String.t() | atom(),
-        "RollbackAvailable" => boolean()
-      }
-
-  """
-  @type rollback_service_software_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scheduled_actions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_scheduled_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      j_w_t_options_input() :: %{
-        "Enabled" => boolean(),
-        "JwksUrl" => String.t() | atom(),
-        "PublicKey" => String.t() | atom(),
-        "RolesKey" => String.t() | atom(),
-        "SubjectKey" => String.t() | atom()
-      }
-
-  """
-  @type j_w_t_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_request() :: %{}
-
-  """
-  @type delete_domain_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_tune_maintenance_schedule() :: %{
-        "CronExpressionForRecurrence" => String.t() | atom(),
-        "Duration" => duration(),
-        "StartAt" => non_neg_integer()
-      }
-
-  """
-  @type auto_tune_maintenance_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_packages_for_domain_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_packages_for_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_compatible_versions_request() :: %{
-        optional("DomainName") => String.t() | atom()
-      }
-
-  """
-  @type get_compatible_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sources_request() :: %{}
-
-  """
-  @type list_data_sources_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_source_response() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type delete_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_progress_status_details() :: %{
-        "ChangeId" => String.t() | atom(),
-        "ChangeProgressStages" => list(change_progress_stage()),
-        "CompletedProperties" => list(String.t() | atom()),
-        "ConfigChangeStatus" => list(any()),
-        "InitiatedBy" => list(any()),
-        "LastUpdatedTime" => non_neg_integer(),
-        "PendingProperties" => list(String.t() | atom()),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "TotalNumberOfStages" => integer()
-      }
-
-  """
-  @type change_progress_status_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_ml_options_output() :: %{
-        "NaturalLanguageQueryGenerationOptions" => natural_language_query_generation_options_output(),
-        "S3VectorsEngine" => s3_vectors_engine(),
-        "ServerlessVectorAcceleration" => serverless_vector_acceleration()
-      }
-
-  """
-  @type a_i_ml_options_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_scheduled_action_request() :: %{
-        optional("DesiredStartTime") => float(),
-        required("ActionID") => String.t() | atom(),
-        required("ActionType") => list(any()),
-        required("ScheduleAt") => list(any())
-      }
-
-  """
-  @type update_scheduled_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_tags_request() :: %{
-        required("ARN") => String.t() | atom(),
-        required("TagList") => list(tag())
-      }
-
-  """
-  @type add_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_failure() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_reserved_instances_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ReservedInstanceId") => String.t() | atom()
-      }
-
-  """
-  @type describe_reserved_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upgrade_history() :: %{
-        "StartTimestamp" => non_neg_integer(),
-        "StepsList" => list(upgrade_step_item()),
-        "UpgradeName" => String.t() | atom(),
-        "UpgradeStatus" => list(any())
-      }
-
-  """
-  @type upgrade_history() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_config() :: %{
-        "Count" => integer(),
-        "Enabled" => boolean(),
-        "Type" => list(any())
-      }
-
-  """
-  @type node_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_default_application_setting_response() :: %{
-        "applicationArn" => String.t() | atom()
-      }
-
-  """
-  @type put_default_application_setting_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_direct_query_data_source_response() :: %{
-        "DataSourceAccessPolicy" => String.t() | atom(),
-        "DataSourceArn" => String.t() | atom(),
-        "DataSourceName" => String.t() | atom(),
-        "DataSourceType" => list(),
-        "Description" => String.t() | atom(),
-        "OpenSearchArns" => list(String.t() | atom())
-      }
-
-  """
-  @type get_direct_query_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_response() :: %{
-        "PackageDetails" => package_details()
-      }
-
-  """
-  @type delete_package_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_lake_direct_query_data_source() :: %{
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type security_lake_direct_query_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_request() :: %{
-        optional("AIMLOptions") => a_i_ml_options_input(),
-        optional("AccessPolicies") => String.t() | atom(),
-        optional("AdvancedOptions") => map(),
-        optional("AdvancedSecurityOptions") => advanced_security_options_input(),
-        optional("AutoTuneOptions") => auto_tune_options_input(),
-        optional("ClusterConfig") => cluster_config(),
-        optional("CognitoOptions") => cognito_options(),
-        optional("DeploymentStrategyOptions") => deployment_strategy_options(),
-        optional("DomainEndpointOptions") => domain_endpoint_options(),
-        optional("EBSOptions") => ebs_options(),
-        optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("IPAddressType") => list(any()),
-        optional("IdentityCenterOptions") => identity_center_options_input(),
-        optional("LogPublishingOptions") => map(),
-        optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
-        optional("OffPeakWindowOptions") => off_peak_window_options(),
-        optional("SnapshotOptions") => snapshot_options(),
-        optional("SoftwareUpdateOptions") => software_update_options(),
-        optional("TagList") => list(tag()),
-        optional("VPCOptions") => vpc_options(),
-        required("DomainName") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_packages_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PackageDetailsList" => list(package_details())
-      }
-
-  """
-  @type describe_packages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_capability_request() :: %{}
-
-  """
-  @type deregister_capability_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_vectors_engine() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type s3_vectors_engine() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dry_run_results() :: %{
-        "DeploymentType" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type dry_run_results() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      availability_zone_info() :: %{
-        "AvailabilityZoneName" => String.t() | atom(),
-        "AvailableDataNodeCount" => String.t() | atom(),
-        "ConfiguredDataNodeCount" => String.t() | atom(),
-        "TotalShards" => String.t() | atom(),
-        "TotalUnAssignedShards" => String.t() | atom(),
-        "ZoneStatus" => list(any())
-      }
-
-  """
-  @type availability_zone_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      advanced_security_options() :: %{
-        "AnonymousAuthDisableDate" => non_neg_integer(),
-        "AnonymousAuthEnabled" => boolean(),
-        "Enabled" => boolean(),
-        "IAMFederationOptions" => iam_federation_options_output(),
-        "InternalUserDatabaseEnabled" => boolean(),
-        "JWTOptions" => j_w_t_options_output(),
-        "SAMLOptions" => saml_options_output()
-      }
-
-  """
-  @type advanced_security_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      option_status() :: %{
-        "CreationDate" => non_neg_integer(),
-        "PendingDeletion" => boolean(),
-        "State" => list(any()),
-        "UpdateDate" => non_neg_integer(),
-        "UpdateVersion" => integer()
-      }
-
-  """
-  @type option_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      off_peak_window_options_status() :: %{
-        "Options" => off_peak_window_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type off_peak_window_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_request() :: %{}
-
-  """
-  @type get_data_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_domain_config_change_response() :: %{
-        "CancelledChangeIds" => list(String.t() | atom()),
-        "CancelledChangeProperties" => list(cancelled_change_property()),
-        "DryRun" => boolean()
-      }
-
-  """
-  @type cancel_domain_config_change_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_to_node_encryption_options_status() :: %{
-        "Options" => node_to_node_encryption_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type node_to_node_encryption_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_insight_details_request() :: %{
-        optional("ShowHtmlContent") => boolean(),
-        required("Entity") => insight_entity(),
-        required("InsightId") => String.t() | atom()
-      }
-
-  """
-  @type describe_insight_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_upgrade_history_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "UpgradeHistories" => list(upgrade_history())
-      }
-
-  """
-  @type get_upgrade_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_ml_options_status() :: %{
-        "Options" => a_i_ml_options_output(),
-        "Status" => option_status()
-      }
-
-  """
-  @type a_i_ml_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_config_response() :: %{
-        "DomainConfig" => domain_config(),
-        "DryRunProgressStatus" => dry_run_progress_status(),
-        "DryRunResults" => dry_run_results()
-      }
-
-  """
-  @type update_domain_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_data_source_request() :: %{
-        optional("Description") => String.t() | atom(),
-        required("DataSourceType") => list(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type add_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_config_request() :: %{
-        optional("AIMLOptions") => a_i_ml_options_input(),
-        optional("AccessPolicies") => String.t() | atom(),
-        optional("AdvancedOptions") => map(),
-        optional("AdvancedSecurityOptions") => advanced_security_options_input(),
-        optional("AutoTuneOptions") => auto_tune_options(),
-        optional("ClusterConfig") => cluster_config(),
-        optional("CognitoOptions") => cognito_options(),
-        optional("DeploymentStrategyOptions") => deployment_strategy_options(),
-        optional("DomainEndpointOptions") => domain_endpoint_options(),
-        optional("DryRun") => boolean(),
-        optional("DryRunMode") => list(any()),
-        optional("EBSOptions") => ebs_options(),
-        optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
-        optional("IPAddressType") => list(any()),
-        optional("IdentityCenterOptions") => identity_center_options_input(),
-        optional("LogPublishingOptions") => map(),
-        optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
-        optional("OffPeakWindowOptions") => off_peak_window_options(),
-        optional("SnapshotOptions") => snapshot_options(),
-        optional("SoftwareUpdateOptions") => software_update_options(),
-        optional("VPCOptions") => vpc_options()
-      }
-
-  """
-  @type update_domain_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scheduled_action() :: %{
-        "Cancellable" => boolean(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Mandatory" => boolean(),
-        "ScheduledBy" => list(any()),
-        "ScheduledTime" => float(),
-        "Severity" => list(any()),
-        "Status" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type scheduled_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scheduled_actions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ScheduledActions" => list(scheduled_action())
-      }
-
-  """
-  @type list_scheduled_actions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      off_peak_window_options() :: %{
-        "Enabled" => boolean(),
-        "OffPeakWindow" => off_peak_window()
-      }
-
-  """
-  @type off_peak_window_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connection_properties() :: %{
-        "CrossClusterSearch" => cross_cluster_search_connection_properties(),
-        "Endpoint" => String.t() | atom()
-      }
-
-  """
-  @type connection_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_failure() :: %{
-        "details" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type capability_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dependency_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type dependency_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_config_response() :: %{
-        "DomainConfig" => domain_config()
-      }
-
-  """
-  @type describe_domain_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_instance_type_limits_response() :: %{
-        "LimitsByRole" => map()
-      }
-
-  """
-  @type describe_instance_type_limits_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_vpc_endpoints_response() :: %{
-        "VpcEndpointErrors" => list(vpc_endpoint_error()),
-        "VpcEndpoints" => list(vpc_endpoint())
-      }
-
-  """
-  @type describe_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_inbound_connection_response() :: %{
-        "Connection" => inbound_connection()
-      }
-
-  """
-  @type delete_inbound_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rollback_service_software_update_response() :: %{
-        "RollbackServiceSoftwareOptions" => rollback_service_software_options()
-      }
-
-  """
-  @type rollback_service_software_update_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sources_response() :: %{
-        "DataSources" => list(data_source_details())
-      }
-
-  """
-  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_source_request() :: %{}
-
-  """
-  @type delete_data_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_packages_filter() :: %{
-        "Name" => list(any()),
-        "Value" => list(String.t() | atom())
-      }
-
-  """
-  @type describe_packages_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_vpc_endpoint_response() :: %{
-        "VpcEndpoint" => vpc_endpoint()
-      }
-
-  """
-  @type update_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_nodes_request() :: %{}
-
-  """
-  @type describe_domain_nodes_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_outbound_connection_request() :: %{}
-
-  """
-  @type delete_outbound_connection_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      error_details() :: %{
-        "ErrorMessage" => String.t() | atom(),
-        "ErrorType" => String.t() | atom()
-      }
-
-  """
-  @type error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_instance_type_limits_request() :: %{
-        optional("DomainName") => String.t() | atom()
-      }
-
-  """
-  @type describe_instance_type_limits_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_at_rest_options() :: %{
-        "Enabled" => boolean(),
-        "KmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type encryption_at_rest_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_direct_query_data_sources_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_direct_query_data_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_version_history_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PackageID" => String.t() | atom(),
-        "PackageVersionHistoryList" => list(package_version_history())
-      }
-
-  """
-  @type get_package_version_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_response() :: %{
-        "DomainStatus" => domain_status()
-      }
-
-  """
-  @type describe_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_request() :: %{
-        optional("appConfigs") => list(app_config()),
-        optional("clientToken") => String.t() | atom(),
-        optional("dataSources") => list(data_source()),
-        optional("iamIdentityCenterOptions") => iam_identity_center_options_input(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tagList") => list(tag()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version_status() :: %{
-        "Options" => String.t() | atom(),
-        "Status" => option_status()
-      }
-
-  """
-  @type version_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vpc_endpoints_for_domain_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_vpc_endpoints_for_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      saml_options_input() :: %{
-        "Enabled" => boolean(),
-        "Idp" => saml_idp(),
-        "MasterBackendRole" => String.t() | atom(),
-        "MasterUserName" => String.t() | atom(),
-        "RolesKey" => String.t() | atom(),
-        "SessionTimeoutMinutes" => integer(),
-        "SubjectKey" => String.t() | atom()
-      }
-
-  """
-  @type saml_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_reserved_instances_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ReservedInstances" => list(reserved_instance())
-      }
-
-  """
-  @type describe_reserved_instances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_inbound_connection_request() :: %{}
-
-  """
-  @type accept_inbound_connection_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_endpoint() :: %{
-        "DomainArn" => String.t() | atom(),
-        "Endpoint" => String.t() | atom(),
-        "Status" => list(any()),
-        "VpcEndpointId" => String.t() | atom(),
-        "VpcEndpointOwner" => String.t() | atom(),
-        "VpcOptions" => vpc_derived_info()
-      }
-
-  """
-  @type vpc_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_federation_options_input() :: %{
-        "Enabled" => boolean(),
-        "RolesKey" => String.t() | atom(),
-        "SubjectKey" => String.t() | atom()
-      }
-
-  """
-  @type iam_federation_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_version_history_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_package_version_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scheduled_auto_tune_details() :: %{
-        "Action" => String.t() | atom(),
-        "ActionType" => list(any()),
-        "Date" => non_neg_integer(),
-        "Severity" => list(any())
-      }
-
-  """
-  @type scheduled_auto_tune_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_response() :: %{
-        "appConfigs" => list(app_config()),
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dataSources" => list(data_source()),
-        "iamIdentityCenterOptions" => iam_identity_center_options(),
-        "id" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "tagList" => list(tag())
-      }
-
-  """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(String.t() | atom())
-      }
-
-  """
-  @type list_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_address_type_status() :: %{
-        "Options" => list(any()),
-        "Status" => option_status()
-      }
-
-  """
-  @type ip_address_type_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ebs_options() :: %{
-        "EBSEnabled" => boolean(),
-        "Iops" => integer(),
-        "Throughput" => integer(),
-        "VolumeSize" => integer(),
-        "VolumeType" => list(any())
-      }
-
-  """
-  @type ebs_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_request() :: %{
-        optional("CommitMessage") => String.t() | atom(),
-        optional("PackageConfiguration") => package_configuration(),
-        optional("PackageDescription") => String.t() | atom(),
-        optional("PackageEncryptionOptions") => package_encryption_options(),
-        required("PackageID") => String.t() | atom(),
-        required("PackageSource") => package_source()
-      }
-
-  """
-  @type update_package_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_names_response() :: %{
-        "DomainNames" => list(domain_info())
-      }
-
-  """
-  @type list_domain_names_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_health_request() :: %{}
-
-  """
-  @type describe_domain_health_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      plugin_properties() :: %{
-        "ClassName" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "UncompressedSizeInBytes" => float(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type plugin_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_package_request() :: %{
-        optional("AssociationConfiguration") => package_association_configuration(),
-        optional("PrerequisitePackageIDList") => list(String.t() | atom())
-      }
-
-  """
-  @type associate_package_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inbound_connection() :: %{
-        "ConnectionId" => String.t() | atom(),
-        "ConnectionMode" => list(any()),
-        "ConnectionStatus" => inbound_connection_status(),
-        "LocalDomainInfo" => domain_information_container(),
-        "RemoteDomainInfo" => domain_information_container()
-      }
-
-  """
-  @type inbound_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_options() :: %{
-        "SupportedRegions" => list(String.t() | atom())
-      }
-
-  """
-  @type service_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_response() :: %{}
-
-  """
-  @type delete_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_glue_data_catalog() :: %{
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type s3_glue_data_catalog() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_identity_center_options() :: %{
-        "enabled" => boolean(),
-        "iamIdentityCenterApplicationArn" => String.t() | atom(),
-        "iamIdentityCenterInstanceArn" => String.t() | atom(),
-        "iamRoleForIdentityCenterApplicationArn" => String.t() | atom()
-      }
-
-  """
-  @type iam_identity_center_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dissociate_package_request() :: %{}
-
-  """
-  @type dissociate_package_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_entity() :: %{
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type insight_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      advanced_security_options_input() :: %{
-        "AnonymousAuthEnabled" => boolean(),
-        "Enabled" => boolean(),
-        "IAMFederationOptions" => iam_federation_options_input(),
-        "InternalUserDatabaseEnabled" => boolean(),
-        "JWTOptions" => j_w_t_options_input(),
-        "MasterUserOptions" => master_user_options(),
-        "SAMLOptions" => saml_options_input()
-      }
-
-  """
-  @type advanced_security_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_details() :: %{
-        "DataSourceType" => list(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type data_source_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_request() :: %{
-        optional("appConfigs") => list(app_config()),
-        optional("dataSources") => list(data_source())
-      }
-
-  """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_response() :: %{
-        "appConfigs" => list(app_config()),
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dataSources" => list(data_source()),
-        "iamIdentityCenterOptions" => iam_identity_center_options(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type update_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_center_options() :: %{
-        "EnabledAPIAccess" => boolean(),
-        "IdentityCenterApplicationARN" => String.t() | atom(),
-        "IdentityCenterInstanceARN" => String.t() | atom(),
-        "IdentityCenterInstanceRegion" => String.t() | atom(),
-        "IdentityStoreId" => String.t() | atom(),
-        "RolesKey" => list(any()),
-        "SubjectKey" => list(any())
-      }
-
-  """
-  @type identity_center_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_status() :: %{
-        "UpgradeProcessing" => boolean(),
-        "AIMLOptions" => a_i_ml_options_output(),
-        "EBSOptions" => ebs_options(),
-        "VPCOptions" => vpc_derived_info(),
-        "AdvancedSecurityOptions" => advanced_security_options(),
-        "ServiceSoftwareOptions" => service_software_options(),
-        "IdentityCenterOptions" => identity_center_options(),
-        "ARN" => String.t() | atom(),
-        "DomainId" => String.t() | atom(),
-        "ModifyingProperties" => list(modifying_properties()),
-        "AdvancedOptions" => map(),
-        "SnapshotOptions" => snapshot_options(),
-        "Processing" => boolean(),
-        "Created" => boolean(),
-        "AccessPolicies" => String.t() | atom(),
-        "DomainProcessingStatus" => list(any()),
-        "ChangeProgressDetails" => change_progress_details(),
-        "DomainEndpointOptions" => domain_endpoint_options(),
-        "EndpointV2" => String.t() | atom(),
-        "NodeToNodeEncryptionOptions" => node_to_node_encryption_options(),
-        "ClusterConfig" => cluster_config(),
-        "CognitoOptions" => cognito_options(),
-        "DomainName" => String.t() | atom(),
-        "DomainEndpointV2HostedZoneId" => String.t() | atom(),
-        "AutoTuneOptions" => auto_tune_options_output(),
-        "LogPublishingOptions" => map(),
-        "DeploymentStrategyOptions" => deployment_strategy_options(),
-        "OffPeakWindowOptions" => off_peak_window_options(),
-        "SoftwareUpdateOptions" => software_update_options(),
-        "Deleted" => boolean(),
-        "IPAddressType" => list(any()),
-        "EncryptionAtRestOptions" => encryption_at_rest_options(),
-        "EngineVersion" => String.t() | atom(),
-        "Endpoint" => String.t() | atom(),
-        "Endpoints" => map()
-      }
-
-  """
-  @type domain_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_info() :: %{
-        "DomainName" => String.t() | atom(),
-        "EngineType" => list(any())
-      }
-
-  """
-  @type domain_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cognito_options() :: %{
-        "Enabled" => boolean(),
-        "IdentityPoolId" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "UserPoolId" => String.t() | atom()
-      }
-
-  """
-  @type cognito_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_time_range() :: %{
-        "From" => float(),
-        "To" => float()
-      }
-
-  """
-  @type insight_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vpc_endpoint_access_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_vpc_endpoint_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("DomainArn") => String.t() | atom(),
-        required("VpcOptions") => vpc_options()
-      }
-
-  """
-  @type create_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_tune_options_input() :: %{
-        "DesiredState" => list(any()),
-        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()),
-        "UseOffPeakWindow" => boolean()
-      }
-
-  """
-  @type auto_tune_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancelled_change_property() :: %{
-        "ActiveValue" => String.t() | atom(),
-        "CancelledValue" => String.t() | atom(),
-        "PropertyName" => String.t() | atom()
-      }
-
-  """
-  @type cancelled_change_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_response() :: %{
-        "appConfigs" => list(app_config()),
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "dataSources" => list(data_source()),
-        "endpoint" => String.t() | atom(),
-        "iamIdentityCenterOptions" => iam_identity_center_options(),
-        "id" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_change_progress_response() :: %{
-        "ChangeProgressStatus" => change_progress_status_details()
-      }
-
-  """
-  @type describe_domain_change_progress_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_limits() :: %{
-        "InstanceCountLimits" => instance_count_limits()
-      }
-
-  """
-  @type instance_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_type_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reserved_instance_offering() :: %{
-        "CurrencyCode" => String.t() | atom(),
-        "Duration" => integer(),
-        "FixedPrice" => float(),
-        "InstanceType" => list(any()),
-        "PaymentOption" => list(any()),
-        "RecurringCharges" => list(recurring_charge()),
-        "ReservedInstanceOfferingId" => String.t() | atom(),
-        "UsagePrice" => float()
-      }
-
-  """
-  @type reserved_instance_offering() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_progress_details() :: %{
-        "ChangeId" => String.t() | atom(),
-        "ConfigChangeStatus" => list(any()),
-        "InitiatedBy" => list(any()),
-        "LastUpdatedTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "StartTime" => non_neg_integer()
-      }
-
-  """
-  @type change_progress_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_reserved_instance_offerings_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ReservedInstanceOfferingId") => String.t() | atom()
-      }
-
-  """
-  @type describe_reserved_instance_offerings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_service_software_update_request() :: %{
-        required("DomainName") => String.t() | atom()
-      }
-
-  """
-  @type cancel_service_software_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      zone_awareness_config() :: %{
-        "AvailabilityZoneCount" => integer()
-      }
-
-  """
-  @type zone_awareness_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_upgrade_history_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_upgrade_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_default_application_setting_response() :: %{
-        "applicationArn" => String.t() | atom()
-      }
-
-  """
-  @type get_default_application_setting_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_domain_information() :: %{
-        "DomainName" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type aws_domain_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_progress_stage() :: %{
-        "Description" => String.t() | atom(),
-        "LastUpdated" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type change_progress_stage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("statuses") => list(list(any())())
-      }
-
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_index_request() :: %{
-        required("IndexName") => String.t() | atom(),
-        required("IndexSchema") => any()
-      }
-
-  """
-  @type create_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_store_access_option() :: %{
-        "KeyAccessRoleArn" => String.t() | atom(),
-        "KeyStoreAccessEnabled" => boolean()
-      }
-
-  """
-  @type key_store_access_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dissociate_package_response() :: %{
-        "DomainPackageDetails" => domain_package_details()
-      }
-
-  """
-  @type dissociate_package_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_index_request() :: %{
-        required("IndexSchema") => any()
-      }
-
-  """
-  @type update_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_maintenances_request() :: %{
-        optional("Action") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-
-  """
-  @type list_domain_maintenances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_request() :: %{}
-
-  """
-  @type delete_package_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_identity_center_options_input() :: %{
-        "enabled" => boolean(),
-        "iamIdentityCenterInstanceArn" => String.t() | atom(),
-        "iamRoleForIdentityCenterApplicationArn" => String.t() | atom()
-      }
-
-  """
-  @type iam_identity_center_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_details_for_association() :: %{
-        "AssociationConfiguration" => package_association_configuration(),
-        "PackageID" => String.t() | atom(),
-        "PrerequisitePackageIDList" => list(String.t() | atom())
-      }
-
-  """
-  @type package_details_for_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_config() :: %{
-        "key" => list(any()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type app_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_federation_options_output() :: %{
-        "Enabled" => boolean(),
-        "RolesKey" => String.t() | atom(),
-        "SubjectKey" => String.t() | atom()
-      }
-
-  """
-  @type iam_federation_options_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_request() :: %{}
-
-  """
-  @type describe_domain_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      natural_language_query_generation_options_input() :: %{
-        "DesiredState" => list(any())
-      }
-
-  """
-  @type natural_language_query_generation_options_input() :: %{(String.t() | atom()) => any()}
+  @type auto_tune() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2975,201 +1240,12 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      list_packages_for_domain_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      delete_vpc_endpoint_response() :: %{
+        "VpcEndpointSummary" => vpc_endpoint_summary()
       }
 
   """
-  @type list_packages_for_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_strategy_options() :: %{
-        "DeploymentStrategy" => list(any())
-      }
-
-  """
-  @type deployment_strategy_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      advanced_security_options_status() :: %{
-        "Options" => advanced_security_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type advanced_security_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      duration() :: %{
-        "Unit" => list(any()),
-        "Value" => float()
-      }
-
-  """
-  @type duration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_option() :: %{
-        "NodeConfig" => node_config(),
-        "NodeType" => list(any())
-      }
-
-  """
-  @type node_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_encryption_options() :: %{
-        "EncryptionEnabled" => boolean(),
-        "KmsKeyIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type package_encryption_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prometheus_direct_query_data_source() :: %{
-        "RoleArn" => String.t() | atom(),
-        "WorkspaceArn" => String.t() | atom()
-      }
-
-  """
-  @type prometheus_direct_query_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_for_package_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_domains_for_package_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_reserved_instance_offering_response() :: %{
-        "ReservationName" => String.t() | atom(),
-        "ReservedInstanceId" => String.t() | atom()
-      }
-
-  """
-  @type purchase_reserved_instance_offering_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slot_not_available_exception() :: %{
-        "SlotSuggestions" => list(float()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type slot_not_available_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authorize_vpc_endpoint_access_request() :: %{
-        optional("Account") => String.t() | atom(),
-        optional("Service") => list(any()),
-        optional("ServiceOptions") => service_options()
-      }
-
-  """
-  @type authorize_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_software_options() :: %{
-        "AutomatedUpdateDate" => non_neg_integer(),
-        "Cancellable" => boolean(),
-        "CurrentVersion" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "NewVersion" => String.t() | atom(),
-        "OptionalDeployment" => boolean(),
-        "UpdateAvailable" => boolean(),
-        "UpdateStatus" => list(any())
-      }
-
-  """
-  @type service_software_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_publishing_options_status() :: %{
-        "Options" => map(),
-        "Status" => option_status()
-      }
-
-  """
-  @type log_publishing_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upgrade_domain_request() :: %{
-        optional("AdvancedOptions") => map(),
-        optional("PerformCheckOnly") => boolean(),
-        required("DomainName") => String.t() | atom(),
-        required("TargetVersion") => String.t() | atom()
-      }
-
-  """
-  @type upgrade_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_service_software_update_request() :: %{
-        optional("DesiredStartTime") => float(),
-        optional("ScheduleAt") => list(any()),
-        required("DomainName") => String.t() | atom()
-      }
-
-  """
-  @type start_service_software_update_request() :: %{(String.t() | atom()) => any()}
+  @type delete_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3190,7 +1266,29 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      j_w_t_options_output() :: %{
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_change_progress_response() :: %{
+        "ChangeProgressStatus" => change_progress_status_details()
+      }
+
+  """
+  @type describe_domain_change_progress_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      j_w_t_options_input() :: %{
         "Enabled" => boolean(),
         "JwksUrl" => String.t() | atom(),
         "PublicKey" => String.t() | atom(),
@@ -3199,80 +1297,28 @@ defmodule AWS.OpenSearch do
       }
 
   """
-  @type j_w_t_options_output() :: %{(String.t() | atom()) => any()}
+  @type j_w_t_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deployment_strategy_options_status() :: %{
-        "Options" => deployment_strategy_options(),
+      describe_domain_request() :: %{}
+
+  """
+  @type describe_domain_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_at_rest_options_status() :: %{
+        "Options" => encryption_at_rest_options(),
         "Status" => option_status()
       }
 
   """
-  @type deployment_strategy_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_tune_options() :: %{
-        "DesiredState" => list(any()),
-        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()),
-        "RollbackOnDisable" => list(any()),
-        "UseOffPeakWindow" => boolean()
-      }
-
-  """
-  @type auto_tune_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      software_update_options() :: %{
-        "AutoSoftwareUpdateEnabled" => boolean(),
-        "UseLatestServiceSoftwareForBlueGreen" => boolean()
-      }
-
-  """
-  @type software_update_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_source_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Status") => list(any()),
-        required("DataSourceType") => list()
-      }
-
-  """
-  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_ml_options_input() :: %{
-        "NaturalLanguageQueryGenerationOptions" => natural_language_query_generation_options_input(),
-        "S3VectorsEngine" => s3_vectors_engine(),
-        "ServerlessVectorAcceleration" => serverless_vector_acceleration()
-      }
-
-  """
-  @type a_i_ml_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_upgrade_status_request() :: %{}
-
-  """
-  @type get_upgrade_status_request() :: %{}
+  @type encryption_at_rest_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3294,66 +1340,12 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      throttling_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vpc_endpoint_request() :: %{}
-
-  """
-  @type delete_vpc_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_response() :: %{
-        "DomainStatus" => domain_status()
-      }
-
-  """
-  @type create_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      base_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type base_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_to_node_encryption_options() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type node_to_node_encryption_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_versions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_versions_request() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3370,37 +1362,572 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      limits() :: %{
-        "AdditionalLimits" => list(additional_limit()),
-        "InstanceLimits" => instance_limits(),
-        "StorageTypes" => list(storage_type())
+      domain_maintenance_details() :: %{
+        "Action" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DomainName" => String.t() | atom(),
+        "MaintenanceId" => String.t() | atom(),
+        "NodeId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type limits() :: %{(String.t() | atom()) => any()}
+  @type domain_maintenance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_dry_run_progress_request() :: %{
-        optional("DryRunId") => String.t() | atom(),
-        optional("LoadDryRunConfig") => boolean()
+      delete_index_response() :: %{
+        "Status" => list(any())
       }
 
   """
-  @type describe_dry_run_progress_request() :: %{(String.t() | atom()) => any()}
+  @type delete_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_domain_maintenance_response() :: %{
-        "MaintenanceId" => String.t() | atom()
+      get_direct_query_data_source_response() :: %{
+        "DataSourceAccessPolicy" => String.t() | atom(),
+        "DataSourceArn" => String.t() | atom(),
+        "DataSourceName" => String.t() | atom(),
+        "DataSourceType" => list(),
+        "Description" => String.t() | atom(),
+        "OpenSearchArns" => list(String.t() | atom())
       }
 
   """
-  @type start_domain_maintenance_response() :: %{(String.t() | atom()) => any()}
+  @type get_direct_query_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_config_request() :: %{
+        optional("AIMLOptions") => a_i_ml_options_input(),
+        optional("AccessPolicies") => String.t() | atom(),
+        optional("AdvancedOptions") => map(),
+        optional("AdvancedSecurityOptions") => advanced_security_options_input(),
+        optional("AutoTuneOptions") => auto_tune_options(),
+        optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
+        optional("ClusterConfig") => cluster_config(),
+        optional("CognitoOptions") => cognito_options(),
+        optional("DeploymentStrategyOptions") => deployment_strategy_options(),
+        optional("DomainEndpointOptions") => domain_endpoint_options(),
+        optional("DryRun") => boolean(),
+        optional("DryRunMode") => list(any()),
+        optional("EBSOptions") => ebs_options(),
+        optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
+        optional("EngineMode") => list(any()),
+        optional("IPAddressType") => list(any()),
+        optional("IdentityCenterOptions") => identity_center_options_input(),
+        optional("LogPublishingOptions") => map(),
+        optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
+        optional("OffPeakWindowOptions") => off_peak_window_options(),
+        optional("SnapshotOptions") => snapshot_options(),
+        optional("SoftwareUpdateOptions") => software_update_options(),
+        optional("UseCase") => list(any()),
+        optional("VPCOptions") => vpc_options()
+      }
+
+  """
+  @type update_domain_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_domain_config_change_response() :: %{
+        "CancelledChangeIds" => list(String.t() | atom()),
+        "CancelledChangeProperties" => list(cancelled_change_property()),
+        "DryRun" => boolean()
+      }
+
+  """
+  @type cancel_domain_config_change_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_inbound_connection_response() :: %{
+        "Connection" => inbound_connection()
+      }
+
+  """
+  @type accept_inbound_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dissociate_package_request() :: %{}
+
+  """
+  @type dissociate_package_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_packages_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PackageDetailsList" => list(package_details())
+      }
+
+  """
+  @type describe_packages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_inbound_connection_response() :: %{
+        "Connection" => inbound_connection()
+      }
+
+  """
+  @type reject_inbound_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_reserved_instance_offerings_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ReservedInstanceOfferingId") => String.t() | atom()
+      }
+
+  """
+  @type describe_reserved_instance_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_data_source_attachment_response() :: %{
+        "arn" => String.t() | atom(),
+        "attachmentId" => String.t() | atom(),
+        "dataSourceArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type describe_data_source_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        optional("appConfigs") => list(app_config()),
+        optional("clientToken") => String.t() | atom(),
+        optional("dataSources") => list(data_source()),
+        optional("iamIdentityCenterOptions") => iam_identity_center_options_input(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tagList") => list(tag())
+      }
+
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_center_options_input() :: %{
+        "EnabledAPIAccess" => boolean(),
+        "IdentityCenterInstanceARN" => String.t() | atom(),
+        "IdentityCenterInstanceRegion" => String.t() | atom(),
+        "RolesKey" => list(any()),
+        "SubjectKey" => list(any())
+      }
+
+  """
+  @type identity_center_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upgrade_status_response() :: %{
+        "StepStatus" => list(any()),
+        "UpgradeName" => String.t() | atom(),
+        "UpgradeStep" => list(any())
+      }
+
+  """
+  @type get_upgrade_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_time_range() :: %{
+        "From" => float(),
+        "To" => float()
+      }
+
+  """
+  @type insight_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_publishing_options_status() :: %{
+        "Options" => map(),
+        "Status" => option_status()
+      }
+
+  """
+  @type log_publishing_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tune_options_input() :: %{
+        "DesiredState" => list(any()),
+        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()),
+        "UseOffPeakWindow" => boolean()
+      }
+
+  """
+  @type auto_tune_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      option_status() :: %{
+        "CreationDate" => non_neg_integer(),
+        "PendingDeletion" => boolean(),
+        "State" => list(any()),
+        "UpdateDate" => non_neg_integer(),
+        "UpdateVersion" => integer()
+      }
+
+  """
+  @type option_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_identity_center_options_input() :: %{
+        "enabled" => boolean(),
+        "iamIdentityCenterInstanceArn" => String.t() | atom(),
+        "iamRoleForIdentityCenterApplicationArn" => String.t() | atom()
+      }
+
+  """
+  @type iam_identity_center_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_service_software_update_response() :: %{
+        "ServiceSoftwareOptions" => service_software_options()
+      }
+
+  """
+  @type cancel_service_software_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_packages_filter() :: %{
+        "Name" => list(any()),
+        "Value" => list(String.t() | atom())
+      }
+
+  """
+  @type describe_packages_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_endpoint_options_status() :: %{
+        "Options" => domain_endpoint_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type domain_endpoint_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prometheus_direct_query_data_source() :: %{
+        "RoleArn" => String.t() | atom(),
+        "WorkspaceArn" => String.t() | atom()
+      }
+
+  """
+  @type prometheus_direct_query_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dissociate_packages_response() :: %{
+        "DomainPackageDetailsList" => list(domain_package_details())
+      }
+
+  """
+  @type dissociate_packages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_response() :: %{
+        "PackageDetails" => package_details()
+      }
+
+  """
+  @type update_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_options() :: %{
+        "conflictResolution" => String.t() | atom(),
+        "exportOptions" => export_options(),
+        "source" => migration_source(),
+        "workspace" => migration_workspace()
+      }
+
+  """
+  @type migration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_reserved_instance_offerings_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ReservedInstanceOfferings" => list(reserved_instance_offering())
+      }
+
+  """
+  @type describe_reserved_instance_offerings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ebs_options_status() :: %{
+        "Options" => ebs_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type ebs_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_request() :: %{
+        optional("CommitMessage") => String.t() | atom(),
+        optional("PackageConfiguration") => package_configuration(),
+        optional("PackageDescription") => String.t() | atom(),
+        optional("PackageEncryptionOptions") => package_encryption_options(),
+        required("PackageID") => String.t() | atom(),
+        required("PackageSource") => package_source()
+      }
+
+  """
+  @type update_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_source_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type update_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_feedback_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type insight_feedback_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sources_request() :: %{}
+
+  """
+  @type list_data_sources_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_scope_request() :: %{
+        required("Operation") => list(any()),
+        required("PackageID") => String.t() | atom(),
+        required("PackageUserList") => list(String.t() | atom())
+      }
+
+  """
+  @type update_package_scope_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_snapshot_pause_request_options() :: %{
+        "Enabled" => boolean(),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type automated_snapshot_pause_request_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_config_status() :: %{
+        "Options" => cluster_config(),
+        "Status" => option_status()
+      }
+
+  """
+  @type cluster_config_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tune_details() :: %{
+        "ScheduledAutoTuneDetails" => scheduled_auto_tune_details()
+      }
+
+  """
+  @type auto_tune_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_type_limit() :: %{
+        "LimitName" => String.t() | atom(),
+        "LimitValues" => list(String.t() | atom())
+      }
+
+  """
+  @type storage_type_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_snapshot_pause_options_status() :: %{
+        "Options" => automated_snapshot_pause_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type automated_snapshot_pause_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_endpoint_response() :: %{
+        "VpcEndpoint" => vpc_endpoint()
+      }
+
+  """
+  @type create_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_store_access_option() :: %{
+        "KeyAccessRoleArn" => String.t() | atom(),
+        "KeyStoreAccessEnabled" => boolean()
+      }
+
+  """
+  @type key_store_access_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_vectors_engine() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type s3_vectors_engine() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_service_software_update_response() :: %{
+        "ServiceSoftwareOptions" => service_software_options()
+      }
+
+  """
+  @type start_service_software_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_publishing_option() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type log_publishing_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upgrade_step_item() :: %{
+        "Issues" => list(String.t() | atom()),
+        "ProgressPercent" => float(),
+        "UpgradeStep" => list(any()),
+        "UpgradeStepStatus" => list(any())
+      }
+
+  """
+  @type upgrade_step_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3415,88 +1942,82 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      application_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "endpoint" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
+      delete_data_source_response() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type application_summary() :: %{(String.t() | atom()) => any()}
+  @type delete_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      revoke_vpc_endpoint_access_request() :: %{
-        optional("Account") => String.t() | atom(),
-        optional("Service") => list(any()),
-        optional("ServiceOptions") => service_options()
+      advanced_security_options() :: %{
+        "AnonymousAuthDisableDate" => non_neg_integer(),
+        "AnonymousAuthEnabled" => boolean(),
+        "Enabled" => boolean(),
+        "IAMFederationOptions" => iam_federation_options_output(),
+        "InternalUserDatabaseEnabled" => boolean(),
+        "JWTOptions" => j_w_t_options_output(),
+        "SAMLOptions" => saml_options_output()
       }
 
   """
-  @type revoke_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+  @type advanced_security_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      environment_info() :: %{
-        "AvailabilityZoneInformation" => list(availability_zone_info())
+      insight_entity() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type environment_info() :: %{(String.t() | atom()) => any()}
+  @type insight_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vpc_options() :: %{
-        "EgressEnabled" => boolean(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
+      identity_center_options_status() :: %{
+        "Options" => identity_center_options(),
+        "Status" => option_status()
       }
 
   """
-  @type vpc_options() :: %{(String.t() | atom()) => any()}
+  @type identity_center_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_domains_response() :: %{
-        "DomainStatusList" => list(domain_status())
-      }
+      get_upgrade_status_request() :: %{}
 
   """
-  @type describe_domains_response() :: %{(String.t() | atom()) => any()}
+  @type get_upgrade_status_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
+      accept_inbound_connection_request() :: %{}
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type accept_inbound_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_outbound_connection_response() :: %{
-        "Connection" => outbound_connection()
+      delete_domain_response() :: %{
+        "DomainStatus" => domain_status()
       }
 
   """
-  @type delete_outbound_connection_response() :: %{(String.t() | atom()) => any()}
+  @type delete_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3525,77 +2046,186 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      create_vpc_endpoint_response() :: %{
+      purchase_reserved_instance_offering_response() :: %{
+        "ReservationName" => String.t() | atom(),
+        "ReservedInstanceId" => String.t() | atom()
+      }
+
+  """
+  @type purchase_reserved_instance_offering_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_security_options_status() :: %{
+        "Options" => advanced_security_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type advanced_security_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_vpc_endpoint_response() :: %{
         "VpcEndpoint" => vpc_endpoint()
       }
 
   """
-  @type create_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type update_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_applications_response() :: %{
-        "ApplicationSummaries" => list(application_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_center_options_status() :: %{
-        "Options" => identity_center_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type identity_center_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_direct_query_data_source_request() :: %{
-        optional("DataSourceAccessPolicy") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("OpenSearchArns") => list(String.t() | atom()),
-        optional("TagList") => list(tag()),
-        required("DataSourceName") => String.t() | atom(),
-        required("DataSourceType") => list()
-      }
-
-  """
-  @type add_direct_query_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_endpoint_options_status() :: %{
-        "Options" => domain_endpoint_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type domain_endpoint_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_inbound_connections_request() :: %{
-        optional("Filters") => list(filter()),
+      describe_domain_auto_tunes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_inbound_connections_request() :: %{(String.t() | atom()) => any()}
+  @type describe_domain_auto_tunes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(String.t() | atom())
+      }
+
+  """
+  @type list_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_update_options_status() :: %{
+        "Options" => software_update_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type software_update_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tune_status() :: %{
+        "CreationDate" => non_neg_integer(),
+        "ErrorMessage" => String.t() | atom(),
+        "PendingDeletion" => boolean(),
+        "State" => list(any()),
+        "UpdateDate" => non_neg_integer(),
+        "UpdateVersion" => integer()
+      }
+
+  """
+  @type auto_tune_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_failure() :: %{
+        "details" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type capability_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_health_response() :: %{
+        "ActiveAvailabilityZoneCount" => String.t() | atom(),
+        "AvailabilityZoneCount" => String.t() | atom(),
+        "ClusterHealth" => list(any()),
+        "DataNodeCount" => String.t() | atom(),
+        "DedicatedMaster" => boolean(),
+        "DomainState" => list(any()),
+        "EnvironmentInformation" => list(environment_info()),
+        "MasterEligibleNodeCount" => String.t() | atom(),
+        "MasterNode" => list(any()),
+        "StandByAvailabilityZoneCount" => String.t() | atom(),
+        "TotalShards" => String.t() | atom(),
+        "TotalUnAssignedShards" => String.t() | atom(),
+        "WarmNodeCount" => String.t() | atom()
+      }
+
+  """
+  @type describe_domain_health_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_vpc_endpoint_access_response() :: %{}
+
+  """
+  @type revoke_vpc_endpoint_access_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_direct_query_data_sources_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_direct_query_data_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_request() :: %{}
+
+  """
+  @type get_data_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_packages_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("PackageList") => list(package_details_for_association())
+      }
+
+  """
+  @type associate_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3603,13 +2233,1045 @@ defmodule AWS.OpenSearch do
 
       update_direct_query_data_source_request() :: %{
         optional("DataSourceAccessPolicy") => String.t() | atom(),
+        required("DataSourceType") => list(),
         optional("Description") => String.t() | atom(),
-        optional("OpenSearchArns") => list(String.t() | atom()),
-        required("DataSourceType") => list()
+        optional("OpenSearchArns") => list(String.t() | atom())
       }
 
   """
   @type update_direct_query_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_config() :: %{}
+
+  """
+  @type a_i_config() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_reserved_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ReservedInstanceId") => String.t() | atom()
+      }
+
+  """
+  @type describe_reserved_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dry_run_progress_status() :: %{
+        "CreationDate" => String.t() | atom(),
+        "DryRunId" => String.t() | atom(),
+        "DryRunStatus" => String.t() | atom(),
+        "UpdateDate" => String.t() | atom(),
+        "ValidationFailures" => list(validation_failure())
+      }
+
+  """
+  @type dry_run_progress_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_migration_request() :: %{
+        required("applicationId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("migrationOptions") => migration_options()
+      }
+
+  """
+  @type start_migration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_response() :: %{
+        "DomainStatus" => domain_status()
+      }
+
+  """
+  @type describe_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_outbound_connections_response() :: %{
+        "Connections" => list(outbound_connection()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_outbound_connections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ebs_options() :: %{
+        "EBSEnabled" => boolean(),
+        "Iops" => integer(),
+        "Throughput" => integer(),
+        "VolumeSize" => integer(),
+        "VolumeType" => list(any())
+      }
+
+  """
+  @type ebs_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_vending_options() :: %{
+        "VendingEnabled" => boolean()
+      }
+
+  """
+  @type package_vending_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_limits() :: %{
+        "InstanceCountLimits" => instance_count_limits()
+      }
+
+  """
+  @type instance_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_instance_type_details_response() :: %{
+        "InstanceTypeDetails" => list(instance_type_details()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_instance_type_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_names_request() :: %{
+        optional("EngineType") => list(any())
+      }
+
+  """
+  @type list_domain_names_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_address_type_status() :: %{
+        "Options" => list(any()),
+        "Status" => option_status()
+      }
+
+  """
+  @type ip_address_type_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_maintenances_response() :: %{
+        "DomainMaintenances" => list(domain_maintenance_details()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_maintenances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      duration() :: %{
+        "Unit" => list(any()),
+        "Value" => float()
+      }
+
+  """
+  @type duration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_config_response() :: %{
+        "DomainConfig" => domain_config()
+      }
+
+  """
+  @type describe_domain_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_response() :: %{
+        "PackageDetails" => package_details()
+      }
+
+  """
+  @type delete_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_index_request() :: %{}
+
+  """
+  @type delete_index_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_direct_query_data_sources_response() :: %{
+        "DirectQueryDataSources" => list(direct_query_data_source()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_direct_query_data_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_application_setting_response() :: %{
+        "applicationArn" => String.t() | atom()
+      }
+
+  """
+  @type get_default_application_setting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scheduled_action_response() :: %{
+        "ScheduledAction" => scheduled_action()
+      }
+
+  """
+  @type update_scheduled_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_response() :: %{
+        "appConfigs" => list(app_config()),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dataSources" => list(data_source()),
+        "endpoint" => String.t() | atom(),
+        "iamIdentityCenterOptions" => iam_identity_center_options(),
+        "id" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      saml_idp() :: %{
+        "EntityId" => String.t() | atom(),
+        "MetadataContent" => String.t() | atom()
+      }
+
+  """
+  @type saml_idp() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_endpoint_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("DomainArn") => String.t() | atom(),
+        required("VpcOptions") => vpc_options()
+      }
+
+  """
+  @type create_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_request() :: %{}
+
+  """
+  @type delete_domain_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      limits() :: %{
+        "AdditionalLimits" => list(additional_limit()),
+        "InstanceLimits" => instance_limits(),
+        "StorageTypes" => list(storage_type())
+      }
+
+  """
+  @type limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      off_peak_window() :: %{
+        "WindowStartTime" => window_start_time()
+      }
+
+  """
+  @type off_peak_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_field() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type insight_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_pagination_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_domain_information() :: %{
+        "DomainName" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type aws_domain_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upgrade_history_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "UpgradeHistories" => list(upgrade_history())
+      }
+
+  """
+  @type get_upgrade_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_progress_status_details() :: %{
+        "ChangeId" => String.t() | atom(),
+        "ChangeProgressStages" => list(change_progress_stage()),
+        "CompletedProperties" => list(String.t() | atom()),
+        "ConfigChangeStatus" => list(any()),
+        "InitiatedBy" => list(any()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "PendingProperties" => list(String.t() | atom()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TotalNumberOfStages" => integer()
+      }
+
+  """
+  @type change_progress_status_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorized_principal() :: %{
+        "Principal" => String.t() | atom(),
+        "PrincipalType" => list(any()),
+        "ServiceOptions" => service_options()
+      }
+
+  """
+  @type authorized_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_snapshot_pause_options() :: %{
+        "Enabled" => boolean(),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type automated_snapshot_pause_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_association_configuration() :: %{
+        "KeyStoreAccessOption" => key_store_access_option()
+      }
+
+  """
+  @type package_association_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_reserved_instances_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ReservedInstances" => list(reserved_instance())
+      }
+
+  """
+  @type describe_reserved_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_direct_query_data_source() :: %{
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_direct_query_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scheduled_actions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_scheduled_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_source_attachments_response() :: %{
+        "attachments" => list(data_source_attachment_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_source_attachments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_config_response() :: %{
+        "DomainConfig" => domain_config(),
+        "DryRunProgressStatus" => dry_run_progress_status(),
+        "DryRunResults" => dry_run_results()
+      }
+
+  """
+  @type update_domain_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_derived_info() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
+        "EgressEnabled" => boolean(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VPCId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_derived_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_options() :: %{
+        "includeReferencesDeep" => boolean(),
+        "objects" => list(saved_object_identifier()),
+        "types" => list(String.t() | atom())
+      }
+
+  """
+  @type export_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_packages_response() :: %{
+        "DomainPackageDetailsList" => list(domain_package_details())
+      }
+
+  """
+  @type associate_packages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_federation_options_output() :: %{
+        "Enabled" => boolean(),
+        "RolesKey" => String.t() | atom(),
+        "SubjectKey" => String.t() | atom()
+      }
+
+  """
+  @type iam_federation_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_compatible_versions_response() :: %{
+        "CompatibleVersions" => list(compatible_versions_map())
+      }
+
+  """
+  @type get_compatible_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recurring_charge() :: %{
+        "RecurringChargeAmount" => float(),
+        "RecurringChargeFrequency" => String.t() | atom()
+      }
+
+  """
+  @type recurring_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_endpoint_options() :: %{
+        "CustomEndpoint" => String.t() | atom(),
+        "CustomEndpointCertificateArn" => String.t() | atom(),
+        "CustomEndpointEnabled" => boolean(),
+        "EnforceHTTPS" => boolean(),
+        "TLSSecurityPolicy" => list(any())
+      }
+
+  """
+  @type domain_endpoint_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      outbound_connection_status() :: %{
+        "Message" => String.t() | atom(),
+        "StatusCode" => list(any())
+      }
+
+  """
+  @type outbound_connection_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domains_response() :: %{
+        "DomainStatusList" => list(domain_status())
+      }
+
+  """
+  @type describe_domains_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("statuses") => list(list(any())())
+      }
+
+  """
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      saml_options_input() :: %{
+        "Enabled" => boolean(),
+        "Idp" => saml_idp(),
+        "MasterBackendRole" => String.t() | atom(),
+        "MasterUserName" => String.t() | atom(),
+        "RolesKey" => String.t() | atom(),
+        "SessionTimeoutMinutes" => integer(),
+        "SubjectKey" => String.t() | atom()
+      }
+
+  """
+  @type saml_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_update_options() :: %{
+        "AutoSoftwareUpdateEnabled" => boolean(),
+        "UseLatestServiceSoftwareForBlueGreen" => boolean()
+      }
+
+  """
+  @type software_update_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_endpoint() :: %{
+        "DomainArn" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcEndpointOwner" => String.t() | atom(),
+        "VpcOptions" => vpc_derived_info()
+      }
+
+  """
+  @type vpc_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_package_request() :: %{
+        optional("EngineVersion") => String.t() | atom(),
+        optional("PackageConfiguration") => package_configuration(),
+        optional("PackageDescription") => String.t() | atom(),
+        optional("PackageEncryptionOptions") => package_encryption_options(),
+        required("PackageName") => String.t() | atom(),
+        required("PackageSource") => package_source(),
+        required("PackageType") => list(any()),
+        optional("PackageVendingOptions") => package_vending_options()
+      }
+
+  """
+  @type create_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_limit() :: %{
+        "LimitName" => String.t() | atom(),
+        "LimitValues" => list(String.t() | atom())
+      }
+
+  """
+  @type additional_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_option() :: %{
+        "NodeConfig" => node_config(),
+        "NodeType" => list(any())
+      }
+
+  """
+  @type node_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_strategy_options_status() :: %{
+        "Options" => deployment_strategy_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type deployment_strategy_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorize_vpc_endpoint_access_request() :: %{
+        optional("Account") => String.t() | atom(),
+        optional("Service") => list(any()),
+        optional("ServiceOptions") => service_options()
+      }
+
+  """
+  @type authorize_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_error() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type migration_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upgrade_history() :: %{
+        "StartTimestamp" => non_neg_integer(),
+        "StepsList" => list(upgrade_step_item()),
+        "UpgradeName" => String.t() | atom(),
+        "UpgradeStatus" => list(any())
+      }
+
+  """
+  @type upgrade_history() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dry_run_results() :: %{
+        "DeploymentType" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type dry_run_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_endpoint_request() :: %{}
+
+  """
+  @type delete_vpc_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_migration_request() :: %{}
+
+  """
+  @type get_migration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      serverless_vector_acceleration() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type serverless_vector_acceleration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      base_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type base_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      version_status() :: %{
+        "Options" => String.t() | atom(),
+        "Status" => option_status()
+      }
+
+  """
+  @type version_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      natural_language_query_generation_options_input() :: %{
+        "DesiredState" => list(any())
+      }
+
+  """
+  @type natural_language_query_generation_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_action() :: %{
+        "Cancellable" => boolean(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Mandatory" => boolean(),
+        "ScheduledBy" => list(any()),
+        "ScheduledTime" => float(),
+        "Severity" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type scheduled_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_policies_status() :: %{
+        "Options" => String.t() | atom(),
+        "Status" => option_status()
+      }
+
+  """
+  @type access_policies_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_options() :: %{
+        "SupportedRegions" => list(String.t() | atom())
+      }
+
+  """
+  @type service_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_data_source_request() :: %{
+        required("DataSourceType") => list(),
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type add_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_tags_request() :: %{
+        required("ARN") => String.t() | atom(),
+        required("TagList") => list(tag())
+      }
+
+  """
+  @type add_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_request() :: %{}
+
+  """
+  @type get_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      modifying_properties() :: %{
+        "ActiveValue" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PendingValue" => String.t() | atom(),
+        "ValueType" => list(any())
+      }
+
+  """
+  @type modifying_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_ml_options_input() :: %{
+        "NaturalLanguageQueryGenerationOptions" => natural_language_query_generation_options_input(),
+        "S3VectorsEngine" => s3_vectors_engine(),
+        "ServerlessVectorAcceleration" => serverless_vector_acceleration()
+      }
+
+  """
+  @type a_i_ml_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_default_application_setting_request() :: %{
+        required("applicationArn") => String.t() | atom(),
+        required("setAsDefault") => boolean()
+      }
+
+  """
+  @type put_default_application_setting_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cross_cluster_search_connection_properties() :: %{
+        "SkipUnavailable" => list(any())
+      }
+
+  """
+  @type cross_cluster_search_connection_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_index_request() :: %{
+        required("IndexName") => String.t() | atom(),
+        required("IndexSchema") => any()
+      }
+
+  """
+  @type create_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_domain_maintenance_request() :: %{
+        required("Action") => list(any()),
+        optional("NodeId") => String.t() | atom()
+      }
+
+  """
+  @type start_domain_maintenance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_vpc_endpoints_response() :: %{
+        "VpcEndpointErrors" => list(vpc_endpoint_error()),
+        "VpcEndpoints" => list(vpc_endpoint())
+      }
+
+  """
+  @type describe_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_security_options_input() :: %{
+        "AnonymousAuthEnabled" => boolean(),
+        "Enabled" => boolean(),
+        "IAMFederationOptions" => iam_federation_options_input(),
+        "InternalUserDatabaseEnabled" => boolean(),
+        "JWTOptions" => j_w_t_options_input(),
+        "MasterUserOptions" => master_user_options(),
+        "SAMLOptions" => saml_options_input()
+      }
+
+  """
+  @type advanced_security_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sources_response() :: %{
+        "DataSources" => list(data_source_details())
+      }
+
+  """
+  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3636,6 +3298,55 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      describe_dry_run_progress_request() :: %{
+        optional("DryRunId") => String.t() | atom(),
+        optional("LoadDryRunConfig") => boolean()
+      }
+
+  """
+  @type describe_dry_run_progress_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_response() :: %{
+        "TagList" => list(tag())
+      }
+
+  """
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tune_maintenance_schedule() :: %{
+        "CronExpressionForRecurrence" => String.t() | atom(),
+        "Duration" => duration(),
+        "StartAt" => non_neg_integer()
+      }
+
+  """
+  @type auto_tune_maintenance_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_service_software_update_request() :: %{
+        optional("DesiredStartTime") => float(),
+        required("DomainName") => String.t() | atom(),
+        optional("ScheduleAt") => list(any())
+      }
+
+  """
+  @type start_service_software_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       advanced_options_status() :: %{
         "Options" => map(),
         "Status" => option_status()
@@ -3648,48 +3359,588 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      create_index_response() :: %{
+      instance_count_limits() :: %{
+        "MaximumInstanceCount" => integer(),
+        "MinimumInstanceCount" => integer()
+      }
+
+  """
+  @type instance_count_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type dependency_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_package_request() :: %{
+        optional("AssociationConfiguration") => package_association_configuration(),
+        optional("PrerequisitePackageIDList") => list(String.t() | atom())
+      }
+
+  """
+  @type associate_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_details() :: %{
+        "DataSourceType" => list(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type create_index_response() :: %{(String.t() | atom()) => any()}
+  @type data_source_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_policies_status() :: %{
-        "Options" => String.t() | atom(),
+      saml_options_output() :: %{
+        "Enabled" => boolean(),
+        "Idp" => saml_idp(),
+        "RolesKey" => String.t() | atom(),
+        "SessionTimeoutMinutes" => integer(),
+        "SubjectKey" => String.t() | atom()
+      }
+
+  """
+  @type saml_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_encryption_options() :: %{
+        "EncryptionEnabled" => boolean(),
+        "KmsKeyIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type package_encryption_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_maintenance_status_response() :: %{
+        "Action" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "NodeId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_domain_maintenance_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_version_history_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PackageID" => String.t() | atom(),
+        "PackageVersionHistoryList" => list(package_version_history())
+      }
+
+  """
+  @type get_package_version_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tune_options_status() :: %{
+        "Options" => auto_tune_options(),
+        "Status" => auto_tune_status()
+      }
+
+  """
+  @type auto_tune_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_inbound_connections_response() :: %{
+        "Connections" => list(inbound_connection()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_inbound_connections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_response() :: %{
+        "appConfigs" => list(app_config()),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dataSources" => list(data_source()),
+        "iamIdentityCenterOptions" => iam_identity_center_options(),
+        "id" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "tagList" => list(tag())
+      }
+
+  """
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_identity_center_options() :: %{
+        "enabled" => boolean(),
+        "iamIdentityCenterApplicationArn" => String.t() | atom(),
+        "iamIdentityCenterInstanceArn" => String.t() | atom(),
+        "iamRoleForIdentityCenterApplicationArn" => String.t() | atom()
+      }
+
+  """
+  @type iam_identity_center_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upgrade_domain_request() :: %{
+        optional("AdvancedOptions") => map(),
+        required("DomainName") => String.t() | atom(),
+        optional("PerformCheckOnly") => boolean(),
+        required("TargetVersion") => String.t() | atom()
+      }
+
+  """
+  @type upgrade_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_capability_request() :: %{
+        required("capabilityConfig") => list(),
+        required("capabilityName") => String.t() | atom()
+      }
+
+  """
+  @type register_capability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_failure() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_compatible_versions_request() :: %{
+        optional("DomainName") => String.t() | atom()
+      }
+
+  """
+  @type get_compatible_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_capability_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "capabilityConfig" => list(),
+        "capabilityName" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type register_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snapshot_options_status() :: %{
+        "Options" => snapshot_options(),
         "Status" => option_status()
       }
 
   """
-  @type access_policies_status() :: %{(String.t() | atom()) => any()}
+  @type snapshot_options_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reserved_instance() :: %{
-        "BillingSubscriptionId" => float(),
-        "CurrencyCode" => String.t() | atom(),
-        "Duration" => integer(),
-        "FixedPrice" => float(),
-        "InstanceCount" => integer(),
-        "InstanceType" => list(any()),
-        "PaymentOption" => list(any()),
-        "RecurringCharges" => list(recurring_charge()),
-        "ReservationName" => String.t() | atom(),
-        "ReservedInstanceId" => String.t() | atom(),
-        "ReservedInstanceOfferingId" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "State" => String.t() | atom(),
-        "UsagePrice" => float()
+      package_source() :: %{
+        "S3BucketName" => String.t() | atom(),
+        "S3Key" => String.t() | atom()
       }
 
   """
-  @type reserved_instance() :: %{(String.t() | atom()) => any()}
+  @type package_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_index_request() :: %{}
+
+  """
+  @type get_index_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_migrations_response() :: %{
+        "migrations" => list(migration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_migrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_default_application_setting_response() :: %{
+        "applicationArn" => String.t() | atom()
+      }
+
+  """
+  @type put_default_application_setting_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_change_progress_request() :: %{
+        optional("ChangeId") => String.t() | atom()
+      }
+
+  """
+  @type describe_domain_change_progress_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_type() :: %{
+        "StorageSubTypeName" => String.t() | atom(),
+        "StorageTypeLimits" => list(storage_type_limit()),
+        "StorageTypeName" => String.t() | atom()
+      }
+
+  """
+  @type storage_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_to_node_encryption_options() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type node_to_node_encryption_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_data_source_attachment_request() :: %{
+        required("dataSourceArn") => String.t() | atom()
+      }
+
+  """
+  @type describe_data_source_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_service_software_options() :: %{
+        "CurrentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "NewVersion" => String.t() | atom(),
+        "RollbackAvailable" => boolean()
+      }
+
+  """
+  @type rollback_service_software_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      availability_zone_info() :: %{
+        "AvailabilityZoneName" => String.t() | atom(),
+        "AvailableDataNodeCount" => String.t() | atom(),
+        "ConfiguredDataNodeCount" => String.t() | atom(),
+        "TotalShards" => String.t() | atom(),
+        "TotalUnAssignedShards" => String.t() | atom(),
+        "ZoneStatus" => list(any())
+      }
+
+  """
+  @type availability_zone_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_details() :: %{
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom()
+      }
+
+  """
+  @type error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_status() :: %{
+        "OffPeakWindowOptions" => off_peak_window_options(),
+        "UseCase" => list(any()),
+        "EngineVersion" => String.t() | atom(),
+        "Endpoints" => map(),
+        "SnapshotOptions" => snapshot_options(),
+        "AutoTuneOptions" => auto_tune_options_output(),
+        "AdvancedSecurityOptions" => advanced_security_options(),
+        "ModifyingProperties" => list(modifying_properties()),
+        "UpgradeProcessing" => boolean(),
+        "DomainEndpointOptions" => domain_endpoint_options(),
+        "DomainEndpointV2HostedZoneId" => String.t() | atom(),
+        "ServiceSoftwareOptions" => service_software_options(),
+        "EBSOptions" => ebs_options(),
+        "DomainProcessingStatus" => list(any()),
+        "DeploymentStrategyOptions" => deployment_strategy_options(),
+        "EngineMode" => list(any()),
+        "AdvancedOptions" => map(),
+        "Deleted" => boolean(),
+        "ChangeProgressDetails" => change_progress_details(),
+        "EncryptionAtRestOptions" => encryption_at_rest_options(),
+        "DomainName" => String.t() | atom(),
+        "Created" => boolean(),
+        "NodeToNodeEncryptionOptions" => node_to_node_encryption_options(),
+        "SoftwareUpdateOptions" => software_update_options(),
+        "LogPublishingOptions" => map(),
+        "AIMLOptions" => a_i_ml_options_output(),
+        "EndpointV2" => String.t() | atom(),
+        "ClusterConfig" => cluster_config(),
+        "AccessPolicies" => String.t() | atom(),
+        "VPCOptions" => vpc_derived_info(),
+        "CognitoOptions" => cognito_options(),
+        "IdentityCenterOptions" => identity_center_options(),
+        "DomainId" => String.t() | atom(),
+        "ARN" => String.t() | atom(),
+        "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options(),
+        "Processing" => boolean(),
+        "IPAddressType" => list(any()),
+        "Endpoint" => String.t() | atom()
+      }
+
+  """
+  @type domain_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_ml_options_status() :: %{
+        "Options" => a_i_ml_options_output(),
+        "Status" => option_status()
+      }
+
+  """
+  @type a_i_ml_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_source() :: %{
+        "datasourceArn" => String.t() | atom()
+      }
+
+  """
+  @type migration_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_migrations_request() :: %{
+        required("applicationId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_migrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_instance_type_limits_response() :: %{
+        "LimitsByRole" => map()
+      }
+
+  """
+  @type describe_instance_type_limits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_outbound_connections_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_outbound_connections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_response() :: %{
+        "DomainStatus" => domain_status()
+      }
+
+  """
+  @type create_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_config_request() :: %{}
+
+  """
+  @type describe_domain_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dissociate_package_response() :: %{
+        "DomainPackageDetails" => domain_package_details()
+      }
+
+  """
+  @type dissociate_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_domain_maintenance_response() :: %{
+        "MaintenanceId" => String.t() | atom()
+      }
+
+  """
+  @type start_domain_maintenance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_insight_details_response() :: %{
+        "Fields" => list(insight_field())
+      }
+
+  """
+  @type describe_insight_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cold_storage_options() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type cold_storage_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_mode_status() :: %{
+        "Options" => list(any()),
+        "Status" => option_status()
+      }
+
+  """
+  @type engine_mode_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_health_request() :: %{}
+
+  """
+  @type describe_domain_health_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_request() :: %{
+        optional("appConfigs") => list(app_config()),
+        optional("dataSources") => list(data_source()),
+        optional("iamIdentityCenterOptions") => iam_identity_center_options_input()
+      }
+
+  """
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3710,33 +3961,352 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      get_direct_query_data_source_request() :: %{}
+      vpc_derived_info_status() :: %{
+        "Options" => vpc_derived_info(),
+        "Status" => option_status()
+      }
 
   """
-  @type get_direct_query_data_source_request() :: %{}
+  @type vpc_derived_info_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_already_exists_exception() :: %{
+      update_vpc_endpoint_request() :: %{
+        required("VpcEndpointId") => String.t() | atom(),
+        required("VpcOptions") => vpc_options()
+      }
+
+  """
+  @type update_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_maintenance_status_request() :: %{
+        required("MaintenanceId") => String.t() | atom()
+      }
+
+  """
+  @type get_domain_maintenance_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_workspace() :: %{
+        "createWorkspace" => boolean(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "workspaceId" => String.t() | atom()
+      }
+
+  """
+  @type migration_workspace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_endpoints_for_domain_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
+      }
+
+  """
+  @type list_vpc_endpoints_for_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_data_source_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type add_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scheduled_action_request() :: %{
+        required("ActionID") => String.t() | atom(),
+        required("ActionType") => list(any()),
+        optional("DesiredStartTime") => float(),
+        required("ScheduleAt") => list(any())
+      }
+
+  """
+  @type update_scheduled_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_ml_options_output() :: %{
+        "NaturalLanguageQueryGenerationOptions" => natural_language_query_generation_options_output(),
+        "S3VectorsEngine" => s3_vectors_engine(),
+        "ServerlessVectorAcceleration" => serverless_vector_acceleration()
+      }
+
+  """
+  @type a_i_ml_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detach_data_source_response() :: %{
+        "arn" => String.t() | atom(),
+        "dataSourceArn" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type detach_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_config() :: %{
+        "key" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type app_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_vpc_endpoint_access_request() :: %{
+        optional("Account") => String.t() | atom(),
+        optional("Service") => list(any()),
+        optional("ServiceOptions") => service_options()
+      }
+
+  """
+  @type revoke_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_index_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type create_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_packages_for_domain_response() :: %{
+        "DomainPackageDetailsList" => list(domain_package_details()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_packages_for_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_default_application_setting_request() :: %{
-        required("applicationArn") => String.t() | atom(),
-        required("setAsDefault") => boolean()
+      update_data_source_request() :: %{
+        required("DataSourceType") => list(),
+        optional("Description") => String.t() | atom(),
+        optional("Status") => list(any())
       }
 
   """
-  @type put_default_application_setting_request() :: %{(String.t() | atom()) => any()}
+  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_lake_direct_query_data_source() :: %{
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type security_lake_direct_query_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_for_package_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domains_for_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_auto_tune_details() :: %{
+        "Action" => String.t() | atom(),
+        "ActionType" => list(any()),
+        "Date" => non_neg_integer(),
+        "Severity" => list(any())
+      }
+
+  """
+  @type scheduled_auto_tune_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      saved_object_identifier() :: %{
+        "id" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type saved_object_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_to_node_encryption_options_status() :: %{
+        "Options" => node_to_node_encryption_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type node_to_node_encryption_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_direct_query_data_source_request() :: %{
+        optional("DataSourceAccessPolicy") => String.t() | atom(),
+        required("DataSourceName") => String.t() | atom(),
+        required("DataSourceType") => list(),
+        optional("Description") => String.t() | atom(),
+        optional("OpenSearchArns") => list(String.t() | atom()),
+        optional("TagList") => list(tag())
+      }
+
+  """
+  @type add_direct_query_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upgrade_history_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_upgrade_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_endpoint_access_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_vpc_endpoint_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_maintenances_request() :: %{
+        optional("Action") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_domain_maintenances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compatible_versions_map() :: %{
+        "SourceVersion" => String.t() | atom(),
+        "TargetVersions" => list(String.t() | atom())
+      }
+
+  """
+  @type compatible_versions_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capability_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "capabilityConfig" => list(),
+        "capabilityName" => String.t() | atom(),
+        "failures" => list(capability_failure()),
+        "status" => list(any())
+      }
+
+  """
+  @type get_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_progress_stage() :: %{
+        "Description" => String.t() | atom(),
+        "LastUpdated" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type change_progress_stage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dissociate_packages_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("PackageList") => list(String.t() | atom())
+      }
+
+  """
+  @type dissociate_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3755,13 +4325,290 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      update_vpc_endpoint_request() :: %{
-        required("VpcEndpointId") => String.t() | atom(),
-        required("VpcOptions") => vpc_options()
+      update_index_request() :: %{
+        required("IndexSchema") => any()
       }
 
   """
-  @type update_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
+  @type update_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_inbound_connection_request() :: %{}
+
+  """
+  @type reject_inbound_connection_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      use_case_status() :: %{
+        "Options" => list(any()),
+        "Status" => option_status()
+      }
+
+  """
+  @type use_case_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_service_software_update_request() :: %{
+        required("DomainName") => String.t() | atom()
+      }
+
+  """
+  @type rollback_service_software_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_version_history_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_package_version_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      zone_awareness_config() :: %{
+        "AvailabilityZoneCount" => integer()
+      }
+
+  """
+  @type zone_awareness_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disabled_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type disabled_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cognito_options_status() :: %{
+        "Options" => cognito_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type cognito_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_inbound_connections_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_inbound_connections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_data_source_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("dataSourceArn") => String.t() | atom(),
+        optional("workspaceConfiguration") => workspace_configuration_input(),
+        optional("workspaceId") => String.t() | atom()
+      }
+
+  """
+  @type attach_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_endpoints_for_domain_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_vpc_endpoints_for_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_response() :: %{
+        "appConfigs" => list(app_config()),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dataSources" => list(data_source()),
+        "iamIdentityCenterOptions" => iam_identity_center_options(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attach_data_source_response() :: %{
+        "arn" => String.t() | atom(),
+        "attachmentId" => String.t() | atom(),
+        "dataSourceArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type attach_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_outbound_connection_request() :: %{}
+
+  """
+  @type delete_outbound_connection_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_index_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type update_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_insight_details_request() :: %{
+        required("Entity") => insight_entity(),
+        required("InsightId") => String.t() | atom(),
+        optional("ShowHtmlContent") => boolean()
+      }
+
+  """
+  @type describe_insight_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capability_request() :: %{}
+
+  """
+  @type get_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      application_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "endpoint" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type application_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_info() :: %{
+        "AvailabilityZoneInformation" => list(availability_zone_info())
+      }
+
+  """
+  @type environment_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domains_request() :: %{
+        required("DomainNames") => list(String.t() | atom())
+      }
+
+  """
+  @type describe_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_at_rest_options() :: %{
+        "Enabled" => boolean(),
+        "KmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type encryption_at_rest_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dry_run_progress_response() :: %{
+        "DryRunConfig" => domain_status(),
+        "DryRunProgressStatus" => dry_run_progress_status(),
+        "DryRunResults" => dry_run_results()
+      }
+
+  """
+  @type describe_dry_run_progress_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_capability_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type deregister_capability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3779,1074 +4626,701 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      associate_packages_request() :: %{
-        required("DomainName") => String.t() | atom(),
-        required("PackageList") => list(package_details_for_association())
+      cancelled_change_property() :: %{
+        "ActiveValue" => String.t() | atom(),
+        "CancelledValue" => String.t() | atom(),
+        "PropertyName" => String.t() | atom()
       }
 
   """
-  @type associate_packages_request() :: %{(String.t() | atom()) => any()}
+  @type cancelled_change_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      insight() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DisplayName" => String.t() | atom(),
-        "InsightId" => String.t() | atom(),
-        "IsExperimental" => boolean(),
-        "Priority" => list(any()),
-        "Status" => list(any()),
-        "Type" => list(any()),
-        "UpdateTime" => non_neg_integer()
+      window_start_time() :: %{
+        "Hours" => float(),
+        "Minutes" => float()
       }
 
   """
-  @type insight() :: %{(String.t() | atom()) => any()}
+  @type window_start_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_domain_maintenances_response() :: %{
-        "DomainMaintenances" => list(domain_maintenance_details()),
-        "NextToken" => String.t() | atom()
+      detach_data_source_request() :: %{
+        required("dataSourceArn") => String.t() | atom()
       }
 
   """
-  @type list_domain_maintenances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_request() :: %{
-        required("ARN") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_service_software_update_response() :: %{
-        "ServiceSoftwareOptions" => service_software_options()
-      }
-
-  """
-  @type cancel_service_software_update_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_tune() :: %{
-        "AutoTuneDetails" => auto_tune_details(),
-        "AutoTuneType" => list(any())
-      }
-
-  """
-  @type auto_tune() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_reserved_instance_offering_request() :: %{
-        optional("InstanceCount") => integer(),
-        required("ReservationName") => String.t() | atom(),
-        required("ReservedInstanceOfferingId") => String.t() | atom()
-      }
-
-  """
-  @type purchase_reserved_instance_offering_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_index_response() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type update_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_packages_request() :: %{
-        optional("Filters") => list(describe_packages_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_packages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cross_cluster_search_connection_properties() :: %{
-        "SkipUnavailable" => list(any())
-      }
-
-  """
-  @type cross_cluster_search_connection_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upgrade_step_item() :: %{
-        "Issues" => list(String.t() | atom()),
-        "ProgressPercent" => float(),
-        "UpgradeStep" => list(any()),
-        "UpgradeStepStatus" => list(any())
-      }
-
-  """
-  @type upgrade_step_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_publishing_option() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "Enabled" => boolean()
-      }
-
-  """
-  @type log_publishing_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_direct_query_data_source_response() :: %{
-        "DataSourceArn" => String.t() | atom()
-      }
-
-  """
-  @type add_direct_query_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vpc_endpoint_access_response() :: %{
-        "AuthorizedPrincipalList" => list(authorized_principal()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_vpc_endpoint_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_response() :: %{
-        "DataSourceType" => list(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_instance_type_details_response() :: %{
-        "InstanceTypeDetails" => list(instance_type_details()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_instance_type_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_request() :: %{}
-
-  """
-  @type get_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_index_request() :: %{}
-
-  """
-  @type get_index_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_endpoint_error() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "VpcEndpointId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_endpoint_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_upgrade_status_response() :: %{
-        "StepStatus" => list(any()),
-        "UpgradeName" => String.t() | atom(),
-        "UpgradeStep" => list(any())
-      }
-
-  """
-  @type get_upgrade_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_endpoint_options() :: %{
-        "CustomEndpoint" => String.t() | atom(),
-        "CustomEndpointCertificateArn" => String.t() | atom(),
-        "CustomEndpointEnabled" => boolean(),
-        "EnforceHTTPS" => boolean(),
-        "TLSSecurityPolicy" => list(any())
-      }
-
-  """
-  @type domain_endpoint_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rollback_service_software_update_request() :: %{
-        required("DomainName") => String.t() | atom()
-      }
-
-  """
-  @type rollback_service_software_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_direct_query_data_source_response() :: %{
-        "DataSourceArn" => String.t() | atom()
-      }
-
-  """
-  @type update_direct_query_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_capability_request() :: %{}
-
-  """
-  @type get_capability_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_package_response() :: %{
-        "DomainPackageDetails" => domain_package_details()
-      }
-
-  """
-  @type associate_package_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      serverless_vector_acceleration() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type serverless_vector_acceleration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_at_rest_options_status() :: %{
-        "Options" => encryption_at_rest_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type encryption_at_rest_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_information_container() :: %{
-        "AWSDomainInformation" => aws_domain_information()
-      }
-
-  """
-  @type domain_information_container() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_count_limits() :: %{
-        "MaximumInstanceCount" => integer(),
-        "MinimumInstanceCount" => integer()
-      }
-
-  """
-  @type instance_count_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_nodes_response() :: %{
-        "DomainNodesStatusList" => list(domain_nodes_status())
-      }
-
-  """
-  @type describe_domain_nodes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      revoke_vpc_endpoint_access_response() :: %{}
-
-  """
-  @type revoke_vpc_endpoint_access_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      software_update_options_status() :: %{
-        "Options" => software_update_options(),
-        "Status" => option_status()
-      }
-
-  """
-  @type software_update_options_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      off_peak_window() :: %{
-        "WindowStartTime" => window_start_time()
-      }
-
-  """
-  @type off_peak_window() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_request() :: %{}
-
-  """
-  @type delete_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_for_package_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domains_for_package_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_index_response() :: %{
-        "IndexSchema" => any()
-      }
-
-  """
-  @type get_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_pagination_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_compatible_versions_response() :: %{
-        "CompatibleVersions" => list(compatible_versions_map())
-      }
-
-  """
-  @type get_compatible_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dissociate_packages_request() :: %{
-        required("DomainName") => String.t() | atom(),
-        required("PackageList") => list(String.t() | atom())
-      }
-
-  """
-  @type dissociate_packages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      master_user_options() :: %{
-        "MasterUserARN" => String.t() | atom(),
-        "MasterUserName" => String.t() | atom(),
-        "MasterUserPassword" => String.t() | atom()
-      }
-
-  """
-  @type master_user_options() :: %{(String.t() | atom()) => any()}
+  @type detach_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @type accept_inbound_connection_errors() ::
-          limit_exceeded_exception()
+          disabled_operation_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type add_data_source_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
-          | internal_exception()
           | dependency_failure_exception()
+          | base_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type add_direct_query_data_source_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type add_tags_errors() ::
-          limit_exceeded_exception()
+          validation_exception()
           | base_exception()
-          | validation_exception()
           | internal_exception()
+          | limit_exceeded_exception()
 
   @type associate_package_errors() ::
-          base_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | base_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type associate_packages_errors() ::
-          base_exception()
+          disabled_operation_exception()
+          | validation_exception()
+          | base_exception()
+          | internal_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+
+  @type attach_data_source_errors() ::
+          disabled_operation_exception()
+          | access_denied_exception()
           | validation_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
-          | disabled_operation_exception()
+          | resource_not_found_exception()
 
   @type authorize_vpc_endpoint_access_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type cancel_domain_config_change_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type cancel_service_software_update_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type create_application_errors() ::
-          base_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
+          | base_exception()
           | internal_exception()
           | conflict_exception()
-          | disabled_operation_exception()
 
   @type create_domain_errors() ::
-          resource_already_exists_exception()
-          | limit_exceeded_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
+          | resource_already_exists_exception()
+          | limit_exceeded_exception()
           | invalid_type_exception()
-          | disabled_operation_exception()
 
   @type create_index_errors() ::
-          resource_already_exists_exception()
-          | throttling_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
-          | internal_exception()
+          | validation_exception()
           | dependency_failure_exception()
+          | internal_exception()
+          | resource_already_exists_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | throttling_exception()
 
   @type create_outbound_connection_errors() ::
-          resource_already_exists_exception()
-          | limit_exceeded_exception()
+          disabled_operation_exception()
           | internal_exception()
-          | disabled_operation_exception()
+          | resource_already_exists_exception()
+          | limit_exceeded_exception()
 
   @type create_package_errors() ::
-          resource_already_exists_exception()
-          | limit_exceeded_exception()
-          | base_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | base_exception()
           | internal_exception()
+          | resource_already_exists_exception()
+          | limit_exceeded_exception()
           | invalid_type_exception()
 
   @type create_vpc_endpoint_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | conflict_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type delete_application_errors() ::
-          base_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
+          | base_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
-          | disabled_operation_exception()
+          | resource_not_found_exception()
 
   @type delete_data_source_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
-          | internal_exception()
           | dependency_failure_exception()
+          | base_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type delete_direct_query_data_source_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type delete_domain_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type delete_inbound_connection_errors() ::
-          resource_not_found_exception() | disabled_operation_exception()
+          disabled_operation_exception() | resource_not_found_exception()
 
   @type delete_index_errors() ::
-          throttling_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
-          | internal_exception()
+          | validation_exception()
           | dependency_failure_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | throttling_exception()
 
   @type delete_outbound_connection_errors() ::
-          resource_not_found_exception() | disabled_operation_exception()
+          disabled_operation_exception() | resource_not_found_exception()
 
   @type delete_package_errors() ::
-          base_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | base_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_vpc_endpoint_errors() ::
-          base_exception()
+          disabled_operation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type deregister_capability_errors() ::
-          validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
+          | internal_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+
+  @type describe_data_source_attachment_errors() ::
+          disabled_operation_exception()
+          | access_denied_exception()
+          | validation_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | conflict_exception()
-          | disabled_operation_exception()
 
   @type describe_domain_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type describe_domain_auto_tunes_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type describe_domain_change_progress_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type describe_domain_config_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type describe_domain_health_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type describe_domain_nodes_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
-          | internal_exception()
           | dependency_failure_exception()
+          | base_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type describe_domains_errors() ::
-          base_exception() | validation_exception() | internal_exception()
+          validation_exception() | base_exception() | internal_exception()
 
   @type describe_dry_run_progress_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type describe_inbound_connections_errors() ::
-          invalid_pagination_token_exception() | disabled_operation_exception()
+          disabled_operation_exception() | invalid_pagination_token_exception()
 
   @type describe_insight_details_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type describe_instance_type_limits_errors() ::
-          limit_exceeded_exception()
+          validation_exception()
           | base_exception()
-          | validation_exception()
           | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_type_exception()
 
   @type describe_outbound_connections_errors() ::
-          invalid_pagination_token_exception() | disabled_operation_exception()
+          disabled_operation_exception() | invalid_pagination_token_exception()
 
   @type describe_packages_errors() ::
-          base_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type describe_reserved_instance_offerings_errors() ::
-          validation_exception()
+          disabled_operation_exception()
+          | validation_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type describe_reserved_instances_errors() ::
-          validation_exception()
+          disabled_operation_exception()
+          | validation_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type describe_vpc_endpoints_errors() ::
-          base_exception()
+          disabled_operation_exception()
+          | validation_exception()
+          | base_exception()
+          | internal_exception()
+
+  @type detach_data_source_errors() ::
+          disabled_operation_exception()
+          | access_denied_exception()
           | validation_exception()
           | internal_exception()
-          | disabled_operation_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
 
   @type dissociate_package_errors() ::
-          base_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | base_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type dissociate_packages_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
-          | disabled_operation_exception()
+          | resource_not_found_exception()
 
   @type get_application_errors() ::
-          base_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type get_capability_errors() ::
-          validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type get_compatible_versions_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type get_data_source_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
-          | internal_exception()
           | dependency_failure_exception()
+          | base_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type get_default_application_setting_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | validation_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type get_direct_query_data_source_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type get_domain_maintenance_status_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type get_index_errors() ::
-          throttling_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
-          | internal_exception()
+          | validation_exception()
           | dependency_failure_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | throttling_exception()
+
+  @type get_migration_errors() ::
+          disabled_operation_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
 
   @type get_package_version_history_errors() ::
-          base_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type get_upgrade_history_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type get_upgrade_status_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+
+  @type insight_feedback_errors() ::
+          disabled_operation_exception()
+          | validation_exception()
+          | base_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type list_applications_errors() ::
-          base_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+
+  @type list_data_source_attachments_errors() ::
+          disabled_operation_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
 
   @type list_data_sources_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
-          | internal_exception()
           | dependency_failure_exception()
+          | base_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type list_direct_query_data_sources_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type list_domain_maintenances_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
-  @type list_domain_names_errors() :: base_exception() | validation_exception()
+  @type list_domain_names_errors() :: validation_exception() | base_exception()
 
   @type list_domains_for_package_errors() ::
-          base_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type list_insights_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type list_instance_type_details_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
-  @type list_packages_for_domain_errors() ::
-          base_exception()
-          | validation_exception()
+  @type list_migrations_errors() ::
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
+          | internal_exception()
+
+  @type list_packages_for_domain_errors() ::
+          access_denied_exception()
+          | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type list_scheduled_actions_errors() ::
-          invalid_pagination_token_exception()
+          validation_exception()
           | base_exception()
-          | validation_exception()
+          | invalid_pagination_token_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type list_tags_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type list_versions_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type list_vpc_endpoint_access_errors() ::
-          base_exception()
+          disabled_operation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type list_vpc_endpoints_errors() ::
-          base_exception() | internal_exception() | disabled_operation_exception()
+          disabled_operation_exception() | base_exception() | internal_exception()
 
   @type list_vpc_endpoints_for_domain_errors() ::
-          base_exception()
+          disabled_operation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type purchase_reserved_instance_offering_errors() ::
-          resource_already_exists_exception()
-          | limit_exceeded_exception()
+          disabled_operation_exception()
           | validation_exception()
           | internal_exception()
+          | resource_already_exists_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type put_default_application_setting_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | validation_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type register_capability_errors() ::
-          validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
-          | disabled_operation_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
 
   @type reject_inbound_connection_errors() ::
-          resource_not_found_exception() | disabled_operation_exception()
+          disabled_operation_exception() | resource_not_found_exception()
 
-  @type remove_tags_errors() :: base_exception() | validation_exception() | internal_exception()
+  @type remove_tags_errors() :: validation_exception() | base_exception() | internal_exception()
 
   @type revoke_vpc_endpoint_access_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type rollback_service_software_update_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type start_domain_maintenance_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+
+  @type start_migration_errors() ::
+          disabled_operation_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
 
   @type start_service_software_update_errors() ::
-          base_exception()
-          | validation_exception()
+          validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
 
   @type update_application_errors() ::
-          base_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
+          | validation_exception()
+          | base_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
-          | disabled_operation_exception()
+          | resource_not_found_exception()
 
   @type update_data_source_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
-          | internal_exception()
           | dependency_failure_exception()
+          | base_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type update_direct_query_data_source_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | limit_exceeded_exception()
 
   @type update_domain_config_errors() ::
-          limit_exceeded_exception()
+          validation_exception()
           | base_exception()
-          | validation_exception()
           | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_type_exception()
 
   @type update_index_errors() ::
-          throttling_exception()
-          | validation_exception()
+          disabled_operation_exception()
           | access_denied_exception()
-          | internal_exception()
+          | validation_exception()
           | dependency_failure_exception()
+          | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
+          | throttling_exception()
 
   @type update_package_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          access_denied_exception()
           | validation_exception()
-          | access_denied_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type update_package_scope_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type update_scheduled_action_errors() ::
-          limit_exceeded_exception()
+          validation_exception()
           | base_exception()
-          | validation_exception()
-          | slot_not_available_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | slot_not_available_exception()
 
   @type update_vpc_endpoint_errors() ::
-          base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
-          | disabled_operation_exception()
+          | resource_not_found_exception()
 
   @type upgrade_domain_errors() ::
-          resource_already_exists_exception()
-          | base_exception()
+          disabled_operation_exception()
           | validation_exception()
+          | base_exception()
           | internal_exception()
+          | resource_already_exists_exception()
           | resource_not_found_exception()
-          | disabled_operation_exception()
 
   def metadata do
     %{
@@ -5019,7 +5493,7 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, associate_package_errors()}
-  def associate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
+  def associate_package(%Client{} = client, package_id, domain_name, input, options \\ []) do
     url_path =
       "/2021-01-01/packages/associate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -5054,6 +5528,45 @@ defmodule AWS.OpenSearch do
           | {:error, associate_packages_errors()}
   def associate_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/associateMultiple"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Attaches a data source to an OpenSearch application.
+
+  The data source can be an Amazon OpenSearch Service domain or an Amazon
+  OpenSearch Serverless collection. If both the application and data source are in
+  the `ACTIVE` state, the attachment completes immediately and returns a status of
+  `ATTACHED`. If either resource is not yet active, the operation stores the
+  request and returns a status of `PENDING`. A background process then completes
+  the attachment when both resources become active. Pending attachments that are
+  not completed within 24 hours are marked as `FAILED`. This operation is
+  idempotent. If a data source is already attached or pending for the same
+  application, the existing attachment is returned.
+  """
+  @spec attach_data_source(map(), String.t() | atom(), attach_data_source_request(), list()) ::
+          {:ok, attach_data_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, attach_data_source_errors()}
+  def attach_data_source(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}/attachDataSource"
     headers = []
     custom_headers = []
     query_params = []
@@ -5423,7 +5936,7 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_data_source_errors()}
-  def delete_data_source(%Client{} = client, domain_name, name, input, options \\ []) do
+  def delete_data_source(%Client{} = client, name, domain_name, input, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
 
@@ -5569,7 +6082,7 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_index_errors()}
-  def delete_index(%Client{} = client, domain_name, index_name, input, options \\ []) do
+  def delete_index(%Client{} = client, index_name, domain_name, input, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/index/#{AWS.Util.encode_uri(index_name)}"
 
@@ -5710,8 +6223,8 @@ defmodule AWS.OpenSearch do
           | {:error, deregister_capability_errors()}
   def deregister_capability(
         %Client{} = client,
-        application_id,
         capability_name,
+        application_id,
         input,
         options \\ []
       ) do
@@ -5728,6 +6241,46 @@ defmodule AWS.OpenSearch do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the current status and details of a specific data source attachment for
+  an OpenSearch application.
+
+  Throws a `ResourceNotFoundException` if no attachment record exists for the
+  specified application and data source combination.
+  """
+  @spec describe_data_source_attachment(
+          map(),
+          String.t() | atom(),
+          describe_data_source_attachment_request(),
+          list()
+        ) ::
+          {:ok, describe_data_source_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_data_source_attachment_errors()}
+  def describe_data_source_attachment(%Client{} = client, id, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}/describeDataSourceAttachment"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -5779,8 +6332,8 @@ defmodule AWS.OpenSearch do
   def describe_domain_auto_tunes(
         %Client{} = client,
         domain_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
@@ -5788,15 +6341,15 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5954,8 +6507,8 @@ defmodule AWS.OpenSearch do
   def describe_dry_run_progress(
         %Client{} = client,
         domain_name,
-        dry_run_id \\ nil,
         load_dry_run_config \\ nil,
+        dry_run_id \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dryRun"
@@ -5963,15 +6516,15 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(load_dry_run_config) do
-        [{"loadDryRunConfig", load_dry_run_config} | query_params]
+      if !is_nil(dry_run_id) do
+        [{"dryRunId", dry_run_id} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(dry_run_id) do
-        [{"dryRunId", dry_run_id} | query_params]
+      if !is_nil(load_dry_run_config) do
+        [{"loadDryRunConfig", load_dry_run_config} | query_params]
       else
         query_params
       end
@@ -6066,8 +6619,8 @@ defmodule AWS.OpenSearch do
           | {:error, describe_instance_type_limits_errors()}
   def describe_instance_type_limits(
         %Client{} = client,
-        engine_version,
         instance_type,
+        engine_version,
         domain_name \\ nil,
         options \\ []
       ) do
@@ -6175,9 +6728,9 @@ defmodule AWS.OpenSearch do
           | {:error, describe_reserved_instance_offerings_errors()}
   def describe_reserved_instance_offerings(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         reserved_instance_offering_id \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/opensearch/reservedInstanceOfferings"
@@ -6185,8 +6738,8 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(reserved_instance_offering_id) do
-        [{"offeringId", reserved_instance_offering_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -6199,8 +6752,8 @@ defmodule AWS.OpenSearch do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(reserved_instance_offering_id) do
+        [{"offeringId", reserved_instance_offering_id} | query_params]
       else
         query_params
       end
@@ -6231,9 +6784,9 @@ defmodule AWS.OpenSearch do
           | {:error, describe_reserved_instances_errors()}
   def describe_reserved_instances(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         reserved_instance_id \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/opensearch/reservedInstances"
@@ -6241,8 +6794,8 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(reserved_instance_id) do
-        [{"reservationId", reserved_instance_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -6255,8 +6808,8 @@ defmodule AWS.OpenSearch do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(reserved_instance_id) do
+        [{"reservationId", reserved_instance_id} | query_params]
       else
         query_params
       end
@@ -6276,6 +6829,41 @@ defmodule AWS.OpenSearch do
           | {:error, describe_vpc_endpoints_errors()}
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/describe"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes a data source from an OpenSearch application.
+
+  The application must be in the `ACTIVE` state. This operation removes the data
+  source saved object from the application and deletes the attachment record.
+  Throws a `ConflictException` if the specified data source has a `PENDING`
+  attachment, and a `ResourceNotFoundException` if the data source is not
+  currently attached to the application.
+  """
+  @spec detach_data_source(map(), String.t() | atom(), detach_data_source_request(), list()) ::
+          {:ok, detach_data_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, detach_data_source_errors()}
+  def detach_data_source(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}/detachDataSource"
     headers = []
     custom_headers = []
     query_params = []
@@ -6317,7 +6905,7 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, dissociate_package_errors()}
-  def dissociate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
+  def dissociate_package(%Client{} = client, package_id, domain_name, input, options \\ []) do
     url_path =
       "/2021-01-01/packages/dissociate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -6396,7 +6984,7 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_capability_errors()}
-  def get_capability(%Client{} = client, application_id, capability_name, options \\ []) do
+  def get_capability(%Client{} = client, capability_name, application_id, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(application_id)}/capability/#{AWS.Util.encode_uri(capability_name)}"
 
@@ -6443,7 +7031,7 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_data_source_errors()}
-  def get_data_source(%Client{} = client, domain_name, name, options \\ []) do
+  def get_data_source(%Client{} = client, name, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
 
@@ -6542,10 +7130,30 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_index_errors()}
-  def get_index(%Client{} = client, domain_name, index_name, options \\ []) do
+  def get_index(%Client{} = client, index_name, domain_name, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/index/#{AWS.Util.encode_uri(index_name)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the current status and progress of a migration job, including the
+  number of exported and imported objects and error details if the migration
+  failed.
+  """
+  @spec get_migration(map(), String.t() | atom(), list()) ::
+          {:ok, get_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_migration_errors()}
+  def get_migration(%Client{} = client, migration_id, options \\ []) do
+    url_path = "/2021-01-01/opensearch/app-migrations/#{AWS.Util.encode_uri(migration_id)}"
     headers = []
     query_params = []
 
@@ -6578,8 +7186,8 @@ defmodule AWS.OpenSearch do
   def get_package_version_history(
         %Client{} = client,
         package_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}/history"
@@ -6587,15 +7195,15 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6624,8 +7232,8 @@ defmodule AWS.OpenSearch do
   def get_upgrade_history(
         %Client{} = client,
         domain_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/history"
@@ -6633,15 +7241,15 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6672,6 +7280,39 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Submits feedback for an existing insight in an Amazon OpenSearch Service domain.
+
+  Allows users to provide a thumbs up or thumbs down rating and optional text
+  feedback
+  for a specific insight.
+  """
+  @spec insight_feedback(map(), insight_feedback_request(), list()) ::
+          {:ok, insight_feedback_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, insight_feedback_errors()}
+  def insight_feedback(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/insight-feedback"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all OpenSearch applications under your account.
   """
   @spec list_applications(
@@ -6687,9 +7328,9 @@ defmodule AWS.OpenSearch do
           | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         statuses \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/opensearch/list-applications"
@@ -6697,8 +7338,8 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(statuses) do
-        [{"statuses", statuses} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -6711,8 +7352,8 @@ defmodule AWS.OpenSearch do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(statuses) do
+        [{"statuses", statuses} | query_params]
       else
         query_params
       end
@@ -6720,6 +7361,44 @@ defmodule AWS.OpenSearch do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a paginated list of all data source attachments for an OpenSearch
+  application, including attachments in all states (`PENDING`, `ATTACHED`, and
+  `FAILED`).
+  """
+  @spec list_data_source_attachments(
+          map(),
+          String.t() | atom(),
+          list_data_source_attachments_request(),
+          list()
+        ) ::
+          {:ok, list_data_source_attachments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_source_attachments_errors()}
+  def list_data_source_attachments(%Client{} = client, id, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}/listDataSourceAttachments"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6789,10 +7468,10 @@ defmodule AWS.OpenSearch do
   def list_domain_maintenances(
         %Client{} = client,
         domain_name,
-        action \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        action \\ nil,
         options \\ []
       ) do
     url_path =
@@ -6802,15 +7481,8 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(action) do
+        [{"action", action} | query_params]
       else
         query_params
       end
@@ -6823,8 +7495,15 @@ defmodule AWS.OpenSearch do
       end
 
     query_params =
-      if !is_nil(action) do
-        [{"action", action} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -6882,8 +7561,8 @@ defmodule AWS.OpenSearch do
   def list_domains_for_package(
         %Client{} = client,
         package_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}/domains"
@@ -6891,15 +7570,15 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6964,11 +7643,11 @@ defmodule AWS.OpenSearch do
   def list_instance_type_details(
         %Client{} = client,
         engine_version,
-        domain_name \\ nil,
-        instance_type \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         retrieve_a_zs \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        instance_type \\ nil,
+        domain_name \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/opensearch/instanceTypeDetails/#{AWS.Util.encode_uri(engine_version)}"
@@ -6976,22 +7655,8 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(retrieve_a_zs) do
-        [{"retrieveAZs", retrieve_a_zs} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(domain_name) do
+        [{"domainName", domain_name} | query_params]
       else
         query_params
       end
@@ -7004,8 +7669,85 @@ defmodule AWS.OpenSearch do
       end
 
     query_params =
-      if !is_nil(domain_name) do
-        [{"domainName", domain_name} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(retrieve_a_zs) do
+        [{"retrieveAZs", retrieve_a_zs} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists migration jobs for an Amazon OpenSearch Service application.
+
+  You can filter results by migration status. Use pagination to ensure that the
+  operation returns quickly and successfully.
+  """
+  @spec list_migrations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_migrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_migrations_errors()}
+  def list_migrations(
+        %Client{} = client,
+        status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        application_id,
+        options \\ []
+      ) do
+    url_path = "/2021-01-01/opensearch/app-migrations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(application_id) do
+        [{"applicationId", application_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -7036,8 +7778,8 @@ defmodule AWS.OpenSearch do
   def list_packages_for_domain(
         %Client{} = client,
         domain_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2021-01-01/domain/#{AWS.Util.encode_uri(domain_name)}/packages"
@@ -7045,15 +7787,15 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7085,8 +7827,8 @@ defmodule AWS.OpenSearch do
   def list_scheduled_actions(
         %Client{} = client,
         domain_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7096,15 +7838,15 @@ defmodule AWS.OpenSearch do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7153,21 +7895,21 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_versions_errors()}
-  def list_versions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_versions(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/2021-01-01/opensearch/versions"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7559,6 +8301,41 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Initiates a migration job to migrate saved objects from a data source to an
+  Amazon OpenSearch Service application workspace.
+
+  Saved objects include dashboards, visualizations, index patterns, and searches.
+  You can specify export filters to control the scope of the migration and a
+  conflict resolution strategy for handling existing objects in the target
+  workspace.
+  """
+  @spec start_migration(map(), start_migration_request(), list()) ::
+          {:ok, start_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_migration_errors()}
+  def start_migration(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/app-migrations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Schedules a service software update for an Amazon OpenSearch Service domain.
 
   For more
@@ -7637,7 +8414,7 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_data_source_errors()}
-  def update_data_source(%Client{} = client, domain_name, name, input, options \\ []) do
+  def update_data_source(%Client{} = client, name, domain_name, input, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
 
@@ -7747,7 +8524,7 @@ defmodule AWS.OpenSearch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_index_errors()}
-  def update_index(%Client{} = client, domain_name, index_name, input, options \\ []) do
+  def update_index(%Client{} = client, index_name, domain_name, input, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/index/#{AWS.Util.encode_uri(index_name)}"
 

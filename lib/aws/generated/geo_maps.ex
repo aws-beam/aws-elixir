@@ -34,120 +34,23 @@ defmodule AWS.GeoMaps do
 
   ## Example:
 
-      access_denied_exception() :: %{
+      resource_not_found_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_glyphs_request() :: %{}
-
-  """
-  @type get_glyphs_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_glyphs_response() :: %{
-        "Blob" => [binary()],
-        "CacheControl" => [String.t() | atom()],
-        "ContentType" => [String.t() | atom()],
-        "ETag" => [String.t() | atom()]
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type get_glyphs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sprites_request() :: %{}
-
-  """
-  @type get_sprites_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sprites_response() :: %{
-        "Blob" => [binary()],
-        "CacheControl" => [String.t() | atom()],
-        "ContentType" => [String.t() | atom()],
-        "ETag" => [String.t() | atom()]
-      }
-
-  """
-  @type get_sprites_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_static_map_request() :: %{
-        optional("BoundedPositions") => String.t() | atom(),
-        optional("BoundingBox") => String.t() | atom(),
-        optional("Center") => String.t() | atom(),
-        optional("ColorScheme") => String.t() | atom(),
-        optional("CompactOverlay") => String.t() | atom(),
-        optional("CropLabels") => [boolean()],
-        optional("GeoJsonOverlay") => String.t() | atom(),
-        optional("Key") => String.t() | atom(),
-        optional("LabelSize") => String.t() | atom(),
-        optional("Language") => String.t() | atom(),
-        optional("Padding") => integer(),
-        optional("PointsOfInterests") => String.t() | atom(),
-        optional("PoliticalView") => String.t() | atom(),
-        optional("Radius") => float(),
-        optional("ScaleBarUnit") => String.t() | atom(),
-        optional("Style") => String.t() | atom(),
-        optional("Zoom") => float(),
-        required("Height") => integer(),
-        required("Width") => integer()
-      }
-
-  """
-  @type get_static_map_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_static_map_response() :: %{
-        "Blob" => [binary()],
-        "CacheControl" => [String.t() | atom()],
-        "ContentType" => [String.t() | atom()],
-        "ETag" => [String.t() | atom()],
-        "PricingBucket" => [String.t() | atom()]
-      }
-
-  """
-  @type get_static_map_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_style_descriptor_request() :: %{
-        optional("Buildings") => String.t() | atom(),
-        optional("ColorScheme") => String.t() | atom(),
-        optional("ContourDensity") => String.t() | atom(),
-        optional("Key") => String.t() | atom(),
-        optional("PoliticalView") => String.t() | atom(),
-        optional("Terrain") => String.t() | atom(),
-        optional("Traffic") => String.t() | atom(),
-        optional("TravelModes") => list(String.t() | atom())
-      }
-
-  """
-  @type get_style_descriptor_request() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -179,6 +82,17 @@ defmodule AWS.GeoMaps do
 
   ## Example:
 
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_tile_response() :: %{
         "Blob" => [binary()],
         "CacheControl" => [String.t() | atom()],
@@ -194,34 +108,57 @@ defmodule AWS.GeoMaps do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
+      get_glyphs_request() :: %{}
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type get_glyphs_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()]
+      get_style_descriptor_request() :: %{
+        optional("Buildings") => String.t() | atom(),
+        optional("ColorScheme") => String.t() | atom(),
+        optional("ContourDensity") => String.t() | atom(),
+        optional("Key") => String.t() | atom(),
+        optional("PoliticalView") => String.t() | atom(),
+        optional("Terrain") => String.t() | atom(),
+        optional("Traffic") => String.t() | atom(),
+        optional("TravelModes") => list(String.t() | atom())
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type get_style_descriptor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
+      get_static_map_request() :: %{
+        optional("BoundedPositions") => String.t() | atom(),
+        optional("BoundingBox") => String.t() | atom(),
+        optional("Center") => String.t() | atom(),
+        optional("ColorScheme") => String.t() | atom(),
+        optional("CompactOverlay") => String.t() | atom(),
+        optional("CropLabels") => [boolean()],
+        optional("GeoJsonOverlay") => String.t() | atom(),
+        required("Height") => integer(),
+        optional("Key") => String.t() | atom(),
+        optional("LabelSize") => String.t() | atom(),
+        optional("Language") => String.t() | atom(),
+        optional("Padding") => integer(),
+        optional("PointsOfInterests") => String.t() | atom(),
+        optional("PoliticalView") => String.t() | atom(),
+        optional("Radius") => float(),
+        optional("ScaleBarUnit") => String.t() | atom(),
+        optional("Style") => String.t() | atom(),
+        required("Width") => integer(),
+        optional("Zoom") => float()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type get_static_map_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -240,6 +177,17 @@ defmodule AWS.GeoMaps do
 
   ## Example:
 
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception_field() :: %{
         "Message" => [String.t() | atom()],
         "Name" => [String.t() | atom()]
@@ -248,18 +196,70 @@ defmodule AWS.GeoMaps do
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      get_static_map_response() :: %{
+        "Blob" => [binary()],
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()],
+        "ETag" => [String.t() | atom()],
+        "PricingBucket" => [String.t() | atom()]
+      }
+
+  """
+  @type get_static_map_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sprites_request() :: %{}
+
+  """
+  @type get_sprites_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_glyphs_response() :: %{
+        "Blob" => [binary()],
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()],
+        "ETag" => [String.t() | atom()]
+      }
+
+  """
+  @type get_glyphs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sprites_response() :: %{
+        "Blob" => [binary()],
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()],
+        "ETag" => [String.t() | atom()]
+      }
+
+  """
+  @type get_sprites_response() :: %{(String.t() | atom()) => any()}
+
   @type get_static_map_errors() ::
-          validation_exception()
+          access_denied_exception()
+          | validation_exception()
           | throttling_exception()
           | internal_server_exception()
-          | access_denied_exception()
 
   @type get_tile_errors() ::
-          validation_exception()
+          access_denied_exception()
+          | validation_exception()
           | throttling_exception()
-          | resource_not_found_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -287,7 +287,7 @@ defmodule AWS.GeoMaps do
           {:ok, get_glyphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
-  def get_glyphs(%Client{} = client, font_stack, font_unicode_range, options \\ []) do
+  def get_glyphs(%Client{} = client, font_unicode_range, font_stack, options \\ []) do
     url_path =
       "/glyphs/#{AWS.Util.encode_uri(font_stack)}/#{AWS.Util.encode_uri(font_unicode_range)}"
 
@@ -299,9 +299,9 @@ defmodule AWS.GeoMaps do
         options,
         :response_header_parameters,
         [
-          {"Cache-Control", "CacheControl"},
+          {"ETag", "ETag"},
           {"Content-Type", "ContentType"},
-          {"ETag", "ETag"}
+          {"Cache-Control", "CacheControl"}
         ]
       )
 
@@ -327,7 +327,7 @@ defmodule AWS.GeoMaps do
           {:ok, get_sprites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
-  def get_sprites(%Client{} = client, color_scheme, file_name, style, variant, options \\ []) do
+  def get_sprites(%Client{} = client, variant, style, file_name, color_scheme, options \\ []) do
     url_path =
       "/styles/#{AWS.Util.encode_uri(style)}/#{AWS.Util.encode_uri(color_scheme)}/#{AWS.Util.encode_uri(variant)}/sprites/#{AWS.Util.encode_uri(file_name)}"
 
@@ -339,9 +339,9 @@ defmodule AWS.GeoMaps do
         options,
         :response_header_parameters,
         [
-          {"Cache-Control", "CacheControl"},
+          {"ETag", "ETag"},
           {"Content-Type", "ContentType"},
-          {"ETag", "ETag"}
+          {"Cache-Control", "CacheControl"}
         ]
       )
 
@@ -373,12 +373,6 @@ defmodule AWS.GeoMaps do
           map(),
           String.t() | atom(),
           String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -390,6 +384,12 @@ defmodule AWS.GeoMaps do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           list()
         ) ::
@@ -400,25 +400,25 @@ defmodule AWS.GeoMaps do
   def get_static_map(
         %Client{} = client,
         file_name,
-        bounded_positions \\ nil,
-        bounding_box \\ nil,
-        center \\ nil,
-        color_scheme \\ nil,
-        compact_overlay \\ nil,
-        crop_labels \\ nil,
-        geo_json_overlay \\ nil,
-        height,
-        key \\ nil,
-        label_size \\ nil,
-        language \\ nil,
-        padding \\ nil,
-        points_of_interests \\ nil,
-        political_view \\ nil,
-        radius \\ nil,
-        scale_bar_unit \\ nil,
-        style \\ nil,
-        width,
         zoom \\ nil,
+        width,
+        style \\ nil,
+        scale_bar_unit \\ nil,
+        radius \\ nil,
+        political_view \\ nil,
+        points_of_interests \\ nil,
+        padding \\ nil,
+        language \\ nil,
+        label_size \\ nil,
+        key \\ nil,
+        height,
+        geo_json_overlay \\ nil,
+        crop_labels \\ nil,
+        compact_overlay \\ nil,
+        color_scheme \\ nil,
+        center \\ nil,
+        bounding_box \\ nil,
+        bounded_positions \\ nil,
         options \\ []
       ) do
     url_path = "/static/#{AWS.Util.encode_uri(file_name)}"
@@ -426,120 +426,8 @@ defmodule AWS.GeoMaps do
     query_params = []
 
     query_params =
-      if !is_nil(zoom) do
-        [{"zoom", zoom} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(width) do
-        [{"width", width} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(style) do
-        [{"style", style} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(scale_bar_unit) do
-        [{"scale-unit", scale_bar_unit} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(radius) do
-        [{"radius", radius} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(political_view) do
-        [{"political-view", political_view} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(points_of_interests) do
-        [{"pois", points_of_interests} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(padding) do
-        [{"padding", padding} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(language) do
-        [{"lang", language} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(label_size) do
-        [{"label-size", label_size} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(key) do
-        [{"key", key} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(height) do
-        [{"height", height} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(geo_json_overlay) do
-        [{"geojson-overlay", geo_json_overlay} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(crop_labels) do
-        [{"crop-labels", crop_labels} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(compact_overlay) do
-        [{"compact-overlay", compact_overlay} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(color_scheme) do
-        [{"color-scheme", color_scheme} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(center) do
-        [{"center", center} | query_params]
+      if !is_nil(bounded_positions) do
+        [{"bounded-positions", bounded_positions} | query_params]
       else
         query_params
       end
@@ -552,8 +440,120 @@ defmodule AWS.GeoMaps do
       end
 
     query_params =
-      if !is_nil(bounded_positions) do
-        [{"bounded-positions", bounded_positions} | query_params]
+      if !is_nil(center) do
+        [{"center", center} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(color_scheme) do
+        [{"color-scheme", color_scheme} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(compact_overlay) do
+        [{"compact-overlay", compact_overlay} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(crop_labels) do
+        [{"crop-labels", crop_labels} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(geo_json_overlay) do
+        [{"geojson-overlay", geo_json_overlay} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(height) do
+        [{"height", height} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(label_size) do
+        [{"label-size", label_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(language) do
+        [{"lang", language} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(padding) do
+        [{"padding", padding} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(points_of_interests) do
+        [{"pois", points_of_interests} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(political_view) do
+        [{"political-view", political_view} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(radius) do
+        [{"radius", radius} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scale_bar_unit) do
+        [{"scale-unit", scale_bar_unit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(style) do
+        [{"style", style} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(width) do
+        [{"width", width} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(zoom) do
+        [{"zoom", zoom} | query_params]
       else
         query_params
       end
@@ -563,10 +563,10 @@ defmodule AWS.GeoMaps do
         options,
         :response_header_parameters,
         [
-          {"Cache-Control", "CacheControl"},
-          {"Content-Type", "ContentType"},
+          {"x-amz-geo-pricing-bucket", "PricingBucket"},
           {"ETag", "ETag"},
-          {"x-amz-geo-pricing-bucket", "PricingBucket"}
+          {"Content-Type", "ContentType"},
+          {"Cache-Control", "CacheControl"}
         ]
       )
 
@@ -600,14 +600,14 @@ defmodule AWS.GeoMaps do
   def get_style_descriptor(
         %Client{} = client,
         style,
-        buildings \\ nil,
-        color_scheme \\ nil,
-        contour_density \\ nil,
-        key \\ nil,
-        political_view \\ nil,
-        terrain \\ nil,
-        traffic \\ nil,
         travel_modes \\ nil,
+        traffic \\ nil,
+        terrain \\ nil,
+        political_view \\ nil,
+        key \\ nil,
+        contour_density \\ nil,
+        color_scheme \\ nil,
+        buildings \\ nil,
         options \\ []
       ) do
     url_path = "/styles/#{AWS.Util.encode_uri(style)}/descriptor"
@@ -615,43 +615,8 @@ defmodule AWS.GeoMaps do
     query_params = []
 
     query_params =
-      if !is_nil(travel_modes) do
-        [{"travel-modes", travel_modes} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(traffic) do
-        [{"traffic", traffic} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(terrain) do
-        [{"terrain", terrain} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(political_view) do
-        [{"political-view", political_view} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(key) do
-        [{"key", key} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(contour_density) do
-        [{"contour-density", contour_density} | query_params]
+      if !is_nil(buildings) do
+        [{"buildings", buildings} | query_params]
       else
         query_params
       end
@@ -664,8 +629,43 @@ defmodule AWS.GeoMaps do
       end
 
     query_params =
-      if !is_nil(buildings) do
-        [{"buildings", buildings} | query_params]
+      if !is_nil(contour_density) do
+        [{"contour-density", contour_density} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(key) do
+        [{"key", key} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(political_view) do
+        [{"political-view", political_view} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(terrain) do
+        [{"terrain", terrain} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic) do
+        [{"traffic", traffic} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(travel_modes) do
+        [{"travel-modes", travel_modes} | query_params]
       else
         query_params
       end
@@ -675,9 +675,9 @@ defmodule AWS.GeoMaps do
         options,
         :response_header_parameters,
         [
-          {"Cache-Control", "CacheControl"},
+          {"ETag", "ETag"},
           {"Content-Type", "ContentType"},
-          {"ETag", "ETag"}
+          {"Cache-Control", "CacheControl"}
         ]
       )
 
@@ -712,12 +712,12 @@ defmodule AWS.GeoMaps do
           | {:error, get_tile_errors()}
   def get_tile(
         %Client{} = client,
-        tileset,
-        x,
-        y,
         z,
-        additional_features \\ nil,
+        y,
+        x,
+        tileset,
         key \\ nil,
+        additional_features \\ nil,
         options \\ []
       ) do
     url_path =
@@ -727,15 +727,15 @@ defmodule AWS.GeoMaps do
     query_params = []
 
     query_params =
-      if !is_nil(key) do
-        [{"key", key} | query_params]
+      if !is_nil(additional_features) do
+        [{"additional-features", additional_features} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(additional_features) do
-        [{"additional-features", additional_features} | query_params]
+      if !is_nil(key) do
+        [{"key", key} | query_params]
       else
         query_params
       end
@@ -745,10 +745,10 @@ defmodule AWS.GeoMaps do
         options,
         :response_header_parameters,
         [
-          {"Cache-Control", "CacheControl"},
-          {"Content-Type", "ContentType"},
+          {"x-amz-geo-pricing-bucket", "PricingBucket"},
           {"ETag", "ETag"},
-          {"x-amz-geo-pricing-bucket", "PricingBucket"}
+          {"Content-Type", "ContentType"},
+          {"Cache-Control", "CacheControl"}
         ]
       )
 

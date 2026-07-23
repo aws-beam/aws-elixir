@@ -20,82 +20,12 @@ defmodule AWS.MarketplaceDeployment do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      untag_resource_request() :: %{
+        required("tagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_parameter_input() :: %{
-        "name" => String.t() | atom(),
-        "secretString" => String.t() | atom()
-      }
-
-  """
-  @type deployment_parameter_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_deployment_parameter_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("expirationDate") => [non_neg_integer()],
-        optional("tags") => map(),
-        required("agreementId") => String.t() | atom(),
-        required("deploymentParameter") => deployment_parameter_input()
-      }
-
-  """
-  @type put_deployment_parameter_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,6 +45,57 @@ defmodule AWS.MarketplaceDeployment do
 
   ## Example:
 
+      deployment_parameter_input() :: %{
+        "name" => String.t() | atom(),
+        "secretString" => String.t() | atom()
+      }
+
+  """
+  @type deployment_parameter_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldName" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -126,12 +107,12 @@ defmodule AWS.MarketplaceDeployment do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,10 +129,46 @@ defmodule AWS.MarketplaceDeployment do
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,65 +185,48 @@ defmodule AWS.MarketplaceDeployment do
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list([String.t() | atom()]())
+      put_deployment_parameter_request() :: %{
+        required("agreementId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("deploymentParameter") => deployment_parameter_input(),
+        optional("expirationDate") => [non_neg_integer()],
+        optional("tags") => map()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldName" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type put_deployment_parameter_request() :: %{(String.t() | atom()) => any()}
 
   @type list_tags_for_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type put_deployment_parameter_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          throttling_exception()
           | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          throttling_exception()
           | access_denied_exception()
+          | conflict_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          throttling_exception()
           | access_denied_exception()
+          | conflict_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -277,7 +277,7 @@ defmodule AWS.MarketplaceDeployment do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, put_deployment_parameter_errors()}
-  def put_deployment_parameter(%Client{} = client, catalog, product_id, input, options \\ []) do
+  def put_deployment_parameter(%Client{} = client, product_id, catalog, input, options \\ []) do
     url_path =
       "/catalogs/#{AWS.Util.encode_uri(catalog)}/products/#{AWS.Util.encode_uri(product_id)}/deployment-parameters"
 

@@ -38,190 +38,13 @@ defmodule AWS.DLM do
 
   ## Example:
 
-      encryption_configuration() :: %{
-        "CmkArn" => String.t() | atom(),
-        "Encrypted" => boolean()
-      }
-
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_lifecycle_policy_request() :: %{
-        optional("CopyTags") => boolean(),
-        optional("CreateInterval") => integer(),
-        optional("CrossRegionCopyTargets") => list(cross_region_copy_target()),
-        optional("Description") => String.t() | atom(),
-        optional("Exclusions") => exclusions(),
-        optional("ExecutionRoleArn") => String.t() | atom(),
-        optional("ExtendDeletion") => boolean(),
-        optional("PolicyDetails") => policy_details(),
-        optional("RetainInterval") => integer(),
-        optional("State") => list(any())
-      }
-
-  """
-  @type update_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cross_region_copy_action() :: %{
-        "EncryptionConfiguration" => encryption_configuration(),
-        "RetainRule" => cross_region_copy_retain_rule(),
-        "Target" => String.t() | atom()
-      }
-
-  """
-  @type cross_region_copy_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_lifecycle_policy_response() :: %{}
-
-  """
-  @type update_lifecycle_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      retain_rule() :: %{
-        "Count" => integer(),
+      cross_region_copy_retain_rule() :: %{
         "Interval" => integer(),
         "IntervalUnit" => list(any())
       }
 
   """
-  @type retain_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deprecate_rule() :: %{
-        "Count" => integer(),
-        "Interval" => integer(),
-        "IntervalUnit" => list(any())
-      }
-
-  """
-  @type deprecate_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_lifecycle_policies_request() :: %{
-        optional("DefaultPolicyType") => list(any()),
-        optional("PolicyIds") => list(String.t() | atom()),
-        optional("ResourceTypes") => list(list(any())()),
-        optional("State") => list(any()),
-        optional("TagsToAdd") => list(String.t() | atom()),
-        optional("TargetTags") => list(String.t() | atom())
-      }
-
-  """
-  @type get_lifecycle_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_parameters() :: %{
-        "DescriptionRegex" => String.t() | atom(),
-        "EventType" => list(any()),
-        "SnapshotOwner" => list(String.t() | atom())
-      }
-
-  """
-  @type event_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fast_restore_rule() :: %{
-        "AvailabilityZoneIds" => list(String.t() | atom()),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "Count" => integer(),
-        "Interval" => integer(),
-        "IntervalUnit" => list(any())
-      }
-
-  """
-  @type fast_restore_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parameters() :: %{
-        "ExcludeBootVolume" => boolean(),
-        "ExcludeDataVolumeTags" => list(tag()),
-        "NoReboot" => boolean()
-      }
-
-  """
-  @type parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_source() :: %{
-        "Parameters" => event_parameters(),
-        "Type" => list(any())
-      }
-
-  """
-  @type event_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_lifecycle_policy_response() :: %{}
-
-  """
-  @type delete_lifecycle_policy_response() :: %{}
+  @type cross_region_copy_retain_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,29 +64,52 @@ defmodule AWS.DLM do
 
   ## Example:
 
-      lifecycle_policy_summary() :: %{
-        "DefaultPolicy" => boolean(),
-        "Description" => String.t() | atom(),
-        "PolicyId" => String.t() | atom(),
-        "PolicyType" => list(any()),
-        "State" => list(any()),
-        "Tags" => map()
+      internal_server_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type lifecycle_policy_summary() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      share_rule() :: %{
+        "TargetAccounts" => list(String.t() | atom()),
+        "UnshareInterval" => integer(),
+        "UnshareIntervalUnit" => list(any())
       }
 
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type share_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cross_region_copy_rule() :: %{
+        "CmkArn" => String.t() | atom(),
+        "CopyTags" => boolean(),
+        "DeprecateRule" => cross_region_copy_deprecate_rule(),
+        "Encrypted" => boolean(),
+        "RetainRule" => cross_region_copy_retain_rule(),
+        "Target" => String.t() | atom(),
+        "TargetRegion" => String.t() | atom()
+      }
+
+  """
+  @type cross_region_copy_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -276,44 +122,6 @@ defmodule AWS.DLM do
 
   """
   @type cross_region_copy_deprecate_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "MutuallyExclusiveParameters" => list(String.t() | atom()),
-        "RequiredParameters" => list(String.t() | atom())
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      exclusions() :: %{
-        "ExcludeBootVolumes" => boolean(),
-        "ExcludeTags" => list(tag()),
-        "ExcludeVolumeTypes" => list(String.t() | atom())
-      }
-
-  """
-  @type exclusions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -341,18 +149,56 @@ defmodule AWS.DLM do
 
   ## Example:
 
-      cross_region_copy_rule() :: %{
-        "CmkArn" => String.t() | atom(),
-        "CopyTags" => boolean(),
-        "DeprecateRule" => cross_region_copy_deprecate_rule(),
-        "Encrypted" => boolean(),
-        "RetainRule" => cross_region_copy_retain_rule(),
-        "Target" => String.t() | atom(),
-        "TargetRegion" => String.t() | atom()
+      update_lifecycle_policy_request() :: %{
+        optional("CopyTags") => boolean(),
+        optional("CreateInterval") => integer(),
+        optional("CrossRegionCopyTargets") => list(cross_region_copy_target()),
+        optional("Description") => String.t() | atom(),
+        optional("Exclusions") => exclusions(),
+        optional("ExecutionRoleArn") => String.t() | atom(),
+        optional("ExtendDeletion") => boolean(),
+        optional("PolicyDetails") => policy_details(),
+        optional("RetainInterval") => integer(),
+        optional("State") => list(any())
       }
 
   """
-  @type cross_region_copy_rule() :: %{(String.t() | atom()) => any()}
+  @type update_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_lifecycle_policy_request() :: %{
+        optional("CopyTags") => boolean(),
+        optional("CreateInterval") => integer(),
+        optional("CrossRegionCopyTargets") => list(cross_region_copy_target()),
+        optional("DefaultPolicy") => list(any()),
+        required("Description") => String.t() | atom(),
+        optional("Exclusions") => exclusions(),
+        required("ExecutionRoleArn") => String.t() | atom(),
+        optional("ExtendDeletion") => boolean(),
+        optional("PolicyDetails") => policy_details(),
+        optional("RetainInterval") => integer(),
+        required("State") => list(any()),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deprecate_rule() :: %{
+        "Count" => integer(),
+        "Interval" => integer(),
+        "IntervalUnit" => list(any())
+      }
+
+  """
+  @type deprecate_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -364,6 +210,141 @@ defmodule AWS.DLM do
 
   """
   @type cross_region_copy_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retain_rule() :: %{
+        "Count" => integer(),
+        "Interval" => integer(),
+        "IntervalUnit" => list(any())
+      }
+
+  """
+  @type retain_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_rule() :: %{
+        "RetainRule" => archive_retain_rule()
+      }
+
+  """
+  @type archive_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      exclusions() :: %{
+        "ExcludeBootVolumes" => boolean(),
+        "ExcludeTags" => list(tag()),
+        "ExcludeVolumeTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type exclusions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "MutuallyExclusiveParameters" => list(String.t() | atom()),
+        "RequiredParameters" => list(String.t() | atom())
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_configuration() :: %{
+        "CmkArn" => String.t() | atom(),
+        "Encrypted" => boolean()
+      }
+
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      script() :: %{
+        "ExecuteOperationOnScriptFailure" => boolean(),
+        "ExecutionHandler" => String.t() | atom(),
+        "ExecutionHandlerService" => list(any()),
+        "ExecutionTimeout" => integer(),
+        "MaximumRetryCount" => integer(),
+        "Stages" => list(list(any())())
+      }
+
+  """
+  @type script() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cross_region_copy_action() :: %{
+        "EncryptionConfiguration" => encryption_configuration(),
+        "RetainRule" => cross_region_copy_retain_rule(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type cross_region_copy_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action() :: %{
+        "CrossRegionCopy" => list(cross_region_copy_action()),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,24 +371,39 @@ defmodule AWS.DLM do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
+      update_lifecycle_policy_response() :: %{}
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type update_lifecycle_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      archive_rule() :: %{
-        "RetainRule" => archive_retain_rule()
+      lifecycle_policy_summary() :: %{
+        "DefaultPolicy" => boolean(),
+        "Description" => String.t() | atom(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyType" => list(any()),
+        "State" => list(any()),
+        "Tags" => map()
       }
 
   """
-  @type archive_rule() :: %{(String.t() | atom()) => any()}
+  @type lifecycle_policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -434,22 +430,35 @@ defmodule AWS.DLM do
 
   ## Example:
 
-      delete_lifecycle_policy_request() :: %{}
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
 
   """
-  @type delete_lifecycle_policy_request() :: %{}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      action() :: %{
-        "CrossRegionCopy" => list(cross_region_copy_action()),
-        "Name" => String.t() | atom()
+      retention_archive_tier() :: %{
+        "Count" => integer(),
+        "Interval" => integer(),
+        "IntervalUnit" => list(any())
       }
 
   """
-  @type action() :: %{(String.t() | atom()) => any()}
+  @type retention_archive_tier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lifecycle_policy_request() :: %{}
+
+  """
+  @type delete_lifecycle_policy_request() :: %{}
 
   @typedoc """
 
@@ -471,104 +480,12 @@ defmodule AWS.DLM do
 
   ## Example:
 
-      retention_archive_tier() :: %{
-        "Count" => integer(),
-        "Interval" => integer(),
-        "IntervalUnit" => list(any())
+      get_lifecycle_policy_response() :: %{
+        "Policy" => lifecycle_policy()
       }
 
   """
-  @type retention_archive_tier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_lifecycle_policy_request() :: %{}
-
-  """
-  @type get_lifecycle_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cross_region_copy_retain_rule() :: %{
-        "Interval" => integer(),
-        "IntervalUnit" => list(any())
-      }
-
-  """
-  @type cross_region_copy_retain_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_lifecycle_policy_request() :: %{
-        optional("CopyTags") => boolean(),
-        optional("CreateInterval") => integer(),
-        optional("CrossRegionCopyTargets") => list(cross_region_copy_target()),
-        optional("DefaultPolicy") => list(any()),
-        optional("Exclusions") => exclusions(),
-        optional("ExtendDeletion") => boolean(),
-        optional("PolicyDetails") => policy_details(),
-        optional("RetainInterval") => integer(),
-        optional("Tags") => map(),
-        required("Description") => String.t() | atom(),
-        required("ExecutionRoleArn") => String.t() | atom(),
-        required("State") => list(any())
-      }
-
-  """
-  @type create_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      script() :: %{
-        "ExecuteOperationOnScriptFailure" => boolean(),
-        "ExecutionHandler" => String.t() | atom(),
-        "ExecutionHandlerService" => list(any()),
-        "ExecutionTimeout" => integer(),
-        "MaximumRetryCount" => integer(),
-        "Stages" => list(list(any())())
-      }
-
-  """
-  @type script() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,28 +517,111 @@ defmodule AWS.DLM do
 
   ## Example:
 
-      share_rule() :: %{
-        "TargetAccounts" => list(String.t() | atom()),
-        "UnshareInterval" => integer(),
-        "UnshareIntervalUnit" => list(any())
-      }
+      get_lifecycle_policy_request() :: %{}
 
   """
-  @type share_rule() :: %{(String.t() | atom()) => any()}
+  @type get_lifecycle_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_lifecycle_policy_response() :: %{
-        "Policy" => lifecycle_policy()
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lifecycle_policies_request() :: %{
+        optional("DefaultPolicyType") => list(any()),
+        optional("PolicyIds") => list(String.t() | atom()),
+        optional("ResourceTypes") => list(list(any())()),
+        optional("State") => list(any()),
+        optional("TagsToAdd") => list(String.t() | atom()),
+        optional("TargetTags") => list(String.t() | atom())
       }
 
   """
-  @type get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+  @type get_lifecycle_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameters() :: %{
+        "ExcludeBootVolume" => boolean(),
+        "ExcludeDataVolumeTags" => list(tag()),
+        "NoReboot" => boolean()
+      }
+
+  """
+  @type parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_parameters() :: %{
+        "DescriptionRegex" => String.t() | atom(),
+        "EventType" => list(any()),
+        "SnapshotOwner" => list(String.t() | atom())
+      }
+
+  """
+  @type event_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_source() :: %{
+        "Parameters" => event_parameters(),
+        "Type" => list(any())
+      }
+
+  """
+  @type event_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fast_restore_rule() :: %{
+        "AvailabilityZoneIds" => list(String.t() | atom()),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "Count" => integer(),
+        "Interval" => integer(),
+        "IntervalUnit" => list(any())
+      }
+
+  """
+  @type fast_restore_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lifecycle_policy_response() :: %{}
+
+  """
+  @type delete_lifecycle_policy_response() :: %{}
 
   @type create_lifecycle_policy_errors() ::
-          limit_exceeded_exception() | internal_server_exception() | invalid_request_exception()
+          limit_exceeded_exception() | invalid_request_exception() | internal_server_exception()
 
   @type delete_lifecycle_policy_errors() ::
           limit_exceeded_exception()
@@ -630,8 +630,8 @@ defmodule AWS.DLM do
 
   @type get_lifecycle_policies_errors() ::
           limit_exceeded_exception()
-          | internal_server_exception()
           | invalid_request_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type get_lifecycle_policy_errors() ::
@@ -640,24 +640,24 @@ defmodule AWS.DLM do
           | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
-          internal_server_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type tag_resource_errors() ::
-          internal_server_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          internal_server_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type update_lifecycle_policy_errors() ::
           limit_exceeded_exception()
-          | internal_server_exception()
           | invalid_request_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   def metadata do
@@ -789,12 +789,12 @@ defmodule AWS.DLM do
           | {:error, get_lifecycle_policies_errors()}
   def get_lifecycle_policies(
         %Client{} = client,
-        default_policy_type \\ nil,
-        policy_ids \\ nil,
-        resource_types \\ nil,
-        state \\ nil,
-        tags_to_add \\ nil,
         target_tags \\ nil,
+        tags_to_add \\ nil,
+        state \\ nil,
+        resource_types \\ nil,
+        policy_ids \\ nil,
+        default_policy_type \\ nil,
         options \\ []
       ) do
     url_path = "/policies"
@@ -802,29 +802,8 @@ defmodule AWS.DLM do
     query_params = []
 
     query_params =
-      if !is_nil(target_tags) do
-        [{"targetTags", target_tags} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(tags_to_add) do
-        [{"tagsToAdd", tags_to_add} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resource_types) do
-        [{"resourceTypes", resource_types} | query_params]
+      if !is_nil(default_policy_type) do
+        [{"defaultPolicyType", default_policy_type} | query_params]
       else
         query_params
       end
@@ -837,8 +816,29 @@ defmodule AWS.DLM do
       end
 
     query_params =
-      if !is_nil(default_policy_type) do
-        [{"defaultPolicyType", default_policy_type} | query_params]
+      if !is_nil(resource_types) do
+        [{"resourceTypes", resource_types} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(tags_to_add) do
+        [{"tagsToAdd", tags_to_add} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_tags) do
+        [{"targetTags", target_tags} | query_params]
       else
         query_params
       end

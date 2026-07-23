@@ -41,26 +41,198 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      custom_domain() :: %{
-        "CertificateValidationRecords" => list(certificate_validation_record()),
-        "DomainName" => String.t() | atom(),
-        "EnableWWWSubdomain" => boolean(),
-        "Status" => list(any())
+      list_vpc_ingress_connections_request() :: %{
+        optional("Filter") => list_vpc_ingress_connections_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type custom_domain() :: %{(String.t() | atom()) => any()}
+  @type list_vpc_ingress_connections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      encryption_configuration() :: %{
-        "KmsKey" => String.t() | atom()
+      create_vpc_ingress_connection_response() :: %{
+        "VpcIngressConnection" => vpc_ingress_connection()
       }
       
   """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_vpc_ingress_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_code_version() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type source_code_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vpc_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_vpc_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_services_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_services_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_observability_configuration_request() :: %{
+        required("ObservabilityConfigurationName") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TraceConfiguration") => trace_configuration()
+      }
+      
+  """
+  @type create_observability_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connections_request() :: %{
+        optional("ConnectionName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_connections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_operations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OperationSummaryList" => list(operation_summary())
+      }
+      
+  """
+  @type list_operations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_observability_configuration_response() :: %{
+        "ObservabilityConfiguration" => observability_configuration()
+      }
+      
+  """
+  @type delete_observability_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_auto_scaling_configuration_response() :: %{
+        "AutoScalingConfiguration" => auto_scaling_configuration()
+      }
+      
+  """
+  @type describe_auto_scaling_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_connector_response() :: %{
+        "VpcConnector" => vpc_connector()
+      }
+      
+  """
+  @type delete_vpc_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_auto_scaling_configuration_request() :: %{
+        required("AutoScalingConfigurationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_auto_scaling_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_operations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServiceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_operations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection() :: %{
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionName" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "ProviderType" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      health_check_configuration() :: %{
+        "HealthyThreshold" => integer(),
+        "Interval" => integer(),
+        "Path" => String.t() | atom(),
+        "Protocol" => list(any()),
+        "Timeout" => integer(),
+        "UnhealthyThreshold" => integer()
+      }
+      
+  """
+  @type health_check_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -78,36 +250,255 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      delete_observability_configuration_request() :: %{
+      describe_observability_configuration_request() :: %{
         required("ObservabilityConfigurationArn") => String.t() | atom()
       }
       
   """
-  @type delete_observability_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type describe_observability_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_observability_configurations_response() :: %{
+      list_vpc_ingress_connections_filter() :: %{
+        "ServiceArn" => String.t() | atom(),
+        "VpcEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type list_vpc_ingress_connections_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_deployment_request() :: %{
+        required("ServiceArn") => String.t() | atom()
+      }
+      
+  """
+  @type start_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_observability_configuration_response() :: %{
+        "ObservabilityConfiguration" => observability_configuration()
+      }
+      
+  """
+  @type describe_observability_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_default_auto_scaling_configuration_response() :: %{
+        "AutoScalingConfiguration" => auto_scaling_configuration()
+      }
+      
+  """
+  @type update_default_auto_scaling_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_connector_response() :: %{
+        "VpcConnector" => vpc_connector()
+      }
+      
+  """
+  @type create_vpc_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ServiceArn" => String.t() | atom(),
+        "ServiceId" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceUrl" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type service_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_vpc_ingress_connection_response() :: %{
+        "VpcIngressConnection" => vpc_ingress_connection()
+      }
+      
+  """
+  @type update_vpc_ingress_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      egress_configuration() :: %{
+        "EgressType" => list(any()),
+        "VpcConnectorArn" => String.t() | atom()
+      }
+      
+  """
+  @type egress_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_domains_response() :: %{
+        "CustomDomains" => list(custom_domain()),
+        "DNSTarget" => String.t() | atom(),
         "NextToken" => String.t() | atom(),
-        "ObservabilityConfigurationSummaryList" => list(observability_configuration_summary())
+        "ServiceArn" => String.t() | atom(),
+        "VpcDNSTargets" => list(vpc_dns_target())
       }
       
   """
-  @type list_observability_configurations_response() :: %{(String.t() | atom()) => any()}
+  @type describe_custom_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ingress_vpc_configuration() :: %{
-        "VpcEndpointId" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
+      disassociate_custom_domain_response() :: %{
+        "CustomDomain" => custom_domain(),
+        "DNSTarget" => String.t() | atom(),
+        "ServiceArn" => String.t() | atom(),
+        "VpcDNSTargets" => list(vpc_dns_target())
       }
       
   """
-  @type ingress_vpc_configuration() :: %{(String.t() | atom()) => any()}
+  @type disassociate_custom_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_service_request() :: %{
+        optional("AutoScalingConfigurationArn") => String.t() | atom(),
+        optional("HealthCheckConfiguration") => health_check_configuration(),
+        optional("InstanceConfiguration") => instance_configuration(),
+        optional("NetworkConfiguration") => network_configuration(),
+        optional("ObservabilityConfiguration") => service_observability_configuration(),
+        required("ServiceArn") => String.t() | atom(),
+        optional("SourceConfiguration") => source_configuration()
+      }
+      
+  """
+  @type update_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_ingress_connection_request() :: %{
+        required("VpcIngressConnectionArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_vpc_ingress_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_configuration_values() :: %{
+        "BuildCommand" => String.t() | atom(),
+        "Port" => String.t() | atom(),
+        "Runtime" => list(any()),
+        "RuntimeEnvironmentSecrets" => map(),
+        "RuntimeEnvironmentVariables" => map(),
+        "StartCommand" => String.t() | atom()
+      }
+      
+  """
+  @type code_configuration_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_domain() :: %{
+        "CertificateValidationRecords" => list(certificate_validation_record()),
+        "DomainName" => String.t() | atom(),
+        "EnableWWWSubdomain" => boolean(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type custom_domain() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_connector_request() :: %{
+        required("VpcConnectorArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_vpc_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_response() :: %{
+        "OperationId" => String.t() | atom(),
+        "Service" => service()
+      }
+      
+  """
+  @type delete_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_services_for_auto_scaling_configuration_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ServiceArnList" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_services_for_auto_scaling_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -125,70 +516,12 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      create_observability_configuration_request() :: %{
-        optional("Tags") => list(tag()),
-        optional("TraceConfiguration") => trace_configuration(),
-        required("ObservabilityConfigurationName") => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
       }
       
   """
-  @type create_observability_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_auto_scaling_configuration_request() :: %{
-        required("AutoScalingConfigurationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_auto_scaling_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_connector_response() :: %{
-        "VpcConnector" => vpc_connector()
-      }
-      
-  """
-  @type create_vpc_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_configuration() :: %{
-        "CodeConfigurationValues" => code_configuration_values(),
-        "ConfigurationSource" => list(any())
-      }
-      
-  """
-  @type code_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_observability_configuration_request() :: %{
-        required("ObservabilityConfigurationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_observability_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_default_auto_scaling_configuration_response() :: %{
-        "AutoScalingConfiguration" => auto_scaling_configuration()
-      }
-      
-  """
-  @type update_default_auto_scaling_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,56 +540,54 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      describe_observability_configuration_response() :: %{
-        "ObservabilityConfiguration" => observability_configuration()
-      }
-      
-  """
-  @type describe_observability_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_vpc_ingress_connection_response() :: %{
+      describe_vpc_ingress_connection_response() :: %{
         "VpcIngressConnection" => vpc_ingress_connection()
       }
       
   """
-  @type update_vpc_ingress_connection_response() :: %{(String.t() | atom()) => any()}
+  @type describe_vpc_ingress_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_request() :: %{
-        required("ServiceArn") => String.t() | atom()
+      certificate_validation_record() :: %{
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type describe_service_request() :: %{(String.t() | atom()) => any()}
+  @type certificate_validation_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      image_repository() :: %{
-        "ImageConfiguration" => image_configuration(),
-        "ImageIdentifier" => String.t() | atom(),
-        "ImageRepositoryType" => list(any())
+      network_configuration() :: %{
+        "EgressConfiguration" => egress_configuration(),
+        "IngressConfiguration" => ingress_configuration(),
+        "IpAddressType" => list(any())
       }
       
   """
-  @type image_repository() :: %{(String.t() | atom()) => any()}
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_services_for_auto_scaling_configuration_request() :: %{
+        required("AutoScalingConfigurationArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_services_for_auto_scaling_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -269,82 +600,6 @@ defmodule AWS.AppRunner do
       
   """
   @type list_connections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_code_version() :: %{
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type source_code_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_observability_configuration_response() :: %{
-        "ObservabilityConfiguration" => observability_configuration()
-      }
-      
-  """
-  @type create_observability_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pause_service_request() :: %{
-        required("ServiceArn") => String.t() | atom()
-      }
-      
-  """
-  @type pause_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_custom_domains_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ServiceArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_custom_domains_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_connector() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DeletedAt" => non_neg_integer(),
-        "SecurityGroups" => list(String.t() | atom()),
-        "Status" => list(any()),
-        "Subnets" => list(String.t() | atom()),
-        "VpcConnectorArn" => String.t() | atom(),
-        "VpcConnectorName" => String.t() | atom(),
-        "VpcConnectorRevision" => integer()
-      }
-      
-  """
-  @type vpc_connector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_vpc_ingress_connection_request() :: %{
-        required("VpcIngressConnectionArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_vpc_ingress_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,52 +630,182 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      list_vpc_connectors_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "VpcConnectors" => list(vpc_connector())
+      create_service_response() :: %{
+        "OperationId" => String.t() | atom(),
+        "Service" => service()
       }
       
   """
-  @type list_vpc_connectors_response() :: %{(String.t() | atom()) => any()}
+  @type create_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      internal_service_error_exception() :: %{
+      instance_configuration() :: %{
+        "Cpu" => String.t() | atom(),
+        "InstanceRoleArn" => String.t() | atom(),
+        "Memory" => String.t() | atom()
+      }
+      
+  """
+  @type instance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_connector() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DeletedAt" => non_neg_integer(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "Status" => list(any()),
+        "Subnets" => list(String.t() | atom()),
+        "VpcConnectorArn" => String.t() | atom(),
+        "VpcConnectorName" => String.t() | atom(),
+        "VpcConnectorRevision" => integer()
+      }
+      
+  """
+  @type vpc_connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_request() :: %{
+        required("ConnectionName") => String.t() | atom(),
+        required("ProviderType") => list(any()),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      observability_configuration() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DeletedAt" => non_neg_integer(),
+        "Latest" => boolean(),
+        "ObservabilityConfigurationArn" => String.t() | atom(),
+        "ObservabilityConfigurationName" => String.t() | atom(),
+        "ObservabilityConfigurationRevision" => integer(),
+        "Status" => list(any()),
+        "TraceConfiguration" => trace_configuration()
+      }
+      
+  """
+  @type observability_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      observability_configuration_summary() :: %{
+        "ObservabilityConfigurationArn" => String.t() | atom(),
+        "ObservabilityConfigurationName" => String.t() | atom(),
+        "ObservabilityConfigurationRevision" => integer()
+      }
+      
+  """
+  @type observability_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_connector_request() :: %{
+        required("VpcConnectorArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_vpc_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_auto_scaling_configuration_request() :: %{
+        required("AutoScalingConfigurationName") => String.t() | atom(),
+        optional("MaxConcurrency") => integer(),
+        optional("MaxSize") => integer(),
+        optional("MinSize") => integer(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_auto_scaling_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_auto_scaling_configuration_response() :: %{
+        "AutoScalingConfiguration" => auto_scaling_configuration()
+      }
+      
+  """
+  @type delete_auto_scaling_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingress_vpc_configuration() :: %{
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type ingress_vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_auto_scaling_configurations_response() :: %{
+        "AutoScalingConfigurationSummaryList" => list(auto_scaling_configuration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_auto_scaling_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_ingress_connection_response() :: %{
+        "VpcIngressConnection" => vpc_ingress_connection()
+      }
+      
+  """
+  @type delete_vpc_ingress_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_deployment_response() :: %{
-        "OperationId" => String.t() | atom()
-      }
-      
-  """
-  @type start_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_summary() :: %{
-        "EndedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "TargetArn" => String.t() | atom(),
-        "Type" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type operation_summary() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -438,23 +823,190 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      delete_vpc_connector_response() :: %{
-        "VpcConnector" => vpc_connector()
+      encryption_configuration() :: %{
+        "KmsKey" => String.t() | atom()
       }
       
   """
-  @type delete_vpc_connector_response() :: %{(String.t() | atom()) => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_vpc_ingress_connection_response() :: %{
-        "VpcIngressConnection" => vpc_ingress_connection()
+      describe_vpc_connector_response() :: %{
+        "VpcConnector" => vpc_connector()
       }
       
   """
-  @type create_vpc_ingress_connection_response() :: %{(String.t() | atom()) => any()}
+  @type describe_vpc_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_response() :: %{
+        "Connection" => connection()
+      }
+      
+  """
+  @type create_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_configuration() :: %{
+        "AuthenticationConfiguration" => authentication_configuration(),
+        "AutoDeploymentsEnabled" => boolean(),
+        "CodeRepository" => code_repository(),
+        "ImageRepository" => image_repository()
+      }
+      
+  """
+  @type source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_deployment_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type start_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vpc_ingress_connections_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "VpcIngressConnectionSummaryList" => list(vpc_ingress_connection_summary())
+      }
+      
+  """
+  @type list_vpc_ingress_connections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_custom_domain_response() :: %{
+        "CustomDomain" => custom_domain(),
+        "DNSTarget" => String.t() | atom(),
+        "ServiceArn" => String.t() | atom(),
+        "VpcDNSTargets" => list(vpc_dns_target())
+      }
+      
+  """
+  @type associate_custom_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_observability_configuration() :: %{
+        "ObservabilityConfigurationArn" => String.t() | atom(),
+        "ObservabilityEnabled" => boolean()
+      }
+      
+  """
+  @type service_observability_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_request() :: %{
+        required("ConnectionArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_request() :: %{
+        required("ServiceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_response() :: %{
+        "Service" => service()
+      }
+      
+  """
+  @type describe_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_service_response() :: %{
+        "OperationId" => String.t() | atom(),
+        "Service" => service()
+      }
+      
+  """
+  @type update_service_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_domains_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServiceArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_custom_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vpc_connectors_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "VpcConnectors" => list(vpc_connector())
+      }
+      
+  """
+  @type list_vpc_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_services_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ServiceSummaryList" => list(service_summary())
+      }
+      
+  """
+  @type list_services_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_auto_scaling_configuration_response() :: %{
+        "AutoScalingConfiguration" => auto_scaling_configuration()
+      }
+      
+  """
+  @type create_auto_scaling_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,62 +1026,116 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      invalid_state_exception() :: %{
+      connection_summary() :: %{
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionName" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "ProviderType" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type connection_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_repository() :: %{
+        "CodeConfiguration" => code_configuration(),
+        "RepositoryUrl" => String.t() | atom(),
+        "SourceCodeVersion" => source_code_version(),
+        "SourceDirectory" => String.t() | atom()
+      }
+      
+  """
+  @type code_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authentication_configuration() :: %{
+        "AccessRoleArn" => String.t() | atom(),
+        "ConnectionArn" => String.t() | atom()
+      }
+      
+  """
+  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_observability_configuration_request() :: %{
+        required("ObservabilityConfigurationArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_observability_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_default_auto_scaling_configuration_request() :: %{
+        required("AutoScalingConfigurationArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_default_auto_scaling_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_error_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_custom_domain_request() :: %{
-        optional("EnableWWWSubdomain") => boolean(),
-        required("DomainName") => String.t() | atom(),
-        required("ServiceArn") => String.t() | atom()
+      ingress_configuration() :: %{
+        "IsPubliclyAccessible" => boolean()
       }
       
   """
-  @type associate_custom_domain_request() :: %{(String.t() | atom()) => any()}
+  @type ingress_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_vpc_ingress_connection_request() :: %{
-        optional("Tags") => list(tag()),
-        required("IngressVpcConfiguration") => ingress_vpc_configuration(),
-        required("ServiceArn") => String.t() | atom(),
-        required("VpcIngressConnectionName") => String.t() | atom()
+      code_configuration() :: %{
+        "CodeConfigurationValues" => code_configuration_values(),
+        "ConfigurationSource" => list(any())
       }
       
   """
-  @type create_vpc_ingress_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_services_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_services_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trace_configuration() :: %{
-        "Vendor" => list(any())
-      }
-      
-  """
-  @type trace_configuration() :: %{(String.t() | atom()) => any()}
+  @type code_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,71 +1153,39 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      list_connections_request() :: %{
-        optional("ConnectionName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      create_vpc_ingress_connection_request() :: %{
+        required("IngressVpcConfiguration") => ingress_vpc_configuration(),
+        required("ServiceArn") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("VpcIngressConnectionName") => String.t() | atom()
       }
       
   """
-  @type list_connections_request() :: %{(String.t() | atom()) => any()}
+  @type create_vpc_ingress_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_services_for_auto_scaling_configuration_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ServiceArnList" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_services_for_auto_scaling_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_ingress_connection_response() :: %{
-        "VpcIngressConnection" => vpc_ingress_connection()
-      }
-      
-  """
-  @type delete_vpc_ingress_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_ingress_connection() :: %{
-        "AccountId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "DeletedAt" => non_neg_integer(),
-        "DomainName" => String.t() | atom(),
-        "IngressVpcConfiguration" => ingress_vpc_configuration(),
-        "ServiceArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "VpcIngressConnectionArn" => String.t() | atom(),
-        "VpcIngressConnectionName" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_ingress_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_operations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
+      associate_custom_domain_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        optional("EnableWWWSubdomain") => boolean(),
         required("ServiceArn") => String.t() | atom()
       }
       
   """
-  @type list_operations_request() :: %{(String.t() | atom()) => any()}
+  @type associate_custom_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resume_service_request() :: %{
+        required("ServiceArn") => String.t() | atom()
+      }
+      
+  """
+  @type resume_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -639,27 +1213,12 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      certificate_validation_record() :: %{
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      invalid_state_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type certificate_validation_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vpc_connectors_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_vpc_connectors_request() :: %{(String.t() | atom()) => any()}
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -667,8 +1226,8 @@ defmodule AWS.AppRunner do
       
       create_vpc_connector_request() :: %{
         optional("SecurityGroups") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
         required("Subnets") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
         required("VpcConnectorName") => String.t() | atom()
       }
       
@@ -679,125 +1238,25 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      delete_auto_scaling_configuration_request() :: %{
-        optional("DeleteAllRevisions") => boolean(),
-        required("AutoScalingConfigurationArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_auto_scaling_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_vpc_ingress_connection_request() :: %{
-        required("IngressVpcConfiguration") => ingress_vpc_configuration(),
-        required("VpcIngressConnectionArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_vpc_ingress_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection() :: %{
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionName" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "ProviderType" => list(any()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_services_response() :: %{
+      list_observability_configurations_response() :: %{
         "NextToken" => String.t() | atom(),
-        "ServiceSummaryList" => list(service_summary())
+        "ObservabilityConfigurationSummaryList" => list(observability_configuration_summary())
       }
       
   """
-  @type list_services_response() :: %{(String.t() | atom()) => any()}
+  @type list_observability_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      pause_service_response() :: %{
+        "OperationId" => String.t() | atom(),
+        "Service" => service()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "ServiceArn" => String.t() | atom(),
-        "ServiceId" => String.t() | atom(),
-        "ServiceName" => String.t() | atom(),
-        "ServiceUrl" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type service_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resume_service_request() :: %{
-        required("ServiceArn") => String.t() | atom()
-      }
-      
-  """
-  @type resume_service_request() :: %{(String.t() | atom()) => any()}
+  @type pause_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -810,9 +1269,9 @@ defmodule AWS.AppRunner do
         optional("InstanceConfiguration") => instance_configuration(),
         optional("NetworkConfiguration") => network_configuration(),
         optional("ObservabilityConfiguration") => service_observability_configuration(),
-        optional("Tags") => list(tag()),
         required("ServiceName") => String.t() | atom(),
-        required("SourceConfiguration") => source_configuration()
+        required("SourceConfiguration") => source_configuration(),
+        optional("Tags") => list(tag())
       }
       
   """
@@ -822,15 +1281,79 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      code_repository() :: %{
-        "CodeConfiguration" => code_configuration(),
-        "RepositoryUrl" => String.t() | atom(),
-        "SourceCodeVersion" => source_code_version(),
-        "SourceDirectory" => String.t() | atom()
+      delete_auto_scaling_configuration_request() :: %{
+        required("AutoScalingConfigurationArn") => String.t() | atom(),
+        optional("DeleteAllRevisions") => boolean()
       }
       
   """
-  @type code_repository() :: %{(String.t() | atom()) => any()}
+  @type delete_auto_scaling_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_ingress_connection_request() :: %{
+        required("VpcIngressConnectionArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_vpc_ingress_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_response() :: %{
+        "Connection" => connection()
+      }
+      
+  """
+  @type delete_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pause_service_request() :: %{
+        required("ServiceArn") => String.t() | atom()
+      }
+      
+  """
+  @type pause_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_configuration() :: %{
+        "Port" => String.t() | atom(),
+        "RuntimeEnvironmentSecrets" => map(),
+        "RuntimeEnvironmentVariables" => map(),
+        "StartCommand" => String.t() | atom()
+      }
+      
+  """
+  @type image_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_ingress_connection() :: %{
+        "AccountId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "DeletedAt" => non_neg_integer(),
+        "DomainName" => String.t() | atom(),
+        "IngressVpcConfiguration" => ingress_vpc_configuration(),
+        "ServiceArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcIngressConnectionArn" => String.t() | atom(),
+        "VpcIngressConnectionName" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_ingress_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -853,556 +1376,37 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      list_observability_configurations_request() :: %{
-        optional("LatestOnly") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ObservabilityConfigurationName") => String.t() | atom()
+      trace_configuration() :: %{
+        "Vendor" => list(any())
       }
       
   """
-  @type list_observability_configurations_request() :: %{(String.t() | atom()) => any()}
+  @type trace_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_observability_configuration_response() :: %{
-        "ObservabilityConfiguration" => observability_configuration()
+      image_repository() :: %{
+        "ImageConfiguration" => image_configuration(),
+        "ImageIdentifier" => String.t() | atom(),
+        "ImageRepositoryType" => list(any())
       }
       
   """
-  @type delete_observability_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type image_repository() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ingress_configuration() :: %{
-        "IsPubliclyAccessible" => boolean()
-      }
-      
-  """
-  @type ingress_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_configuration() :: %{
-        "AuthenticationConfiguration" => authentication_configuration(),
-        "AutoDeploymentsEnabled" => boolean(),
-        "CodeRepository" => code_repository(),
-        "ImageRepository" => image_repository()
-      }
-      
-  """
-  @type source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_vpc_connector_request() :: %{
-        required("VpcConnectorArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_vpc_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_response() :: %{
-        "Service" => service()
-      }
-      
-  """
-  @type describe_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_connector_request() :: %{
-        required("VpcConnectorArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_vpc_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_default_auto_scaling_configuration_request() :: %{
-        required("AutoScalingConfigurationArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_default_auto_scaling_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_request() :: %{
-        optional("AutoScalingConfigurationArn") => String.t() | atom(),
-        optional("HealthCheckConfiguration") => health_check_configuration(),
-        optional("InstanceConfiguration") => instance_configuration(),
-        optional("NetworkConfiguration") => network_configuration(),
-        optional("ObservabilityConfiguration") => service_observability_configuration(),
-        optional("SourceConfiguration") => source_configuration(),
-        required("ServiceArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_configuration_values() :: %{
-        "BuildCommand" => String.t() | atom(),
-        "Port" => String.t() | atom(),
-        "Runtime" => list(any()),
-        "RuntimeEnvironmentSecrets" => map(),
-        "RuntimeEnvironmentVariables" => map(),
-        "StartCommand" => String.t() | atom()
-      }
-      
-  """
-  @type code_configuration_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_auto_scaling_configuration_response() :: %{
-        "AutoScalingConfiguration" => auto_scaling_configuration()
-      }
-      
-  """
-  @type describe_auto_scaling_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_services_for_auto_scaling_configuration_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AutoScalingConfigurationArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_services_for_auto_scaling_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      observability_configuration() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DeletedAt" => non_neg_integer(),
-        "Latest" => boolean(),
-        "ObservabilityConfigurationArn" => String.t() | atom(),
-        "ObservabilityConfigurationName" => String.t() | atom(),
-        "ObservabilityConfigurationRevision" => integer(),
-        "Status" => list(any()),
-        "TraceConfiguration" => trace_configuration()
-      }
-      
-  """
-  @type observability_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_auto_scaling_configurations_response() :: %{
-        "AutoScalingConfigurationSummaryList" => list(auto_scaling_configuration_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_auto_scaling_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      network_configuration() :: %{
-        "EgressConfiguration" => egress_configuration(),
-        "IngressConfiguration" => ingress_configuration(),
-        "IpAddressType" => list(any())
-      }
-      
-  """
-  @type network_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_operations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OperationSummaryList" => list(operation_summary())
-      }
-      
-  """
-  @type list_operations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vpc_ingress_connections_filter() :: %{
-        "ServiceArn" => String.t() | atom(),
-        "VpcEndpointId" => String.t() | atom()
-      }
-      
-  """
-  @type list_vpc_ingress_connections_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_summary() :: %{
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionName" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "ProviderType" => list(any()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type connection_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_configuration() :: %{
-        "Cpu" => String.t() | atom(),
-        "InstanceRoleArn" => String.t() | atom(),
-        "Memory" => String.t() | atom()
-      }
-      
-  """
-  @type instance_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_connection_response() :: %{
-        "Connection" => connection()
-      }
-      
-  """
-  @type delete_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      observability_configuration_summary() :: %{
-        "ObservabilityConfigurationArn" => String.t() | atom(),
-        "ObservabilityConfigurationName" => String.t() | atom(),
-        "ObservabilityConfigurationRevision" => integer()
-      }
-      
-  """
-  @type observability_configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      egress_configuration() :: %{
-        "EgressType" => list(any()),
-        "VpcConnectorArn" => String.t() | atom()
-      }
-      
-  """
-  @type egress_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_request() :: %{
-        required("ServiceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_ingress_connection_request() :: %{
+      update_vpc_ingress_connection_request() :: %{
+        required("IngressVpcConfiguration") => ingress_vpc_configuration(),
         required("VpcIngressConnectionArn") => String.t() | atom()
       }
       
   """
-  @type delete_vpc_ingress_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_auto_scaling_configuration_request() :: %{
-        optional("MaxConcurrency") => integer(),
-        optional("MaxSize") => integer(),
-        optional("MinSize") => integer(),
-        optional("Tags") => list(tag()),
-        required("AutoScalingConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type create_auto_scaling_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_response() :: %{
-        "Connection" => connection()
-      }
-      
-  """
-  @type create_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_vpc_ingress_connection_response() :: %{
-        "VpcIngressConnection" => vpc_ingress_connection()
-      }
-      
-  """
-  @type describe_vpc_ingress_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_auto_scaling_configuration_response() :: %{
-        "AutoScalingConfiguration" => auto_scaling_configuration()
-      }
-      
-  """
-  @type delete_auto_scaling_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_observability_configuration() :: %{
-        "ObservabilityConfigurationArn" => String.t() | atom(),
-        "ObservabilityEnabled" => boolean()
-      }
-      
-  """
-  @type service_observability_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_vpc_connector_response() :: %{
-        "VpcConnector" => vpc_connector()
-      }
-      
-  """
-  @type describe_vpc_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_response() :: %{
-        "OperationId" => String.t() | atom(),
-        "Service" => service()
-      }
-      
-  """
-  @type update_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_response() :: %{
-        "OperationId" => String.t() | atom(),
-        "Service" => service()
-      }
-      
-  """
-  @type delete_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authentication_configuration() :: %{
-        "AccessRoleArn" => String.t() | atom(),
-        "ConnectionArn" => String.t() | atom()
-      }
-      
-  """
-  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_connection_request() :: %{
-        required("ConnectionArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_service_response() :: %{
-        "OperationId" => String.t() | atom(),
-        "Service" => service()
-      }
-      
-  """
-  @type create_service_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      image_configuration() :: %{
-        "Port" => String.t() | atom(),
-        "RuntimeEnvironmentSecrets" => map(),
-        "RuntimeEnvironmentVariables" => map(),
-        "StartCommand" => String.t() | atom()
-      }
-      
-  """
-  @type image_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vpc_ingress_connections_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "VpcIngressConnectionSummaryList" => list(vpc_ingress_connection_summary())
-      }
-      
-  """
-  @type list_vpc_ingress_connections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_request() :: %{
-        optional("Tags") => list(tag()),
-        required("ConnectionName") => String.t() | atom(),
-        required("ProviderType") => list(any())
-      }
-      
-  """
-  @type create_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_custom_domain_response() :: %{
-        "CustomDomain" => custom_domain(),
-        "DNSTarget" => String.t() | atom(),
-        "ServiceArn" => String.t() | atom(),
-        "VpcDNSTargets" => list(vpc_dns_target())
-      }
-      
-  """
-  @type associate_custom_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_deployment_request() :: %{
-        required("ServiceArn") => String.t() | atom()
-      }
-      
-  """
-  @type start_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vpc_ingress_connections_request() :: %{
-        optional("Filter") => list_vpc_ingress_connections_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_vpc_ingress_connections_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_auto_scaling_configuration_response() :: %{
-        "AutoScalingConfiguration" => auto_scaling_configuration()
-      }
-      
-  """
-  @type create_auto_scaling_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type update_vpc_ingress_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1420,241 +1424,237 @@ defmodule AWS.AppRunner do
 
   ## Example:
       
-      disassociate_custom_domain_response() :: %{
-        "CustomDomain" => custom_domain(),
-        "DNSTarget" => String.t() | atom(),
-        "ServiceArn" => String.t() | atom(),
-        "VpcDNSTargets" => list(vpc_dns_target())
+      delete_service_request() :: %{
+        required("ServiceArn") => String.t() | atom()
       }
       
   """
-  @type disassociate_custom_domain_response() :: %{(String.t() | atom()) => any()}
+  @type delete_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      pause_service_response() :: %{
-        "OperationId" => String.t() | atom(),
-        "Service" => service()
+      operation_summary() :: %{
+        "EndedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "TargetArn" => String.t() | atom(),
+        "Type" => list(any()),
+        "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type pause_service_response() :: %{(String.t() | atom()) => any()}
+  @type operation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      health_check_configuration() :: %{
-        "HealthyThreshold" => integer(),
-        "Interval" => integer(),
-        "Path" => String.t() | atom(),
-        "Protocol" => list(any()),
-        "Timeout" => integer(),
-        "UnhealthyThreshold" => integer()
+      create_observability_configuration_response() :: %{
+        "ObservabilityConfiguration" => observability_configuration()
       }
       
   """
-  @type health_check_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_observability_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_custom_domains_response() :: %{
-        "CustomDomains" => list(custom_domain()),
-        "DNSTarget" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "ServiceArn" => String.t() | atom(),
-        "VpcDNSTargets" => list(vpc_dns_target())
+      list_observability_configurations_request() :: %{
+        optional("LatestOnly") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ObservabilityConfigurationName") => String.t() | atom()
       }
       
   """
-  @type describe_custom_domains_response() :: %{(String.t() | atom()) => any()}
+  @type list_observability_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_custom_domain_errors() ::
-          invalid_request_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
 
   @type create_auto_scaling_configuration_errors() ::
-          service_quota_exceeded_exception()
+          internal_service_error_exception()
+          | service_quota_exceeded_exception()
           | invalid_request_exception()
-          | internal_service_error_exception()
 
   @type create_connection_errors() ::
-          service_quota_exceeded_exception()
+          internal_service_error_exception()
+          | service_quota_exceeded_exception()
           | invalid_request_exception()
-          | internal_service_error_exception()
 
   @type create_observability_configuration_errors() ::
-          service_quota_exceeded_exception()
+          internal_service_error_exception()
+          | service_quota_exceeded_exception()
           | invalid_request_exception()
-          | internal_service_error_exception()
 
   @type create_service_errors() ::
-          service_quota_exceeded_exception()
+          internal_service_error_exception()
+          | service_quota_exceeded_exception()
           | invalid_request_exception()
-          | internal_service_error_exception()
 
   @type create_vpc_connector_errors() ::
-          service_quota_exceeded_exception()
+          internal_service_error_exception()
+          | service_quota_exceeded_exception()
           | invalid_request_exception()
-          | internal_service_error_exception()
 
   @type create_vpc_ingress_connection_errors() ::
-          service_quota_exceeded_exception()
-          | invalid_request_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
 
   @type delete_auto_scaling_configuration_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type delete_connection_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type delete_observability_configuration_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type delete_service_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type delete_vpc_connector_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type delete_vpc_ingress_connection_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type describe_auto_scaling_configuration_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type describe_custom_domains_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type describe_observability_configuration_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type describe_service_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type describe_vpc_connector_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type describe_vpc_ingress_connection_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type disassociate_custom_domain_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type list_auto_scaling_configurations_errors() ::
-          invalid_request_exception() | internal_service_error_exception()
+          internal_service_error_exception() | invalid_request_exception()
 
   @type list_connections_errors() ::
-          invalid_request_exception() | internal_service_error_exception()
+          internal_service_error_exception() | invalid_request_exception()
 
   @type list_observability_configurations_errors() ::
-          invalid_request_exception() | internal_service_error_exception()
+          internal_service_error_exception() | invalid_request_exception()
 
   @type list_operations_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
-  @type list_services_errors() :: invalid_request_exception() | internal_service_error_exception()
+  @type list_services_errors() :: internal_service_error_exception() | invalid_request_exception()
 
   @type list_services_for_auto_scaling_configuration_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type list_vpc_connectors_errors() ::
-          invalid_request_exception() | internal_service_error_exception()
+          internal_service_error_exception() | invalid_request_exception()
 
   @type list_vpc_ingress_connections_errors() ::
-          invalid_request_exception() | internal_service_error_exception()
+          internal_service_error_exception() | invalid_request_exception()
 
   @type pause_service_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type resume_service_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type start_deployment_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type tag_resource_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type update_default_auto_scaling_configuration_errors() ::
-          invalid_request_exception()
+          internal_service_error_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
-          | internal_service_error_exception()
 
   @type update_service_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type update_vpc_ingress_connection_errors() ::
-          invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          invalid_state_exception()
           | internal_service_error_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -1691,7 +1691,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, associate_custom_domain_errors()}
   def associate_custom_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateCustomDomain", input, options)
   end
@@ -1729,7 +1730,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_auto_scaling_configuration_errors()}
   def create_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoScalingConfiguration", input, options)
   end
@@ -1754,7 +1756,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -1791,7 +1794,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_observability_configuration_errors()}
   def create_observability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateObservabilityConfiguration", input, options)
   end
@@ -1812,7 +1816,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateService", input, options)
   end
@@ -1830,7 +1835,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_vpc_connector_errors()}
   def create_vpc_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcConnector", input, options)
   end
@@ -1847,7 +1853,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_vpc_ingress_connection_errors()}
   def create_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcIngressConnection", input, options)
   end
@@ -1871,7 +1878,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_auto_scaling_configuration_errors()}
   def delete_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAutoScalingConfiguration", input, options)
   end
@@ -1889,7 +1897,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -1911,7 +1920,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_observability_configuration_errors()}
   def delete_observability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteObservabilityConfiguration", input, options)
   end
@@ -1932,7 +1942,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
   end
@@ -1949,7 +1960,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_vpc_connector_errors()}
   def delete_vpc_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcConnector", input, options)
   end
@@ -1982,7 +1994,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_vpc_ingress_connection_errors()}
   def delete_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcIngressConnection", input, options)
   end
@@ -2001,7 +2014,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_auto_scaling_configuration_errors()}
   def describe_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingConfiguration", input, options)
   end
@@ -2016,7 +2030,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_custom_domains_errors()}
   def describe_custom_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomDomains", input, options)
   end
@@ -2034,7 +2049,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_observability_configuration_errors()}
   def describe_observability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeObservabilityConfiguration", input, options)
   end
@@ -2048,7 +2064,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_service_errors()}
   def describe_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeService", input, options)
   end
@@ -2062,7 +2079,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_vpc_connector_errors()}
   def describe_vpc_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcConnector", input, options)
   end
@@ -2076,7 +2094,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_vpc_ingress_connection_errors()}
   def describe_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcIngressConnection", input, options)
   end
@@ -2096,7 +2115,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, disassociate_custom_domain_errors()}
   def disassociate_custom_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateCustomDomain", input, options)
   end
@@ -2124,7 +2144,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_auto_scaling_configurations_errors()}
   def list_auto_scaling_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAutoScalingConfigurations", input, options)
   end
@@ -2139,7 +2160,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConnections", input, options)
   end
@@ -2167,7 +2189,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_observability_configurations_errors()}
   def list_observability_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListObservabilityConfigurations", input, options)
   end
@@ -2185,7 +2208,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOperations", input, options)
   end
@@ -2200,7 +2224,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -2219,7 +2244,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_services_for_auto_scaling_configuration_errors()}
   def list_services_for_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServicesForAutoScalingConfiguration", input, options)
   end
@@ -2235,7 +2261,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2249,7 +2276,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_vpc_connectors_errors()}
   def list_vpc_connectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVpcConnectors", input, options)
   end
@@ -2264,7 +2292,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_vpc_ingress_connections_errors()}
   def list_vpc_ingress_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVpcIngressConnections", input, options)
   end
@@ -2286,7 +2315,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, pause_service_errors()}
   def pause_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PauseService", input, options)
   end
@@ -2306,7 +2336,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, resume_service_errors()}
   def resume_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeService", input, options)
   end
@@ -2332,7 +2363,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, start_deployment_errors()}
   def start_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDeployment", input, options)
   end
@@ -2348,7 +2380,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2362,7 +2395,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2383,7 +2417,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, update_default_auto_scaling_configuration_errors()}
   def update_default_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDefaultAutoScalingConfiguration", input, options)
   end
@@ -2410,7 +2445,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
   end
@@ -2438,7 +2474,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, update_vpc_ingress_connection_errors()}
   def update_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVpcIngressConnection", input, options)
   end

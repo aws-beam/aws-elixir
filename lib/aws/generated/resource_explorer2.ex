@@ -42,14 +42,135 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
-      create_index_output() :: %{
+      get_index_output() :: %{
         optional("Arn") => [String.t() | atom()],
         optional("CreatedAt") => [non_neg_integer()],
-        optional("State") => String.t() | atom()
+        optional("LastUpdatedAt") => [non_neg_integer()],
+        optional("ReplicatingFrom") => list([String.t() | atom()]()),
+        optional("ReplicatingTo") => list([String.t() | atom()]()),
+        optional("State") => String.t() | atom(),
+        optional("Tags") => map(),
+        optional("Type") => String.t() | atom()
       }
 
   """
-  @type create_index_output() :: %{(String.t() | atom()) => any()}
+  @type get_index_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_indexes_output() :: %{
+        "Indexes" => list(index()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_service_indexes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_explorer_setup_input() :: %{
+        optional("DeleteInAllRegions") => [boolean()],
+        optional("RegionList") => list([String.t() | atom()]())
+      }
+
+  """
+  @type delete_resource_explorer_setup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_views_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_service_views_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_view_input() :: %{
+        required("ServiceViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type get_service_view_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view_status() :: %{
+        "ErrorDetails" => error_details(),
+        "Status" => String.t() | atom(),
+        "View" => view()
+      }
+
+  """
+  @type view_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_views_output() :: %{
+        "NextToken" => [String.t() | atom()],
+        "ServiceViews" => list([String.t() | atom()]())
+      }
+
+  """
+  @type list_service_views_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_explorer_setup_output() :: %{
+        "TaskId" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_resource_explorer_setup_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_default_view_input() :: %{
+        required("ViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type associate_default_view_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -68,13 +189,99 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
-      batch_get_view_output() :: %{
-        optional("Errors") => list(batch_get_view_error()),
-        optional("Views") => list(view())
+      list_supported_resource_types_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type batch_get_view_output() :: %{(String.t() | atom()) => any()}
+  @type list_supported_resource_types_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_view_input() :: %{
+        optional("ClientToken") => [String.t() | atom()],
+        optional("Filters") => search_filter(),
+        optional("IncludedProperties") => list(included_property()),
+        optional("Scope") => [String.t() | atom()],
+        optional("Tags") => map(),
+        required("ViewName") => String.t() | atom()
+      }
+
+  """
+  @type create_view_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_for_members_input() :: %{
+        required("AccountIdList") => list(String.t() | atom()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_indexes_for_members_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_index_input() :: %{
+        required("Arn") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_index_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_streaming_access_for_services_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_streaming_access_for_services_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_views_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_views_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_views_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        optional("ServicePrincipal") => [String.t() | atom()]
+      }
+
+  """
+  @type list_managed_views_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,38 +298,276 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      list_managed_views_output() :: %{
+        "ManagedViews" => list([String.t() | atom()]()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_managed_views_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_index_output() :: %{
+        optional("Arn") => [String.t() | atom()],
+        optional("LastUpdatedAt") => [non_neg_integer()],
+        optional("State") => String.t() | atom()
+      }
+
+  """
+  @type delete_index_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resources_input() :: %{
+        optional("Filters") => search_filter(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        optional("ViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type list_resources_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        optional("Regions") => list([String.t() | atom()]()),
+        optional("Type") => String.t() | atom()
+      }
+
+  """
+  @type list_indexes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "FieldList" => list(validation_exception_field()),
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_default_view_output() :: %{
+        optional("ViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type get_default_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_view_output() :: %{
+        optional("Errors") => list(batch_get_view_error()),
+        optional("Views") => list(view())
+      }
+
+  """
+  @type batch_get_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_view_input() :: %{
+        optional("ViewArns") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_view_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_indexes_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        optional("Regions") => list([String.t() | atom()]())
+      }
+
+  """
+  @type list_service_indexes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_level_service_configuration_output() :: %{
+        "OrgConfiguration" => org_configuration()
+      }
+
+  """
+  @type get_account_level_service_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      index_status() :: %{
+        "ErrorDetails" => error_details(),
+        "Index" => index(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type index_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_view_output() :: %{
+        optional("View") => view()
+      }
+
+  """
+  @type update_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_explorer_setup_output() :: %{
+        "TaskId" => [String.t() | atom()]
+      }
+
+  """
+  @type create_resource_explorer_setup_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resources_output() :: %{
+        "NextToken" => [String.t() | atom()],
+        "Resources" => list(resource()),
+        "ViewArn" => [String.t() | atom()]
+      }
+
+  """
+  @type list_resources_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_explorer_setup_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()],
+        required("TaskId") => [String.t() | atom()]
+      }
+
+  """
+  @type get_resource_explorer_setup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_view_error() :: %{
+        "ErrorMessage" => [String.t() | atom()],
+        "ViewArn" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_view_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      streaming_access_details() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "ServicePrincipal" => [String.t() | atom()]
+      }
+
+  """
+  @type streaming_access_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_view_output() :: %{
+        "View" => service_view()
+      }
+
+  """
+  @type get_service_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_view_output() :: %{
+        optional("ViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_filter() :: %{
+        "FilterString" => [String.t() | atom()]
+      }
+
+  """
+  @type search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_index_input() :: %{
+        optional("ClientToken") => [String.t() | atom()],
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_index_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_view_output() :: %{
         optional("View") => view()
       }
 
   """
   @type create_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_indexes_for_members_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        required("AccountIdList") => list(String.t() | atom())
-      }
-
-  """
-  @type list_indexes_for_members_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resource_explorer_setup_input() :: %{
-        optional("AggregatorRegions") => list([String.t() | atom()]()),
-        required("RegionList") => list([String.t() | atom()]()),
-        required("ViewName") => [String.t() | atom()]
-      }
-
-  """
-  @type create_resource_explorer_setup_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -142,8 +587,8 @@ defmodule AWS.ResourceExplorer2 do
       search_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t() | atom()],
-        optional("ViewArn") => [String.t() | atom()],
-        required("QueryString") => String.t() | atom()
+        required("QueryString") => String.t() | atom(),
+        optional("ViewArn") => [String.t() | atom()]
       }
 
   """
@@ -153,29 +598,50 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
-      view() :: %{
-        "Filters" => search_filter(),
-        "IncludedProperties" => list(included_property()),
-        "LastUpdatedAt" => [non_neg_integer()],
-        "Owner" => [String.t() | atom()],
-        "Scope" => [String.t() | atom()],
-        "ViewArn" => [String.t() | atom()],
-        "ViewName" => String.t() | atom()
+      resource_count() :: %{
+        "Complete" => [boolean()],
+        "TotalResources" => [float()]
       }
 
   """
-  @type view() :: %{(String.t() | atom()) => any()}
+  @type resource_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_default_view_input() :: %{
-        required("ViewArn") => [String.t() | atom()]
+      region_status() :: %{
+        "Index" => index_status(),
+        "Region" => [String.t() | atom()],
+        "View" => view_status()
       }
 
   """
-  @type associate_default_view_input() :: %{(String.t() | atom()) => any()}
+  @type region_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_explorer_setup_input() :: %{
+        optional("AggregatorRegions") => list([String.t() | atom()]()),
+        required("RegionList") => list([String.t() | atom()]()),
+        required("ViewName") => [String.t() | atom()]
+      }
+
+  """
+  @type create_resource_explorer_setup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,483 +670,6 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
-      service_view() :: %{
-        "Filters" => search_filter(),
-        "IncludedProperties" => list(included_property()),
-        "ScopeType" => [String.t() | atom()],
-        "ServiceViewArn" => [String.t() | atom()],
-        "ServiceViewName" => String.t() | atom(),
-        "StreamingAccessForService" => [String.t() | atom()]
-      }
-
-  """
-  @type service_view() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_views_output() :: %{
-        optional("NextToken") => [String.t() | atom()],
-        optional("Views") => list([String.t() | atom()]())
-      }
-
-  """
-  @type list_views_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_view_output() :: %{
-        optional("ViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type delete_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_count() :: %{
-        "Complete" => [boolean()],
-        "TotalResources" => [float()]
-      }
-
-  """
-  @type resource_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_view_input() :: %{
-        optional("ViewArns") => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_views_output() :: %{
-        "ManagedViews" => list([String.t() | atom()]()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_managed_views_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_supported_resource_types_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_supported_resource_types_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_index_output() :: %{
-        optional("Arn") => [String.t() | atom()],
-        optional("CreatedAt") => [non_neg_integer()],
-        optional("LastUpdatedAt") => [non_neg_integer()],
-        optional("ReplicatingFrom") => list([String.t() | atom()]()),
-        optional("ReplicatingTo") => list([String.t() | atom()]()),
-        optional("State") => String.t() | atom(),
-        optional("Tags") => map(),
-        optional("Type") => String.t() | atom()
-      }
-
-  """
-  @type get_index_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_output() :: %{
-        optional("Count") => resource_count(),
-        optional("NextToken") => [String.t() | atom()],
-        optional("Resources") => list(resource()),
-        optional("ViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type search_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_explorer_setup_output() :: %{
-        "TaskId" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_resource_explorer_setup_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_filter() :: %{
-        "FilterString" => [String.t() | atom()]
-      }
-
-  """
-  @type search_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      index() :: %{
-        "Arn" => [String.t() | atom()],
-        "Region" => [String.t() | atom()],
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type index() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resources_input() :: %{
-        optional("Filters") => search_filter(),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        optional("ViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type list_resources_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resource_explorer_setup_output() :: %{
-        "TaskId" => [String.t() | atom()]
-      }
-
-  """
-  @type create_resource_explorer_setup_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_indexes_for_members_output() :: %{
-        "Indexes" => list(member_index()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_indexes_for_members_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_views_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        optional("ServicePrincipal") => [String.t() | atom()]
-      }
-
-  """
-  @type list_managed_views_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_view_error() :: %{
-        "ErrorMessage" => [String.t() | atom()],
-        "ViewArn" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_get_view_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_view_input() :: %{
-        optional("Filters") => search_filter(),
-        optional("IncludedProperties") => list(included_property()),
-        required("ViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type update_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "Name" => [String.t() | atom()],
-        "Value" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_explorer_setup_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        required("TaskId") => [String.t() | atom()]
-      }
-
-  """
-  @type get_resource_explorer_setup_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_indexes_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        optional("Regions") => list([String.t() | atom()]()),
-        optional("Type") => String.t() | atom()
-      }
-
-  """
-  @type list_indexes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_details() :: %{
-        "Code" => [String.t() | atom()],
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_view_output() :: %{
-        "View" => service_view()
-      }
-
-  """
-  @type get_service_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_views_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_views_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "Name" => [String.t() | atom()],
-        "ValidationIssue" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      org_configuration() :: %{
-        "AWSServiceAccessStatus" => String.t() | atom(),
-        "ServiceLinkedRole" => [String.t() | atom()]
-      }
-
-  """
-  @type org_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      region_status() :: %{
-        "Index" => index_status(),
-        "Region" => [String.t() | atom()],
-        "View" => view_status()
-      }
-
-  """
-  @type region_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_indexes_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()],
-        optional("Regions") => list([String.t() | atom()]())
-      }
-
-  """
-  @type list_service_indexes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_view_input() :: %{
-        required("ManagedViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type get_managed_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_default_view_output() :: %{
-        optional("ViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type associate_default_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_index_output() :: %{
-        optional("Arn") => [String.t() | atom()],
-        optional("LastUpdatedAt") => [non_neg_integer()],
-        optional("State") => String.t() | atom()
-      }
-
-  """
-  @type delete_index_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      streaming_access_details() :: %{
-        "CreatedAt" => [non_neg_integer()],
-        "ServicePrincipal" => [String.t() | atom()]
-      }
-
-  """
-  @type streaming_access_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      view_status() :: %{
-        "ErrorDetails" => error_details(),
-        "Status" => String.t() | atom(),
-        "View" => view()
-      }
-
-  """
-  @type view_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       get_service_index_output() :: %{
         "Arn" => [String.t() | atom()],
         "Type" => String.t() | atom()
@@ -688,212 +677,6 @@ defmodule AWS.ResourceExplorer2 do
 
   """
   @type get_service_index_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_index_type_input() :: %{
-        required("Arn") => [String.t() | atom()],
-        required("Type") => String.t() | atom()
-      }
-
-  """
-  @type update_index_type_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_explorer_setup_input() :: %{
-        optional("DeleteInAllRegions") => [boolean()],
-        optional("RegionList") => list([String.t() | atom()]())
-      }
-
-  """
-  @type delete_resource_explorer_setup_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_view_input() :: %{
-        optional("ClientToken") => [String.t() | atom()],
-        optional("Filters") => search_filter(),
-        optional("IncludedProperties") => list(included_property()),
-        optional("Scope") => [String.t() | atom()],
-        optional("Tags") => map(),
-        required("ViewName") => String.t() | atom()
-      }
-
-  """
-  @type create_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_view_input() :: %{
-        required("ServiceViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type get_service_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_view_input() :: %{
-        required("ViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type get_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_explorer_setup_output() :: %{
-        "NextToken" => [String.t() | atom()],
-        "Regions" => list(region_status())
-      }
-
-  """
-  @type get_resource_explorer_setup_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()),
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_index_input() :: %{
-        required("Arn") => [String.t() | atom()]
-      }
-
-  """
-  @type delete_index_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      supported_resource_type() :: %{
-        "ResourceType" => [String.t() | atom()],
-        "Service" => [String.t() | atom()]
-      }
-
-  """
-  @type supported_resource_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_view_output() :: %{
-        optional("View") => view()
-      }
-
-  """
-  @type update_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_views_output() :: %{
-        "NextToken" => [String.t() | atom()],
-        "ServiceViews" => list([String.t() | atom()]())
-      }
-
-  """
-  @type list_service_views_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_level_service_configuration_output() :: %{
-        "OrgConfiguration" => org_configuration()
-      }
-
-  """
-  @type get_account_level_service_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_views_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_service_views_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,126 +694,32 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
-      list_streaming_access_for_services_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | atom()]
-      }
+      tag_resource_output() :: %{}
 
   """
-  @type list_streaming_access_for_services_input() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_view_output() :: %{
-        optional("Tags") => map(),
-        optional("View") => view()
+      get_view_input() :: %{
+        required("ViewArn") => [String.t() | atom()]
       }
 
   """
-  @type get_view_output() :: %{(String.t() | atom()) => any()}
+  @type get_view_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_supported_resource_types_output() :: %{
-        optional("NextToken") => [String.t() | atom()],
-        optional("ResourceTypes") => list(supported_resource_type())
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type list_supported_resource_types_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_index_input() :: %{
-        optional("ClientToken") => [String.t() | atom()],
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_index_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_index_type_output() :: %{
-        optional("Arn") => [String.t() | atom()],
-        optional("LastUpdatedAt") => [non_neg_integer()],
-        optional("State") => String.t() | atom(),
-        optional("Type") => String.t() | atom()
-      }
-
-  """
-  @type update_index_type_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      index_status() :: %{
-        "ErrorDetails" => error_details(),
-        "Index" => index(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type index_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_indexes_output() :: %{
-        "Indexes" => list(index()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_service_indexes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_index() :: %{
-        "AccountId" => [String.t() | atom()],
-        "Arn" => [String.t() | atom()],
-        "Region" => [String.t() | atom()],
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type member_index() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_default_view_output() :: %{
-        optional("ViewArn") => [String.t() | atom()]
-      }
-
-  """
-  @type get_default_view_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resources_output() :: %{
-        "NextToken" => [String.t() | atom()],
-        "Resources" => list(resource()),
-        "ViewArn" => [String.t() | atom()]
-      }
-
-  """
-  @type list_resources_output() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,8 +745,134 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      tag_resource_input() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_default_view_output() :: %{
+        optional("ViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type associate_default_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_view() :: %{
+        "Filters" => search_filter(),
+        "IncludedProperties" => list(included_property()),
+        "ScopeType" => [String.t() | atom()],
+        "ServiceLinkedRecorder" => service_linked_recorder_info(),
+        "ServiceViewArn" => [String.t() | atom()],
+        "ServiceViewName" => String.t() | atom(),
+        "StreamingAccessForService" => [String.t() | atom()]
+      }
+
+  """
+  @type service_view() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      supported_resource_type() :: %{
+        "CFNResourceTypes" => list([String.t() | atom()]()),
+        "ResourceType" => [String.t() | atom()],
+        "Service" => [String.t() | atom()]
+      }
+
+  """
+  @type supported_resource_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_index_type_input() :: %{
+        required("Arn") => [String.t() | atom()],
+        required("Type") => String.t() | atom()
+      }
+
+  """
+  @type update_index_type_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_view_input() :: %{
+        required("ManagedViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type get_managed_view_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_view_output() :: %{
+        optional("Tags") => map(),
+        optional("View") => view()
+      }
+
+  """
+  @type get_view_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_index_type_output() :: %{
+        optional("Arn") => [String.t() | atom()],
+        optional("LastUpdatedAt") => [non_neg_integer()],
+        optional("State") => String.t() | atom(),
+        optional("Type") => String.t() | atom()
+      }
+
+  """
+  @type update_index_type_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource() :: %{
         "Arn" => [String.t() | atom()],
+        "CfnResourceType" => [String.t() | atom()],
         "LastReportedAt" => [non_neg_integer()],
         "OwningAccountId" => [String.t() | atom()],
         "Properties" => list(resource_property()),
@@ -1073,6 +888,70 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      create_index_output() :: %{
+        optional("Arn") => [String.t() | atom()],
+        optional("CreatedAt") => [non_neg_integer()],
+        optional("State") => String.t() | atom()
+      }
+
+  """
+  @type create_index_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_details() :: %{
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_view_input() :: %{
+        optional("Filters") => search_filter(),
+        optional("IncludedProperties") => list(included_property()),
+        required("ViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type update_view_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_linked_recorder_info() :: %{
+        "RecorderName" => [String.t() | atom()],
+        "RecorderType" => String.t() | atom(),
+        "ServicePrincipal" => [String.t() | atom()]
+      }
+
+  """
+  @type service_linked_recorder_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      index() :: %{
+        "Arn" => [String.t() | atom()],
+        "Region" => [String.t() | atom()],
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type index() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_managed_view_output() :: %{
         "ManagedView" => managed_view()
       }
@@ -1080,231 +959,368 @@ defmodule AWS.ResourceExplorer2 do
   """
   @type get_managed_view_output() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      get_resource_explorer_setup_output() :: %{
+        "NextToken" => [String.t() | atom()],
+        "Regions" => list(region_status())
+      }
+
+  """
+  @type get_resource_explorer_setup_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view() :: %{
+        "Filters" => search_filter(),
+        "IncludedProperties" => list(included_property()),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "Owner" => [String.t() | atom()],
+        "Scope" => [String.t() | atom()],
+        "ViewArn" => [String.t() | atom()],
+        "ViewName" => String.t() | atom()
+      }
+
+  """
+  @type view() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_views_output() :: %{
+        optional("NextToken") => [String.t() | atom()],
+        optional("Views") => list([String.t() | atom()]())
+      }
+
+  """
+  @type list_views_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "Name" => [String.t() | atom()],
+        "ValidationIssue" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_index() :: %{
+        "AccountId" => [String.t() | atom()],
+        "Arn" => [String.t() | atom()],
+        "Region" => [String.t() | atom()],
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type member_index() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_for_members_output() :: %{
+        "Indexes" => list(member_index()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_indexes_for_members_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_output() :: %{
+        optional("Count") => resource_count(),
+        optional("NextToken") => [String.t() | atom()],
+        optional("Resources") => list(resource()),
+        optional("ViewArn") => [String.t() | atom()]
+      }
+
+  """
+  @type search_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_supported_resource_types_output() :: %{
+        optional("NextToken") => [String.t() | atom()],
+        optional("ResourceTypes") => list(supported_resource_type())
+      }
+
+  """
+  @type list_supported_resource_types_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      org_configuration() :: %{
+        "AWSServiceAccessStatus" => String.t() | atom(),
+        "ServiceLinkedRole" => [String.t() | atom()]
+      }
+
+  """
+  @type org_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
   @type associate_default_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type batch_get_view_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type create_index_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_resource_explorer_setup_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type delete_index_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_resource_explorer_setup_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type disassociate_default_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_account_level_service_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_default_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_index_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_managed_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type get_resource_explorer_setup_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_service_index_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_service_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type list_indexes_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_indexes_for_members_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_managed_views_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type list_resources_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type list_service_indexes_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_service_views_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_streaming_access_for_services_errors() ::
-          validation_exception() | access_denied_exception() | internal_server_exception()
+          access_denied_exception() | internal_server_exception() | validation_exception()
 
   @type list_supported_resource_types_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type list_views_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type search_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   @type update_index_type_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_view_errors() ::
-          throttling_exception()
-          | validation_exception()
+          service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | throttling_exception()
 
   def metadata do
     %{

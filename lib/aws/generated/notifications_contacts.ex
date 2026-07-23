@@ -18,85 +18,52 @@ defmodule AWS.NotificationsContacts do
 
   ## Example:
 
+      delete_email_contact_response() :: %{}
+
+  """
+  @type delete_email_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      send_activation_code_response() :: %{}
+
+  """
+  @type send_activation_code_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_email_contact_request() :: %{}
-
-  """
-  @type activate_email_contact_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_email_contact_response() :: %{}
-
-  """
-  @type activate_email_contact_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_contact_request() :: %{
-        optional("tags") => map(),
-        required("emailAddress") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_email_contact_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_contact_response() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type create_email_contact_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_contact_request() :: %{}
-
-  """
-  @type delete_email_contact_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_contact_response() :: %{}
-
-  """
-  @type delete_email_contact_response() :: %{}
 
   @typedoc """
 
@@ -118,6 +85,20 @@ defmodule AWS.NotificationsContacts do
 
   ## Example:
 
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_email_contact_request() :: %{}
 
   """
@@ -127,67 +108,14 @@ defmodule AWS.NotificationsContacts do
 
   ## Example:
 
-      get_email_contact_response() :: %{
-        "emailContact" => email_contact()
+      create_email_contact_request() :: %{
+        required("emailAddress") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type get_email_contact_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_email_contacts_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_email_contacts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_email_contacts_response() :: %{
-        "emailContacts" => list(email_contact()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_email_contacts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type create_email_contact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,59 +143,10 @@ defmodule AWS.NotificationsContacts do
 
   ## Example:
 
-      send_activation_code_response() :: %{}
+      activate_email_contact_response() :: %{}
 
   """
-  @type send_activation_code_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type activate_email_contact_response() :: %{}
 
   @typedoc """
 
@@ -284,28 +163,6 @@ defmodule AWS.NotificationsContacts do
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       validation_exception_field() :: %{
         "message" => [String.t() | atom()],
         "name" => [String.t() | atom()]
@@ -314,71 +171,214 @@ defmodule AWS.NotificationsContacts do
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_contact_response() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type create_email_contact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_email_contact_request() :: %{}
+
+  """
+  @type activate_email_contact_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_contact_request() :: %{}
+
+  """
+  @type delete_email_contact_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_email_contacts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_email_contacts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_email_contacts_response() :: %{
+        "emailContacts" => list(email_contact()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_email_contacts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_email_contact_response() :: %{
+        "emailContact" => email_contact()
+      }
+
+  """
+  @type get_email_contact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
   @type activate_email_contact_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type create_email_contact_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | internal_server_exception()
           | conflict_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type delete_email_contact_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type get_email_contact_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type list_email_contacts_errors() ::
-          validation_exception()
+          internal_server_exception()
           | throttling_exception()
-          | internal_server_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type send_activation_code_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -413,7 +413,7 @@ defmodule AWS.NotificationsContacts do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, activate_email_contact_errors()}
-  def activate_email_contact(%Client{} = client, arn, code, input, options \\ []) do
+  def activate_email_contact(%Client{} = client, code, arn, input, options \\ []) do
     url_path = "/emailcontacts/#{AWS.Util.encode_uri(arn)}/activate/#{AWS.Util.encode_uri(code)}"
     headers = []
     custom_headers = []
@@ -523,8 +523,8 @@ defmodule AWS.NotificationsContacts do
           | {:error, list_email_contacts_errors()}
   def list_email_contacts(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/emailcontacts"
@@ -532,15 +532,15 @@ defmodule AWS.NotificationsContacts do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

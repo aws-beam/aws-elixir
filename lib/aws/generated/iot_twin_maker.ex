@@ -22,77 +22,9 @@ defmodule AWS.IoTTwinMaker do
 
   ## Example:
 
-      execute_query_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("queryStatement") => String.t() | atom(),
-        required("workspaceId") => String.t() | atom()
-      }
-
-  """
-  @type execute_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sync_job_request() :: %{
-        optional("workspaceId") => String.t() | atom()
-      }
-
-  """
-  @type get_sync_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_scene_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("creationDateTime") => non_neg_integer()
-      }
-
-  """
-  @type create_scene_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sync_job_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("creationDateTime") => non_neg_integer(),
-        required("status") => sync_job_status(),
-        required("syncRole") => String.t() | atom(),
-        required("syncSource") => String.t() | atom(),
-        required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t() | atom()
-      }
-
-  """
-  @type get_sync_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_update_request() :: %{
-        "componentTypeId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "propertyGroupUpdates" => map(),
-        "propertyUpdates" => map(),
-        "updateType" => String.t() | atom()
-      }
-
-  """
-  @type component_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_metadata_transfer_job_response() :: %{
+      metadata_transfer_job_summary() :: %{
         "arn" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
         "metadataTransferJobId" => String.t() | atom(),
         "progress" => metadata_transfer_job_progress(),
         "status" => metadata_transfer_job_status(),
@@ -100,40 +32,16 @@ defmodule AWS.IoTTwinMaker do
       }
 
   """
-  @type cancel_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
+  @type metadata_transfer_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_entities_request() :: %{
-        optional("filters") => list(list()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
+      delete_workspace_request() :: %{}
 
   """
-  @type list_entities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_source_configuration() :: %{
-        "location" => String.t() | atom()
-      }
-
-  """
-  @type s3_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_metadata_transfer_job_request() :: %{}
-
-  """
-  @type cancel_metadata_transfer_job_request() :: %{}
+  @type delete_workspace_request() :: %{}
 
   @typedoc """
 
@@ -150,232 +58,139 @@ defmodule AWS.IoTTwinMaker do
 
   ## Example:
 
-      tabular_conditions() :: %{
-        "orderBy" => list(order_by()),
-        "propertyFilters" => list(property_filter())
+      update_scene_request() :: %{
+        optional("capabilities") => list(String.t() | atom()),
+        optional("contentLocation") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("sceneMetadata") => map()
       }
 
   """
-  @type tabular_conditions() :: %{(String.t() | atom()) => any()}
+  @type update_scene_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("resourceARN") => String.t() | atom(),
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scenes_request() :: %{
+      get_property_value_history_request() :: %{
+        optional("componentName") => String.t() | atom(),
+        optional("componentPath") => String.t() | atom(),
+        optional("componentTypeId") => String.t() | atom(),
+        optional("endDateTime") => non_neg_integer(),
+        optional("endTime") => String.t() | atom(),
+        optional("entityId") => String.t() | atom(),
+        optional("interpolation") => interpolation_parameters(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        optional("orderByTime") => String.t() | atom(),
+        optional("propertyFilters") => list(property_filter()),
+        required("selectedProperties") => list(String.t() | atom()),
+        optional("startDateTime") => non_neg_integer(),
+        optional("startTime") => String.t() | atom()
       }
 
   """
-  @type list_scenes_request() :: %{(String.t() | atom()) => any()}
+  @type get_property_value_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      connector_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type connector_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_properties_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "propertySummaries" => list(property_summary())
-      }
-
-  """
-  @type list_properties_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iot_twin_maker_source_configuration() :: %{
-        "filters" => list(list()),
-        "workspace" => String.t() | atom()
-      }
-
-  """
-  @type iot_twin_maker_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_request() :: %{
-        "definition" => property_definition_request(),
-        "updateType" => String.t() | atom(),
+      property_summary() :: %{
+        "areAllPropertyValuesReturned" => boolean(),
+        "definition" => property_definition_response(),
+        "propertyName" => String.t() | atom(),
         "value" => data_value()
       }
 
   """
-  @type property_request() :: %{(String.t() | atom()) => any()}
+  @type property_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_property_value_request() :: %{
-        optional("componentName") => String.t() | atom(),
-        optional("componentPath") => String.t() | atom(),
-        optional("componentTypeId") => String.t() | atom(),
-        optional("entityId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("propertyGroupName") => String.t() | atom(),
-        optional("tabularConditions") => tabular_conditions(),
-        required("selectedProperties") => list(String.t() | atom())
+      get_sync_job_request() :: %{
+        optional("workspaceId") => String.t() | atom()
       }
 
   """
-  @type get_property_value_request() :: %{(String.t() | atom()) => any()}
+  @type get_sync_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_component_type_request() :: %{
-        optional("componentTypeName") => String.t() | atom(),
-        optional("compositeComponentTypes") => map(),
-        optional("description") => String.t() | atom(),
-        optional("extendsFrom") => list(String.t() | atom()),
-        optional("functions") => map(),
-        optional("isSingleton") => boolean(),
-        optional("propertyDefinitions") => map(),
-        optional("propertyGroups") => map(),
-        optional("tags") => map()
+      list_entities_response() :: %{
+        optional("entitySummaries") => list(entity_summary()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type create_component_type_request() :: %{(String.t() | atom()) => any()}
+  @type list_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      composite_component_type_response() :: %{
-        "componentTypeId" => String.t() | atom(),
-        "isInherited" => boolean()
+      filter_by_asset() :: %{
+        "assetExternalId" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
+        "includeAssetModel" => boolean(),
+        "includeOffspring" => boolean()
       }
 
   """
-  @type composite_component_type_response() :: %{(String.t() | atom()) => any()}
+  @type filter_by_asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      column_description() :: %{
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
+      data_connector() :: %{
+        "isNative" => boolean(),
+        "lambda" => lambda_function()
       }
 
   """
-  @type column_description() :: %{(String.t() | atom()) => any()}
+  @type data_connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_pricing_plan_request() :: %{}
-
-  """
-  @type get_pricing_plan_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_entity_request() :: %{}
-
-  """
-  @type get_entity_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pricing_plan() :: %{
-        "billableEntityCount" => float(),
-        "bundleInformation" => bundle_information(),
-        "effectiveDateTime" => non_neg_integer(),
-        "pricingMode" => String.t() | atom(),
-        "updateDateTime" => non_neg_integer(),
-        "updateReason" => String.t() | atom()
+      list_metadata_transfer_jobs_response() :: %{
+        "metadataTransferJobSummaries" => list(metadata_transfer_job_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type pricing_plan() :: %{(String.t() | atom()) => any()}
+  @type list_metadata_transfer_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      relationship() :: %{
-        "relationshipType" => String.t() | atom(),
-        "targetComponentTypeId" => String.t() | atom()
-      }
-
-  """
-  @type relationship() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_function() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_function() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      entity_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "entityName" => String.t() | atom(),
-        "hasChildEntities" => boolean(),
+      parent_entity_update_request() :: %{
         "parentEntityId" => String.t() | atom(),
-        "status" => status(),
-        "updateDateTime" => non_neg_integer()
+        "updateType" => String.t() | atom()
       }
 
   """
-  @type entity_summary() :: %{(String.t() | atom()) => any()}
+  @type parent_entity_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_property_error() :: %{
+        "entry" => property_value_entry(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_property_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,444 +212,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Example:
 
-      component_property_group_response() :: %{
-        "groupType" => String.t() | atom(),
-        "isInherited" => boolean(),
-        "propertyNames" => list(String.t() | atom())
-      }
-
-  """
-  @type component_property_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      composite_component_update_request() :: %{
-        "description" => String.t() | atom(),
-        "propertyGroupUpdates" => map(),
-        "propertyUpdates" => map(),
-        "updateType" => String.t() | atom()
-      }
-
-  """
-  @type composite_component_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sync_job_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => non_neg_integer(),
-        "status" => sync_job_status(),
-        "syncSource" => String.t() | atom(),
-        "updateDateTime" => non_neg_integer(),
-        "workspaceId" => String.t() | atom()
-      }
-
-  """
-  @type sync_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iot_twin_maker_destination_configuration() :: %{
-        "workspace" => String.t() | atom()
-      }
-
-  """
-  @type iot_twin_maker_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_entity_request() :: %{
-        optional("componentUpdates") => map(),
-        optional("compositeComponentUpdates") => map(),
-        optional("description") => String.t() | atom(),
-        optional("entityName") => String.t() | atom(),
-        optional("parentEntityUpdate") => parent_entity_update_request()
-      }
-
-  """
-  @type update_entity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      composite_component_request() :: %{
-        "description" => String.t() | atom(),
-        "properties" => map(),
-        "propertyGroups" => map()
-      }
-
-  """
-  @type composite_component_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_scene_response() :: %{
-        required("updateDateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_scene_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scene_summary() :: %{
-        "arn" => String.t() | atom(),
-        "contentLocation" => String.t() | atom(),
-        "creationDateTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "sceneId" => String.t() | atom(),
-        "updateDateTime" => non_neg_integer()
-      }
-
-  """
-  @type scene_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_type() :: %{
-        "allowedValues" => list(data_value()),
-        "nestedType" => data_type(),
-        "relationship" => relationship(),
-        "type" => String.t() | atom(),
-        "unitOfMeasure" => String.t() | atom()
-      }
-
-  """
-  @type data_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_component_type_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("creationDateTime") => non_neg_integer(),
-        required("state") => String.t() | atom()
-      }
-
-  """
-  @type create_component_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_properties_request() :: %{
-        optional("componentName") => String.t() | atom(),
-        optional("componentPath") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("entityId") => String.t() | atom()
-      }
-
-  """
-  @type list_properties_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      order_by() :: %{
-        "order" => String.t() | atom(),
-        "propertyName" => String.t() | atom()
-      }
-
-  """
-  @type order_by() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("resourceARN") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_summary() :: %{
-        "componentName" => String.t() | atom(),
-        "componentPath" => String.t() | atom(),
-        "componentTypeId" => String.t() | atom(),
-        "definedIn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "propertyGroups" => map(),
-        "status" => status(),
-        "syncSource" => String.t() | atom()
-      }
-
-  """
-  @type component_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_latest_value() :: %{
-        "propertyReference" => entity_property_reference(),
-        "propertyValue" => data_value()
-      }
-
-  """
-  @type property_latest_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_workspace_response() :: %{
-        optional("message") => String.t() | atom()
-      }
-
-  """
-  @type delete_workspace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sync_job_response() :: %{
-        required("state") => String.t() | atom()
-      }
-
-  """
-  @type delete_sync_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_value() :: %{
-        "time" => String.t() | atom(),
-        "timestamp" => non_neg_integer(),
-        "value" => data_value()
-      }
-
-  """
-  @type property_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_component_type_request() :: %{
-        optional("componentTypeName") => String.t() | atom(),
-        optional("compositeComponentTypes") => map(),
-        optional("description") => String.t() | atom(),
-        optional("extendsFrom") => list(String.t() | atom()),
-        optional("functions") => map(),
-        optional("isSingleton") => boolean(),
-        optional("propertyDefinitions") => map(),
-        optional("propertyGroups") => map()
-      }
-
-  """
-  @type update_component_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_group_request() :: %{
-        "groupType" => String.t() | atom(),
-        "propertyNames" => list(String.t() | atom())
-      }
-
-  """
-  @type property_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      entity_property_reference() :: %{
-        "componentName" => String.t() | atom(),
-        "componentPath" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "externalIdProperty" => map(),
-        "propertyName" => String.t() | atom()
-      }
-
-  """
-  @type entity_property_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_property_error() :: %{
-        "entry" => property_value_entry(),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type batch_put_property_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_metadata_transfer_job_request() :: %{}
-
-  """
-  @type get_metadata_transfer_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      property_value_entry() :: %{
-        "entityPropertyReference" => entity_property_reference(),
-        "propertyValues" => list(property_value())
-      }
-
-  """
-  @type property_value_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_property_group_request() :: %{
-        "groupType" => String.t() | atom(),
-        "propertyNames" => list(String.t() | atom()),
-        "updateType" => String.t() | atom()
-      }
-
-  """
-  @type component_property_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_metadata_transfer_job_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "destination" => destination_configuration(),
-        "metadataTransferJobId" => String.t() | atom(),
-        "metadataTransferJobRole" => String.t() | atom(),
-        "progress" => metadata_transfer_job_progress(),
-        "reportUrl" => String.t() | atom(),
-        "sources" => list(source_configuration()),
-        "status" => metadata_transfer_job_status(),
-        "updateDateTime" => non_neg_integer()
-      }
-
-  """
-  @type get_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_property_value_history_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("propertyValues") => list(property_value_history())
-      }
-
-  """
-  @type get_property_value_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_property_values_request() :: %{
-        required("entries") => list(property_value_entry())
-      }
-
-  """
-  @type batch_put_property_values_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_component_type_response() :: %{
-        optional("componentTypeName") => String.t() | atom(),
-        optional("compositeComponentTypes") => map(),
-        optional("description") => String.t() | atom(),
-        optional("extendsFrom") => list(String.t() | atom()),
-        optional("functions") => map(),
-        optional("isAbstract") => boolean(),
-        optional("isSchemaInitialized") => boolean(),
-        optional("isSingleton") => boolean(),
-        optional("propertyDefinitions") => map(),
-        optional("propertyGroups") => map(),
-        optional("status") => status(),
-        optional("syncSource") => String.t() | atom(),
-        required("arn") => String.t() | atom(),
-        required("componentTypeId") => String.t() | atom(),
-        required("creationDateTime") => non_neg_integer(),
-        required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t() | atom()
-      }
-
-  """
-  @type get_component_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sync_resource_status() :: %{
-        "error" => error_details(),
-        "state" => String.t() | atom()
-      }
-
-  """
-  @type sync_resource_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_components_request() :: %{
         optional("componentPath") => String.t() | atom(),
         optional("maxResults") => integer(),
@@ -848,191 +225,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Example:
 
-      list_sync_jobs_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("syncJobSummaries") => list(sync_job_summary())
-      }
-
-  """
-  @type list_sync_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_entity_request() :: %{
-        optional("isRecursive") => boolean()
-      }
-
-  """
-  @type delete_entity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workspace_request() :: %{}
-
-  """
-  @type get_workspace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_property_values_response() :: %{
-        required("errorEntries") => list(batch_put_property_error_entry())
-      }
-
-  """
-  @type batch_put_property_values_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sync_job_request() :: %{
-        optional("tags") => map(),
-        required("syncRole") => String.t() | atom()
-      }
-
-  """
-  @type create_sync_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      row() :: %{
-        "rowData" => list(any())
-      }
-
-  """
-  @type row() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_definition_request() :: %{
-        "configuration" => map(),
-        "dataType" => data_type(),
-        "defaultValue" => data_value(),
-        "displayName" => String.t() | atom(),
-        "isExternalId" => boolean(),
-        "isRequiredInEntity" => boolean(),
-        "isStoredExternally" => boolean(),
-        "isTimeSeries" => boolean()
-      }
-
-  """
-  @type property_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      composite_component_type_request() :: %{
-        "componentTypeId" => String.t() | atom()
-      }
-
-  """
-  @type composite_component_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sync_job_status() :: %{
-        "error" => error_details(),
-        "state" => String.t() | atom()
-      }
-
-  """
-  @type sync_job_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_destination_configuration() :: %{
-        "location" => String.t() | atom()
-      }
-
-  """
-  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scene_error() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type scene_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_scene_request() :: %{}
-
-  """
-  @type get_scene_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_scene_response() :: %{
-        optional("capabilities") => list(String.t() | atom()),
-        optional("description") => String.t() | atom(),
-        optional("error") => scene_error(),
-        optional("generatedSceneMetadata") => map(),
-        optional("sceneMetadata") => map(),
-        required("arn") => String.t() | atom(),
-        required("contentLocation") => String.t() | atom(),
-        required("creationDateTime") => non_neg_integer(),
-        required("sceneId") => String.t() | atom(),
-        required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t() | atom()
-      }
-
-  """
-  @type get_scene_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_request() :: %{
-        "componentTypeId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "properties" => map(),
-        "propertyGroups" => map()
-      }
-
-  """
-  @type component_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_sync_job_response() :: %{
         required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
@@ -1041,772 +233,6 @@ defmodule AWS.IoTTwinMaker do
 
   """
   @type create_sync_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_details() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pricing_plan_response() :: %{
-        optional("pendingPricingPlan") => pricing_plan(),
-        required("currentPricingPlan") => pricing_plan()
-      }
-
-  """
-  @type update_pricing_plan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_configuration() :: %{
-        "iotSiteWiseConfiguration" => iot_site_wise_source_configuration(),
-        "iotTwinMakerConfiguration" => iot_twin_maker_source_configuration(),
-        "s3Configuration" => s3_source_configuration(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_property_error_entry() :: %{
-        "errors" => list(batch_put_property_error())
-      }
-
-  """
-  @type batch_put_property_error_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_workspace_response() :: %{
-        required("updateDateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_workspace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_transfer_job_status() :: %{
-        "error" => error_details(),
-        "queuedPosition" => integer(),
-        "state" => String.t() | atom()
-      }
-
-  """
-  @type metadata_transfer_job_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parent_entity_update_request() :: %{
-        "parentEntityId" => String.t() | atom(),
-        "updateType" => String.t() | atom()
-      }
-
-  """
-  @type parent_entity_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_entity_response() :: %{
-        required("state") => String.t() | atom(),
-        required("updateDateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_entity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_workspace_request() :: %{}
-
-  """
-  @type delete_workspace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      component_response() :: %{
-        "areAllCompositeComponentsReturned" => boolean(),
-        "areAllPropertiesReturned" => boolean(),
-        "componentName" => String.t() | atom(),
-        "componentTypeId" => String.t() | atom(),
-        "compositeComponents" => map(),
-        "definedIn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "properties" => map(),
-        "propertyGroups" => map(),
-        "status" => status(),
-        "syncSource" => String.t() | atom()
-      }
-
-  """
-  @type component_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_type_summary() :: %{
-        "arn" => String.t() | atom(),
-        "componentTypeId" => String.t() | atom(),
-        "componentTypeName" => String.t() | atom(),
-        "creationDateTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "status" => status(),
-        "updateDateTime" => non_neg_integer()
-      }
-
-  """
-  @type component_type_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_request() :: %{
-        "implementedBy" => data_connector(),
-        "requiredProperties" => list(String.t() | atom()),
-        "scope" => String.t() | atom()
-      }
-
-  """
-  @type function_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_workspace_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("role") => String.t() | atom(),
-        optional("s3Location") => String.t() | atom()
-      }
-
-  """
-  @type update_workspace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_group_response() :: %{
-        "groupType" => String.t() | atom(),
-        "isInherited" => boolean(),
-        "propertyNames" => list(String.t() | atom())
-      }
-
-  """
-  @type property_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_by_asset() :: %{
-        "assetExternalId" => String.t() | atom(),
-        "assetId" => String.t() | atom(),
-        "includeAssetModel" => boolean(),
-        "includeOffspring" => boolean()
-      }
-
-  """
-  @type filter_by_asset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_transfer_job_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => non_neg_integer(),
-        "metadataTransferJobId" => String.t() | atom(),
-        "progress" => metadata_transfer_job_progress(),
-        "status" => metadata_transfer_job_status(),
-        "updateDateTime" => non_neg_integer()
-      }
-
-  """
-  @type metadata_transfer_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_connector() :: %{
-        "isNative" => boolean(),
-        "lambda" => lambda_function()
-      }
-
-  """
-  @type data_connector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_summary() :: %{
-        "areAllPropertyValuesReturned" => boolean(),
-        "definition" => property_definition_response(),
-        "propertyName" => String.t() | atom(),
-        "value" => data_value()
-      }
-
-  """
-  @type property_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_component_types_response() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("componentTypeSummaries") => list(component_type_summary()),
-        required("workspaceId") => String.t() | atom()
-      }
-
-  """
-  @type list_component_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sync_resource_summary() :: %{
-        "externalId" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "status" => sync_resource_status(),
-        "updateDateTime" => non_neg_integer()
-      }
-
-  """
-  @type sync_resource_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_workspace_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("creationDateTime") => non_neg_integer()
-      }
-
-  """
-  @type create_workspace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sync_resources_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("syncResources") => list(sync_resource_summary())
-      }
-
-  """
-  @type list_sync_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workspaces_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("workspaceSummaries") => list(workspace_summary())
-      }
-
-  """
-  @type list_workspaces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sync_job_request() :: %{}
-
-  """
-  @type delete_sync_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      relationship_value() :: %{
-        "targetComponentName" => String.t() | atom(),
-        "targetEntityId" => String.t() | atom()
-      }
-
-  """
-  @type relationship_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_metadata_transfer_jobs_request() :: %{
-        optional("filters") => list(list()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("destinationType") => String.t() | atom(),
-        required("sourceType") => String.t() | atom()
-      }
-
-  """
-  @type list_metadata_transfer_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_scene_response() :: %{}
-
-  """
-  @type delete_scene_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_pricing_plan_response() :: %{
-        optional("pendingPricingPlan") => pricing_plan(),
-        required("currentPricingPlan") => pricing_plan()
-      }
-
-  """
-  @type get_pricing_plan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_entity_request() :: %{
-        optional("components") => map(),
-        optional("compositeComponents") => map(),
-        optional("description") => String.t() | atom(),
-        optional("entityId") => String.t() | atom(),
-        optional("parentEntityId") => String.t() | atom(),
-        optional("tags") => map(),
-        required("entityName") => String.t() | atom()
-      }
-
-  """
-  @type create_entity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      property_filter() :: %{
-        "operator" => String.t() | atom(),
-        "propertyName" => String.t() | atom(),
-        "value" => data_value()
-      }
-
-  """
-  @type property_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sync_resources_request() :: %{
-        optional("filters") => list(list()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_sync_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_transfer_job_progress() :: %{
-        "failedCount" => integer(),
-        "skippedCount" => integer(),
-        "succeededCount" => integer(),
-        "totalCount" => integer()
-      }
-
-  """
-  @type metadata_transfer_job_progress() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_component_type_request() :: %{}
-
-  """
-  @type delete_component_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      property_response() :: %{
-        "areAllPropertyValuesReturned" => boolean(),
-        "definition" => property_definition_response(),
-        "value" => data_value()
-      }
-
-  """
-  @type property_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_by_component_type() :: %{
-        "componentTypeId" => String.t() | atom()
-      }
-
-  """
-  @type filter_by_component_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_entity_response() :: %{
-        optional("areAllComponentsReturned") => boolean(),
-        optional("components") => map(),
-        optional("description") => String.t() | atom(),
-        optional("syncSource") => String.t() | atom(),
-        required("arn") => String.t() | atom(),
-        required("creationDateTime") => non_neg_integer(),
-        required("entityId") => String.t() | atom(),
-        required("entityName") => String.t() | atom(),
-        required("hasChildEntities") => boolean(),
-        required("parentEntityId") => String.t() | atom(),
-        required("status") => status(),
-        required("updateDateTime") => non_neg_integer(),
-        required("workspaceId") => String.t() | atom()
-      }
-
-  """
-  @type get_entity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_by_asset_model() :: %{
-        "assetModelExternalId" => String.t() | atom(),
-        "assetModelId" => String.t() | atom(),
-        "includeAssets" => boolean(),
-        "includeOffspring" => boolean()
-      }
-
-  """
-  @type filter_by_asset_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sync_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_sync_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("resourceARN") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workspaces_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_workspaces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pricing_plan_request() :: %{
-        optional("bundleNames") => list(String.t() | atom()),
-        required("pricingMode") => String.t() | atom()
-      }
-
-  """
-  @type update_pricing_plan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_component_type_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("componentTypeId") => String.t() | atom(),
-        required("state") => String.t() | atom(),
-        required("workspaceId") => String.t() | atom()
-      }
-
-  """
-  @type update_component_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_query_response() :: %{
-        optional("columnDescriptions") => list(column_description()),
-        optional("nextToken") => String.t() | atom(),
-        optional("rows") => list(row())
-      }
-
-  """
-  @type execute_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_timeout_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type query_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_component_type_response() :: %{
-        required("state") => String.t() | atom()
-      }
-
-  """
-  @type delete_component_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_property_value_history_request() :: %{
-        optional("componentName") => String.t() | atom(),
-        optional("componentPath") => String.t() | atom(),
-        optional("componentTypeId") => String.t() | atom(),
-        optional("endDateTime") => non_neg_integer(),
-        optional("endTime") => String.t() | atom(),
-        optional("entityId") => String.t() | atom(),
-        optional("interpolation") => interpolation_parameters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("orderByTime") => String.t() | atom(),
-        optional("propertyFilters") => list(property_filter()),
-        optional("startDateTime") => non_neg_integer(),
-        optional("startTime") => String.t() | atom(),
-        required("selectedProperties") => list(String.t() | atom())
-      }
-
-  """
-  @type get_property_value_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_components_response() :: %{
-        "componentSummaries" => list(component_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_components_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_entity_response() :: %{
-        required("arn") => String.t() | atom(),
-        required("creationDateTime") => non_neg_integer(),
-        required("entityId") => String.t() | atom(),
-        required("state") => String.t() | atom()
-      }
-
-  """
-  @type create_entity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_metadata_transfer_job_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("metadataTransferJobId") => String.t() | atom(),
-        required("destination") => destination_configuration(),
-        required("sources") => list(source_configuration())
-      }
-
-  """
-  @type create_metadata_transfer_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bundle_information() :: %{
-        "bundleNames" => list(String.t() | atom()),
-        "pricingTier" => String.t() | atom()
-      }
-
-  """
-  @type bundle_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_timeout_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type connector_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_scene_request() :: %{
-        optional("capabilities") => list(String.t() | atom()),
-        optional("description") => String.t() | atom(),
-        optional("sceneMetadata") => map(),
-        optional("tags") => map(),
-        required("contentLocation") => String.t() | atom(),
-        required("sceneId") => String.t() | atom()
-      }
-
-  """
-  @type create_scene_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_metadata_transfer_jobs_response() :: %{
-        "metadataTransferJobSummaries" => list(metadata_transfer_job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_metadata_transfer_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1833,13 +259,438 @@ defmodule AWS.IoTTwinMaker do
 
   ## Example:
 
-      property_value_history() :: %{
-        "entityPropertyReference" => entity_property_reference(),
-        "values" => list(property_value())
+      get_property_value_request() :: %{
+        optional("componentName") => String.t() | atom(),
+        optional("componentPath") => String.t() | atom(),
+        optional("componentTypeId") => String.t() | atom(),
+        optional("entityId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("propertyGroupName") => String.t() | atom(),
+        required("selectedProperties") => list(String.t() | atom()),
+        optional("tabularConditions") => tabular_conditions()
       }
 
   """
-  @type property_value_history() :: %{(String.t() | atom()) => any()}
+  @type get_property_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bundle_information() :: %{
+        "bundleNames" => list(String.t() | atom()),
+        "pricingTier" => String.t() | atom()
+      }
+
+  """
+  @type bundle_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_query_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("queryStatement") => String.t() | atom(),
+        required("workspaceId") => String.t() | atom()
+      }
+
+  """
+  @type execute_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_transfer_job_status() :: %{
+        "error" => error_details(),
+        "queuedPosition" => integer(),
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type metadata_transfer_job_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      relationship_value() :: %{
+        "targetComponentName" => String.t() | atom(),
+        "targetEntityId" => String.t() | atom()
+      }
+
+  """
+  @type relationship_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_property_values_response() :: %{
+        required("errorEntries") => list(batch_put_property_error_entry())
+      }
+
+  """
+  @type batch_put_property_values_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_property_group_request() :: %{
+        "groupType" => String.t() | atom(),
+        "propertyNames" => list(String.t() | atom()),
+        "updateType" => String.t() | atom()
+      }
+
+  """
+  @type component_property_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_scene_response() :: %{}
+
+  """
+  @type delete_scene_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sync_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_sync_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scenes_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_scenes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sync_resource_summary() :: %{
+        "externalId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "status" => sync_resource_status(),
+        "updateDateTime" => non_neg_integer()
+      }
+
+  """
+  @type sync_resource_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_by_component_type() :: %{
+        "componentTypeId" => String.t() | atom()
+      }
+
+  """
+  @type filter_by_component_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sync_job_status() :: %{
+        "error" => error_details(),
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type sync_job_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_metadata_transfer_job_response() :: %{
+        "arn" => String.t() | atom(),
+        "metadataTransferJobId" => String.t() | atom(),
+        "progress" => metadata_transfer_job_progress(),
+        "status" => metadata_transfer_job_status(),
+        "updateDateTime" => non_neg_integer()
+      }
+
+  """
+  @type cancel_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_metadata_transfer_job_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
+        "metadataTransferJobId" => String.t() | atom(),
+        "status" => metadata_transfer_job_status()
+      }
+
+  """
+  @type create_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_response() :: %{
+        "areAllCompositeComponentsReturned" => boolean(),
+        "areAllPropertiesReturned" => boolean(),
+        "componentName" => String.t() | atom(),
+        "componentTypeId" => String.t() | atom(),
+        "compositeComponents" => map(),
+        "definedIn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "properties" => map(),
+        "propertyGroups" => map(),
+        "status" => status(),
+        "syncSource" => String.t() | atom()
+      }
+
+  """
+  @type component_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_summary() :: %{
+        "componentName" => String.t() | atom(),
+        "componentPath" => String.t() | atom(),
+        "componentTypeId" => String.t() | atom(),
+        "definedIn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "propertyGroups" => map(),
+        "status" => status(),
+        "syncSource" => String.t() | atom()
+      }
+
+  """
+  @type component_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_filter() :: %{
+        "operator" => String.t() | atom(),
+        "propertyName" => String.t() | atom(),
+        "value" => data_value()
+      }
+
+  """
+  @type property_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workspace_request() :: %{}
+
+  """
+  @type get_workspace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workspaces_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("workspaceSummaries") => list(workspace_summary())
+      }
+
+  """
+  @type list_workspaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_request() :: %{
+        "definition" => property_definition_request(),
+        "updateType" => String.t() | atom(),
+        "value" => data_value()
+      }
+
+  """
+  @type property_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_group_request() :: %{
+        "groupType" => String.t() | atom(),
+        "propertyNames" => list(String.t() | atom())
+      }
+
+  """
+  @type property_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_entity_response() :: %{
+        required("state") => String.t() | atom(),
+        required("updateDateTime") => non_neg_integer()
+      }
+
+  """
+  @type update_entity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pricing_plan_response() :: %{
+        required("currentPricingPlan") => pricing_plan(),
+        optional("pendingPricingPlan") => pricing_plan()
+      }
+
+  """
+  @type update_pricing_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_type_request() :: %{}
+
+  """
+  @type get_component_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_property_values_request() :: %{
+        required("entries") => list(property_value_entry())
+      }
+
+  """
+  @type batch_put_property_values_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scenes_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("sceneSummaries") => list(scene_summary())
+      }
+
+  """
+  @type list_scenes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_by_entity() :: %{
+        "entityId" => String.t() | atom()
+      }
+
+  """
+  @type filter_by_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sync_resources_request() :: %{
+        optional("filters") => list(list()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_sync_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1849,6 +700,452 @@ defmodule AWS.IoTTwinMaker do
 
   """
   @type delete_scene_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sync_resources_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("syncResources") => list(sync_resource_summary())
+      }
+
+  """
+  @type list_sync_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_details() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_value_entry() :: %{
+        "entityPropertyReference" => entity_property_reference(),
+        "propertyValues" => list(property_value())
+      }
+
+  """
+  @type property_value_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_configuration() :: %{
+        "iotSiteWiseConfiguration" => iot_site_wise_source_configuration(),
+        "iotTwinMakerConfiguration" => iot_twin_maker_source_configuration(),
+        "s3Configuration" => s3_source_configuration(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceARN") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pricing_plan_request() :: %{
+        optional("bundleNames") => list(String.t() | atom()),
+        required("pricingMode") => String.t() | atom()
+      }
+
+  """
+  @type update_pricing_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_components_response() :: %{
+        "componentSummaries" => list(component_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_components_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_component_type_response() :: %{
+        required("state") => String.t() | atom()
+      }
+
+  """
+  @type delete_component_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iot_twin_maker_source_configuration() :: %{
+        "filters" => list(list()),
+        "workspace" => String.t() | atom()
+      }
+
+  """
+  @type iot_twin_maker_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      composite_component_type_response() :: %{
+        "componentTypeId" => String.t() | atom(),
+        "isInherited" => boolean()
+      }
+
+  """
+  @type composite_component_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_component_type_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("creationDateTime") => non_neg_integer(),
+        required("state") => String.t() | atom()
+      }
+
+  """
+  @type create_component_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iot_site_wise_source_configuration() :: %{
+        "filters" => list(list())
+      }
+
+  """
+  @type iot_site_wise_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_type_summary() :: %{
+        "arn" => String.t() | atom(),
+        "componentTypeId" => String.t() | atom(),
+        "componentTypeName" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "status" => status(),
+        "updateDateTime" => non_neg_integer()
+      }
+
+  """
+  @type component_type_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scene_error() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type scene_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_type_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("componentTypeId") => String.t() | atom(),
+        optional("componentTypeName") => String.t() | atom(),
+        optional("compositeComponentTypes") => map(),
+        required("creationDateTime") => non_neg_integer(),
+        optional("description") => String.t() | atom(),
+        optional("extendsFrom") => list(String.t() | atom()),
+        optional("functions") => map(),
+        optional("isAbstract") => boolean(),
+        optional("isSchemaInitialized") => boolean(),
+        optional("isSingleton") => boolean(),
+        optional("propertyDefinitions") => map(),
+        optional("propertyGroups") => map(),
+        optional("status") => status(),
+        optional("syncSource") => String.t() | atom(),
+        required("updateDateTime") => non_neg_integer(),
+        required("workspaceId") => String.t() | atom()
+      }
+
+  """
+  @type get_component_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iot_twin_maker_destination_configuration() :: %{
+        "workspace" => String.t() | atom()
+      }
+
+  """
+  @type iot_twin_maker_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metadata_transfer_job_request() :: %{}
+
+  """
+  @type get_metadata_transfer_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sync_job_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("creationDateTime") => non_neg_integer(),
+        required("status") => sync_job_status(),
+        required("syncRole") => String.t() | atom(),
+        required("syncSource") => String.t() | atom(),
+        required("updateDateTime") => non_neg_integer(),
+        required("workspaceId") => String.t() | atom()
+      }
+
+  """
+  @type get_sync_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("resourceARN") => String.t() | atom(),
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_metadata_transfer_jobs_request() :: %{
+        required("destinationType") => String.t() | atom(),
+        optional("filters") => list(list()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("sourceType") => String.t() | atom()
+      }
+
+  """
+  @type list_metadata_transfer_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scene_response() :: %{
+        required("updateDateTime") => non_neg_integer()
+      }
+
+  """
+  @type update_scene_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_metadata_transfer_job_request() :: %{}
+
+  """
+  @type cancel_metadata_transfer_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      property_response() :: %{
+        "areAllPropertyValuesReturned" => boolean(),
+        "definition" => property_definition_response(),
+        "value" => data_value()
+      }
+
+  """
+  @type property_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination_configuration() :: %{
+        "location" => String.t() | atom()
+      }
+
+  """
+  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_property_group_response() :: %{
+        "groupType" => String.t() | atom(),
+        "isInherited" => boolean(),
+        "propertyNames" => list(String.t() | atom())
+      }
+
+  """
+  @type component_property_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workspace_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("creationDateTime") => non_neg_integer()
+      }
+
+  """
+  @type create_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_definition_request() :: %{
+        "configuration" => map(),
+        "dataType" => data_type(),
+        "defaultValue" => data_value(),
+        "displayName" => String.t() | atom(),
+        "isExternalId" => boolean(),
+        "isRequiredInEntity" => boolean(),
+        "isStoredExternally" => boolean(),
+        "isTimeSeries" => boolean()
+      }
+
+  """
+  @type property_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sync_job_response() :: %{
+        required("state") => String.t() | atom()
+      }
+
+  """
+  @type delete_sync_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_entity_request() :: %{
+        optional("componentUpdates") => map(),
+        optional("compositeComponentUpdates") => map(),
+        optional("description") => String.t() | atom(),
+        optional("entityName") => String.t() | atom(),
+        optional("parentEntityUpdate") => parent_entity_update_request()
+      }
+
+  """
+  @type update_entity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_entity_request() :: %{
+        optional("isRecursive") => boolean()
+      }
+
+  """
+  @type delete_entity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_request() :: %{
+        "componentTypeId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "properties" => map(),
+        "propertyGroups" => map()
+      }
+
+  """
+  @type component_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_component_types_request() :: %{
+        optional("filters") => list(list()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_component_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workspace_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("creationDateTime") => non_neg_integer(),
+        optional("description") => String.t() | atom(),
+        optional("linkedServices") => list(String.t() | atom()),
+        optional("role") => String.t() | atom(),
+        optional("s3Location") => String.t() | atom(),
+        required("updateDateTime") => non_neg_integer(),
+        required("workspaceId") => String.t() | atom()
+      }
+
+  """
+  @type get_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1866,83 +1163,425 @@ defmodule AWS.IoTTwinMaker do
 
   ## Example:
 
-      function_response() :: %{
-        "implementedBy" => data_connector(),
-        "isInherited" => boolean(),
-        "requiredProperties" => list(String.t() | atom()),
-        "scope" => String.t() | atom()
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type function_response() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_entities_response() :: %{
-        optional("entitySummaries") => list(entity_summary()),
-        optional("nextToken") => String.t() | atom()
+      update_workspace_response() :: %{
+        required("updateDateTime") => non_neg_integer()
       }
 
   """
-  @type list_entities_response() :: %{(String.t() | atom()) => any()}
+  @type update_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      filter_by_entity() :: %{
-        "entityId" => String.t() | atom()
+      metadata_transfer_job_progress() :: %{
+        "failedCount" => integer(),
+        "skippedCount" => integer(),
+        "succeededCount" => integer(),
+        "totalCount" => integer()
       }
 
   """
-  @type filter_by_entity() :: %{(String.t() | atom()) => any()}
+  @type metadata_transfer_job_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      iot_site_wise_source_configuration() :: %{
-        "filters" => list(list())
+      list_properties_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "propertySummaries" => list(property_summary())
       }
 
   """
-  @type iot_site_wise_source_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_component_type_request() :: %{}
-
-  """
-  @type get_component_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      interpolation_parameters() :: %{
-        "interpolationType" => String.t() | atom(),
-        "intervalInSeconds" => float()
+      update_workspace_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("role") => String.t() | atom(),
+        optional("s3Location") => String.t() | atom()
       }
 
   """
-  @type interpolation_parameters() :: %{(String.t() | atom()) => any()}
+  @type update_workspace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_component_types_request() :: %{
+      delete_workspace_response() :: %{
+        optional("message") => String.t() | atom()
+      }
+
+  """
+  @type delete_workspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_type() :: %{
+        "allowedValues" => list(data_value()),
+        "nestedType" => data_type(),
+        "relationship" => relationship(),
+        "type" => String.t() | atom(),
+        "unitOfMeasure" => String.t() | atom()
+      }
+
+  """
+  @type data_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_entities_request() :: %{
         optional("filters") => list(list()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_component_types_request() :: %{(String.t() | atom()) => any()}
+  @type list_entities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_component_type_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("componentTypeId") => String.t() | atom(),
+        required("state") => String.t() | atom(),
+        required("workspaceId") => String.t() | atom()
+      }
+
+  """
+  @type update_component_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_value() :: %{
+        "time" => String.t() | atom(),
+        "timestamp" => non_neg_integer(),
+        "value" => data_value()
+      }
+
+  """
+  @type property_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_scene_response() :: %{
+        required("arn") => String.t() | atom(),
+        optional("capabilities") => list(String.t() | atom()),
+        required("contentLocation") => String.t() | atom(),
+        required("creationDateTime") => non_neg_integer(),
+        optional("description") => String.t() | atom(),
+        optional("error") => scene_error(),
+        optional("generatedSceneMetadata") => map(),
+        required("sceneId") => String.t() | atom(),
+        optional("sceneMetadata") => map(),
+        required("updateDateTime") => non_neg_integer(),
+        required("workspaceId") => String.t() | atom()
+      }
+
+  """
+  @type get_scene_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scene_summary() :: %{
+        "arn" => String.t() | atom(),
+        "contentLocation" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "sceneId" => String.t() | atom(),
+        "updateDateTime" => non_neg_integer()
+      }
+
+  """
+  @type scene_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sync_resource_status() :: %{
+        "error" => error_details(),
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type sync_resource_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metadata_transfer_job_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "destination" => destination_configuration(),
+        "metadataTransferJobId" => String.t() | atom(),
+        "metadataTransferJobRole" => String.t() | atom(),
+        "progress" => metadata_transfer_job_progress(),
+        "reportUrl" => String.t() | atom(),
+        "sources" => list(source_configuration()),
+        "status" => metadata_transfer_job_status(),
+        "updateDateTime" => non_neg_integer()
+      }
+
+  """
+  @type get_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pricing_plan() :: %{
+        "billableEntityCount" => float(),
+        "bundleInformation" => bundle_information(),
+        "effectiveDateTime" => non_neg_integer(),
+        "pricingMode" => String.t() | atom(),
+        "updateDateTime" => non_neg_integer(),
+        "updateReason" => String.t() | atom()
+      }
+
+  """
+  @type pricing_plan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type connector_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      relationship() :: %{
+        "relationshipType" => String.t() | atom(),
+        "targetComponentTypeId" => String.t() | atom()
+      }
+
+  """
+  @type relationship() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      composite_component_type_request() :: %{
+        "componentTypeId" => String.t() | atom()
+      }
+
+  """
+  @type composite_component_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_scene_request() :: %{
+        optional("capabilities") => list(String.t() | atom()),
+        required("contentLocation") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("sceneId") => String.t() | atom(),
+        optional("sceneMetadata") => map(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_scene_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workspace_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("role") => String.t() | atom(),
+        optional("s3Location") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_workspace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_value_history() :: %{
+        "entityPropertyReference" => entity_property_reference(),
+        "values" => list(property_value())
+      }
+
+  """
+  @type property_value_history() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_group_response() :: %{
+        "groupType" => String.t() | atom(),
+        "isInherited" => boolean(),
+        "propertyNames" => list(String.t() | atom())
+      }
+
+  """
+  @type property_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tabular_conditions() :: %{
+        "orderBy" => list(order_by()),
+        "propertyFilters" => list(property_filter())
+      }
+
+  """
+  @type tabular_conditions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_query_response() :: %{
+        optional("columnDescriptions") => list(column_description()),
+        optional("nextToken") => String.t() | atom(),
+        optional("rows") => list(row())
+      }
+
+  """
+  @type execute_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sync_jobs_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("syncJobSummaries") => list(sync_job_summary())
+      }
+
+  """
+  @type list_sync_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_function() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_function() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      composite_component_update_request() :: %{
+        "description" => String.t() | atom(),
+        "propertyGroupUpdates" => map(),
+        "propertyUpdates" => map(),
+        "updateType" => String.t() | atom()
+      }
+
+  """
+  @type composite_component_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      composite_component_request() :: %{
+        "description" => String.t() | atom(),
+        "properties" => map(),
+        "propertyGroups" => map()
+      }
+
+  """
+  @type composite_component_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_metadata_transfer_job_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("destination") => destination_configuration(),
+        optional("metadataTransferJobId") => String.t() | atom(),
+        required("sources") => list(source_configuration())
+      }
+
+  """
+  @type create_metadata_transfer_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_source_configuration() :: %{
+        "location" => String.t() | atom()
+      }
+
+  """
+  @type s3_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_timeout_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type query_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1967,83 +1606,144 @@ defmodule AWS.IoTTwinMaker do
 
   ## Example:
 
-      create_metadata_transfer_job_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => non_neg_integer(),
-        "metadataTransferJobId" => String.t() | atom(),
-        "status" => metadata_transfer_job_status()
-      }
-
-  """
-  @type create_metadata_transfer_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
+      connector_timeout_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+  @type connector_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_workspace_response() :: %{
-        optional("description") => String.t() | atom(),
-        optional("linkedServices") => list(String.t() | atom()),
-        optional("role") => String.t() | atom(),
-        optional("s3Location") => String.t() | atom(),
+      get_scene_request() :: %{}
+
+  """
+  @type get_scene_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_pricing_plan_response() :: %{
+        required("currentPricingPlan") => pricing_plan(),
+        optional("pendingPricingPlan") => pricing_plan()
+      }
+
+  """
+  @type get_pricing_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_entity_request() :: %{}
+
+  """
+  @type get_entity_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      row() :: %{
+        "rowData" => list(any())
+      }
+
+  """
+  @type row() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_scene_response() :: %{
+        required("arn") => String.t() | atom(),
+        required("creationDateTime") => non_neg_integer()
+      }
+
+  """
+  @type create_scene_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_entity_response() :: %{
         required("arn") => String.t() | atom(),
         required("creationDateTime") => non_neg_integer(),
+        required("entityId") => String.t() | atom(),
+        required("state") => String.t() | atom()
+      }
+
+  """
+  @type create_entity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_property_value_history_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("propertyValues") => list(property_value_history())
+      }
+
+  """
+  @type get_property_value_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      entity_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "entityName" => String.t() | atom(),
+        "hasChildEntities" => boolean(),
+        "parentEntityId" => String.t() | atom(),
+        "status" => status(),
+        "updateDateTime" => non_neg_integer()
+      }
+
+  """
+  @type entity_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_entity_response() :: %{
+        optional("areAllComponentsReturned") => boolean(),
+        required("arn") => String.t() | atom(),
+        optional("components") => map(),
+        required("creationDateTime") => non_neg_integer(),
+        optional("description") => String.t() | atom(),
+        required("entityId") => String.t() | atom(),
+        required("entityName") => String.t() | atom(),
+        required("hasChildEntities") => boolean(),
+        required("parentEntityId") => String.t() | atom(),
+        required("status") => status(),
+        optional("syncSource") => String.t() | atom(),
         required("updateDateTime") => non_neg_integer(),
         required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type get_workspace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scenes_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("sceneSummaries") => list(scene_summary())
-      }
-
-  """
-  @type list_scenes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_configuration() :: %{
-        "iotTwinMakerConfiguration" => iot_twin_maker_destination_configuration(),
-        "s3Configuration" => s3_destination_configuration(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_workspace_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("role") => String.t() | atom(),
-        optional("s3Location") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_workspace_request() :: %{(String.t() | atom()) => any()}
+  @type get_entity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2062,293 +1762,593 @@ defmodule AWS.IoTTwinMaker do
 
   ## Example:
 
-      update_scene_request() :: %{
-        optional("capabilities") => list(String.t() | atom()),
-        optional("contentLocation") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("sceneMetadata") => map()
+      entity_property_reference() :: %{
+        "componentName" => String.t() | atom(),
+        "componentPath" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "externalIdProperty" => map(),
+        "propertyName" => String.t() | atom()
       }
 
   """
-  @type update_scene_request() :: %{(String.t() | atom()) => any()}
+  @type entity_property_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_property_error_entry() :: %{
+        "errors" => list(batch_put_property_error())
+      }
+
+  """
+  @type batch_put_property_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_update_request() :: %{
+        "componentTypeId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "propertyGroupUpdates" => map(),
+        "propertyUpdates" => map(),
+        "updateType" => String.t() | atom()
+      }
+
+  """
+  @type component_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_by_asset_model() :: %{
+        "assetModelExternalId" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "includeAssets" => boolean(),
+        "includeOffspring" => boolean()
+      }
+
+  """
+  @type filter_by_asset_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_component_type_request() :: %{}
+
+  """
+  @type delete_component_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      column_description() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type column_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_entity_request() :: %{
+        optional("components") => map(),
+        optional("compositeComponents") => map(),
+        optional("description") => String.t() | atom(),
+        optional("entityId") => String.t() | atom(),
+        required("entityName") => String.t() | atom(),
+        optional("parentEntityId") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_entity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interpolation_parameters() :: %{
+        "interpolationType" => String.t() | atom(),
+        "intervalInSeconds" => float()
+      }
+
+  """
+  @type interpolation_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sync_job_request() :: %{}
+
+  """
+  @type delete_sync_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_component_types_response() :: %{
+        required("componentTypeSummaries") => list(component_type_summary()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("workspaceId") => String.t() | atom()
+      }
+
+  """
+  @type list_component_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_configuration() :: %{
+        "iotTwinMakerConfiguration" => iot_twin_maker_destination_configuration(),
+        "s3Configuration" => s3_destination_configuration(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sync_job_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => non_neg_integer(),
+        "status" => sync_job_status(),
+        "syncSource" => String.t() | atom(),
+        "updateDateTime" => non_neg_integer(),
+        "workspaceId" => String.t() | atom()
+      }
+
+  """
+  @type sync_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_component_type_request() :: %{
+        optional("componentTypeName") => String.t() | atom(),
+        optional("compositeComponentTypes") => map(),
+        optional("description") => String.t() | atom(),
+        optional("extendsFrom") => list(String.t() | atom()),
+        optional("functions") => map(),
+        optional("isSingleton") => boolean(),
+        optional("propertyDefinitions") => map(),
+        optional("propertyGroups") => map(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_component_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_properties_request() :: %{
+        optional("componentName") => String.t() | atom(),
+        optional("componentPath") => String.t() | atom(),
+        required("entityId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_properties_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      order_by() :: %{
+        "order" => String.t() | atom(),
+        "propertyName" => String.t() | atom()
+      }
+
+  """
+  @type order_by() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_response() :: %{
+        "implementedBy" => data_connector(),
+        "isInherited" => boolean(),
+        "requiredProperties" => list(String.t() | atom()),
+        "scope" => String.t() | atom()
+      }
+
+  """
+  @type function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workspaces_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_workspaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_request() :: %{
+        "implementedBy" => data_connector(),
+        "requiredProperties" => list(String.t() | atom()),
+        "scope" => String.t() | atom()
+      }
+
+  """
+  @type function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_latest_value() :: %{
+        "propertyReference" => entity_property_reference(),
+        "propertyValue" => data_value()
+      }
+
+  """
+  @type property_latest_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("resourceARN") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_component_type_request() :: %{
+        optional("componentTypeName") => String.t() | atom(),
+        optional("compositeComponentTypes") => map(),
+        optional("description") => String.t() | atom(),
+        optional("extendsFrom") => list(String.t() | atom()),
+        optional("functions") => map(),
+        optional("isSingleton") => boolean(),
+        optional("propertyDefinitions") => map(),
+        optional("propertyGroups") => map()
+      }
+
+  """
+  @type update_component_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sync_job_request() :: %{
+        required("syncRole") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_sync_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_pricing_plan_request() :: %{}
+
+  """
+  @type get_pricing_plan_request() :: %{}
 
   @type batch_put_property_values_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type cancel_metadata_transfer_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_component_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_entity_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_metadata_transfer_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_scene_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_sync_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type create_workspace_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type delete_component_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_entity_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_scene_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_sync_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_workspace_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type execute_query_errors() ::
-          throttling_exception()
+          access_denied_exception()
           | query_timeout_exception()
-          | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_component_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_entity_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_metadata_transfer_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_pricing_plan_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_property_value_errors() ::
-          connector_timeout_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | connector_timeout_exception()
+          | connector_failure_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | connector_failure_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_property_value_history_errors() ::
-          connector_timeout_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | connector_timeout_exception()
+          | connector_failure_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | connector_failure_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_scene_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_sync_job_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_workspace_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_component_types_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_components_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_entities_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_metadata_transfer_jobs_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_properties_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_scenes_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_sync_jobs_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_sync_resources_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
           access_denied_exception() | resource_not_found_exception()
 
   @type list_workspaces_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception() | access_denied_exception() | resource_not_found_exception()
+          access_denied_exception() | too_many_tags_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() :: access_denied_exception() | resource_not_found_exception()
 
   @type update_component_type_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_entity_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
+          | throttling_exception()
 
   @type update_pricing_plan_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_scene_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_workspace_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   def metadata do
     %{
@@ -2455,8 +2455,8 @@ defmodule AWS.IoTTwinMaker do
           | {:error, create_component_type_errors()}
   def create_component_type(
         %Client{} = client,
-        component_type_id,
         workspace_id,
+        component_type_id,
         input,
         options \\ []
       ) do
@@ -2583,7 +2583,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, create_sync_job_errors()}
-  def create_sync_job(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+  def create_sync_job(%Client{} = client, workspace_id, sync_source, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
 
@@ -2651,8 +2651,8 @@ defmodule AWS.IoTTwinMaker do
           | {:error, delete_component_type_errors()}
   def delete_component_type(
         %Client{} = client,
-        component_type_id,
         workspace_id,
+        component_type_id,
         input,
         options \\ []
       ) do
@@ -2692,7 +2692,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_entity_errors()}
-  def delete_entity(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
+  def delete_entity(%Client{} = client, workspace_id, entity_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
@@ -2734,7 +2734,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_scene_errors()}
-  def delete_scene(%Client{} = client, scene_id, workspace_id, input, options \\ []) do
+  def delete_scene(%Client{} = client, workspace_id, scene_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
 
@@ -2771,7 +2771,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_sync_job_errors()}
-  def delete_sync_job(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+  def delete_sync_job(%Client{} = client, workspace_id, sync_source, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
 
@@ -2864,7 +2864,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_component_type_errors()}
-  def get_component_type(%Client{} = client, component_type_id, workspace_id, options \\ []) do
+  def get_component_type(%Client{} = client, workspace_id, component_type_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
 
@@ -2884,7 +2884,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_entity_errors()}
-  def get_entity(%Client{} = client, entity_id, workspace_id, options \\ []) do
+  def get_entity(%Client{} = client, workspace_id, entity_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
@@ -3012,7 +3012,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_scene_errors()}
-  def get_scene(%Client{} = client, scene_id, workspace_id, options \\ []) do
+  def get_scene(%Client{} = client, workspace_id, scene_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
 
@@ -3110,7 +3110,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_components_errors()}
-  def list_components(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
+  def list_components(%Client{} = client, workspace_id, entity_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}/components-list"
 
@@ -3292,7 +3292,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_sync_resources_errors()}
-  def list_sync_resources(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+  def list_sync_resources(%Client{} = client, workspace_id, sync_source, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}/resources-list"
 
@@ -3417,8 +3417,8 @@ defmodule AWS.IoTTwinMaker do
 
     {query_params, input} =
       [
-        {"resourceARN", "resourceARN"},
-        {"tagKeys", "tagKeys"}
+        {"tagKeys", "tagKeys"},
+        {"resourceARN", "resourceARN"}
       ]
       |> Request.build_params(input)
 
@@ -3453,8 +3453,8 @@ defmodule AWS.IoTTwinMaker do
           | {:error, update_component_type_errors()}
   def update_component_type(
         %Client{} = client,
-        component_type_id,
         workspace_id,
+        component_type_id,
         input,
         options \\ []
       ) do
@@ -3494,7 +3494,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_entity_errors()}
-  def update_entity(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
+  def update_entity(%Client{} = client, workspace_id, entity_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
@@ -3560,7 +3560,7 @@ defmodule AWS.IoTTwinMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_scene_errors()}
-  def update_scene(%Client{} = client, scene_id, workspace_id, input, options \\ []) do
+  def update_scene(%Client{} = client, workspace_id, scene_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
 

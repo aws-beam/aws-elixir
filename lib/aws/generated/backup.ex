@@ -20,59 +20,306 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      list_restore_testing_plans_input() :: %{
+      list_recovery_points_by_legal_hold_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_restore_testing_plans_input() :: %{(String.t() | atom()) => any()}
+  @type list_recovery_points_by_legal_hold_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      report_job() :: %{
-        "CompletionTime" => non_neg_integer(),
-        "CreationTime" => non_neg_integer(),
-        "ReportDestination" => report_destination(),
-        "ReportJobId" => String.t() | atom(),
-        "ReportPlanArn" => String.t() | atom(),
-        "ReportTemplate" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom()
+      scan_job_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "Count" => integer(),
+        "EndTime" => non_neg_integer(),
+        "MalwareScanner" => list(any()),
+        "Region" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ScanResultStatus" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
       }
 
   """
-  @type report_job() :: %{(String.t() | atom()) => any()}
+  @type scan_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recovery_point_member() :: %{
+      describe_framework_input() :: %{}
+
+  """
+  @type describe_framework_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_backup_job_input() :: %{
+        optional("BackupOptions") => map(),
+        required("BackupVaultName") => String.t() | atom(),
+        optional("CompleteWindowMinutes") => float(),
+        required("IamRoleArn") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("Index") => list(any()),
+        optional("Lifecycle") => lifecycle(),
+        optional("LogicallyAirGappedBackupVaultArn") => String.t() | atom(),
+        optional("RecoveryPointTags") => map(),
+        required("ResourceArn") => String.t() | atom(),
+        optional("StartWindowMinutes") => float()
+      }
+
+  """
+  @type start_backup_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_backup_vault_mpa_approval_team_input() :: %{
+        optional("RequesterComment") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_backup_vault_mpa_approval_team_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_p_i_t_r_malware_scan_results_output() :: %{
+        "LastScanJobTime" => [non_neg_integer()],
+        "ScanEndTime" => [non_neg_integer()],
+        "ScanId" => [String.t() | atom()],
+        "ScanMode" => list(any()),
+        "ScanResult" => scan_result_info()
+      }
+
+  """
+  @type get_p_i_t_r_malware_scan_results_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_backup_vault_input() :: %{
+        optional("BackupVaultAccountId") => String.t() | atom()
+      }
+
+  """
+  @type describe_backup_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_rule_input() :: %{
+        "CompletionWindowMinutes" => float(),
+        "CopyActions" => list(copy_action()),
+        "EnableContinuousBackup" => boolean(),
+        "IndexActions" => list(index_action()),
+        "Lifecycle" => lifecycle(),
+        "RecoveryPointTags" => map(),
+        "RuleName" => String.t() | atom(),
+        "ScanActions" => list(scan_action()),
+        "ScheduleExpression" => String.t() | atom(),
+        "ScheduleExpressionTimezone" => String.t() | atom(),
+        "StartWindowMinutes" => float(),
+        "TargetBackupVaultName" => String.t() | atom(),
+        "TargetLogicallyAirGappedBackupVaultArn" => String.t() | atom()
+      }
+
+  """
+  @type backup_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_job_summaries_output() :: %{
+        "AggregationPeriod" => String.t() | atom(),
+        "BackupJobSummaries" => list(backup_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_backup_job_summaries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_testing_selections_output() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RestoreTestingSelections" => list(restore_testing_selection_for_list())
+      }
+
+  """
+  @type list_restore_testing_selections_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_testing_selection_for_create() :: %{
+        "IamRoleArn" => [String.t() | atom()],
+        "ProtectedResourceArns" => list(String.t() | atom()),
+        "ProtectedResourceConditions" => protected_resource_conditions(),
+        "ProtectedResourceType" => [String.t() | atom()],
+        "RestoreMetadataOverrides" => map(),
+        "RestoreTestingSelectionName" => [String.t() | atom()],
+        "ValidationWindowHours" => integer()
+      }
+
+  """
+  @type restore_testing_selection_for_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backup_vault_output() :: %{
+        "BackupVaultArn" => String.t() | atom(),
         "BackupVaultName" => String.t() | atom(),
-        "RecoveryPointArn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer()
+      }
+
+  """
+  @type create_backup_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_report_job_input() :: %{
+        optional("IdempotencyToken") => String.t() | atom()
+      }
+
+  """
+  @type start_report_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backup_selection_input() :: %{}
+
+  """
+  @type delete_backup_selection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_resource() :: %{
+        "LastBackupTime" => non_neg_integer(),
+        "LastBackupVaultArn" => String.t() | atom(),
+        "LastRecoveryPointArn" => String.t() | atom(),
         "ResourceArn" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
         "ResourceType" => String.t() | atom()
       }
 
   """
-  @type recovery_point_member() :: %{(String.t() | atom()) => any()}
+  @type protected_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      missing_parameter_value_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
+      describe_restore_job_input() :: %{}
+
+  """
+  @type describe_restore_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tiering_configuration_input_for_update() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "ResourceSelection" => list(resource_selection())
       }
 
   """
-  @type missing_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+  @type tiering_configuration_input_for_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_copy_job_output() :: %{
+        "CopyJobId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "IsParent" => boolean()
+      }
+
+  """
+  @type start_copy_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_plans_output() :: %{
+        "BackupPlansList" => list(backup_plans_list_member()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_backup_plans_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_framework_input() :: %{
+        optional("FrameworkControls") => list(framework_control()),
+        optional("FrameworkDescription") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom()
+      }
+
+  """
+  @type update_framework_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_result_info() :: %{
+        "ScanResultStatus" => list(any())
+      }
+
+  """
+  @type scan_result_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_jobs_input() :: %{
+        optional("ByAccountId") => String.t() | atom(),
+        optional("ByBackupVaultName") => String.t() | atom(),
+        optional("ByCompleteAfter") => non_neg_integer(),
+        optional("ByCompleteBefore") => non_neg_integer(),
+        optional("ByCreatedAfter") => non_neg_integer(),
+        optional("ByCreatedBefore") => non_neg_integer(),
+        optional("ByMessageCategory") => String.t() | atom(),
+        optional("ByParentJobId") => String.t() | atom(),
+        optional("ByResourceArn") => String.t() | atom(),
+        optional("ByResourceType") => String.t() | atom(),
+        optional("ByState") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_backup_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -95,213 +342,17 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      delete_backup_plan_output() :: %{
+      update_backup_plan_output() :: %{
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlanArn" => String.t() | atom(),
         "BackupPlanId" => String.t() | atom(),
-        "DeletionDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "ScanSettings" => list(scan_setting()),
         "VersionId" => String.t() | atom()
       }
 
   """
-  @type delete_backup_plan_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_plan_input() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanName" => String.t() | atom(),
-        "Rules" => list(backup_rule_input()),
-        "ScanSettings" => list(scan_setting())
-      }
-
-  """
-  @type backup_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_plans_list_member() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanArn" => String.t() | atom(),
-        "BackupPlanId" => String.t() | atom(),
-        "BackupPlanName" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t() | atom(),
-        "DeletionDate" => non_neg_integer(),
-        "LastExecutionDate" => non_neg_integer(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type backup_plans_list_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_restore_job_metadata_input() :: %{}
-
-  """
-  @type get_restore_job_metadata_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_restore_testing_plan_input() :: %{}
-
-  """
-  @type get_restore_testing_plan_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recovery_point_input() :: %{
-        optional("BackupVaultAccountId") => String.t() | atom()
-      }
-
-  """
-  @type describe_recovery_point_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_vaults_output() :: %{
-        "BackupVaultList" => list(backup_vault_list_member()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_backup_vaults_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_recovery_point_lifecycle_input() :: %{
-        optional("Lifecycle") => lifecycle()
-      }
-
-  """
-  @type update_recovery_point_lifecycle_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_point_creator() :: %{
-        "BackupPlanArn" => String.t() | atom(),
-        "BackupPlanId" => String.t() | atom(),
-        "BackupPlanName" => String.t() | atom(),
-        "BackupPlanVersion" => String.t() | atom(),
-        "BackupRuleCron" => String.t() | atom(),
-        "BackupRuleId" => String.t() | atom(),
-        "BackupRuleName" => String.t() | atom(),
-        "BackupRuleTimezone" => String.t() | atom()
-      }
-
-  """
-  @type recovery_point_creator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_backup_job_input() :: %{
-        optional("BackupOptions") => map(),
-        optional("CompleteWindowMinutes") => float(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("Index") => list(any()),
-        optional("Lifecycle") => lifecycle(),
-        optional("LogicallyAirGappedBackupVaultArn") => String.t() | atom(),
-        optional("RecoveryPointTags") => map(),
-        optional("StartWindowMinutes") => float(),
-        required("BackupVaultName") => String.t() | atom(),
-        required("IamRoleArn") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type start_backup_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_job() :: %{
-        "AccountId" => String.t() | atom(),
-        "BackupSizeInBytes" => float(),
-        "ChildJobsInState" => map(),
-        "CompletionDate" => non_neg_integer(),
-        "CompositeMemberIdentifier" => String.t() | atom(),
-        "CopyJobId" => String.t() | atom(),
-        "CreatedBy" => recovery_point_creator(),
-        "CreatedByBackupJobId" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "DestinationBackupVaultArn" => String.t() | atom(),
-        "DestinationEncryptionKeyArn" => String.t() | atom(),
-        "DestinationRecoveryPointArn" => String.t() | atom(),
-        "DestinationRecoveryPointLifecycle" => lifecycle(),
-        "DestinationVaultLockState" => String.t() | atom(),
-        "DestinationVaultType" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom(),
-        "IsParent" => boolean(),
-        "MessageCategory" => String.t() | atom(),
-        "NumberOfChildJobs" => float(),
-        "ParentJobId" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "SourceBackupVaultArn" => String.t() | atom(),
-        "SourceRecoveryPointArn" => String.t() | atom(),
-        "State" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type copy_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_protected_resources_by_backup_vault_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Results" => list(protected_resource())
-      }
-
-  """
-  @type list_protected_resources_by_backup_vault_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_report_plan_output() :: %{
-        "CreationTime" => non_neg_integer(),
-        "ReportPlanArn" => String.t() | atom(),
-        "ReportPlanName" => String.t() | atom()
-      }
-
-  """
-  @type create_report_plan_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_restore_testing_selection_input() :: %{
-        optional("CreatorRequestId") => [String.t() | atom()],
-        required("RestoreTestingSelection") => restore_testing_selection_for_create()
-      }
-
-  """
-  @type create_restore_testing_selection_input() :: %{(String.t() | atom()) => any()}
+  @type update_backup_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -319,327 +370,25 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      delete_restore_testing_plan_input() :: %{}
-
-  """
-  @type delete_restore_testing_plan_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backup_plan_output() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanArn" => String.t() | atom(),
-        "BackupPlanId" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "VersionId" => String.t() | atom()
+      create_framework_output() :: %{
+        "FrameworkArn" => String.t() | atom(),
+        "FrameworkName" => String.t() | atom()
       }
 
   """
-  @type create_backup_plan_output() :: %{(String.t() | atom()) => any()}
+  @type create_framework_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_restore_job_input() :: %{
-        optional("CopySourceTagsToRestoredResource") => boolean(),
-        optional("IamRoleArn") => String.t() | atom(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom(),
-        required("Metadata") => map(),
-        required("RecoveryPointArn") => String.t() | atom()
-      }
-
-  """
-  @type start_restore_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_plan() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanName" => String.t() | atom(),
-        "Rules" => list(backup_rule()),
-        "ScanSettings" => list(scan_setting())
-      }
-
-  """
-  @type backup_plan() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_point_by_backup_vault() :: %{
-        "AggregatedScanResult" => aggregated_scan_result(),
-        "BackupSizeInBytes" => float(),
-        "BackupVaultArn" => String.t() | atom(),
-        "BackupVaultName" => String.t() | atom(),
-        "CalculatedLifecycle" => calculated_lifecycle(),
-        "CompletionDate" => non_neg_integer(),
-        "CompositeMemberIdentifier" => String.t() | atom(),
-        "CreatedBy" => recovery_point_creator(),
-        "CreationDate" => non_neg_integer(),
-        "EncryptionKeyArn" => String.t() | atom(),
-        "EncryptionKeyType" => list(any()),
-        "IamRoleArn" => String.t() | atom(),
-        "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t() | atom(),
-        "InitiationDate" => non_neg_integer(),
-        "IsEncrypted" => boolean(),
-        "IsParent" => boolean(),
-        "LastRestoreTime" => non_neg_integer(),
-        "Lifecycle" => lifecycle(),
-        "ParentRecoveryPointArn" => String.t() | atom(),
-        "RecoveryPointArn" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "SourceBackupVaultArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "VaultType" => list(any())
-      }
-
-  """
-  @type recovery_point_by_backup_vault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_testing_selection_for_list() :: %{
-        "CreationTime" => [non_neg_integer()],
-        "IamRoleArn" => [String.t() | atom()],
-        "ProtectedResourceType" => [String.t() | atom()],
-        "RestoreTestingPlanName" => [String.t() | atom()],
-        "RestoreTestingSelectionName" => [String.t() | atom()],
-        "ValidationWindowHours" => integer()
-      }
-
-  """
-  @type restore_testing_selection_for_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_report_jobs_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "ReportJobs" => list(report_job())
-      }
-
-  """
-  @type list_report_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_plan_input() :: %{
-        optional("MaxScheduledRunsPreview") => integer(),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type get_backup_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_report_job_output() :: %{
-        "ReportJobId" => String.t() | atom()
-      }
-
-  """
-  @type start_report_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_plan_templates_input() :: %{
+      list_legal_holds_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_backup_plan_templates_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_restore_job_metadata_output() :: %{
-        "Metadata" => map(),
-        "RestoreJobId" => String.t() | atom()
-      }
-
-  """
-  @type get_restore_job_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_plan_from_json_output() :: %{
-        "BackupPlan" => backup_plan()
-      }
-
-  """
-  @type get_backup_plan_from_json_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      already_exists_exception() :: %{
-        "Arn" => String.t() | atom(),
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "CreatorRequestId" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_testing_plan_for_list() :: %{
-        "CreationTime" => [non_neg_integer()],
-        "LastExecutionTime" => [non_neg_integer()],
-        "LastUpdateTime" => [non_neg_integer()],
-        "RestoreTestingPlanArn" => [String.t() | atom()],
-        "RestoreTestingPlanName" => [String.t() | atom()],
-        "ScheduleExpression" => [String.t() | atom()],
-        "ScheduleExpressionTimezone" => [String.t() | atom()],
-        "StartWindowHours" => integer()
-      }
-
-  """
-  @type restore_testing_plan_for_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_testing_plan_for_update() :: %{
-        "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
-        "ScheduleExpression" => [String.t() | atom()],
-        "ScheduleExpressionTimezone" => [String.t() | atom()],
-        "StartWindowHours" => integer()
-      }
-
-  """
-  @type restore_testing_plan_for_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      report_plan() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DeploymentStatus" => String.t() | atom(),
-        "LastAttemptedExecutionTime" => non_neg_integer(),
-        "LastSuccessfulExecutionTime" => non_neg_integer(),
-        "ReportDeliveryChannel" => report_delivery_channel(),
-        "ReportPlanArn" => String.t() | atom(),
-        "ReportPlanDescription" => String.t() | atom(),
-        "ReportPlanName" => String.t() | atom(),
-        "ReportSetting" => report_setting()
-      }
-
-  """
-  @type report_plan() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      report_destination() :: %{
-        "S3BucketName" => String.t() | atom(),
-        "S3Keys" => list(String.t() | atom())
-      }
-
-  """
-  @type report_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_global_settings_input() :: %{}
-
-  """
-  @type describe_global_settings_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_recovery_point_input() :: %{}
-
-  """
-  @type disassociate_recovery_point_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_resource() :: %{
-        "LastBackupTime" => non_neg_integer(),
-        "LastBackupVaultArn" => String.t() | atom(),
-        "LastRecoveryPointArn" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type protected_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_backup_job_input() :: %{}
-
-  """
-  @type stop_backup_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregated_scan_result() :: %{
-        "FailedScan" => boolean(),
-        "Findings" => list(list(any())()),
-        "LastComputed" => non_neg_integer()
-      }
-
-  """
-  @type aggregated_scan_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backup_vault_input() :: %{
-        optional("BackupVaultTags") => map(),
-        optional("CreatorRequestId") => String.t() | atom(),
-        optional("EncryptionKeyArn") => String.t() | atom()
-      }
-
-  """
-  @type create_backup_vault_input() :: %{(String.t() | atom()) => any()}
+  @type list_legal_holds_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -665,41 +414,225 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      describe_framework_input() :: %{}
-
-  """
-  @type describe_framework_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      scan_job_summary() :: %{
-        "AccountId" => String.t() | atom(),
-        "Count" => integer(),
-        "EndTime" => non_neg_integer(),
-        "MalwareScanner" => list(any()),
-        "Region" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "ScanResultStatus" => list(any()),
-        "StartTime" => non_neg_integer(),
-        "State" => list(any())
+      legal_hold() :: %{
+        "CancellationDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "LegalHoldArn" => String.t() | atom(),
+        "LegalHoldId" => String.t() | atom(),
+        "Status" => list(any()),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type scan_job_summary() :: %{(String.t() | atom()) => any()}
+  @type legal_hold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_backup_plans_output() :: %{
-        "BackupPlansList" => list(backup_plans_list_member()),
+      describe_backup_job_input() :: %{}
+
+  """
+  @type describe_backup_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_protected_resource_input() :: %{}
+
+  """
+  @type describe_protected_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_frameworks_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_frameworks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_frameworks_output() :: %{
+        "Frameworks" => list(framework()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_backup_plans_output() :: %{(String.t() | atom()) => any()}
+  @type list_frameworks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_jobs_by_protected_resource_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RestoreJobs" => list(restore_jobs_list_member())
+      }
+
+  """
+  @type list_restore_jobs_by_protected_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tiering_configuration_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "TieringConfigurationArn" => String.t() | atom(),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type create_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_vault_notifications_input() :: %{}
+
+  """
+  @type get_backup_vault_notifications_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregated_scan_result() :: %{
+        "FailedScan" => boolean(),
+        "Findings" => list(list(any())()),
+        "LastComputed" => non_neg_integer()
+      }
+
+  """
+  @type aggregated_scan_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_setting() :: %{
+        "MalwareScanner" => list(any()),
+        "ResourceTypes" => list(String.t() | atom()),
+        "ScannerRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type scan_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_testing_plan_for_get() :: %{
+        "CreationTime" => [non_neg_integer()],
+        "CreatorRequestId" => [String.t() | atom()],
+        "LastExecutionTime" => [non_neg_integer()],
+        "LastUpdateTime" => [non_neg_integer()],
+        "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
+        "RestoreTestingPlanArn" => [String.t() | atom()],
+        "RestoreTestingPlanName" => [String.t() | atom()],
+        "ScheduleExpression" => [String.t() | atom()],
+        "ScheduleExpressionTimezone" => [String.t() | atom()],
+        "StartWindowHours" => integer()
+      }
+
+  """
+  @type restore_testing_plan_for_get() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_restore_testing_selection_input() :: %{
+        required("RestoreTestingSelection") => restore_testing_selection_for_update()
+      }
+
+  """
+  @type update_restore_testing_selection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_setting() :: %{
+        "Accounts" => list(String.t() | atom()),
+        "FrameworkArns" => list(String.t() | atom()),
+        "NumberOfFrameworks" => integer(),
+        "OrganizationUnits" => list(String.t() | atom()),
+        "Regions" => list(String.t() | atom()),
+        "ReportTemplate" => String.t() | atom()
+      }
+
+  """
+  @type report_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_report_plan_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ReportPlanArn" => String.t() | atom(),
+        "ReportPlanName" => String.t() | atom()
+      }
+
+  """
+  @type create_report_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("TagKeyList") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_restore_access_backup_vault_input() :: %{
+        optional("RequesterComment") => String.t() | atom()
+      }
+
+  """
+  @type revoke_restore_access_backup_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_report_plans_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "ReportPlans" => list(report_plan())
+      }
+
+  """
+  @type list_report_plans_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_global_settings_input() :: %{
+        optional("GlobalSettings") => map()
+      }
+
+  """
+  @type update_global_settings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,6 +645,153 @@ defmodule AWS.Backup do
 
   """
   @type list_backup_selections_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_backup_job_input() :: %{}
+
+  """
+  @type stop_backup_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_scan_job_input() :: %{}
+
+  """
+  @type describe_scan_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      latest_mpa_approval_team_update() :: %{
+        "ExpiryDate" => non_neg_integer(),
+        "InitiationDate" => non_neg_integer(),
+        "MpaSessionArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type latest_mpa_approval_team_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_resources_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_protected_resources_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_parameter_value_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type missing_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_report_plan_input() :: %{
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("ReportDeliveryChannel") => report_delivery_channel(),
+        optional("ReportPlanDescription") => String.t() | atom(),
+        required("ReportPlanName") => String.t() | atom(),
+        optional("ReportPlanTags") => map(),
+        required("ReportSetting") => report_setting()
+      }
+
+  """
+  @type create_report_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_framework_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeploymentStatus" => String.t() | atom(),
+        "FrameworkArn" => String.t() | atom(),
+        "FrameworkControls" => list(framework_control()),
+        "FrameworkDescription" => String.t() | atom(),
+        "FrameworkName" => String.t() | atom(),
+        "FrameworkStatus" => String.t() | atom(),
+        "IdempotencyToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_framework_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_report_plan_input() :: %{}
+
+  """
+  @type delete_report_plan_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scan_job_summaries_output() :: %{
+        "AggregationPeriod" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "ScanJobSummaries" => list(scan_job_summary())
+      }
+
+  """
+  @type list_scan_job_summaries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_restore_testing_inferred_metadata_output() :: %{
+        "InferredMetadata" => map()
+      }
+
+  """
+  @type get_restore_testing_inferred_metadata_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recovery_point_index_settings_input() :: %{
+        optional("IamRoleArn") => String.t() | atom(),
+        required("Index") => list(any())
+      }
+
+  """
+  @type update_recovery_point_index_settings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_recovery_point_input() :: %{}
+
+  """
+  @type disassociate_recovery_point_input() :: %{}
 
   @typedoc """
 
@@ -736,8 +816,8 @@ defmodule AWS.Backup do
 
       create_tiering_configuration_input() :: %{
         optional("CreatorRequestId") => String.t() | atom(),
-        optional("TieringConfigurationTags") => map(),
-        required("TieringConfiguration") => tiering_configuration_input_for_create()
+        required("TieringConfiguration") => tiering_configuration_input_for_create(),
+        optional("TieringConfigurationTags") => map()
       }
 
   """
@@ -747,52 +827,202 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      create_backup_vault_output() :: %{
+      indexed_recovery_point() :: %{
+        "BackupCreationDate" => non_neg_integer(),
         "BackupVaultArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
+        "IndexCreationDate" => non_neg_integer(),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SourceResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type indexed_recovery_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_job() :: %{
+        "AccountId" => [String.t() | atom()],
+        "BackupVaultArn" => [String.t() | atom()],
+        "BackupVaultName" => [String.t() | atom()],
+        "CompletionDate" => [non_neg_integer()],
+        "ContinuousScanEndTime" => [non_neg_integer()],
+        "ContinuousScanStartTime" => [non_neg_integer()],
+        "CreatedBy" => scan_job_creator(),
+        "CreationDate" => [non_neg_integer()],
+        "IamRoleArn" => [String.t() | atom()],
+        "MalwareScanner" => list(any()),
+        "RecoveryPointArn" => [String.t() | atom()],
+        "ResourceArn" => [String.t() | atom()],
+        "ResourceName" => [String.t() | atom()],
+        "ResourceType" => list(any()),
+        "ScanBaseRecoveryPointArn" => [String.t() | atom()],
+        "ScanId" => [String.t() | atom()],
+        "ScanJobId" => [String.t() | atom()],
+        "ScanMode" => list(any()),
+        "ScanResult" => scan_result_info(),
+        "ScannerRoleArn" => [String.t() | atom()],
+        "State" => list(any()),
+        "StatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type scan_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recovery_point_index_settings_output() :: %{
         "BackupVaultName" => String.t() | atom(),
-        "CreationDate" => non_neg_integer()
+        "Index" => list(any()),
+        "IndexStatus" => list(any()),
+        "RecoveryPointArn" => String.t() | atom()
       }
 
   """
-  @type create_backup_vault_output() :: %{(String.t() | atom()) => any()}
+  @type update_recovery_point_index_settings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_restore_testing_plan_output() :: %{
-        "RestoreTestingPlan" => restore_testing_plan_for_get()
+      tag_resource_input() :: %{
+        required("Tags") => map()
       }
 
   """
-  @type get_restore_testing_plan_output() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      condition_parameter() :: %{
-        "ConditionKey" => String.t() | atom(),
-        "ConditionValue" => String.t() | atom()
+      backup_plans_list_member() :: %{
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
+        "BackupPlanArn" => String.t() | atom(),
+        "BackupPlanId" => String.t() | atom(),
+        "BackupPlanName" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "CreatorRequestId" => String.t() | atom(),
+        "DeletionDate" => non_neg_integer(),
+        "LastExecutionDate" => non_neg_integer(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type condition_parameter() :: %{(String.t() | atom()) => any()}
+  @type backup_plans_list_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_legal_hold_input() :: %{
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("RecoveryPointSelection") => recovery_point_selection(),
-        optional("Tags") => map(),
-        required("Description") => String.t() | atom(),
-        required("Title") => String.t() | atom()
+      list_backup_vaults_output() :: %{
+        "BackupVaultList" => list(backup_vault_list_member()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type create_legal_hold_input() :: %{(String.t() | atom()) => any()}
+  @type list_backup_vaults_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      framework() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeploymentStatus" => String.t() | atom(),
+        "FrameworkArn" => String.t() | atom(),
+        "FrameworkDescription" => String.t() | atom(),
+        "FrameworkName" => String.t() | atom(),
+        "NumberOfControls" => integer()
+      }
+
+  """
+  @type framework() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_job_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "Count" => integer(),
+        "EndTime" => non_neg_integer(),
+        "MessageCategory" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type copy_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conditions() :: %{
+        "StringEquals" => list(condition_parameter()),
+        "StringLike" => list(condition_parameter()),
+        "StringNotEquals" => list(condition_parameter()),
+        "StringNotLike" => list(condition_parameter())
+      }
+
+  """
+  @type conditions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_plan_templates_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_backup_plan_templates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_restore_job_metadata_input() :: %{}
+
+  """
+  @type get_restore_job_metadata_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_selection() :: %{
+        "ResourceType" => String.t() | atom(),
+        "Resources" => list(String.t() | atom()),
+        "TieringDownSettingsInDays" => integer()
+      }
+
+  """
+  @type resource_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_restore_validation_result_input() :: %{
+        required("ValidationStatus") => list(any()),
+        optional("ValidationStatusMessage") => String.t() | atom()
+      }
+
+  """
+  @type put_restore_validation_result_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -812,10 +1042,843 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      delete_backup_selection_input() :: %{}
+      backup_selection() :: %{
+        "Conditions" => conditions(),
+        "IamRoleArn" => String.t() | atom(),
+        "ListOfTags" => list(condition()),
+        "NotResources" => list(String.t() | atom()),
+        "Resources" => list(String.t() | atom()),
+        "SelectionName" => String.t() | atom()
+      }
 
   """
-  @type delete_backup_selection_input() :: %{}
+  @type backup_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_report_job_output() :: %{
+        "ReportJob" => report_job()
+      }
+
+  """
+  @type describe_report_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_restore_job_metadata_output() :: %{
+        "Metadata" => map(),
+        "RestoreJobId" => String.t() | atom()
+      }
+
+  """
+  @type get_restore_job_metadata_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_restore_testing_plan_input() :: %{}
+
+  """
+  @type delete_restore_testing_plan_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_copy_job_output() :: %{
+        "CopyJob" => copy_job()
+      }
+
+  """
+  @type describe_copy_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_plan_execution_member() :: %{
+        "ExecutionTime" => non_neg_integer(),
+        "RuleExecutionType" => list(any()),
+        "RuleId" => String.t() | atom()
+      }
+
+  """
+  @type scheduled_plan_execution_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backup_vault_access_policy_input() :: %{}
+
+  """
+  @type delete_backup_vault_access_policy_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_point_index_details_output() :: %{
+        "BackupVaultArn" => String.t() | atom(),
+        "IndexCompletionDate" => non_neg_integer(),
+        "IndexCreationDate" => non_neg_integer(),
+        "IndexDeletionDate" => non_neg_integer(),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "SourceResourceArn" => String.t() | atom(),
+        "TotalItemsIndexed" => float()
+      }
+
+  """
+  @type get_recovery_point_index_details_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_restore_testing_selection_input() :: %{
+        optional("CreatorRequestId") => [String.t() | atom()],
+        required("RestoreTestingSelection") => restore_testing_selection_for_create()
+      }
+
+  """
+  @type create_restore_testing_selection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_backup_setting() :: %{
+        "BackupOptions" => map(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type advanced_backup_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_report_jobs_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "ReportJobs" => list(report_job())
+      }
+
+  """
+  @type list_report_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_testing_recovery_point_selection() :: %{
+        "Algorithm" => list(any()),
+        "ExcludeVaults" => list(String.t() | atom()),
+        "IncludeVaults" => list(String.t() | atom()),
+        "RecoveryPointTypes" => list(list(any())()),
+        "SelectionWindowDays" => integer()
+      }
+
+  """
+  @type restore_testing_recovery_point_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_region_settings_input() :: %{}
+
+  """
+  @type describe_region_settings_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tiering_configuration_input() :: %{}
+
+  """
+  @type delete_tiering_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_jobs_input() :: %{
+        optional("ByAccountId") => String.t() | atom(),
+        optional("ByCompleteAfter") => non_neg_integer(),
+        optional("ByCompleteBefore") => non_neg_integer(),
+        optional("ByCreatedAfter") => non_neg_integer(),
+        optional("ByCreatedBefore") => non_neg_integer(),
+        optional("ByParentJobId") => String.t() | atom(),
+        optional("ByResourceType") => String.t() | atom(),
+        optional("ByRestoreTestingPlanArn") => String.t() | atom(),
+        optional("ByStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_restore_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle() :: %{
+        "DeleteAfterDays" => float(),
+        "DeleteAfterEvent" => list(any()),
+        "MoveToColdStorageAfterDays" => float(),
+        "OptInToArchiveForSupportedResources" => boolean()
+      }
+
+  """
+  @type lifecycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_selections_output() :: %{
+        "BackupSelectionsList" => list(backup_selections_list_member()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_backup_selections_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_point_input() :: %{
+        optional("BackupVaultAccountId") => String.t() | atom()
+      }
+
+  """
+  @type describe_recovery_point_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexed_recovery_points_output() :: %{
+        "IndexedRecoveryPoints" => list(indexed_recovery_point()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_indexed_recovery_points_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_access_backup_vaults_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RestoreAccessBackupVaults" => list(restore_access_backup_vault_list_member())
+      }
+
+  """
+  @type list_restore_access_backup_vaults_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_report_plan_input() :: %{
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("ReportDeliveryChannel") => report_delivery_channel(),
+        optional("ReportPlanDescription") => String.t() | atom(),
+        optional("ReportSetting") => report_setting()
+      }
+
+  """
+  @type update_report_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_backup_plan_input() :: %{
+        required("BackupPlan") => backup_plan_input()
+      }
+
+  """
+  @type update_backup_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_legal_hold_output() :: %{
+        "CancelDescription" => String.t() | atom(),
+        "CancellationDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "LegalHoldArn" => String.t() | atom(),
+        "LegalHoldId" => String.t() | atom(),
+        "RecoveryPointSelection" => recovery_point_selection(),
+        "RetainRecordUntil" => non_neg_integer(),
+        "Status" => list(any()),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type get_legal_hold_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_vault_access_policy_output() :: %{
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type get_backup_vault_access_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_legal_hold_input() :: %{
+        required("Description") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("RecoveryPointSelection") => recovery_point_selection(),
+        optional("Tags") => map(),
+        required("Title") => String.t() | atom()
+      }
+
+  """
+  @type create_legal_hold_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backup_vault_input() :: %{
+        optional("BackupVaultTags") => map(),
+        optional("CreatorRequestId") => String.t() | atom(),
+        optional("EncryptionKeyArn") => String.t() | atom()
+      }
+
+  """
+  @type create_backup_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tiering_configuration() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CreatorRequestId" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ResourceSelection" => list(resource_selection()),
+        "TieringConfigurationArn" => String.t() | atom(),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type tiering_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_plan_from_template_output() :: %{
+        "BackupPlanDocument" => backup_plan()
+      }
+
+  """
+  @type get_backup_plan_from_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_delivery_channel() :: %{
+        "Formats" => list(String.t() | atom()),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom()
+      }
+
+  """
+  @type report_delivery_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_points_by_legal_hold_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecoveryPoints" => list(recovery_point_member())
+      }
+
+  """
+  @type list_recovery_points_by_legal_hold_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_points_by_backup_vault_input() :: %{
+        optional("BackupVaultAccountId") => String.t() | atom(),
+        optional("ByBackupPlanId") => String.t() | atom(),
+        optional("ByCreatedAfter") => non_neg_integer(),
+        optional("ByCreatedBefore") => non_neg_integer(),
+        optional("ByParentRecoveryPointArn") => String.t() | atom(),
+        optional("ByResourceArn") => String.t() | atom(),
+        optional("ByResourceType") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recovery_points_by_backup_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_selection_output() :: %{
+        "BackupPlanId" => String.t() | atom(),
+        "BackupSelection" => backup_selection(),
+        "CreationDate" => non_neg_integer(),
+        "CreatorRequestId" => String.t() | atom(),
+        "SelectionId" => String.t() | atom()
+      }
+
+  """
+  @type get_backup_selection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_vaults_input() :: %{
+        optional("ByShared") => boolean(),
+        optional("ByVaultType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_backup_vaults_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_restore_testing_selection_input() :: %{}
+
+  """
+  @type delete_restore_testing_selection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scan_jobs_output() :: %{
+        "NextToken" => [String.t() | atom()],
+        "ScanJobs" => list(scan_job())
+      }
+
+  """
+  @type list_scan_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_backup_vault_lock_configuration_input() :: %{
+        optional("ChangeableForDays") => float(),
+        optional("MaxRetentionDays") => float(),
+        optional("MinRetentionDays") => float()
+      }
+
+  """
+  @type put_backup_vault_lock_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_report_jobs_input() :: %{
+        optional("ByCreationAfter") => non_neg_integer(),
+        optional("ByCreationBefore") => non_neg_integer(),
+        optional("ByReportPlanName") => String.t() | atom(),
+        optional("ByStatus") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_report_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_testing_selection_for_list() :: %{
+        "CreationTime" => [non_neg_integer()],
+        "IamRoleArn" => [String.t() | atom()],
+        "ProtectedResourceType" => [String.t() | atom()],
+        "RestoreTestingPlanName" => [String.t() | atom()],
+        "RestoreTestingSelectionName" => [String.t() | atom()],
+        "ValidationWindowHours" => integer()
+      }
+
+  """
+  @type restore_testing_selection_for_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_action() :: %{
+        "DestinationBackupVaultArn" => String.t() | atom(),
+        "Lifecycle" => lifecycle()
+      }
+
+  """
+  @type copy_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_legal_hold_output() :: %{}
+
+  """
+  @type cancel_legal_hold_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backup_plan_output() :: %{
+        "BackupPlanArn" => String.t() | atom(),
+        "BackupPlanId" => String.t() | atom(),
+        "DeletionDate" => non_neg_integer(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_backup_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_testing_plan_for_list() :: %{
+        "CreationTime" => [non_neg_integer()],
+        "LastExecutionTime" => [non_neg_integer()],
+        "LastUpdateTime" => [non_neg_integer()],
+        "RestoreTestingPlanArn" => [String.t() | atom()],
+        "RestoreTestingPlanName" => [String.t() | atom()],
+        "ScheduleExpression" => [String.t() | atom()],
+        "ScheduleExpressionTimezone" => [String.t() | atom()],
+        "StartWindowHours" => integer()
+      }
+
+  """
+  @type restore_testing_plan_for_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_plan_templates_list_member() :: %{
+        "BackupPlanTemplateId" => String.t() | atom(),
+        "BackupPlanTemplateName" => String.t() | atom()
+      }
+
+  """
+  @type backup_plan_templates_list_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backup_plan_input() :: %{
+        required("BackupPlan") => backup_plan_input(),
+        optional("BackupPlanTags") => map(),
+        optional("CreatorRequestId") => String.t() | atom()
+      }
+
+  """
+  @type create_backup_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_plan_templates_output() :: %{
+        "BackupPlanTemplatesList" => list(backup_plan_templates_list_member()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_backup_plan_templates_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_testing_selection_for_update() :: %{
+        "IamRoleArn" => [String.t() | atom()],
+        "ProtectedResourceArns" => list(String.t() | atom()),
+        "ProtectedResourceConditions" => protected_resource_conditions(),
+        "RestoreMetadataOverrides" => map(),
+        "ValidationWindowHours" => integer()
+      }
+
+  """
+  @type restore_testing_selection_for_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_jobs_by_protected_resource_input() :: %{
+        optional("ByRecoveryPointCreationDateAfter") => non_neg_integer(),
+        optional("ByRecoveryPointCreationDateBefore") => non_neg_integer(),
+        optional("ByStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_restore_jobs_by_protected_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_tiering_configuration_input() :: %{
+        required("TieringConfiguration") => tiering_configuration_input_for_update()
+      }
+
+  """
+  @type update_tiering_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_restore_testing_selection_input() :: %{}
+
+  """
+  @type get_restore_testing_selection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_job_summaries_input() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AggregationPeriod") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_restore_job_summaries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_jobs_output() :: %{
+        "BackupJobs" => list(backup_job()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_backup_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_backup_job_output() :: %{
+        "BackupJobId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "IsParent" => boolean(),
+        "RecoveryPointArn" => String.t() | atom()
+      }
+
+  """
+  @type start_backup_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_point_selection() :: %{
+        "DateRange" => date_range(),
+        "ResourceIdentifiers" => list(String.t() | atom()),
+        "VaultNames" => list(String.t() | atom())
+      }
+
+  """
+  @type recovery_point_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_copy_job_summaries_input() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AggregationPeriod") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("MessageCategory") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_copy_job_summaries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_failure_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type dependency_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_selection_input() :: %{}
+
+  """
+  @type get_backup_selection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_rule() :: %{
+        "CompletionWindowMinutes" => float(),
+        "CopyActions" => list(copy_action()),
+        "EnableContinuousBackup" => boolean(),
+        "IndexActions" => list(index_action()),
+        "Lifecycle" => lifecycle(),
+        "RecoveryPointTags" => map(),
+        "RuleId" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
+        "ScanActions" => list(scan_action()),
+        "ScheduleExpression" => String.t() | atom(),
+        "ScheduleExpressionTimezone" => String.t() | atom(),
+        "StartWindowMinutes" => float(),
+        "TargetBackupVaultName" => String.t() | atom(),
+        "TargetLogicallyAirGappedBackupVaultArn" => String.t() | atom()
+      }
+
+  """
+  @type backup_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_protected_resource_output() :: %{
+        "LastBackupTime" => non_neg_integer(),
+        "LastBackupVaultArn" => String.t() | atom(),
+        "LastRecoveryPointArn" => String.t() | atom(),
+        "LatestRestoreExecutionTimeMinutes" => float(),
+        "LatestRestoreJobCreationDate" => non_neg_integer(),
+        "LatestRestoreRecoveryPointCreationDate" => non_neg_integer(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type describe_protected_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_global_settings_input() :: %{}
+
+  """
+  @type describe_global_settings_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_points_by_resource_input() :: %{
+        optional("ManagedByAWSBackupOnly") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recovery_points_by_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -854,933 +1917,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      list_restore_testing_plans_output() :: %{
-        "NextToken" => [String.t() | atom()],
-        "RestoreTestingPlans" => list(restore_testing_plan_for_list())
-      }
-
-  """
-  @type list_restore_testing_plans_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_report_jobs_input() :: %{
-        optional("ByCreationAfter") => non_neg_integer(),
-        optional("ByCreationBefore") => non_neg_integer(),
-        optional("ByReportPlanName") => String.t() | atom(),
-        optional("ByStatus") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_report_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_scan_job_input() :: %{
-        optional("IdempotencyToken") => [String.t() | atom()],
-        optional("ScanBaseRecoveryPointArn") => [String.t() | atom()],
-        required("BackupVaultName") => [String.t() | atom()],
-        required("IamRoleArn") => [String.t() | atom()],
-        required("MalwareScanner") => list(any()),
-        required("RecoveryPointArn") => [String.t() | atom()],
-        required("ScanMode") => list(any()),
-        required("ScannerRoleArn") => [String.t() | atom()]
-      }
-
-  """
-  @type start_scan_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_recovery_point_index_settings_output() :: %{
-        "BackupVaultName" => String.t() | atom(),
-        "Index" => list(any()),
-        "IndexStatus" => list(any()),
-        "RecoveryPointArn" => String.t() | atom()
-      }
-
-  """
-  @type update_recovery_point_index_settings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_backup_vault_output() :: %{
-        "BackupVaultArn" => String.t() | atom(),
-        "BackupVaultName" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t() | atom(),
-        "EncryptionKeyArn" => String.t() | atom(),
-        "EncryptionKeyType" => list(any()),
-        "LatestMpaApprovalTeamUpdate" => latest_mpa_approval_team_update(),
-        "LockDate" => non_neg_integer(),
-        "Locked" => boolean(),
-        "MaxRetentionDays" => float(),
-        "MinRetentionDays" => float(),
-        "MpaApprovalTeamArn" => String.t() | atom(),
-        "MpaSessionArn" => String.t() | atom(),
-        "NumberOfRecoveryPoints" => float(),
-        "SourceBackupVaultArn" => String.t() | atom(),
-        "VaultState" => list(any()),
-        "VaultType" => list(any())
-      }
-
-  """
-  @type describe_backup_vault_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tiering_configuration_output() :: %{
-        "TieringConfiguration" => tiering_configuration()
-      }
-
-  """
-  @type get_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_restore_testing_selections_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_restore_testing_selections_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_job_summaries_input() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("AggregationPeriod") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("MessageCategory") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom(),
-        optional("State") => list(any())
-      }
-
-  """
-  @type list_backup_job_summaries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_backup_vault_notifications_input() :: %{
-        required("BackupVaultEvents") => list(list(any())()),
-        required("SNSTopicArn") => String.t() | atom()
-      }
-
-  """
-  @type put_backup_vault_notifications_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_restore_access_backup_vault_output() :: %{
-        "CreationDate" => non_neg_integer(),
-        "RestoreAccessBackupVaultArn" => String.t() | atom(),
-        "RestoreAccessBackupVaultName" => String.t() | atom(),
-        "VaultState" => list(any())
-      }
-
-  """
-  @type create_restore_access_backup_vault_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_protected_resource_input() :: %{}
-
-  """
-  @type describe_protected_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_legal_hold_output() :: %{}
-
-  """
-  @type cancel_legal_hold_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_scan_job_output() :: %{
-        "AccountId" => [String.t() | atom()],
-        "BackupVaultArn" => [String.t() | atom()],
-        "BackupVaultName" => [String.t() | atom()],
-        "CompletionDate" => [non_neg_integer()],
-        "CreatedBy" => scan_job_creator(),
-        "CreationDate" => [non_neg_integer()],
-        "IamRoleArn" => [String.t() | atom()],
-        "MalwareScanner" => list(any()),
-        "RecoveryPointArn" => [String.t() | atom()],
-        "ResourceArn" => [String.t() | atom()],
-        "ResourceName" => [String.t() | atom()],
-        "ResourceType" => list(any()),
-        "ScanBaseRecoveryPointArn" => [String.t() | atom()],
-        "ScanId" => [String.t() | atom()],
-        "ScanJobId" => [String.t() | atom()],
-        "ScanMode" => list(any()),
-        "ScanResult" => scan_result_info(),
-        "ScannerRoleArn" => [String.t() | atom()],
-        "State" => list(any()),
-        "StatusMessage" => [String.t() | atom()]
-      }
-
-  """
-  @type describe_scan_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_scope() :: %{
-        "ComplianceResourceIds" => list(String.t() | atom()),
-        "ComplianceResourceTypes" => list(String.t() | atom()),
-        "Tags" => map()
-      }
-
-  """
-  @type control_scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_legal_hold_output() :: %{
-        "CancelDescription" => String.t() | atom(),
-        "CancellationDate" => non_neg_integer(),
+      create_legal_hold_output() :: %{
         "CreationDate" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "LegalHoldArn" => String.t() | atom(),
         "LegalHoldId" => String.t() | atom(),
         "RecoveryPointSelection" => recovery_point_selection(),
-        "RetainRecordUntil" => non_neg_integer(),
         "Status" => list(any()),
         "Title" => String.t() | atom()
       }
 
   """
-  @type get_legal_hold_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_backup_vault_mpa_approval_team_input() :: %{
-        optional("RequesterComment") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_backup_vault_mpa_approval_team_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      framework_control() :: %{
-        "ControlInputParameters" => list(control_input_parameter()),
-        "ControlName" => String.t() | atom(),
-        "ControlScope" => control_scope()
-      }
-
-  """
-  @type framework_control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tiering_configuration_input() :: %{}
-
-  """
-  @type get_tiering_configuration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      scan_job() :: %{
-        "AccountId" => [String.t() | atom()],
-        "BackupVaultArn" => [String.t() | atom()],
-        "BackupVaultName" => [String.t() | atom()],
-        "CompletionDate" => [non_neg_integer()],
-        "CreatedBy" => scan_job_creator(),
-        "CreationDate" => [non_neg_integer()],
-        "IamRoleArn" => [String.t() | atom()],
-        "MalwareScanner" => list(any()),
-        "RecoveryPointArn" => [String.t() | atom()],
-        "ResourceArn" => [String.t() | atom()],
-        "ResourceName" => [String.t() | atom()],
-        "ResourceType" => list(any()),
-        "ScanBaseRecoveryPointArn" => [String.t() | atom()],
-        "ScanId" => [String.t() | atom()],
-        "ScanJobId" => [String.t() | atom()],
-        "ScanMode" => list(any()),
-        "ScanResult" => scan_result_info(),
-        "ScannerRoleArn" => [String.t() | atom()],
-        "State" => list(any()),
-        "StatusMessage" => [String.t() | atom()]
-      }
-
-  """
-  @type scan_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_jobs_output() :: %{
-        "BackupJobs" => list(backup_job()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_backup_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_plan_from_template_input() :: %{}
-
-  """
-  @type get_backup_plan_from_template_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_recovery_point_index_settings_input() :: %{
-        optional("IamRoleArn") => String.t() | atom(),
-        required("Index") => list(any())
-      }
-
-  """
-  @type update_recovery_point_index_settings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_backup_plan_template_output() :: %{
-        "BackupPlanTemplateJson" => String.t() | atom()
-      }
-
-  """
-  @type export_backup_plan_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backup_plan_input() :: %{
-        required("BackupPlan") => backup_plan_input()
-      }
-
-  """
-  @type update_backup_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_report_plans_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "ReportPlans" => list(report_plan())
-      }
-
-  """
-  @type list_report_plans_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_selection() :: %{
-        "ResourceType" => String.t() | atom(),
-        "Resources" => list(String.t() | atom()),
-        "TieringDownSettingsInDays" => integer()
-      }
-
-  """
-  @type resource_selection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_selection() :: %{
-        "Conditions" => conditions(),
-        "IamRoleArn" => String.t() | atom(),
-        "ListOfTags" => list(condition()),
-        "NotResources" => list(String.t() | atom()),
-        "Resources" => list(String.t() | atom()),
-        "SelectionName" => String.t() | atom()
-      }
-
-  """
-  @type backup_selection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_region_settings_input() :: %{
-        optional("ResourceTypeManagementPreference") => map(),
-        optional("ResourceTypeOptInPreference") => map()
-      }
-
-  """
-  @type update_region_settings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_legal_holds_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_legal_holds_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recovery_point_index_details_input() :: %{}
-
-  """
-  @type get_recovery_point_index_details_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle() :: %{
-        "DeleteAfterDays" => float(),
-        "DeleteAfterEvent" => list(any()),
-        "MoveToColdStorageAfterDays" => float(),
-        "OptInToArchiveForSupportedResources" => boolean()
-      }
-
-  """
-  @type lifecycle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      revoke_restore_access_backup_vault_input() :: %{
-        optional("RequesterComment") => String.t() | atom()
-      }
-
-  """
-  @type revoke_restore_access_backup_vault_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recovery_points_by_legal_hold_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_recovery_points_by_legal_hold_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backup_selection_output() :: %{
-        "BackupPlanId" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "SelectionId" => String.t() | atom()
-      }
-
-  """
-  @type create_backup_selection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_restore_testing_selection_input() :: %{}
-
-  """
-  @type get_restore_testing_selection_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_resource_conditions() :: %{
-        "StringEquals" => list(key_value()),
-        "StringNotEquals" => list(key_value())
-      }
-
-  """
-  @type protected_resource_conditions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_input_parameter() :: %{
-        "ParameterName" => String.t() | atom(),
-        "ParameterValue" => String.t() | atom()
-      }
-
-  """
-  @type control_input_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      calculated_lifecycle() :: %{
-        "DeleteAt" => non_neg_integer(),
-        "MoveToColdStorageAt" => non_neg_integer()
-      }
-
-  """
-  @type calculated_lifecycle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_action() :: %{
-        "DestinationBackupVaultArn" => String.t() | atom(),
-        "Lifecycle" => lifecycle()
-      }
-
-  """
-  @type copy_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_framework_input() :: %{
-        optional("FrameworkControls") => list(framework_control()),
-        optional("FrameworkDescription") => String.t() | atom(),
-        optional("IdempotencyToken") => String.t() | atom()
-      }
-
-  """
-  @type update_framework_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      latest_mpa_approval_team_update() :: %{
-        "ExpiryDate" => non_neg_integer(),
-        "InitiationDate" => non_neg_integer(),
-        "MpaSessionArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type latest_mpa_approval_team_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_restore_testing_inferred_metadata_input() :: %{
-        optional("BackupVaultAccountId") => [String.t() | atom()],
-        required("BackupVaultName") => [String.t() | atom()],
-        required("RecoveryPointArn") => [String.t() | atom()]
-      }
-
-  """
-  @type get_restore_testing_inferred_metadata_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_vault_access_policy_input() :: %{}
-
-  """
-  @type get_backup_vault_access_policy_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tiering_configuration_input_for_create() :: %{
-        "BackupVaultName" => String.t() | atom(),
-        "ResourceSelection" => list(resource_selection()),
-        "TieringConfigurationName" => String.t() | atom()
-      }
-
-  """
-  @type tiering_configuration_input_for_create() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tiering_configuration_output() :: %{
-        "CreationTime" => non_neg_integer(),
-        "TieringConfigurationArn" => String.t() | atom(),
-        "TieringConfigurationName" => String.t() | atom()
-      }
-
-  """
-  @type create_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_report_plans_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_report_plans_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backup_selection_input() :: %{
-        optional("CreatorRequestId") => String.t() | atom(),
-        required("BackupSelection") => backup_selection()
-      }
-
-  """
-  @type create_backup_selection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_backup_vault_access_policy_input() :: %{
-        optional("Policy") => String.t() | atom()
-      }
-
-  """
-  @type put_backup_vault_access_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_restore_jobs_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RestoreJobs" => list(restore_jobs_list_member())
-      }
-
-  """
-  @type list_restore_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_restore_job_output() :: %{
-        "RestoreJobId" => String.t() | atom()
-      }
-
-  """
-  @type start_restore_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_job_summary() :: %{
-        "AccountId" => String.t() | atom(),
-        "Count" => integer(),
-        "EndTime" => non_neg_integer(),
-        "MessageCategory" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "State" => list(any())
-      }
-
-  """
-  @type copy_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_backup_vault_mpa_approval_team_input() :: %{
-        optional("RequesterComment") => String.t() | atom(),
-        required("MpaApprovalTeamArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_backup_vault_mpa_approval_team_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_restore_testing_selection_input() :: %{}
-
-  """
-  @type delete_restore_testing_selection_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recovery_points_by_resource_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RecoveryPoints" => list(recovery_point_by_resource())
-      }
-
-  """
-  @type list_recovery_points_by_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_access_backup_vault_list_member() :: %{
-        "ApprovalDate" => non_neg_integer(),
-        "CreationDate" => non_neg_integer(),
-        "LatestRevokeRequest" => latest_revoke_request(),
-        "RestoreAccessBackupVaultArn" => String.t() | atom(),
-        "VaultState" => list(any())
-      }
-
-  """
-  @type restore_access_backup_vault_list_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_selections_output() :: %{
-        "BackupSelectionsList" => list(backup_selections_list_member()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_backup_selections_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_testing_plan_for_get() :: %{
-        "CreationTime" => [non_neg_integer()],
-        "CreatorRequestId" => [String.t() | atom()],
-        "LastExecutionTime" => [non_neg_integer()],
-        "LastUpdateTime" => [non_neg_integer()],
-        "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
-        "RestoreTestingPlanArn" => [String.t() | atom()],
-        "RestoreTestingPlanName" => [String.t() | atom()],
-        "ScheduleExpression" => [String.t() | atom()],
-        "ScheduleExpressionTimezone" => [String.t() | atom()],
-        "StartWindowHours" => integer()
-      }
-
-  """
-  @type restore_testing_plan_for_get() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_restore_testing_selection_output() :: %{
-        "CreationTime" => [non_neg_integer()],
-        "RestoreTestingPlanArn" => [String.t() | atom()],
-        "RestoreTestingPlanName" => [String.t() | atom()],
-        "RestoreTestingSelectionName" => [String.t() | atom()],
-        "UpdateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type update_restore_testing_selection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_restore_job_output() :: %{
-        "AccountId" => String.t() | atom(),
-        "BackupSizeInBytes" => float(),
-        "BackupVaultArn" => String.t() | atom(),
-        "CompletionDate" => non_neg_integer(),
-        "CreatedBy" => restore_job_creator(),
-        "CreatedResourceArn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "DeletionStatus" => list(any()),
-        "DeletionStatusMessage" => String.t() | atom(),
-        "ExpectedCompletionTimeMinutes" => float(),
-        "IamRoleArn" => String.t() | atom(),
-        "IsParent" => boolean(),
-        "ParentJobId" => String.t() | atom(),
-        "PercentDone" => String.t() | atom(),
-        "RecoveryPointArn" => String.t() | atom(),
-        "RecoveryPointCreationDate" => non_neg_integer(),
-        "ResourceType" => String.t() | atom(),
-        "RestoreJobId" => String.t() | atom(),
-        "SourceResourceArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "ValidationStatus" => list(any()),
-        "ValidationStatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type describe_restore_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_testing_selection_for_update() :: %{
-        "IamRoleArn" => [String.t() | atom()],
-        "ProtectedResourceArns" => list(String.t() | atom()),
-        "ProtectedResourceConditions" => protected_resource_conditions(),
-        "RestoreMetadataOverrides" => map(),
-        "ValidationWindowHours" => integer()
-      }
-
-  """
-  @type restore_testing_selection_for_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scan_result_info() :: %{
-        "ScanResultStatus" => list(any())
-      }
-
-  """
-  @type scan_result_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_copy_job_output() :: %{
-        "CopyJobId" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "IsParent" => boolean()
-      }
-
-  """
-  @type start_copy_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_restore_job_summaries_input() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("AggregationPeriod") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom(),
-        optional("State") => list(any())
-      }
-
-  """
-  @type list_restore_job_summaries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scan_job_summaries_output() :: %{
-        "AggregationPeriod" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "ScanJobSummaries" => list(scan_job_summary())
-      }
-
-  """
-  @type list_scan_job_summaries_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_recovery_point_from_parent_input() :: %{}
-
-  """
-  @type disassociate_recovery_point_from_parent_input() :: %{}
+  @type create_legal_hold_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1828,1386 +1976,26 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      backup_selections_list_member() :: %{
-        "BackupPlanId" => String.t() | atom(),
+      create_restore_access_backup_vault_output() :: %{
         "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom(),
-        "SelectionId" => String.t() | atom(),
-        "SelectionName" => String.t() | atom()
-      }
-
-  """
-  @type backup_selections_list_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_framework_output() :: %{
-        "FrameworkArn" => String.t() | atom(),
-        "FrameworkName" => String.t() | atom()
-      }
-
-  """
-  @type create_framework_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_copy_job_summaries_output() :: %{
-        "AggregationPeriod" => String.t() | atom(),
-        "CopyJobSummaries" => list(copy_job_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_copy_job_summaries_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_global_settings_output() :: %{
-        "GlobalSettings" => map(),
-        "LastUpdateTime" => non_neg_integer()
-      }
-
-  """
-  @type describe_global_settings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_supported_resource_types_output() :: %{
-        "ResourceTypes" => list(String.t() | atom())
-      }
-
-  """
-  @type get_supported_resource_types_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_value_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_testing_recovery_point_selection() :: %{
-        "Algorithm" => list(any()),
-        "ExcludeVaults" => list(String.t() | atom()),
-        "IncludeVaults" => list(String.t() | atom()),
-        "RecoveryPointTypes" => list(list(any())()),
-        "SelectionWindowDays" => integer()
-      }
-
-  """
-  @type restore_testing_recovery_point_selection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scan_job_summaries_input() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("AggregationPeriod") => list(any()),
-        optional("MalwareScanner") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom(),
-        optional("ScanResultStatus") => list(any()),
-        optional("State") => list(any())
-      }
-
-  """
-  @type list_scan_job_summaries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dependency_failure_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type dependency_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scheduled_plan_execution_member() :: %{
-        "ExecutionTime" => non_neg_integer(),
-        "RuleExecutionType" => list(any()),
-        "RuleId" => String.t() | atom()
-      }
-
-  """
-  @type scheduled_plan_execution_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_tiering_configuration_output() :: %{
-        "CreationTime" => non_neg_integer(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "TieringConfigurationArn" => String.t() | atom(),
-        "TieringConfigurationName" => String.t() | atom()
-      }
-
-  """
-  @type update_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_restore_testing_selection_output() :: %{
-        "CreationTime" => [non_neg_integer()],
-        "RestoreTestingPlanArn" => [String.t() | atom()],
-        "RestoreTestingPlanName" => [String.t() | atom()],
-        "RestoreTestingSelectionName" => [String.t() | atom()]
-      }
-
-  """
-  @type create_restore_testing_selection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_report_job_output() :: %{
-        "ReportJob" => report_job()
-      }
-
-  """
-  @type describe_report_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_restore_testing_inferred_metadata_output() :: %{
-        "InferredMetadata" => map()
-      }
-
-  """
-  @type get_restore_testing_inferred_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_vault_notifications_output() :: %{
-        "BackupVaultArn" => String.t() | atom(),
-        "BackupVaultEvents" => list(list(any())()),
-        "BackupVaultName" => String.t() | atom(),
-        "SNSTopicArn" => String.t() | atom()
-      }
-
-  """
-  @type get_backup_vault_notifications_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      advanced_backup_setting() :: %{
-        "BackupOptions" => map(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type advanced_backup_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_point_selection() :: %{
-        "DateRange" => date_range(),
-        "ResourceIdentifiers" => list(String.t() | atom()),
-        "VaultNames" => list(String.t() | atom())
-      }
-
-  """
-  @type recovery_point_selection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conditions() :: %{
-        "StringEquals" => list(condition_parameter()),
-        "StringLike" => list(condition_parameter()),
-        "StringNotEquals" => list(condition_parameter()),
-        "StringNotLike" => list(condition_parameter())
-      }
-
-  """
-  @type conditions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_restore_testing_plan_input() :: %{
-        required("RestoreTestingPlan") => restore_testing_plan_for_update()
-      }
-
-  """
-  @type update_restore_testing_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backup_vault_input() :: %{}
-
-  """
-  @type delete_backup_vault_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_vault_access_policy_output() :: %{
-        "BackupVaultArn" => String.t() | atom(),
-        "BackupVaultName" => String.t() | atom(),
-        "Policy" => String.t() | atom()
-      }
-
-  """
-  @type get_backup_vault_access_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_restore_testing_selection_output() :: %{
-        "RestoreTestingSelection" => restore_testing_selection_for_get()
-      }
-
-  """
-  @type get_restore_testing_selection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_indexed_recovery_points_output() :: %{
-        "IndexedRecoveryPoints" => list(indexed_recovery_point()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_indexed_recovery_points_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tiering_configurations_list_member() :: %{
-        "BackupVaultName" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "TieringConfigurationArn" => String.t() | atom(),
-        "TieringConfigurationName" => String.t() | atom()
-      }
-
-  """
-  @type tiering_configurations_list_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      report_delivery_channel() :: %{
-        "Formats" => list(String.t() | atom()),
-        "S3BucketName" => String.t() | atom(),
-        "S3KeyPrefix" => String.t() | atom()
-      }
-
-  """
-  @type report_delivery_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_protected_resources_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Results" => list(protected_resource())
-      }
-
-  """
-  @type list_protected_resources_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_framework_input() :: %{}
-
-  """
-  @type delete_framework_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backup_vault_notifications_input() :: %{}
-
-  """
-  @type delete_backup_vault_notifications_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      condition() :: %{
-        "ConditionKey" => String.t() | atom(),
-        "ConditionType" => list(any()),
-        "ConditionValue" => String.t() | atom()
-      }
-
-  """
-  @type condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_resource_state_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type invalid_resource_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scan_action() :: %{
-        "MalwareScanner" => list(any()),
-        "ScanMode" => list(any())
-      }
-
-  """
-  @type scan_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_plan_versions_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_backup_plan_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      indexed_recovery_point() :: %{
-        "BackupCreationDate" => non_neg_integer(),
-        "BackupVaultArn" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom(),
-        "IndexCreationDate" => non_neg_integer(),
-        "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t() | atom(),
-        "RecoveryPointArn" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "SourceResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type indexed_recovery_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_restore_jobs_input() :: %{
-        optional("ByAccountId") => String.t() | atom(),
-        optional("ByCompleteAfter") => non_neg_integer(),
-        optional("ByCompleteBefore") => non_neg_integer(),
-        optional("ByCreatedAfter") => non_neg_integer(),
-        optional("ByCreatedBefore") => non_neg_integer(),
-        optional("ByParentJobId") => String.t() | atom(),
-        optional("ByResourceType") => String.t() | atom(),
-        optional("ByRestoreTestingPlanArn") => String.t() | atom(),
-        optional("ByStatus") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_restore_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_tiering_configuration_input() :: %{
-        required("TieringConfiguration") => tiering_configuration_input_for_update()
-      }
-
-  """
-  @type update_tiering_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_selection_input() :: %{}
-
-  """
-  @type get_backup_selection_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tiering_configuration_input() :: %{}
-
-  """
-  @type delete_tiering_configuration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_selection_output() :: %{
-        "BackupPlanId" => String.t() | atom(),
-        "BackupSelection" => backup_selection(),
-        "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t() | atom(),
-        "SelectionId" => String.t() | atom()
-      }
-
-  """
-  @type get_backup_selection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_point_by_resource() :: %{
-        "AggregatedScanResult" => aggregated_scan_result(),
-        "BackupSizeBytes" => float(),
-        "BackupVaultName" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "EncryptionKeyArn" => String.t() | atom(),
-        "EncryptionKeyType" => list(any()),
-        "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t() | atom(),
-        "IsParent" => boolean(),
-        "ParentRecoveryPointArn" => String.t() | atom(),
-        "RecoveryPointArn" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "VaultType" => list(any())
-      }
-
-  """
-  @type recovery_point_by_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recovery_point_index_details_output() :: %{
-        "BackupVaultArn" => String.t() | atom(),
-        "IndexCompletionDate" => non_neg_integer(),
-        "IndexCreationDate" => non_neg_integer(),
-        "IndexDeletionDate" => non_neg_integer(),
-        "IndexStatus" => list(any()),
-        "IndexStatusMessage" => String.t() | atom(),
-        "RecoveryPointArn" => String.t() | atom(),
-        "SourceResourceArn" => String.t() | atom(),
-        "TotalItemsIndexed" => float()
-      }
-
-  """
-  @type get_recovery_point_index_details_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      report_setting() :: %{
-        "Accounts" => list(String.t() | atom()),
-        "FrameworkArns" => list(String.t() | atom()),
-        "NumberOfFrameworks" => integer(),
-        "OrganizationUnits" => list(String.t() | atom()),
-        "Regions" => list(String.t() | atom()),
-        "ReportTemplate" => String.t() | atom()
-      }
-
-  """
-  @type report_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recovery_points_by_backup_vault_input() :: %{
-        optional("BackupVaultAccountId") => String.t() | atom(),
-        optional("ByBackupPlanId") => String.t() | atom(),
-        optional("ByCreatedAfter") => non_neg_integer(),
-        optional("ByCreatedBefore") => non_neg_integer(),
-        optional("ByParentRecoveryPointArn") => String.t() | atom(),
-        optional("ByResourceArn") => String.t() | atom(),
-        optional("ByResourceType") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_recovery_points_by_backup_vault_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      framework() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DeploymentStatus" => String.t() | atom(),
-        "FrameworkArn" => String.t() | atom(),
-        "FrameworkDescription" => String.t() | atom(),
-        "FrameworkName" => String.t() | atom(),
-        "NumberOfControls" => integer()
-      }
-
-  """
-  @type framework() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tiering_configurations_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_tiering_configurations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_testing_selection_for_create() :: %{
-        "IamRoleArn" => [String.t() | atom()],
-        "ProtectedResourceArns" => list(String.t() | atom()),
-        "ProtectedResourceConditions" => protected_resource_conditions(),
-        "ProtectedResourceType" => [String.t() | atom()],
-        "RestoreMetadataOverrides" => map(),
-        "RestoreTestingSelectionName" => [String.t() | atom()],
-        "ValidationWindowHours" => integer()
-      }
-
-  """
-  @type restore_testing_selection_for_create() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tiering_configuration_output() :: %{}
-
-  """
-  @type delete_tiering_configuration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_frameworks_output() :: %{
-        "Frameworks" => list(framework()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_frameworks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_vault_list_member() :: %{
-        "BackupVaultArn" => String.t() | atom(),
-        "BackupVaultName" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "CreatorRequestId" => String.t() | atom(),
-        "EncryptionKeyArn" => String.t() | atom(),
-        "EncryptionKeyType" => list(any()),
-        "LockDate" => non_neg_integer(),
-        "Locked" => boolean(),
-        "MaxRetentionDays" => float(),
-        "MinRetentionDays" => float(),
-        "NumberOfRecoveryPoints" => float(),
-        "VaultState" => list(any()),
-        "VaultType" => list(any())
-      }
-
-  """
-  @type backup_vault_list_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_copy_job_input() :: %{}
-
-  """
-  @type describe_copy_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_copy_job_summaries_input() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("AggregationPeriod") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("MessageCategory") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom(),
-        optional("State") => list(any())
-      }
-
-  """
-  @type list_copy_job_summaries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_legal_holds_output() :: %{
-        "LegalHolds" => list(legal_hold()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_legal_holds_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_scan_job_input() :: %{}
-
-  """
-  @type describe_scan_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backup_vault_access_policy_input() :: %{}
-
-  """
-  @type delete_backup_vault_access_policy_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_rule() :: %{
-        "CompletionWindowMinutes" => float(),
-        "CopyActions" => list(copy_action()),
-        "EnableContinuousBackup" => boolean(),
-        "IndexActions" => list(index_action()),
-        "Lifecycle" => lifecycle(),
-        "RecoveryPointTags" => map(),
-        "RuleId" => String.t() | atom(),
-        "RuleName" => String.t() | atom(),
-        "ScanActions" => list(scan_action()),
-        "ScheduleExpression" => String.t() | atom(),
-        "ScheduleExpressionTimezone" => String.t() | atom(),
-        "StartWindowMinutes" => float(),
-        "TargetBackupVaultName" => String.t() | atom(),
-        "TargetLogicallyAirGappedBackupVaultArn" => String.t() | atom()
-      }
-
-  """
-  @type backup_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_plan_from_template_output() :: %{
-        "BackupPlanDocument" => backup_plan()
-      }
-
-  """
-  @type get_backup_plan_from_template_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_report_plan_input() :: %{
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("ReportDeliveryChannel") => report_delivery_channel(),
-        optional("ReportPlanDescription") => String.t() | atom(),
-        optional("ReportSetting") => report_setting()
-      }
-
-  """
-  @type update_report_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("TagKeyList") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_report_plan_input() :: %{}
-
-  """
-  @type describe_report_plan_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recovery_points_by_resource_input() :: %{
-        optional("ManagedByAWSBackupOnly") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_recovery_points_by_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recovery_points_by_legal_hold_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RecoveryPoints" => list(recovery_point_member())
-      }
-
-  """
-  @type list_recovery_points_by_legal_hold_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_legal_hold_output() :: %{
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "LegalHoldArn" => String.t() | atom(),
-        "LegalHoldId" => String.t() | atom(),
-        "RecoveryPointSelection" => recovery_point_selection(),
-        "Status" => list(any()),
-        "Title" => String.t() | atom()
-      }
-
-  """
-  @type create_legal_hold_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_global_settings_input() :: %{
-        optional("GlobalSettings") => map()
-      }
-
-  """
-  @type update_global_settings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_copy_jobs_input() :: %{
-        optional("ByAccountId") => String.t() | atom(),
-        optional("ByCompleteAfter") => non_neg_integer(),
-        optional("ByCompleteBefore") => non_neg_integer(),
-        optional("ByCreatedAfter") => non_neg_integer(),
-        optional("ByCreatedBefore") => non_neg_integer(),
-        optional("ByDestinationVaultArn") => String.t() | atom(),
-        optional("ByMessageCategory") => String.t() | atom(),
-        optional("ByParentJobId") => String.t() | atom(),
-        optional("ByResourceArn") => String.t() | atom(),
-        optional("ByResourceType") => String.t() | atom(),
-        optional("BySourceRecoveryPointArn") => String.t() | atom(),
-        optional("ByState") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_copy_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recovery_point_restore_metadata_input() :: %{
-        optional("BackupVaultAccountId") => String.t() | atom()
-      }
-
-  """
-  @type get_recovery_point_restore_metadata_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_jobs_input() :: %{
-        optional("ByAccountId") => String.t() | atom(),
-        optional("ByBackupVaultName") => String.t() | atom(),
-        optional("ByCompleteAfter") => non_neg_integer(),
-        optional("ByCompleteBefore") => non_neg_integer(),
-        optional("ByCreatedAfter") => non_neg_integer(),
-        optional("ByCreatedBefore") => non_neg_integer(),
-        optional("ByMessageCategory") => String.t() | atom(),
-        optional("ByParentJobId") => String.t() | atom(),
-        optional("ByResourceArn") => String.t() | atom(),
-        optional("ByResourceType") => String.t() | atom(),
-        optional("ByState") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_backup_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_copy_job_input() :: %{
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("Lifecycle") => lifecycle(),
-        required("DestinationBackupVaultArn") => String.t() | atom(),
-        required("IamRoleArn") => String.t() | atom(),
-        required("RecoveryPointArn") => String.t() | atom(),
-        required("SourceBackupVaultName") => String.t() | atom()
-      }
-
-  """
-  @type start_copy_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scan_jobs_input() :: %{
-        optional("ByAccountId") => [String.t() | atom()],
-        optional("ByBackupVaultName") => [String.t() | atom()],
-        optional("ByCompleteAfter") => [non_neg_integer()],
-        optional("ByCompleteBefore") => [non_neg_integer()],
-        optional("ByMalwareScanner") => list(any()),
-        optional("ByRecoveryPointArn") => [String.t() | atom()],
-        optional("ByResourceArn") => [String.t() | atom()],
-        optional("ByResourceType") => list(any()),
-        optional("ByScanResultStatus") => list(any()),
-        optional("ByState") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_scan_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_report_plan_input() :: %{}
-
-  """
-  @type delete_report_plan_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_backup_job_output() :: %{
-        "BackupJobId" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "IsParent" => boolean(),
-        "RecoveryPointArn" => String.t() | atom()
-      }
-
-  """
-  @type start_backup_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_restore_jobs_by_protected_resource_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RestoreJobs" => list(restore_jobs_list_member())
-      }
-
-  """
-  @type list_restore_jobs_by_protected_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_restore_access_backup_vaults_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_restore_access_backup_vaults_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backup_vault_notifications_input() :: %{}
-
-  """
-  @type get_backup_vault_notifications_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_framework_input() :: %{
-        optional("FrameworkDescription") => String.t() | atom(),
-        optional("FrameworkTags") => map(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        required("FrameworkControls") => list(framework_control()),
-        required("FrameworkName") => String.t() | atom()
-      }
-
-  """
-  @type create_framework_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backup_plan_input() :: %{
-        optional("BackupPlanTags") => map(),
-        optional("CreatorRequestId") => String.t() | atom(),
-        required("BackupPlan") => backup_plan_input()
-      }
-
-  """
-  @type create_backup_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tiering_configuration_input_for_update() :: %{
-        "BackupVaultName" => String.t() | atom(),
-        "ResourceSelection" => list(resource_selection())
-      }
-
-  """
-  @type tiering_configuration_input_for_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_backup_vault_input() :: %{
-        optional("BackupVaultAccountId") => String.t() | atom()
-      }
-
-  """
-  @type describe_backup_vault_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_copy_jobs_output() :: %{
-        "CopyJobs" => list(copy_job()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_copy_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_vaults_input() :: %{
-        optional("ByShared") => boolean(),
-        optional("ByVaultType") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_backup_vaults_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_protected_resources_by_backup_vault_input() :: %{
-        optional("BackupVaultAccountId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_protected_resources_by_backup_vault_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Context" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_job_summary() :: %{
-        "AccountId" => String.t() | atom(),
-        "Count" => integer(),
-        "EndTime" => non_neg_integer(),
-        "MessageCategory" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "State" => list(any())
-      }
-
-  """
-  @type backup_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_scan_jobs_output() :: %{
-        "NextToken" => [String.t() | atom()],
-        "ScanJobs" => list(scan_job())
-      }
-
-  """
-  @type list_scan_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_protected_resource_output() :: %{
-        "LastBackupTime" => non_neg_integer(),
-        "LastBackupVaultArn" => String.t() | atom(),
-        "LastRecoveryPointArn" => String.t() | atom(),
-        "LatestRestoreExecutionTimeMinutes" => float(),
-        "LatestRestoreJobCreationDate" => non_neg_integer(),
-        "LatestRestoreRecoveryPointCreationDate" => non_neg_integer(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type describe_protected_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_job_creator() :: %{
-        "RestoreTestingPlanArn" => String.t() | atom()
-      }
-
-  """
-  @type restore_job_creator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_logically_air_gapped_backup_vault_output() :: %{
-        "BackupVaultArn" => String.t() | atom(),
-        "BackupVaultName" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
+        "RestoreAccessBackupVaultArn" => String.t() | atom(),
+        "RestoreAccessBackupVaultName" => String.t() | atom(),
         "VaultState" => list(any())
       }
 
   """
-  @type create_logically_air_gapped_backup_vault_output() :: %{(String.t() | atom()) => any()}
+  @type create_restore_access_backup_vault_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      backup_rule_input() :: %{
-        "CompletionWindowMinutes" => float(),
-        "CopyActions" => list(copy_action()),
-        "EnableContinuousBackup" => boolean(),
-        "IndexActions" => list(index_action()),
-        "Lifecycle" => lifecycle(),
-        "RecoveryPointTags" => map(),
-        "RuleName" => String.t() | atom(),
-        "ScanActions" => list(scan_action()),
-        "ScheduleExpression" => String.t() | atom(),
-        "ScheduleExpressionTimezone" => String.t() | atom(),
-        "StartWindowMinutes" => float(),
-        "TargetBackupVaultName" => String.t() | atom(),
-        "TargetLogicallyAirGappedBackupVaultArn" => String.t() | atom()
+      describe_report_plan_output() :: %{
+        "ReportPlan" => report_plan()
       }
 
   """
-  @type backup_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_testing_plan_for_create() :: %{
-        "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
-        "RestoreTestingPlanName" => [String.t() | atom()],
-        "ScheduleExpression" => [String.t() | atom()],
-        "ScheduleExpressionTimezone" => [String.t() | atom()],
-        "StartWindowHours" => integer()
-      }
-
-  """
-  @type restore_testing_plan_for_create() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scan_job_creator() :: %{
-        "BackupPlanArn" => [String.t() | atom()],
-        "BackupPlanId" => [String.t() | atom()],
-        "BackupPlanVersion" => [String.t() | atom()],
-        "BackupRuleId" => [String.t() | atom()]
-      }
-
-  """
-  @type scan_job_creator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      legal_hold() :: %{
-        "CancellationDate" => non_neg_integer(),
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "LegalHoldArn" => String.t() | atom(),
-        "LegalHoldId" => String.t() | atom(),
-        "Status" => list(any()),
-        "Title" => String.t() | atom()
-      }
-
-  """
-  @type legal_hold() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_plan_versions_output() :: %{
-        "BackupPlanVersionsList" => list(backup_plans_list_member()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_backup_plan_versions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_framework_output() :: %{
-        "CreationTime" => non_neg_integer(),
-        "FrameworkArn" => String.t() | atom(),
-        "FrameworkName" => String.t() | atom()
-      }
-
-  """
-  @type update_framework_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_frameworks_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_frameworks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backup_plan_templates_list_member() :: %{
-        "BackupPlanTemplateId" => String.t() | atom(),
-        "BackupPlanTemplateName" => String.t() | atom()
-      }
-
-  """
-  @type backup_plan_templates_list_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backup_job_summaries_output() :: %{
-        "AggregationPeriod" => String.t() | atom(),
-        "BackupJobSummaries" => list(backup_job_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_backup_job_summaries_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recovery_points_by_backup_vault_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RecoveryPoints" => list(recovery_point_by_backup_vault())
-      }
-
-  """
-  @type list_recovery_points_by_backup_vault_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_value() :: %{
-        "Key" => [String.t() | atom()],
-        "Value" => [String.t() | atom()]
-      }
-
-  """
-  @type key_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_report_job_input() :: %{
-        optional("IdempotencyToken") => String.t() | atom()
-      }
-
-  """
-  @type start_report_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_report_plan_input() :: %{
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("ReportPlanDescription") => String.t() | atom(),
-        optional("ReportPlanTags") => map(),
-        required("ReportDeliveryChannel") => report_delivery_channel(),
-        required("ReportPlanName") => String.t() | atom(),
-        required("ReportSetting") => report_setting()
-      }
-
-  """
-  @type create_report_plan_input() :: %{(String.t() | atom()) => any()}
+  @type describe_report_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3253,94 +2041,162 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      delete_backup_plan_input() :: %{}
+      start_scan_job_output() :: %{
+        "CreationDate" => [non_neg_integer()],
+        "ScanJobId" => [String.t() | atom()]
+      }
 
   """
-  @type delete_backup_plan_input() :: %{}
+  @type start_scan_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_region_settings_input() :: %{}
+      tiering_configuration_input_for_create() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "ResourceSelection" => list(resource_selection()),
+        "TieringConfigurationName" => String.t() | atom()
+      }
 
   """
-  @type describe_region_settings_input() :: %{}
+  @type tiering_configuration_input_for_create() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_restore_jobs_by_protected_resource_input() :: %{
-        optional("ByRecoveryPointCreationDateAfter") => non_neg_integer(),
-        optional("ByRecoveryPointCreationDateBefore") => non_neg_integer(),
-        optional("ByStatus") => list(any()),
+      recovery_point_member() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type recovery_point_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      latest_revoke_request() :: %{
+        "ExpiryDate" => non_neg_integer(),
+        "InitiationDate" => non_neg_integer(),
+        "MpaSessionArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type latest_revoke_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scan_jobs_input() :: %{
+        optional("ByAccountId") => [String.t() | atom()],
+        optional("ByBackupVaultName") => [String.t() | atom()],
+        optional("ByCompleteAfter") => [non_neg_integer()],
+        optional("ByCompleteBefore") => [non_neg_integer()],
+        optional("ByMalwareScanner") => list(any()),
+        optional("ByRecoveryPointArn") => [String.t() | atom()],
+        optional("ByResourceArn") => [String.t() | atom()],
+        optional("ByResourceType") => list(any()),
+        optional("ByScanResultStatus") => list(any()),
+        optional("ByState") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_restore_jobs_by_protected_resource_input() :: %{(String.t() | atom()) => any()}
+  @type list_scan_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_backup_plan_from_json_input() :: %{
-        required("BackupPlanTemplateJson") => String.t() | atom()
+      update_region_settings_input() :: %{
+        optional("ResourceTypeManagementPreference") => map(),
+        optional("ResourceTypeOptInPreference") => map()
       }
 
   """
-  @type get_backup_plan_from_json_input() :: %{(String.t() | atom()) => any()}
+  @type update_region_settings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_restore_job_summaries_output() :: %{
-        "AggregationPeriod" => String.t() | atom(),
+      create_backup_selection_output() :: %{
+        "BackupPlanId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "SelectionId" => String.t() | atom()
+      }
+
+  """
+  @type create_backup_selection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_logically_air_gapped_backup_vault_input() :: %{
+        optional("BackupVaultTags") => map(),
+        optional("CreatorRequestId") => String.t() | atom(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
+        required("MaxRetentionDays") => float(),
+        required("MinRetentionDays") => float()
+      }
+
+  """
+  @type create_logically_air_gapped_backup_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_restore_job_output() :: %{
+        "AccountId" => String.t() | atom(),
+        "BackupSizeInBytes" => float(),
+        "BackupVaultArn" => String.t() | atom(),
+        "CompletionDate" => non_neg_integer(),
+        "CreatedBy" => restore_job_creator(),
+        "CreatedResourceArn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "DeletionStatus" => list(any()),
+        "DeletionStatusMessage" => String.t() | atom(),
+        "ExpectedCompletionTimeMinutes" => float(),
+        "IamRoleArn" => String.t() | atom(),
+        "IsParent" => boolean(),
+        "ParentJobId" => String.t() | atom(),
+        "PercentDone" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "RecoveryPointCreationDate" => non_neg_integer(),
+        "ResourceType" => String.t() | atom(),
+        "RestoreJobId" => String.t() | atom(),
+        "SourceResourceArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "ValidationStatus" => list(any()),
+        "ValidationStatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type describe_restore_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_resources_output() :: %{
         "NextToken" => String.t() | atom(),
-        "RestoreJobSummaries" => list(restore_job_summary())
+        "Results" => list(protected_resource())
       }
 
   """
-  @type list_restore_job_summaries_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_framework_output() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DeploymentStatus" => String.t() | atom(),
-        "FrameworkArn" => String.t() | atom(),
-        "FrameworkControls" => list(framework_control()),
-        "FrameworkDescription" => String.t() | atom(),
-        "FrameworkName" => String.t() | atom(),
-        "FrameworkStatus" => String.t() | atom(),
-        "IdempotencyToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_framework_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_report_job_input() :: %{}
-
-  """
-  @type describe_report_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      export_backup_plan_template_input() :: %{}
-
-  """
-  @type export_backup_plan_template_input() :: %{}
+  @type list_protected_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3360,13 +2216,698 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      date_range() :: %{
-        "FromDate" => non_neg_integer(),
-        "ToDate" => non_neg_integer()
+      create_backup_plan_output() :: %{
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
+        "BackupPlanArn" => String.t() | atom(),
+        "BackupPlanId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type date_range() :: %{(String.t() | atom()) => any()}
+  @type create_backup_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_report_plan_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ReportPlanArn" => String.t() | atom(),
+        "ReportPlanName" => String.t() | atom()
+      }
+
+  """
+  @type update_report_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_scan_job_summaries_input() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AggregationPeriod") => list(any()),
+        optional("MalwareScanner") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        optional("ScanResultStatus") => list(any()),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_scan_job_summaries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_scan_job_output() :: %{
+        "AccountId" => [String.t() | atom()],
+        "BackupVaultArn" => [String.t() | atom()],
+        "BackupVaultName" => [String.t() | atom()],
+        "CompletionDate" => [non_neg_integer()],
+        "ContinuousScanEndTime" => [non_neg_integer()],
+        "ContinuousScanStartTime" => [non_neg_integer()],
+        "CreatedBy" => scan_job_creator(),
+        "CreationDate" => [non_neg_integer()],
+        "IamRoleArn" => [String.t() | atom()],
+        "MalwareScanner" => list(any()),
+        "RecoveryPointArn" => [String.t() | atom()],
+        "ResourceArn" => [String.t() | atom()],
+        "ResourceName" => [String.t() | atom()],
+        "ResourceType" => list(any()),
+        "ScanBaseRecoveryPointArn" => [String.t() | atom()],
+        "ScanId" => [String.t() | atom()],
+        "ScanJobId" => [String.t() | atom()],
+        "ScanMode" => list(any()),
+        "ScanResult" => scan_result_info(),
+        "ScannerRoleArn" => [String.t() | atom()],
+        "State" => list(any()),
+        "StatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type describe_scan_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_resources_by_backup_vault_input() :: %{
+        optional("BackupVaultAccountId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_protected_resources_by_backup_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_job_summaries_output() :: %{
+        "AggregationPeriod" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "RestoreJobSummaries" => list(restore_job_summary())
+      }
+
+  """
+  @type list_restore_job_summaries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_restore_testing_selection_output() :: %{
+        "RestoreTestingSelection" => restore_testing_selection_for_get()
+      }
+
+  """
+  @type get_restore_testing_selection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_framework_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FrameworkArn" => String.t() | atom(),
+        "FrameworkName" => String.t() | atom()
+      }
+
+  """
+  @type update_framework_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_selections_list_member() :: %{
+        "BackupPlanId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "CreatorRequestId" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
+        "SelectionId" => String.t() | atom(),
+        "SelectionName" => String.t() | atom()
+      }
+
+  """
+  @type backup_selections_list_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tiering_configurations_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "TieringConfigurations" => list(tiering_configurations_list_member())
+      }
+
+  """
+  @type list_tiering_configurations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_restore_testing_plan_input() :: %{
+        required("RestoreTestingPlan") => restore_testing_plan_for_update()
+      }
+
+  """
+  @type update_restore_testing_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_point_restore_metadata_output() :: %{
+        "BackupVaultArn" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "RestoreMetadata" => map()
+      }
+
+  """
+  @type get_recovery_point_restore_metadata_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_access_backup_vault_list_member() :: %{
+        "ApprovalDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "LatestRevokeRequest" => latest_revoke_request(),
+        "RestoreAccessBackupVaultArn" => String.t() | atom(),
+        "VaultState" => list(any())
+      }
+
+  """
+  @type restore_access_backup_vault_list_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backup_vault_input() :: %{}
+
+  """
+  @type delete_backup_vault_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tiering_configurations_list_member() :: %{
+        "BackupVaultName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "TieringConfigurationArn" => String.t() | atom(),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type tiering_configurations_list_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_copy_job_input() :: %{
+        required("DestinationBackupVaultArn") => String.t() | atom(),
+        required("IamRoleArn") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("Lifecycle") => lifecycle(),
+        required("RecoveryPointArn") => String.t() | atom(),
+        required("SourceBackupVaultName") => String.t() | atom()
+      }
+
+  """
+  @type start_copy_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_report_job_input() :: %{}
+
+  """
+  @type describe_report_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      copy_job() :: %{
+        "AccountId" => String.t() | atom(),
+        "BackupSizeInBytes" => float(),
+        "ChildJobsInState" => map(),
+        "CompletionDate" => non_neg_integer(),
+        "CompositeMemberIdentifier" => String.t() | atom(),
+        "CopyJobId" => String.t() | atom(),
+        "CreatedBy" => recovery_point_creator(),
+        "CreatedByBackupJobId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "DestinationBackupVaultArn" => String.t() | atom(),
+        "DestinationEncryptionKeyArn" => String.t() | atom(),
+        "DestinationRecoveryPointArn" => String.t() | atom(),
+        "DestinationRecoveryPointLifecycle" => lifecycle(),
+        "DestinationVaultLockState" => String.t() | atom(),
+        "DestinationVaultType" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
+        "IsParent" => boolean(),
+        "MessageCategory" => String.t() | atom(),
+        "NumberOfChildJobs" => float(),
+        "ParentJobId" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SourceBackupVaultArn" => String.t() | atom(),
+        "SourceRecoveryPointArn" => String.t() | atom(),
+        "State" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type copy_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_copy_jobs_output() :: %{
+        "CopyJobs" => list(copy_job()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_copy_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_jobs_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RestoreJobs" => list(restore_jobs_list_member())
+      }
+
+  """
+  @type list_restore_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tiering_configuration_output() :: %{
+        "TieringConfiguration" => tiering_configuration()
+      }
+
+  """
+  @type get_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_restore_job_output() :: %{
+        "RestoreJobId" => String.t() | atom()
+      }
+
+  """
+  @type start_restore_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_point_restore_metadata_input() :: %{
+        optional("BackupVaultAccountId") => String.t() | atom()
+      }
+
+  """
+  @type get_recovery_point_restore_metadata_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_testing_plan_for_update() :: %{
+        "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
+        "ScheduleExpression" => [String.t() | atom()],
+        "ScheduleExpressionTimezone" => [String.t() | atom()],
+        "StartWindowHours" => integer()
+      }
+
+  """
+  @type restore_testing_plan_for_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_point_creator() :: %{
+        "BackupPlanArn" => String.t() | atom(),
+        "BackupPlanId" => String.t() | atom(),
+        "BackupPlanName" => String.t() | atom(),
+        "BackupPlanVersion" => String.t() | atom(),
+        "BackupRuleCron" => String.t() | atom(),
+        "BackupRuleId" => String.t() | atom(),
+        "BackupRuleName" => String.t() | atom(),
+        "BackupRuleTimezone" => String.t() | atom()
+      }
+
+  """
+  @type recovery_point_creator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_legal_holds_output() :: %{
+        "LegalHolds" => list(legal_hold()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_legal_holds_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recovery_point_lifecycle_input() :: %{
+        optional("Lifecycle") => lifecycle()
+      }
+
+  """
+  @type update_recovery_point_lifecycle_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_plan_versions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_backup_plan_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_backup_vault_access_policy_input() :: %{
+        optional("Policy") => String.t() | atom()
+      }
+
+  """
+  @type put_backup_vault_access_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_resource_state_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type invalid_resource_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_scope() :: %{
+        "ComplianceResourceIds" => list(String.t() | atom()),
+        "ComplianceResourceTypes" => list(String.t() | atom()),
+        "Tags" => map()
+      }
+
+  """
+  @type control_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_recovery_point_from_parent_input() :: %{}
+
+  """
+  @type disassociate_recovery_point_from_parent_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_framework_input() :: %{}
+
+  """
+  @type delete_framework_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_plans_input() :: %{
+        optional("IncludeDeleted") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_backup_plans_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_vault_access_policy_input() :: %{}
+
+  """
+  @type get_backup_vault_access_policy_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_resource_conditions() :: %{
+        "StringEquals" => list(key_value()),
+        "StringNotEquals" => list(key_value())
+      }
+
+  """
+  @type protected_resource_conditions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_plan() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeploymentStatus" => String.t() | atom(),
+        "LastAttemptedExecutionTime" => non_neg_integer(),
+        "LastSuccessfulExecutionTime" => non_neg_integer(),
+        "ReportDeliveryChannel" => report_delivery_channel(),
+        "ReportPlanArn" => String.t() | atom(),
+        "ReportPlanDescription" => String.t() | atom(),
+        "ReportPlanName" => String.t() | atom(),
+        "ReportSetting" => report_setting()
+      }
+
+  """
+  @type report_plan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition_parameter() :: %{
+        "ConditionKey" => String.t() | atom(),
+        "ConditionValue" => String.t() | atom()
+      }
+
+  """
+  @type condition_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_vault_notifications_output() :: %{
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultEvents" => list(list(any())()),
+        "BackupVaultName" => String.t() | atom(),
+        "SNSTopicArn" => String.t() | atom()
+      }
+
+  """
+  @type get_backup_vault_notifications_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_backup_vault_mpa_approval_team_input() :: %{
+        required("MpaApprovalTeamArn") => String.t() | atom(),
+        optional("RequesterComment") => String.t() | atom()
+      }
+
+  """
+  @type associate_backup_vault_mpa_approval_team_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_resources_by_backup_vault_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Results" => list(protected_resource())
+      }
+
+  """
+  @type list_protected_resources_by_backup_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_points_by_resource_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecoveryPoints" => list(recovery_point_by_resource())
+      }
+
+  """
+  @type list_recovery_points_by_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tiering_configuration_input() :: %{}
+
+  """
+  @type get_tiering_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_testing_plans_output() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RestoreTestingPlans" => list(restore_testing_plan_for_list())
+      }
+
+  """
+  @type list_restore_testing_plans_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recovery_points_by_backup_vault_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecoveryPoints" => list(recovery_point_by_backup_vault())
+      }
+
+  """
+  @type list_recovery_points_by_backup_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_legal_hold_input() :: %{
+        required("CancelDescription") => String.t() | atom(),
+        optional("RetainRecordInDays") => float()
+      }
+
+  """
+  @type cancel_legal_hold_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_job_creator() :: %{
+        "RestoreTestingPlanArn" => String.t() | atom()
+      }
+
+  """
+  @type restore_job_creator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_copy_jobs_input() :: %{
+        optional("ByAccountId") => String.t() | atom(),
+        optional("ByCompleteAfter") => non_neg_integer(),
+        optional("ByCompleteBefore") => non_neg_integer(),
+        optional("ByCreatedAfter") => non_neg_integer(),
+        optional("ByCreatedBefore") => non_neg_integer(),
+        optional("ByDestinationVaultArn") => String.t() | atom(),
+        optional("ByMessageCategory") => String.t() | atom(),
+        optional("ByParentJobId") => String.t() | atom(),
+        optional("ByResourceArn") => String.t() | atom(),
+        optional("ByResourceType") => String.t() | atom(),
+        optional("BySourceRecoveryPointArn") => String.t() | atom(),
+        optional("ByState") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_copy_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_access_backup_vaults_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_restore_access_backup_vaults_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3386,26 +2927,402 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      scan_setting() :: %{
-        "MalwareScanner" => list(any()),
-        "ResourceTypes" => list(String.t() | atom()),
-        "ScannerRoleArn" => String.t() | atom()
+      update_restore_testing_selection_output() :: %{
+        "CreationTime" => [non_neg_integer()],
+        "RestoreTestingPlanArn" => [String.t() | atom()],
+        "RestoreTestingPlanName" => [String.t() | atom()],
+        "RestoreTestingSelectionName" => [String.t() | atom()],
+        "UpdateTime" => [non_neg_integer()]
       }
 
   """
-  @type scan_setting() :: %{(String.t() | atom()) => any()}
+  @type update_restore_testing_selection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_restore_testing_selections_output() :: %{
-        "NextToken" => [String.t() | atom()],
-        "RestoreTestingSelections" => list(restore_testing_selection_for_list())
+      list_restore_testing_selections_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_restore_testing_selections_output() :: %{(String.t() | atom()) => any()}
+  @type list_restore_testing_selections_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_plan_from_json_input() :: %{
+        required("BackupPlanTemplateJson") => String.t() | atom()
+      }
+
+  """
+  @type get_backup_plan_from_json_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_restore_testing_plan_input() :: %{}
+
+  """
+  @type get_restore_testing_plan_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backup_plan_input() :: %{}
+
+  """
+  @type delete_backup_plan_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      already_exists_exception() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "CreatorRequestId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_restore_testing_plans_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_restore_testing_plans_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_point_index_details_input() :: %{}
+
+  """
+  @type get_recovery_point_index_details_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_vault_list_member() :: %{
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "CreatorRequestId" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
+        "LockDate" => non_neg_integer(),
+        "Locked" => boolean(),
+        "MaxRetentionDays" => float(),
+        "MinRetentionDays" => float(),
+        "NumberOfRecoveryPoints" => float(),
+        "VaultState" => list(any()),
+        "VaultType" => list(any())
+      }
+
+  """
+  @type backup_vault_list_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_plan() :: %{
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
+        "BackupPlanName" => String.t() | atom(),
+        "Rules" => list(backup_rule()),
+        "ScanSettings" => list(scan_setting())
+      }
+
+  """
+  @type backup_plan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_action() :: %{
+        "MalwareScanner" => list(any()),
+        "ScanMode" => list(any())
+      }
+
+  """
+  @type scan_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_plan_from_template_input() :: %{}
+
+  """
+  @type get_backup_plan_from_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_plan_from_json_output() :: %{
+        "BackupPlan" => backup_plan()
+      }
+
+  """
+  @type get_backup_plan_from_json_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_backup_vault_notifications_input() :: %{
+        required("BackupVaultEvents") => list(list(any())()),
+        required("SNSTopicArn") => String.t() | atom()
+      }
+
+  """
+  @type put_backup_vault_notifications_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_report_job_output() :: %{
+        "ReportJobId" => String.t() | atom()
+      }
+
+  """
+  @type start_report_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_logically_air_gapped_backup_vault_output() :: %{
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "VaultState" => list(any())
+      }
+
+  """
+  @type create_logically_air_gapped_backup_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_restore_access_backup_vault_input() :: %{
+        optional("BackupVaultName") => String.t() | atom(),
+        optional("BackupVaultTags") => map(),
+        optional("CreatorRequestId") => String.t() | atom(),
+        optional("RequesterComment") => String.t() | atom(),
+        required("SourceBackupVaultArn") => String.t() | atom()
+      }
+
+  """
+  @type create_restore_access_backup_vault_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_destination() :: %{
+        "S3BucketName" => String.t() | atom(),
+        "S3Keys" => list(String.t() | atom())
+      }
+
+  """
+  @type report_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_restore_job_input() :: %{
+        optional("CopySourceTagsToRestoredResource") => boolean(),
+        optional("IamRoleArn") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("Metadata") => map(),
+        required("RecoveryPointArn") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type start_restore_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_restore_testing_plan_output() :: %{
+        "RestoreTestingPlan" => restore_testing_plan_for_get()
+      }
+
+  """
+  @type get_restore_testing_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_job_summaries_input() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AggregationPeriod") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("MessageCategory") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_backup_job_summaries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_value() :: %{
+        "Key" => [String.t() | atom()],
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type key_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_legal_hold_input() :: %{}
+
+  """
+  @type get_legal_hold_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_backup_vault_output() :: %{
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "CreatorRequestId" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
+        "LatestMpaApprovalTeamUpdate" => latest_mpa_approval_team_update(),
+        "LockDate" => non_neg_integer(),
+        "Locked" => boolean(),
+        "MaxRetentionDays" => float(),
+        "MinRetentionDays" => float(),
+        "MpaApprovalTeamArn" => String.t() | atom(),
+        "MpaSessionArn" => String.t() | atom(),
+        "NumberOfRecoveryPoints" => float(),
+        "SourceBackupVaultArn" => String.t() | atom(),
+        "VaultState" => list(any()),
+        "VaultType" => list(any())
+      }
+
+  """
+  @type describe_backup_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tiering_configuration_output() :: %{}
+
+  """
+  @type delete_tiering_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_framework_input() :: %{
+        required("FrameworkControls") => list(framework_control()),
+        optional("FrameworkDescription") => String.t() | atom(),
+        required("FrameworkName") => String.t() | atom(),
+        optional("FrameworkTags") => map(),
+        optional("IdempotencyToken") => String.t() | atom()
+      }
+
+  """
+  @type create_framework_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      framework_control() :: %{
+        "ControlInputParameters" => list(control_input_parameter()),
+        "ControlName" => String.t() | atom(),
+        "ControlScope" => control_scope()
+      }
+
+  """
+  @type framework_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_tiering_configuration_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "TieringConfigurationArn" => String.t() | atom(),
+        "TieringConfigurationName" => String.t() | atom()
+      }
+
+  """
+  @type update_tiering_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_job_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "Count" => integer(),
+        "EndTime" => non_neg_integer(),
+        "MessageCategory" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type backup_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3450,105 +3367,95 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      latest_revoke_request() :: %{
-        "ExpiryDate" => non_neg_integer(),
-        "InitiationDate" => non_neg_integer(),
-        "MpaSessionArn" => String.t() | atom(),
-        "Status" => list(any()),
+      report_job() :: %{
+        "CompletionTime" => non_neg_integer(),
+        "CreationTime" => non_neg_integer(),
+        "ReportDestination" => report_destination(),
+        "ReportJobId" => String.t() | atom(),
+        "ReportPlanArn" => String.t() | atom(),
+        "ReportTemplate" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type latest_revoke_request() :: %{(String.t() | atom()) => any()}
+  @type report_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_copy_job_output() :: %{
-        "CopyJob" => copy_job()
+      index_action() :: %{
+        "ResourceTypes" => list(String.t() | atom())
       }
 
   """
-  @type describe_copy_job_output() :: %{(String.t() | atom()) => any()}
+  @type index_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cancel_legal_hold_input() :: %{
-        optional("RetainRecordInDays") => float(),
-        required("CancelDescription") => String.t() | atom()
+      describe_report_plan_input() :: %{}
+
+  """
+  @type describe_report_plan_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_backup_plan_versions_output() :: %{
+        "BackupPlanVersionsList" => list(backup_plans_list_member()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type cancel_legal_hold_input() :: %{(String.t() | atom()) => any()}
+  @type list_backup_plan_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => map()
+      export_backup_plan_template_input() :: %{}
+
+  """
+  @type export_backup_plan_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_restore_testing_selection_output() :: %{
+        "CreationTime" => [non_neg_integer()],
+        "RestoreTestingPlanArn" => [String.t() | atom()],
+        "RestoreTestingPlanName" => [String.t() | atom()],
+        "RestoreTestingSelectionName" => [String.t() | atom()]
       }
 
   """
-  @type list_tags_output() :: %{(String.t() | atom()) => any()}
+  @type create_restore_testing_selection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_restore_testing_plan_input() :: %{
-        optional("CreatorRequestId") => [String.t() | atom()],
-        optional("Tags") => map(),
-        required("RestoreTestingPlan") => restore_testing_plan_for_create()
+      list_tiering_configurations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type create_restore_testing_plan_input() :: %{(String.t() | atom()) => any()}
+  @type list_tiering_configurations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_legal_hold_input() :: %{}
+      delete_backup_vault_notifications_input() :: %{}
 
   """
-  @type get_legal_hold_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_restore_access_backup_vault_input() :: %{
-        optional("BackupVaultName") => String.t() | atom(),
-        optional("BackupVaultTags") => map(),
-        optional("CreatorRequestId") => String.t() | atom(),
-        optional("RequesterComment") => String.t() | atom(),
-        required("SourceBackupVaultArn") => String.t() | atom()
-      }
-
-  """
-  @type create_restore_access_backup_vault_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tiering_configuration() :: %{
-        "BackupVaultName" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "CreatorRequestId" => String.t() | atom(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "ResourceSelection" => list(resource_selection()),
-        "TieringConfigurationArn" => String.t() | atom(),
-        "TieringConfigurationName" => String.t() | atom()
-      }
-
-  """
-  @type tiering_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_backup_vault_notifications_input() :: %{}
 
   @typedoc """
 
@@ -3574,15 +3481,15 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      get_recovery_point_restore_metadata_output() :: %{
-        "BackupVaultArn" => String.t() | atom(),
-        "RecoveryPointArn" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "RestoreMetadata" => map()
+      invalid_parameter_value_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type get_recovery_point_restore_metadata_output() :: %{(String.t() | atom()) => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3601,33 +3508,52 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      delete_backup_vault_lock_configuration_input() :: %{}
+      restore_testing_plan_for_create() :: %{
+        "RecoveryPointSelection" => restore_testing_recovery_point_selection(),
+        "RestoreTestingPlanName" => [String.t() | atom()],
+        "ScheduleExpression" => [String.t() | atom()],
+        "ScheduleExpressionTimezone" => [String.t() | atom()],
+        "StartWindowHours" => integer()
+      }
 
   """
-  @type delete_backup_vault_lock_configuration_input() :: %{}
+  @type restore_testing_plan_for_create() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      index_action() :: %{
-        "ResourceTypes" => list(String.t() | atom())
+      export_backup_plan_template_output() :: %{
+        "BackupPlanTemplateJson" => String.t() | atom()
       }
 
   """
-  @type index_action() :: %{(String.t() | atom()) => any()}
+  @type export_backup_plan_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_protected_resources_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      get_restore_testing_inferred_metadata_input() :: %{
+        optional("BackupVaultAccountId") => [String.t() | atom()],
+        required("BackupVaultName") => [String.t() | atom()],
+        required("RecoveryPointArn") => [String.t() | atom()]
       }
 
   """
-  @type list_protected_resources_input() :: %{(String.t() | atom()) => any()}
+  @type get_restore_testing_inferred_metadata_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_range() :: %{
+        "FromDate" => non_neg_integer(),
+        "ToDate" => non_neg_integer()
+      }
+
+  """
+  @type date_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3642,171 +3568,279 @@ defmodule AWS.Backup do
 
   ## Example:
 
-      update_report_plan_output() :: %{
-        "CreationTime" => non_neg_integer(),
-        "ReportPlanArn" => String.t() | atom(),
-        "ReportPlanName" => String.t() | atom()
+      control_input_parameter() :: %{
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom()
       }
 
   """
-  @type update_report_plan_output() :: %{(String.t() | atom()) => any()}
+  @type control_input_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_backup_plan_templates_output() :: %{
-        "BackupPlanTemplatesList" => list(backup_plan_templates_list_member()),
-        "NextToken" => String.t() | atom()
+      create_restore_testing_plan_input() :: %{
+        optional("CreatorRequestId") => [String.t() | atom()],
+        required("RestoreTestingPlan") => restore_testing_plan_for_create(),
+        optional("Tags") => map()
       }
 
   """
-  @type list_backup_plan_templates_output() :: %{(String.t() | atom()) => any()}
+  @type create_restore_testing_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_backup_plans_input() :: %{
-        optional("IncludeDeleted") => boolean(),
+      recovery_point_by_resource() :: %{
+        "AggregatedScanResult" => aggregated_scan_result(),
+        "BackupSizeBytes" => float(),
+        "BackupVaultName" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t() | atom(),
+        "IsParent" => boolean(),
+        "ParentRecoveryPointArn" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "VaultType" => list(any())
+      }
+
+  """
+  @type recovery_point_by_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Context" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backup_plan_input() :: %{
+        optional("MaxScheduledRunsPreview") => integer(),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type get_backup_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_report_plans_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_backup_plans_input() :: %{(String.t() | atom()) => any()}
+  @type list_report_plans_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_backup_job_input() :: %{}
-
-  """
-  @type describe_backup_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_logically_air_gapped_backup_vault_input() :: %{
-        optional("BackupVaultTags") => map(),
-        optional("CreatorRequestId") => String.t() | atom(),
-        optional("EncryptionKeyArn") => String.t() | atom(),
-        required("MaxRetentionDays") => float(),
-        required("MinRetentionDays") => float()
-      }
-
-  """
-  @type create_logically_air_gapped_backup_vault_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_report_plan_output() :: %{
-        "ReportPlan" => report_plan()
-      }
-
-  """
-  @type describe_report_plan_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tiering_configurations_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "TieringConfigurations" => list(tiering_configurations_list_member())
-      }
-
-  """
-  @type list_tiering_configurations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_restore_testing_selection_input() :: %{
-        required("RestoreTestingSelection") => restore_testing_selection_for_update()
-      }
-
-  """
-  @type update_restore_testing_selection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_scan_job_output() :: %{
-        "CreationDate" => [non_neg_integer()],
-        "ScanJobId" => [String.t() | atom()]
-      }
-
-  """
-  @type start_scan_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_backup_vault_lock_configuration_input() :: %{
-        optional("ChangeableForDays") => float(),
-        optional("MaxRetentionDays") => float(),
-        optional("MinRetentionDays") => float()
-      }
-
-  """
-  @type put_backup_vault_lock_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_restore_job_input() :: %{}
-
-  """
-  @type describe_restore_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_backup_plan_output() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()),
-        "BackupPlanArn" => String.t() | atom(),
-        "BackupPlanId" => String.t() | atom(),
+      recovery_point_by_backup_vault() :: %{
+        "AggregatedScanResult" => aggregated_scan_result(),
+        "BackupSizeInBytes" => float(),
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "CalculatedLifecycle" => calculated_lifecycle(),
+        "CompletionDate" => non_neg_integer(),
+        "CompositeMemberIdentifier" => String.t() | atom(),
+        "CreatedBy" => recovery_point_creator(),
         "CreationDate" => non_neg_integer(),
-        "ScanSettings" => list(scan_setting()),
-        "VersionId" => String.t() | atom()
+        "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyType" => list(any()),
+        "IamRoleArn" => String.t() | atom(),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t() | atom(),
+        "InitiationDate" => non_neg_integer(),
+        "IsEncrypted" => boolean(),
+        "IsParent" => boolean(),
+        "LastRestoreTime" => non_neg_integer(),
+        "Lifecycle" => lifecycle(),
+        "ParentRecoveryPointArn" => String.t() | atom(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SourceBackupVaultArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "VaultType" => list(any())
       }
 
   """
-  @type update_backup_plan_output() :: %{(String.t() | atom()) => any()}
+  @type recovery_point_by_backup_vault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_restore_access_backup_vaults_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RestoreAccessBackupVaults" => list(restore_access_backup_vault_list_member())
-      }
+      delete_backup_vault_lock_configuration_input() :: %{}
 
   """
-  @type list_restore_access_backup_vaults_output() :: %{(String.t() | atom()) => any()}
+  @type delete_backup_vault_lock_configuration_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      put_restore_validation_result_input() :: %{
-        optional("ValidationStatusMessage") => String.t() | atom(),
-        required("ValidationStatus") => list(any())
+      condition() :: %{
+        "ConditionKey" => String.t() | atom(),
+        "ConditionType" => list(any()),
+        "ConditionValue" => String.t() | atom()
       }
 
   """
-  @type put_restore_validation_result_input() :: %{(String.t() | atom()) => any()}
+  @type condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_copy_job_summaries_output() :: %{
+        "AggregationPeriod" => String.t() | atom(),
+        "CopyJobSummaries" => list(copy_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_copy_job_summaries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculated_lifecycle() :: %{
+        "DeleteAt" => non_neg_integer(),
+        "MoveToColdStorageAt" => non_neg_integer()
+      }
+
+  """
+  @type calculated_lifecycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_global_settings_output() :: %{
+        "GlobalSettings" => map(),
+        "LastUpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type describe_global_settings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_supported_resource_types_output() :: %{
+        "ResourceTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type get_supported_resource_types_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_scan_job_input() :: %{
+        required("BackupVaultName") => [String.t() | atom()],
+        optional("ContinuousScanEndTime") => [non_neg_integer()],
+        required("IamRoleArn") => [String.t() | atom()],
+        optional("IdempotencyToken") => [String.t() | atom()],
+        required("MalwareScanner") => list(any()),
+        required("RecoveryPointArn") => [String.t() | atom()],
+        optional("ScanBaseRecoveryPointArn") => [String.t() | atom()],
+        required("ScanMode") => list(any()),
+        required("ScannerRoleArn") => [String.t() | atom()]
+      }
+
+  """
+  @type start_scan_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_copy_job_input() :: %{}
+
+  """
+  @type describe_copy_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_p_i_t_r_malware_scan_results_input() :: %{
+        required("BackupVaultName") => [String.t() | atom()],
+        required("MalwareScanner") => list(any()),
+        required("RecoveryPointArn") => [String.t() | atom()],
+        required("ScanEndTime") => [non_neg_integer()]
+      }
+
+  """
+  @type get_p_i_t_r_malware_scan_results_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_job_creator() :: %{
+        "BackupPlanArn" => [String.t() | atom()],
+        "BackupPlanId" => [String.t() | atom()],
+        "BackupPlanVersion" => [String.t() | atom()],
+        "BackupRuleId" => [String.t() | atom()]
+      }
+
+  """
+  @type scan_job_creator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_plan_input() :: %{
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
+        "BackupPlanName" => String.t() | atom(),
+        "Rules" => list(backup_rule_input()),
+        "ScanSettings" => list(scan_setting())
+      }
+
+  """
+  @type backup_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backup_selection_input() :: %{
+        required("BackupSelection") => backup_selection(),
+        optional("CreatorRequestId") => String.t() | atom()
+      }
+
+  """
+  @type create_backup_selection_input() :: %{(String.t() | atom()) => any()}
 
   @type associate_backup_vault_mpa_approval_team_errors() ::
           service_unavailable_exception()
@@ -3816,92 +3850,92 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type cancel_legal_hold_errors() ::
-          invalid_resource_state_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
+          | invalid_resource_state_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type create_backup_plan_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | already_exists_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type create_backup_selection_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | already_exists_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type create_backup_vault_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | already_exists_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type create_framework_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | already_exists_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type create_legal_hold_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type create_logically_air_gapped_backup_vault_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
           | already_exists_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type create_report_plan_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | already_exists_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type create_restore_access_backup_vault_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
-          | resource_not_found_exception()
           | already_exists_exception()
+          | limit_exceeded_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type create_restore_testing_plan_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | conflict_exception()
           | already_exists_exception()
+          | conflict_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type create_restore_testing_selection_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | already_exists_exception()
+          | limit_exceeded_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type create_tiering_configuration_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | conflict_exception()
           | already_exists_exception()
+          | conflict_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type delete_backup_plan_errors() ::
@@ -3946,23 +3980,23 @@ defmodule AWS.Backup do
   @type delete_framework_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type delete_recovery_point_errors() ::
-          invalid_resource_state_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
+          | invalid_resource_state_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type delete_report_plan_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type delete_restore_testing_plan_errors() ::
@@ -3979,8 +4013,8 @@ defmodule AWS.Backup do
 
   @type describe_backup_job_errors() ::
           service_unavailable_exception()
-          | dependency_failure_exception()
           | invalid_parameter_value_exception()
+          | dependency_failure_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
@@ -4032,8 +4066,8 @@ defmodule AWS.Backup do
 
   @type describe_restore_job_errors() ::
           service_unavailable_exception()
-          | dependency_failure_exception()
           | invalid_parameter_value_exception()
+          | dependency_failure_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
@@ -4051,10 +4085,10 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type disassociate_recovery_point_errors() ::
-          invalid_resource_state_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
+          | invalid_resource_state_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
@@ -4078,10 +4112,10 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type get_backup_plan_from_json_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | missing_parameter_value_exception()
 
   @type get_backup_plan_from_template_errors() ::
@@ -4109,6 +4143,12 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type get_legal_hold_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
+  @type get_p_i_t_r_malware_scan_results_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -4316,18 +4356,18 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type start_backup_job_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type start_copy_job_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
@@ -4345,10 +4385,10 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type start_scan_job_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
@@ -4360,9 +4400,9 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type tag_resource_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
@@ -4379,12 +4419,12 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type update_framework_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
           | already_exists_exception()
+          | conflict_exception()
+          | limit_exceeded_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type update_global_settings_errors() ::
@@ -4415,31 +4455,31 @@ defmodule AWS.Backup do
   @type update_report_plan_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type update_restore_testing_plan_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type update_restore_testing_selection_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type update_tiering_configuration_errors() ::
-          limit_exceeded_exception()
-          | service_unavailable_exception()
+          service_unavailable_exception()
           | invalid_parameter_value_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
           | already_exists_exception()
+          | conflict_exception()
+          | limit_exceeded_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   def metadata do
@@ -4515,8 +4555,8 @@ defmodule AWS.Backup do
 
     {query_params, input} =
       [
-        {"CancelDescription", "cancelDescription"},
-        {"RetainRecordInDays", "retainRecordInDays"}
+        {"RetainRecordInDays", "retainRecordInDays"},
+        {"CancelDescription", "cancelDescription"}
       ]
       |> Request.build_params(input)
 
@@ -5021,8 +5061,8 @@ defmodule AWS.Backup do
           | {:error, delete_backup_selection_errors()}
   def delete_backup_selection(
         %Client{} = client,
-        backup_plan_id,
         selection_id,
+        backup_plan_id,
         input,
         options \\ []
       ) do
@@ -5272,8 +5312,8 @@ defmodule AWS.Backup do
           | {:error, delete_recovery_point_errors()}
   def delete_recovery_point(
         %Client{} = client,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
         input,
         options \\ []
       ) do
@@ -5390,8 +5430,8 @@ defmodule AWS.Backup do
           | {:error, delete_restore_testing_selection_errors()}
   def delete_restore_testing_selection(
         %Client{} = client,
-        restore_testing_plan_name,
         restore_testing_selection_name,
+        restore_testing_plan_name,
         input,
         options \\ []
       ) do
@@ -5603,8 +5643,8 @@ defmodule AWS.Backup do
           | {:error, describe_recovery_point_errors()}
   def describe_recovery_point(
         %Client{} = client,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
         backup_vault_account_id \\ nil,
         options \\ []
       ) do
@@ -5789,8 +5829,8 @@ defmodule AWS.Backup do
           | {:error, disassociate_recovery_point_errors()}
   def disassociate_recovery_point(
         %Client{} = client,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
         input,
         options \\ []
       ) do
@@ -5833,8 +5873,8 @@ defmodule AWS.Backup do
           | {:error, disassociate_recovery_point_from_parent_errors()}
   def disassociate_recovery_point_from_parent(
         %Client{} = client,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
         input,
         options \\ []
       ) do
@@ -5899,8 +5939,8 @@ defmodule AWS.Backup do
   def get_backup_plan(
         %Client{} = client,
         backup_plan_id,
-        max_scheduled_runs_preview \\ nil,
         version_id \\ nil,
+        max_scheduled_runs_preview \\ nil,
         options \\ []
       ) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
@@ -5908,15 +5948,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(version_id) do
-        [{"versionId", version_id} | query_params]
+      if !is_nil(max_scheduled_runs_preview) do
+        [{"MaxScheduledRunsPreview", max_scheduled_runs_preview} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_scheduled_runs_preview) do
-        [{"MaxScheduledRunsPreview", max_scheduled_runs_preview} | query_params]
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
       else
         query_params
       end
@@ -5983,7 +6023,7 @@ defmodule AWS.Backup do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_backup_selection_errors()}
-  def get_backup_selection(%Client{} = client, backup_plan_id, selection_id, options \\ []) do
+  def get_backup_selection(%Client{} = client, selection_id, backup_plan_id, options \\ []) do
     url_path =
       "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/#{AWS.Util.encode_uri(selection_id)}"
 
@@ -6056,6 +6096,67 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  Returns the malware scan results for a specified point in time within a
+  continuous (point-in-time recovery) backup.
+  """
+  @spec get_p_i_t_r_malware_scan_results(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_p_i_t_r_malware_scan_results_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_p_i_t_r_malware_scan_results_errors()}
+  def get_p_i_t_r_malware_scan_results(
+        %Client{} = client,
+        scan_end_time,
+        recovery_point_arn,
+        malware_scanner,
+        backup_vault_name,
+        options \\ []
+      ) do
+    url_path = "/scan/pitr-malware-scan-results"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(backup_vault_name) do
+        [{"BackupVaultName", backup_vault_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(malware_scanner) do
+        [{"MalwareScanner", malware_scanner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(recovery_point_arn) do
+        [{"RecoveryPointArn", recovery_point_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scan_end_time) do
+        [{"ScanEndTime", scan_end_time} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   This operation returns the metadata and details specific to
   the backup index associated with the specified recovery point.
   """
@@ -6066,8 +6167,8 @@ defmodule AWS.Backup do
           | {:error, get_recovery_point_index_details_errors()}
   def get_recovery_point_index_details(
         %Client{} = client,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
         options \\ []
       ) do
     url_path =
@@ -6097,8 +6198,8 @@ defmodule AWS.Backup do
           | {:error, get_recovery_point_restore_metadata_errors()}
   def get_recovery_point_restore_metadata(
         %Client{} = client,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
         backup_vault_account_id \\ nil,
         options \\ []
       ) do
@@ -6148,9 +6249,9 @@ defmodule AWS.Backup do
   """
   @spec get_restore_testing_inferred_metadata(
           map(),
+          String.t() | atom(),
+          String.t() | atom(),
           String.t() | atom() | nil,
-          String.t() | atom(),
-          String.t() | atom(),
           list()
         ) ::
           {:ok, get_restore_testing_inferred_metadata_output(), any()}
@@ -6159,9 +6260,9 @@ defmodule AWS.Backup do
           | {:error, get_restore_testing_inferred_metadata_errors()}
   def get_restore_testing_inferred_metadata(
         %Client{} = client,
-        backup_vault_account_id \\ nil,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
+        backup_vault_account_id \\ nil,
         options \\ []
       ) do
     url_path = "/restore-testing/inferred-metadata"
@@ -6169,8 +6270,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(recovery_point_arn) do
-        [{"RecoveryPointArn", recovery_point_arn} | query_params]
+      if !is_nil(backup_vault_account_id) do
+        [{"BackupVaultAccountId", backup_vault_account_id} | query_params]
       else
         query_params
       end
@@ -6183,8 +6284,8 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"BackupVaultAccountId", backup_vault_account_id} | query_params]
+      if !is_nil(recovery_point_arn) do
+        [{"RecoveryPointArn", recovery_point_arn} | query_params]
       else
         query_params
       end
@@ -6227,8 +6328,8 @@ defmodule AWS.Backup do
           | {:error, get_restore_testing_selection_errors()}
   def get_restore_testing_selection(
         %Client{} = client,
-        restore_testing_plan_name,
         restore_testing_selection_name,
+        restore_testing_plan_name,
         options \\ []
       ) do
     url_path =
@@ -6312,13 +6413,13 @@ defmodule AWS.Backup do
           | {:error, list_backup_job_summaries_errors()}
   def list_backup_job_summaries(
         %Client{} = client,
-        account_id \\ nil,
-        aggregation_period \\ nil,
-        max_results \\ nil,
-        message_category \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
         state \\ nil,
+        resource_type \\ nil,
+        next_token \\ nil,
+        message_category \\ nil,
+        max_results \\ nil,
+        aggregation_period \\ nil,
+        account_id \\ nil,
         options \\ []
       ) do
     url_path = "/audit/backup-job-summaries"
@@ -6326,36 +6427,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resource_type) do
-        [{"ResourceType", resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(message_category) do
-        [{"MessageCategory", message_category} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
       else
         query_params
       end
@@ -6368,8 +6441,36 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(message_category) do
+        [{"MessageCategory", message_category} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
       else
         query_params
       end
@@ -6409,19 +6510,19 @@ defmodule AWS.Backup do
           | {:error, list_backup_jobs_errors()}
   def list_backup_jobs(
         %Client{} = client,
-        by_account_id \\ nil,
-        by_backup_vault_name \\ nil,
-        by_complete_after \\ nil,
-        by_complete_before \\ nil,
-        by_created_after \\ nil,
-        by_created_before \\ nil,
-        by_message_category \\ nil,
-        by_parent_job_id \\ nil,
-        by_resource_arn \\ nil,
-        by_resource_type \\ nil,
-        by_state \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        by_state \\ nil,
+        by_resource_type \\ nil,
+        by_resource_arn \\ nil,
+        by_parent_job_id \\ nil,
+        by_message_category \\ nil,
+        by_created_before \\ nil,
+        by_created_after \\ nil,
+        by_complete_before \\ nil,
+        by_complete_after \\ nil,
+        by_backup_vault_name \\ nil,
+        by_account_id \\ nil,
         options \\ []
       ) do
     url_path = "/backup-jobs"
@@ -6429,78 +6530,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_state) do
-        [{"state", by_state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_type) do
-        [{"resourceType", by_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_arn) do
-        [{"resourceArn", by_resource_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_parent_job_id) do
-        [{"parentJobId", by_parent_job_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_message_category) do
-        [{"messageCategory", by_message_category} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_created_before) do
-        [{"createdBefore", by_created_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_created_after) do
-        [{"createdAfter", by_created_after} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_complete_before) do
-        [{"completeBefore", by_complete_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_complete_after) do
-        [{"completeAfter", by_complete_after} | query_params]
+      if !is_nil(by_account_id) do
+        [{"accountId", by_account_id} | query_params]
       else
         query_params
       end
@@ -6513,8 +6544,78 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(by_account_id) do
-        [{"accountId", by_account_id} | query_params]
+      if !is_nil(by_complete_after) do
+        [{"completeAfter", by_complete_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_before) do
+        [{"completeBefore", by_complete_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_created_after) do
+        [{"createdAfter", by_created_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_created_before) do
+        [{"createdBefore", by_created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_message_category) do
+        [{"messageCategory", by_message_category} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_parent_job_id) do
+        [{"parentJobId", by_parent_job_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_arn) do
+        [{"resourceArn", by_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_type) do
+        [{"resourceType", by_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_state) do
+        [{"state", by_state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6539,8 +6640,8 @@ defmodule AWS.Backup do
           | {:error, list_backup_plan_templates_errors()}
   def list_backup_plan_templates(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/backup/template/plans"
@@ -6548,15 +6649,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6585,8 +6686,8 @@ defmodule AWS.Backup do
   def list_backup_plan_versions(
         %Client{} = client,
         backup_plan_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/versions"
@@ -6594,15 +6695,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6628,9 +6729,9 @@ defmodule AWS.Backup do
           | {:error, list_backup_plans_errors()}
   def list_backup_plans(
         %Client{} = client,
-        include_deleted \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        include_deleted \\ nil,
         options \\ []
       ) do
     url_path = "/backup/plans"
@@ -6638,8 +6739,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(include_deleted) do
+        [{"includeDeleted", include_deleted} | query_params]
       else
         query_params
       end
@@ -6652,8 +6753,8 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(include_deleted) do
-        [{"includeDeleted", include_deleted} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6682,8 +6783,8 @@ defmodule AWS.Backup do
   def list_backup_selections(
         %Client{} = client,
         backup_plan_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections"
@@ -6691,15 +6792,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6727,10 +6828,10 @@ defmodule AWS.Backup do
           | {:error, list_backup_vaults_errors()}
   def list_backup_vaults(
         %Client{} = client,
-        by_shared \\ nil,
-        by_vault_type \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        by_vault_type \\ nil,
+        by_shared \\ nil,
         options \\ []
       ) do
     url_path = "/backup-vaults"
@@ -6738,15 +6839,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(by_shared) do
+        [{"shared", by_shared} | query_params]
       else
         query_params
       end
@@ -6759,8 +6853,15 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(by_shared) do
-        [{"shared", by_shared} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6800,13 +6901,13 @@ defmodule AWS.Backup do
           | {:error, list_copy_job_summaries_errors()}
   def list_copy_job_summaries(
         %Client{} = client,
-        account_id \\ nil,
-        aggregation_period \\ nil,
-        max_results \\ nil,
-        message_category \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
         state \\ nil,
+        resource_type \\ nil,
+        next_token \\ nil,
+        message_category \\ nil,
+        max_results \\ nil,
+        aggregation_period \\ nil,
+        account_id \\ nil,
         options \\ []
       ) do
     url_path = "/audit/copy-job-summaries"
@@ -6814,36 +6915,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resource_type) do
-        [{"ResourceType", resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(message_category) do
-        [{"MessageCategory", message_category} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
       else
         query_params
       end
@@ -6856,8 +6929,36 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(message_category) do
+        [{"MessageCategory", message_category} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
       else
         query_params
       end
@@ -6894,20 +6995,20 @@ defmodule AWS.Backup do
           | {:error, list_copy_jobs_errors()}
   def list_copy_jobs(
         %Client{} = client,
-        by_account_id \\ nil,
-        by_complete_after \\ nil,
-        by_complete_before \\ nil,
-        by_created_after \\ nil,
-        by_created_before \\ nil,
-        by_destination_vault_arn \\ nil,
-        by_message_category \\ nil,
-        by_parent_job_id \\ nil,
-        by_resource_arn \\ nil,
-        by_resource_type \\ nil,
-        by_source_recovery_point_arn \\ nil,
-        by_state \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        by_state \\ nil,
+        by_source_recovery_point_arn \\ nil,
+        by_resource_type \\ nil,
+        by_resource_arn \\ nil,
+        by_parent_job_id \\ nil,
+        by_message_category \\ nil,
+        by_destination_vault_arn \\ nil,
+        by_created_before \\ nil,
+        by_created_after \\ nil,
+        by_complete_before \\ nil,
+        by_complete_after \\ nil,
+        by_account_id \\ nil,
         options \\ []
       ) do
     url_path = "/copy-jobs"
@@ -6915,85 +7016,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_state) do
-        [{"state", by_state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_source_recovery_point_arn) do
-        [{"sourceRecoveryPointArn", by_source_recovery_point_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_type) do
-        [{"resourceType", by_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_arn) do
-        [{"resourceArn", by_resource_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_parent_job_id) do
-        [{"parentJobId", by_parent_job_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_message_category) do
-        [{"messageCategory", by_message_category} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_destination_vault_arn) do
-        [{"destinationVaultArn", by_destination_vault_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_created_before) do
-        [{"createdBefore", by_created_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_created_after) do
-        [{"createdAfter", by_created_after} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_complete_before) do
-        [{"completeBefore", by_complete_before} | query_params]
+      if !is_nil(by_account_id) do
+        [{"accountId", by_account_id} | query_params]
       else
         query_params
       end
@@ -7006,8 +7030,85 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(by_account_id) do
-        [{"accountId", by_account_id} | query_params]
+      if !is_nil(by_complete_before) do
+        [{"completeBefore", by_complete_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_created_after) do
+        [{"createdAfter", by_created_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_created_before) do
+        [{"createdBefore", by_created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_destination_vault_arn) do
+        [{"destinationVaultArn", by_destination_vault_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_message_category) do
+        [{"messageCategory", by_message_category} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_parent_job_id) do
+        [{"parentJobId", by_parent_job_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_arn) do
+        [{"resourceArn", by_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_type) do
+        [{"resourceType", by_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_source_recovery_point_arn) do
+        [{"sourceRecoveryPointArn", by_source_recovery_point_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_state) do
+        [{"state", by_state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7026,21 +7127,21 @@ defmodule AWS.Backup do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_frameworks_errors()}
-  def list_frameworks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_frameworks(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/audit/frameworks"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7075,13 +7176,13 @@ defmodule AWS.Backup do
           | {:error, list_indexed_recovery_points_errors()}
   def list_indexed_recovery_points(
         %Client{} = client,
-        created_after \\ nil,
-        created_before \\ nil,
-        index_status \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
         source_resource_arn \\ nil,
+        resource_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        index_status \\ nil,
+        created_before \\ nil,
+        created_after \\ nil,
         options \\ []
       ) do
     url_path = "/indexes/recovery-point"
@@ -7089,36 +7190,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(source_resource_arn) do
-        [{"sourceResourceArn", source_resource_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resource_type) do
-        [{"resourceType", resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(index_status) do
-        [{"indexStatus", index_status} | query_params]
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
       else
         query_params
       end
@@ -7131,8 +7204,36 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(created_after) do
-        [{"createdAfter", created_after} | query_params]
+      if !is_nil(index_status) do
+        [{"indexStatus", index_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source_resource_arn) do
+        [{"sourceResourceArn", source_resource_arn} | query_params]
       else
         query_params
       end
@@ -7150,21 +7251,21 @@ defmodule AWS.Backup do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_legal_holds_errors()}
-  def list_legal_holds(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_legal_holds(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/legal-holds"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7192,8 +7293,8 @@ defmodule AWS.Backup do
           | {:error, list_protected_resources_errors()}
   def list_protected_resources(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/resources"
@@ -7201,15 +7302,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7237,9 +7338,9 @@ defmodule AWS.Backup do
   def list_protected_resources_by_backup_vault(
         %Client{} = client,
         backup_vault_name,
-        backup_vault_account_id \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        backup_vault_account_id \\ nil,
         options \\ []
       ) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/resources"
@@ -7247,8 +7348,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(backup_vault_account_id) do
+        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
       else
         query_params
       end
@@ -7261,8 +7362,8 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7296,15 +7397,15 @@ defmodule AWS.Backup do
   def list_recovery_points_by_backup_vault(
         %Client{} = client,
         backup_vault_name,
-        backup_vault_account_id \\ nil,
-        by_backup_plan_id \\ nil,
-        by_created_after \\ nil,
-        by_created_before \\ nil,
-        by_parent_recovery_point_arn \\ nil,
-        by_resource_arn \\ nil,
-        by_resource_type \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        by_resource_type \\ nil,
+        by_resource_arn \\ nil,
+        by_parent_recovery_point_arn \\ nil,
+        by_created_before \\ nil,
+        by_created_after \\ nil,
+        by_backup_plan_id \\ nil,
+        backup_vault_account_id \\ nil,
         options \\ []
       ) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points"
@@ -7312,50 +7413,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_type) do
-        [{"resourceType", by_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_arn) do
-        [{"resourceArn", by_resource_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_parent_recovery_point_arn) do
-        [{"parentRecoveryPointArn", by_parent_recovery_point_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_created_before) do
-        [{"createdBefore", by_created_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_created_after) do
-        [{"createdAfter", by_created_after} | query_params]
+      if !is_nil(backup_vault_account_id) do
+        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
       else
         query_params
       end
@@ -7368,8 +7427,50 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(backup_vault_account_id) do
-        [{"backupVaultAccountId", backup_vault_account_id} | query_params]
+      if !is_nil(by_created_after) do
+        [{"createdAfter", by_created_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_created_before) do
+        [{"createdBefore", by_created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_parent_recovery_point_arn) do
+        [{"parentRecoveryPointArn", by_parent_recovery_point_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_arn) do
+        [{"resourceArn", by_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_type) do
+        [{"resourceType", by_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7397,8 +7498,8 @@ defmodule AWS.Backup do
   def list_recovery_points_by_legal_hold(
         %Client{} = client,
         legal_hold_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}/recovery-points"
@@ -7406,15 +7507,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7446,9 +7547,9 @@ defmodule AWS.Backup do
   def list_recovery_points_by_resource(
         %Client{} = client,
         resource_arn,
-        managed_by_aws_backup_only \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        managed_by_aws_backup_only \\ nil,
         options \\ []
       ) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/recovery-points"
@@ -7456,8 +7557,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(managed_by_aws_backup_only) do
+        [{"managedByAWSBackupOnly", managed_by_aws_backup_only} | query_params]
       else
         query_params
       end
@@ -7470,8 +7571,8 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(managed_by_aws_backup_only) do
-        [{"managedByAWSBackupOnly", managed_by_aws_backup_only} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7500,12 +7601,12 @@ defmodule AWS.Backup do
           | {:error, list_report_jobs_errors()}
   def list_report_jobs(
         %Client{} = client,
-        by_creation_after \\ nil,
-        by_creation_before \\ nil,
-        by_report_plan_name \\ nil,
-        by_status \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        by_status \\ nil,
+        by_report_plan_name \\ nil,
+        by_creation_before \\ nil,
+        by_creation_after \\ nil,
         options \\ []
       ) do
     url_path = "/audit/report-jobs"
@@ -7513,29 +7614,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_status) do
-        [{"Status", by_status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_report_plan_name) do
-        [{"ReportPlanName", by_report_plan_name} | query_params]
+      if !is_nil(by_creation_after) do
+        [{"CreationAfter", by_creation_after} | query_params]
       else
         query_params
       end
@@ -7548,8 +7628,29 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(by_creation_after) do
-        [{"CreationAfter", by_creation_after} | query_params]
+      if !is_nil(by_report_plan_name) do
+        [{"ReportPlanName", by_report_plan_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_status) do
+        [{"Status", by_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7570,21 +7671,21 @@ defmodule AWS.Backup do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_report_plans_errors()}
-  def list_report_plans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_report_plans(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/audit/report-plans"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7612,8 +7713,8 @@ defmodule AWS.Backup do
   def list_restore_access_backup_vaults(
         %Client{} = client,
         backup_vault_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7623,15 +7724,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7670,12 +7771,12 @@ defmodule AWS.Backup do
           | {:error, list_restore_job_summaries_errors()}
   def list_restore_job_summaries(
         %Client{} = client,
-        account_id \\ nil,
-        aggregation_period \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
         state \\ nil,
+        resource_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        aggregation_period \\ nil,
+        account_id \\ nil,
         options \\ []
       ) do
     url_path = "/audit/restore-job-summaries"
@@ -7683,29 +7784,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resource_type) do
-        [{"ResourceType", resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
       else
         query_params
       end
@@ -7718,8 +7798,29 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
       else
         query_params
       end
@@ -7754,17 +7855,17 @@ defmodule AWS.Backup do
           | {:error, list_restore_jobs_errors()}
   def list_restore_jobs(
         %Client{} = client,
-        by_account_id \\ nil,
-        by_complete_after \\ nil,
-        by_complete_before \\ nil,
-        by_created_after \\ nil,
-        by_created_before \\ nil,
-        by_parent_job_id \\ nil,
-        by_resource_type \\ nil,
-        by_restore_testing_plan_arn \\ nil,
-        by_status \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        by_status \\ nil,
+        by_restore_testing_plan_arn \\ nil,
+        by_resource_type \\ nil,
+        by_parent_job_id \\ nil,
+        by_created_before \\ nil,
+        by_created_after \\ nil,
+        by_complete_before \\ nil,
+        by_complete_after \\ nil,
+        by_account_id \\ nil,
         options \\ []
       ) do
     url_path = "/restore-jobs"
@@ -7772,64 +7873,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_status) do
-        [{"status", by_status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_restore_testing_plan_arn) do
-        [{"restoreTestingPlanArn", by_restore_testing_plan_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_type) do
-        [{"resourceType", by_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_parent_job_id) do
-        [{"parentJobId", by_parent_job_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_created_before) do
-        [{"createdBefore", by_created_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_created_after) do
-        [{"createdAfter", by_created_after} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_complete_before) do
-        [{"completeBefore", by_complete_before} | query_params]
+      if !is_nil(by_account_id) do
+        [{"accountId", by_account_id} | query_params]
       else
         query_params
       end
@@ -7842,8 +7887,64 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(by_account_id) do
-        [{"accountId", by_account_id} | query_params]
+      if !is_nil(by_complete_before) do
+        [{"completeBefore", by_complete_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_created_after) do
+        [{"createdAfter", by_created_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_created_before) do
+        [{"createdBefore", by_created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_parent_job_id) do
+        [{"parentJobId", by_parent_job_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_type) do
+        [{"resourceType", by_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_restore_testing_plan_arn) do
+        [{"restoreTestingPlanArn", by_restore_testing_plan_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_status) do
+        [{"status", by_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7878,11 +7979,11 @@ defmodule AWS.Backup do
   def list_restore_jobs_by_protected_resource(
         %Client{} = client,
         resource_arn,
-        by_recovery_point_creation_date_after \\ nil,
-        by_recovery_point_creation_date_before \\ nil,
-        by_status \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        by_status \\ nil,
+        by_recovery_point_creation_date_before \\ nil,
+        by_recovery_point_creation_date_after \\ nil,
         options \\ []
       ) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/restore-jobs"
@@ -7890,22 +7991,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_status) do
-        [{"status", by_status} | query_params]
+      if !is_nil(by_recovery_point_creation_date_after) do
+        [{"recoveryPointCreationDateAfter", by_recovery_point_creation_date_after} | query_params]
       else
         query_params
       end
@@ -7921,8 +8008,22 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(by_recovery_point_creation_date_after) do
-        [{"recoveryPointCreationDateAfter", by_recovery_point_creation_date_after} | query_params]
+      if !is_nil(by_status) do
+        [{"status", by_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7947,8 +8048,8 @@ defmodule AWS.Backup do
           | {:error, list_restore_testing_plans_errors()}
   def list_restore_testing_plans(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/restore-testing/plans"
@@ -7956,15 +8057,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7994,8 +8095,8 @@ defmodule AWS.Backup do
   def list_restore_testing_selections(
         %Client{} = client,
         restore_testing_plan_name,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -8005,15 +8106,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8045,14 +8146,14 @@ defmodule AWS.Backup do
           | {:error, list_scan_job_summaries_errors()}
   def list_scan_job_summaries(
         %Client{} = client,
-        account_id \\ nil,
-        aggregation_period \\ nil,
-        malware_scanner \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        resource_type \\ nil,
-        scan_result_status \\ nil,
         state \\ nil,
+        scan_result_status \\ nil,
+        resource_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        malware_scanner \\ nil,
+        aggregation_period \\ nil,
+        account_id \\ nil,
         options \\ []
       ) do
     url_path = "/audit/scan-job-summaries"
@@ -8060,43 +8161,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(state) do
-        [{"State", state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(scan_result_status) do
-        [{"ScanResultStatus", scan_result_status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(resource_type) do
-        [{"ResourceType", resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(malware_scanner) do
-        [{"MalwareScanner", malware_scanner} | query_params]
+      if !is_nil(account_id) do
+        [{"AccountId", account_id} | query_params]
       else
         query_params
       end
@@ -8109,8 +8175,43 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"AccountId", account_id} | query_params]
+      if !is_nil(malware_scanner) do
+        [{"MalwareScanner", malware_scanner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"ResourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scan_result_status) do
+        [{"ScanResultStatus", scan_result_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"State", state} | query_params]
       else
         query_params
       end
@@ -8146,18 +8247,18 @@ defmodule AWS.Backup do
           | {:error, list_scan_jobs_errors()}
   def list_scan_jobs(
         %Client{} = client,
-        by_account_id \\ nil,
-        by_backup_vault_name \\ nil,
-        by_complete_after \\ nil,
-        by_complete_before \\ nil,
-        by_malware_scanner \\ nil,
-        by_recovery_point_arn \\ nil,
-        by_resource_arn \\ nil,
-        by_resource_type \\ nil,
-        by_scan_result_status \\ nil,
-        by_state \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        by_state \\ nil,
+        by_scan_result_status \\ nil,
+        by_resource_type \\ nil,
+        by_resource_arn \\ nil,
+        by_recovery_point_arn \\ nil,
+        by_malware_scanner \\ nil,
+        by_complete_before \\ nil,
+        by_complete_after \\ nil,
+        by_backup_vault_name \\ nil,
+        by_account_id \\ nil,
         options \\ []
       ) do
     url_path = "/scan/jobs"
@@ -8165,71 +8266,8 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_state) do
-        [{"ByState", by_state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_scan_result_status) do
-        [{"ByScanResultStatus", by_scan_result_status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_type) do
-        [{"ByResourceType", by_resource_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_resource_arn) do
-        [{"ByResourceArn", by_resource_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_recovery_point_arn) do
-        [{"ByRecoveryPointArn", by_recovery_point_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_malware_scanner) do
-        [{"ByMalwareScanner", by_malware_scanner} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_complete_before) do
-        [{"ByCompleteBefore", by_complete_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(by_complete_after) do
-        [{"ByCompleteAfter", by_complete_after} | query_params]
+      if !is_nil(by_account_id) do
+        [{"ByAccountId", by_account_id} | query_params]
       else
         query_params
       end
@@ -8242,8 +8280,71 @@ defmodule AWS.Backup do
       end
 
     query_params =
-      if !is_nil(by_account_id) do
-        [{"ByAccountId", by_account_id} | query_params]
+      if !is_nil(by_complete_after) do
+        [{"ByCompleteAfter", by_complete_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_complete_before) do
+        [{"ByCompleteBefore", by_complete_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_malware_scanner) do
+        [{"ByMalwareScanner", by_malware_scanner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_recovery_point_arn) do
+        [{"ByRecoveryPointArn", by_recovery_point_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_arn) do
+        [{"ByResourceArn", by_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_resource_type) do
+        [{"ByResourceType", by_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_scan_result_status) do
+        [{"ByScanResultStatus", by_scan_result_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(by_state) do
+        [{"ByState", by_state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8288,8 +8389,8 @@ defmodule AWS.Backup do
   def list_tags(
         %Client{} = client,
         resource_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8297,15 +8398,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8330,8 +8431,8 @@ defmodule AWS.Backup do
           | {:error, list_tiering_configurations_errors()}
   def list_tiering_configurations(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/tiering-configurations"
@@ -8339,15 +8440,15 @@ defmodule AWS.Backup do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -8546,8 +8647,8 @@ defmodule AWS.Backup do
           | {:error, revoke_restore_access_backup_vault_errors()}
   def revoke_restore_access_backup_vault(
         %Client{} = client,
-        backup_vault_name,
         restore_access_backup_vault_arn,
+        backup_vault_name,
         input,
         options \\ []
       ) do
@@ -8966,8 +9067,8 @@ defmodule AWS.Backup do
           | {:error, update_recovery_point_index_settings_errors()}
   def update_recovery_point_index_settings(
         %Client{} = client,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
         input,
         options \\ []
       ) do
@@ -9035,8 +9136,8 @@ defmodule AWS.Backup do
           | {:error, update_recovery_point_lifecycle_errors()}
   def update_recovery_point_lifecycle(
         %Client{} = client,
-        backup_vault_name,
         recovery_point_arn,
+        backup_vault_name,
         input,
         options \\ []
       ) do
@@ -9210,8 +9311,8 @@ defmodule AWS.Backup do
           | {:error, update_restore_testing_selection_errors()}
   def update_restore_testing_selection(
         %Client{} = client,
-        restore_testing_plan_name,
         restore_testing_selection_name,
+        restore_testing_plan_name,
         input,
         options \\ []
       ) do

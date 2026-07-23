@@ -3,7 +3,19 @@
 
 defmodule AWS.ConnectHealth do
   @moduledoc """
-  Health Agent for healthcare providers and patient engagement
+  Amazon Connect Health is an AI-powered healthcare service built on Amazon
+  Connect.
+
+  It provides pre-built agents that automate patient engagement workflows and
+  support clinical documentation at the point of care.
+
+  You can use the Amazon Connect Health API to programmatically manage domains,
+  configure patient engagement agents, run patient insights jobs, and stream
+  ambient documentation sessions. This API reference describes the available API
+  operations and data types for Amazon Connect Health.
+
+  We recommend that you use the AWS SDKs to make programmatic API calls to Amazon
+  Connect Health.
   """
 
   alias AWS.Client
@@ -13,352 +25,45 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      fhir_server() :: %{
-        "fhirEndpoint" => String.t() | atom(),
-        "oauthToken" => String.t() | atom()
-      }
-
-  """
-  @type fhir_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_source() :: %{
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_patient_insights_job_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("encounterContext") => patient_insights_encounter_context(),
-        required("inputDataConfig") => input_data_config(),
-        required("insightsContext") => insights_context(),
-        required("outputDataConfig") => output_data_config(),
-        required("patientContext") => patient_insights_patient_context(),
-        required("userContext") => user_context()
-      }
-
-  """
-  @type start_patient_insights_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_input() :: %{}
-
-  """
-  @type get_domain_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_audio_event() :: %{
-        "audioChunk" => binary()
-      }
-
-  """
-  @type medical_scribe_audio_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_post_stream_action_settings() :: %{
-        "clinicalNoteGenerationSettings" => clinical_note_generation_settings(),
-        "outputS3Uri" => String.t() | atom()
-      }
-
-  """
-  @type medical_scribe_post_stream_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_data_config() :: %{
-        "fhirServer" => fhir_server(),
-        "s3Sources" => list(s3_source())
-      }
-
-  """
-  @type input_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_input() :: %{}
-
-  """
-  @type create_subscription_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      patient_insights_patient_context() :: %{
-        "dateOfBirth" => String.t() | atom(),
-        "patientId" => String.t() | atom(),
-        "pronouns" => list(any())
-      }
-
-  """
-  @type patient_insights_patient_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_post_stream_action_settings_response() :: %{
-        "clinicalNoteGenerationSettings" => clinical_note_generation_settings_response(),
-        "outputS3Uri" => String.t() | atom()
-      }
-
-  """
-  @type medical_scribe_post_stream_action_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_summary() :: %{
+      create_subscription_output() :: %{
+        "activatedAt" => [non_neg_integer()],
         "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
+        "deactivatedAt" => [non_neg_integer()],
         "domainId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type domain_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clinical_note_generation_settings() :: %{
-        "noteTemplateSettings" => list()
-      }
-
-  """
-  @type clinical_note_generation_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_medical_scribe_listening_session_output() :: %{
-        "domainId" => String.t() | atom(),
-        "languageCode" => list(any()),
-        "mediaEncoding" => list(any()),
-        "mediaSampleRateHertz" => integer(),
-        "requestId" => String.t() | atom(),
-        "responseStream" => list(),
-        "sessionId" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "status" => list(any()),
         "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type start_medical_scribe_listening_session_output() :: %{(String.t() | atom()) => any()}
+  @type create_subscription_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      managed_template() :: %{
-        "templateType" => list(any())
-      }
-
-  """
-  @type managed_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscriptions_input() :: %{
+      list_domains_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+        optional("nextToken") => [String.t() | atom()],
+        optional("status") => list(any())
       }
 
   """
-  @type list_subscriptions_input() :: %{(String.t() | atom()) => any()}
+  @type list_domains_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_template() :: %{
-        "templateInstructions" => list(template_section_instruction()),
-        "templateType" => list(any())
+      clinical_note_generation_result() :: %{
+        "afterVisitSummaryResult" => artifact_details(),
+        "noteResult" => artifact_details(),
+        "transcriptResult" => artifact_details()
       }
 
   """
-  @type custom_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_configuration_event() :: %{
-        "channelDefinitions" => list(medical_scribe_channel_definition()),
-        "encounterContext" => encounter_context(),
-        "postStreamActionSettings" => medical_scribe_post_stream_action_settings()
-      }
-
-  """
-  @type medical_scribe_configuration_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_subscription_input() :: %{}
-
-  """
-  @type activate_subscription_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_transcript_event() :: %{
-        "transcriptSegment" => medical_scribe_transcript_segment()
-      }
-
-  """
-  @type medical_scribe_transcript_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_post_stream_actions_result() :: %{
-        "clinicalNoteGenerationResult" => clinical_note_generation_result()
-      }
-
-  """
-  @type medical_scribe_post_stream_actions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_subscription_output() :: %{
-        "subscription" => subscription_description()
-      }
-
-  """
-  @type activate_subscription_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_input() :: %{
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("webAppSetupConfiguration") => create_web_app_configuration(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_medical_scribe_listening_session_output() :: %{
-        "medicalScribeListeningSessionDetails" => medical_scribe_listening_session_details()
-      }
-
-  """
-  @type get_medical_scribe_listening_session_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_input() :: %{}
-
-  """
-  @type delete_domain_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_medical_scribe_listening_session_input() :: %{}
-
-  """
-  @type get_medical_scribe_listening_session_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_output() :: %{
-        "domains" => list(domain_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_domains_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_template_response() :: %{
-        "templateType" => list(any())
-      }
-
-  """
-  @type custom_template_response() :: %{(String.t() | atom()) => any()}
+  @type clinical_note_generation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,40 +92,42 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
+      clinical_note_generation_settings_response() :: %{
+        "noteTemplateSettings" => list()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type clinical_note_generation_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_domain_output() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "domainId" => String.t() | atom(),
-        "encryptionContext" => encryption_context(),
-        "kmsKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => map(),
-        "webAppConfiguration" => web_app_configuration(),
-        "webAppUrl" => String.t() | atom()
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type get_domain_output() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_medical_scribe_listening_session_input() :: %{
-        optional("inputStream") => list(),
         required("domainId") => String.t() | atom(),
+        optional("inputStream") => list(),
         required("languageCode") => list(any()),
         required("mediaEncoding") => list(any()),
         required("mediaSampleRateHertz") => integer(),
@@ -435,116 +142,25 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      insights_output() :: %{
-        "uri" => String.t() | atom()
+      domain_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "domainId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type insights_output() :: %{(String.t() | atom()) => any()}
+  @type domain_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      encryption_context() :: %{
-        "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | atom()
-      }
+      list_tags_for_resource_input() :: %{}
 
   """
-  @type encryption_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_web_app_configuration() :: %{
-        "ehrRole" => [String.t() | atom()],
-        "idcInstanceId" => [String.t() | atom()],
-        "idcRegion" => [String.t() | atom()]
-      }
-
-  """
-  @type create_web_app_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_patient_insights_job_request() :: %{}
-
-  """
-  @type get_patient_insights_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_patient_insights_job_response() :: %{
-        "creationTime" => [non_neg_integer()],
-        "jobArn" => String.t() | atom(),
-        "jobId" => String.t() | atom()
-      }
-
-  """
-  @type start_patient_insights_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clinical_note_generation_settings_response() :: %{
-        "noteTemplateSettings" => list()
-      }
-
-  """
-  @type clinical_note_generation_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encounter_context() :: %{
-        "unstructuredContext" => String.t() | atom()
-      }
-
-  """
-  @type encounter_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_app_configuration() :: %{
-        "ehrRole" => [String.t() | atom()],
-        "idcApplicationId" => [String.t() | atom()],
-        "idcRegion" => [String.t() | atom()]
-      }
-
-  """
-  @type web_app_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deactivate_subscription_output() :: %{
-        "subscription" => subscription_description()
-      }
-
-  """
-  @type deactivate_subscription_output() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
@@ -569,30 +185,33 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
+      get_subscription_input() :: %{}
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type get_subscription_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_subscription_output() :: %{
-        "activatedAt" => [non_neg_integer()],
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "deactivatedAt" => [non_neg_integer()],
-        "domainId" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "status" => list(any()),
-        "subscriptionId" => String.t() | atom()
+      input_data_config() :: %{
+        "fhirServer" => fhir_server(),
+        "s3Sources" => list(s3_source())
       }
 
   """
-  @type create_subscription_output() :: %{(String.t() | atom()) => any()}
+  @type input_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_data_config() :: %{
+        "s3OutputPath" => String.t() | atom()
+      }
+
+  """
+  @type output_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -609,23 +228,175 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      insights_context() :: %{
-        "insightsType" => list(any())
+      start_patient_insights_job_response() :: %{
+        "creationTime" => [non_neg_integer()],
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type insights_context() :: %{(String.t() | atom()) => any()}
+  @type start_patient_insights_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_session_control_event() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type medical_scribe_session_control_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_patient_insights_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("encounterContext") => patient_insights_encounter_context(),
+        required("inputDataConfig") => input_data_config(),
+        required("insightsContext") => insights_context(),
+        required("outputDataConfig") => output_data_config(),
+        required("patientContext") => patient_insights_patient_context(),
+        required("userContext") => user_context()
+      }
+
+  """
+  @type start_patient_insights_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_binary_audio_event() :: %{
+        "audioChunk" => binary()
+      }
+
+  """
+  @type medical_scribe_binary_audio_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_context() :: %{
+        "encryptionType" => list(any()),
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type encryption_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      artifact_details() :: %{
+        "failureReason" => String.t() | atom(),
+        "outputLocation" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type artifact_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_medical_scribe_listening_session_output() :: %{
+        "domainId" => String.t() | atom(),
+        "languageCode" => list(any()),
+        "mediaEncoding" => list(any()),
+        "mediaSampleRateHertz" => integer(),
+        "requestId" => String.t() | atom(),
+        "responseStream" => list(),
+        "sessionId" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
+      }
+
+  """
+  @type start_medical_scribe_listening_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_output() :: %{
+        "subscription" => subscription_description()
+      }
+
+  """
+  @type get_subscription_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_subscription_output() :: %{
+        "subscription" => subscription_description()
+      }
+
+  """
+  @type activate_subscription_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_medical_scribe_listening_session_output() :: %{
+        "medicalScribeListeningSessionDetails" => medical_scribe_listening_session_details()
+      }
+
+  """
+  @type get_medical_scribe_listening_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscriptions_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "subscriptions" => list(subscription_description())
+      }
+
+  """
+  @type list_subscriptions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      patient_insights_encounter_context() :: %{
+        "encounterReason" => String.t() | atom()
+      }
+
+  """
+  @type patient_insights_encounter_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_post_stream_action_settings_response() :: %{
+        "clinicalNoteGenerationSettings" => clinical_note_generation_settings_response(),
+        "outputS3Uri" => String.t() | atom()
+      }
+
+  """
+  @type medical_scribe_post_stream_action_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,23 +425,175 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      deactivate_subscription_input() :: %{}
+      get_domain_input() :: %{}
 
   """
-  @type deactivate_subscription_input() :: %{}
+  @type get_domain_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      artifact_details() :: %{
-        "failureReason" => String.t() | atom(),
-        "outputLocation" => String.t() | atom(),
+      create_subscription_input() :: %{}
+
+  """
+  @type create_subscription_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_template_response() :: %{
+        "templateType" => list(any())
+      }
+
+  """
+  @type managed_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_patient_insights_job_request() :: %{}
+
+  """
+  @type get_patient_insights_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      fhir_server() :: %{
+        "fhirEndpoint" => String.t() | atom(),
+        "oauthToken" => String.t() | atom()
+      }
+
+  """
+  @type fhir_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_transcript_event() :: %{
+        "transcriptSegment" => medical_scribe_transcript_segment()
+      }
+
+  """
+  @type medical_scribe_transcript_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_app_configuration() :: %{
+        "ehrRole" => [String.t() | atom()],
+        "idcApplicationId" => [String.t() | atom()],
+        "idcRegion" => [String.t() | atom()]
+      }
+
+  """
+  @type web_app_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encounter_context() :: %{
+        "unstructuredContext" => String.t() | atom()
+      }
+
+  """
+  @type encounter_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_output() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "domainId" => String.t() | atom(),
+        "encryptionContext" => encryption_context(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "webAppConfiguration" => web_app_configuration(),
+        "webAppUrl" => String.t() | atom()
+      }
+
+  """
+  @type get_domain_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_template_response() :: %{
+        "templateType" => list(any())
+      }
+
+  """
+  @type custom_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_output() :: %{
+        "arn" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type artifact_details() :: %{(String.t() | atom()) => any()}
+  @type delete_domain_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_post_stream_action_settings() :: %{
+        "clinicalNoteGenerationSettings" => clinical_note_generation_settings(),
+        "outputS3Uri" => String.t() | atom()
+      }
+
+  """
+  @type medical_scribe_post_stream_action_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -687,79 +610,37 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      list_tags_for_resource_input() :: %{}
+      managed_template() :: %{
+        "templateType" => list(any())
+      }
 
   """
-  @type list_tags_for_resource_input() :: %{}
+  @type managed_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
+      list_domains_output() :: %{
+        "domains" => list(domain_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type list_domains_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      template_section_instruction() :: %{
-        "sectionHeader" => String.t() | atom(),
-        "sectionInstruction" => String.t() | atom()
+      create_web_app_configuration() :: %{
+        "ehrRole" => [String.t() | atom()],
+        "idcInstanceId" => [String.t() | atom()],
+        "idcRegion" => [String.t() | atom()]
       }
 
   """
-  @type template_section_instruction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_data_config() :: %{
-        "s3OutputPath" => String.t() | atom()
-      }
-
-  """
-  @type output_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      medical_scribe_session_control_event() :: %{
-        "type" => list(any())
-      }
-
-  """
-  @type medical_scribe_session_control_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_output() :: %{
-        "subscription" => subscription_description()
-      }
-
-  """
-  @type get_subscription_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_context() :: %{
-        "role" => list(any()),
-        "specialty" => list(any()),
-        "userId" => String.t() | atom()
-      }
-
-  """
-  @type user_context() :: %{(String.t() | atom()) => any()}
+  @type create_web_app_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -781,74 +662,51 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      delete_domain_output() :: %{
-        "arn" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "status" => list(any())
+      template_section_instruction() :: %{
+        "sectionHeader" => String.t() | atom(),
+        "sectionInstruction" => String.t() | atom()
       }
 
   """
-  @type delete_domain_output() :: %{(String.t() | atom()) => any()}
+  @type template_section_instruction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      patient_insights_encounter_context() :: %{
-        "encounterReason" => String.t() | atom()
+      medical_scribe_configuration_event() :: %{
+        "channelDefinitions" => list(medical_scribe_channel_definition()),
+        "encounterContext" => encounter_context(),
+        "postStreamActionSettings" => medical_scribe_post_stream_action_settings()
       }
 
   """
-  @type patient_insights_encounter_context() :: %{(String.t() | atom()) => any()}
+  @type medical_scribe_configuration_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_domains_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("status") => list(any())
+      create_domain_input() :: %{
+        optional("kmsKeyArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("webAppSetupConfiguration") => create_web_app_configuration()
       }
 
   """
-  @type list_domains_input() :: %{(String.t() | atom()) => any()}
+  @type create_domain_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      medical_scribe_channel_definition() :: %{
-        "channelId" => integer(),
-        "participantRole" => list(any())
+      medical_scribe_audio_event() :: %{
+        "audioChunk" => binary()
       }
 
   """
-  @type medical_scribe_channel_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_template_response() :: %{
-        "templateType" => list(any())
-      }
-
-  """
-  @type managed_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clinical_note_generation_result() :: %{
-        "afterVisitSummaryResult" => artifact_details(),
-        "noteResult" => artifact_details(),
-        "transcriptResult" => artifact_details()
-      }
-
-  """
-  @type clinical_note_generation_result() :: %{(String.t() | atom()) => any()}
+  @type medical_scribe_audio_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -872,43 +730,208 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
-      get_subscription_input() :: %{}
+      insights_output() :: %{
+        "uri" => String.t() | atom()
+      }
 
   """
-  @type get_subscription_input() :: %{}
+  @type insights_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_subscriptions_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "subscriptions" => list(subscription_description())
+      get_medical_scribe_listening_session_input() :: %{}
+
+  """
+  @type get_medical_scribe_listening_session_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_input() :: %{}
+
+  """
+  @type delete_domain_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivate_subscription_output() :: %{
+        "subscription" => subscription_description()
       }
 
   """
-  @type list_subscriptions_output() :: %{(String.t() | atom()) => any()}
+  @type deactivate_subscription_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clinical_note_generation_settings() :: %{
+        "noteTemplateSettings" => list()
+      }
+
+  """
+  @type clinical_note_generation_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_channel_definition() :: %{
+        "channelId" => integer(),
+        "participantRole" => list(any())
+      }
+
+  """
+  @type medical_scribe_channel_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivate_subscription_input() :: %{}
+
+  """
+  @type deactivate_subscription_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      patient_insights_patient_context() :: %{
+        "dateOfBirth" => String.t() | atom(),
+        "patientId" => String.t() | atom(),
+        "pronouns" => list(any())
+      }
+
+  """
+  @type patient_insights_patient_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_template() :: %{
+        "templateInstructions" => list(template_section_instruction()),
+        "templateType" => list(any())
+      }
+
+  """
+  @type custom_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscriptions_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_subscriptions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_post_stream_actions_result() :: %{
+        "clinicalNoteGenerationResult" => clinical_note_generation_result()
+      }
+
+  """
+  @type medical_scribe_post_stream_actions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insights_context() :: %{
+        "insightsType" => list(any())
+      }
+
+  """
+  @type insights_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_subscription_input() :: %{}
+
+  """
+  @type activate_subscription_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      user_context() :: %{
+        "role" => list(any()),
+        "specialty" => list(any()),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type user_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_source() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_source() :: %{(String.t() | atom()) => any()}
 
   @type activate_subscription_errors() ::
           validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
 
   @type create_domain_errors() :: service_quota_exceeded_exception()
 
   @type create_subscription_errors() ::
           validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
 
   @type deactivate_subscription_errors() ::
           validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
 
   @type delete_domain_errors() :: resource_not_found_exception()
 
@@ -916,45 +939,45 @@ defmodule AWS.ConnectHealth do
 
   @type get_medical_scribe_listening_session_errors() ::
           throttling_exception()
-          | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
 
   @type get_patient_insights_job_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
 
   @type get_subscription_errors() ::
           validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
 
   @type list_subscriptions_errors() ::
           validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
 
   @type start_medical_scribe_listening_session_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
 
   @type start_patient_insights_job_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -986,7 +1009,7 @@ defmodule AWS.ConnectHealth do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, activate_subscription_errors()}
-  def activate_subscription(%Client{} = client, domain_id, subscription_id, input, options \\ []) do
+  def activate_subscription(%Client{} = client, subscription_id, domain_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/subscriptions/#{AWS.Util.encode_uri(subscription_id)}/activate"
 
@@ -1083,8 +1106,8 @@ defmodule AWS.ConnectHealth do
           | {:error, deactivate_subscription_errors()}
   def deactivate_subscription(
         %Client{} = client,
-        domain_id,
         subscription_id,
+        domain_id,
         input,
         options \\ []
       ) do
@@ -1173,9 +1196,9 @@ defmodule AWS.ConnectHealth do
           | {:error, get_medical_scribe_listening_session_errors()}
   def get_medical_scribe_listening_session(
         %Client{} = client,
-        domain_id,
-        session_id,
         subscription_id,
+        session_id,
+        domain_id,
         options \\ []
       ) do
     url_path =
@@ -1197,7 +1220,7 @@ defmodule AWS.ConnectHealth do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_patient_insights_job_errors()}
-  def get_patient_insights_job(%Client{} = client, domain_id, job_id, options \\ []) do
+  def get_patient_insights_job(%Client{} = client, job_id, domain_id, options \\ []) do
     url_path =
       "/domain/#{AWS.Util.encode_uri(domain_id)}/patient-insights-job/#{AWS.Util.encode_uri(job_id)}"
 
@@ -1217,7 +1240,7 @@ defmodule AWS.ConnectHealth do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_subscription_errors()}
-  def get_subscription(%Client{} = client, domain_id, subscription_id, options \\ []) do
+  def get_subscription(%Client{} = client, subscription_id, domain_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/subscriptions/#{AWS.Util.encode_uri(subscription_id)}"
 
@@ -1244,9 +1267,9 @@ defmodule AWS.ConnectHealth do
           | {:error, term()}
   def list_domains(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/domain"
@@ -1254,8 +1277,8 @@ defmodule AWS.ConnectHealth do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1268,8 +1291,8 @@ defmodule AWS.ConnectHealth do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -1296,8 +1319,8 @@ defmodule AWS.ConnectHealth do
   def list_subscriptions(
         %Client{} = client,
         domain_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/subscriptions"
@@ -1305,15 +1328,15 @@ defmodule AWS.ConnectHealth do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1357,12 +1380,12 @@ defmodule AWS.ConnectHealth do
 
     {headers, input} =
       [
-        {"domainId", "x-amzn-medscribe-domain-id"},
-        {"languageCode", "x-amzn-medscribe-language-code"},
-        {"mediaEncoding", "x-amzn-medscribe-media-encoding"},
-        {"mediaSampleRateHertz", "x-amzn-medscribe-sample-rate"},
+        {"subscriptionId", "x-amzn-medscribe-subscription-id"},
         {"sessionId", "x-amzn-medscribe-session-id"},
-        {"subscriptionId", "x-amzn-medscribe-subscription-id"}
+        {"mediaSampleRateHertz", "x-amzn-medscribe-sample-rate"},
+        {"mediaEncoding", "x-amzn-medscribe-media-encoding"},
+        {"languageCode", "x-amzn-medscribe-language-code"},
+        {"domainId", "x-amzn-medscribe-domain-id"}
       ]
       |> Request.build_params(input)
 
@@ -1374,13 +1397,13 @@ defmodule AWS.ConnectHealth do
         options,
         :response_header_parameters,
         [
-          {"x-amzn-medscribe-domain-id", "domainId"},
-          {"x-amzn-medscribe-language-code", "languageCode"},
-          {"x-amzn-medscribe-media-encoding", "mediaEncoding"},
-          {"x-amzn-medscribe-sample-rate", "mediaSampleRateHertz"},
-          {"x-amzn-request-id", "requestId"},
+          {"x-amzn-medscribe-subscription-id", "subscriptionId"},
           {"x-amzn-medscribe-session-id", "sessionId"},
-          {"x-amzn-medscribe-subscription-id", "subscriptionId"}
+          {"x-amzn-request-id", "requestId"},
+          {"x-amzn-medscribe-sample-rate", "mediaSampleRateHertz"},
+          {"x-amzn-medscribe-media-encoding", "mediaEncoding"},
+          {"x-amzn-medscribe-language-code", "languageCode"},
+          {"x-amzn-medscribe-domain-id", "domainId"}
         ]
       )
 

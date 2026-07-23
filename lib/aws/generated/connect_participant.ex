@@ -12,14 +12,16 @@ defmodule AWS.ConnectParticipant do
 
   [Participant Service data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Participant_Service.html)
 
-  Amazon Connect is an easy-to-use omnichannel cloud contact center service that
+  Connect Customer is an easy-to-use omnichannel cloud contact center service that
   enables companies of any size to deliver superior customer service at a lower
   cost.
 
-  Amazon Connect communications capabilities make it easy for companies to deliver
+  Connect Customer communications capabilities make it easy for companies to
+  deliver
   personalized interactions across communication channels, including chat.
 
-  Use the Amazon Connect Participant Service to manage participants (for example,
+  Use the Connect Customer Participant Service to manage participants (for
+  example,
   agents, customers, and managers listening in), and to send messages and events
   within a
   chat contact. The APIs in the service enable the following: sending chat
@@ -36,6 +38,72 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
+      disconnect_participant_response() :: %{}
+
+  """
+  @type disconnect_participant_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      websocket() :: %{
+        "ConnectionExpiry" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type websocket() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_attachment_upload_request() :: %{
+        required("AttachmentName") => String.t() | atom(),
+        required("AttachmentSizeInBytes") => float(),
+        required("ClientToken") => String.t() | atom(),
+        required("ConnectionToken") => String.t() | atom(),
+        required("ContentType") => String.t() | atom()
+      }
+
+  """
+  @type start_attachment_upload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_transcript_request() :: %{
+        required("ConnectionToken") => String.t() | atom(),
+        optional("ContactId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ScanDirection") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StartPosition") => start_position()
+      }
+
+  """
+  @type get_transcript_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      receipt() :: %{
+        "DeliveredTimestamp" => String.t() | atom(),
+        "ReadTimestamp" => String.t() | atom(),
+        "RecipientParticipantId" => String.t() | atom()
+      }
+
+  """
+  @type receipt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       web_r_t_cmeeting() :: %{
         "MediaPlacement" => web_r_t_cmedia_placement(),
         "MeetingFeatures" => meeting_features_configuration(),
@@ -44,18 +112,6 @@ defmodule AWS.ConnectParticipant do
 
   """
   @type web_r_t_cmeeting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_participant_authentication_request() :: %{
-        required("ConnectionToken") => String.t() | atom(),
-        required("SessionId") => String.t() | atom()
-      }
-
-  """
-  @type cancel_participant_authentication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -76,34 +132,211 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      get_authentication_url_response() :: %{
-        "AuthenticationUrl" => String.t() | atom()
-      }
+      complete_attachment_upload_response() :: %{}
 
   """
-  @type get_authentication_url_response() :: %{(String.t() | atom()) => any()}
+  @type complete_attachment_upload_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      disconnect_participant_response() :: %{}
+      send_message_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("ConnectionToken") => String.t() | atom(),
+        required("Content") => String.t() | atom(),
+        required("ContentType") => String.t() | atom()
+      }
 
   """
-  @type disconnect_participant_response() :: %{}
+  @type send_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      receipt() :: %{
-        "DeliveredTimestamp" => String.t() | atom(),
-        "ReadTimestamp" => String.t() | atom(),
-        "RecipientParticipantId" => String.t() | atom()
+      describe_view_response() :: %{
+        "View" => view()
       }
 
   """
-  @type receipt() :: %{(String.t() | atom()) => any()}
+  @type describe_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attendee() :: %{
+        "AttendeeId" => String.t() | atom(),
+        "JoinToken" => String.t() | atom()
+      }
+
+  """
+  @type attendee() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attachment_request() :: %{
+        required("AttachmentId") => String.t() | atom(),
+        required("ConnectionToken") => String.t() | atom(),
+        optional("UrlExpiryInSeconds") => integer()
+      }
+
+  """
+  @type get_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attachment_item() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "AttachmentName" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type attachment_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_message_response() :: %{
+        "AbsoluteTime" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MessageMetadata" => message_processing_metadata()
+      }
+
+  """
+  @type send_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_r_t_c_connection() :: %{
+        "Attendee" => attendee(),
+        "Meeting" => web_r_t_cmeeting()
+      }
+
+  """
+  @type web_r_t_c_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnect_participant_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("ConnectionToken") => String.t() | atom()
+      }
+
+  """
+  @type disconnect_participant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_attachment_upload_request() :: %{
+        required("AttachmentIds") => list(String.t() | atom()),
+        required("ClientToken") => String.t() | atom(),
+        required("ConnectionToken") => String.t() | atom()
+      }
+
+  """
+  @type complete_attachment_upload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_metadata() :: %{
+        "HeadersToInclude" => map(),
+        "Url" => String.t() | atom(),
+        "UrlExpiry" => String.t() | atom()
+      }
+
+  """
+  @type upload_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_participant_connection_request() :: %{
+        optional("ConnectParticipant") => boolean(),
+        required("ParticipantToken") => String.t() | atom(),
+        optional("Type") => list(list(any())())
+      }
+
+  """
+  @type create_participant_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_event_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("ConnectionToken") => String.t() | atom(),
+        optional("Content") => String.t() | atom(),
+        required("ContentType") => String.t() | atom()
+      }
+
+  """
+  @type send_event_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_participant_authentication_request() :: %{
+        required("ConnectionToken") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_participant_authentication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -123,75 +356,12 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      start_position() :: %{
-        "AbsoluteTime" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MostRecent" => integer()
+      audio_features() :: %{
+        "EchoReduction" => list(any())
       }
 
   """
-  @type start_position() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      websocket() :: %{
-        "ConnectionExpiry" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type websocket() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_processing_metadata() :: %{
-        "MessageProcessingStatus" => list(any())
-      }
-
-  """
-  @type message_processing_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_attachment_upload_request() :: %{
-        required("AttachmentIds") => list(String.t() | atom()),
-        required("ClientToken") => String.t() | atom(),
-        required("ConnectionToken") => String.t() | atom()
-      }
-
-  """
-  @type complete_attachment_upload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_event_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Content") => String.t() | atom(),
-        required("ConnectionToken") => String.t() | atom(),
-        required("ContentType") => String.t() | atom()
-      }
-
-  """
-  @type send_event_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_view_response() :: %{
-        "View" => view()
-      }
-
-  """
-  @type describe_view_response() :: %{(String.t() | atom()) => any()}
+  @type audio_features() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,63 +389,25 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      disconnect_participant_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("ConnectionToken") => String.t() | atom()
+      start_position() :: %{
+        "AbsoluteTime" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MostRecent" => integer()
       }
 
   """
-  @type disconnect_participant_request() :: %{(String.t() | atom()) => any()}
+  @type start_position() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      view_content() :: %{
-        "Actions" => list(String.t() | atom()),
-        "InputSchema" => String.t() | atom(),
-        "Template" => String.t() | atom()
+      meeting_features_configuration() :: %{
+        "Audio" => audio_features()
       }
 
   """
-  @type view_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_participant_connection_request() :: %{
-        optional("ConnectParticipant") => boolean(),
-        optional("Type") => list(list(any())()),
-        required("ParticipantToken") => String.t() | atom()
-      }
-
-  """
-  @type create_participant_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => list(any())
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type meeting_features_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -293,86 +425,12 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      audio_features() :: %{
-        "EchoReduction" => list(any())
-      }
-
-  """
-  @type audio_features() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attachment_item() :: %{
-        "AttachmentId" => String.t() | atom(),
-        "AttachmentName" => String.t() | atom(),
-        "ContentType" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type attachment_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_authentication_url_request() :: %{
-        required("ConnectionToken") => String.t() | atom(),
-        required("RedirectUri") => String.t() | atom(),
-        required("SessionId") => String.t() | atom()
-      }
-
-  """
-  @type get_authentication_url_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       describe_view_request() :: %{
         required("ConnectionToken") => String.t() | atom()
       }
 
   """
   @type describe_view_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_attachment_response() :: %{
-        "AttachmentSizeInBytes" => float(),
-        "Url" => String.t() | atom(),
-        "UrlExpiry" => String.t() | atom()
-      }
-
-  """
-  @type get_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_r_t_c_connection() :: %{
-        "Attendee" => attendee(),
-        "Meeting" => web_r_t_cmeeting()
-      }
-
-  """
-  @type web_r_t_c_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,48 +449,6 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      start_attachment_upload_response() :: %{
-        "AttachmentId" => String.t() | atom(),
-        "UploadMetadata" => upload_metadata()
-      }
-
-  """
-  @type start_attachment_upload_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transcript_request() :: %{
-        optional("ContactId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ScanDirection") => list(any()),
-        optional("SortOrder") => list(any()),
-        optional("StartPosition") => start_position(),
-        required("ConnectionToken") => String.t() | atom()
-      }
-
-  """
-  @type get_transcript_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_attachment_request() :: %{
-        optional("UrlExpiryInSeconds") => integer(),
-        required("AttachmentId") => String.t() | atom(),
-        required("ConnectionToken") => String.t() | atom()
-      }
-
-  """
-  @type get_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       connection_credentials() :: %{
         "ConnectionToken" => String.t() | atom(),
         "Expiry" => String.t() | atom()
@@ -445,80 +461,10 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      cancel_participant_authentication_response() :: %{}
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_attachment_upload_request() :: %{
-        required("AttachmentName") => String.t() | atom(),
-        required("AttachmentSizeInBytes") => float(),
-        required("ClientToken") => String.t() | atom(),
-        required("ConnectionToken") => String.t() | atom(),
-        required("ContentType") => String.t() | atom()
-      }
-
-  """
-  @type start_attachment_upload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_attachment_upload_response() :: %{}
-
-  """
-  @type complete_attachment_upload_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      meeting_features_configuration() :: %{
-        "Audio" => audio_features()
-      }
-
-  """
-  @type meeting_features_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type cancel_participant_authentication_response() :: %{}
 
   @typedoc """
 
@@ -537,67 +483,6 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
-      send_message_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("ConnectionToken") => String.t() | atom(),
-        required("Content") => String.t() | atom(),
-        required("ContentType") => String.t() | atom()
-      }
-
-  """
-  @type send_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attendee() :: %{
-        "AttendeeId" => String.t() | atom(),
-        "JoinToken" => String.t() | atom()
-      }
-
-  """
-  @type attendee() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_participant_authentication_response() :: %{}
-
-  """
-  @type cancel_participant_authentication_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      send_message_response() :: %{
-        "AbsoluteTime" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MessageMetadata" => message_processing_metadata()
-      }
-
-  """
-  @type send_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_metadata() :: %{
-        "HeadersToInclude" => map(),
-        "Url" => String.t() | atom(),
-        "UrlExpiry" => String.t() | atom()
-      }
-
-  """
-  @type upload_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_participant_connection_response() :: %{
         "ConnectionCredentials" => connection_credentials(),
         "WebRTCConnection" => web_r_t_c_connection(),
@@ -607,76 +492,193 @@ defmodule AWS.ConnectParticipant do
   """
   @type create_participant_connection_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      start_attachment_upload_response() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "UploadMetadata" => upload_metadata()
+      }
+
+  """
+  @type start_attachment_upload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attachment_response() :: %{
+        "AttachmentSizeInBytes" => float(),
+        "Url" => String.t() | atom(),
+        "UrlExpiry" => String.t() | atom()
+      }
+
+  """
+  @type get_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authentication_url_response() :: %{
+        "AuthenticationUrl" => String.t() | atom()
+      }
+
+  """
+  @type get_authentication_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_processing_metadata() :: %{
+        "MessageProcessingStatus" => list(any())
+      }
+
+  """
+  @type message_processing_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authentication_url_request() :: %{
+        required("ConnectionToken") => String.t() | atom(),
+        required("RedirectUri") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
+      }
+
+  """
+  @type get_authentication_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view_content() :: %{
+        "Actions" => list(String.t() | atom()),
+        "InputSchema" => String.t() | atom(),
+        "Template" => String.t() | atom()
+      }
+
+  """
+  @type view_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
   @type cancel_participant_authentication_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type complete_attachment_upload_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | throttling_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_participant_connection_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type describe_view_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
           | resource_not_found_exception()
 
   @type disconnect_participant_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_attachment_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_authentication_url_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type get_transcript_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type send_event_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type send_message_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type start_attachment_upload_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | throttling_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -752,7 +754,7 @@ defmodule AWS.ConnectParticipant do
   A conflict exception is thrown when an attachment
   with that identifier is already being uploaded.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -794,9 +796,9 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Creates the participant's connection.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
-  For WebRTC security recommendations, see [Amazon Connect WebRTC security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security).
+  For WebRTC security recommendations, see [Connect Customer WebRTC security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security).
 
   `ParticipantToken` is used for invoking this API instead of
   `ConnectionToken`.
@@ -912,7 +914,7 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Retrieves the view for the specified view token.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
   """
   @spec describe_view(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_view_response(), any()}
@@ -940,7 +942,7 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Disconnects a participant.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -985,7 +987,7 @@ defmodule AWS.ConnectParticipant do
   This is an
   asynchronous API for use with active contacts.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
     
   The participant role `CUSTOM_BOT` is not permitted to access
@@ -1036,7 +1038,7 @@ defmodule AWS.ConnectParticipant do
   Retrieves the AuthenticationUrl for the current authentication session for the
   AuthenticateCustomer flow block.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
     
   This API can only be called within one minute of receiving the
@@ -1091,7 +1093,7 @@ defmodule AWS.ConnectParticipant do
   see
   [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html).
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   If you have a process that consumes events in the transcript of an chat that has
   ended, note that chat transcripts contain the following event content types if
@@ -1175,7 +1177,7 @@ defmodule AWS.ConnectParticipant do
   supervisor
   is barged-in will result in a conflict exception.
 
-  For security recommendations, see [Amazon Connect Chat security best
+  For security recommendations, see [Connect Customer Chat security best
   practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
@@ -1218,7 +1220,7 @@ defmodule AWS.ConnectParticipant do
   @doc """
   Sends a message.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -1262,7 +1264,7 @@ defmodule AWS.ConnectParticipant do
   to
   S3.
 
-  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+  For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.

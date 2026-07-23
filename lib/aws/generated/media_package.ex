@@ -13,30 +13,28 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      rotate_ingest_endpoint_credentials_request() :: %{}
-
-  """
-  @type rotate_ingest_endpoint_credentials_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_request() :: %{}
-
-  """
-  @type delete_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
+      encryption_contract_configuration() :: %{
+        "PresetSpeke20Audio" => list(any()),
+        "PresetSpeke20Video" => list(any())
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type encryption_contract_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_package() :: %{
+        "Encryption" => cmaf_encryption(),
+        "HlsManifests" => list(hls_manifest()),
+        "SegmentDurationSeconds" => integer(),
+        "SegmentPrefix" => String.t() | atom(),
+        "StreamSelection" => stream_selection()
+      }
+
+  """
+  @type cmaf_package() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -61,79 +59,56 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      create_origin_endpoint_request() :: %{
-        optional("Authorization") => authorization(),
-        optional("CmafPackage") => cmaf_package_create_or_update_parameters(),
-        optional("DashPackage") => dash_package(),
-        optional("Description") => String.t() | atom(),
-        optional("HlsPackage") => hls_package(),
-        optional("ManifestName") => String.t() | atom(),
-        optional("MssPackage") => mss_package(),
-        optional("Origination") => list(any()),
-        optional("StartoverWindowSeconds") => integer(),
-        optional("Tags") => map(),
-        optional("TimeDelaySeconds") => integer(),
-        optional("Whitelist") => list(String.t() | atom()),
-        required("ChannelId") => String.t() | atom(),
-        required("Id") => String.t() | atom()
+      ingress_access_logs() :: %{
+        "LogGroupName" => String.t() | atom()
       }
 
   """
-  @type create_origin_endpoint_request() :: %{(String.t() | atom()) => any()}
+  @type ingress_access_logs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_channel_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EgressAccessLogs" => egress_access_logs(),
-        "HlsIngest" => hls_ingest(),
-        "Id" => String.t() | atom(),
-        "IngressAccessLogs" => ingress_access_logs(),
-        "Tags" => map()
+      mss_package() :: %{
+        "Encryption" => mss_encryption(),
+        "ManifestWindowSeconds" => integer(),
+        "SegmentDurationSeconds" => integer(),
+        "StreamSelection" => stream_selection()
       }
 
   """
-  @type create_channel_response() :: %{(String.t() | atom()) => any()}
+  @type mss_package() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_channel_response() :: %{}
+      cmaf_package_create_or_update_parameters() :: %{
+        "Encryption" => cmaf_encryption(),
+        "HlsManifests" => list(hls_manifest_create_or_update_parameters()),
+        "SegmentDurationSeconds" => integer(),
+        "SegmentPrefix" => String.t() | atom(),
+        "StreamSelection" => stream_selection()
+      }
 
   """
-  @type delete_channel_response() :: %{}
+  @type cmaf_package_create_or_update_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_origin_endpoint_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Authorization" => authorization(),
-        "ChannelId" => String.t() | atom(),
-        "CmafPackage" => cmaf_package(),
-        "CreatedAt" => String.t() | atom(),
-        "DashPackage" => dash_package(),
-        "Description" => String.t() | atom(),
-        "HlsPackage" => hls_package(),
-        "Id" => String.t() | atom(),
-        "ManifestName" => String.t() | atom(),
-        "MssPackage" => mss_package(),
-        "Origination" => list(any()),
-        "StartoverWindowSeconds" => integer(),
-        "Tags" => map(),
-        "TimeDelaySeconds" => integer(),
-        "Url" => String.t() | atom(),
-        "Whitelist" => list(String.t() | atom())
+      create_harvest_job_request() :: %{
+        required("EndTime") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("OriginEndpointId") => String.t() | atom(),
+        required("S3Destination") => s3_destination(),
+        required("StartTime") => String.t() | atom()
       }
 
   """
-  @type create_origin_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type create_harvest_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -157,6 +132,25 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
+      create_harvest_job_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelId" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "EndTime" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "OriginEndpointId" => String.t() | atom(),
+        "S3Destination" => s3_destination(),
+        "StartTime" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type create_harvest_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       forbidden_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -168,90 +162,71 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      update_origin_endpoint_request() :: %{
-        optional("Authorization") => authorization(),
-        optional("CmafPackage") => cmaf_package_create_or_update_parameters(),
-        optional("DashPackage") => dash_package(),
-        optional("Description") => String.t() | atom(),
-        optional("HlsPackage") => hls_package(),
-        optional("ManifestName") => String.t() | atom(),
-        optional("MssPackage") => mss_package(),
-        optional("Origination") => list(any()),
-        optional("StartoverWindowSeconds") => integer(),
-        optional("TimeDelaySeconds") => integer(),
-        optional("Whitelist") => list(String.t() | atom())
+      hls_package() :: %{
+        "AdMarkers" => list(any()),
+        "AdTriggers" => list(list(any())()),
+        "AdsOnDeliveryRestrictions" => list(any()),
+        "Encryption" => hls_encryption(),
+        "IncludeDvbSubtitles" => boolean(),
+        "IncludeIframeOnlyStream" => boolean(),
+        "PlaylistType" => list(any()),
+        "PlaylistWindowSeconds" => integer(),
+        "ProgramDateTimeIntervalSeconds" => integer(),
+        "SegmentDurationSeconds" => integer(),
+        "StreamSelection" => stream_selection(),
+        "UseAudioRenditionGroup" => boolean()
       }
 
   """
-  @type update_origin_endpoint_request() :: %{(String.t() | atom()) => any()}
+  @type hls_package() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      origin_endpoint() :: %{
+      describe_harvest_job_response() :: %{
         "Arn" => String.t() | atom(),
-        "Authorization" => authorization(),
         "ChannelId" => String.t() | atom(),
-        "CmafPackage" => cmaf_package(),
         "CreatedAt" => String.t() | atom(),
-        "DashPackage" => dash_package(),
-        "Description" => String.t() | atom(),
-        "HlsPackage" => hls_package(),
+        "EndTime" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "ManifestName" => String.t() | atom(),
-        "MssPackage" => mss_package(),
-        "Origination" => list(any()),
-        "StartoverWindowSeconds" => integer(),
-        "Tags" => map(),
-        "TimeDelaySeconds" => integer(),
-        "Url" => String.t() | atom(),
-        "Whitelist" => list(String.t() | atom())
+        "OriginEndpointId" => String.t() | atom(),
+        "S3Destination" => s3_destination(),
+        "StartTime" => String.t() | atom(),
+        "Status" => list(any())
       }
 
   """
-  @type origin_endpoint() :: %{(String.t() | atom()) => any()}
+  @type describe_harvest_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_harvest_jobs_request() :: %{
-        optional("IncludeChannelId") => String.t() | atom(),
-        optional("IncludeStatus") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      configure_logs_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "HlsIngest" => hls_ingest(),
+        "Id" => String.t() | atom(),
+        "IngressAccessLogs" => ingress_access_logs(),
+        "Tags" => map()
       }
 
   """
-  @type list_harvest_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type configure_logs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_origin_endpoint_response() :: %{}
+      mss_encryption() :: %{
+        "SpekeKeyProvider" => speke_key_provider()
+      }
 
   """
-  @type delete_origin_endpoint_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rotate_channel_credentials_request() :: %{}
-
-  """
-  @type rotate_channel_credentials_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_origin_endpoint_request() :: %{}
-
-  """
-  @type delete_origin_endpoint_request() :: %{}
+  @type mss_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -284,7 +259,45 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      rotate_ingest_endpoint_credentials_response() :: %{
+      update_origin_endpoint_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Authorization" => authorization(),
+        "ChannelId" => String.t() | atom(),
+        "CmafPackage" => cmaf_package(),
+        "CreatedAt" => String.t() | atom(),
+        "DashPackage" => dash_package(),
+        "Description" => String.t() | atom(),
+        "HlsPackage" => hls_package(),
+        "Id" => String.t() | atom(),
+        "ManifestName" => String.t() | atom(),
+        "MssPackage" => mss_package(),
+        "Origination" => list(any()),
+        "StartoverWindowSeconds" => integer(),
+        "Tags" => map(),
+        "TimeDelaySeconds" => integer(),
+        "Url" => String.t() | atom(),
+        "Whitelist" => list(String.t() | atom())
+      }
+
+  """
+  @type update_origin_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_response() :: %{
         "Arn" => String.t() | atom(),
         "CreatedAt" => String.t() | atom(),
         "Description" => String.t() | atom(),
@@ -296,18 +309,7 @@ defmodule AWS.MediaPackage do
       }
 
   """
-  @type rotate_ingest_endpoint_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -319,6 +321,86 @@ defmodule AWS.MediaPackage do
 
   """
   @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_harvest_jobs_response() :: %{
+        "HarvestJobs" => list(harvest_job()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_harvest_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      speke_key_provider() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "EncryptionContractConfiguration" => encryption_contract_configuration(),
+        "ResourceId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "SystemIds" => list(String.t() | atom()),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type speke_key_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_response() :: %{
+        "Channels" => list(channel()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessable_entity_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_origin_endpoint_response() :: %{}
+
+  """
+  @type delete_origin_endpoint_response() :: %{}
 
   @typedoc """
 
@@ -344,12 +426,21 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      hls_ingest() :: %{
-        "IngestEndpoints" => list(ingest_endpoint())
+      egress_access_logs() :: %{
+        "LogGroupName" => String.t() | atom()
       }
 
   """
-  @type hls_ingest() :: %{(String.t() | atom()) => any()}
+  @type egress_access_logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rotate_ingest_endpoint_credentials_request() :: %{}
+
+  """
+  @type rotate_ingest_endpoint_credentials_request() :: %{}
 
   @typedoc """
 
@@ -359,18 +450,6 @@ defmodule AWS.MediaPackage do
 
   """
   @type describe_harvest_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_origin_endpoints_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OriginEndpoints" => list(origin_endpoint())
-      }
-
-  """
-  @type list_origin_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,46 +467,104 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      create_harvest_job_request() :: %{
-        required("EndTime") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("OriginEndpointId") => String.t() | atom(),
-        required("S3Destination") => s3_destination(),
-        required("StartTime") => String.t() | atom()
-      }
+      delete_channel_request() :: %{}
 
   """
-  @type create_harvest_job_request() :: %{(String.t() | atom()) => any()}
+  @type delete_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      hls_encryption() :: %{
-        "ConstantInitializationVector" => String.t() | atom(),
-        "EncryptionMethod" => list(any()),
-        "KeyRotationIntervalSeconds" => integer(),
-        "RepeatExtXKey" => boolean(),
-        "SpekeKeyProvider" => speke_key_provider()
+      channel() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "HlsIngest" => hls_ingest(),
+        "Id" => String.t() | atom(),
+        "IngressAccessLogs" => ingress_access_logs(),
+        "Tags" => map()
       }
 
   """
-  @type hls_encryption() :: %{(String.t() | atom()) => any()}
+  @type channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cmaf_package() :: %{
-        "Encryption" => cmaf_encryption(),
-        "HlsManifests" => list(hls_manifest()),
-        "SegmentDurationSeconds" => integer(),
-        "SegmentPrefix" => String.t() | atom(),
-        "StreamSelection" => stream_selection()
+      ingest_endpoint() :: %{
+        "Id" => String.t() | atom(),
+        "Password" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type cmaf_package() :: %{(String.t() | atom()) => any()}
+  @type ingest_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_origin_endpoint_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Authorization" => authorization(),
+        "ChannelId" => String.t() | atom(),
+        "CmafPackage" => cmaf_package(),
+        "CreatedAt" => String.t() | atom(),
+        "DashPackage" => dash_package(),
+        "Description" => String.t() | atom(),
+        "HlsPackage" => hls_package(),
+        "Id" => String.t() | atom(),
+        "ManifestName" => String.t() | atom(),
+        "MssPackage" => mss_package(),
+        "Origination" => list(any()),
+        "StartoverWindowSeconds" => integer(),
+        "Tags" => map(),
+        "TimeDelaySeconds" => integer(),
+        "Url" => String.t() | atom(),
+        "Whitelist" => list(String.t() | atom())
+      }
+
+  """
+  @type create_origin_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_origin_endpoint_request() :: %{}
+
+  """
+  @type delete_origin_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_selection() :: %{
+        "MaxVideoBitsPerSecond" => integer(),
+        "MinVideoBitsPerSecond" => integer(),
+        "StreamOrder" => list(any())
+      }
+
+  """
+  @type stream_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_origin_endpoints_request() :: %{
+        optional("ChannelId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_origin_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -451,16 +588,37 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      cmaf_package_create_or_update_parameters() :: %{
-        "Encryption" => cmaf_encryption(),
-        "HlsManifests" => list(hls_manifest_create_or_update_parameters()),
-        "SegmentDurationSeconds" => integer(),
-        "SegmentPrefix" => String.t() | atom(),
-        "StreamSelection" => stream_selection()
+      cmaf_encryption() :: %{
+        "ConstantInitializationVector" => String.t() | atom(),
+        "EncryptionMethod" => list(any()),
+        "KeyRotationIntervalSeconds" => integer(),
+        "SpekeKeyProvider" => speke_key_provider()
       }
 
   """
-  @type cmaf_package_create_or_update_parameters() :: %{(String.t() | atom()) => any()}
+  @type cmaf_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination() :: %{
+        "BucketName" => String.t() | atom(),
+        "ManifestKey" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rotate_channel_credentials_request() :: %{}
+
+  """
+  @type rotate_channel_credentials_request() :: %{}
 
   @typedoc """
 
@@ -477,97 +635,37 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      describe_channel_request() :: %{}
-
-  """
-  @type describe_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      speke_key_provider() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "EncryptionContractConfiguration" => encryption_contract_configuration(),
-        "ResourceId" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "SystemIds" => list(String.t() | atom()),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type speke_key_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingest_endpoint() :: %{
+      rotate_ingest_endpoint_credentials_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "HlsIngest" => hls_ingest(),
         "Id" => String.t() | atom(),
-        "Password" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "Username" => String.t() | atom()
-      }
-
-  """
-  @type ingest_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Id") => String.t() | atom()
-      }
-
-  """
-  @type create_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
+        "IngressAccessLogs" => ingress_access_logs(),
         "Tags" => map()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type rotate_ingest_endpoint_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hls_package() :: %{
-        "AdMarkers" => list(any()),
-        "AdTriggers" => list(list(any())()),
-        "AdsOnDeliveryRestrictions" => list(any()),
-        "Encryption" => hls_encryption(),
-        "IncludeDvbSubtitles" => boolean(),
-        "IncludeIframeOnlyStream" => boolean(),
-        "PlaylistType" => list(any()),
-        "PlaylistWindowSeconds" => integer(),
-        "ProgramDateTimeIntervalSeconds" => integer(),
-        "SegmentDurationSeconds" => integer(),
-        "StreamSelection" => stream_selection(),
-        "UseAudioRenditionGroup" => boolean()
+      create_channel_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EgressAccessLogs" => egress_access_logs(),
+        "HlsIngest" => hls_ingest(),
+        "Id" => String.t() | atom(),
+        "IngressAccessLogs" => ingress_access_logs(),
+        "Tags" => map()
       }
 
   """
-  @type hls_package() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type create_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -599,73 +697,80 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      list_channels_response() :: %{
-        "Channels" => list(channel()),
-        "NextToken" => String.t() | atom()
-      }
+      describe_origin_endpoint_request() :: %{}
 
   """
-  @type list_channels_response() :: %{(String.t() | atom()) => any()}
+  @type describe_origin_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      s3_destination() :: %{
-        "BucketName" => String.t() | atom(),
-        "ManifestKey" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
+      list_harvest_jobs_request() :: %{
+        optional("IncludeChannelId") => String.t() | atom(),
+        optional("IncludeStatus") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type s3_destination() :: %{(String.t() | atom()) => any()}
+  @type list_harvest_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_channel_request() :: %{
-        optional("Description") => String.t() | atom()
+      internal_server_error_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type update_channel_request() :: %{(String.t() | atom()) => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stream_selection() :: %{
-        "MaxVideoBitsPerSecond" => integer(),
-        "MinVideoBitsPerSecond" => integer(),
-        "StreamOrder" => list(any())
-      }
+      delete_channel_response() :: %{}
 
   """
-  @type stream_selection() :: %{(String.t() | atom()) => any()}
+  @type delete_channel_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      encryption_contract_configuration() :: %{
-        "PresetSpeke20Audio" => list(any()),
-        "PresetSpeke20Video" => list(any())
+      configure_logs_request() :: %{
+        optional("EgressAccessLogs") => egress_access_logs(),
+        optional("IngressAccessLogs") => ingress_access_logs()
       }
 
   """
-  @type encryption_contract_configuration() :: %{(String.t() | atom()) => any()}
+  @type configure_logs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      egress_access_logs() :: %{
-        "LogGroupName" => String.t() | atom()
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type egress_access_logs() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,64 +788,145 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      unprocessable_entity_exception() :: %{
-        "Message" => String.t() | atom()
+      hls_ingest() :: %{
+        "IngestEndpoints" => list(ingest_endpoint())
       }
 
   """
-  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
+  @type hls_ingest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cmaf_encryption() :: %{
-        "ConstantInitializationVector" => String.t() | atom(),
-        "EncryptionMethod" => list(any()),
-        "KeyRotationIntervalSeconds" => integer(),
-        "SpekeKeyProvider" => speke_key_provider()
-      }
-
-  """
-  @type cmaf_encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EgressAccessLogs" => egress_access_logs(),
-        "HlsIngest" => hls_ingest(),
-        "Id" => String.t() | atom(),
-        "IngressAccessLogs" => ingress_access_logs(),
+      list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
 
   """
-  @type channel() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_origin_endpoint_request() :: %{
+        optional("Authorization") => authorization(),
+        required("ChannelId") => String.t() | atom(),
+        optional("CmafPackage") => cmaf_package_create_or_update_parameters(),
+        optional("DashPackage") => dash_package(),
+        optional("Description") => String.t() | atom(),
+        optional("HlsPackage") => hls_package(),
+        required("Id") => String.t() | atom(),
+        optional("ManifestName") => String.t() | atom(),
+        optional("MssPackage") => mss_package(),
+        optional("Origination") => list(any()),
+        optional("StartoverWindowSeconds") => integer(),
+        optional("Tags") => map(),
+        optional("TimeDelaySeconds") => integer(),
+        optional("Whitelist") => list(String.t() | atom())
+      }
+
+  """
+  @type create_origin_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      origin_endpoint() :: %{
+        "Arn" => String.t() | atom(),
+        "Authorization" => authorization(),
+        "ChannelId" => String.t() | atom(),
+        "CmafPackage" => cmaf_package(),
+        "CreatedAt" => String.t() | atom(),
+        "DashPackage" => dash_package(),
+        "Description" => String.t() | atom(),
+        "HlsPackage" => hls_package(),
+        "Id" => String.t() | atom(),
+        "ManifestName" => String.t() | atom(),
+        "MssPackage" => mss_package(),
+        "Origination" => list(any()),
+        "StartoverWindowSeconds" => integer(),
+        "Tags" => map(),
+        "TimeDelaySeconds" => integer(),
+        "Url" => String.t() | atom(),
+        "Whitelist" => list(String.t() | atom())
+      }
+
+  """
+  @type origin_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_encryption() :: %{
+        "ConstantInitializationVector" => String.t() | atom(),
+        "EncryptionMethod" => list(any()),
+        "KeyRotationIntervalSeconds" => integer(),
+        "RepeatExtXKey" => boolean(),
+        "SpekeKeyProvider" => speke_key_provider()
+      }
+
+  """
+  @type hls_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_origin_endpoints_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OriginEndpoints" => list(origin_endpoint())
+      }
+
+  """
+  @type list_origin_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_origin_endpoint_request() :: %{
+        optional("Authorization") => authorization(),
+        optional("CmafPackage") => cmaf_package_create_or_update_parameters(),
+        optional("DashPackage") => dash_package(),
+        optional("Description") => String.t() | atom(),
+        optional("HlsPackage") => hls_package(),
+        optional("ManifestName") => String.t() | atom(),
+        optional("MssPackage") => mss_package(),
+        optional("Origination") => list(any()),
+        optional("StartoverWindowSeconds") => integer(),
+        optional("TimeDelaySeconds") => integer(),
+        optional("Whitelist") => list(String.t() | atom())
+      }
+
+  """
+  @type update_origin_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -765,323 +951,137 @@ defmodule AWS.MediaPackage do
 
   ## Example:
 
-      describe_harvest_job_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelId" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom(),
-        "EndTime" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "OriginEndpointId" => String.t() | atom(),
-        "S3Destination" => s3_destination(),
-        "StartTime" => String.t() | atom(),
-        "Status" => list(any())
-      }
+      describe_channel_request() :: %{}
 
   """
-  @type describe_harvest_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_harvest_job_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelId" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom(),
-        "EndTime" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "OriginEndpointId" => String.t() | atom(),
-        "S3Destination" => s3_destination(),
-        "StartTime" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type create_harvest_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configure_logs_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EgressAccessLogs" => egress_access_logs(),
-        "HlsIngest" => hls_ingest(),
-        "Id" => String.t() | atom(),
-        "IngressAccessLogs" => ingress_access_logs(),
-        "Tags" => map()
-      }
-
-  """
-  @type configure_logs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_origin_endpoint_request() :: %{}
-
-  """
-  @type describe_origin_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      configure_logs_request() :: %{
-        optional("EgressAccessLogs") => egress_access_logs(),
-        optional("IngressAccessLogs") => ingress_access_logs()
-      }
-
-  """
-  @type configure_logs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_harvest_jobs_response() :: %{
-        "HarvestJobs" => list(harvest_job()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_harvest_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EgressAccessLogs" => egress_access_logs(),
-        "HlsIngest" => hls_ingest(),
-        "Id" => String.t() | atom(),
-        "IngressAccessLogs" => ingress_access_logs(),
-        "Tags" => map()
-      }
-
-  """
-  @type update_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mss_encryption() :: %{
-        "SpekeKeyProvider" => speke_key_provider()
-      }
-
-  """
-  @type mss_encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_origin_endpoint_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Authorization" => authorization(),
-        "ChannelId" => String.t() | atom(),
-        "CmafPackage" => cmaf_package(),
-        "CreatedAt" => String.t() | atom(),
-        "DashPackage" => dash_package(),
-        "Description" => String.t() | atom(),
-        "HlsPackage" => hls_package(),
-        "Id" => String.t() | atom(),
-        "ManifestName" => String.t() | atom(),
-        "MssPackage" => mss_package(),
-        "Origination" => list(any()),
-        "StartoverWindowSeconds" => integer(),
-        "Tags" => map(),
-        "TimeDelaySeconds" => integer(),
-        "Url" => String.t() | atom(),
-        "Whitelist" => list(String.t() | atom())
-      }
-
-  """
-  @type update_origin_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_origin_endpoints_request() :: %{
-        optional("ChannelId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_origin_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingress_access_logs() :: %{
-        "LogGroupName" => String.t() | atom()
-      }
-
-  """
-  @type ingress_access_logs() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mss_package() :: %{
-        "Encryption" => mss_encryption(),
-        "ManifestWindowSeconds" => integer(),
-        "SegmentDurationSeconds" => integer(),
-        "StreamSelection" => stream_selection()
-      }
-
-  """
-  @type mss_package() :: %{(String.t() | atom()) => any()}
+  @type describe_channel_request() :: %{}
 
   @type configure_logs_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type create_channel_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type create_harvest_job_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type create_origin_endpoint_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type delete_channel_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type delete_origin_endpoint_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type describe_channel_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type describe_harvest_job_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type describe_origin_endpoint_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type list_channels_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type list_harvest_jobs_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type list_origin_endpoints_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type rotate_channel_credentials_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type rotate_ingest_endpoint_credentials_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type update_channel_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   @type update_origin_endpoint_errors() ::
           internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
           | not_found_exception()
+          | unprocessable_entity_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
           | forbidden_exception()
 
   def metadata do
@@ -1341,21 +1341,21 @@ defmodule AWS.MediaPackage do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_channels_errors()}
-  def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_channels(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/channels"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1382,10 +1382,10 @@ defmodule AWS.MediaPackage do
           | {:error, list_harvest_jobs_errors()}
   def list_harvest_jobs(
         %Client{} = client,
-        include_channel_id \\ nil,
-        include_status \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        include_status \\ nil,
+        include_channel_id \\ nil,
         options \\ []
       ) do
     url_path = "/harvest_jobs"
@@ -1393,15 +1393,8 @@ defmodule AWS.MediaPackage do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(include_channel_id) do
+        [{"includeChannelId", include_channel_id} | query_params]
       else
         query_params
       end
@@ -1414,8 +1407,15 @@ defmodule AWS.MediaPackage do
       end
 
     query_params =
-      if !is_nil(include_channel_id) do
-        [{"includeChannelId", include_channel_id} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1441,9 +1441,9 @@ defmodule AWS.MediaPackage do
           | {:error, list_origin_endpoints_errors()}
   def list_origin_endpoints(
         %Client{} = client,
-        channel_id \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        channel_id \\ nil,
         options \\ []
       ) do
     url_path = "/origin_endpoints"
@@ -1451,8 +1451,8 @@ defmodule AWS.MediaPackage do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(channel_id) do
+        [{"channelId", channel_id} | query_params]
       else
         query_params
       end
@@ -1465,8 +1465,8 @@ defmodule AWS.MediaPackage do
       end
 
     query_params =
-      if !is_nil(channel_id) do
-        [{"channelId", channel_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1544,8 +1544,8 @@ defmodule AWS.MediaPackage do
           | {:error, rotate_ingest_endpoint_credentials_errors()}
   def rotate_ingest_endpoint_credentials(
         %Client{} = client,
-        id,
         ingest_endpoint_id,
+        id,
         input,
         options \\ []
       ) do

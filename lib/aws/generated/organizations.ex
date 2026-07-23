@@ -7,8 +7,74 @@ defmodule AWS.Organizations do
   Amazon Web Services accounts into an *organization* and centrally manage your
   accounts and their resources.
 
-  This guide provides descriptions of the Organizations operations. For more
+  This guide provides descriptions of the Organizations API. For more
   information about using this service, see the [Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
+
+  ## API version
+
+  This version of the Organizations API Reference documents the Organizations API
+  version
+  2016-11-28.
+
+  As an alternative to using the API directly, you can use one of the Amazon Web
+  Services SDKs,
+  which consist of libraries and sample code for various programming languages and
+  platforms (Java, Ruby, .NET, iOS, Android, and more). The SDKs provide a
+  convenient
+  way to create programmatic access to Organizations. For example, the SDKs take
+  care of
+  cryptographically signing requests, managing errors, and retrying requests
+  automatically. For more information about the Amazon Web Services SDKs,
+  including how to download
+  and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+
+  We recommend that you use the Amazon Web Services SDKs to make programmatic API
+  calls to Organizations.
+  However, you also can use the Organizations Query API to make direct calls to
+  the Organizations web
+  service. To learn more about the Organizations Query API, see [Calling the API by making HTTP Query
+  requests](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_query-requests.html)
+  in the *Organizations User Guide*. Organizations supports GET and
+  POST requests for all actions. That is, the API doesn't require you to use GET
+  for some
+  actions and POST for others. However, GET requests are subject to the limitation
+  size of
+  a URL. Therefore, for operations that require larger sizes, use a POST request.
+
+  ## Signing requests
+
+  When you send HTTP requests to Amazon Web Services, sign the requests so that
+  Amazon Web Services can identify
+  who sent them. You sign requests with your Amazon Web Services access key, which
+  consists of an access
+  key ID and a secret access key. We strongly recommend that you don't create an
+  access
+  key for your root account. Anyone who has the access key for your root account
+  has
+  unrestricted access to all the resources in your account. Instead, create an
+  access key
+  for an IAM user that has administrative permissions. As another option, use
+  Amazon Web Services
+  Security Token Service (Amazon Web Services STS) to generate temporary security
+  credentials, and use
+  those credentials to sign requests.
+
+  To sign requests, we recommend that you use [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html). If
+  you
+  have an existing application that uses Signature Version 2, you don't have to
+  update it
+  to use Signature Version 4. However, some operations now require Signature
+  Version 4.
+  The documentation for operations that require version 4 indicate this
+  requirement.
+
+  When you use the Command Line Interface (CLI) or one of the Amazon Web Services
+  SDKs to make requests to
+  Amazon Web Services, these tools automatically sign the requests for you with
+  the access key that you
+  specify when you configure the tools.
+
+  In this release, each organization can have only one root.
 
   ## Support and feedback for Organizations
 
@@ -66,6 +132,20 @@ defmodule AWS.Organizations do
   `--region cn-northwest-1`
   *(from Amazon Web Services Regions in China)*
 
+  ## How examples are presented
+
+  The JSON returned by the Organizations service as response to your requests
+  arrives as a
+  single long string without line breaks or formatting whitespace. The examples in
+  this
+  guide include both line breaks and whitespace to improve readability. When
+  example input
+  parameters also would result in long strings that would extend beyond the
+  screen, we
+  insert line breaks to enhance readability. Always submit the input as a single
+  JSON text
+  string.
+
   ## Recording API Requests
 
   Organizations supports CloudTrail, a service that records Amazon Web Services
@@ -77,7 +157,7 @@ defmodule AWS.Organizations do
   request and when, and so on. For more about Organizations and its support for
   CloudTrail, see
   [Logging Organizations API calls with
-  CloudTrail](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_incident-response.html#orgs_cloudtrail-integration)
+  CloudTrail](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration)
   in the
   *Organizations User Guide*. To learn more about CloudTrail, including how to
   turn it
@@ -86,6 +166,204 @@ defmodule AWS.Organizations do
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+      
+      account_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type account_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_organizational_unit_response() :: %{
+        "OrganizationalUnit" => organizational_unit()
+      }
+      
+  """
+  @type describe_organizational_unit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_create_account_status_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("States") => list(list(any())())
+      }
+      
+  """
+  @type list_create_account_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_organizational_unit_request() :: %{
+        required("Name") => String.t() | atom(),
+        required("ParentId") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_gov_cloud_account_response() :: %{
+        "CreateAccountStatus" => create_account_status()
+      }
+      
+  """
+  @type create_gov_cloud_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_all_features_request() :: %{}
+      
+  """
+  @type enable_all_features_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_policy_attachment_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_policy_attachment_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
+  """
+  @type describe_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accounts_with_invalid_effective_policy_response() :: %{
+        "Accounts" => list(account()),
+        "NextToken" => String.t() | atom(),
+        "PolicyType" => list(any())
+      }
+      
+  """
+  @type list_accounts_with_invalid_effective_policy_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      parent() :: %{
+        "Id" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type parent() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_already_registered_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type account_already_registered_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      handshake_party() :: %{
+        "Id" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type handshake_party() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_handshakes_for_organization_response() :: %{
+        "Handshakes" => list(handshake()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_handshakes_for_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      malformed_policy_document_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organizational_unit_not_empty_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type organizational_unit_not_empty_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_children_response() :: %{
+        "Children" => list(child()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_children_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_type_summary() :: %{
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type policy_type_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -108,135 +386,46 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      policy_target_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "TargetId" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type policy_target_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      handshake_constraint_violation_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type handshake_constraint_violation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_gov_cloud_account_response() :: %{
-        "CreateAccountStatus" => create_account_status()
-      }
-      
-  """
-  @type create_gov_cloud_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_with_invalid_effective_policy_response() :: %{
-        "Accounts" => list(account()),
-        "NextToken" => String.t() | atom(),
-        "PolicyType" => list(any())
-      }
-      
-  """
-  @type list_accounts_with_invalid_effective_policy_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_account_from_organization_request() :: %{
-        required("AccountId") => String.t() | atom()
-      }
-      
-  """
-  @type remove_account_from_organization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organizational_unit_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type organizational_unit_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aws_service_access_for_organization_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_aws_service_access_for_organization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_create_account_status_response() :: %{
-        "CreateAccountStatuses" => list(create_account_status()),
+      list_delegated_services_for_account_response() :: %{
+        "DelegatedServices" => list(delegated_service()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_create_account_status_response() :: %{(String.t() | atom()) => any()}
+  @type list_delegated_services_for_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      duplicate_account_exception() :: %{
+      terminate_responsibility_transfer_response() :: %{
+        "ResponsibilityTransfer" => responsibility_transfer()
+      }
+      
+  """
+  @type terminate_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_owner_not_verified_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_account_exception() :: %{(String.t() | atom()) => any()}
+  @type account_owner_not_verified_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      move_account_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("DestinationParentId") => String.t() | atom(),
-        required("SourceParentId") => String.t() | atom()
+      account_not_registered_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type move_account_request() :: %{(String.t() | atom()) => any()}
+  @type account_not_registered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,176 +442,233 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      describe_account_request() :: %{
-        required("AccountId") => String.t() | atom()
+      update_organizational_unit_response() :: %{
+        "OrganizationalUnit" => organizational_unit()
       }
       
   """
-  @type describe_account_request() :: %{(String.t() | atom()) => any()}
+  @type update_organizational_unit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_outbound_responsibility_transfers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResponsibilityTransfers" => list(responsibility_transfer())
+      disable_aws_service_access_request() :: %{
+        required("ServicePrincipal") => String.t() | atom()
       }
       
   """
-  @type list_outbound_responsibility_transfers_response() :: %{(String.t() | atom()) => any()}
+  @type disable_aws_service_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      finalizing_organization_exception() :: %{
+      policy_type_not_available_for_organization_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type finalizing_organization_exception() :: %{(String.t() | atom()) => any()}
+  @type policy_type_not_available_for_organization_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      update_organizational_unit_request() :: %{
-        optional("Name") => String.t() | atom(),
-        required("OrganizationalUnitId") => String.t() | atom()
+      list_accounts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type update_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+  @type list_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      enabled_service_principal() :: %{
-        "DateEnabled" => non_neg_integer(),
-        "ServicePrincipal" => String.t() | atom()
+      handshake_resource() :: %{
+        "Resources" => list(handshake_resource()),
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type enabled_service_principal() :: %{(String.t() | atom()) => any()}
+  @type handshake_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_policies_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Policies" => list(policy_summary())
+      delete_policy_request() :: %{
+        required("PolicyId") => String.t() | atom()
       }
       
   """
-  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      decline_handshake_request() :: %{
-        required("HandshakeId") => String.t() | atom()
+      put_resource_policy_request() :: %{
+        required("Content") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type decline_handshake_request() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      effective_policy_validation_error() :: %{
-        "ContributingPolicies" => list(String.t() | atom()),
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "PathToError" => String.t() | atom()
-      }
-      
-  """
-  @type effective_policy_validation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_effective_policy_validation_errors_response() :: %{
-        "AccountId" => String.t() | atom(),
-        "EffectivePolicyValidationErrors" => list(effective_policy_validation_error()),
-        "EvaluationTimestamp" => non_neg_integer(),
-        "NextToken" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "PolicyType" => list(any())
-      }
-      
-  """
-  @type list_effective_policy_validation_errors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_roots_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Roots" => list(root())
-      }
-      
-  """
-  @type list_roots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      root() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PolicyTypes" => list(policy_type_summary())
-      }
-      
-  """
-  @type root() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aws_organizations_not_in_use_exception() :: %{
+      effective_policy_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type aws_organizations_not_in_use_exception() :: %{(String.t() | atom()) => any()}
+  @type effective_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_policies_request() :: %{
+      list_organizational_units_for_parent_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("Filter") => list(any())
+        required("ParentId") => String.t() | atom()
       }
       
   """
-  @type list_policies_request() :: %{(String.t() | atom()) => any()}
+  @type list_organizational_units_for_parent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_create_account_status_response() :: %{
+        "CreateAccountStatus" => create_account_status()
+      }
+      
+  """
+  @type describe_create_account_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_policies_for_target_request() :: %{
+        required("Filter") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("Filter") => list(any()),
         required("TargetId") => String.t() | atom()
       }
       
   """
   @type list_policies_for_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      effective_policy() :: %{
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "PolicyContent" => String.t() | atom(),
+        "PolicyType" => list(any()),
+        "TargetId" => String.t() | atom()
+      }
+      
+  """
+  @type effective_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_changes_in_progress_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type policy_changes_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_organizational_unit_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_organizational_unit_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_parent_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type destination_parent_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_status() :: %{
+        "AccountId" => String.t() | atom(),
+        "AccountName" => String.t() | atom(),
+        "CompletedTimestamp" => non_neg_integer(),
+        "FailureReason" => list(any()),
+        "GovCloudAccountId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "RequestedTimestamp" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
+  """
+  @type create_account_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_all_features_response() :: %{
+        "Handshake" => handshake()
+      }
+      
+  """
+  @type enable_all_features_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
+  """
+  @type create_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_delegated_administrators_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ServicePrincipal") => String.t() | atom()
+      }
+      
+  """
+  @type list_delegated_administrators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,85 +686,152 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      list_organizational_units_for_parent_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OrganizationalUnits" => list(organizational_unit())
+      list_handshakes_for_account_response() :: %{
+        "Handshakes" => list(handshake()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_organizational_units_for_parent_response() :: %{(String.t() | atom()) => any()}
+  @type list_handshakes_for_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      duplicate_organizational_unit_exception() :: %{
+      responsibility_transfer_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_organizational_unit_exception() :: %{(String.t() | atom()) => any()}
+  @type responsibility_transfer_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_policy_request() :: %{
+      invite_account_to_organization_request() :: %{
+        optional("Notes") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("Content") => String.t() | atom(),
-        required("Description") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Type") => list(any())
+        required("Target") => handshake_party()
       }
       
   """
-  @type create_policy_request() :: %{(String.t() | atom()) => any()}
+  @type invite_account_to_organization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_create_account_status_request() :: %{
-        required("CreateAccountRequestId") => String.t() | atom()
+      list_parents_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Parents" => list(parent())
       }
       
   """
-  @type describe_create_account_status_request() :: %{(String.t() | atom()) => any()}
+  @type list_parents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_account_status_not_found_exception() :: %{
+      target_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type create_account_status_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type target_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cancel_handshake_request() :: %{
-        required("HandshakeId") => String.t() | atom()
+      handshake_constraint_violation_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
-  @type cancel_handshake_request() :: %{(String.t() | atom()) => any()}
+  @type handshake_constraint_violation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_parents_request() :: %{
+      list_aws_service_access_for_organization_response() :: %{
+        "EnabledServicePrincipals" => list(enabled_service_principal()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_aws_service_access_for_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      handshake_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type handshake_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      close_account_request() :: %{
+        required("AccountId") => String.t() | atom()
+      }
+      
+  """
+  @type close_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aws_service_access_for_organization_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ChildId") => String.t() | atom()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_parents_request() :: %{(String.t() | atom()) => any()}
+  @type list_aws_service_access_for_organization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_in_use_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type policy_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_policy_type_request() :: %{
+        required("PolicyType") => list(any()),
+        required("RootId") => String.t() | atom()
+      }
+      
+  """
+  @type enable_policy_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -544,49 +857,60 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      handshake_party() :: %{
+      policy_target_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "TargetId" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type policy_target_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      child() :: %{
         "Id" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type handshake_party() :: %{(String.t() | atom()) => any()}
+  @type child() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      policy_type_not_available_for_organization_exception() :: %{
+      delete_organizational_unit_request() :: %{
+        required("OrganizationalUnitId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_status_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type policy_type_not_available_for_organization_exception() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type create_account_status_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      detach_policy_request() :: %{
-        required("PolicyId") => String.t() | atom(),
-        required("TargetId") => String.t() | atom()
+      invalid_handshake_transition_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type detach_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_policy_response() :: %{
-        "Policy" => policy()
-      }
-      
-  """
-  @type update_policy_response() :: %{(String.t() | atom()) => any()}
+  @type invalid_handshake_transition_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -604,25 +928,286 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      list_roots_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      describe_policy_request() :: %{
+        required("PolicyId") => String.t() | atom()
       }
       
   """
-  @type list_roots_request() :: %{(String.t() | atom()) => any()}
+  @type describe_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      too_many_requests_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
+      list_outbound_responsibility_transfers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Type") => list(any())
       }
       
   """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type list_outbound_responsibility_transfers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_not_attached_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type policy_not_attached_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      already_in_organization_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type already_in_organization_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      move_account_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("DestinationParentId") => String.t() | atom(),
+        required("SourceParentId") => String.t() | atom()
+      }
+      
+  """
+  @type move_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_policy_request() :: %{
+        required("PolicyId") => String.t() | atom(),
+        required("TargetId") => String.t() | atom()
+      }
+      
+  """
+  @type attach_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_responsibility_transfer_transition_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_responsibility_transfer_transition_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      finalizing_organization_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type finalizing_organization_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decline_handshake_response() :: %{
+        "Handshake" => handshake()
+      }
+      
+  """
+  @type decline_handshake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      responsibility_transfer_already_in_status_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type responsibility_transfer_already_in_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decline_handshake_request() :: %{
+        required("HandshakeId") => String.t() | atom()
+      }
+      
+  """
+  @type decline_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      root() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PolicyTypes" => list(policy_type_summary())
+      }
+      
+  """
+  @type root() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enabled_service_principal() :: %{
+        "DateEnabled" => non_neg_integer(),
+        "ServicePrincipal" => String.t() | atom()
+      }
+      
+  """
+  @type enabled_service_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invite_account_to_organization_response() :: %{
+        "Handshake" => handshake()
+      }
+      
+  """
+  @type invite_account_to_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+      
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_effective_policy_request() :: %{
+        required("PolicyType") => list(any()),
+        optional("TargetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_effective_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_for_dependency_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+      
+  """
+  @type access_denied_for_dependency_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy() :: %{
+        "Content" => String.t() | atom(),
+        "PolicySummary" => policy_summary()
+      }
+      
+  """
+  @type policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_children_request() :: %{
+        required("ChildType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ParentId") => String.t() | atom()
+      }
+      
+  """
+  @type list_children_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_effective_policy_response() :: %{
+        "EffectivePolicy" => effective_policy()
+      }
+      
+  """
+  @type describe_effective_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_targets_for_policy_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("PolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type list_targets_for_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organizational_unit_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type organizational_unit_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,163 +1225,173 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      create_organizational_unit_request() :: %{
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("ParentId") => String.t() | atom()
+      list_roots_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Roots" => list(root())
       }
       
   """
-  @type create_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+  @type list_roots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_account_response() :: %{
-        "Account" => account()
+      enable_policy_type_response() :: %{
+        "Root" => root()
       }
       
   """
-  @type describe_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      handshake_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type handshake_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_handshake_request() :: %{
-        required("HandshakeId") => String.t() | atom()
-      }
-      
-  """
-  @type accept_handshake_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_organizational_units_for_parent_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ParentId") => String.t() | atom()
-      }
-      
-  """
-  @type list_organizational_units_for_parent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_policy_attachment_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_policy_attachment_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_policy_type_request() :: %{
-        required("PolicyType") => list(any()),
-        required("RootId") => String.t() | atom()
-      }
-      
-  """
-  @type enable_policy_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_handshake_response() :: %{
-        "Handshake" => handshake()
-      }
-      
-  """
-  @type cancel_handshake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_create_account_status_response() :: %{
-        "CreateAccountStatus" => create_account_status()
-      }
-      
-  """
-  @type describe_create_account_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_responsibility_transfer_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_organizational_unit_response() :: %{
-        "OrganizationalUnit" => organizational_unit()
-      }
-      
-  """
-  @type create_organizational_unit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      decline_handshake_response() :: %{
-        "Handshake" => handshake()
-      }
-      
-  """
-  @type decline_handshake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type enable_policy_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_effective_policy_validation_errors_request() :: %{
+        required("AccountId") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom(),
         required("PolicyType") => list(any())
       }
       
   """
   @type list_effective_policy_validation_errors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_already_closed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type account_already_closed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_responsibility_transfer_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organizational_units_for_parent_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OrganizationalUnits" => list(organizational_unit())
+      }
+      
+  """
+  @type list_organizational_units_for_parent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_for_target_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Policies" => list(policy_summary())
+      }
+      
+  """
+  @type list_policies_for_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_policy_response() :: %{
+        "Policy" => policy()
+      }
+      
+  """
+  @type update_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delegated_service() :: %{
+        "DelegationEnabledDate" => non_neg_integer(),
+        "ServicePrincipal" => String.t() | atom()
+      }
+      
+  """
+  @type delegated_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "AwsManaged" => boolean(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_handshakes_for_account_request() :: %{
+        optional("Filter") => handshake_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_handshakes_for_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_policy_type_request() :: %{
+        required("PolicyType") => list(any()),
+        required("RootId") => String.t() | atom()
+      }
+      
+  """
+  @type disable_policy_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_requests_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -815,23 +1410,159 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      update_responsibility_transfer_response() :: %{
-        "ResponsibilityTransfer" => responsibility_transfer()
+      create_policy_request() :: %{
+        required("Content") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Type") => list(any())
       }
       
   """
-  @type update_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
+  @type create_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      organization_not_empty_exception() :: %{
+      describe_responsibility_transfer_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_responsibility_transfer_response() :: %{
+        "ResponsibilityTransfer" => responsibility_transfer()
+      }
+      
+  """
+  @type describe_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_api_endpoint_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type organization_not_empty_exception() :: %{(String.t() | atom()) => any()}
+  @type unsupported_api_endpoint_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_delegated_administrator_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("ServicePrincipal") => String.t() | atom()
+      }
+      
+  """
+  @type deregister_delegated_administrator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_handshake_response() :: %{
+        "Handshake" => handshake()
+      }
+      
+  """
+  @type accept_handshake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accounts_for_parent_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ParentId") => String.t() | atom()
+      }
+      
+  """
+  @type list_accounts_for_parent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_organizational_unit_request() :: %{
+        optional("Name") => String.t() | atom(),
+        required("OrganizationalUnitId") => String.t() | atom()
+      }
+      
+  """
+  @type update_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_request() :: %{
+        required("AccountName") => String.t() | atom(),
+        required("Email") => String.t() | atom(),
+        optional("IamUserAccessToBilling") => list(any()),
+        optional("RoleName") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_roots_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_roots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Policies" => list(policy_summary())
+      }
+      
+  """
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_response() :: %{
+        "Account" => account()
+      }
+      
+  """
+  @type describe_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_policy_request() :: %{
+        required("PolicyId") => String.t() | atom(),
+        required("TargetId") => String.t() | atom()
+      }
+      
+  """
+  @type detach_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -849,12 +1580,17 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      invite_organization_to_transfer_responsibility_response() :: %{
-        "Handshake" => handshake()
+      invite_organization_to_transfer_responsibility_request() :: %{
+        optional("Notes") => String.t() | atom(),
+        required("SourceName") => String.t() | atom(),
+        required("StartTimestamp") => non_neg_integer(),
+        optional("Tags") => list(tag()),
+        required("Target") => handshake_party(),
+        required("Type") => list(any())
       }
       
   """
-  @type invite_organization_to_transfer_responsibility_response() :: %{
+  @type invite_organization_to_transfer_responsibility_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -862,106 +1598,38 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      conflict_exception() :: %{
+      duplicate_account_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type duplicate_account_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_effective_policy_request() :: %{
-        optional("TargetId") => String.t() | atom(),
-        required("PolicyType") => list(any())
+      enable_aws_service_access_request() :: %{
+        required("ServicePrincipal") => String.t() | atom()
       }
       
   """
-  @type describe_effective_policy_request() :: %{(String.t() | atom()) => any()}
+  @type enable_aws_service_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      child_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      create_gov_cloud_account_request() :: %{
+        required("AccountName") => String.t() | atom(),
+        required("Email") => String.t() | atom(),
+        optional("IamUserAccessToBilling") => list(any()),
+        optional("RoleName") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type child_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_response() :: %{
-        "Accounts" => list(account()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_all_features_response() :: %{
-        "Handshake" => handshake()
-      }
-      
-  """
-  @type enable_all_features_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      child() :: %{
-        "Id" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type child() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_delegated_administrators_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ServicePrincipal") => String.t() | atom()
-      }
-      
-  """
-  @type list_delegated_administrators_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_policy_type_response() :: %{
-        "Root" => root()
-      }
-      
-  """
-  @type disable_policy_type_response() :: %{(String.t() | atom()) => any()}
+  @type create_gov_cloud_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,102 +1646,114 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      list_inbound_responsibility_transfers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResponsibilityTransfers" => list(responsibility_transfer())
-      }
-      
-  """
-  @type list_inbound_responsibility_transfers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_policy_exception() :: %{
+      root_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_policy_exception() :: %{(String.t() | atom()) => any()}
+  @type root_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      effective_policy() :: %{
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "PolicyContent" => String.t() | atom(),
-        "PolicyType" => list(any()),
-        "TargetId" => String.t() | atom()
-      }
-      
-  """
-  @type effective_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_policy_request() :: %{
-        required("PolicyId") => String.t() | atom(),
-        required("TargetId") => String.t() | atom()
-      }
-      
-  """
-  @type attach_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_already_closed_exception() :: %{
+      policy_type_not_enabled_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type account_already_closed_exception() :: %{(String.t() | atom()) => any()}
+  @type policy_type_not_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      account_not_registered_exception() :: %{
+      create_organization_response() :: %{
+        "Organization" => organization()
+      }
+      
+  """
+  @type create_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_organizational_unit_request() :: %{
+        required("OrganizationalUnitId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_handshake_request() :: %{
+        required("HandshakeId") => String.t() | atom()
+      }
+      
+  """
+  @type accept_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_create_account_status_response() :: %{
+        "CreateAccountStatuses" => list(create_account_status()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_create_account_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_account_from_organization_request() :: %{
+        required("AccountId") => String.t() | atom()
+      }
+      
+  """
+  @type remove_account_from_organization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_responsibility_transfer_request() :: %{
+        optional("EndTimestamp") => non_neg_integer(),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type terminate_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_policy_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type resource_policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parent_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type account_not_registered_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_account_status() :: %{
-        "AccountId" => String.t() | atom(),
-        "AccountName" => String.t() | atom(),
-        "CompletedTimestamp" => non_neg_integer(),
-        "FailureReason" => list(any()),
-        "GovCloudAccountId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "RequestedTimestamp" => non_neg_integer(),
-        "State" => list(any())
-      }
-      
-  """
-  @type create_account_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_responsibility_transfer_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type update_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
+  @type parent_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1098,118 +1778,58 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      describe_responsibility_transfer_response() :: %{
-        "ResponsibilityTransfer" => responsibility_transfer()
-      }
-      
-  """
-  @type describe_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_organizational_unit_response() :: %{
-        "OrganizationalUnit" => organizational_unit()
-      }
-      
-  """
-  @type update_organizational_unit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_handshakes_for_organization_response() :: %{
-        "Handshakes" => list(handshake()),
+      list_accounts_response() :: %{
+        "Accounts" => list(account()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_handshakes_for_organization_response() :: %{(String.t() | atom()) => any()}
+  @type list_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      terminate_responsibility_transfer_request() :: %{
-        optional("EndTimestamp") => non_neg_integer(),
-        required("Id") => String.t() | atom()
+      describe_create_account_status_request() :: %{
+        required("CreateAccountRequestId") => String.t() | atom()
       }
       
   """
-  @type terminate_responsibility_transfer_request() :: %{(String.t() | atom()) => any()}
+  @type describe_create_account_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delegated_service() :: %{
-        "DelegationEnabledDate" => non_neg_integer(),
-        "ServicePrincipal" => String.t() | atom()
+      resource_policy() :: %{
+        "Content" => String.t() | atom(),
+        "ResourcePolicySummary" => resource_policy_summary()
       }
       
   """
-  @type delegated_service() :: %{(String.t() | atom()) => any()}
+  @type resource_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_exception() :: %{
+      update_responsibility_transfer_response() :: %{
+        "ResponsibilityTransfer" => responsibility_transfer()
+      }
+      
+  """
+  @type update_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_policy_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_policy_request() :: %{
-        required("PolicyId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invite_account_to_organization_request() :: %{
-        optional("Notes") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Target") => handshake_party()
-      }
-      
-  """
-  @type invite_account_to_organization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_input_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type duplicate_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1229,149 +1849,24 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      responsibility_transfer_already_in_status_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type responsibility_transfer_already_in_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_effective_policy_response() :: %{
-        "EffectivePolicy" => effective_policy()
-      }
-      
-  """
-  @type describe_effective_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type account_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parent_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type parent_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_inbound_responsibility_transfers_request() :: %{
-        optional("Id") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type list_inbound_responsibility_transfers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      root_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type root_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      effective_policy_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type effective_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_policy_response() :: %{
-        "Policy" => policy()
-      }
-      
-  """
-  @type create_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_organizational_unit_response() :: %{
+      create_organizational_unit_response() :: %{
         "OrganizationalUnit" => organizational_unit()
       }
       
   """
-  @type describe_organizational_unit_response() :: %{(String.t() | atom()) => any()}
+  @type create_organizational_unit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_organization_response() :: %{
-        "Organization" => organization()
+      constraint_violation_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
-  @type describe_organization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_api_endpoint_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_api_endpoint_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_with_invalid_effective_policy_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("PolicyType") => list(any())
-      }
-      
-  """
-  @type list_accounts_with_invalid_effective_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      master_cannot_leave_organization_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type master_cannot_leave_organization_exception() :: %{(String.t() | atom()) => any()}
+  @type constraint_violation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1389,101 +1884,81 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      create_account_request() :: %{
-        optional("IamUserAccessToBilling") => list(any()),
-        optional("RoleName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("AccountName") => String.t() | atom(),
-        required("Email") => String.t() | atom()
-      }
-      
-  """
-  @type create_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organizational_unit_not_empty_exception() :: %{
+      policy_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type organizational_unit_not_empty_exception() :: %{(String.t() | atom()) => any()}
+  @type policy_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_policy() :: %{
-        "Content" => String.t() | atom(),
-        "ResourcePolicySummary" => resource_policy_summary()
+      cancel_handshake_response() :: %{
+        "Handshake" => handshake()
       }
       
   """
-  @type resource_policy() :: %{(String.t() | atom()) => any()}
+  @type cancel_handshake_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_policy_request() :: %{
-        required("PolicyId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aws_service_access_for_organization_response() :: %{
-        "EnabledServicePrincipals" => list(enabled_service_principal()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_aws_service_access_for_organization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_policy_type_request() :: %{
-        required("PolicyType") => list(any()),
-        required("RootId") => String.t() | atom()
-      }
-      
-  """
-  @type disable_policy_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      responsibility_transfer_not_found_exception() :: %{
+      child_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type responsibility_transfer_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type child_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invite_organization_to_transfer_responsibility_request() :: %{
-        optional("Notes") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("SourceName") => String.t() | atom(),
-        required("StartTimestamp") => non_neg_integer(),
-        required("Target") => handshake_party(),
-        required("Type") => list(any())
+      describe_resource_policy_response() :: %{
+        "ResourcePolicy" => resource_policy()
       }
       
   """
-  @type invite_organization_to_transfer_responsibility_request() :: %{
+  @type describe_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      effective_policy_validation_error() :: %{
+        "ContributingPolicies" => list(String.t() | atom()),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "PathToError" => String.t() | atom()
+      }
+      
+  """
+  @type effective_policy_validation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_handshake_request() :: %{
+        required("HandshakeId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invite_organization_to_transfer_responsibility_response() :: %{
+        "Handshake" => handshake()
+      }
+      
+  """
+  @type invite_organization_to_transfer_responsibility_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -1509,684 +1984,31 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      policy() :: %{
-        "Content" => String.t() | atom(),
-        "PolicySummary" => policy_summary()
-      }
-      
-  """
-  @type policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_request() :: %{
-        optional("Tags") => list(tag()),
-        required("Content") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_policies_for_target_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Policies" => list(policy_summary())
-      }
-      
-  """
-  @type list_policies_for_target_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_organizational_unit_request() :: %{
-        required("OrganizationalUnitId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_organizational_unit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      already_in_organization_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type already_in_organization_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_delegated_administrator_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("ServicePrincipal") => String.t() | atom()
-      }
-      
-  """
-  @type deregister_delegated_administrator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_children_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ChildType") => list(any()),
-        required("ParentId") => String.t() | atom()
-      }
-      
-  """
-  @type list_children_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_handshake_transition_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_handshake_transition_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invite_account_to_organization_response() :: %{
-        "Handshake" => handshake()
-      }
-      
-  """
-  @type invite_account_to_organization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_type_not_enabled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type policy_type_not_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_handshake_response() :: %{
-        "Handshake" => handshake()
-      }
-      
-  """
-  @type accept_handshake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      close_account_request() :: %{
-        required("AccountId") => String.t() | atom()
-      }
-      
-  """
-  @type close_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      transfer_participant() :: %{
-        "ManagementAccountEmail" => String.t() | atom(),
-        "ManagementAccountId" => String.t() | atom()
-      }
-      
-  """
-  @type transfer_participant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type policy_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_children_response() :: %{
-        "Children" => list(child()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_children_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      constraint_violation_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-      
-  """
-  @type constraint_violation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_already_registered_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type account_already_registered_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_owner_not_verified_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type account_owner_not_verified_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceId") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      handshake_resource() :: %{
-        "Resources" => list(handshake_resource()),
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type handshake_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type target_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_parents_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Parents" => list(parent())
-      }
-      
-  """
-  @type list_parents_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_organization_response() :: %{
-        "Organization" => organization()
-      }
-      
-  """
-  @type create_organization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_not_attached_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type policy_not_attached_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_targets_for_policy_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("PolicyId") => String.t() | atom()
-      }
-      
-  """
-  @type list_targets_for_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      malformed_policy_document_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "AwsManaged" => boolean(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_resource_policy_response() :: %{
-        "ResourcePolicy" => resource_policy()
-      }
-      
-  """
-  @type describe_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organizational_unit() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Path" => String.t() | atom()
-      }
-      
-  """
-  @type organizational_unit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_delegated_services_for_account_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom()
-      }
-      
-  """
-  @type list_delegated_services_for_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_organizational_unit_request() :: %{
-        required("OrganizationalUnitId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_organizational_unit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_handshakes_for_account_response() :: %{
-        "Handshakes" => list(handshake()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_handshakes_for_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_delegated_administrators_response() :: %{
-        "DelegatedAdministrators" => list(delegated_administrator()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_delegated_administrators_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_policy_type_response() :: %{
-        "Root" => root()
-      }
-      
-  """
-  @type enable_policy_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_all_features_request() :: %{}
-      
-  """
-  @type enable_all_features_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_response() :: %{
-        "ResourcePolicy" => resource_policy()
-      }
-      
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination_parent_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type destination_parent_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_parent_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type source_parent_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_outbound_responsibility_transfers_request() :: %{
+      list_inbound_responsibility_transfers_request() :: %{
+        optional("Id") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type list_outbound_responsibility_transfers_request() :: %{(String.t() | atom()) => any()}
+  @type list_inbound_responsibility_transfers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_denied_for_dependency_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
+      list_effective_policy_validation_errors_response() :: %{
+        "AccountId" => String.t() | atom(),
+        "EffectivePolicyValidationErrors" => list(effective_policy_validation_error()),
+        "EvaluationTimestamp" => non_neg_integer(),
+        "NextToken" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "PolicyType" => list(any())
       }
       
   """
-  @type access_denied_for_dependency_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_delegated_services_for_account_response() :: %{
-        "DelegatedServices" => list(delegated_service()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_delegated_services_for_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_account_response() :: %{
-        "CreateAccountStatus" => create_account_status()
-      }
-      
-  """
-  @type create_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_responsibility_transfer_transition_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_responsibility_transfer_transition_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_changes_in_progress_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type policy_changes_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_aws_service_access_request() :: %{
-        required("ServicePrincipal") => String.t() | atom()
-      }
-      
-  """
-  @type disable_aws_service_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parent() :: %{
-        "Id" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type parent() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_for_parent_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ParentId") => String.t() | atom()
-      }
-      
-  """
-  @type list_accounts_for_parent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_policy_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type resource_policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_policy_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_aws_service_access_request() :: %{
-        required("ServicePrincipal") => String.t() | atom()
-      }
-      
-  """
-  @type enable_aws_service_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_gov_cloud_account_request() :: %{
-        optional("IamUserAccessToBilling") => list(any()),
-        optional("RoleName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("AccountName") => String.t() | atom(),
-        required("Email") => String.t() | atom()
-      }
-      
-  """
-  @type create_gov_cloud_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_handshake_response() :: %{
-        "Handshake" => handshake()
-      }
-      
-  """
-  @type describe_handshake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accounts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terminate_responsibility_transfer_response() :: %{
-        "ResponsibilityTransfer" => responsibility_transfer()
-      }
-      
-  """
-  @type terminate_responsibility_transfer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_handshakes_for_account_request() :: %{
-        optional("Filter") => handshake_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_handshakes_for_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_create_account_status_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("States") => list(list(any())())
-      }
-      
-  """
-  @type list_create_account_status_request() :: %{(String.t() | atom()) => any()}
+  @type list_effective_policy_validation_errors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2211,35 +2033,145 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      policy_type_summary() :: %{
-        "Status" => list(any()),
-        "Type" => list(any())
+      list_inbound_responsibility_transfers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResponsibilityTransfers" => list(responsibility_transfer())
       }
       
   """
-  @type policy_type_summary() :: %{(String.t() | atom()) => any()}
+  @type list_inbound_responsibility_transfers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_handshake_request() :: %{
-        required("HandshakeId") => String.t() | atom()
+      describe_account_request() :: %{
+        required("AccountId") => String.t() | atom()
       }
       
   """
-  @type describe_handshake_request() :: %{(String.t() | atom()) => any()}
+  @type describe_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_policy_response() :: %{
-        "Policy" => policy()
+      transfer_participant() :: %{
+        "ManagementAccountEmail" => String.t() | atom(),
+        "ManagementAccountId" => String.t() | atom()
       }
       
   """
-  @type describe_policy_response() :: %{(String.t() | atom()) => any()}
+  @type transfer_participant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_organization_request() :: %{
+        optional("FeatureSet") => list(any())
+      }
+      
+  """
+  @type create_organization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_delegated_services_for_account_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_delegated_services_for_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_organization_response() :: %{
+        "Organization" => organization()
+      }
+      
+  """
+  @type describe_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_handshake_response() :: %{
+        "Handshake" => handshake()
+      }
+      
+  """
+  @type describe_handshake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_parents_request() :: %{
+        required("ChildId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_parents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accounts_with_invalid_effective_policy_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("PolicyType") => list(any())
+      }
+      
+  """
+  @type list_accounts_with_invalid_effective_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organizational_unit() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom()
+      }
+      
+  """
+  @type organizational_unit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_response() :: %{
+        "ResourcePolicy" => resource_policy()
+      }
+      
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2256,653 +2188,801 @@ defmodule AWS.Organizations do
 
   ## Example:
       
-      create_organization_request() :: %{
-        optional("FeatureSet") => list(any())
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type create_organization_request() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_policy_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_outbound_responsibility_transfers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResponsibilityTransfers" => list(responsibility_transfer())
+      }
+      
+  """
+  @type list_outbound_responsibility_transfers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_not_empty_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type organization_not_empty_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_response() :: %{
+        "CreateAccountStatus" => create_account_status()
+      }
+      
+  """
+  @type create_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      master_cannot_leave_organization_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type master_cannot_leave_organization_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_parent_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type source_parent_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_policies_request() :: %{
+        required("Filter") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_handshake_request() :: %{
+        required("HandshakeId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_policy_type_response() :: %{
+        "Root" => root()
+      }
+      
+  """
+  @type disable_policy_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_organizations_not_in_use_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type aws_organizations_not_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_delegated_administrators_response() :: %{
+        "DelegatedAdministrators" => list(delegated_administrator()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_delegated_administrators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @type accept_handshake_errors() ::
-          access_denied_for_dependency_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | invalid_handshake_transition_exception()
-          | access_denied_exception()
           | master_cannot_leave_organization_exception()
+          | constraint_violation_exception()
+          | handshake_already_in_state_exception()
+          | too_many_requests_exception()
+          | access_denied_for_dependency_exception()
           | invalid_input_exception()
           | service_exception()
-          | handshake_already_in_state_exception()
+          | invalid_handshake_transition_exception()
+          | access_denied_exception()
           | handshake_not_found_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
           | handshake_constraint_violation_exception()
 
   @type attach_policy_errors() ::
-          policy_changes_in_progress_exception()
-          | target_not_found_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
+          | policy_not_found_exception()
+          | constraint_violation_exception()
           | policy_type_not_enabled_exception()
-          | access_denied_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | policy_not_found_exception()
+          | access_denied_exception()
+          | target_not_found_exception()
+          | policy_changes_in_progress_exception()
           | duplicate_policy_attachment_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
 
   @type cancel_handshake_errors() ::
           concurrent_modification_exception()
+          | handshake_already_in_state_exception()
+          | too_many_requests_exception()
+          | invalid_input_exception()
+          | service_exception()
           | invalid_handshake_transition_exception()
           | access_denied_exception()
-          | invalid_input_exception()
-          | service_exception()
-          | handshake_already_in_state_exception()
           | handshake_not_found_exception()
-          | too_many_requests_exception()
 
   @type close_account_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | conflict_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
-          | account_not_found_exception()
+          | too_many_requests_exception()
+          | account_already_closed_exception()
           | invalid_input_exception()
           | service_exception()
-          | account_already_closed_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | account_not_found_exception()
 
   @type create_account_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
           | finalizing_organization_exception()
+          | access_denied_exception()
 
   @type create_gov_cloud_account_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
           | finalizing_organization_exception()
+          | access_denied_exception()
 
   @type create_organization_errors() ::
-          access_denied_for_dependency_exception()
+          concurrent_modification_exception()
           | constraint_violation_exception()
-          | concurrent_modification_exception()
-          | access_denied_exception()
-          | already_in_organization_exception()
+          | too_many_requests_exception()
+          | access_denied_for_dependency_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
+          | already_in_organization_exception()
+          | access_denied_exception()
 
   @type create_organizational_unit_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | parent_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
+          | access_denied_exception()
           | duplicate_organizational_unit_exception()
-          | aws_organizations_not_in_use_exception()
 
   @type create_policy_errors() ::
-          malformed_policy_document_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
+          | duplicate_policy_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | duplicate_policy_exception()
-          | too_many_requests_exception()
+          | access_denied_exception()
           | policy_type_not_available_for_organization_exception()
-          | aws_organizations_not_in_use_exception()
+          | malformed_policy_document_exception()
 
   @type decline_handshake_errors() ::
           concurrent_modification_exception()
+          | handshake_already_in_state_exception()
+          | too_many_requests_exception()
+          | invalid_input_exception()
+          | service_exception()
           | invalid_handshake_transition_exception()
           | access_denied_exception()
-          | invalid_input_exception()
-          | service_exception()
-          | handshake_already_in_state_exception()
           | handshake_not_found_exception()
-          | too_many_requests_exception()
 
   @type delete_organization_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | organization_not_empty_exception()
+          | constraint_violation_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | organization_not_empty_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type delete_organizational_unit_errors() ::
-          concurrent_modification_exception()
+          aws_organizations_not_in_use_exception()
+          | concurrent_modification_exception()
+          | too_many_requests_exception()
+          | organizational_unit_not_found_exception()
+          | invalid_input_exception()
+          | service_exception()
           | access_denied_exception()
           | organizational_unit_not_empty_exception()
-          | invalid_input_exception()
-          | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
-          | organizational_unit_not_found_exception()
 
   @type delete_policy_errors() ::
-          policy_in_use_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | policy_not_found_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | policy_not_found_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | policy_in_use_exception()
 
   @type delete_resource_policy_errors() ::
-          resource_policy_not_found_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | resource_policy_not_found_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
-          | service_exception()
           | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | service_exception()
+          | access_denied_exception()
 
   @type deregister_delegated_administrator_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
-          | account_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
+          | access_denied_exception()
           | account_not_registered_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | account_not_found_exception()
 
   @type describe_account_errors() ::
-          access_denied_exception()
-          | account_not_found_exception()
+          aws_organizations_not_in_use_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | account_not_found_exception()
 
   @type describe_create_account_status_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
           | create_account_status_not_found_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type describe_effective_policy_errors() ::
-          target_not_found_exception()
+          aws_organizations_not_in_use_exception()
           | constraint_violation_exception()
-          | access_denied_exception()
           | unsupported_api_endpoint_exception()
-          | effective_policy_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | target_not_found_exception()
+          | effective_policy_not_found_exception()
 
   @type describe_handshake_errors() ::
           concurrent_modification_exception()
-          | access_denied_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
+          | access_denied_exception()
           | handshake_not_found_exception()
-          | too_many_requests_exception()
 
   @type describe_organization_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
-          | service_exception()
+          aws_organizations_not_in_use_exception()
+          | concurrent_modification_exception()
           | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | service_exception()
+          | access_denied_exception()
 
   @type describe_organizational_unit_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | too_many_requests_exception()
+          | organizational_unit_not_found_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
-          | organizational_unit_not_found_exception()
+          | access_denied_exception()
 
   @type describe_policy_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | policy_not_found_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | policy_not_found_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type describe_resource_policy_errors() ::
-          resource_policy_not_found_exception()
+          aws_organizations_not_in_use_exception()
+          | resource_policy_not_found_exception()
           | constraint_violation_exception()
-          | access_denied_exception()
           | unsupported_api_endpoint_exception()
-          | service_exception()
           | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | service_exception()
+          | access_denied_exception()
 
   @type describe_responsibility_transfer_errors() ::
-          access_denied_exception()
-          | responsibility_transfer_not_found_exception()
+          aws_organizations_not_in_use_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | responsibility_transfer_not_found_exception()
 
   @type detach_policy_errors() ::
-          policy_changes_in_progress_exception()
-          | policy_not_attached_exception()
-          | target_not_found_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | policy_not_found_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | policy_not_found_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | policy_not_attached_exception()
+          | access_denied_exception()
+          | target_not_found_exception()
+          | policy_changes_in_progress_exception()
 
   @type disable_aws_service_access_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type disable_policy_type_errors() ::
-          policy_changes_in_progress_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
+          | constraint_violation_exception()
           | policy_type_not_enabled_exception()
-          | access_denied_exception()
-          | unsupported_api_endpoint_exception()
           | root_not_found_exception()
+          | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | policy_changes_in_progress_exception()
 
   @type enable_all_features_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
           | handshake_constraint_violation_exception()
 
   @type enable_aws_service_access_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type enable_policy_type_errors() ::
-          policy_type_already_enabled_exception()
-          | policy_changes_in_progress_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
-          | unsupported_api_endpoint_exception()
+          | policy_type_already_enabled_exception()
+          | constraint_violation_exception()
           | root_not_found_exception()
+          | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
+          | access_denied_exception()
+          | policy_changes_in_progress_exception()
           | policy_type_not_available_for_organization_exception()
-          | aws_organizations_not_in_use_exception()
 
   @type invite_account_to_organization_errors() ::
-          account_owner_not_verified_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
           | finalizing_organization_exception()
-          | duplicate_handshake_exception()
+          | access_denied_exception()
           | handshake_constraint_violation_exception()
+          | duplicate_handshake_exception()
+          | account_owner_not_verified_exception()
 
   @type invite_organization_to_transfer_responsibility_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
-          | duplicate_handshake_exception()
+          | access_denied_exception()
           | handshake_constraint_violation_exception()
+          | duplicate_handshake_exception()
 
   @type leave_organization_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
           | master_cannot_leave_organization_exception()
-          | account_not_found_exception()
+          | constraint_violation_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | account_not_found_exception()
 
   @type list_accounts_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_accounts_for_parent_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
           | parent_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_accounts_with_invalid_effective_policy_errors() ::
-          constraint_violation_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
-          | effective_policy_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | effective_policy_not_found_exception()
 
   @type list_aws_service_access_for_organization_errors() ::
-          constraint_violation_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_children_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
           | parent_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_create_account_status_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_delegated_administrators_errors() ::
-          constraint_violation_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_delegated_services_for_account_errors() ::
-          constraint_violation_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
-          | account_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
+          | access_denied_exception()
           | account_not_registered_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | account_not_found_exception()
 
   @type list_effective_policy_validation_errors_errors() ::
-          constraint_violation_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
-          | effective_policy_not_found_exception()
-          | account_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | effective_policy_not_found_exception()
+          | account_not_found_exception()
 
   @type list_handshakes_for_account_errors() ::
           concurrent_modification_exception()
-          | access_denied_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
+          | access_denied_exception()
 
   @type list_handshakes_for_organization_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | concurrent_modification_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_inbound_responsibility_transfers_errors() ::
-          constraint_violation_exception()
-          | access_denied_exception()
-          | responsibility_transfer_not_found_exception()
+          aws_organizations_not_in_use_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | responsibility_transfer_not_found_exception()
 
   @type list_organizational_units_for_parent_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
           | parent_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_outbound_responsibility_transfers_errors() ::
-          constraint_violation_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_parents_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
-          | service_exception()
+          aws_organizations_not_in_use_exception()
           | child_not_found_exception()
           | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | invalid_input_exception()
+          | service_exception()
+          | access_denied_exception()
 
   @type list_policies_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_policies_for_target_errors() ::
-          target_not_found_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | target_not_found_exception()
 
   @type list_roots_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          target_not_found_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | target_not_found_exception()
 
   @type list_targets_for_policy_errors() ::
-          access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | policy_not_found_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | policy_not_found_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type move_account_errors() ::
-          source_parent_not_found_exception()
-          | destination_parent_not_found_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
-          | account_not_found_exception()
+          | source_parent_not_found_exception()
+          | duplicate_account_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
-          | duplicate_account_exception()
+          | access_denied_exception()
+          | destination_parent_not_found_exception()
+          | account_not_found_exception()
 
   @type put_resource_policy_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
 
   @type register_delegated_administrator_errors() ::
-          account_already_registered_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
-          | account_not_found_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | account_already_registered_exception()
+          | account_not_found_exception()
 
   @type remove_account_from_organization_errors() ::
-          constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
           | master_cannot_leave_organization_exception()
-          | account_not_found_exception()
+          | constraint_violation_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | account_not_found_exception()
 
   @type tag_resource_errors() ::
-          target_not_found_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | target_not_found_exception()
 
   @type terminate_responsibility_transfer_errors() ::
-          invalid_responsibility_transfer_transition_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
-          | responsibility_transfer_not_found_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
-          | responsibility_transfer_already_in_status_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | responsibility_transfer_already_in_status_exception()
+          | invalid_responsibility_transfer_transition_exception()
+          | access_denied_exception()
+          | responsibility_transfer_not_found_exception()
 
   @type untag_resource_errors() ::
-          target_not_found_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | constraint_violation_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | target_not_found_exception()
 
   @type update_organizational_unit_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
+          aws_organizations_not_in_use_exception()
+          | concurrent_modification_exception()
+          | too_many_requests_exception()
+          | organizational_unit_not_found_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
+          | access_denied_exception()
           | duplicate_organizational_unit_exception()
-          | aws_organizations_not_in_use_exception()
-          | organizational_unit_not_found_exception()
 
   @type update_policy_errors() ::
-          policy_changes_in_progress_exception()
-          | malformed_policy_document_exception()
-          | constraint_violation_exception()
+          aws_organizations_not_in_use_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
+          | policy_not_found_exception()
+          | constraint_violation_exception()
+          | duplicate_policy_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | duplicate_policy_exception()
-          | policy_not_found_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | policy_changes_in_progress_exception()
+          | malformed_policy_document_exception()
 
   @type update_responsibility_transfer_errors() ::
-          constraint_violation_exception()
-          | access_denied_exception()
-          | responsibility_transfer_not_found_exception()
+          aws_organizations_not_in_use_exception()
+          | constraint_violation_exception()
           | unsupported_api_endpoint_exception()
+          | too_many_requests_exception()
           | invalid_input_exception()
           | service_exception()
-          | too_many_requests_exception()
-          | aws_organizations_not_in_use_exception()
+          | access_denied_exception()
+          | responsibility_transfer_not_found_exception()
 
   def metadata do
     %{
@@ -2954,6 +3034,18 @@ defmodule AWS.Organizations do
   For more information, see [Responding to invitations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_accept-decline-invite.html)
   and [Enabling all features](https://docs.aws.amazon.com/organizations/latest/userguide/manage-begin-all-features-standard-migration.html#manage-approve-all-features-invite)
   in the *Organizations User Guide*.
+
+  When a handshake is accepted, Organizations logs membership events in
+  CloudTrail, available
+  only in the management account's event history. If the account was standalone
+  and joined
+  a new organization, an `AccountJoinedOrganization` event is logged with
+  `joinedMethod:Invited` and `joinedTime` fields. If the account
+  departed one organization and joined another, both an
+  `AccountDepartedOrganization` event with `departedMethod:Left`
+  and `departedTime` and an `AccountJoinedOrganization` event with
+  `joinedMethod:Invited` and `joinedTime` are logged in their
+  respective management accounts.
   """
   @spec accept_handshake(map(), accept_handshake_request(), list()) ::
           {:ok, accept_handshake_response(), any()}
@@ -2961,7 +3053,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, accept_handshake_errors()}
   def accept_handshake(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptHandshake", input, options)
   end
@@ -3034,7 +3127,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, attach_policy_errors()}
   def attach_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachPolicy", input, options)
   end
@@ -3056,7 +3150,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, cancel_handshake_errors()}
   def cancel_handshake(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelHandshake", input, options)
   end
@@ -3125,6 +3220,12 @@ defmodule AWS.Organizations do
   account](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html)
   in the *
   Amazon Web Services GovCloud User Guide*.
+
+  After the permanent termination of the account after the 90-day waiting period,
+  Organizations logs a membership event in CloudTrail. The event is an
+  `AccountDepartedOrganization` event with
+  `departedMethod:Cleaned` and `departedTime`. This event is
+  available only in the management account's event history.
   """
   @spec close_account(map(), close_account_request(), list()) ::
           {:ok, nil, any()}
@@ -3132,7 +3233,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, close_account_errors()}
   def close_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CloseAccount", input, options)
   end
@@ -3161,6 +3263,11 @@ defmodule AWS.Organizations do
   Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration)
   in the
   *Organizations User Guide*.
+
+  Additionally, the `AccountJoinedOrganization` event is logged in CloudTrail and
+  is available only in the management account's event history. This event includes
+  `joinedMethod:Created` and `joinedTime` fields to provide context
+  on how and when the account joined the organization.
 
   The user who calls the API to create an account must have the
   `organizations:CreateAccount` permission. If you enabled all features in
@@ -3232,7 +3339,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_account_errors()}
   def create_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccount", input, options)
   end
@@ -3324,6 +3432,12 @@ defmodule AWS.Organizations do
   in the
   *Organizations User Guide*.
 
+  Additionally, the `AccountJoinedOrganization` event is logged in CloudTrail and
+  is available only in the management account's event history only for the linked
+  commercial account. This event includes `joinedMethod:Created` and
+  `joinedTime` fields to provide context on how and when the account joined
+  the organization.
+
   When you call the `CreateGovCloudAccount` action, you create two accounts:
   a standalone account in the Amazon Web Services GovCloud (US) Region and an
   associated account in the
@@ -3400,7 +3514,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_gov_cloud_account_errors()}
   def create_gov_cloud_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGovCloudAccount", input, options)
   end
@@ -3426,6 +3541,11 @@ defmodule AWS.Organizations do
   supporting only the consolidated billing features by setting the `FeatureSet`
   parameter to `CONSOLIDATED_BILLING`, no policy types are enabled by default
   and you can't use organization policies.
+
+  The `AccountJoinedOrganization` event is logged in CloudTrail and
+  is available only in the management account's event history. This event includes
+  `joinedMethod:Invited` and `joinedTime` fields to provide
+  context on how and when the account joined the organization.
   """
   @spec create_organization(map(), create_organization_request(), list()) ::
           {:ok, create_organization_response(), any()}
@@ -3433,7 +3553,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_organization_errors()}
   def create_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOrganization", input, options)
   end
@@ -3465,7 +3586,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_organizational_unit_errors()}
   def create_organizational_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOrganizationalUnit", input, options)
   end
@@ -3490,7 +3612,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePolicy", input, options)
   end
@@ -3511,7 +3634,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, decline_handshake_errors()}
   def decline_handshake(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeclineHandshake", input, options)
   end
@@ -3521,6 +3645,12 @@ defmodule AWS.Organizations do
 
   You can delete an organization only by using credentials
   from the management account. The organization must be empty of member accounts.
+
+  When an organization is deleted, Organizations logs a membership event in
+  CloudTrail. The
+  event is an `AccountDepartedOrganization` event with
+  `departedMethod:Left` and `departedTime`. This event is available
+  only in the management account's event history.
   """
   @spec delete_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
@@ -3528,7 +3658,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, delete_organization_errors()}
   def delete_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOrganization", input, options)
   end
@@ -3547,7 +3678,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, delete_organizational_unit_errors()}
   def delete_organizational_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOrganizationalUnit", input, options)
   end
@@ -3569,7 +3701,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -3585,7 +3718,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -3621,7 +3755,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, deregister_delegated_administrator_errors()}
   def deregister_delegated_administrator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterDelegatedAdministrator", input, options)
   end
@@ -3638,7 +3773,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_account_errors()}
   def describe_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccount", input, options)
   end
@@ -3655,7 +3791,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_create_account_status_errors()}
   def describe_create_account_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCreateAccountStatus", input, options)
   end
@@ -3686,7 +3823,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_effective_policy_errors()}
   def describe_effective_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEffectivePolicy", input, options)
   end
@@ -3708,7 +3846,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_handshake_errors()}
   def describe_handshake(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHandshake", input, options)
   end
@@ -3730,7 +3869,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_organization_errors()}
   def describe_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganization", input, options)
   end
@@ -3747,7 +3887,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_organizational_unit_errors()}
   def describe_organizational_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationalUnit", input, options)
   end
@@ -3764,7 +3905,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_policy_errors()}
   def describe_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePolicy", input, options)
   end
@@ -3781,7 +3923,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
@@ -3804,7 +3947,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, describe_responsibility_transfer_errors()}
   def describe_responsibility_transfer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResponsibilityTransfer", input, options)
   end
@@ -3843,7 +3987,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, detach_policy_errors()}
   def detach_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachPolicy", input, options)
   end
@@ -3928,7 +4073,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, disable_aws_service_access_errors()}
   def disable_aws_service_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAWSServiceAccess", input, options)
   end
@@ -3964,7 +4110,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, disable_policy_type_errors()}
   def disable_policy_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisablePolicyType", input, options)
   end
@@ -4027,7 +4174,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, enable_all_features_errors()}
   def enable_all_features(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAllFeatures", input, options)
   end
@@ -4069,7 +4217,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, enable_aws_service_access_errors()}
   def enable_aws_service_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAWSServiceAccess", input, options)
   end
@@ -4103,7 +4252,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, enable_policy_type_errors()}
   def enable_policy_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnablePolicyType", input, options)
   end
@@ -4135,7 +4285,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, invite_account_to_organization_errors()}
   def invite_account_to_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InviteAccountToOrganization", input, options)
   end
@@ -4160,7 +4311,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, invite_organization_to_transfer_responsibility_errors()}
   def invite_organization_to_transfer_responsibility(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4181,6 +4333,11 @@ defmodule AWS.Organizations do
   instead.
 
   You can only call from operation from a member account.
+
+  When an account leaves an organization, Organizations logs a membership event in
+  CloudTrail. The event is an `AccountDepartedOrganization` event with
+  `departedMethod:Left` and `departedTime`. This event is available
+  only in the management account's event history.
 
     
   The management account in an organization with all features enabled can
@@ -4244,7 +4401,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, leave_organization_errors()}
   def leave_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "LeaveOrganization", input, options)
   end
@@ -4272,7 +4430,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_accounts_errors()}
   def list_accounts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccounts", input, options)
   end
@@ -4305,7 +4464,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_accounts_for_parent_errors()}
   def list_accounts_for_parent(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccountsForParent", input, options)
   end
@@ -4331,7 +4491,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_accounts_with_invalid_effective_policy_errors()}
   def list_accounts_with_invalid_effective_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccountsWithInvalidEffectivePolicy", input, options)
   end
@@ -4364,7 +4525,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_aws_service_access_for_organization_errors()}
   def list_aws_service_access_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAWSServiceAccessForOrganization", input, options)
   end
@@ -4393,7 +4555,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_children_errors()}
   def list_children(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListChildren", input, options)
   end
@@ -4419,7 +4582,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_create_account_status_errors()}
   def list_create_account_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCreateAccountStatus", input, options)
   end
@@ -4438,7 +4602,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_delegated_administrators_errors()}
   def list_delegated_administrators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDelegatedAdministrators", input, options)
   end
@@ -4461,7 +4626,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_delegated_services_for_account_errors()}
   def list_delegated_services_for_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDelegatedServicesForAccount", input, options)
   end
@@ -4483,7 +4649,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_effective_policy_validation_errors_errors()}
   def list_effective_policy_validation_errors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEffectivePolicyValidationErrors", input, options)
   end
@@ -4510,7 +4677,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_handshakes_for_account_errors()}
   def list_handshakes_for_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHandshakesForAccount", input, options)
   end
@@ -4542,7 +4710,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_handshakes_for_organization_errors()}
   def list_handshakes_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHandshakesForOrganization", input, options)
   end
@@ -4571,7 +4740,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_inbound_responsibility_transfers_errors()}
   def list_inbound_responsibility_transfers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInboundResponsibilityTransfers", input, options)
   end
@@ -4599,7 +4769,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_organizational_units_for_parent_errors()}
   def list_organizational_units_for_parent(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOrganizationalUnitsForParent", input, options)
   end
@@ -4628,7 +4799,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_outbound_responsibility_transfers_errors()}
   def list_outbound_responsibility_transfers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOutboundResponsibilityTransfers", input, options)
   end
@@ -4659,7 +4831,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_parents_errors()}
   def list_parents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListParents", input, options)
   end
@@ -4683,7 +4856,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -4711,7 +4885,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_policies_for_target_errors()}
   def list_policies_for_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPoliciesForTarget", input, options)
   end
@@ -4743,7 +4918,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_roots_errors()}
   def list_roots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRoots", input, options)
   end
@@ -4774,7 +4950,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4799,7 +4976,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, list_targets_for_policy_errors()}
   def list_targets_for_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTargetsForPolicy", input, options)
   end
@@ -4817,7 +4995,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, move_account_errors()}
   def move_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MoveAccount", input, options)
   end
@@ -4833,7 +5012,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -4866,7 +5046,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, register_delegated_administrator_errors()}
   def register_delegated_administrator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDelegatedAdministrator", input, options)
   end
@@ -4883,6 +5064,12 @@ defmodule AWS.Organizations do
 
   You can only call this operation from the management account. Member accounts
   can remove themselves with `LeaveOrganization` instead.
+
+  When an account is removed from an organization, Organizations logs a membership
+  event in CloudTrail. The event is an
+  `AccountDepartedOrganization` event with
+  `departedMethod:Removed` and `departedTime`. This event is
+  available only in the management account's event history.
 
     
   You can remove an account from your organization only if the account is
@@ -4917,7 +5104,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, remove_account_from_organization_errors()}
   def remove_account_from_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveAccountFromOrganization", input, options)
   end
@@ -4948,7 +5136,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4970,7 +5159,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, terminate_responsibility_transfer_errors()}
   def terminate_responsibility_transfer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateResponsibilityTransfer", input, options)
   end
@@ -5001,7 +5191,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5021,7 +5212,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, update_organizational_unit_errors()}
   def update_organizational_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateOrganizationalUnit", input, options)
   end
@@ -5042,7 +5234,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePolicy", input, options)
   end
@@ -5062,7 +5255,8 @@ defmodule AWS.Organizations do
           | {:error, term()}
           | {:error, update_responsibility_transfer_errors()}
   def update_responsibility_transfer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResponsibilityTransfer", input, options)
   end

@@ -37,74 +37,17 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      get_queue_response() :: %{
-        "queue" => queue()
+      update_cluster_slurm_configuration_request() :: %{
+        "accounting" => update_accounting_request(),
+        "cgroupCustomSettings" => list(cgroup_custom_setting()),
+        "scaleDownIdleTimeInSeconds" => [integer()],
+        "slurmCustomSettings" => list(slurm_custom_setting()),
+        "slurmRest" => update_slurm_rest_request(),
+        "slurmdbdCustomSettings" => list(slurmdbd_custom_setting())
       }
       
   """
-  @type get_queue_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_queues_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()],
-        required("clusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type list_queues_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_compute_node_group_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("clusterIdentifier") => String.t() | atom(),
-        required("computeNodeGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_compute_node_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      slurm_custom_setting() :: %{
-        "parameterName" => [String.t() | atom()],
-        "parameterValue" => [String.t() | atom()]
-      }
-      
-  """
-  @type slurm_custom_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accounting() :: %{
-        "defaultPurgeTimeInDays" => [integer()],
-        "mode" => list(any())
-      }
-      
-  """
-  @type accounting() :: %{(String.t() | atom()) => any()}
+  @type update_cluster_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -133,104 +76,25 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cluster_response() :: %{
-        "cluster" => cluster()
+      scheduler() :: %{
+        "type" => list(any()),
+        "version" => [String.t() | atom()]
       }
       
   """
-  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type scheduler() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_cluster_slurm_configuration_request() :: %{
-        "accounting" => update_accounting_request(),
-        "cgroupCustomSettings" => list(cgroup_custom_setting()),
-        "scaleDownIdleTimeInSeconds" => [integer()],
-        "slurmCustomSettings" => list(slurm_custom_setting()),
-        "slurmRest" => update_slurm_rest_request(),
-        "slurmdbdCustomSettings" => list(slurmdbd_custom_setting())
-      }
-      
-  """
-  @type update_cluster_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compute_node_group_configuration() :: %{
-        "computeNodeGroupId" => [String.t() | atom()]
-      }
-      
-  """
-  @type compute_node_group_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      networking() :: %{
-        "networkType" => list(any()),
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type networking() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_accounting_request() :: %{
-        "defaultPurgeTimeInDays" => [integer()],
-        "mode" => list(any())
-      }
-      
-  """
-  @type update_accounting_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cluster_response() :: %{
-        "cluster" => cluster()
-      }
-      
-  """
-  @type get_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      queue() :: %{
-        "arn" => [String.t() | atom()],
-        "clusterId" => [String.t() | atom()],
-        "computeNodeGroupConfigurations" => list(compute_node_group_configuration()),
-        "createdAt" => [non_neg_integer()],
-        "errorInfo" => list(error_info()),
+      custom_launch_template() :: %{
         "id" => [String.t() | atom()],
-        "modifiedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "slurmConfiguration" => queue_slurm_configuration(),
-        "status" => list(any())
+        "version" => [String.t() | atom()]
       }
       
   """
-  @type queue() :: %{(String.t() | atom()) => any()}
+  @type custom_launch_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -248,12 +112,287 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      compute_node_group() :: %{
+        "amiId" => String.t() | atom(),
+        "arn" => [String.t() | atom()],
+        "clusterId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "customLaunchTemplate" => custom_launch_template(),
+        "errorInfo" => list(error_info()),
+        "iamInstanceProfileArn" => String.t() | atom(),
+        "id" => [String.t() | atom()],
+        "instanceConfigs" => list(instance_config()),
+        "modifiedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "nodeLifecycleActions" => node_lifecycle_actions(),
+        "purchaseOption" => list(any()),
+        "scalingConfiguration" => scaling_configuration(),
+        "slurmConfiguration" => compute_node_group_slurm_configuration(),
+        "spotOptions" => spot_options(),
+        "status" => list(any()),
+        "subnetIds" => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type compute_node_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_compute_node_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("clusterIdentifier") => String.t() | atom(),
+        required("computeNodeGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_compute_node_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_slurm_configuration_request() :: %{
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type queue_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_queue_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("clusterIdentifier") => String.t() | atom(),
+        optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()),
+        required("queueName") => String.t() | atom(),
+        optional("slurmConfiguration") => queue_slurm_configuration_request(),
+        optional("tags") => map()
+      }
+      
+  """
+  @type create_queue_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_slurm_rest_request() :: %{
+        "mode" => list(any())
+      }
+      
+  """
+  @type update_slurm_rest_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_queue_response() :: %{
+        "queue" => queue()
+      }
+      
+  """
+  @type create_queue_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint() :: %{
+        "ipv6Address" => [String.t() | atom()],
+        "port" => [String.t() | atom()],
+        "privateIpAddress" => [String.t() | atom()],
+        "publicIpAddress" => [String.t() | atom()],
+        "type" => list(any())
+      }
+      
+  """
+  @type endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_lifecycle_script() :: %{
+        "arguments" => list(String.t() | atom()),
+        "executionPolicy" => list(any()),
+        "name" => [String.t() | atom()],
+        "onError" => list(any()),
+        "scriptSource" => script_source()
+      }
+      
+  """
+  @type node_lifecycle_script() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_lifecycle_actions_request() :: %{
+        "scriptCachingPolicy" => list(any()),
+        "stages" => node_lifecycle_stages()
+      }
+      
+  """
+  @type node_lifecycle_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cluster_response() :: %{
+        "cluster" => cluster()
+      }
+      
+  """
+  @type get_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_response() :: %{
+        "queue" => queue()
+      }
+      
+  """
+  @type update_queue_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_compute_node_group_instance_request() :: %{
+        required("bootstrapId") => String.t() | atom(),
+        required("clusterIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type register_compute_node_group_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_node_lifecycle_actions_request() :: %{
+        "scriptCachingPolicy" => list(any()),
+        "stages" => node_lifecycle_stages()
+      }
+      
+  """
+  @type update_node_lifecycle_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accounting() :: %{
+        "defaultPurgeTimeInDays" => [integer()],
+        "mode" => list(any())
+      }
+      
+  """
+  @type accounting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_node_group_slurm_configuration() :: %{
+        "scaleDownIdleTimeInSeconds" => [integer()],
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type compute_node_group_slurm_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("clusterIdentifier") => String.t() | atom(),
+        optional("scheduler") => update_scheduler_request(),
+        optional("slurmConfiguration") => update_cluster_slurm_configuration_request()
+      }
+      
+  """
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_node_group_configuration() :: %{
+        "computeNodeGroupId" => [String.t() | atom()]
+      }
+      
+  """
+  @type compute_node_group_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_response() :: %{
+        "cluster" => cluster()
+      }
+      
+  """
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      spot_options() :: %{
+        "allocationStrategy" => list(any())
+      }
+      
+  """
+  @type spot_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,10 +400,10 @@ defmodule AWS.PCS do
       
       update_queue_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()),
-        optional("slurmConfiguration") => update_queue_slurm_configuration_request(),
         required("clusterIdentifier") => String.t() | atom(),
-        required("queueIdentifier") => String.t() | atom()
+        optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()),
+        required("queueIdentifier") => String.t() | atom(),
+        optional("slurmConfiguration") => update_queue_slurm_configuration_request()
       }
       
   """
@@ -274,43 +413,93 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      cluster_slurm_configuration() :: %{
-        "accounting" => accounting(),
-        "authKey" => slurm_auth_key(),
+      script_source() :: %{
+        "checksum" => [String.t() | atom()],
+        "s3VersionId" => [String.t() | atom()],
+        "scriptLocation" => [String.t() | atom()]
+      }
+      
+  """
+  @type script_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_slurm_configuration_request() :: %{
+        "accounting" => accounting_request(),
         "cgroupCustomSettings" => list(cgroup_custom_setting()),
-        "jwtAuth" => jwt_auth(),
         "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting()),
-        "slurmRest" => slurm_rest(),
+        "slurmRest" => slurm_rest_request(),
         "slurmdbdCustomSettings" => list(slurmdbd_custom_setting())
       }
       
   """
-  @type cluster_slurm_configuration() :: %{(String.t() | atom()) => any()}
+  @type cluster_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      queue_slurm_configuration() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting())
+      get_compute_node_group_request() :: %{
+        required("clusterIdentifier") => String.t() | atom(),
+        required("computeNodeGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type queue_slurm_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_compute_node_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_cluster_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("slurmConfiguration") => update_cluster_slurm_configuration_request(),
+      get_cluster_request() :: %{
         required("clusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+  @type get_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_queue_request() :: %{
+        required("clusterIdentifier") => String.t() | atom(),
+        required("queueIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_queue_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_compute_node_group_instance_response() :: %{
+        "clusterName" => [String.t() | atom()],
+        "computeNodeGroupId" => [String.t() | atom()],
+        "computeNodeGroupName" => [String.t() | atom()],
+        "endpoints" => list(endpoint()),
+        "nodeID" => [String.t() | atom()],
+        "nodeLifecycleActions" => node_lifecycle_actions(),
+        "sharedSecret" => String.t() | atom()
+      }
+      
+  """
+  @type register_compute_node_group_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_response() :: %{
+        "cluster" => cluster()
+      }
+      
+  """
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -327,7 +516,42 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      queue_summary() :: %{
+      slurm_auth_key() :: %{
+        "secretArn" => [String.t() | atom()],
+        "secretVersion" => [String.t() | atom()]
+      }
+      
+  """
+  @type slurm_auth_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      jwt_key() :: %{
+        "secretArn" => [String.t() | atom()],
+        "secretVersion" => [String.t() | atom()]
+      }
+      
+  """
+  @type jwt_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_node_group_summary() :: %{
         "arn" => [String.t() | atom()],
         "clusterId" => [String.t() | atom()],
         "createdAt" => [non_neg_integer()],
@@ -338,7 +562,80 @@ defmodule AWS.PCS do
       }
       
   """
-  @type queue_summary() :: %{(String.t() | atom()) => any()}
+  @type compute_node_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_clusters_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_queues_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "queues" => list(queue_summary())
+      }
+      
+  """
+  @type list_queues_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_compute_node_group_response() :: %{}
+      
+  """
+  @type delete_compute_node_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      jwt_auth() :: %{
+        "jwtKey" => jwt_key()
+      }
+      
+  """
+  @type jwt_auth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("clusterName") => String.t() | atom(),
+        required("networking") => networking_request(),
+        required("scheduler") => scheduler_request(),
+        required("size") => list(any()),
+        optional("slurmConfiguration") => cluster_slurm_configuration_request(),
+        optional("tags") => map()
+      }
+      
+  """
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_lifecycle_stages() :: %{
+        "nodeBootstrapped" => list(node_lifecycle_script()),
+        "nodeReady" => list(node_lifecycle_script())
+      }
+      
+  """
+  @type node_lifecycle_stages() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -360,108 +657,34 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      scheduler_request() :: %{
-        "type" => list(any()),
-        "version" => [String.t() | atom()]
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type scheduler_request() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      compute_node_group() :: %{
-        "amiId" => String.t() | atom(),
-        "arn" => [String.t() | atom()],
-        "clusterId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "customLaunchTemplate" => custom_launch_template(),
-        "errorInfo" => list(error_info()),
-        "iamInstanceProfileArn" => String.t() | atom(),
-        "id" => [String.t() | atom()],
-        "instanceConfigs" => list(instance_config()),
-        "modifiedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "purchaseOption" => list(any()),
-        "scalingConfiguration" => scaling_configuration(),
-        "slurmConfiguration" => compute_node_group_slurm_configuration(),
-        "spotOptions" => spot_options(),
-        "status" => list(any()),
-        "subnetIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type compute_node_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cluster_request() :: %{
+      update_compute_node_group_request() :: %{
+        optional("amiId") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
-        optional("slurmConfiguration") => cluster_slurm_configuration_request(),
-        optional("tags") => map(),
-        required("clusterName") => String.t() | atom(),
-        required("networking") => networking_request(),
-        required("scheduler") => scheduler_request(),
-        required("size") => list(any())
-      }
-      
-  """
-  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_compute_node_group_instance_response() :: %{
-        "endpoints" => list(endpoint()),
-        "nodeID" => [String.t() | atom()],
-        "sharedSecret" => String.t() | atom()
-      }
-      
-  """
-  @type register_compute_node_group_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_queue_request() :: %{
         required("clusterIdentifier") => String.t() | atom(),
-        required("queueIdentifier") => String.t() | atom()
+        required("computeNodeGroupIdentifier") => String.t() | atom(),
+        optional("customLaunchTemplate") => custom_launch_template(),
+        optional("iamInstanceProfileArn") => String.t() | atom(),
+        optional("nodeLifecycleActions") => update_node_lifecycle_actions_request(),
+        optional("purchaseOption") => list(any()),
+        optional("scalingConfiguration") => scaling_configuration_request(),
+        optional("slurmConfiguration") => update_compute_node_group_slurm_configuration_request(),
+        optional("spotOptions") => spot_options(),
+        optional("subnetIds") => list([String.t() | atom()]())
       }
       
   """
-  @type get_queue_request() :: %{(String.t() | atom()) => any()}
+  @type update_compute_node_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -489,142 +712,22 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
+      scheduler_request() :: %{
+        "type" => list(any()),
+        "version" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type scheduler_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      scaling_configuration_request() :: %{
-        "maxInstanceCount" => [integer()],
-        "minInstanceCount" => [integer()]
-      }
+      delete_queue_response() :: %{}
       
   """
-  @type scaling_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_compute_node_group_slurm_configuration_request() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting())
-      }
-      
-  """
-  @type update_compute_node_group_slurm_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      jwt_auth() :: %{
-        "jwtKey" => jwt_key()
-      }
-      
-  """
-  @type jwt_auth() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_compute_node_group_instance_request() :: %{
-        required("bootstrapId") => String.t() | atom(),
-        required("clusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type register_compute_node_group_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_compute_node_groups_response() :: %{
-        "computeNodeGroups" => list(compute_node_group_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_compute_node_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_compute_node_group_request() :: %{
-        required("clusterIdentifier") => String.t() | atom(),
-        required("computeNodeGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_compute_node_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_compute_node_group_request() :: %{
-        optional("amiId") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("customLaunchTemplate") => custom_launch_template(),
-        optional("iamInstanceProfileArn") => String.t() | atom(),
-        optional("purchaseOption") => list(any()),
-        optional("scalingConfiguration") => scaling_configuration_request(),
-        optional("slurmConfiguration") => update_compute_node_group_slurm_configuration_request(),
-        optional("spotOptions") => spot_options(),
-        optional("subnetIds") => list([String.t() | atom()]()),
-        required("clusterIdentifier") => String.t() | atom(),
-        required("computeNodeGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type update_compute_node_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compute_node_group_slurm_configuration_request() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting())
-      }
-      
-  """
-  @type compute_node_group_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      spot_options() :: %{
-        "allocationStrategy" => list(any())
-      }
-      
-  """
-  @type spot_options() :: %{(String.t() | atom()) => any()}
+  @type delete_queue_response() :: %{}
 
   @typedoc """
 
@@ -642,273 +745,13 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      create_queue_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()),
-        optional("slurmConfiguration") => queue_slurm_configuration_request(),
-        optional("tags") => map(),
-        required("clusterIdentifier") => String.t() | atom(),
-        required("queueName") => String.t() | atom()
+      slurm_custom_setting() :: %{
+        "parameterName" => [String.t() | atom()],
+        "parameterValue" => [String.t() | atom()]
       }
       
   """
-  @type create_queue_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_clusters_response() :: %{
-        "clusters" => list(cluster_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_compute_node_group_response() :: %{
-        "computeNodeGroup" => compute_node_group()
-      }
-      
-  """
-  @type update_compute_node_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cluster_response() :: %{}
-      
-  """
-  @type delete_cluster_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint() :: %{
-        "ipv6Address" => [String.t() | atom()],
-        "port" => [String.t() | atom()],
-        "privateIpAddress" => [String.t() | atom()],
-        "publicIpAddress" => [String.t() | atom()],
-        "type" => list(any())
-      }
-      
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_clusters_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compute_node_group_slurm_configuration() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting())
-      }
-      
-  """
-  @type compute_node_group_slurm_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cluster_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("clusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      slurm_rest() :: %{
-        "mode" => list(any())
-      }
-      
-  """
-  @type slurm_rest() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_slurm_rest_request() :: %{
-        "mode" => list(any())
-      }
-      
-  """
-  @type update_slurm_rest_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      accounting_request() :: %{
-        "defaultPurgeTimeInDays" => [integer()],
-        "mode" => list(any())
-      }
-      
-  """
-  @type accounting_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scaling_configuration() :: %{
-        "maxInstanceCount" => [integer()],
-        "minInstanceCount" => [integer()]
-      }
-      
-  """
-  @type scaling_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_slurm_configuration_request() :: %{
-        "accounting" => accounting_request(),
-        "cgroupCustomSettings" => list(cgroup_custom_setting()),
-        "scaleDownIdleTimeInSeconds" => [integer()],
-        "slurmCustomSettings" => list(slurm_custom_setting()),
-        "slurmRest" => slurm_rest_request(),
-        "slurmdbdCustomSettings" => list(slurmdbd_custom_setting())
-      }
-      
-  """
-  @type cluster_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scheduler() :: %{
-        "type" => list(any()),
-        "version" => [String.t() | atom()]
-      }
-      
-  """
-  @type scheduler() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      jwt_key() :: %{
-        "secretArn" => [String.t() | atom()],
-        "secretVersion" => [String.t() | atom()]
-      }
-      
-  """
-  @type jwt_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_queue_slurm_configuration_request() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting())
-      }
-      
-  """
-  @type update_queue_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_compute_node_group_response() :: %{
-        "computeNodeGroup" => compute_node_group()
-      }
-      
-  """
-  @type create_compute_node_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_config() :: %{
-        "instanceType" => [String.t() | atom()]
-      }
-      
-  """
-  @type instance_config() :: %{(String.t() | atom()) => any()}
+  @type slurm_custom_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -926,69 +769,10 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
+      delete_cluster_response() :: %{}
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      queue_slurm_configuration_request() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting())
-      }
-      
-  """
-  @type queue_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_compute_node_group_response() :: %{}
-      
-  """
-  @type delete_compute_node_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_queues_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "queues" => list(queue_summary())
-      }
-      
-  """
-  @type list_queues_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_compute_node_groups_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()],
-        required("clusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type list_compute_node_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_queue_response() :: %{
-        "queue" => queue()
-      }
-      
-  """
-  @type update_queue_response() :: %{(String.t() | atom()) => any()}
+  @type delete_cluster_response() :: %{}
 
   @typedoc """
 
@@ -1007,6 +791,196 @@ defmodule AWS.PCS do
 
   ## Example:
       
+      networking() :: %{
+        "networkType" => list(any()),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type networking() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "clusterId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "id" => [String.t() | atom()],
+        "modifiedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type queue_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_compute_node_group_response() :: %{
+        "computeNodeGroup" => compute_node_group()
+      }
+      
+  """
+  @type create_compute_node_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_compute_node_group_request() :: %{
+        optional("amiId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("clusterIdentifier") => String.t() | atom(),
+        required("computeNodeGroupName") => String.t() | atom(),
+        required("customLaunchTemplate") => custom_launch_template(),
+        required("iamInstanceProfileArn") => String.t() | atom(),
+        required("instanceConfigs") => list(instance_config()),
+        optional("nodeLifecycleActions") => node_lifecycle_actions_request(),
+        optional("purchaseOption") => list(any()),
+        required("scalingConfiguration") => scaling_configuration_request(),
+        optional("slurmConfiguration") => compute_node_group_slurm_configuration_request(),
+        optional("spotOptions") => spot_options(),
+        required("subnetIds") => list([String.t() | atom()]()),
+        optional("tags") => map()
+      }
+      
+  """
+  @type create_compute_node_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_clusters_response() :: %{
+        "clusters" => list(cluster_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      slurm_rest() :: %{
+        "mode" => list(any())
+      }
+      
+  """
+  @type slurm_rest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_accounting_request() :: %{
+        "defaultPurgeTimeInDays" => [integer()],
+        "mode" => list(any())
+      }
+      
+  """
+  @type update_accounting_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_scheduler_request() :: %{
+        "version" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_scheduler_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scaling_configuration_request() :: %{
+        "maxInstanceCount" => [integer()],
+        "minInstanceCount" => [integer()]
+      }
+      
+  """
+  @type scaling_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_slurm_configuration_request() :: %{
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type update_queue_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_lifecycle_actions() :: %{
+        "scriptCachingPolicy" => list(any()),
+        "stages" => node_lifecycle_stages()
+      }
+      
+  """
+  @type node_lifecycle_actions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_config() :: %{
+        "instanceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type instance_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       networking_request() :: %{
         "networkType" => list(any()),
         "securityGroupIds" => list(String.t() | atom()),
@@ -1020,205 +994,329 @@ defmodule AWS.PCS do
 
   ## Example:
       
-      create_compute_node_group_request() :: %{
-        optional("amiId") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("purchaseOption") => list(any()),
-        optional("slurmConfiguration") => compute_node_group_slurm_configuration_request(),
-        optional("spotOptions") => spot_options(),
-        optional("tags") => map(),
+      update_compute_node_group_slurm_configuration_request() :: %{
+        "scaleDownIdleTimeInSeconds" => [integer()],
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type update_compute_node_group_slurm_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_queues_request() :: %{
         required("clusterIdentifier") => String.t() | atom(),
-        required("computeNodeGroupName") => String.t() | atom(),
-        required("customLaunchTemplate") => custom_launch_template(),
-        required("iamInstanceProfileArn") => String.t() | atom(),
-        required("instanceConfigs") => list(instance_config()),
-        required("scalingConfiguration") => scaling_configuration_request(),
-        required("subnetIds") => list([String.t() | atom()]())
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type create_compute_node_group_request() :: %{(String.t() | atom()) => any()}
+  @type list_queues_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_queue_response() :: %{}
-      
-  """
-  @type delete_queue_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      compute_node_group_summary() :: %{
-        "arn" => [String.t() | atom()],
-        "clusterId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "id" => [String.t() | atom()],
-        "modifiedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type compute_node_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cluster_request() :: %{
-        required("clusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      slurm_auth_key() :: %{
-        "secretArn" => [String.t() | atom()],
-        "secretVersion" => [String.t() | atom()]
-      }
-      
-  """
-  @type slurm_auth_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_launch_template() :: %{
-        "id" => [String.t() | atom()],
-        "version" => [String.t() | atom()]
-      }
-      
-  """
-  @type custom_launch_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_queue_response() :: %{
+      get_queue_response() :: %{
         "queue" => queue()
       }
       
   """
-  @type create_queue_response() :: %{(String.t() | atom()) => any()}
+  @type get_queue_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_cluster_response() :: %{
-        "cluster" => cluster()
+      cluster_slurm_configuration() :: %{
+        "accounting" => accounting(),
+        "authKey" => slurm_auth_key(),
+        "cgroupCustomSettings" => list(cgroup_custom_setting()),
+        "jwtAuth" => jwt_auth(),
+        "scaleDownIdleTimeInSeconds" => [integer()],
+        "slurmCustomSettings" => list(slurm_custom_setting()),
+        "slurmRest" => slurm_rest(),
+        "slurmdbdCustomSettings" => list(slurmdbd_custom_setting())
       }
       
   """
-  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type cluster_slurm_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cluster_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("clusterIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accounting_request() :: %{
+        "defaultPurgeTimeInDays" => [integer()],
+        "mode" => list(any())
+      }
+      
+  """
+  @type accounting_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_compute_node_groups_response() :: %{
+        "computeNodeGroups" => list(compute_node_group_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_compute_node_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_compute_node_group_response() :: %{
+        "computeNodeGroup" => compute_node_group()
+      }
+      
+  """
+  @type update_compute_node_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_node_group_slurm_configuration_request() :: %{
+        "scaleDownIdleTimeInSeconds" => [integer()],
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type compute_node_group_slurm_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue() :: %{
+        "arn" => [String.t() | atom()],
+        "clusterId" => [String.t() | atom()],
+        "computeNodeGroupConfigurations" => list(compute_node_group_configuration()),
+        "createdAt" => [non_neg_integer()],
+        "errorInfo" => list(error_info()),
+        "id" => [String.t() | atom()],
+        "modifiedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "slurmConfiguration" => queue_slurm_configuration(),
+        "status" => list(any())
+      }
+      
+  """
+  @type queue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scaling_configuration() :: %{
+        "maxInstanceCount" => [integer()],
+        "minInstanceCount" => [integer()]
+      }
+      
+  """
+  @type scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_compute_node_groups_request() :: %{
+        required("clusterIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_compute_node_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_slurm_configuration() :: %{
+        "slurmCustomSettings" => list(slurm_custom_setting())
+      }
+      
+  """
+  @type queue_slurm_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_cluster_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_compute_node_group_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_queue_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_cluster_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_compute_node_group_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_queue_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_cluster_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_compute_node_group_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_queue_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_clusters_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_compute_node_groups_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_queues_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
@@ -1231,30 +1329,30 @@ defmodule AWS.PCS do
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_cluster_errors() ::
-          throttling_exception()
-          | validation_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_compute_node_group_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_queue_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   def metadata do
     %{
@@ -1292,7 +1390,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1316,7 +1415,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_compute_node_group_errors()}
   def create_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComputeNodeGroup", input, options)
   end
@@ -1333,7 +1433,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateQueue", input, options)
   end
@@ -1350,7 +1451,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -1366,7 +1468,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_compute_node_group_errors()}
   def delete_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteComputeNodeGroup", input, options)
   end
@@ -1383,7 +1486,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQueue", input, options)
   end
@@ -1400,7 +1504,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCluster", input, options)
   end
@@ -1417,7 +1522,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_compute_node_group_errors()}
   def get_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComputeNodeGroup", input, options)
   end
@@ -1434,7 +1540,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_queue_errors()}
   def get_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQueue", input, options)
   end
@@ -1448,7 +1555,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -1462,7 +1570,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_compute_node_groups_errors()}
   def list_compute_node_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComputeNodeGroups", input, options)
   end
@@ -1476,7 +1585,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQueues", input, options)
   end
@@ -1490,7 +1600,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1511,7 +1622,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, register_compute_node_group_instance_errors()}
   def register_compute_node_group_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterComputeNodeGroupInstance", input, options)
   end
@@ -1530,7 +1642,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1547,7 +1660,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1555,8 +1669,10 @@ defmodule AWS.PCS do
   @doc """
   Updates a cluster configuration.
 
-  You can modify Slurm scheduler settings, accounting configuration, and security
-  groups for an existing cluster.
+  You can update the scheduler version, modify scheduler settings, and update
+  accounting configuration for an existing cluster. For more information about
+  updating the scheduler version, see [Updating the scheduler version on a cluster](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html)
+  in the *PCS User Guide*.
 
   You can only update clusters that are in `ACTIVE`, `UPDATE_FAILED`, or
   `SUSPENDED` state. All associated resources (queues and compute node groups)
@@ -1568,7 +1684,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -1586,7 +1703,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, update_compute_node_group_errors()}
   def update_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComputeNodeGroup", input, options)
   end
@@ -1602,7 +1720,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, update_queue_errors()}
   def update_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQueue", input, options)
   end

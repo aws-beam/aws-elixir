@@ -107,58 +107,131 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      get_repository_link_input() :: %{
-        required("RepositoryLinkId") => String.t() | atom()
+      get_sync_blocker_summary_input() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("SyncType") => list(any())
       }
       
   """
-  @type get_repository_link_input() :: %{(String.t() | atom()) => any()}
+  @type get_sync_blocker_summary_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_sync_configuration_output() :: %{
-        "SyncConfiguration" => sync_configuration()
-      }
+      untag_resource_output() :: %{}
       
   """
-  @type create_sync_configuration_output() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      repository_sync_attempt() :: %{
-        "Events" => list(repository_sync_event()),
-        "StartedAt" => non_neg_integer(),
-        "Status" => list(any())
+      get_host_input() :: %{
+        required("HostArn") => String.t() | atom()
       }
       
   """
-  @type repository_sync_attempt() :: %{(String.t() | atom()) => any()}
+  @type get_host_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_connection_input() :: %{
-        required("ConnectionArn") => String.t() | atom()
+      get_connection_output() :: %{
+        "Connection" => connection()
       }
       
   """
-  @type delete_connection_input() :: %{(String.t() | atom()) => any()}
+  @type get_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unsupported_operation_exception() :: %{
+      create_repository_link_input() :: %{
+        required("ConnectionArn") => String.t() | atom(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
+        required("OwnerId") => String.t() | atom(),
+        required("RepositoryName") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_repository_link_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_sync_configuration_input() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("SyncType") => list(any())
+      }
+      
+  """
+  @type get_sync_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_sync_blocker_summary_output() :: %{
+        "SyncBlockerSummary" => sync_blocker_summary()
+      }
+      
+  """
+  @type get_sync_blocker_summary_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_sync_attempt() :: %{
+        "Events" => list(resource_sync_event()),
+        "InitialRevision" => revision(),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "Target" => String.t() | atom(),
+        "TargetRevision" => revision()
+      }
+      
+  """
+  @type resource_sync_attempt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_host_input() :: %{
+        required("HostArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_host_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,122 +251,15 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      create_repository_link_input() :: %{
-        optional("EncryptionKeyArn") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ConnectionArn") => String.t() | atom(),
-        required("OwnerId") => String.t() | atom(),
-        required("RepositoryName") => String.t() | atom()
+      resource_sync_event() :: %{
+        "Event" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
+        "Time" => non_neg_integer(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type create_repository_link_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sync_configurations_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "SyncConfigurations" => list(sync_configuration())
-      }
-      
-  """
-  @type list_sync_configurations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_repository_link_output() :: %{}
-      
-  """
-  @type delete_repository_link_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      sync_blocker_context() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type sync_blocker_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_sync_status_input() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("SyncType") => list(any())
-      }
-      
-  """
-  @type get_resource_sync_status_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_sync_blocker_input() :: %{
-        required("Id") => String.t() | atom(),
-        required("ResolvedReason") => String.t() | atom(),
-        required("ResourceName") => String.t() | atom(),
-        required("SyncType") => list(any())
-      }
-      
-  """
-  @type update_sync_blocker_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sync_blocker_summary() :: %{
-        "LatestBlockers" => list(sync_blocker()),
-        "ParentResourceName" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
-      }
-      
-  """
-  @type sync_blocker_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_connections_output() :: %{
-        "Connections" => list(connection()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_connections_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_repository_link_output() :: %{
-        "RepositoryLinkInfo" => repository_link_info()
-      }
-      
-  """
-  @type create_repository_link_output() :: %{(String.t() | atom()) => any()}
+  @type resource_sync_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,236 +272,6 @@ defmodule AWS.CodeConnections do
       
   """
   @type create_connection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_sync_status_output() :: %{
-        "DesiredState" => revision(),
-        "LatestSuccessfulSync" => resource_sync_attempt(),
-        "LatestSync" => resource_sync_attempt()
-      }
-      
-  """
-  @type get_resource_sync_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sync_configuration_still_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type sync_configuration_still_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_latest_commit_failed_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type retry_latest_commit_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_host_output() :: %{
-        "HostArn" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type create_host_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_sync_configuration_input() :: %{
-        optional("Branch") => String.t() | atom(),
-        optional("ConfigFile") => String.t() | atom(),
-        optional("PublishDeploymentStatus") => list(any()),
-        optional("PullRequestComment") => list(any()),
-        optional("RepositoryLinkId") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("TriggerResourceUpdateOn") => list(any()),
-        required("ResourceName") => String.t() | atom(),
-        required("SyncType") => list(any())
-      }
-      
-  """
-  @type update_sync_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_output() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      repository_sync_definition() :: %{
-        "Branch" => String.t() | atom(),
-        "Directory" => String.t() | atom(),
-        "Parent" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
-      
-  """
-  @type repository_sync_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_sync_configuration_input() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("SyncType") => list(any())
-      }
-      
-  """
-  @type delete_sync_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_repository_links_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RepositoryLinks" => list(repository_link_info())
-      }
-      
-  """
-  @type list_repository_links_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_repository_link_output() :: %{
-        "RepositoryLinkInfo" => repository_link_info()
-      }
-      
-  """
-  @type update_repository_link_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_sync_blocker_output() :: %{
-        "ParentResourceName" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "SyncBlocker" => sync_blocker()
-      }
-      
-  """
-  @type update_sync_blocker_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_sync_configuration_output() :: %{
-        "SyncConfiguration" => sync_configuration()
-      }
-      
-  """
-  @type get_sync_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_provider_type_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_provider_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_host_input() :: %{
-        optional("ProviderEndpoint") => String.t() | atom(),
-        optional("VpcConfiguration") => vpc_configuration(),
-        required("HostArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_host_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_connection_input() :: %{
-        required("ConnectionArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_connection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_connection_output() :: %{
-        "Connection" => connection()
-      }
-      
-  """
-  @type get_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,102 +293,139 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      update_sync_configuration_output() :: %{
-        "SyncConfiguration" => sync_configuration()
-      }
-      
-  """
-  @type update_sync_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sync_configurations_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("RepositoryLinkId") => String.t() | atom(),
-        required("SyncType") => list(any())
-      }
-      
-  """
-  @type list_sync_configurations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_repository_sync_status_output() :: %{
-        "LatestSync" => repository_sync_attempt()
-      }
-      
-  """
-  @type get_repository_sync_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_input_exception() :: %{
+      sync_blocker_does_not_exist_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+  @type sync_blocker_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      sync_blocker() :: %{
-        "Contexts" => list(sync_blocker_context()),
-        "CreatedAt" => non_neg_integer(),
-        "CreatedReason" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ResolvedAt" => non_neg_integer(),
-        "ResolvedReason" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => list(any())
+      create_repository_link_output() :: %{
+        "RepositoryLinkInfo" => repository_link_info()
       }
       
   """
-  @type sync_blocker() :: %{(String.t() | atom()) => any()}
+  @type create_repository_link_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_repository_link_input() :: %{
-        optional("ConnectionArn") => String.t() | atom(),
-        optional("EncryptionKeyArn") => String.t() | atom(),
+      get_repository_link_input() :: %{
         required("RepositoryLinkId") => String.t() | atom()
       }
       
   """
-  @type update_repository_link_input() :: %{(String.t() | atom()) => any()}
+  @type get_repository_link_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_sync_blocker_summary_output() :: %{
-        "SyncBlockerSummary" => sync_blocker_summary()
+      list_tags_for_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_sync_blocker_summary_output() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
+      unsupported_provider_type_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type unsupported_provider_type_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_hosts_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_hosts_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_output() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_configuration_still_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type sync_configuration_still_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revision() :: %{
+        "Branch" => String.t() | atom(),
+        "Directory" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ProviderType" => list(any()),
+        "RepositoryName" => String.t() | atom(),
+        "Sha" => String.t() | atom()
+      }
+      
+  """
+  @type revision() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -670,18 +443,53 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      host() :: %{
-        "HostArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ProviderEndpoint" => String.t() | atom(),
-        "ProviderType" => list(any()),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "VpcConfiguration" => vpc_configuration()
+      delete_host_output() :: %{}
+      
+  """
+  @type delete_host_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connections_output() :: %{
+        "Connections" => list(connection()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type host() :: %{(String.t() | atom()) => any()}
+  @type list_connections_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_blocker_context() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type sync_blocker_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_sync_configuration_input() :: %{
+        optional("Branch") => String.t() | atom(),
+        optional("ConfigFile") => String.t() | atom(),
+        optional("PublishDeploymentStatus") => list(any()),
+        optional("PullRequestComment") => list(any()),
+        optional("RepositoryLinkId") => String.t() | atom(),
+        required("ResourceName") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("SyncType") => list(any()),
+        optional("TriggerResourceUpdateOn") => list(any())
+      }
+      
+  """
+  @type update_sync_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,37 +502,6 @@ defmodule AWS.CodeConnections do
       
   """
   @type list_hosts_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_output() :: %{}
-      
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      conditional_check_failed_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conditional_check_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -752,123 +529,109 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      access_denied_exception() :: %{
+      limit_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_host_input() :: %{
-        required("HostArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_host_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_sync_configuration_input() :: %{
+      delete_sync_configuration_input() :: %{
         required("ResourceName") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type get_sync_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type delete_sync_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_connection_output() :: %{}
+      delete_repository_link_input() :: %{
+        required("RepositoryLinkId") => String.t() | atom()
+      }
       
   """
-  @type delete_connection_output() :: %{}
+  @type delete_repository_link_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      concurrent_modification_exception() :: %{
+      create_host_output() :: %{
+        "HostArn" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type create_host_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_sync_configuration_input() :: %{
+        required("Branch") => String.t() | atom(),
+        required("ConfigFile") => String.t() | atom(),
+        optional("PublishDeploymentStatus") => list(any()),
+        optional("PullRequestComment") => list(any()),
+        required("RepositoryLinkId") => String.t() | atom(),
+        required("ResourceName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("SyncType") => list(any()),
+        optional("TriggerResourceUpdateOn") => list(any())
+      }
+      
+  """
+  @type create_sync_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_out_of_sync_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+  @type update_out_of_sync_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_input() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_sync_attempt() :: %{
-        "Events" => list(resource_sync_event()),
-        "InitialRevision" => revision(),
-        "StartedAt" => non_neg_integer(),
+      sync_blocker() :: %{
+        "Contexts" => list(sync_blocker_context()),
+        "CreatedAt" => non_neg_integer(),
+        "CreatedReason" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ResolvedAt" => non_neg_integer(),
+        "ResolvedReason" => String.t() | atom(),
         "Status" => list(any()),
-        "Target" => String.t() | atom(),
-        "TargetRevision" => revision()
+        "Type" => list(any())
       }
       
   """
-  @type resource_sync_attempt() :: %{(String.t() | atom()) => any()}
+  @type sync_blocker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_output() :: %{}
-      
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_host_output() :: %{}
-      
-  """
-  @type delete_host_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
+      list_sync_configurations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("RepositoryLinkId") => String.t() | atom(),
+        required("SyncType") => list(any())
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type list_sync_configurations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,28 +650,159 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      list_repository_links_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      delete_sync_configuration_output() :: %{}
       
   """
-  @type list_repository_links_input() :: %{(String.t() | atom()) => any()}
+  @type delete_sync_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
       create_host_input() :: %{
-        optional("Tags") => list(tag()),
-        optional("VpcConfiguration") => vpc_configuration(),
         required("Name") => String.t() | atom(),
         required("ProviderEndpoint") => String.t() | atom(),
-        required("ProviderType") => list(any())
+        required("ProviderType") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("VpcConfiguration") => vpc_configuration()
       }
       
   """
   @type create_host_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_input() :: %{
+        required("ConnectionArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_output() :: %{}
+      
+  """
+  @type delete_connection_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_sync_configuration_output() :: %{
+        "SyncConfiguration" => sync_configuration()
+      }
+      
+  """
+  @type update_sync_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_sync_definition() :: %{
+        "Branch" => String.t() | atom(),
+        "Directory" => String.t() | atom(),
+        "Parent" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+      
+  """
+  @type repository_sync_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_output() :: %{}
+      
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_host_output() :: %{}
+      
+  """
+  @type update_host_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sync_configurations_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "SyncConfigurations" => list(sync_configuration())
+      }
+      
+  """
+  @type list_sync_configurations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_sync_configuration_output() :: %{
+        "SyncConfiguration" => sync_configuration()
+      }
+      
+  """
+  @type create_sync_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_link_output() :: %{}
+      
+  """
+  @type delete_repository_link_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      host() :: %{
+        "HostArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProviderEndpoint" => String.t() | atom(),
+        "ProviderType" => list(any()),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "VpcConfiguration" => vpc_configuration()
+      }
+      
+  """
+  @type host() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -926,65 +820,158 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
+      internal_server_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_connections_input() :: %{
-        optional("HostArnFilter") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProviderTypeFilter") => list(any())
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type list_connections_input() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_sync_configuration_input() :: %{
-        optional("PublishDeploymentStatus") => list(any()),
-        optional("PullRequestComment") => list(any()),
-        optional("TriggerResourceUpdateOn") => list(any()),
-        required("Branch") => String.t() | atom(),
-        required("ConfigFile") => String.t() | atom(),
-        required("RepositoryLinkId") => String.t() | atom(),
+      list_repository_links_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RepositoryLinks" => list(repository_link_info())
+      }
+      
+  """
+  @type list_repository_links_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_sync_status_input() :: %{
         required("ResourceName") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type create_sync_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type get_resource_sync_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_repository_link_input() :: %{
+      repository_sync_event() :: %{
+        "Event" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
+        "Time" => non_neg_integer(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type repository_sync_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_repository_link_input() :: %{
+        optional("ConnectionArn") => String.t() | atom(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
         required("RepositoryLinkId") => String.t() | atom()
       }
       
   """
-  @type delete_repository_link_input() :: %{(String.t() | atom()) => any()}
+  @type update_repository_link_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_host_output() :: %{}
+      unsupported_operation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
       
   """
-  @type update_host_output() :: %{}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_sync_blocker_output() :: %{
+        "ParentResourceName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "SyncBlocker" => sync_blocker()
+      }
+      
+  """
+  @type update_sync_blocker_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conditional_check_failed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conditional_check_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_sync_configuration_output() :: %{
+        "SyncConfiguration" => sync_configuration()
+      }
+      
+  """
+  @type get_sync_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_host_input() :: %{
+        required("HostArn") => String.t() | atom(),
+        optional("ProviderEndpoint") => String.t() | atom(),
+        optional("VpcConfiguration") => vpc_configuration()
+      }
+      
+  """
+  @type update_host_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_repository_links_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_repository_links_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1001,34 +988,11 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      get_sync_blocker_summary_input() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("SyncType") => list(any())
-      }
-      
-  """
-  @type get_sync_blocker_summary_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_connection_input() :: %{
+        required("ConnectionName") => String.t() | atom(),
         optional("HostArn") => String.t() | atom(),
         optional("ProviderType") => list(any()),
-        optional("Tags") => list(tag()),
-        required("ConnectionName") => String.t() | atom()
+        optional("Tags") => list(tag())
       }
       
   """
@@ -1038,21 +1002,14 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      sync_blocker_does_not_exist_exception() :: %{
-        "Message" => String.t() | atom()
+      get_resource_sync_status_output() :: %{
+        "DesiredState" => revision(),
+        "LatestSuccessfulSync" => resource_sync_attempt(),
+        "LatestSync" => resource_sync_attempt()
       }
       
   """
-  @type sync_blocker_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_sync_configuration_output() :: %{}
-      
-  """
-  @type delete_sync_configuration_output() :: %{}
+  @type get_resource_sync_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,56 +1032,98 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      resource_sync_event() :: %{
-        "Event" => String.t() | atom(),
-        "ExternalId" => String.t() | atom(),
-        "Time" => non_neg_integer(),
-        "Type" => String.t() | atom()
+      untag_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type resource_sync_event() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      repository_sync_event() :: %{
-        "Event" => String.t() | atom(),
-        "ExternalId" => String.t() | atom(),
-        "Time" => non_neg_integer(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type repository_sync_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revision() :: %{
-        "Branch" => String.t() | atom(),
-        "Directory" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ProviderType" => list(any()),
-        "RepositoryName" => String.t() | atom(),
-        "Sha" => String.t() | atom()
-      }
-      
-  """
-  @type revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_out_of_sync_exception() :: %{
+      resource_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type update_out_of_sync_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_blocker_summary() :: %{
+        "LatestBlockers" => list(sync_blocker()),
+        "ParentResourceName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+      
+  """
+  @type sync_blocker_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_connection_input() :: %{
+        required("ConnectionArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_repository_link_output() :: %{
+        "RepositoryLinkInfo" => repository_link_info()
+      }
+      
+  """
+  @type update_repository_link_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connections_input() :: %{
+        optional("HostArnFilter") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProviderTypeFilter") => list(any())
+      }
+      
+  """
+  @type list_connections_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_sync_blocker_input() :: %{
+        required("Id") => String.t() | atom(),
+        required("ResolvedReason") => String.t() | atom(),
+        required("ResourceName") => String.t() | atom(),
+        required("SyncType") => list(any())
+      }
+      
+  """
+  @type update_sync_blocker_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_latest_commit_failed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type retry_latest_commit_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1145,48 +1144,49 @@ defmodule AWS.CodeConnections do
 
   ## Example:
       
-      list_hosts_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      repository_sync_attempt() :: %{
+        "Events" => list(repository_sync_event()),
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any())
       }
       
   """
-  @type list_hosts_input() :: %{(String.t() | atom()) => any()}
+  @type repository_sync_attempt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_host_input() :: %{
-        required("HostArn") => String.t() | atom()
+      get_repository_sync_status_output() :: %{
+        "LatestSync" => repository_sync_attempt()
       }
       
   """
-  @type get_host_input() :: %{(String.t() | atom()) => any()}
+  @type get_repository_sync_status_output() :: %{(String.t() | atom()) => any()}
 
   @type create_connection_errors() ::
-          limit_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | resource_unavailable_exception()
+          | limit_exceeded_exception()
 
   @type create_host_errors() :: limit_exceeded_exception()
 
   @type create_repository_link_errors() ::
-          resource_already_exists_exception()
+          internal_server_exception()
+          | access_denied_exception()
           | limit_exceeded_exception()
           | throttling_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          | resource_already_exists_exception()
           | invalid_input_exception()
 
   @type create_sync_configuration_errors() ::
-          resource_already_exists_exception()
+          internal_server_exception()
+          | access_denied_exception()
           | limit_exceeded_exception()
           | throttling_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          | resource_already_exists_exception()
           | invalid_input_exception()
 
   @type delete_connection_errors() :: resource_not_found_exception()
@@ -1194,21 +1194,21 @@ defmodule AWS.CodeConnections do
   @type delete_host_errors() :: resource_not_found_exception() | resource_unavailable_exception()
 
   @type delete_repository_link_errors() ::
-          throttling_exception()
-          | concurrent_modification_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | invalid_input_exception()
-          | unsupported_provider_type_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | sync_configuration_still_exists_exception()
+          | concurrent_modification_exception()
+          | unsupported_provider_type_exception()
+          | invalid_input_exception()
 
   @type delete_sync_configuration_errors() ::
-          limit_exceeded_exception()
+          internal_server_exception()
+          | access_denied_exception()
+          | limit_exceeded_exception()
           | throttling_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | invalid_input_exception()
 
   @type get_connection_errors() ::
@@ -1217,103 +1217,103 @@ defmodule AWS.CodeConnections do
   @type get_host_errors() :: resource_not_found_exception() | resource_unavailable_exception()
 
   @type get_repository_link_errors() ::
-          throttling_exception()
-          | concurrent_modification_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type get_repository_sync_status_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type get_resource_sync_status_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type get_sync_blocker_summary_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type get_sync_configuration_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type list_connections_errors() :: resource_not_found_exception()
 
   @type list_repository_links_errors() ::
-          throttling_exception()
-          | concurrent_modification_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type list_repository_sync_definitions_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type list_sync_configurations_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
-  @type tag_resource_errors() :: limit_exceeded_exception() | resource_not_found_exception()
+  @type tag_resource_errors() :: resource_not_found_exception() | limit_exceeded_exception()
 
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_host_errors() ::
           resource_not_found_exception()
-          | conflict_exception()
-          | resource_unavailable_exception()
           | unsupported_operation_exception()
+          | resource_unavailable_exception()
+          | conflict_exception()
 
   @type update_repository_link_errors() ::
-          update_out_of_sync_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          resource_not_found_exception()
           | conditional_check_failed_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | update_out_of_sync_exception()
+          | throttling_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   @type update_sync_blocker_errors() ::
-          sync_blocker_does_not_exist_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | invalid_input_exception()
+          retry_latest_commit_failed_exception()
           | resource_not_found_exception()
-          | retry_latest_commit_failed_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | sync_blocker_does_not_exist_exception()
+          | invalid_input_exception()
 
   @type update_sync_configuration_errors() ::
-          update_out_of_sync_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | update_out_of_sync_exception()
           | throttling_exception()
           | concurrent_modification_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -1345,7 +1345,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -1371,7 +1372,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, create_host_errors()}
   def create_host(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHost", input, options)
   end
@@ -1388,7 +1390,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, create_repository_link_errors()}
   def create_repository_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRepositoryLink", input, options)
   end
@@ -1407,7 +1410,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, create_sync_configuration_errors()}
   def create_sync_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSyncConfiguration", input, options)
   end
@@ -1421,7 +1425,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -1441,7 +1446,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, delete_host_errors()}
   def delete_host(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHost", input, options)
   end
@@ -1456,7 +1462,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, delete_repository_link_errors()}
   def delete_repository_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRepositoryLink", input, options)
   end
@@ -1470,7 +1477,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, delete_sync_configuration_errors()}
   def delete_sync_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSyncConfiguration", input, options)
   end
@@ -1484,7 +1492,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnection", input, options)
   end
@@ -1500,7 +1509,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, get_host_errors()}
   def get_host(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHost", input, options)
   end
@@ -1517,7 +1527,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, get_repository_link_errors()}
   def get_repository_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRepositoryLink", input, options)
   end
@@ -1534,7 +1545,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, get_repository_sync_status_errors()}
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRepositorySyncStatus", input, options)
   end
@@ -1550,7 +1562,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, get_resource_sync_status_errors()}
   def get_resource_sync_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceSyncStatus", input, options)
   end
@@ -1564,7 +1577,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, get_sync_blocker_summary_errors()}
   def get_sync_blocker_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSyncBlockerSummary", input, options)
   end
@@ -1582,7 +1596,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, get_sync_configuration_errors()}
   def get_sync_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSyncConfiguration", input, options)
   end
@@ -1596,7 +1611,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConnections", input, options)
   end
@@ -1609,7 +1625,8 @@ defmodule AWS.CodeConnections do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_hosts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHosts", input, options)
   end
@@ -1623,7 +1640,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, list_repository_links_errors()}
   def list_repository_links(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRepositoryLinks", input, options)
   end
@@ -1637,7 +1655,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, list_repository_sync_definitions_errors()}
   def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRepositorySyncDefinitions", input, options)
   end
@@ -1651,7 +1670,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, list_sync_configurations_errors()}
   def list_sync_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSyncConfigurations", input, options)
   end
@@ -1665,7 +1685,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1682,7 +1703,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1696,7 +1718,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1710,7 +1733,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, update_host_errors()}
   def update_host(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHost", input, options)
   end
@@ -1729,7 +1753,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, update_repository_link_errors()}
   def update_repository_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRepositoryLink", input, options)
   end
@@ -1744,7 +1769,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, update_sync_blocker_errors()}
   def update_sync_blocker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSyncBlocker", input, options)
   end
@@ -1759,7 +1785,8 @@ defmodule AWS.CodeConnections do
           | {:error, term()}
           | {:error, update_sync_configuration_errors()}
   def update_sync_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSyncConfiguration", input, options)
   end

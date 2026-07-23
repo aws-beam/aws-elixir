@@ -31,32 +31,163 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      list_member_accounts_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("memberAccount") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("organizationalUnitId") => String.t() | atom(),
-        optional("status") => String.t() | atom(),
-        required("notificationConfigurationArn") => String.t() | atom()
+      get_event_rule_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "eventPattern" => String.t() | atom(),
+        "eventType" => String.t() | atom(),
+        "managedRules" => list(String.t() | atom()),
+        "notificationConfigurationArn" => String.t() | atom(),
+        "regions" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
+        "statusSummaryByRegion" => map()
       }
 
   """
-  @type list_member_accounts_request() :: %{(String.t() | atom()) => any()}
+  @type get_event_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_managed_notification_channel_associations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_events_response() :: %{
+        "managedNotificationEvents" => list(managed_notification_event_overview()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_notification_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_notification_configuration_request() :: %{
+        optional("aggregationDuration") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_notification_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_event_metadata() :: %{
+        "eventOccurrenceTime" => [non_neg_integer()],
+        "eventOriginRegion" => String.t() | atom(),
+        "eventType" => [String.t() | atom()],
+        "eventTypeVersion" => [String.t() | atom()],
+        "relatedAccount" => String.t() | atom(),
+        "relatedResources" => list(resource()),
+        "source" => String.t() | atom(),
+        "sourceEventId" => [String.t() | atom()]
+      }
+
+  """
+  @type source_event_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_child_event_request() :: %{
+        optional("locale") => String.t() | atom()
+      }
+
+  """
+  @type get_managed_notification_child_event_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_source_event_metadata_summary() :: %{
+        "eventOriginRegion" => String.t() | atom(),
+        "eventType" => String.t() | atom(),
+        "source" => String.t() | atom()
+      }
+
+  """
+  @type managed_source_event_metadata_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_managed_notification_additional_channel_request() :: %{
         required("managedNotificationConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type list_managed_notification_channel_associations_request() :: %{
+  @type disassociate_managed_notification_additional_channel_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      message_components() :: %{
+        "completeDescription" => String.t() | atom(),
+        "dimensions" => list(dimension()),
+        "headline" => String.t() | atom(),
+        "paragraphSummary" => String.t() | atom()
+      }
+
+  """
+  @type message_components() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_managed_notification_additional_channel_request() :: %{
+        required("managedNotificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_managed_notification_additional_channel_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_notification_hub_response() :: %{
+        "notificationHubRegion" => String.t() | atom(),
+        "statusSummary" => notification_hub_status_summary()
+      }
+
+  """
+  @type deregister_notification_hub_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,41 +204,36 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      source_event_metadata_summary() :: %{
-        "eventOriginRegion" => [String.t() | atom()],
-        "eventType" => [String.t() | atom()],
-        "source" => [String.t() | atom()]
-      }
+      enable_notifications_access_for_organization_response() :: %{}
 
   """
-  @type source_event_metadata_summary() :: %{(String.t() | atom()) => any()}
+  @type enable_notifications_access_for_organization_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_managed_notification_configurations_request() :: %{
-        optional("channelIdentifier") => String.t() | atom(),
+      list_managed_notification_child_events_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitId") => String.t() | atom(),
+        optional("relatedAccount") => String.t() | atom(),
+        optional("startTime") => [non_neg_integer()]
       }
 
   """
-  @type list_managed_notification_configurations_request() :: %{(String.t() | atom()) => any()}
+  @type list_managed_notification_child_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      text_part_value() :: %{
-        "displayText" => [String.t() | atom()],
-        "textByLocale" => map(),
-        "type" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
+      enable_notifications_access_for_organization_request() :: %{}
 
   """
-  @type text_part_value() :: %{(String.t() | atom()) => any()}
+  @type enable_notifications_access_for_organization_request() :: %{}
 
   @typedoc """
 
@@ -126,27 +252,48 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      notification_configuration_structure() :: %{
-        "aggregationDuration" => String.t() | atom(),
+      get_notification_event_response() :: %{
         "arn" => String.t() | atom(),
+        "content" => notification_event_schema(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "subtype" => String.t() | atom()
+        "notificationConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type notification_configuration_structure() :: %{(String.t() | atom()) => any()}
+  @type get_notification_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_managed_notification_additional_channel_response() :: %{}
+      disassociate_managed_notification_account_contact_request() :: %{
+        required("managedNotificationConfigurationArn") => String.t() | atom()
+      }
 
   """
-  @type associate_managed_notification_additional_channel_response() :: %{}
+  @type disassociate_managed_notification_account_contact_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_rule_request() :: %{}
+
+  """
+  @type delete_event_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_detail() :: %{
+        "summarizationDimensions" => list(summarization_dimension_detail())
+      }
+
+  """
+  @type aggregation_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,67 +310,31 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      get_managed_notification_child_event_request() :: %{
-        optional("locale") => String.t() | atom()
-      }
+      associate_organizational_unit_response() :: %{}
 
   """
-  @type get_managed_notification_child_event_request() :: %{(String.t() | atom()) => any()}
+  @type associate_organizational_unit_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_notification_event_request() :: %{
-        optional("locale") => String.t() | atom()
-      }
+      disable_notifications_access_for_organization_request() :: %{}
 
   """
-  @type get_notification_event_request() :: %{(String.t() | atom()) => any()}
+  @type disable_notifications_access_for_organization_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_managed_notification_additional_channel_response() :: %{}
-
-  """
-  @type disassociate_managed_notification_additional_channel_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_notification_child_events_response() :: %{
-        "managedNotificationChildEvents" => list(managed_notification_child_event_overview()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_notification_child_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_notification_event_request() :: %{
-        optional("locale") => String.t() | atom()
-      }
-
-  """
-  @type get_managed_notification_event_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_hub_status_summary() :: %{
+      event_rule_status_summary() :: %{
         "reason" => String.t() | atom(),
         "status" => String.t() | atom()
       }
 
   """
-  @type notification_hub_status_summary() :: %{(String.t() | atom()) => any()}
+  @type event_rule_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,49 +352,6 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_channel_response() :: %{}
-
-  """
-  @type disassociate_channel_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organizational_units_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("notificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type list_organizational_units_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_member_accounts_response() :: %{
-        "memberAccounts" => list(member_account()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_member_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       media_element() :: %{
         "caption" => String.t() | atom(),
         "mediaId" => String.t() | atom(),
@@ -293,6 +361,64 @@ defmodule AWS.Notifications do
 
   """
   @type media_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_notification_configuration_response() :: %{}
+
+  """
+  @type delete_notification_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_rule_response() :: %{}
+
+  """
+  @type delete_event_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_channel_associations_response() :: %{
+        "channelAssociations" => list(managed_notification_channel_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_notification_channel_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_response() :: %{
+        "channels" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -317,270 +443,12 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      message_components_summary() :: %{
-        "headline" => [String.t() | atom()]
+      get_notification_event_request() :: %{
+        optional("locale") => String.t() | atom()
       }
 
   """
-  @type message_components_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_rule_response() :: %{}
-
-  """
-  @type delete_event_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_notification_hub_response() :: %{
-        "notificationHubRegion" => String.t() | atom(),
-        "statusSummary" => notification_hub_status_summary()
-      }
-
-  """
-  @type deregister_notification_hub_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notification_configuration_request() :: %{}
-
-  """
-  @type get_notification_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_managed_notification_account_contact_response() :: %{}
-
-  """
-  @type associate_managed_notification_account_contact_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_notification_event_response() :: %{
-        "arn" => String.t() | atom(),
-        "content" => managed_notification_event(),
-        "creationTime" => non_neg_integer(),
-        "managedNotificationConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type get_managed_notification_event_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_notification_event() :: %{
-        "aggregationEventType" => String.t() | atom(),
-        "aggregationSummary" => aggregation_summary(),
-        "endTime" => [non_neg_integer()],
-        "eventStatus" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "messageComponents" => message_components(),
-        "notificationType" => String.t() | atom(),
-        "organizationalUnitId" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom(),
-        "sourceEventDetailUrl" => String.t() | atom(),
-        "sourceEventDetailUrlDisplayText" => [String.t() | atom()],
-        "startTime" => [non_neg_integer()],
-        "textParts" => map()
-      }
-
-  """
-  @type managed_notification_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_hubs_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_notification_hubs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notification_event_response() :: %{
-        "arn" => String.t() | atom(),
-        "content" => notification_event_schema(),
-        "creationTime" => non_neg_integer(),
-        "notificationConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type get_notification_event_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_summary() :: %{
-        "additionalSummarizationDimensions" => list(summarization_dimension_overview()),
-        "aggregatedAccounts" => summarization_dimension_overview(),
-        "aggregatedBy" => list(aggregation_key()),
-        "aggregatedOrganizationalUnits" => summarization_dimension_overview(),
-        "aggregatedRegions" => summarization_dimension_overview(),
-        "eventCount" => [integer()]
-      }
-
-  """
-  @type aggregation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_key() :: %{
-        "name" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type aggregation_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      summarization_dimension_detail() :: %{
-        "name" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type summarization_dimension_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_rules_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("notificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type list_event_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_channel_response() :: %{}
-
-  """
-  @type associate_channel_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_notifications_access_for_organization_request() :: %{}
-
-  """
-  @type disable_notifications_access_for_organization_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_rule_request() :: %{}
-
-  """
-  @type get_event_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_notification_configurations_response() :: %{
-        "managedNotificationConfigurations" => list(managed_notification_configuration_structure()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_notification_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_configurations_request() :: %{
-        optional("channelArn") => String.t() | atom(),
-        optional("eventRuleSource") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => String.t() | atom(),
-        optional("subtype") => String.t() | atom()
-      }
-
-  """
-  @type list_notification_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_organizational_unit_response() :: %{}
-
-  """
-  @type associate_organizational_unit_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notification_configuration_response() :: %{
-        "aggregationDuration" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "subtype" => String.t() | atom()
-      }
-
-  """
-  @type get_notification_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_channel_request() :: %{
-        required("notificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_channel_request() :: %{(String.t() | atom()) => any()}
+  @type get_notification_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -612,6 +480,538 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      create_notification_configuration_response() :: %{
+        "arn" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type create_notification_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_member_accounts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("memberAccount") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom(),
+        optional("organizationalUnitId") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_member_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_events_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("locale") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitId") => String.t() | atom(),
+        optional("relatedAccount") => String.t() | atom(),
+        optional("source") => String.t() | atom(),
+        optional("startTime") => [non_neg_integer()]
+      }
+
+  """
+  @type list_managed_notification_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_notification_configuration_request() :: %{}
+
+  """
+  @type delete_notification_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_organizational_unit_request() :: %{
+        required("notificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notification_hubs_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "notificationHubs" => list(notification_hub_overview())
+      }
+
+  """
+  @type list_notification_hubs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_hub_status_summary() :: %{
+        "reason" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type notification_hub_status_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_key() :: %{
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type aggregation_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_notification_configuration_request() :: %{}
+
+  """
+  @type get_notification_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_managed_notification_additional_channel_response() :: %{}
+
+  """
+  @type associate_managed_notification_additional_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dimension() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_managed_notification_account_contact_request() :: %{
+        required("managedNotificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_managed_notification_account_contact_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_rule_request() :: %{
+        optional("eventPattern") => String.t() | atom(),
+        required("eventType") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom(),
+        required("regions") => list(String.t() | atom()),
+        required("source") => String.t() | atom()
+      }
+
+  """
+  @type create_event_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_managed_notification_account_contact_response() :: %{}
+
+  """
+  @type associate_managed_notification_account_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notification_hubs_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_notification_hubs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_part_value() :: %{
+        "displayText" => [String.t() | atom()],
+        "textByLocale" => map(),
+        "type" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type text_part_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_child_event_overview() :: %{
+        "aggregateManagedNotificationEventArn" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "childEvent" => managed_notification_child_event_summary(),
+        "creationTime" => non_neg_integer(),
+        "managedNotificationConfigurationArn" => String.t() | atom(),
+        "organizationalUnitId" => String.t() | atom(),
+        "relatedAccount" => String.t() | atom()
+      }
+
+  """
+  @type managed_notification_child_event_overview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_child_event_summary() :: %{
+        "aggregationDetail" => aggregation_detail(),
+        "eventStatus" => String.t() | atom(),
+        "messageComponents" => message_components_summary(),
+        "notificationType" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
+        "sourceEventMetadata" => managed_source_event_metadata_summary()
+      }
+
+  """
+  @type managed_notification_child_event_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_configurations_request() :: %{
+        optional("channelIdentifier") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_notification_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_managed_notification_account_contact_response() :: %{}
+
+  """
+  @type disassociate_managed_notification_account_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_rules_response() :: %{
+        "eventRules" => list(event_rule_structure()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_event_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_notification_hub_request() :: %{}
+
+  """
+  @type deregister_notification_hub_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_child_event_response() :: %{
+        "arn" => String.t() | atom(),
+        "content" => managed_notification_child_event(),
+        "creationTime" => non_neg_integer(),
+        "managedNotificationConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type get_managed_notification_child_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_configurations_response() :: %{
+        "managedNotificationConfigurations" => list(managed_notification_configuration_structure()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_notification_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_event() :: %{
+        "aggregationEventType" => String.t() | atom(),
+        "aggregationSummary" => aggregation_summary(),
+        "endTime" => [non_neg_integer()],
+        "eventStatus" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "messageComponents" => message_components(),
+        "notificationType" => String.t() | atom(),
+        "organizationalUnitId" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
+        "sourceEventDetailUrl" => String.t() | atom(),
+        "sourceEventDetailUrlDisplayText" => [String.t() | atom()],
+        "startTime" => [non_neg_integer()],
+        "textParts" => map()
+      }
+
+  """
+  @type managed_notification_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_summary() :: %{
+        "additionalSummarizationDimensions" => list(summarization_dimension_overview()),
+        "aggregatedAccounts" => summarization_dimension_overview(),
+        "aggregatedBy" => list(aggregation_key()),
+        "aggregatedOrganizationalUnits" => summarization_dimension_overview(),
+        "aggregatedRegions" => summarization_dimension_overview(),
+        "eventCount" => [integer()]
+      }
+
+  """
+  @type aggregation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      summarization_dimension_detail() :: %{
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type summarization_dimension_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_rule_response() :: %{
+        "arn" => String.t() | atom(),
+        "notificationConfigurationArn" => String.t() | atom(),
+        "statusSummaryByRegion" => map()
+      }
+
+  """
+  @type update_event_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_child_events_response() :: %{
+        "managedNotificationChildEvents" => list(managed_notification_child_event_overview()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_managed_notification_child_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_configuration_structure() :: %{
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type managed_notification_configuration_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_channel_response() :: %{}
+
+  """
+  @type associate_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_notifications_access_for_organization_response() :: %{
+        "notificationsAccessForOrganization" => notifications_access_for_organization()
+      }
+
+  """
+  @type get_notifications_access_for_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_event_summary() :: %{
+        "eventStatus" => String.t() | atom(),
+        "messageComponents" => message_components_summary(),
+        "notificationType" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
+        "sourceEventMetadata" => source_event_metadata_summary()
+      }
+
+  """
+  @type notification_event_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_channel_association_summary() :: %{
+        "channelIdentifier" => [String.t() | atom()],
+        "channelType" => String.t() | atom(),
+        "overrideOption" => String.t() | atom()
+      }
+
+  """
+  @type managed_notification_channel_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_managed_notification_additional_channel_response() :: %{}
+
+  """
+  @type disassociate_managed_notification_additional_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_channel_associations_request() :: %{
+        required("managedNotificationConfigurationArn") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_notification_channel_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_notification_events_request() :: %{
         optional("aggregateNotificationEventArn") => String.t() | atom(),
         optional("endTime") => [non_neg_integer()],
@@ -631,6 +1031,270 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      get_managed_notification_configuration_response() :: %{
+        "arn" => String.t() | atom(),
+        "category" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "subCategory" => [String.t() | atom()]
+      }
+
+  """
+  @type get_managed_notification_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_hub_overview() :: %{
+        "creationTime" => non_neg_integer(),
+        "lastActivationTime" => non_neg_integer(),
+        "notificationHubRegion" => String.t() | atom(),
+        "statusSummary" => notification_hub_status_summary()
+      }
+
+  """
+  @type notification_hub_overview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_notifications_access_for_organization_response() :: %{}
+
+  """
+  @type disable_notifications_access_for_organization_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notification_events_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "notificationEvents" => list(notification_event_overview())
+      }
+
+  """
+  @type list_notification_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_organizational_unit_response() :: %{}
+
+  """
+  @type disassociate_organizational_unit_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_member_accounts_response() :: %{
+        "memberAccounts" => list(member_account()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_member_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_rule_structure() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "eventPattern" => String.t() | atom(),
+        "eventType" => String.t() | atom(),
+        "managedRules" => list(String.t() | atom()),
+        "notificationConfigurationArn" => String.t() | atom(),
+        "regions" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
+        "statusSummaryByRegion" => map()
+      }
+
+  """
+  @type event_rule_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      summarization_dimension_overview() :: %{
+        "count" => [integer()],
+        "name" => [String.t() | atom()],
+        "sampleValues" => list([String.t() | atom()]())
+      }
+
+  """
+  @type summarization_dimension_overview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_rule_request() :: %{}
+
+  """
+  @type get_event_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_event_request() :: %{
+        optional("locale") => String.t() | atom()
+      }
+
+  """
+  @type get_managed_notification_event_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_event_overview() :: %{
+        "aggregateNotificationEventArn" => String.t() | atom(),
+        "aggregationEventType" => String.t() | atom(),
+        "aggregationSummary" => aggregation_summary(),
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "notificationConfigurationArn" => String.t() | atom(),
+        "notificationEvent" => notification_event_summary(),
+        "organizationalUnitId" => String.t() | atom(),
+        "relatedAccount" => String.t() | atom()
+      }
+
+  """
+  @type notification_event_overview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_configuration_structure() :: %{
+        "aggregationDuration" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "subtype" => String.t() | atom()
+      }
+
+  """
+  @type notification_configuration_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_event_summary() :: %{
+        "eventStatus" => String.t() | atom(),
+        "messageComponents" => message_components_summary(),
+        "notificationType" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
+        "sourceEventMetadata" => managed_source_event_metadata_summary()
+      }
+
+  """
+  @type managed_notification_event_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_components_summary() :: %{
+        "headline" => [String.t() | atom()]
+      }
+
+  """
+  @type message_components_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_notification_configuration_response() :: %{
+        "aggregationDuration" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "subtype" => String.t() | atom()
+      }
+
+  """
+  @type get_notification_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organizational_units_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type list_organizational_units_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organizational_units_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "organizationalUnits" => list(String.t() | atom())
+      }
+
+  """
+  @type list_organizational_units_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_managed_notification_configuration_request() :: %{}
 
   """
@@ -640,10 +1304,103 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      disassociate_managed_notification_account_contact_response() :: %{}
+      create_notification_configuration_request() :: %{
+        optional("aggregationDuration") => String.t() | atom(),
+        required("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map()
+      }
 
   """
-  @type disassociate_managed_notification_account_contact_response() :: %{}
+  @type create_notification_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_notification_hub_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "lastActivationTime" => non_neg_integer(),
+        "notificationHubRegion" => String.t() | atom(),
+        "statusSummary" => notification_hub_status_summary()
+      }
+
+  """
+  @type register_notification_hub_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_channel_request() :: %{
+        required("notificationConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "arn" => String.t() | atom(),
+        "detailUrl" => String.t() | atom(),
+        "id" => [String.t() | atom()],
+        "tags" => list([String.t() | atom()]())
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_channel_response() :: %{}
+
+  """
+  @type disassociate_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_event_response() :: %{
+        "arn" => String.t() | atom(),
+        "content" => managed_notification_event(),
+        "creationTime" => non_neg_integer(),
+        "managedNotificationConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type get_managed_notification_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_event_metadata_summary() :: %{
+        "eventOriginRegion" => [String.t() | atom()],
+        "eventType" => [String.t() | atom()],
+        "source" => [String.t() | atom()]
+      }
+
+  """
+  @type source_event_metadata_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -672,163 +1429,63 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      get_notifications_access_for_organization_request() :: %{}
-
-  """
-  @type get_notifications_access_for_organization_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_detail() :: %{
-        "summarizationDimensions" => list(summarization_dimension_detail())
+      update_notification_configuration_response() :: %{
+        "arn" => String.t() | atom()
       }
 
   """
-  @type aggregation_detail() :: %{(String.t() | atom()) => any()}
+  @type update_notification_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_organizational_units_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "organizationalUnits" => list(String.t() | atom())
+      register_notification_hub_request() :: %{
+        required("notificationHubRegion") => String.t() | atom()
       }
 
   """
-  @type list_organizational_units_response() :: %{(String.t() | atom()) => any()}
+  @type register_notification_hub_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      enable_notifications_access_for_organization_response() :: %{}
+      list_notification_configurations_request() :: %{
+        optional("channelArn") => String.t() | atom(),
+        optional("eventRuleSource") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        optional("subtype") => String.t() | atom()
+      }
 
   """
-  @type enable_notifications_access_for_organization_response() :: %{}
+  @type list_notification_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_organizational_unit_request() :: %{
+      disassociate_organizational_unit_request() :: %{
         required("notificationConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type associate_organizational_unit_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_organizational_unit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      notification_hub_overview() :: %{
-        "creationTime" => non_neg_integer(),
-        "lastActivationTime" => non_neg_integer(),
-        "notificationHubRegion" => String.t() | atom(),
-        "statusSummary" => notification_hub_status_summary()
-      }
-
-  """
-  @type notification_hub_overview() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_rule_response() :: %{
-        "arn" => String.t() | atom(),
-        "notificationConfigurationArn" => String.t() | atom(),
-        "statusSummaryByRegion" => map()
-      }
-
-  """
-  @type update_event_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_notification_configuration_request() :: %{}
-
-  """
-  @type delete_notification_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_configurations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "notificationConfigurations" => list(notification_configuration_structure())
-      }
-
-  """
-  @type list_notification_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notifications_access_for_organization_response() :: %{
-        "notificationsAccessForOrganization" => notifications_access_for_organization()
-      }
-
-  """
-  @type get_notifications_access_for_organization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_notification_configuration_response() :: %{}
-
-  """
-  @type delete_notification_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_notification_events_request() :: %{
-        optional("endTime") => [non_neg_integer()],
-        optional("locale") => String.t() | atom(),
+      list_event_rules_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
-        optional("organizationalUnitId") => String.t() | atom(),
-        optional("relatedAccount") => String.t() | atom(),
-        optional("source") => String.t() | atom(),
-        optional("startTime") => [non_neg_integer()]
+        required("notificationConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type list_managed_notification_events_request() :: %{(String.t() | atom()) => any()}
+  @type list_event_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -849,976 +1506,319 @@ defmodule AWS.Notifications do
 
   ## Example:
 
-      list_managed_notification_child_events_request() :: %{
-        optional("endTime") => [non_neg_integer()],
-        optional("locale") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("organizationalUnitId") => String.t() | atom(),
-        optional("relatedAccount") => String.t() | atom(),
-        optional("startTime") => [non_neg_integer()]
+      associate_channel_request() :: %{
+        required("notificationConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type list_managed_notification_child_events_request() :: %{(String.t() | atom()) => any()}
+  @type associate_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_managed_notification_configuration_response() :: %{
-        "arn" => String.t() | atom(),
-        "category" => [String.t() | atom()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "subCategory" => [String.t() | atom()]
-      }
-
-  """
-  @type get_managed_notification_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_managed_notification_additional_channel_request() :: %{
-        required("managedNotificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_managed_notification_additional_channel_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      event_rule_structure() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "eventPattern" => String.t() | atom(),
-        "eventType" => String.t() | atom(),
-        "managedRules" => list(String.t() | atom()),
-        "notificationConfigurationArn" => String.t() | atom(),
-        "regions" => list(String.t() | atom()),
-        "source" => String.t() | atom(),
-        "statusSummaryByRegion" => map()
-      }
-
-  """
-  @type event_rule_structure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_hubs_response() :: %{
+      list_notification_configurations_response() :: %{
         "nextToken" => String.t() | atom(),
-        "notificationHubs" => list(notification_hub_overview())
+        "notificationConfigurations" => list(notification_configuration_structure())
       }
 
   """
-  @type list_notification_hubs_response() :: %{(String.t() | atom()) => any()}
+  @type list_notification_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_managed_notification_child_event_response() :: %{
-        "arn" => String.t() | atom(),
-        "content" => managed_notification_child_event(),
-        "creationTime" => non_neg_integer(),
-        "managedNotificationConfigurationArn" => String.t() | atom()
-      }
+      get_notifications_access_for_organization_request() :: %{}
 
   """
-  @type get_managed_notification_child_event_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_notification_configuration_request() :: %{
-        optional("aggregationDuration") => String.t() | atom(),
-        optional("tags") => map(),
-        required("description") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_notification_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_notification_hub_request() :: %{
-        required("notificationHubRegion") => String.t() | atom()
-      }
-
-  """
-  @type register_notification_hub_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_events_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "notificationEvents" => list(notification_event_overview())
-      }
-
-  """
-  @type list_notification_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_notification_configuration_request() :: %{
-        optional("aggregationDuration") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_notification_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_notification_configuration_response() :: %{
-        "arn" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type create_notification_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_response() :: %{
-        "channels" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_notification_event_summary() :: %{
-        "eventStatus" => String.t() | atom(),
-        "messageComponents" => message_components_summary(),
-        "notificationType" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom(),
-        "sourceEventMetadata" => managed_source_event_metadata_summary()
-      }
-
-  """
-  @type managed_notification_event_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_notification_channel_associations_response() :: %{
-        "channelAssociations" => list(managed_notification_channel_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_notification_channel_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      event_rule_status_summary() :: %{
-        "reason" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type event_rule_status_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_rules_response() :: %{
-        "eventRules" => list(event_rule_structure()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_event_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_event_summary() :: %{
-        "eventStatus" => String.t() | atom(),
-        "messageComponents" => message_components_summary(),
-        "notificationType" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom(),
-        "sourceEventMetadata" => source_event_metadata_summary()
-      }
-
-  """
-  @type notification_event_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_notification_events_response() :: %{
-        "managedNotificationEvents" => list(managed_notification_event_overview()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_notification_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_event_overview() :: %{
-        "aggregateNotificationEventArn" => String.t() | atom(),
-        "aggregationEventType" => String.t() | atom(),
-        "aggregationSummary" => aggregation_summary(),
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "notificationConfigurationArn" => String.t() | atom(),
-        "notificationEvent" => notification_event_summary(),
-        "organizationalUnitId" => String.t() | atom(),
-        "relatedAccount" => String.t() | atom()
-      }
-
-  """
-  @type notification_event_overview() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_notification_child_event_summary() :: %{
-        "aggregationDetail" => aggregation_detail(),
-        "eventStatus" => String.t() | atom(),
-        "messageComponents" => message_components_summary(),
-        "notificationType" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom(),
-        "sourceEventMetadata" => managed_source_event_metadata_summary()
-      }
-
-  """
-  @type managed_notification_child_event_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_channel_request() :: %{
-        required("notificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_components() :: %{
-        "completeDescription" => String.t() | atom(),
-        "dimensions" => list(dimension()),
-        "headline" => String.t() | atom(),
-        "paragraphSummary" => String.t() | atom()
-      }
-
-  """
-  @type message_components() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_organizational_unit_response() :: %{}
-
-  """
-  @type disassociate_organizational_unit_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      summarization_dimension_overview() :: %{
-        "count" => [integer()],
-        "name" => [String.t() | atom()],
-        "sampleValues" => list([String.t() | atom()]())
-      }
-
-  """
-  @type summarization_dimension_overview() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_notification_configuration_response() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type update_notification_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_rule_request() :: %{}
-
-  """
-  @type delete_event_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_notifications_access_for_organization_request() :: %{}
-
-  """
-  @type enable_notifications_access_for_organization_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_notification_hub_request() :: %{}
-
-  """
-  @type deregister_notification_hub_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source_event_metadata() :: %{
-        "eventOccurrenceTime" => [non_neg_integer()],
-        "eventOriginRegion" => String.t() | atom(),
-        "eventType" => [String.t() | atom()],
-        "eventTypeVersion" => [String.t() | atom()],
-        "relatedAccount" => String.t() | atom(),
-        "relatedResources" => list(resource()),
-        "source" => String.t() | atom(),
-        "sourceEventId" => [String.t() | atom()]
-      }
-
-  """
-  @type source_event_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_notification_configuration_structure() :: %{
-        "arn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type managed_notification_configuration_structure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_managed_notification_account_contact_request() :: %{
-        required("managedNotificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_managed_notification_account_contact_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      disable_notifications_access_for_organization_response() :: %{}
-
-  """
-  @type disable_notifications_access_for_organization_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dimension() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_organizational_unit_request() :: %{
-        required("notificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_organizational_unit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_notification_channel_association_summary() :: %{
-        "channelIdentifier" => [String.t() | atom()],
-        "channelType" => String.t() | atom(),
-        "overrideOption" => String.t() | atom()
-      }
-
-  """
-  @type managed_notification_channel_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_source_event_metadata_summary() :: %{
-        "eventOriginRegion" => String.t() | atom(),
-        "eventType" => String.t() | atom(),
-        "source" => String.t() | atom()
-      }
-
-  """
-  @type managed_source_event_metadata_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_rule_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "eventPattern" => String.t() | atom(),
-        "eventType" => String.t() | atom(),
-        "managedRules" => list(String.t() | atom()),
-        "notificationConfigurationArn" => String.t() | atom(),
-        "regions" => list(String.t() | atom()),
-        "source" => String.t() | atom(),
-        "statusSummaryByRegion" => map()
-      }
-
-  """
-  @type get_event_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_managed_notification_account_contact_request() :: %{
-        required("managedNotificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_managed_notification_account_contact_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      managed_notification_child_event_overview() :: %{
-        "aggregateManagedNotificationEventArn" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "childEvent" => managed_notification_child_event_summary(),
-        "creationTime" => non_neg_integer(),
-        "managedNotificationConfigurationArn" => String.t() | atom(),
-        "organizationalUnitId" => String.t() | atom(),
-        "relatedAccount" => String.t() | atom()
-      }
-
-  """
-  @type managed_notification_child_event_overview() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_notification_hub_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "lastActivationTime" => non_neg_integer(),
-        "notificationHubRegion" => String.t() | atom(),
-        "statusSummary" => notification_hub_status_summary()
-      }
-
-  """
-  @type register_notification_hub_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("notificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type list_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_rule_request() :: %{
-        optional("eventPattern") => String.t() | atom(),
-        required("eventType") => String.t() | atom(),
-        required("notificationConfigurationArn") => String.t() | atom(),
-        required("regions") => list(String.t() | atom()),
-        required("source") => String.t() | atom()
-      }
-
-  """
-  @type create_event_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_managed_notification_additional_channel_request() :: %{
-        required("managedNotificationConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_managed_notification_additional_channel_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "arn" => String.t() | atom(),
-        "detailUrl" => String.t() | atom(),
-        "id" => [String.t() | atom()],
-        "tags" => list([String.t() | atom()]())
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
+  @type get_notifications_access_for_organization_request() :: %{}
 
   @type associate_channel_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type associate_managed_notification_account_contact_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type associate_managed_notification_additional_channel_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type associate_organizational_unit_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type create_event_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type create_notification_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | conflict_exception()
 
   @type delete_event_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type delete_notification_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type deregister_notification_hub_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type disable_notifications_access_for_organization_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type disassociate_channel_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type disassociate_managed_notification_account_contact_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type disassociate_managed_notification_additional_channel_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type disassociate_organizational_unit_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type enable_notifications_access_for_organization_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type get_event_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type get_managed_notification_child_event_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type get_managed_notification_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type get_managed_notification_event_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type get_notification_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type get_notification_event_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type get_notifications_access_for_organization_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
 
   @type list_channels_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type list_event_rules_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type list_managed_notification_channel_associations_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type list_managed_notification_child_events_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
 
   @type list_managed_notification_configurations_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
 
   @type list_managed_notification_events_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
 
   @type list_member_accounts_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type list_notification_configurations_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
 
   @type list_notification_events_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
 
   @type list_notification_hubs_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
 
   @type list_organizational_units_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type register_notification_hub_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
+          | service_quota_exceeded_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
           | conflict_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
 
   @type update_event_rule_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type update_notification_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2564,9 +2564,9 @@ defmodule AWS.Notifications do
   """
   @spec list_channels(
           map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_channels_response(), any()}
@@ -2575,9 +2575,9 @@ defmodule AWS.Notifications do
           | {:error, list_channels_errors()}
   def list_channels(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         notification_configuration_arn,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/channels"
@@ -2585,8 +2585,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(notification_configuration_arn) do
-        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2599,8 +2599,8 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(notification_configuration_arn) do
+        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
       else
         query_params
       end
@@ -2616,9 +2616,9 @@ defmodule AWS.Notifications do
   """
   @spec list_event_rules(
           map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_event_rules_response(), any()}
@@ -2627,9 +2627,9 @@ defmodule AWS.Notifications do
           | {:error, list_event_rules_errors()}
   def list_event_rules(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         notification_configuration_arn,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/event-rules"
@@ -2637,8 +2637,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(notification_configuration_arn) do
-        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2651,8 +2651,8 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(notification_configuration_arn) do
+        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
       else
         query_params
       end
@@ -2668,9 +2668,9 @@ defmodule AWS.Notifications do
   """
   @spec list_managed_notification_channel_associations(
           map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_notification_channel_associations_response(), any()}
@@ -2679,9 +2679,9 @@ defmodule AWS.Notifications do
           | {:error, list_managed_notification_channel_associations_errors()}
   def list_managed_notification_channel_associations(
         %Client{} = client,
-        managed_notification_configuration_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        managed_notification_configuration_arn,
         options \\ []
       ) do
     url_path = "/channels/list-managed-notification-channel-associations"
@@ -2689,8 +2689,11 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(managed_notification_configuration_arn) do
+        [
+          {"managedNotificationConfigurationArn", managed_notification_configuration_arn}
+          | query_params
+        ]
       else
         query_params
       end
@@ -2703,11 +2706,8 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(managed_notification_configuration_arn) do
-        [
-          {"managedNotificationConfigurationArn", managed_notification_configuration_arn}
-          | query_params
-        ]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2741,13 +2741,13 @@ defmodule AWS.Notifications do
   def list_managed_notification_child_events(
         %Client{} = client,
         aggregate_managed_notification_event_arn,
-        end_time \\ nil,
-        locale \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        organizational_unit_id \\ nil,
-        related_account \\ nil,
         start_time \\ nil,
+        related_account \\ nil,
+        organizational_unit_id \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        locale \\ nil,
+        end_time \\ nil,
         options \\ []
       ) do
     url_path =
@@ -2757,36 +2757,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(related_account) do
-        [{"relatedAccount", related_account} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(organizational_unit_id) do
-        [{"organizationalUnitId", organizational_unit_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
       else
         query_params
       end
@@ -2799,8 +2771,36 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organizational_unit_id) do
+        [{"organizationalUnitId", organizational_unit_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(related_account) do
+        [{"relatedAccount", related_account} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
       else
         query_params
       end
@@ -2827,9 +2827,9 @@ defmodule AWS.Notifications do
           | {:error, list_managed_notification_configurations_errors()}
   def list_managed_notification_configurations(
         %Client{} = client,
-        channel_identifier \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        channel_identifier \\ nil,
         options \\ []
       ) do
     url_path = "/managed-notification-configurations"
@@ -2837,8 +2837,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(channel_identifier) do
+        [{"channelIdentifier", channel_identifier} | query_params]
       else
         query_params
       end
@@ -2851,8 +2851,8 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(channel_identifier) do
-        [{"channelIdentifier", channel_identifier} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2884,14 +2884,14 @@ defmodule AWS.Notifications do
           | {:error, list_managed_notification_events_errors()}
   def list_managed_notification_events(
         %Client{} = client,
-        end_time \\ nil,
-        locale \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        organizational_unit_id \\ nil,
-        related_account \\ nil,
-        source \\ nil,
         start_time \\ nil,
+        source \\ nil,
+        related_account \\ nil,
+        organizational_unit_id \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        locale \\ nil,
+        end_time \\ nil,
         options \\ []
       ) do
     url_path = "/managed-notification-events"
@@ -2899,43 +2899,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(source) do
-        [{"source", source} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(related_account) do
-        [{"relatedAccount", related_account} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(organizational_unit_id) do
-        [{"organizationalUnitId", organizational_unit_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
       else
         query_params
       end
@@ -2948,8 +2913,43 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(end_time) do
-        [{"endTime", end_time} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organizational_unit_id) do
+        [{"organizationalUnitId", organizational_unit_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(related_account) do
+        [{"relatedAccount", related_account} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source) do
+        [{"source", source} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
       else
         query_params
       end
@@ -2966,8 +2966,8 @@ defmodule AWS.Notifications do
           map(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           list()
@@ -2978,12 +2978,12 @@ defmodule AWS.Notifications do
           | {:error, list_member_accounts_errors()}
   def list_member_accounts(
         %Client{} = client,
-        max_results \\ nil,
-        member_account \\ nil,
-        next_token \\ nil,
-        notification_configuration_arn,
-        organizational_unit_id \\ nil,
         status \\ nil,
+        organizational_unit_id \\ nil,
+        notification_configuration_arn,
+        next_token \\ nil,
+        member_account \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/list-member-accounts"
@@ -2991,29 +2991,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(organizational_unit_id) do
-        [{"organizationalUnitId", organizational_unit_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(notification_configuration_arn) do
-        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3026,8 +3005,29 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(notification_configuration_arn) do
+        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organizational_unit_id) do
+        [{"organizationalUnitId", organizational_unit_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -3057,12 +3057,12 @@ defmodule AWS.Notifications do
           | {:error, list_notification_configurations_errors()}
   def list_notification_configurations(
         %Client{} = client,
-        channel_arn \\ nil,
-        event_rule_source \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
         subtype \\ nil,
+        status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        event_rule_source \\ nil,
+        channel_arn \\ nil,
         options \\ []
       ) do
     url_path = "/notification-configurations"
@@ -3070,29 +3070,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(subtype) do
-        [{"subtype", subtype} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(channel_arn) do
+        [{"channelArn", channel_arn} | query_params]
       else
         query_params
       end
@@ -3105,8 +3084,29 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(channel_arn) do
-        [{"channelArn", channel_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(subtype) do
+        [{"subtype", subtype} | query_params]
       else
         query_params
       end
@@ -3148,15 +3148,15 @@ defmodule AWS.Notifications do
           | {:error, list_notification_events_errors()}
   def list_notification_events(
         %Client{} = client,
-        aggregate_notification_event_arn \\ nil,
-        end_time \\ nil,
-        include_child_events \\ nil,
-        locale \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        organizational_unit_id \\ nil,
-        source \\ nil,
         start_time \\ nil,
+        source \\ nil,
+        organizational_unit_id \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        locale \\ nil,
+        include_child_events \\ nil,
+        end_time \\ nil,
+        aggregate_notification_event_arn \\ nil,
         options \\ []
       ) do
     url_path = "/notification-events"
@@ -3164,50 +3164,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(start_time) do
-        [{"startTime", start_time} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(source) do
-        [{"source", source} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(organizational_unit_id) do
-        [{"organizationalUnitId", organizational_unit_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(locale) do
-        [{"locale", locale} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(include_child_events) do
-        [{"includeChildEvents", include_child_events} | query_params]
+      if !is_nil(aggregate_notification_event_arn) do
+        [{"aggregateNotificationEventArn", aggregate_notification_event_arn} | query_params]
       else
         query_params
       end
@@ -3220,8 +3178,50 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(aggregate_notification_event_arn) do
-        [{"aggregateNotificationEventArn", aggregate_notification_event_arn} | query_params]
+      if !is_nil(include_child_events) do
+        [{"includeChildEvents", include_child_events} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(locale) do
+        [{"locale", locale} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organizational_unit_id) do
+        [{"organizationalUnitId", organizational_unit_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source) do
+        [{"source", source} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
       else
         query_params
       end
@@ -3246,8 +3246,8 @@ defmodule AWS.Notifications do
           | {:error, list_notification_hubs_errors()}
   def list_notification_hubs(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/notification-hubs"
@@ -3255,15 +3255,15 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3279,9 +3279,9 @@ defmodule AWS.Notifications do
   """
   @spec list_organizational_units(
           map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_organizational_units_response(), any()}
@@ -3290,9 +3290,9 @@ defmodule AWS.Notifications do
           | {:error, list_organizational_units_errors()}
   def list_organizational_units(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         notification_configuration_arn,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/organizational-units"
@@ -3300,8 +3300,8 @@ defmodule AWS.Notifications do
     query_params = []
 
     query_params =
-      if !is_nil(notification_configuration_arn) do
-        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -3314,8 +3314,8 @@ defmodule AWS.Notifications do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(notification_configuration_arn) do
+        [{"notificationConfigurationArn", notification_configuration_arn} | query_params]
       else
         query_params
       end

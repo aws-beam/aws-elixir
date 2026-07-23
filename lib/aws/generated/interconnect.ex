@@ -14,26 +14,64 @@ defmodule AWS.Interconnect do
 
   ## Example:
       
-      get_connection_request() :: %{
-        required("identifier") => String.t() | atom()
+      list_environments_response() :: %{
+        "environments" => list(environment()),
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type get_connection_request() :: %{(String.t() | atom()) => any()}
+  @type list_environments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_connection_request() :: %{
-        optional("bandwidth") => String.t() | atom(),
+      create_connection_request() :: %{
+        required("attachPoint") => list(),
+        required("bandwidth") => String.t() | atom(),
         optional("clientToken") => [String.t() | atom()],
         optional("description") => String.t() | atom(),
-        required("identifier") => String.t() | atom()
+        required("environmentId") => String.t() | atom(),
+        optional("remoteAccount") => list(),
+        optional("tags") => map()
       }
       
   """
-  @type update_connection_request() :: %{(String.t() | atom()) => any()}
+  @type create_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_summary() :: %{
+        "arn" => String.t() | atom(),
+        "attachPoint" => list(),
+        "bandwidth" => String.t() | atom(),
+        "billingTier" => integer(),
+        "description" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "provider" => list(),
+        "sharedId" => String.t() | atom(),
+        "state" => list(any()),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type connection_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bandwidths() :: %{
+        "available" => list(String.t() | atom()),
+        "supported" => list(String.t() | atom())
+      }
+      
+  """
+  @type bandwidths() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,13 +88,23 @@ defmodule AWS.Interconnect do
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("arn") => String.t() | atom(),
-        required("tags") => map()
+      get_connection_request() :: %{
+        required("identifier") => String.t() | atom()
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type get_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_response() :: %{
+        "connection" => connection()
+      }
+      
+  """
+  @type update_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,119 +121,23 @@ defmodule AWS.Interconnect do
 
   ## Example:
       
-      list_attach_points_response() :: %{
-        "attachPoints" => list(attach_point_descriptor()),
-        "nextToken" => String.t() | atom()
+      interconnect_validation_exception() :: %{
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type list_attach_points_response() :: %{(String.t() | atom()) => any()}
+  @type interconnect_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      accept_connection_proposal_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("activationKey") => String.t() | atom(),
-        required("attachPoint") => list()
-      }
-      
-  """
-  @type accept_connection_proposal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_attach_points_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("environmentId") => String.t() | atom()
-      }
-      
-  """
-  @type list_attach_points_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_connection_response() :: %{
+      accept_connection_proposal_response() :: %{
         "connection" => connection()
       }
       
   """
-  @type get_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_connections_response() :: %{
-        "connections" => list(connection_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_connections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_environment_request() :: %{
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type get_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_environment_response() :: %{
-        "environment" => environment()
-      }
-      
-  """
-  @type get_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("arn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      bandwidths() :: %{
-        "available" => list(String.t() | atom()),
-        "supported" => list(String.t() | atom())
-      }
-      
-  """
-  @type bandwidths() :: %{(String.t() | atom()) => any()}
+  @type accept_connection_proposal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,12 +159,46 @@ defmodule AWS.Interconnect do
 
   ## Example:
       
-      interconnect_validation_exception() :: %{
+      list_tags_for_resource_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environments_request() :: %{
+        optional("location") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("provider") => list()
+      }
+      
+  """
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
         "message" => [String.t() | atom()]
       }
       
   """
-  @type interconnect_validation_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -229,19 +215,35 @@ defmodule AWS.Interconnect do
 
   ## Example:
       
-      environment() :: %{
-        "activationPageUrl" => [String.t() | atom()],
-        "bandwidths" => bandwidths(),
-        "environmentId" => String.t() | atom(),
-        "location" => String.t() | atom(),
-        "provider" => list(),
-        "remoteIdentifierType" => list(any()),
-        "state" => list(any()),
-        "type" => String.t() | atom()
+      get_connection_response() :: %{
+        "connection" => connection()
       }
       
   """
-  @type environment() :: %{(String.t() | atom()) => any()}
+  @type get_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attach_points_response() :: %{
+        "attachPoints" => list(attach_point_descriptor()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_attach_points_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -272,12 +274,172 @@ defmodule AWS.Interconnect do
 
   ## Example:
       
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_environment_response() :: %{
+        "environment" => environment()
+      }
+      
+  """
+  @type get_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("arn") => String.t() | atom(),
+        required("tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("arn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_connection_proposal_request() :: %{
+        required("activationKey") => String.t() | atom(),
+        required("attachPoint") => list(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("description") => String.t() | atom(),
+        optional("tags") => map()
+      }
+      
+  """
+  @type accept_connection_proposal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_environment_request() :: %{
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type get_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t() | atom()]
       }
       
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_point_descriptor() :: %{
+        "identifier" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "type" => list(any())
+      }
+      
+  """
+  @type attach_point_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment() :: %{
+        "activationPageUrl" => [String.t() | atom()],
+        "bandwidths" => bandwidths(),
+        "environmentId" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "provider" => list(),
+        "remoteIdentifierType" => list(any()),
+        "state" => list(any()),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_attach_points_request() :: %{
+        required("environmentId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_attach_points_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      interconnect_client_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type interconnect_client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connections_response() :: %{
+        "connections" => list(connection_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,114 +459,15 @@ defmodule AWS.Interconnect do
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
+      update_connection_request() :: %{
+        optional("bandwidth") => String.t() | atom(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("description") => String.t() | atom(),
+        required("identifier") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environments_request() :: %{
-        optional("location") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("provider") => list()
-      }
-      
-  """
-  @type list_environments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_connection_response() :: %{
-        "connection" => connection()
-      }
-      
-  """
-  @type update_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_connection_proposal_response() :: %{
-        "connection" => connection()
-      }
-      
-  """
-  @type accept_connection_proposal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_point_descriptor() :: %{
-        "identifier" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "type" => list(any())
-      }
-      
-  """
-  @type attach_point_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_summary() :: %{
-        "arn" => String.t() | atom(),
-        "attachPoint" => list(),
-        "bandwidth" => String.t() | atom(),
-        "billingTier" => integer(),
-        "description" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "location" => String.t() | atom(),
-        "provider" => list(),
-        "sharedId" => String.t() | atom(),
-        "state" => list(any()),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type connection_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      interconnect_client_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type interconnect_client_exception() :: %{(String.t() | atom()) => any()}
+  @type update_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,75 +484,12 @@ defmodule AWS.Interconnect do
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environments_response() :: %{
-        "environments" => list(environment()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_environments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_connection_response() :: %{
         "connection" => connection()
       }
       
   """
   @type create_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_connection_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_connection_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("description") => String.t() | atom(),
-        optional("remoteAccount") => list(),
-        optional("tags") => map(),
-        required("attachPoint") => list(),
-        required("bandwidth") => String.t() | atom(),
-        required("environmentId") => String.t() | atom()
-      }
-      
-  """
-  @type create_connection_request() :: %{(String.t() | atom()) => any()}
 
   def metadata do
     %{
@@ -523,7 +523,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_connection_proposal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptConnectionProposal", input, options)
   end
@@ -548,7 +549,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -566,7 +568,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -579,7 +582,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_connection_proposal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionProposal", input, options)
   end
@@ -593,7 +597,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnection", input, options)
   end
@@ -606,7 +611,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEnvironment", input, options)
   end
@@ -620,7 +626,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_attach_points(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAttachPoints", input, options)
   end
@@ -645,7 +652,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConnections", input, options)
   end
@@ -659,7 +667,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironments", input, options)
   end
@@ -674,7 +683,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -687,7 +697,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -700,7 +711,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -716,7 +728,8 @@ defmodule AWS.Interconnect do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end

@@ -140,13 +140,84 @@ defmodule AWS.MarketplaceMetering do
 
   ## Example:
       
-      batch_meter_usage_request() :: %{
-        optional("ProductCode") => String.t() | atom(),
-        required("UsageRecords") => list(usage_record())
+      invalid_tag_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type batch_meter_usage_request() :: %{(String.t() | atom()) => any()}
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      meter_usage_result() :: %{
+        "MeteringRecordId" => String.t() | atom()
+      }
+      
+  """
+  @type meter_usage_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_usage_allocations_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_usage_allocations_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expired_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type expired_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestamp_out_of_bounds_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type timestamp_out_of_bounds_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_public_key_version_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_public_key_version_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      usage_record() :: %{
+        "CustomerAWSAccountId" => String.t() | atom(),
+        "CustomerIdentifier" => String.t() | atom(),
+        "Dimension" => String.t() | atom(),
+        "LicenseArn" => String.t() | atom(),
+        "Quantity" => integer(),
+        "Timestamp" => non_neg_integer(),
+        "UsageAllocations" => list(usage_allocation())
+      }
+      
+  """
+  @type usage_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -164,12 +235,59 @@ defmodule AWS.MarketplaceMetering do
 
   ## Example:
       
-      customer_not_entitled_exception() :: %{
+      resolve_customer_request() :: %{
+        required("RegistrationToken") => String.t() | atom()
+      }
+      
+  """
+  @type resolve_customer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_usage_request() :: %{
+        optional("Nonce") => String.t() | atom(),
+        required("ProductCode") => String.t() | atom(),
+        required("PublicKeyVersion") => integer()
+      }
+      
+  """
+  @type register_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type customer_not_entitled_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      usage_allocation() :: %{
+        "AllocatedUsageQuantity" => integer(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type usage_allocation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_usage_dimension_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_usage_dimension_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -186,45 +304,26 @@ defmodule AWS.MarketplaceMetering do
 
   ## Example:
       
-      duplicate_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expired_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type expired_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idempotency_conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type idempotency_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       internal_service_error_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
   @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolve_customer_result() :: %{
+        "CustomerAWSAccountId" => String.t() | atom(),
+        "CustomerIdentifier" => String.t() | atom(),
+        "LicenseArn" => String.t() | atom(),
+        "ProductCode" => String.t() | atom()
+      }
+      
+  """
+  @type resolve_customer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -252,12 +351,12 @@ defmodule AWS.MarketplaceMetering do
 
   ## Example:
       
-      invalid_license_exception() :: %{
+      idempotency_conflict_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_license_exception() :: %{(String.t() | atom()) => any()}
+  @type idempotency_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -274,95 +373,23 @@ defmodule AWS.MarketplaceMetering do
 
   ## Example:
       
-      invalid_public_key_version_exception() :: %{
+      invalid_license_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_public_key_version_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_license_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_region_exception() :: %{
+      duplicate_request_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_region_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_tag_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_usage_allocations_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_usage_allocations_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_usage_dimension_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_usage_dimension_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      meter_usage_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("DryRun") => boolean(),
-        optional("UsageAllocations") => list(usage_allocation()),
-        optional("UsageQuantity") => integer(),
-        required("ProductCode") => String.t() | atom(),
-        required("Timestamp") => non_neg_integer(),
-        required("UsageDimension") => String.t() | atom()
-      }
-      
-  """
-  @type meter_usage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      meter_usage_result() :: %{
-        "MeteringRecordId" => String.t() | atom()
-      }
-      
-  """
-  @type meter_usage_result() :: %{(String.t() | atom()) => any()}
+  @type duplicate_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,51 +406,12 @@ defmodule AWS.MarketplaceMetering do
 
   ## Example:
       
-      register_usage_request() :: %{
-        optional("Nonce") => String.t() | atom(),
-        required("ProductCode") => String.t() | atom(),
-        required("PublicKeyVersion") => integer()
+      invalid_token_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type register_usage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_usage_result() :: %{
-        "PublicKeyRotationTimestamp" => non_neg_integer(),
-        "Signature" => String.t() | atom()
-      }
-      
-  """
-  @type register_usage_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolve_customer_request() :: %{
-        required("RegistrationToken") => String.t() | atom()
-      }
-      
-  """
-  @type resolve_customer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolve_customer_result() :: %{
-        "CustomerAWSAccountId" => String.t() | atom(),
-        "CustomerIdentifier" => String.t() | atom(),
-        "LicenseArn" => String.t() | atom(),
-        "ProductCode" => String.t() | atom()
-      }
-      
-  """
-  @type resolve_customer_result() :: %{(String.t() | atom()) => any()}
+  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -441,52 +429,64 @@ defmodule AWS.MarketplaceMetering do
 
   ## Example:
       
-      throttling_exception() :: %{
+      meter_usage_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        required("ProductCode") => String.t() | atom(),
+        required("Timestamp") => non_neg_integer(),
+        optional("UsageAllocations") => list(usage_allocation()),
+        required("UsageDimension") => String.t() | atom(),
+        optional("UsageQuantity") => integer()
+      }
+      
+  """
+  @type meter_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_not_entitled_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type customer_not_entitled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      timestamp_out_of_bounds_exception() :: %{
+      register_usage_result() :: %{
+        "PublicKeyRotationTimestamp" => non_neg_integer(),
+        "Signature" => String.t() | atom()
+      }
+      
+  """
+  @type register_usage_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_meter_usage_request() :: %{
+        optional("ProductCode") => String.t() | atom(),
+        required("UsageRecords") => list(usage_record())
+      }
+      
+  """
+  @type batch_meter_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_region_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type timestamp_out_of_bounds_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      usage_allocation() :: %{
-        "AllocatedUsageQuantity" => integer(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type usage_allocation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      usage_record() :: %{
-        "CustomerAWSAccountId" => String.t() | atom(),
-        "CustomerIdentifier" => String.t() | atom(),
-        "Dimension" => String.t() | atom(),
-        "LicenseArn" => String.t() | atom(),
-        "Quantity" => integer(),
-        "Timestamp" => non_neg_integer(),
-        "UsageAllocations" => list(usage_allocation())
-      }
-      
-  """
-  @type usage_record() :: %{(String.t() | atom()) => any()}
+  @type invalid_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -502,46 +502,46 @@ defmodule AWS.MarketplaceMetering do
   @type usage_record_result() :: %{(String.t() | atom()) => any()}
 
   @type batch_meter_usage_errors() ::
-          timestamp_out_of_bounds_exception()
-          | throttling_exception()
-          | invalid_usage_dimension_exception()
-          | invalid_usage_allocations_exception()
-          | invalid_tag_exception()
+          invalid_license_exception()
           | invalid_product_code_exception()
-          | invalid_license_exception()
           | invalid_customer_identifier_exception()
           | internal_service_error_exception()
           | disabled_api_exception()
-
-  @type meter_usage_errors() ::
-          timestamp_out_of_bounds_exception()
-          | throttling_exception()
           | invalid_usage_dimension_exception()
+          | throttling_exception()
+          | timestamp_out_of_bounds_exception()
           | invalid_usage_allocations_exception()
           | invalid_tag_exception()
+
+  @type meter_usage_errors() ::
+          customer_not_entitled_exception()
+          | duplicate_request_exception()
           | invalid_product_code_exception()
+          | idempotency_conflict_exception()
           | invalid_endpoint_region_exception()
           | internal_service_error_exception()
-          | idempotency_conflict_exception()
-          | duplicate_request_exception()
-          | customer_not_entitled_exception()
+          | invalid_usage_dimension_exception()
+          | throttling_exception()
+          | timestamp_out_of_bounds_exception()
+          | invalid_usage_allocations_exception()
+          | invalid_tag_exception()
 
   @type register_usage_errors() ::
-          throttling_exception()
+          invalid_region_exception()
+          | customer_not_entitled_exception()
           | platform_not_supported_exception()
-          | invalid_region_exception()
-          | invalid_public_key_version_exception()
           | invalid_product_code_exception()
           | internal_service_error_exception()
           | disabled_api_exception()
-          | customer_not_entitled_exception()
+          | throttling_exception()
+          | invalid_public_key_version_exception()
 
   @type resolve_customer_errors() ::
-          throttling_exception()
-          | invalid_token_exception()
+          invalid_token_exception()
           | internal_service_error_exception()
-          | expired_token_exception()
           | disabled_api_exception()
+          | throttling_exception()
+          | expired_token_exception()
 
   def metadata do
     %{
@@ -566,8 +566,9 @@ defmodule AWS.MarketplaceMetering do
 
   Starting June 1, 2026, new SaaS products must use `CustomerAWSAccountId`
   (instead of `CustomerIdentifier`), `LicenseArn` (instead of `ProductCode`) to
-  support this feature. Existing integrations will continue to work. Review the
-  new integration for Concurrent Agreements
+  support this feature. `BatchMeterUsage` does not support `CustomerIdentifier`
+  for new integrations. Existing integrations continue to work. Review the new
+  integration for Concurrent Agreements
   [here](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements). 
 
   To post metering records for customers, SaaS applications call
@@ -579,8 +580,14 @@ defmodule AWS.MarketplaceMetering do
   `BatchMeterUsage` calls.
 
   Usage records should be submitted in quick succession following a
-  recorded event. Usage records aren't accepted 6 hours or more after an
-  event.
+  recorded event. Usage records aren't accepted 24 hours or more after an
+  event. At the end of each billing cycle, a 6-hour grace period applies. We
+  accept
+  usage records for the previous billing month until 06:00 UTC on the first day of
+  the
+  next month. For example, you must submit March usage records before 06:00 UTC on
+  April 1. After this grace period, we return a
+  `TimestampOutOfBoundsException` error.
 
   `BatchMeterUsage` can process up to 25
   `UsageRecords` at a time, and each request must be less than
@@ -607,7 +614,8 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, batch_meter_usage_errors()}
   def batch_meter_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchMeterUsage", input, options)
   end
@@ -690,7 +698,8 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, meter_usage_errors()}
   def meter_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MeterUsage", input, options)
   end
@@ -759,7 +768,8 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, register_usage_errors()}
   def register_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterUsage", input, options)
   end
@@ -774,6 +784,11 @@ defmodule AWS.MarketplaceMetering do
   resolved
   through this API to obtain a `CustomerIdentifier` along with the
   `CustomerAWSAccountId`, `ProductCode`, and `LicenseArn`.
+
+  For new SaaS product integrations, the `CustomerIdentifier` field is not
+  populated in the `ResolveCustomer` API response. New integrations must use
+  `CustomerAWSAccountId` and `LicenseArn` to identify customers. Existing
+  integrations continue to work unchanged.
 
   To successfully resolve the token, the API must be called from the account that
   was used to publish the SaaS
@@ -798,7 +813,8 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, resolve_customer_errors()}
   def resolve_customer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResolveCustomer", input, options)
   end

@@ -22,36 +22,56 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      create_index_output() :: %{
-        "indexArn" => String.t() | atom()
+      list_vectors_input() :: %{
+        optional("indexArn") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("returnData") => [boolean()],
+        optional("returnMetadata") => [boolean()],
+        optional("segmentCount") => integer(),
+        optional("segmentIndex") => integer(),
+        optional("vectorBucketName") => String.t() | atom()
       }
 
   """
-  @type create_index_output() :: %{(String.t() | atom()) => any()}
+  @type list_vectors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      kms_disabled_exception() :: %{
+      too_many_requests_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type kms_disabled_exception() :: %{(String.t() | atom()) => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vector_bucket_summary() :: %{
-        "creationTime" => [non_neg_integer()],
-        "vectorBucketArn" => String.t() | atom(),
-        "vectorBucketName" => String.t() | atom()
+      list_vectors_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "vectors" => list(list_output_vector())
       }
 
   """
-  @type vector_bucket_summary() :: %{(String.t() | atom()) => any()}
+  @type list_vectors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_vectors_output() :: %{
+        "distanceMetric" => list(any()),
+        "nextToken" => String.t() | atom(),
+        "vectors" => list(query_output_vector())
+      }
+
+  """
+  @type query_vectors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -69,12 +89,222 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      get_vector_bucket_policy_output() :: %{
-        "policy" => String.t() | atom()
+      delete_index_input() :: %{
+        optional("indexArn") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
       }
 
   """
-  @type get_vector_bucket_policy_output() :: %{(String.t() | atom()) => any()}
+  @type delete_index_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      index_summary() :: %{
+        "creationTime" => [non_neg_integer()],
+        "indexArn" => String.t() | atom(),
+        "indexName" => String.t() | atom(),
+        "vectorBucketName" => String.t() | atom()
+      }
+
+  """
+  @type index_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_invalid_key_usage_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type kms_invalid_key_usage_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      index() :: %{
+        "creationTime" => [non_neg_integer()],
+        "dataType" => list(any()),
+        "dimension" => integer(),
+        "distanceMetric" => list(any()),
+        "encryptionConfiguration" => encryption_configuration(),
+        "indexArn" => String.t() | atom(),
+        "indexName" => String.t() | atom(),
+        "metadataConfiguration" => metadata_configuration(),
+        "vectorBucketName" => String.t() | atom()
+      }
+
+  """
+  @type index() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vector_bucket_policy_input() :: %{
+        optional("vectorBucketArn") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type get_vector_bucket_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_vector_bucket_policy_input() :: %{
+        required("policy") => String.t() | atom(),
+        optional("vectorBucketArn") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type put_vector_bucket_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vector_bucket_output() :: %{
+        "vectorBucket" => vector_bucket()
+      }
+
+  """
+  @type get_vector_bucket_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_vectors_input() :: %{
+        optional("indexArn") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom(),
+        required("vectors") => list(put_input_vector())
+      }
+
+  """
+  @type put_vectors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_index_input() :: %{
+        optional("indexArn") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type get_index_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vectors_input() :: %{
+        optional("indexArn") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        required("keys") => list(String.t() | atom()),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type delete_vectors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_output_vector() :: %{
+        "distance" => [float()],
+        "key" => String.t() | atom(),
+        "metadata" => any()
+      }
+
+  """
+  @type query_output_vector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration() :: %{
+        "nonFilterableMetadataKeys" => list(String.t() | atom())
+      }
+
+  """
+  @type metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_output() :: %{
+        "indexes" => list(index_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_indexes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,23 +323,107 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      get_vectors_output() :: %{
-        "vectors" => list(get_output_vector())
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type get_vectors_output() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      request_timeout_exception() :: %{
-        "message" => String.t() | atom()
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vector_buckets_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("prefix") => String.t() | atom()
+      }
+
+  """
+  @type list_vector_buckets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vectors_input() :: %{
+        optional("indexArn") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        required("keys") => list(String.t() | atom()),
+        optional("returnData") => [boolean()],
+        optional("returnMetadata") => [boolean()],
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type get_vectors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_index_output() :: %{}
+
+  """
+  @type delete_index_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_output_vector() :: %{
+        "data" => list(),
+        "key" => String.t() | atom(),
+        "metadata" => any()
+      }
+
+  """
+  @type list_output_vector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_bucket() :: %{
+        "creationTime" => [non_neg_integer()],
+        "encryptionConfiguration" => encryption_configuration(),
+        "vectorBucketArn" => String.t() | atom(),
+        "vectorBucketName" => String.t() | atom()
+      }
+
+  """
+  @type vector_bucket() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_index_input() :: %{
+        required("dataType") => list(any()),
+        required("dimension") => integer(),
+        required("distanceMetric") => list(any()),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        required("indexName") => String.t() | atom(),
+        optional("metadataConfiguration") => metadata_configuration(),
+        optional("tags") => map(),
+        optional("vectorBucketArn") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type create_index_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -128,23 +442,95 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      too_many_requests_exception() :: %{
+      access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
+      put_input_vector() :: %{
+        "data" => list(),
+        "key" => String.t() | atom(),
+        "metadata" => any()
       }
 
   """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+  @type put_input_vector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vector_bucket_input() :: %{
+        optional("vectorBucketArn") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type delete_vector_bucket_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vectors_output() :: %{}
+
+  """
+  @type delete_vectors_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_indexes_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("prefix") => String.t() | atom(),
+        optional("vectorBucketArn") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type list_indexes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_timeout_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vector_bucket_policy_input() :: %{
+        optional("vectorBucketArn") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type delete_vector_bucket_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -154,15 +540,67 @@ defmodule AWS.S3Vectors do
         optional("filter") => [any()],
         optional("indexArn") => String.t() | atom(),
         optional("indexName") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("queryVector") => list(),
         optional("returnDistance") => [boolean()],
         optional("returnMetadata") => [boolean()],
-        optional("vectorBucketName") => String.t() | atom(),
-        required("queryVector") => list(),
-        required("topK") => integer()
+        required("topK") => integer(),
+        optional("vectorBucketName") => String.t() | atom()
       }
 
   """
   @type query_vectors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vector_bucket_output() :: %{}
+
+  """
+  @type delete_vector_bucket_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vectors_output() :: %{
+        "vectors" => list(get_output_vector())
+      }
+
+  """
+  @type get_vectors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vector_bucket_policy_output() :: %{}
+
+  """
+  @type delete_vector_bucket_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vector_bucket_policy_output() :: %{
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type get_vector_bucket_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_index_output() :: %{
+        "indexArn" => String.t() | atom()
+      }
+
+  """
+  @type create_index_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -191,86 +629,12 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      list_vector_buckets_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("prefix") => String.t() | atom()
+      tag_resource_input() :: %{
+        required("tags") => map()
       }
 
   """
-  @type list_vector_buckets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vector_bucket_policy_output() :: %{}
-
-  """
-  @type delete_vector_bucket_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_vectors_output() :: %{}
-
-  """
-  @type put_vectors_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_vectors_input() :: %{
-        optional("indexArn") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom(),
-        required("vectors") => list(put_input_vector())
-      }
-
-  """
-  @type put_vectors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      index() :: %{
-        "creationTime" => [non_neg_integer()],
-        "dataType" => list(any()),
-        "dimension" => integer(),
-        "distanceMetric" => list(any()),
-        "encryptionConfiguration" => encryption_configuration(),
-        "indexArn" => String.t() | atom(),
-        "indexName" => String.t() | atom(),
-        "metadataConfiguration" => metadata_configuration(),
-        "vectorBucketName" => String.t() | atom()
-      }
-
-  """
-  @type index() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_vectors_output() :: %{
-        "distanceMetric" => list(any()),
-        "vectors" => list(query_output_vector())
-      }
-
-  """
-  @type query_vectors_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vector_bucket_output() :: %{}
-
-  """
-  @type delete_vector_bucket_output() :: %{}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,124 +651,12 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      index_summary() :: %{
-        "creationTime" => [non_neg_integer()],
-        "indexArn" => String.t() | atom(),
-        "indexName" => String.t() | atom(),
-        "vectorBucketName" => String.t() | atom()
-      }
-
-  """
-  @type index_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_indexes_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("prefix") => String.t() | atom(),
-        optional("vectorBucketArn") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom()
-      }
-
-  """
-  @type list_indexes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vector_bucket_policy_input() :: %{
-        optional("vectorBucketArn") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom()
-      }
-
-  """
-  @type delete_vector_bucket_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_output_vector() :: %{
-        "data" => list(),
-        "key" => String.t() | atom(),
-        "metadata" => any()
-      }
-
-  """
-  @type list_output_vector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_input_vector() :: %{
-        "data" => list(),
-        "key" => String.t() | atom(),
-        "metadata" => any()
-      }
-
-  """
-  @type put_input_vector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_vector_bucket_policy_output() :: %{}
-
-  """
-  @type put_vector_bucket_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       create_vector_bucket_output() :: %{
         "vectorBucketArn" => String.t() | atom()
       }
 
   """
   @type create_vector_bucket_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vectors_input() :: %{
-        optional("indexArn") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom(),
-        required("keys") => list(String.t() | atom())
-      }
-
-  """
-  @type delete_vectors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -422,88 +674,14 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vector_bucket_output() :: %{
-        "vectorBucket" => vector_bucket()
-      }
-
-  """
-  @type get_vector_bucket_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      vector_bucket() :: %{
+      vector_bucket_summary() :: %{
         "creationTime" => [non_neg_integer()],
-        "encryptionConfiguration" => encryption_configuration(),
         "vectorBucketArn" => String.t() | atom(),
         "vectorBucketName" => String.t() | atom()
       }
 
   """
-  @type vector_bucket() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_index_output() :: %{}
-
-  """
-  @type delete_index_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_configuration() :: %{
-        "nonFilterableMetadataKeys" => list(String.t() | atom())
-      }
-
-  """
-  @type metadata_configuration() :: %{(String.t() | atom()) => any()}
+  @type vector_bucket_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -521,66 +699,10 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      list_vectors_input() :: %{
-        optional("indexArn") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("returnData") => [boolean()],
-        optional("returnMetadata") => [boolean()],
-        optional("segmentCount") => integer(),
-        optional("segmentIndex") => integer(),
-        optional("vectorBucketName") => String.t() | atom()
-      }
+      put_vectors_output() :: %{}
 
   """
-  @type list_vectors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kms_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_index_input() :: %{
-        optional("indexArn") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom()
-      }
-
-  """
-  @type get_index_input() :: %{(String.t() | atom()) => any()}
+  @type put_vectors_output() :: %{}
 
   @typedoc """
 
@@ -598,103 +720,30 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_vector_bucket_policy_output() :: %{}
+
+  """
+  @type put_vector_bucket_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_input() :: %{}
 
   """
   @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_index_input() :: %{
-        optional("indexArn") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom()
-      }
-
-  """
-  @type delete_index_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vectors_input() :: %{
-        optional("indexArn") => String.t() | atom(),
-        optional("indexName") => String.t() | atom(),
-        optional("returnData") => [boolean()],
-        optional("returnMetadata") => [boolean()],
-        optional("vectorBucketName") => String.t() | atom(),
-        required("keys") => list(String.t() | atom())
-      }
-
-  """
-  @type get_vectors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vector_bucket_policy_input() :: %{
-        optional("vectorBucketArn") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom()
-      }
-
-  """
-  @type get_vector_bucket_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_indexes_output() :: %{
-        "indexes" => list(index_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_indexes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vector_bucket_input() :: %{
-        optional("vectorBucketArn") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom()
-      }
-
-  """
-  @type delete_vector_bucket_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_index_input() :: %{
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("metadataConfiguration") => metadata_configuration(),
-        optional("tags") => map(),
-        optional("vectorBucketArn") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom(),
-        required("dataType") => list(any()),
-        required("dimension") => integer(),
-        required("distanceMetric") => list(any()),
-        required("indexName") => String.t() | atom()
-      }
-
-  """
-  @type create_index_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,138 +760,91 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
-      delete_vectors_output() :: %{}
-
-  """
-  @type delete_vectors_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vectors_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "vectors" => list(list_output_vector())
-      }
-
-  """
-  @type list_vectors_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_vector_bucket_policy_input() :: %{
-        optional("vectorBucketArn") => String.t() | atom(),
-        optional("vectorBucketName") => String.t() | atom(),
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_vector_bucket_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kms_invalid_key_usage_exception() :: %{
+      kms_disabled_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type kms_invalid_key_usage_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_output_vector() :: %{
-        "distance" => [float()],
-        "key" => String.t() | atom(),
-        "metadata" => any()
-      }
-
-  """
-  @type query_output_vector() :: %{(String.t() | atom()) => any()}
+  @type kms_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_index_errors() ::
-          service_unavailable_exception()
-          | not_found_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | not_found_exception()
+          | service_unavailable_exception()
 
   @type create_vector_bucket_errors() ::
-          service_unavailable_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | service_unavailable_exception()
 
-  @type delete_index_errors() :: service_unavailable_exception() | not_found_exception()
+  @type delete_index_errors() :: not_found_exception() | service_unavailable_exception()
 
   @type delete_vector_bucket_errors() ::
-          service_unavailable_exception() | not_found_exception() | conflict_exception()
+          conflict_exception() | not_found_exception() | service_unavailable_exception()
 
   @type delete_vector_bucket_policy_errors() ::
-          service_unavailable_exception() | not_found_exception()
+          not_found_exception() | service_unavailable_exception()
 
   @type delete_vectors_errors() ::
-          kms_invalid_key_usage_exception()
+          kms_disabled_exception()
           | kms_invalid_state_exception()
-          | access_denied_exception()
           | kms_not_found_exception()
-          | service_unavailable_exception()
+          | access_denied_exception()
           | not_found_exception()
-          | kms_disabled_exception()
+          | service_unavailable_exception()
+          | kms_invalid_key_usage_exception()
 
-  @type get_index_errors() :: service_unavailable_exception() | not_found_exception()
+  @type get_index_errors() :: not_found_exception() | service_unavailable_exception()
 
-  @type get_vector_bucket_errors() :: service_unavailable_exception() | not_found_exception()
+  @type get_vector_bucket_errors() :: not_found_exception() | service_unavailable_exception()
 
   @type get_vector_bucket_policy_errors() ::
-          service_unavailable_exception() | not_found_exception()
+          not_found_exception() | service_unavailable_exception()
 
   @type get_vectors_errors() ::
-          kms_invalid_key_usage_exception()
+          kms_disabled_exception()
           | kms_invalid_state_exception()
           | kms_not_found_exception()
-          | service_unavailable_exception()
           | not_found_exception()
-          | kms_disabled_exception()
+          | service_unavailable_exception()
+          | kms_invalid_key_usage_exception()
 
-  @type list_indexes_errors() :: service_unavailable_exception() | not_found_exception()
+  @type list_indexes_errors() :: not_found_exception() | service_unavailable_exception()
 
-  @type list_tags_for_resource_errors() :: service_unavailable_exception() | not_found_exception()
+  @type list_tags_for_resource_errors() :: not_found_exception() | service_unavailable_exception()
 
   @type list_vector_buckets_errors() :: service_unavailable_exception()
 
   @type list_vectors_errors() ::
-          access_denied_exception() | service_unavailable_exception() | not_found_exception()
+          access_denied_exception() | not_found_exception() | service_unavailable_exception()
 
   @type put_vector_bucket_policy_errors() ::
-          service_unavailable_exception() | not_found_exception()
+          not_found_exception() | service_unavailable_exception()
 
   @type put_vectors_errors() ::
-          kms_invalid_key_usage_exception()
+          kms_disabled_exception()
           | kms_invalid_state_exception()
-          | access_denied_exception()
-          | kms_not_found_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | service_quota_exceeded_exception()
-          | kms_disabled_exception()
+          | kms_not_found_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | service_unavailable_exception()
+          | kms_invalid_key_usage_exception()
 
   @type query_vectors_errors() ::
-          kms_invalid_key_usage_exception()
+          kms_disabled_exception()
           | kms_invalid_state_exception()
           | kms_not_found_exception()
-          | service_unavailable_exception()
           | not_found_exception()
-          | kms_disabled_exception()
+          | service_unavailable_exception()
+          | kms_invalid_key_usage_exception()
 
   @type tag_resource_errors() ::
-          service_unavailable_exception() | not_found_exception() | conflict_exception()
+          conflict_exception() | not_found_exception() | service_unavailable_exception()
 
   @type untag_resource_errors() ::
-          service_unavailable_exception() | not_found_exception() | conflict_exception()
+          conflict_exception() | not_found_exception() | service_unavailable_exception()
 
   def metadata do
     %{
@@ -1503,8 +1505,7 @@ defmodule AWS.S3Vectors do
 
   By default, it returns the keys of approximate nearest neighbors. You can
   optionally include the computed distance (between the query vector and each
-  vector in the response), the vector data, and metadata of each vector in the
-  response.
+  vector in the response) and metadata of each vector in the response.
 
   To specify the vector index, you can either use both the vector bucket name and
   the vector index name, or use the vector index Amazon Resource Name (ARN).
@@ -1519,14 +1520,13 @@ defmodule AWS.S3Vectors do
      With only `s3vectors:QueryVectors` permission, you can retrieve
   vector keys of approximate nearest neighbors and computed distances between
   these vectors. This permission is sufficient only when you don't set any
-  metadata filters and don't request vector data or metadata (by keeping the
-  `returnMetadata` parameter set to `false` or not specified).
+  metadata filters and don't request metadata (by keeping the `returnMetadata`
+  parameter set to `false` or not specified).
 
      If you specify a metadata filter or set `returnMetadata` to true,
   you must have both `s3vectors:QueryVectors` and `s3vectors:GetVectors`
   permissions. The request fails with a `403 Forbidden error` if you request
-  metadata filtering, vector data, or metadata without the `s3vectors:GetVectors`
-  permission.
+  metadata filtering or metadata without the `s3vectors:GetVectors` permission.
   """
   @spec query_vectors(map(), query_vectors_input(), list()) ::
           {:ok, query_vectors_output(), any()}

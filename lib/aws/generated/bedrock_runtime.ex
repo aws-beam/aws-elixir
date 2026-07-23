@@ -13,247 +13,12 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      count_tokens_response() :: %{
-        "inputTokens" => [integer()]
-      }
-
-  """
-  @type count_tokens_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_rule() :: %{
-        "identifier" => String.t() | atom(),
-        "policyVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_automated_reasoning_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_model_with_bidirectional_stream_response() :: %{
-        "body" => list()
-      }
-
-  """
-  @type invoke_model_with_bidirectional_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_async_invokes_response() :: %{
-        "asyncInvokeSummaries" => list(async_invoke_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_async_invokes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      specific_tool_choice() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type specific_tool_choice() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_char_location() :: %{
-        "documentIndex" => [integer()],
-        "end" => [integer()],
-        "start" => [integer()]
-      }
-
-  """
-  @type document_char_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_policy_assessment() :: %{
-        "filters" => list(guardrail_content_filter())
-      }
-
-  """
-  @type guardrail_content_policy_assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_impossible_finding() :: %{
-        "contradictingRules" => list(guardrail_automated_reasoning_rule()),
-        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
-        "translation" => guardrail_automated_reasoning_translation()
-      }
-
-  """
-  @type guardrail_automated_reasoning_impossible_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_policy_assessment() :: %{
-        "findings" => list(list())
-      }
-
-  """
-  @type guardrail_automated_reasoning_policy_assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_no_translations_finding() :: %{}
-
-  """
-  @type guardrail_automated_reasoning_no_translations_finding() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      document_block() :: %{
-        "citations" => citations_config(),
-        "context" => [String.t() | atom()],
-        "format" => list(any()),
-        "name" => [String.t() | atom()],
-        "source" => list()
-      }
-
-  """
-  @type document_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      apply_guardrail_response() :: %{
-        "action" => list(any()),
-        "actionReason" => [String.t() | atom()],
-        "assessments" => list(guardrail_assessment()),
-        "guardrailCoverage" => guardrail_coverage(),
-        "outputs" => list(guardrail_output_content()),
-        "usage" => guardrail_usage()
-      }
-
-  """
-  @type apply_guardrail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_not_ready_exception() :: %{
+      service_unavailable_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type model_not_ready_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_block_start() :: %{
-        "format" => list(any())
-      }
-
-  """
-  @type image_block_start() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_block_stop_event() :: %{
-        "contentBlockIndex" => integer()
-      }
-
-  """
-  @type content_block_stop_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_async_invoke_request() :: %{}
-
-  """
-  @type get_async_invoke_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      converse_tokens_request() :: %{
-        "additionalModelRequestFields" => [any()],
-        "messages" => list(message()),
-        "system" => list(list()),
-        "toolConfig" => tool_configuration()
-      }
-
-  """
-  @type converse_tokens_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      any_tool_choice() :: %{}
-
-  """
-  @type any_tool_choice() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_configuration() :: %{
-        "maxTokens" => [integer()],
-        "stopSequences" => list(String.t() | atom()),
-        "temperature" => [float()],
-        "topP" => [float()]
-      }
-
-  """
-  @type inference_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_tool_choice() :: %{}
-
-  """
-  @type auto_tool_choice() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      apply_guardrail_request() :: %{
-        optional("outputScope") => list(any()),
-        required("content") => list(list()),
-        required("source") => list(any())
-      }
-
-  """
-  @type apply_guardrail_request() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,961 +59,12 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      guardrail_automated_reasoning_translation() :: %{
-        "claims" => list(guardrail_automated_reasoning_statement()),
-        "confidence" => float(),
-        "premises" => list(guardrail_automated_reasoning_statement()),
-        "untranslatedClaims" => list(guardrail_automated_reasoning_input_text_reference()),
-        "untranslatedPremises" => list(guardrail_automated_reasoning_input_text_reference())
-      }
-
-  """
-  @type guardrail_automated_reasoning_translation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_tier() :: %{
-        "type" => list(any())
-      }
-
-  """
-  @type service_tier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_trace_assessment() :: %{
-        "actionReason" => [String.t() | atom()],
-        "inputAssessment" => map(),
-        "modelOutput" => list(String.t() | atom()),
-        "outputAssessments" => map()
-      }
-
-  """
-  @type guardrail_trace_assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      citation() :: %{
-        "location" => list(),
-        "source" => [String.t() | atom()],
-        "sourceContent" => list(list()),
-        "title" => [String.t() | atom()]
-      }
-
-  """
-  @type citation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      count_tokens_request() :: %{
-        required("input") => list()
-      }
-
-  """
-  @type count_tokens_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      citations_content_block() :: %{
-        "citations" => list(citation()),
-        "content" => list(list())
-      }
-
-  """
-  @type citations_content_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payload_part() :: %{
-        "bytes" => binary()
-      }
-
-  """
-  @type payload_part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_stop_event() :: %{
-        "additionalModelResponseFields" => [any()],
-        "stopReason" => list(any())
-      }
-
-  """
-  @type message_stop_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_managed_word() :: %{
-        "action" => list(any()),
-        "detected" => [boolean()],
-        "match" => [String.t() | atom()],
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_managed_word() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_block_delta() :: %{
-        "error" => error_block(),
-        "source" => list()
-      }
-
-  """
-  @type image_block_delta() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_model_with_response_stream_response() :: %{
-        "body" => list(),
-        "contentType" => String.t() | atom(),
-        "performanceConfigLatency" => list(any()),
-        "serviceTier" => list(any())
-      }
-
-  """
-  @type invoke_model_with_response_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_text_block() :: %{
-        "qualifiers" => list(list(any())()),
-        "text" => [String.t() | atom()]
-      }
-
-  """
-  @type guardrail_text_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_block() :: %{
-        "error" => error_block(),
-        "format" => list(any()),
-        "source" => list()
-      }
-
-  """
-  @type image_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_converse_image_block() :: %{
-        "format" => list(any()),
-        "source" => list()
-      }
-
-  """
-  @type guardrail_converse_image_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_invalid_finding() :: %{
-        "contradictingRules" => list(guardrail_automated_reasoning_rule()),
-        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
-        "translation" => guardrail_automated_reasoning_translation()
-      }
-
-  """
-  @type guardrail_automated_reasoning_invalid_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      async_invoke_s3_output_data_config() :: %{
-        "bucketOwner" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type async_invoke_s3_output_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_text_characters_coverage() :: %{
-        "guarded" => integer(),
-        "total" => integer()
-      }
-
-  """
-  @type guardrail_text_characters_coverage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_block_start_event() :: %{
-        "contentBlockIndex" => integer(),
-        "start" => list()
-      }
-
-  """
-  @type content_block_start_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_router_trace() :: %{
-        "invokedModelId" => String.t() | atom()
-      }
-
-  """
-  @type prompt_router_trace() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_image_coverage() :: %{
-        "guarded" => integer(),
-        "total" => integer()
-      }
-
-  """
-  @type guardrail_image_coverage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_block_delta_event() :: %{
-        "contentBlockIndex" => integer(),
-        "delta" => list()
-      }
-
-  """
-  @type content_block_delta_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_custom_word() :: %{
-        "action" => list(any()),
-        "detected" => [boolean()],
-        "match" => [String.t() | atom()]
-      }
-
-  """
-  @type guardrail_custom_word() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_location() :: %{
-        "domain" => [String.t() | atom()],
-        "url" => [String.t() | atom()]
-      }
-
-  """
-  @type web_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bidirectional_input_payload_part() :: %{
-        "bytes" => binary()
-      }
-
-  """
-  @type bidirectional_input_payload_part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_start_event() :: %{
-        "role" => list(any())
-      }
-
-  """
-  @type message_start_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      applied_guardrail_details() :: %{
-        "guardrailArn" => String.t() | atom(),
-        "guardrailId" => String.t() | atom(),
-        "guardrailOrigin" => list(list(any())()),
-        "guardrailOwnership" => list(any()),
-        "guardrailVersion" => String.t() | atom()
-      }
-
-  """
-  @type applied_guardrail_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_model_with_bidirectional_stream_request() :: %{
-        required("body") => list()
-      }
-
-  """
-  @type invoke_model_with_bidirectional_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_result_block() :: %{
-        "citations" => citations_config(),
-        "content" => list(search_result_content_block()),
-        "source" => [String.t() | atom()],
-        "title" => [String.t() | atom()]
-      }
-
-  """
-  @type search_result_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_word_policy_assessment() :: %{
-        "customWords" => list(guardrail_custom_word()),
-        "managedWordLists" => list(guardrail_managed_word())
-      }
-
-  """
-  @type guardrail_word_policy_assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_async_invoke_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("modelId") => String.t() | atom(),
-        required("modelInput") => any(),
-        required("outputDataConfig") => list()
-      }
-
-  """
-  @type start_async_invoke_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_translation_ambiguous_finding() :: %{
-        "differenceScenarios" => list(guardrail_automated_reasoning_scenario()),
-        "options" => list(guardrail_automated_reasoning_translation_option())
-      }
-
-  """
-  @type guardrail_automated_reasoning_translation_ambiguous_finding() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      tool_result_block_start() :: %{
-        "status" => list(any()),
-        "toolUseId" => String.t() | atom(),
-        "type" => [String.t() | atom()]
-      }
-
-  """
-  @type tool_result_block_start() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_async_invokes_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("statusEquals") => list(any()),
-        optional("submitTimeAfter") => non_neg_integer(),
-        optional("submitTimeBefore") => non_neg_integer()
-      }
-
-  """
-  @type list_async_invokes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_coverage() :: %{
-        "images" => guardrail_image_coverage(),
-        "textCharacters" => guardrail_text_characters_coverage()
-      }
-
-  """
-  @type guardrail_coverage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_model_request() :: %{
-        optional("accept") => String.t() | atom(),
-        optional("body") => binary(),
-        optional("contentType") => String.t() | atom(),
-        optional("guardrailIdentifier") => String.t() | atom(),
-        optional("guardrailVersion") => String.t() | atom(),
-        optional("performanceConfigLatency") => list(any()),
-        optional("serviceTier") => list(any()),
-        optional("trace") => list(any())
-      }
-
-  """
-  @type invoke_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reasoning_text_block() :: %{
-        "signature" => [String.t() | atom()],
-        "text" => [String.t() | atom()]
-      }
-
-  """
-  @type reasoning_text_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      model_not_ready_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_model_with_response_stream_request() :: %{
-        optional("accept") => String.t() | atom(),
-        optional("body") => binary(),
-        optional("contentType") => String.t() | atom(),
-        optional("guardrailIdentifier") => String.t() | atom(),
-        optional("guardrailVersion") => String.t() | atom(),
-        optional("performanceConfigLatency") => list(any()),
-        optional("serviceTier") => list(any()),
-        optional("trace") => list(any())
-      }
-
-  """
-  @type invoke_model_with_response_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_sensitive_information_policy_assessment() :: %{
-        "piiEntities" => list(guardrail_pii_entity_filter()),
-        "regexes" => list(guardrail_regex_filter())
-      }
-
-  """
-  @type guardrail_sensitive_information_policy_assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      converse_stream_metrics() :: %{
-        "latencyMs" => [float()]
-      }
-
-  """
-  @type converse_stream_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_use_block_start() :: %{
-        "name" => String.t() | atom(),
-        "toolUseId" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type tool_use_block_start() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_model_response() :: %{
-        "body" => binary(),
-        "contentType" => String.t() | atom(),
-        "performanceConfigLatency" => list(any()),
-        "serviceTier" => list(any())
-      }
-
-  """
-  @type invoke_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_filter() :: %{
-        "action" => list(any()),
-        "confidence" => list(any()),
-        "detected" => [boolean()],
-        "filterStrength" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_content_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      converse_trace() :: %{
-        "guardrail" => guardrail_trace_assessment(),
-        "promptRouter" => prompt_router_trace()
-      }
-
-  """
-  @type converse_trace() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_contextual_grounding_filter() :: %{
-        "action" => list(any()),
-        "detected" => [boolean()],
-        "score" => [float()],
-        "threshold" => [float()],
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_contextual_grounding_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_statement() :: %{
-        "logic" => String.t() | atom(),
-        "naturalLanguage" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_automated_reasoning_statement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_specification() :: %{
-        "description" => String.t() | atom(),
-        "inputSchema" => list(),
-        "name" => String.t() | atom(),
-        "strict" => [boolean()]
-      }
-
-  """
-  @type tool_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_image_block() :: %{
-        "format" => list(any()),
-        "source" => list()
-      }
-
-  """
-  @type guardrail_image_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_block() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type error_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_result_content_block() :: %{
-        "text" => [String.t() | atom()]
-      }
-
-  """
-  @type search_result_content_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_translation_option() :: %{
-        "translations" => list(guardrail_automated_reasoning_translation())
-      }
-
-  """
-  @type guardrail_automated_reasoning_translation_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      converse_stream_response() :: %{
-        "stream" => list()
-      }
-
-  """
-  @type converse_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cache_point_block() :: %{
-        "ttl" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type cache_point_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_page_location() :: %{
-        "documentIndex" => [integer()],
-        "end" => [integer()],
-        "start" => [integer()]
-      }
-
-  """
-  @type document_page_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_logic_warning() :: %{
-        "claims" => list(guardrail_automated_reasoning_statement()),
-        "premises" => list(guardrail_automated_reasoning_statement()),
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_automated_reasoning_logic_warning() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_async_invoke_response() :: %{
-        "clientRequestToken" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "failureMessage" => String.t() | atom(),
-        "invocationArn" => String.t() | atom(),
-        "lastModifiedTime" => non_neg_integer(),
-        "modelArn" => String.t() | atom(),
-        "outputDataConfig" => list(),
-        "status" => list(any()),
-        "submitTime" => non_neg_integer()
-      }
-
-  """
-  @type get_async_invoke_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_chunk_location() :: %{
-        "documentIndex" => [integer()],
-        "end" => [integer()],
-        "start" => [integer()]
-      }
-
-  """
-  @type document_chunk_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cache_detail() :: %{
-        "inputTokens" => [integer()],
-        "ttl" => list(any())
-      }
-
-  """
-  @type cache_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_contextual_grounding_policy_assessment() :: %{
-        "filters" => list(guardrail_contextual_grounding_filter())
-      }
-
-  """
-  @type guardrail_contextual_grounding_policy_assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "bucketOwner" => String.t() | atom(),
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      converse_stream_metadata_event() :: %{
-        "metrics" => converse_stream_metrics(),
-        "performanceConfig" => performance_configuration(),
-        "serviceTier" => service_tier(),
-        "trace" => converse_stream_trace(),
-        "usage" => token_usage()
-      }
-
-  """
-  @type converse_stream_metadata_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_block() :: %{
-        "error" => error_block(),
-        "format" => list(any()),
-        "source" => list()
-      }
-
-  """
-  @type audio_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_valid_finding() :: %{
-        "claimsTrueScenario" => guardrail_automated_reasoning_scenario(),
-        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
-        "supportingRules" => list(guardrail_automated_reasoning_rule()),
-        "translation" => guardrail_automated_reasoning_translation()
-      }
-
-  """
-  @type guardrail_automated_reasoning_valid_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_stream_configuration() :: %{
-        "guardrailIdentifier" => String.t() | atom(),
-        "guardrailVersion" => String.t() | atom(),
-        "streamProcessingMode" => list(any()),
-        "trace" => list(any())
-      }
-
-  """
-  @type guardrail_stream_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_assessment() :: %{
-        "appliedGuardrailDetails" => applied_guardrail_details(),
-        "automatedReasoningPolicy" => guardrail_automated_reasoning_policy_assessment(),
-        "contentPolicy" => guardrail_content_policy_assessment(),
-        "contextualGroundingPolicy" => guardrail_contextual_grounding_policy_assessment(),
-        "invocationMetrics" => guardrail_invocation_metrics(),
-        "sensitiveInformationPolicy" => guardrail_sensitive_information_policy_assessment(),
-        "topicPolicy" => guardrail_topic_policy_assessment(),
-        "wordPolicy" => guardrail_word_policy_assessment()
-      }
-
-  """
-  @type guardrail_assessment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      converse_metrics() :: %{
-        "latencyMs" => [float()]
-      }
-
-  """
-  @type converse_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_error_exception() :: %{
-        "message" => String.t() | atom(),
-        "originalStatusCode" => integer(),
-        "resourceName" => String.t() | atom()
-      }
-
-  """
-  @type model_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_tool() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type system_tool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_invocation_metrics() :: %{
-        "guardrailCoverage" => guardrail_coverage(),
-        "guardrailProcessingLatency" => float(),
-        "usage" => guardrail_usage()
-      }
-
-  """
-  @type guardrail_invocation_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_configuration() :: %{
-        "toolChoice" => list(),
-        "tools" => list(list())
-      }
-
-  """
-  @type tool_configuration() :: %{(String.t() | atom()) => any()}
+  @type model_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1276,26 +92,332 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      tool_result_block() :: %{
-        "content" => list(list()),
-        "status" => list(any()),
-        "toolUseId" => String.t() | atom(),
-        "type" => [String.t() | atom()]
+      search_result_block() :: %{
+        "citations" => citations_config(),
+        "content" => list(search_result_content_block()),
+        "source" => [String.t() | atom()],
+        "title" => [String.t() | atom()]
       }
 
   """
-  @type tool_result_block() :: %{(String.t() | atom()) => any()}
+  @type search_result_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      guardrail_automated_reasoning_invalid_finding() :: %{
+        "contradictingRules" => list(guardrail_automated_reasoning_rule()),
+        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
+        "translation" => guardrail_automated_reasoning_translation()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type guardrail_automated_reasoning_invalid_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      apply_guardrail_request() :: %{
+        required("content") => list(list()),
+        optional("outputScope") => list(any()),
+        required("source") => list(any())
+      }
+
+  """
+  @type apply_guardrail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_filter() :: %{
+        "action" => list(any()),
+        "confidence" => list(any()),
+        "detected" => [boolean()],
+        "filterStrength" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_content_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_invocation_metrics() :: %{
+        "guardrailCoverage" => guardrail_coverage(),
+        "guardrailProcessingLatency" => float(),
+        "usage" => guardrail_usage()
+      }
+
+  """
+  @type guardrail_invocation_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_block() :: %{
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type video_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_async_invoke_response() :: %{
+        "invocationArn" => String.t() | atom()
+      }
+
+  """
+  @type start_async_invoke_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_async_invokes_response() :: %{
+        "asyncInvokeSummaries" => list(async_invoke_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_async_invokes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "bucketOwner" => String.t() | atom(),
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_text_block() :: %{
+        "qualifiers" => list(list(any())()),
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type guardrail_text_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citations_content_block() :: %{
+        "citations" => list(citation()),
+        "content" => list(list())
+      }
+
+  """
+  @type citations_content_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_coverage() :: %{
+        "images" => guardrail_image_coverage(),
+        "textCharacters" => guardrail_text_characters_coverage()
+      }
+
+  """
+  @type guardrail_coverage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_block() :: %{
+        "error" => error_block(),
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type audio_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_config() :: %{
+        "textFormat" => output_format()
+      }
+
+  """
+  @type output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_content_filter_usage() :: %{
+        "textUnits" => [integer()]
+      }
+
+  """
+  @type guardrail_checks_content_filter_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_trace() :: %{
+        "guardrail" => guardrail_trace_assessment(),
+        "promptRouter" => prompt_router_trace()
+      }
+
+  """
+  @type converse_trace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      count_tokens_request() :: %{
+        required("input") => list()
+      }
+
+  """
+  @type count_tokens_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_assessment() :: %{
+        "appliedGuardrailDetails" => applied_guardrail_details(),
+        "automatedReasoningPolicy" => guardrail_automated_reasoning_policy_assessment(),
+        "contentPolicy" => guardrail_content_policy_assessment(),
+        "contextualGroundingPolicy" => guardrail_contextual_grounding_policy_assessment(),
+        "invocationMetrics" => guardrail_invocation_metrics(),
+        "sensitiveInformationPolicy" => guardrail_sensitive_information_policy_assessment(),
+        "topicPolicy" => guardrail_topic_policy_assessment(),
+        "wordPolicy" => guardrail_word_policy_assessment()
+      }
+
+  """
+  @type guardrail_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_async_invoke_request() :: %{}
+
+  """
+  @type get_async_invoke_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_managed_word() :: %{
+        "action" => list(any()),
+        "detected" => [boolean()],
+        "match" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_managed_word() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_configuration() :: %{
+        "guardrailIdentifier" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom(),
+        "trace" => list(any())
+      }
+
+  """
+  @type guardrail_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_stream_error_exception() :: %{
+        "message" => String.t() | atom(),
+        "originalMessage" => String.t() | atom(),
+        "originalStatusCode" => integer()
+      }
+
+  """
+  @type model_stream_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_start_event() :: %{
+        "role" => list(any())
+      }
+
+  """
+  @type message_start_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_async_invoke_response() :: %{
+        "clientRequestToken" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "failureMessage" => String.t() | atom(),
+        "invocationArn" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelArn" => String.t() | atom(),
+        "outputDataConfig" => list(),
+        "status" => list(any()),
+        "submitTime" => non_neg_integer()
+      }
+
+  """
+  @type get_async_invoke_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_custom_word() :: %{
+        "action" => list(any()),
+        "detected" => [boolean()],
+        "match" => [String.t() | atom()]
+      }
+
+  """
+  @type guardrail_custom_word() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_converse_text_block() :: %{
+        "qualifiers" => list(list(any())()),
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type guardrail_converse_text_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1315,28 +437,729 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      token_usage() :: %{
-        "cacheDetails" => list(cache_detail()),
-        "cacheReadInputTokens" => [integer()],
-        "cacheWriteInputTokens" => [integer()],
-        "inputTokens" => [integer()],
-        "outputTokens" => [integer()],
-        "totalTokens" => [integer()]
+      guardrail_checks_sensitive_information_usage() :: %{
+        "textUnits" => [integer()]
       }
 
   """
-  @type token_usage() :: %{(String.t() | atom()) => any()}
+  @type guardrail_checks_sensitive_information_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_topic_policy_assessment() :: %{
-        "topics" => list(guardrail_topic())
+      search_result_content_block() :: %{
+        "text" => [String.t() | atom()]
       }
 
   """
-  @type guardrail_topic_policy_assessment() :: %{(String.t() | atom()) => any()}
+  @type search_result_content_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_guardrail_checks_request() :: %{
+        required("checks") => guardrail_checks_config(),
+        required("messages") => list(guardrail_checks_message())
+      }
+
+  """
+  @type invoke_guardrail_checks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_metrics() :: %{
+        "latencyMs" => [float()]
+      }
+
+  """
+  @type converse_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_config() :: %{
+        "contentFilter" => guardrail_checks_content_filter_config(),
+        "promptAttack" => guardrail_checks_prompt_attack_config(),
+        "sensitiveInformation" => guardrail_checks_sensitive_information_config()
+      }
+
+  """
+  @type guardrail_checks_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citation_source_content_delta() :: %{
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type citation_source_content_delta() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_block() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type error_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_configuration() :: %{
+        "maxTokens" => [integer()],
+        "stopSequences" => list(String.t() | atom()),
+        "temperature" => [float()],
+        "topP" => [float()]
+      }
+
+  """
+  @type inference_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_block_stop_event() :: %{
+        "contentBlockIndex" => integer()
+      }
+
+  """
+  @type content_block_stop_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      apply_guardrail_response() :: %{
+        "action" => list(any()),
+        "actionReason" => [String.t() | atom()],
+        "assessments" => list(guardrail_assessment()),
+        "guardrailCoverage" => guardrail_coverage(),
+        "outputs" => list(guardrail_output_content()),
+        "usage" => guardrail_usage()
+      }
+
+  """
+  @type apply_guardrail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_impossible_finding() :: %{
+        "contradictingRules" => list(guardrail_automated_reasoning_rule()),
+        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
+        "translation" => guardrail_automated_reasoning_translation()
+      }
+
+  """
+  @type guardrail_automated_reasoning_impossible_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citation() :: %{
+        "location" => list(),
+        "source" => [String.t() | atom()],
+        "sourceContent" => list(list()),
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type citation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_translation_ambiguous_finding() :: %{
+        "differenceScenarios" => list(guardrail_automated_reasoning_scenario()),
+        "options" => list(guardrail_automated_reasoning_translation_option())
+      }
+
+  """
+  @type guardrail_automated_reasoning_translation_ambiguous_finding() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      content_block_start_event() :: %{
+        "contentBlockIndex" => integer(),
+        "start" => list()
+      }
+
+  """
+  @type content_block_start_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_regex_filter() :: %{
+        "action" => list(any()),
+        "detected" => [boolean()],
+        "match" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "regex" => [String.t() | atom()]
+      }
+
+  """
+  @type guardrail_regex_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_error_exception() :: %{
+        "message" => String.t() | atom(),
+        "originalStatusCode" => integer(),
+        "resourceName" => String.t() | atom()
+      }
+
+  """
+  @type model_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_no_translations_finding() :: %{}
+
+  """
+  @type guardrail_automated_reasoning_no_translations_finding() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_configuration() :: %{
+        "toolChoice" => list(),
+        "tools" => list(list())
+      }
+
+  """
+  @type tool_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_result_block_start() :: %{
+        "status" => list(any()),
+        "toolUseId" => String.t() | atom(),
+        "type" => [String.t() | atom()]
+      }
+
+  """
+  @type tool_result_block_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_block_delta() :: %{
+        "error" => error_block(),
+        "source" => list()
+      }
+
+  """
+  @type image_block_delta() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_translation() :: %{
+        "claims" => list(guardrail_automated_reasoning_statement()),
+        "confidence" => float(),
+        "premises" => list(guardrail_automated_reasoning_statement()),
+        "untranslatedClaims" => list(guardrail_automated_reasoning_input_text_reference()),
+        "untranslatedPremises" => list(guardrail_automated_reasoning_input_text_reference())
+      }
+
+  """
+  @type guardrail_automated_reasoning_translation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_valid_finding() :: %{
+        "claimsTrueScenario" => guardrail_automated_reasoning_scenario(),
+        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
+        "supportingRules" => list(guardrail_automated_reasoning_rule()),
+        "translation" => guardrail_automated_reasoning_translation()
+      }
+
+  """
+  @type guardrail_automated_reasoning_valid_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_sensitive_information_policy_assessment() :: %{
+        "piiEntities" => list(guardrail_pii_entity_filter()),
+        "regexes" => list(guardrail_regex_filter())
+      }
+
+  """
+  @type guardrail_sensitive_information_policy_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_with_response_stream_request() :: %{
+        optional("accept") => String.t() | atom(),
+        optional("body") => binary(),
+        optional("contentType") => String.t() | atom(),
+        optional("guardrailIdentifier") => String.t() | atom(),
+        optional("guardrailVersion") => String.t() | atom(),
+        optional("performanceConfigLatency") => list(any()),
+        optional("requestMetadata") => String.t() | atom(),
+        optional("serviceTier") => list(any()),
+        optional("trace") => list(any())
+      }
+
+  """
+  @type invoke_model_with_response_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_prompt_attack_usage() :: %{
+        "textUnits" => [integer()]
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_sensitive_information_entity_config() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_checks_sensitive_information_entity_config() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_prompt_attack_result_entry() :: %{
+        "category" => list(any()),
+        "severityScore" => [float()]
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_result_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_content_filter_config() :: %{
+        "categories" => list(guardrail_checks_content_filter_category_config())
+      }
+
+  """
+  @type guardrail_checks_content_filter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_trace_assessment() :: %{
+        "actionReason" => [String.t() | atom()],
+        "inputAssessment" => map(),
+        "modelOutput" => list(String.t() | atom()),
+        "outputAssessments" => map()
+      }
+
+  """
+  @type guardrail_trace_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_request() :: %{
+        optional("accept") => String.t() | atom(),
+        optional("body") => binary(),
+        optional("contentType") => String.t() | atom(),
+        optional("guardrailIdentifier") => String.t() | atom(),
+        optional("guardrailVersion") => String.t() | atom(),
+        optional("performanceConfigLatency") => list(any()),
+        optional("requestMetadata") => String.t() | atom(),
+        optional("serviceTier") => list(any()),
+        optional("trace") => list(any())
+      }
+
+  """
+  @type invoke_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_policy_assessment() :: %{
+        "filters" => list(guardrail_contextual_grounding_filter())
+      }
+
+  """
+  @type guardrail_contextual_grounding_policy_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_policy_assessment() :: %{
+        "findings" => list(list())
+      }
+
+  """
+  @type guardrail_automated_reasoning_policy_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_scenario() :: %{
+        "statements" => list(guardrail_automated_reasoning_statement())
+      }
+
+  """
+  @type guardrail_automated_reasoning_scenario() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citations_config() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type citations_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_image_coverage() :: %{
+        "guarded" => integer(),
+        "total" => integer()
+      }
+
+  """
+  @type guardrail_image_coverage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_block_start() :: %{
+        "format" => list(any())
+      }
+
+  """
+  @type image_block_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_content_filter_category_config() :: %{
+        "category" => list(any())
+      }
+
+  """
+  @type guardrail_checks_content_filter_category_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_async_invoke_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        required("modelId") => String.t() | atom(),
+        required("modelInput") => any(),
+        required("outputDataConfig") => list(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type start_async_invoke_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_block_delta_event() :: %{
+        "contentBlockIndex" => integer(),
+        "delta" => list()
+      }
+
+  """
+  @type content_block_delta_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citations_delta() :: %{
+        "location" => list(),
+        "source" => [String.t() | atom()],
+        "sourceContent" => list(citation_source_content_delta()),
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type citations_delta() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_timeout_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type model_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_tier() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type service_tier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_with_bidirectional_stream_response() :: %{
+        "body" => list()
+      }
+
+  """
+  @type invoke_model_with_bidirectional_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_with_bidirectional_stream_request() :: %{
+        required("body") => list()
+      }
+
+  """
+  @type invoke_model_with_bidirectional_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_input_text_reference() :: %{
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_automated_reasoning_input_text_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_configuration() :: %{
+        "latency" => list(any())
+      }
+
+  """
+  @type performance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_location() :: %{
+        "domain" => [String.t() | atom()],
+        "url" => [String.t() | atom()]
+      }
+
+  """
+  @type web_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bidirectional_output_payload_part() :: %{
+        "bytes" => binary()
+      }
+
+  """
+  @type bidirectional_output_payload_part() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_char_location() :: %{
+        "documentIndex" => [integer()],
+        "end" => [integer()],
+        "start" => [integer()]
+      }
+
+  """
+  @type document_char_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_message() :: %{
+        "content" => list(list()),
+        "role" => list(any())
+      }
+
+  """
+  @type guardrail_checks_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_specification() :: %{
+        "description" => String.t() | atom(),
+        "inputSchema" => list(),
+        "name" => String.t() | atom(),
+        "strict" => [boolean()]
+      }
+
+  """
+  @type tool_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tool_choice() :: %{}
+
+  """
+  @type auto_tool_choice() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_stream_metadata_event() :: %{
+        "metrics" => converse_stream_metrics(),
+        "performanceConfig" => performance_configuration(),
+        "serviceTier" => service_tier(),
+        "trace" => converse_stream_trace(),
+        "usage" => token_usage()
+      }
+
+  """
+  @type converse_stream_metadata_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_output_content() :: %{
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_output_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_with_response_stream_response() :: %{
+        "body" => list(),
+        "contentType" => String.t() | atom(),
+        "performanceConfigLatency" => list(any()),
+        "serviceTier" => list(any())
+      }
+
+  """
+  @type invoke_model_with_response_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1361,206 +1184,42 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      async_invoke_summary() :: %{
-        "clientRequestToken" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "failureMessage" => String.t() | atom(),
-        "invocationArn" => String.t() | atom(),
-        "lastModifiedTime" => non_neg_integer(),
-        "modelArn" => String.t() | atom(),
-        "outputDataConfig" => list(),
-        "status" => list(any()),
-        "submitTime" => non_neg_integer()
+      invoke_model_response() :: %{
+        "body" => binary(),
+        "contentType" => String.t() | atom(),
+        "performanceConfigLatency" => list(any()),
+        "serviceTier" => list(any())
       }
 
   """
-  @type async_invoke_summary() :: %{(String.t() | atom()) => any()}
+  @type invoke_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      output_config() :: %{
-        "textFormat" => output_format()
-      }
-
-  """
-  @type output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_stream_error_exception() :: %{
-        "message" => String.t() | atom(),
-        "originalMessage" => String.t() | atom(),
-        "originalStatusCode" => integer()
-      }
-
-  """
-  @type model_stream_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_timeout_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type model_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      citation_source_content_delta() :: %{
-        "text" => [String.t() | atom()]
-      }
-
-  """
-  @type citation_source_content_delta() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_scenario() :: %{
-        "statements" => list(guardrail_automated_reasoning_statement())
-      }
-
-  """
-  @type guardrail_automated_reasoning_scenario() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bidirectional_output_payload_part() :: %{
-        "bytes" => binary()
-      }
-
-  """
-  @type bidirectional_output_payload_part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_configuration() :: %{
-        "guardrailIdentifier" => String.t() | atom(),
-        "guardrailVersion" => String.t() | atom(),
-        "trace" => list(any())
-      }
-
-  """
-  @type guardrail_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_regex_filter() :: %{
-        "action" => list(any()),
-        "detected" => [boolean()],
-        "match" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "regex" => [String.t() | atom()]
-      }
-
-  """
-  @type guardrail_regex_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_too_complex_finding() :: %{}
-
-  """
-  @type guardrail_automated_reasoning_too_complex_finding() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      video_block() :: %{
+      document_block() :: %{
+        "citations" => citations_config(),
+        "context" => [String.t() | atom()],
         "format" => list(any()),
+        "name" => [String.t() | atom()],
         "source" => list()
       }
 
   """
-  @type video_block() :: %{(String.t() | atom()) => any()}
+  @type document_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_output_content() :: %{
-        "text" => String.t() | atom()
+      message() :: %{
+        "content" => list(list()),
+        "role" => list(any())
       }
 
   """
-  @type guardrail_output_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      citations_config() :: %{
-        "enabled" => [boolean()]
-      }
-
-  """
-  @type citations_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_automated_reasoning_satisfiable_finding() :: %{
-        "claimsFalseScenario" => guardrail_automated_reasoning_scenario(),
-        "claimsTrueScenario" => guardrail_automated_reasoning_scenario(),
-        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
-        "translation" => guardrail_automated_reasoning_translation()
-      }
-
-  """
-  @type guardrail_automated_reasoning_satisfiable_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_model_tokens_request() :: %{
-        "body" => binary()
-      }
-
-  """
-  @type invoke_model_tokens_request() :: %{(String.t() | atom()) => any()}
+  @type message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1580,25 +1239,217 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      guardrail_converse_text_block() :: %{
-        "qualifiers" => list(list(any())()),
-        "text" => [String.t() | atom()]
+      guardrail_content_policy_assessment() :: %{
+        "filters" => list(guardrail_content_filter())
       }
 
   """
-  @type guardrail_converse_text_block() :: %{(String.t() | atom()) => any()}
+  @type guardrail_content_policy_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      converse_stream_trace() :: %{
-        "guardrail" => guardrail_trace_assessment(),
-        "promptRouter" => prompt_router_trace()
+      guardrail_checks_prompt_attack_config() :: %{
+        "categories" => list(guardrail_checks_prompt_attack_category_config())
       }
 
   """
-  @type converse_stream_trace() :: %{(String.t() | atom()) => any()}
+  @type guardrail_checks_prompt_attack_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_use_block_start() :: %{
+        "name" => String.t() | atom(),
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type tool_use_block_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_too_complex_finding() :: %{}
+
+  """
+  @type guardrail_automated_reasoning_too_complex_finding() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      async_invoke_s3_output_data_config() :: %{
+        "bucketOwner" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type async_invoke_s3_output_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_chunk_location() :: %{
+        "documentIndex" => [integer()],
+        "end" => [integer()],
+        "start" => [integer()]
+      }
+
+  """
+  @type document_chunk_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_sensitive_information_config() :: %{
+        "entities" => list(guardrail_checks_sensitive_information_entity_config())
+      }
+
+  """
+  @type guardrail_checks_sensitive_information_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_tokens_request() :: %{
+        "additionalModelRequestFields" => [any()],
+        "messages" => list(message()),
+        "system" => list(list()),
+        "toolConfig" => tool_configuration()
+      }
+
+  """
+  @type converse_tokens_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_stream_response() :: %{
+        "stream" => list()
+      }
+
+  """
+  @type converse_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_format() :: %{
+        "structure" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type output_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_stream_configuration() :: %{
+        "guardrailIdentifier" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom(),
+        "streamProcessingMode" => list(any()),
+        "trace" => list(any())
+      }
+
+  """
+  @type guardrail_stream_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      any_tool_choice() :: %{}
+
+  """
+  @type any_tool_choice() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_content_filter_result_entry() :: %{
+        "category" => list(any()),
+        "severityScore" => [float()]
+      }
+
+  """
+  @type guardrail_checks_content_filter_result_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      async_invoke_summary() :: %{
+        "clientRequestToken" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "failureMessage" => String.t() | atom(),
+        "invocationArn" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelArn" => String.t() | atom(),
+        "outputDataConfig" => list(),
+        "status" => list(any()),
+        "submitTime" => non_neg_integer()
+      }
+
+  """
+  @type async_invoke_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_tokens_request() :: %{
+        "body" => binary()
+      }
+
+  """
+  @type invoke_model_tokens_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_stream_metrics() :: %{
+        "latencyMs" => [float()]
+      }
+
+  """
+  @type converse_stream_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1615,37 +1466,64 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      start_async_invoke_response() :: %{
-        "invocationArn" => String.t() | atom()
+      system_tool() :: %{
+        "name" => String.t() | atom()
       }
 
   """
-  @type start_async_invoke_response() :: %{(String.t() | atom()) => any()}
+  @type system_tool() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_topic() :: %{
-        "action" => list(any()),
-        "detected" => [boolean()],
-        "name" => [String.t() | atom()],
-        "type" => list(any())
+      guardrail_checks_sensitive_information_result() :: %{
+        "results" => list(guardrail_checks_sensitive_information_result_entry()),
+        "truncated" => [boolean()]
       }
 
   """
-  @type guardrail_topic() :: %{(String.t() | atom()) => any()}
+  @type guardrail_checks_sensitive_information_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      performance_configuration() :: %{
-        "latency" => list(any())
+      guardrail_image_block() :: %{
+        "format" => list(any()),
+        "source" => list()
       }
 
   """
-  @type performance_configuration() :: %{(String.t() | atom()) => any()}
+  @type guardrail_image_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_converse_image_block() :: %{
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type guardrail_converse_image_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_usage() :: %{
+        "cacheDetails" => list(cache_detail()),
+        "cacheReadInputTokens" => [integer()],
+        "cacheWriteInputTokens" => [integer()],
+        "inputTokens" => [integer()],
+        "outputTokens" => [integer()],
+        "totalTokens" => [integer()]
+      }
+
+  """
+  @type token_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1664,50 +1542,217 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      output_format() :: %{
-        "structure" => list(),
+      document_page_location() :: %{
+        "documentIndex" => [integer()],
+        "end" => [integer()],
+        "start" => [integer()]
+      }
+
+  """
+  @type document_page_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_results() :: %{
+        "contentFilter" => guardrail_checks_content_filter_result(),
+        "promptAttack" => guardrail_checks_prompt_attack_result(),
+        "sensitiveInformation" => guardrail_checks_sensitive_information_result()
+      }
+
+  """
+  @type guardrail_checks_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_sensitive_information_result_entry() :: %{
+        "beginOffset" => [integer()],
+        "confidenceScore" => [float()],
+        "contentIndex" => [integer()],
+        "endOffset" => [integer()],
+        "messageIndex" => [integer()],
         "type" => list(any())
       }
 
   """
-  @type output_format() :: %{(String.t() | atom()) => any()}
+  @type guardrail_checks_sensitive_information_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_automated_reasoning_input_text_reference() :: %{
-        "text" => String.t() | atom()
+      guardrail_contextual_grounding_filter() :: %{
+        "action" => list(any()),
+        "detected" => [boolean()],
+        "score" => [float()],
+        "threshold" => [float()],
+        "type" => list(any())
       }
 
   """
-  @type guardrail_automated_reasoning_input_text_reference() :: %{(String.t() | atom()) => any()}
+  @type guardrail_contextual_grounding_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      citations_delta() :: %{
-        "location" => list(),
-        "source" => [String.t() | atom()],
-        "sourceContent" => list(citation_source_content_delta()),
-        "title" => [String.t() | atom()]
+      specific_tool_choice() :: %{
+        "name" => String.t() | atom()
       }
 
   """
-  @type citations_delta() :: %{(String.t() | atom()) => any()}
+  @type specific_tool_choice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      message() :: %{
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_logic_warning() :: %{
+        "claims" => list(guardrail_automated_reasoning_statement()),
+        "premises" => list(guardrail_automated_reasoning_statement()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_automated_reasoning_logic_warning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_guardrail_checks_response() :: %{
+        "results" => guardrail_checks_results(),
+        "usage" => guardrail_checks_usage_results()
+      }
+
+  """
+  @type invoke_guardrail_checks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_satisfiable_finding() :: %{
+        "claimsFalseScenario" => guardrail_automated_reasoning_scenario(),
+        "claimsTrueScenario" => guardrail_automated_reasoning_scenario(),
+        "logicWarning" => guardrail_automated_reasoning_logic_warning(),
+        "translation" => guardrail_automated_reasoning_translation()
+      }
+
+  """
+  @type guardrail_automated_reasoning_satisfiable_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reasoning_text_block() :: %{
+        "signature" => [String.t() | atom()],
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type reasoning_text_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_stream_trace() :: %{
+        "guardrail" => guardrail_trace_assessment(),
+        "promptRouter" => prompt_router_trace()
+      }
+
+  """
+  @type converse_stream_trace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payload_part() :: %{
+        "bytes" => binary()
+      }
+
+  """
+  @type payload_part() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_result_block() :: %{
         "content" => list(list()),
-        "role" => list(any())
+        "status" => list(any()),
+        "toolUseId" => String.t() | atom(),
+        "type" => [String.t() | atom()]
       }
 
   """
-  @type message() :: %{(String.t() | atom()) => any()}
+  @type tool_result_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic_policy_assessment() :: %{
+        "topics" => list(guardrail_topic())
+      }
+
+  """
+  @type guardrail_topic_policy_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      applied_guardrail_details() :: %{
+        "guardrailArn" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
+        "guardrailOrigin" => list(list(any())()),
+        "guardrailOwnership" => list(any()),
+        "guardrailVersion" => String.t() | atom()
+      }
+
+  """
+  @type applied_guardrail_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bidirectional_input_payload_part() :: %{
+        "bytes" => binary()
+      }
+
+  """
+  @type bidirectional_input_payload_part() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_statement() :: %{
+        "logic" => String.t() | atom(),
+        "naturalLanguage" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_automated_reasoning_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1727,104 +1772,318 @@ defmodule AWS.BedrockRuntime do
   """
   @type converse_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      prompt_router_trace() :: %{
+        "invokedModelId" => String.t() | atom()
+      }
+
+  """
+  @type prompt_router_trace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_policy_assessment() :: %{
+        "customWords" => list(guardrail_custom_word()),
+        "managedWordLists" => list(guardrail_managed_word())
+      }
+
+  """
+  @type guardrail_word_policy_assessment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_prompt_attack_category_config() :: %{
+        "category" => list(any())
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_category_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic() :: %{
+        "action" => list(any()),
+        "detected" => [boolean()],
+        "name" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_topic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_stop_event() :: %{
+        "additionalModelResponseFields" => [any()],
+        "stopReason" => list(any())
+      }
+
+  """
+  @type message_stop_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_translation_option() :: %{
+        "translations" => list(guardrail_automated_reasoning_translation())
+      }
+
+  """
+  @type guardrail_automated_reasoning_translation_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_usage_results() :: %{
+        "contentFilter" => guardrail_checks_content_filter_usage(),
+        "promptAttack" => guardrail_checks_prompt_attack_usage(),
+        "sensitiveInformation" => guardrail_checks_sensitive_information_usage()
+      }
+
+  """
+  @type guardrail_checks_usage_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_async_invokes_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any()),
+        optional("submitTimeAfter") => non_neg_integer(),
+        optional("submitTimeBefore") => non_neg_integer()
+      }
+
+  """
+  @type list_async_invokes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_prompt_attack_result() :: %{
+        "results" => list(guardrail_checks_prompt_attack_result_entry())
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_content_filter_result() :: %{
+        "results" => list(guardrail_checks_content_filter_result_entry())
+      }
+
+  """
+  @type guardrail_checks_content_filter_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cache_point_block() :: %{
+        "ttl" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type cache_point_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_block() :: %{
+        "error" => error_block(),
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type image_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cache_detail() :: %{
+        "inputTokens" => [integer()],
+        "ttl" => list(any())
+      }
+
+  """
+  @type cache_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_text_characters_coverage() :: %{
+        "guarded" => integer(),
+        "total" => integer()
+      }
+
+  """
+  @type guardrail_text_characters_coverage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      count_tokens_response() :: %{
+        "inputTokens" => [integer()]
+      }
+
+  """
+  @type count_tokens_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_rule() :: %{
+        "identifier" => String.t() | atom(),
+        "policyVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_automated_reasoning_rule() :: %{(String.t() | atom()) => any()}
+
   @type apply_guardrail_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | service_unavailable_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type converse_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | model_timeout_exception()
           | access_denied_exception()
+          | throttling_exception()
           | model_error_exception()
-          | internal_server_exception()
-          | service_unavailable_exception()
-          | resource_not_found_exception()
           | model_not_ready_exception()
+          | service_unavailable_exception()
 
   @type converse_stream_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | model_timeout_exception()
           | access_denied_exception()
+          | throttling_exception()
           | model_error_exception()
-          | internal_server_exception()
-          | service_unavailable_exception()
-          | resource_not_found_exception()
           | model_not_ready_exception()
+          | service_unavailable_exception()
 
   @type count_tokens_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
 
   @type get_async_invoke_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
+
+  @type invoke_guardrail_checks_errors() ::
+          internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type invoke_model_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
+          | service_quota_exceeded_exception()
           | model_timeout_exception()
           | access_denied_exception()
+          | throttling_exception()
           | model_error_exception()
-          | internal_server_exception()
-          | service_unavailable_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | model_not_ready_exception()
+          | service_unavailable_exception()
 
   @type invoke_model_with_bidirectional_stream_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | model_timeout_exception()
-          | model_stream_error_exception()
-          | access_denied_exception()
-          | model_error_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | service_unavailable_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | model_timeout_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | model_error_exception()
+          | model_stream_error_exception()
           | model_not_ready_exception()
+          | service_unavailable_exception()
 
   @type invoke_model_with_response_stream_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | model_timeout_exception()
-          | model_stream_error_exception()
-          | access_denied_exception()
-          | model_error_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | service_unavailable_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | model_timeout_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | model_error_exception()
+          | model_stream_error_exception()
           | model_not_ready_exception()
+          | service_unavailable_exception()
 
   @type list_async_invokes_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type start_async_invoke_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | service_unavailable_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
           | conflict_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   def metadata do
     %{
@@ -1862,8 +2121,8 @@ defmodule AWS.BedrockRuntime do
           | {:error, apply_guardrail_errors()}
   def apply_guardrail(
         %Client{} = client,
-        guardrail_identifier,
         guardrail_version,
+        guardrail_identifier,
         input,
         options \\ []
       ) do
@@ -2120,6 +2379,38 @@ defmodule AWS.BedrockRuntime do
   end
 
   @doc """
+  Evaluates messages against inline guardrail checks.
+
+  You specify the check configurations directly in the request, and Amazon Bedrock
+  returns per-check results with severity or confidence scores.
+  """
+  @spec invoke_guardrail_checks(map(), invoke_guardrail_checks_request(), list()) ::
+          {:ok, invoke_guardrail_checks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_guardrail_checks_errors()}
+  def invoke_guardrail_checks(%Client{} = client, input, options \\ []) do
+    url_path = "/guardrail-checks/invoke"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Invokes the specified Amazon Bedrock model to run inference using the prompt and
   inference parameters provided in the request body.
 
@@ -2152,13 +2443,14 @@ defmodule AWS.BedrockRuntime do
 
     {headers, input} =
       [
-        {"accept", "Accept"},
-        {"contentType", "Content-Type"},
-        {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
-        {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
-        {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"trace", "X-Amzn-Bedrock-Trace"},
         {"serviceTier", "X-Amzn-Bedrock-Service-Tier"},
-        {"trace", "X-Amzn-Bedrock-Trace"}
+        {"requestMetadata", "X-Amzn-Bedrock-Request-Metadata"},
+        {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
+        {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
+        {"contentType", "Content-Type"},
+        {"accept", "Accept"}
       ]
       |> Request.build_params(input)
 
@@ -2170,9 +2462,9 @@ defmodule AWS.BedrockRuntime do
         options,
         :response_header_parameters,
         [
-          {"Content-Type", "contentType"},
+          {"X-Amzn-Bedrock-Service-Tier", "serviceTier"},
           {"X-Amzn-Bedrock-PerformanceConfig-Latency", "performanceConfigLatency"},
-          {"X-Amzn-Bedrock-Service-Tier", "serviceTier"}
+          {"Content-Type", "contentType"}
         ]
       )
 
@@ -2282,13 +2574,14 @@ defmodule AWS.BedrockRuntime do
 
     {headers, input} =
       [
-        {"accept", "X-Amzn-Bedrock-Accept"},
-        {"contentType", "Content-Type"},
-        {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
-        {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
-        {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"trace", "X-Amzn-Bedrock-Trace"},
         {"serviceTier", "X-Amzn-Bedrock-Service-Tier"},
-        {"trace", "X-Amzn-Bedrock-Trace"}
+        {"requestMetadata", "X-Amzn-Bedrock-Request-Metadata"},
+        {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
+        {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
+        {"contentType", "Content-Type"},
+        {"accept", "X-Amzn-Bedrock-Accept"}
       ]
       |> Request.build_params(input)
 
@@ -2300,9 +2593,9 @@ defmodule AWS.BedrockRuntime do
         options,
         :response_header_parameters,
         [
-          {"X-Amzn-Bedrock-Content-Type", "contentType"},
+          {"X-Amzn-Bedrock-Service-Tier", "serviceTier"},
           {"X-Amzn-Bedrock-PerformanceConfig-Latency", "performanceConfigLatency"},
-          {"X-Amzn-Bedrock-Service-Tier", "serviceTier"}
+          {"X-Amzn-Bedrock-Content-Type", "contentType"}
         ]
       )
 
@@ -2341,13 +2634,13 @@ defmodule AWS.BedrockRuntime do
           | {:error, list_async_invokes_errors()}
   def list_async_invokes(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        sort_by \\ nil,
-        sort_order \\ nil,
-        status_equals \\ nil,
-        submit_time_after \\ nil,
         submit_time_before \\ nil,
+        submit_time_after \\ nil,
+        status_equals \\ nil,
+        sort_order \\ nil,
+        sort_by \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/async-invoke"
@@ -2355,36 +2648,8 @@ defmodule AWS.BedrockRuntime do
     query_params = []
 
     query_params =
-      if !is_nil(submit_time_before) do
-        [{"submitTimeBefore", submit_time_before} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(submit_time_after) do
-        [{"submitTimeAfter", submit_time_after} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(status_equals) do
-        [{"statusEquals", status_equals} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(sort_order) do
-        [{"sortOrder", sort_order} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(sort_by) do
-        [{"sortBy", sort_by} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2397,8 +2662,36 @@ defmodule AWS.BedrockRuntime do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status_equals) do
+        [{"statusEquals", status_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(submit_time_after) do
+        [{"submitTimeAfter", submit_time_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(submit_time_before) do
+        [{"submitTimeBefore", submit_time_before} | query_params]
       else
         query_params
       end

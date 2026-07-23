@@ -13,72 +13,14 @@ defmodule AWS.Account do
 
   ## Example:
 
-      start_primary_email_update_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("PrimaryEmail") => String.t() | atom()
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
 
   """
-  @type start_primary_email_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_unavailable_exception() :: %{
-        "errorType" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_region_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("RegionName") => String.t() | atom()
-      }
-
-  """
-  @type disable_region_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_region_opt_status_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("RegionName") => String.t() | atom()
-      }
-
-  """
-  @type get_region_opt_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_gov_cloud_account_information_request() :: %{
-        optional("StandardAccountId") => String.t() | atom()
-      }
-
-  """
-  @type get_gov_cloud_account_information_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "errorType" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,72 +38,29 @@ defmodule AWS.Account do
 
   ## Example:
 
-      conflict_exception() :: %{
-        "errorType" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "errorType" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_alternate_contact_response() :: %{
-        "AlternateContact" => alternate_contact()
-      }
-
-  """
-  @type get_alternate_contact_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_gov_cloud_account_information_response() :: %{
-        "AccountState" => String.t() | atom(),
-        "GovCloudAccountId" => String.t() | atom()
-      }
-
-  """
-  @type get_gov_cloud_account_information_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_region_opt_status_response() :: %{
-        "RegionName" => String.t() | atom(),
-        "RegionOptStatus" => String.t() | atom()
-      }
-
-  """
-  @type get_region_opt_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_alternate_contact_request() :: %{
+      put_alternate_contact_request() :: %{
         optional("AccountId") => String.t() | atom(),
-        required("AlternateContactType") => String.t() | atom()
+        required("AlternateContactType") => String.t() | atom(),
+        required("EmailAddress") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("PhoneNumber") => String.t() | atom(),
+        required("Title") => String.t() | atom()
       }
 
   """
-  @type get_alternate_contact_request() :: %{(String.t() | atom()) => any()}
+  @type put_alternate_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -181,24 +80,36 @@ defmodule AWS.Account do
 
   ## Example:
 
-      put_account_name_request() :: %{
+      disable_region_request() :: %{
         optional("AccountId") => String.t() | atom(),
-        required("AccountName") => String.t() | atom()
+        required("RegionName") => String.t() | atom()
       }
 
   """
-  @type put_account_name_request() :: %{(String.t() | atom()) => any()}
+  @type disable_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_primary_email_response() :: %{
-        "PrimaryEmail" => String.t() | atom()
+      get_gov_cloud_account_information_response() :: %{
+        "AccountState" => String.t() | atom(),
+        "GovCloudAccountId" => String.t() | atom()
       }
 
   """
-  @type get_primary_email_response() :: %{(String.t() | atom()) => any()}
+  @type get_gov_cloud_account_information_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_alternate_contact_response() :: %{
+        "AlternateContact" => alternate_contact()
+      }
+
+  """
+  @type get_alternate_contact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -216,24 +127,36 @@ defmodule AWS.Account do
 
   ## Example:
 
-      get_primary_email_request() :: %{
-        required("AccountId") => String.t() | atom()
+      enable_region_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
       }
 
   """
-  @type get_primary_email_request() :: %{(String.t() | atom()) => any()}
+  @type enable_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_alternate_contact_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("AlternateContactType") => String.t() | atom()
+      start_primary_email_update_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("PrimaryEmail") => String.t() | atom()
       }
 
   """
-  @type delete_alternate_contact_request() :: %{(String.t() | atom()) => any()}
+  @type start_primary_email_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_primary_email_update_response() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type start_primary_email_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,12 +173,75 @@ defmodule AWS.Account do
 
   ## Example:
 
-      get_contact_information_response() :: %{
-        "ContactInformation" => contact_information()
+      contact_information() :: %{
+        "AddressLine1" => String.t() | atom(),
+        "AddressLine2" => String.t() | atom(),
+        "AddressLine3" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "CompanyName" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "DistrictOrCounty" => String.t() | atom(),
+        "FullName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "StateOrRegion" => String.t() | atom(),
+        "WebsiteUrl" => String.t() | atom()
       }
 
   """
-  @type get_contact_information_response() :: %{(String.t() | atom()) => any()}
+  @type contact_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_name_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("AccountName") => String.t() | atom()
+      }
+
+  """
+  @type put_account_name_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_primary_email_update_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("Otp") => String.t() | atom(),
+        required("PrimaryEmail") => String.t() | atom()
+      }
+
+  """
+  @type accept_primary_email_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alternate_contact() :: %{
+        "AlternateContactType" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type alternate_contact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -285,104 +271,72 @@ defmodule AWS.Account do
 
   ## Example:
 
-      accept_primary_email_update_request() :: %{
-        required("AccountId") => String.t() | atom(),
-        required("Otp") => String.t() | atom(),
-        required("PrimaryEmail") => String.t() | atom()
+      get_primary_email_response() :: %{
+        "PrimaryEmail" => String.t() | atom()
       }
 
   """
-  @type accept_primary_email_update_request() :: %{(String.t() | atom()) => any()}
+  @type get_primary_email_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_region_request() :: %{
+      get_alternate_contact_request() :: %{
         optional("AccountId") => String.t() | atom(),
-        required("RegionName") => String.t() | atom()
+        required("AlternateContactType") => String.t() | atom()
       }
 
   """
-  @type enable_region_request() :: %{(String.t() | atom()) => any()}
+  @type get_alternate_contact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_contact_information_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("ContactInformation") => contact_information()
+      get_account_information_response() :: %{
+        "AccountCreatedDate" => non_neg_integer(),
+        "AccountId" => String.t() | atom(),
+        "AccountName" => String.t() | atom(),
+        "AccountState" => String.t() | atom()
       }
 
   """
-  @type put_contact_information_request() :: %{(String.t() | atom()) => any()}
+  @type get_account_information_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      contact_information() :: %{
-        "AddressLine1" => String.t() | atom(),
-        "AddressLine2" => String.t() | atom(),
-        "AddressLine3" => String.t() | atom(),
-        "City" => String.t() | atom(),
-        "CompanyName" => String.t() | atom(),
-        "CountryCode" => String.t() | atom(),
-        "DistrictOrCounty" => String.t() | atom(),
-        "FullName" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "PostalCode" => String.t() | atom(),
-        "StateOrRegion" => String.t() | atom(),
-        "WebsiteUrl" => String.t() | atom()
+      resource_unavailable_exception() :: %{
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type contact_information() :: %{(String.t() | atom()) => any()}
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_alternate_contact_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        required("AlternateContactType") => String.t() | atom(),
-        required("EmailAddress") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("PhoneNumber") => String.t() | atom(),
-        required("Title") => String.t() | atom()
+      get_primary_email_request() :: %{
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type put_alternate_contact_request() :: %{(String.t() | atom()) => any()}
+  @type get_primary_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      alternate_contact() :: %{
-        "AlternateContactType" => String.t() | atom(),
-        "EmailAddress" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "Title" => String.t() | atom()
+      get_gov_cloud_account_information_request() :: %{
+        optional("StandardAccountId") => String.t() | atom()
       }
 
   """
-  @type alternate_contact() :: %{(String.t() | atom()) => any()}
+  @type get_gov_cloud_account_information_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,12 +365,72 @@ defmodule AWS.Account do
 
   ## Example:
 
-      start_primary_email_update_response() :: %{
-        "Status" => String.t() | atom()
+      put_contact_information_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("ContactInformation") => contact_information()
       }
 
   """
-  @type start_primary_email_update_response() :: %{(String.t() | atom()) => any()}
+  @type put_contact_information_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_alternate_contact_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("AlternateContactType") => String.t() | atom()
+      }
+
+  """
+  @type delete_alternate_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_region_opt_status_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
+      }
+
+  """
+  @type get_region_opt_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_contact_information_response() :: %{
+        "ContactInformation" => contact_information()
+      }
+
+  """
+  @type get_contact_information_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_region_opt_status_response() :: %{
+        "RegionName" => String.t() | atom(),
+        "RegionOptStatus" => String.t() | atom()
+      }
+
+  """
+  @type get_region_opt_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,121 +443,107 @@ defmodule AWS.Account do
   """
   @type get_account_information_request() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      get_account_information_response() :: %{
-        "AccountCreatedDate" => non_neg_integer(),
-        "AccountId" => String.t() | atom(),
-        "AccountName" => String.t() | atom(),
-        "AccountState" => String.t() | atom()
-      }
-
-  """
-  @type get_account_information_response() :: %{(String.t() | atom()) => any()}
-
   @type accept_primary_email_update_errors() ::
-          validation_exception()
+          conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type delete_alternate_contact_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type disable_region_errors() ::
-          validation_exception()
+          conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | conflict_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type enable_region_errors() ::
-          validation_exception()
+          conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | conflict_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type get_account_information_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type get_alternate_contact_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type get_contact_information_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type get_gov_cloud_account_information_errors() ::
-          validation_exception()
+          resource_unavailable_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | resource_unavailable_exception()
+          | validation_exception()
 
   @type get_primary_email_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type get_region_opt_status_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type list_regions_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type put_account_name_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type put_alternate_contact_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type put_contact_information_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
           | internal_server_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   @type start_primary_email_update_errors() ::
-          validation_exception()
+          conflict_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
+          | validation_exception()
 
   def metadata do
     %{

@@ -18,6 +18,53 @@ defmodule AWS.PersonalizeEvents do
 
   ## Example:
 
+      put_items_request() :: %{
+        required("datasetArn") => String.t() | atom(),
+        required("items") => list(item())
+      }
+
+  """
+  @type put_items_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_actions_request() :: %{
+        required("actions") => list(action()),
+        required("datasetArn") => String.t() | atom()
+      }
+
+  """
+  @type put_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_action_interactions_request() :: %{
+        required("actionInteractions") => list(action_interaction()),
+        required("trackingId") => String.t() | atom()
+      }
+
+  """
+  @type put_action_interactions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action() :: %{
         "actionId" => String.t() | atom(),
         "properties" => String.t() | atom()
@@ -49,6 +96,41 @@ defmodule AWS.PersonalizeEvents do
 
   ## Example:
 
+      invalid_input_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_users_request() :: %{
+        required("datasetArn") => String.t() | atom(),
+        required("users") => list(user())
+      }
+
+  """
+  @type put_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      item() :: %{
+        "itemId" => String.t() | atom(),
+        "properties" => String.t() | atom()
+      }
+
+  """
+  @type item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event() :: %{
         "eventId" => String.t() | atom(),
         "eventType" => String.t() | atom(),
@@ -68,97 +150,15 @@ defmodule AWS.PersonalizeEvents do
 
   ## Example:
 
-      invalid_input_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      item() :: %{
-        "itemId" => String.t() | atom(),
-        "properties" => String.t() | atom()
-      }
-
-  """
-  @type item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_attribution() :: %{
-        "eventAttributionSource" => String.t() | atom()
-      }
-
-  """
-  @type metric_attribution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_action_interactions_request() :: %{
-        required("actionInteractions") => list(action_interaction()),
-        required("trackingId") => String.t() | atom()
-      }
-
-  """
-  @type put_action_interactions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_actions_request() :: %{
-        required("actions") => list(action()),
-        required("datasetArn") => String.t() | atom()
-      }
-
-  """
-  @type put_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       put_events_request() :: %{
-        optional("userId") => String.t() | atom(),
         required("eventList") => list(event()),
         required("sessionId") => String.t() | atom(),
-        required("trackingId") => String.t() | atom()
+        required("trackingId") => String.t() | atom(),
+        optional("userId") => String.t() | atom()
       }
 
   """
   @type put_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_items_request() :: %{
-        required("datasetArn") => String.t() | atom(),
-        required("items") => list(item())
-      }
-
-  """
-  @type put_items_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_users_request() :: %{
-        required("datasetArn") => String.t() | atom(),
-        required("users") => list(user())
-      }
-
-  """
-  @type put_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,12 +175,12 @@ defmodule AWS.PersonalizeEvents do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      metric_attribution() :: %{
+        "eventAttributionSource" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type metric_attribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -195,18 +195,18 @@ defmodule AWS.PersonalizeEvents do
   @type user() :: %{(String.t() | atom()) => any()}
 
   @type put_action_interactions_errors() ::
-          resource_not_found_exception() | resource_in_use_exception() | invalid_input_exception()
+          resource_in_use_exception() | invalid_input_exception() | resource_not_found_exception()
 
   @type put_actions_errors() ::
-          resource_not_found_exception() | resource_in_use_exception() | invalid_input_exception()
+          resource_in_use_exception() | invalid_input_exception() | resource_not_found_exception()
 
   @type put_events_errors() :: invalid_input_exception()
 
   @type put_items_errors() ::
-          resource_not_found_exception() | resource_in_use_exception() | invalid_input_exception()
+          resource_in_use_exception() | invalid_input_exception() | resource_not_found_exception()
 
   @type put_users_errors() ::
-          resource_not_found_exception() | resource_in_use_exception() | invalid_input_exception()
+          resource_in_use_exception() | invalid_input_exception() | resource_not_found_exception()
 
   def metadata do
     %{

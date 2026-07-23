@@ -53,40 +53,6 @@ defmodule AWS.SSMGuiConnect do
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connection_recording_preferences() :: %{
-        "KMSKeyArn" => [String.t() | atom()],
-        "RecordingDestinations" => recording_destinations()
-      }
-
-  """
-  @type connection_recording_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connection_recording_preferences_request() :: %{
-        optional("ClientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_connection_recording_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       delete_connection_recording_preferences_response() :: %{
         "ClientToken" => String.t() | atom()
       }
@@ -98,13 +64,13 @@ defmodule AWS.SSMGuiConnect do
 
   ## Example:
 
-      get_connection_recording_preferences_response() :: %{
+      update_connection_recording_preferences_response() :: %{
         "ClientToken" => String.t() | atom(),
         "ConnectionRecordingPreferences" => connection_recording_preferences()
       }
 
   """
-  @type get_connection_recording_preferences_response() :: %{(String.t() | atom()) => any()}
+  @type update_connection_recording_preferences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,12 +98,24 @@ defmodule AWS.SSMGuiConnect do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      delete_connection_recording_preferences_request() :: %{
+        optional("ClientToken") => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_connection_recording_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connection_recording_preferences_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("ConnectionRecordingPreferences") => connection_recording_preferences()
+      }
+
+  """
+  @type update_connection_recording_preferences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,6 +128,63 @@ defmodule AWS.SSMGuiConnect do
 
   """
   @type s3_bucket() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_recording_preferences_response() :: %{
+        "ClientToken" => String.t() | atom(),
+        "ConnectionRecordingPreferences" => connection_recording_preferences()
+      }
+
+  """
+  @type get_connection_recording_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_recording_preferences() :: %{
+        "KMSKeyArn" => [String.t() | atom()],
+        "RecordingDestinations" => recording_destinations()
+      }
+
+  """
+  @type connection_recording_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -173,66 +208,31 @@ defmodule AWS.SSMGuiConnect do
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      update_connection_recording_preferences_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("ConnectionRecordingPreferences") => connection_recording_preferences()
-      }
-
-  """
-  @type update_connection_recording_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connection_recording_preferences_response() :: %{
-        "ClientToken" => String.t() | atom(),
-        "ConnectionRecordingPreferences" => connection_recording_preferences()
-      }
-
-  """
-  @type update_connection_recording_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
   @type delete_connection_recording_preferences_errors() ::
-          validation_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type get_connection_recording_preferences_errors() ::
-          validation_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type update_connection_recording_preferences_errors() ::
-          validation_exception()
-          | throttling_exception()
+          throttling_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | conflict_exception()
+          | validation_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   def metadata do

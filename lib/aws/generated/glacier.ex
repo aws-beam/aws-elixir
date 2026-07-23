@@ -58,345 +58,22 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      missing_parameter_value_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
+      vault_notification_config() :: %{
+        "Events" => list(String.t() | atom()),
+        "SNSTopic" => String.t() | atom()
       }
 
   """
-  @type missing_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+  @type vault_notification_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_archive_input() :: %{}
+      complete_vault_lock_input() :: %{}
 
   """
-  @type delete_archive_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_job_output() :: %{
-        "jobId" => String.t() | atom(),
-        "jobOutputPath" => String.t() | atom(),
-        "location" => String.t() | atom()
-      }
-
-  """
-  @type initiate_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_input() :: %{}
-
-  """
-  @type describe_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_tags_from_vault_input() :: %{
-        optional("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type remove_tags_from_vault_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      abort_multipart_upload_input() :: %{}
-
-  """
-  @type abort_multipart_upload_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_access_policy_output() :: %{
-        "policy" => vault_access_policy()
-      }
-
-  """
-  @type get_vault_access_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioned_capacity_input() :: %{}
-
-  """
-  @type list_provisioned_capacity_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_retrieval_policy_input() :: %{}
-
-  """
-  @type get_data_retrieval_policy_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_vault_input() :: %{}
-
-  """
-  @type describe_vault_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_vault_output() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_vault_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_vault_access_policy_input() :: %{
-        optional("policy") => vault_access_policy()
-      }
-
-  """
-  @type set_vault_access_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_retrieval_rule() :: %{
-        "BytesPerHour" => float(),
-        "Strategy" => String.t() | atom()
-      }
-
-  """
-  @type data_retrieval_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_archive_input() :: %{
-        optional("archiveDescription") => String.t() | atom(),
-        optional("body") => binary(),
-        optional("checksum") => String.t() | atom()
-      }
-
-  """
-  @type upload_archive_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_serialization() :: %{
-        "csv" => csv_input()
-      }
-
-  """
-  @type input_serialization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioned_capacity_output() :: %{
-        "ProvisionedCapacityList" => list(provisioned_capacity_description())
-      }
-
-  """
-  @type list_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grantee() :: %{
-        "DisplayName" => String.t() | atom(),
-        "EmailAddress" => String.t() | atom(),
-        "ID" => String.t() | atom(),
-        "Type" => list(any()),
-        "URI" => String.t() | atom()
-      }
-
-  """
-  @type grantee() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_notifications_input() :: %{}
-
-  """
-  @type get_vault_notifications_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      request_timeout_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vault_access_policy() :: %{
-        "Policy" => String.t() | atom()
-      }
-
-  """
-  @type vault_access_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_job_input() :: %{
-        optional("jobParameters") => job_parameters()
-      }
-
-  """
-  @type initiate_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inventory_retrieval_job_description() :: %{
-        "EndDate" => String.t() | atom(),
-        "Format" => String.t() | atom(),
-        "Limit" => String.t() | atom(),
-        "Marker" => String.t() | atom(),
-        "StartDate" => String.t() | atom()
-      }
-
-  """
-  @type inventory_retrieval_job_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      select_parameters() :: %{
-        "Expression" => String.t() | atom(),
-        "ExpressionType" => list(any()),
-        "InputSerialization" => input_serialization(),
-        "OutputSerialization" => output_serialization()
-      }
-
-  """
-  @type select_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insufficient_capacity_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_vault_output() :: %{
-        "location" => String.t() | atom()
-      }
-
-  """
-  @type create_vault_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_parameters() :: %{
-        "ArchiveId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Format" => String.t() | atom(),
-        "InventoryRetrievalParameters" => inventory_retrieval_job_input(),
-        "OutputLocation" => output_location(),
-        "RetrievalByteRange" => String.t() | atom(),
-        "SNSTopic" => String.t() | atom(),
-        "SelectParameters" => select_parameters(),
-        "Tier" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type job_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_multipart_upload_input() :: %{
-        optional("archiveSize") => String.t() | atom(),
-        optional("checksum") => String.t() | atom()
-      }
-
-  """
-  @type complete_multipart_upload_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vault_notifications_input() :: %{}
-
-  """
-  @type delete_vault_notifications_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      set_vault_notifications_input() :: %{
-        optional("vaultNotificationConfig") => vault_notification_config()
-      }
-
-  """
-  @type set_vault_notifications_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_lock_input() :: %{}
-
-  """
-  @type get_vault_lock_input() :: %{}
+  @type complete_vault_lock_input() :: %{}
 
   @typedoc """
 
@@ -413,74 +90,10 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
+      get_vault_access_policy_input() :: %{}
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioned_capacity_description() :: %{
-        "CapacityId" => String.t() | atom(),
-        "ExpirationDate" => String.t() | atom(),
-        "StartDate" => String.t() | atom()
-      }
-
-  """
-  @type provisioned_capacity_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      part_list_element() :: %{
-        "RangeInBytes" => String.t() | atom(),
-        "SHA256TreeHash" => String.t() | atom()
-      }
-
-  """
-  @type part_list_element() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grant() :: %{
-        "Grantee" => grantee(),
-        "Permission" => list(any())
-      }
-
-  """
-  @type grant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_notifications_output() :: %{
-        "vaultNotificationConfig" => vault_notification_config()
-      }
-
-  """
-  @type get_vault_notifications_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vaults_input() :: %{
-        optional("limit") => [integer()],
-        optional("marker") => String.t() | atom()
-      }
-
-  """
-  @type list_vaults_input() :: %{(String.t() | atom()) => any()}
+  @type get_vault_access_policy_input() :: %{}
 
   @typedoc """
 
@@ -494,6 +107,24 @@ defmodule AWS.Glacier do
 
   """
   @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vault_input() :: %{}
+
+  """
+  @type delete_vault_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vault_notifications_input() :: %{}
+
+  """
+  @type delete_vault_notifications_input() :: %{}
 
   @typedoc """
 
@@ -515,25 +146,45 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      get_job_output_input() :: %{
-        optional("range") => String.t() | atom()
+      vault_lock_policy() :: %{
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type get_job_output_input() :: %{(String.t() | atom()) => any()}
+  @type vault_lock_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      archive_creation_output() :: %{
-        "archiveId" => String.t() | atom(),
-        "checksum" => String.t() | atom(),
-        "location" => String.t() | atom()
+      no_longer_supported_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type archive_creation_output() :: %{(String.t() | atom()) => any()}
+  @type no_longer_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purchase_provisioned_capacity_input() :: %{}
+
+  """
+  @type purchase_provisioned_capacity_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      add_tags_to_vault_input() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type add_tags_to_vault_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,71 +203,153 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      delete_vault_access_policy_input() :: %{}
-
-  """
-  @type delete_vault_access_policy_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_provisioned_capacity_input() :: %{}
-
-  """
-  @type purchase_provisioned_capacity_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      output_location() :: %{
-        "S3" => s3_location()
-      }
-
-  """
-  @type output_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_list_element() :: %{
-        "ArchiveDescription" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "MultipartUploadId" => String.t() | atom(),
-        "PartSizeInBytes" => float(),
-        "VaultARN" => String.t() | atom()
-      }
-
-  """
-  @type upload_list_element() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
+      insufficient_capacity_exception() :: %{
         "code" => String.t() | atom(),
         "message" => String.t() | atom(),
         "type" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      upload_multipart_part_input() :: %{
-        optional("body") => binary(),
-        optional("checksum") => String.t() | atom(),
-        optional("range") => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type upload_multipart_part_input() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vault_lock_output() :: %{
+        "CreationDate" => String.t() | atom(),
+        "ExpirationDate" => String.t() | atom(),
+        "Policy" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type get_vault_lock_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_output() :: %{
+        "JobList" => list(glacier_job_description()),
+        "Marker" => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_serialization() :: %{
+        "csv" => csv_output()
+      }
+
+  """
+  @type output_serialization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_vault_access_policy_input() :: %{
+        optional("policy") => vault_access_policy()
+      }
+
+  """
+  @type set_vault_access_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_vault_output() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_vault_notifications_input() :: %{
+        optional("vaultNotificationConfig") => vault_notification_config()
+      }
+
+  """
+  @type set_vault_notifications_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      part_list_element() :: %{
+        "RangeInBytes" => String.t() | atom(),
+        "SHA256TreeHash" => String.t() | atom()
+      }
+
+  """
+  @type part_list_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_vault_lock_input() :: %{
+        optional("policy") => vault_lock_policy()
+      }
+
+  """
+  @type initiate_vault_lock_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vault_lock_input() :: %{}
+
+  """
+  @type get_vault_lock_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_retrieval_policy_output() :: %{
+        "Policy" => data_retrieval_policy()
+      }
+
+  """
+  @type get_data_retrieval_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,95 +373,6 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      initiate_multipart_upload_input() :: %{
-        optional("archiveDescription") => String.t() | atom(),
-        optional("partSize") => String.t() | atom()
-      }
-
-  """
-  @type initiate_multipart_upload_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_data_retrieval_policy_input() :: %{
-        optional("Policy") => data_retrieval_policy()
-      }
-
-  """
-  @type set_data_retrieval_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vaults_output() :: %{
-        "Marker" => String.t() | atom(),
-        "VaultList" => list(describe_vault_output())
-      }
-
-  """
-  @type list_vaults_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vault_lock_policy() :: %{
-        "Policy" => String.t() | atom()
-      }
-
-  """
-  @type vault_lock_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_access_policy_input() :: %{}
-
-  """
-  @type get_vault_access_policy_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_enforced_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type policy_enforced_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_output() :: %{
-        "JobList" => list(glacier_job_description()),
-        "Marker" => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vault_input() :: %{}
-
-  """
-  @type delete_vault_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       upload_multipart_part_output() :: %{
         "checksum" => String.t() | atom()
       }
@@ -740,44 +384,58 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      list_tags_for_vault_input() :: %{}
+      get_vault_notifications_output() :: %{
+        "vaultNotificationConfig" => vault_notification_config()
+      }
 
   """
-  @type list_tags_for_vault_input() :: %{}
+  @type get_vault_notifications_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      initiate_vault_lock_input() :: %{
-        optional("policy") => vault_lock_policy()
+      complete_multipart_upload_input() :: %{
+        optional("archiveSize") => String.t() | atom(),
+        optional("checksum") => String.t() | atom()
       }
 
   """
-  @type initiate_vault_lock_input() :: %{(String.t() | atom()) => any()}
+  @type complete_multipart_upload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      purchase_provisioned_capacity_output() :: %{
-        "capacityId" => String.t() | atom()
+      output_location() :: %{
+        "S3" => s3_location()
       }
 
   """
-  @type purchase_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
+  @type output_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vault_notification_config() :: %{
-        "Events" => list(String.t() | atom()),
-        "SNSTopic" => String.t() | atom()
+      initiate_job_input() :: %{
+        optional("jobParameters") => job_parameters()
       }
 
   """
-  @type vault_notification_config() :: %{(String.t() | atom()) => any()}
+  @type initiate_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vaults_input() :: %{
+        optional("limit") => [integer()],
+        optional("marker") => String.t() | atom()
+      }
+
+  """
+  @type list_vaults_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -814,6 +472,19 @@ defmodule AWS.Glacier do
 
   ## Example:
 
+      request_timeout_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_jobs_input() :: %{
         optional("completed") => String.t() | atom(),
         optional("limit") => [integer()],
@@ -823,6 +494,133 @@ defmodule AWS.Glacier do
 
   """
   @type list_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_multipart_part_input() :: %{
+        optional("body") => binary(),
+        optional("checksum") => String.t() | atom(),
+        optional("range") => String.t() | atom()
+      }
+
+  """
+  @type upload_multipart_part_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_multipart_upload_input() :: %{
+        optional("archiveDescription") => String.t() | atom(),
+        optional("partSize") => String.t() | atom()
+      }
+
+  """
+  @type initiate_multipart_upload_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      select_parameters() :: %{
+        "Expression" => String.t() | atom(),
+        "ExpressionType" => list(any()),
+        "InputSerialization" => input_serialization(),
+        "OutputSerialization" => output_serialization()
+      }
+
+  """
+  @type select_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_retrieval_rule() :: %{
+        "BytesPerHour" => float(),
+        "Strategy" => String.t() | atom()
+      }
+
+  """
+  @type data_retrieval_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_output_input() :: %{
+        optional("range") => String.t() | atom()
+      }
+
+  """
+  @type get_job_output_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vault_access_policy_output() :: %{
+        "policy" => vault_access_policy()
+      }
+
+  """
+  @type get_vault_access_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_vault_input() :: %{}
+
+  """
+  @type list_tags_for_vault_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vault_access_policy_input() :: %{}
+
+  """
+  @type delete_vault_access_policy_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_archive_input() :: %{}
+
+  """
+  @type delete_archive_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_vault_output() :: %{
+        "CreationDate" => String.t() | atom(),
+        "LastInventoryDate" => String.t() | atom(),
+        "NumberOfArchives" => float(),
+        "SizeInBytes" => float(),
+        "VaultARN" => String.t() | atom(),
+        "VaultName" => String.t() | atom()
+      }
+
+  """
+  @type describe_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_tags_from_vault_input() :: %{
+        optional("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type remove_tags_from_vault_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -852,29 +650,120 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      initiate_vault_lock_output() :: %{
-        "lockId" => String.t() | atom()
+      service_unavailable_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type initiate_vault_lock_output() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_parts_output() :: %{
-        "ArchiveDescription" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
+      inventory_retrieval_job_description() :: %{
+        "EndDate" => String.t() | atom(),
+        "Format" => String.t() | atom(),
+        "Limit" => String.t() | atom(),
         "Marker" => String.t() | atom(),
-        "MultipartUploadId" => String.t() | atom(),
-        "PartSizeInBytes" => float(),
-        "Parts" => list(part_list_element()),
-        "VaultARN" => String.t() | atom()
+        "StartDate" => String.t() | atom()
       }
 
   """
-  @type list_parts_output() :: %{(String.t() | atom()) => any()}
+  @type inventory_retrieval_job_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioned_capacity_description() :: %{
+        "CapacityId" => String.t() | atom(),
+        "ExpirationDate" => String.t() | atom(),
+        "StartDate" => String.t() | atom()
+      }
+
+  """
+  @type provisioned_capacity_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_serialization() :: %{
+        "csv" => csv_input()
+      }
+
+  """
+  @type input_serialization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_parameters() :: %{
+        "ArchiveId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Format" => String.t() | atom(),
+        "InventoryRetrievalParameters" => inventory_retrieval_job_input(),
+        "OutputLocation" => output_location(),
+        "RetrievalByteRange" => String.t() | atom(),
+        "SNSTopic" => String.t() | atom(),
+        "SelectParameters" => select_parameters(),
+        "Tier" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type job_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vault_output() :: %{
+        "location" => String.t() | atom()
+      }
+
+  """
+  @type create_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_enforced_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type policy_enforced_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_input() :: %{}
+
+  """
+  @type describe_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_retrieval_job_input() :: %{
+        "EndDate" => String.t() | atom(),
+        "Limit" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "StartDate" => String.t() | atom()
+      }
+
+  """
+  @type inventory_retrieval_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -895,28 +784,103 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      inventory_retrieval_job_input() :: %{
-        "EndDate" => String.t() | atom(),
-        "Limit" => String.t() | atom(),
-        "Marker" => String.t() | atom(),
-        "StartDate" => String.t() | atom()
-      }
+      get_vault_notifications_input() :: %{}
 
   """
-  @type inventory_retrieval_job_input() :: %{(String.t() | atom()) => any()}
+  @type get_vault_notifications_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
+      upload_list_element() :: %{
+        "ArchiveDescription" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "MultipartUploadId" => String.t() | atom(),
+        "PartSizeInBytes" => float(),
+        "VaultARN" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type upload_list_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_vault_lock_output() :: %{
+        "lockId" => String.t() | atom()
+      }
+
+  """
+  @type initiate_vault_lock_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purchase_provisioned_capacity_output() :: %{
+        "capacityId" => String.t() | atom()
+      }
+
+  """
+  @type purchase_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multipart_uploads_input() :: %{
+        optional("limit") => [integer()],
+        optional("marker") => String.t() | atom()
+      }
+
+  """
+  @type list_multipart_uploads_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioned_capacity_input() :: %{}
+
+  """
+  @type list_provisioned_capacity_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_archive_input() :: %{
+        optional("archiveDescription") => String.t() | atom(),
+        optional("body") => binary(),
+        optional("checksum") => String.t() | atom()
+      }
+
+  """
+  @type upload_archive_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_vault_input() :: %{}
+
+  """
+  @type describe_vault_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_job_output() :: %{
+        "jobId" => String.t() | atom(),
+        "jobOutputPath" => String.t() | atom(),
+        "location" => String.t() | atom()
+      }
+
+  """
+  @type initiate_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -939,22 +903,6 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      describe_vault_output() :: %{
-        "CreationDate" => String.t() | atom(),
-        "LastInventoryDate" => String.t() | atom(),
-        "NumberOfArchives" => float(),
-        "SizeInBytes" => float(),
-        "VaultARN" => String.t() | atom(),
-        "VaultName" => String.t() | atom()
-      }
-
-  """
-  @type describe_vault_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       initiate_multipart_upload_output() :: %{
         "location" => String.t() | atom(),
         "uploadId" => String.t() | atom()
@@ -967,48 +915,98 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      add_tags_to_vault_input() :: %{
-        optional("Tags") => map()
+      list_vaults_output() :: %{
+        "Marker" => String.t() | atom(),
+        "VaultList" => list(describe_vault_output())
       }
 
   """
-  @type add_tags_to_vault_input() :: %{(String.t() | atom()) => any()}
+  @type list_vaults_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_multipart_uploads_input() :: %{
-        optional("limit") => [integer()],
-        optional("marker") => String.t() | atom()
+      list_parts_output() :: %{
+        "ArchiveDescription" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "MultipartUploadId" => String.t() | atom(),
+        "PartSizeInBytes" => float(),
+        "Parts" => list(part_list_element()),
+        "VaultARN" => String.t() | atom()
       }
 
   """
-  @type list_multipart_uploads_input() :: %{(String.t() | atom()) => any()}
+  @type list_parts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      output_serialization() :: %{
-        "csv" => csv_output()
-      }
-
-  """
-  @type output_serialization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_longer_supported_exception() :: %{
+      missing_parameter_value_exception() :: %{
         "code" => String.t() | atom(),
         "message" => String.t() | atom(),
         "type" => String.t() | atom()
       }
 
   """
-  @type no_longer_supported_exception() :: %{(String.t() | atom()) => any()}
+  @type missing_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_data_retrieval_policy_input() :: %{
+        optional("Policy") => data_retrieval_policy()
+      }
+
+  """
+  @type set_data_retrieval_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_multipart_upload_input() :: %{}
+
+  """
+  @type abort_multipart_upload_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      grantee() :: %{
+        "DisplayName" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "ID" => String.t() | atom(),
+        "Type" => list(any()),
+        "URI" => String.t() | atom()
+      }
+
+  """
+  @type grantee() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioned_capacity_output() :: %{
+        "ProvisionedCapacityList" => list(provisioned_capacity_description())
+      }
+
+  """
+  @type list_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_retrieval_policy_input() :: %{}
+
+  """
+  @type get_data_retrieval_policy_input() :: %{}
 
   @typedoc """
 
@@ -1023,6 +1021,31 @@ defmodule AWS.Glacier do
 
   ## Example:
 
+      archive_creation_output() :: %{
+        "archiveId" => String.t() | atom(),
+        "checksum" => String.t() | atom(),
+        "location" => String.t() | atom()
+      }
+
+  """
+  @type archive_creation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grant() :: %{
+        "Grantee" => grantee(),
+        "Permission" => list(any())
+      }
+
+  """
+  @type grant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       abort_vault_lock_input() :: %{}
 
   """
@@ -1032,268 +1055,245 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      get_vault_lock_output() :: %{
-        "CreationDate" => String.t() | atom(),
-        "ExpirationDate" => String.t() | atom(),
-        "Policy" => String.t() | atom(),
-        "State" => String.t() | atom()
+      vault_access_policy() :: %{
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type get_vault_lock_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_retrieval_policy_output() :: %{
-        "Policy" => data_retrieval_policy()
-      }
-
-  """
-  @type get_data_retrieval_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_vault_lock_input() :: %{}
-
-  """
-  @type complete_vault_lock_input() :: %{}
+  @type vault_access_policy() :: %{(String.t() | atom()) => any()}
 
   @type abort_multipart_upload_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type abort_vault_lock_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type add_tags_to_vault_errors() ::
-          no_longer_supported_exception()
-          | limit_exceeded_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
+          | limit_exceeded_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type complete_multipart_upload_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type complete_vault_lock_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type create_vault_errors() ::
-          no_longer_supported_exception()
-          | limit_exceeded_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
+          | limit_exceeded_exception()
+          | no_longer_supported_exception()
           | invalid_parameter_value_exception()
-          | missing_parameter_value_exception()
 
   @type delete_archive_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type delete_vault_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type delete_vault_access_policy_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type delete_vault_notifications_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type describe_job_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type describe_vault_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type get_data_retrieval_policy_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
+          | no_longer_supported_exception()
           | invalid_parameter_value_exception()
-          | missing_parameter_value_exception()
 
   @type get_job_output_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type get_vault_access_policy_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type get_vault_lock_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type get_vault_notifications_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type initiate_job_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | policy_enforced_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | insufficient_capacity_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type initiate_multipart_upload_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type initiate_vault_lock_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type list_jobs_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type list_multipart_uploads_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type list_parts_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type list_provisioned_capacity_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
+          | no_longer_supported_exception()
           | invalid_parameter_value_exception()
-          | missing_parameter_value_exception()
 
   @type list_tags_for_vault_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type list_vaults_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type purchase_provisioned_capacity_errors() ::
-          no_longer_supported_exception()
-          | limit_exceeded_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
+          | limit_exceeded_exception()
+          | no_longer_supported_exception()
           | invalid_parameter_value_exception()
-          | missing_parameter_value_exception()
 
   @type remove_tags_from_vault_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type set_data_retrieval_policy_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
+          | no_longer_supported_exception()
           | invalid_parameter_value_exception()
-          | missing_parameter_value_exception()
 
   @type set_vault_access_policy_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type set_vault_notifications_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
-          | missing_parameter_value_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type upload_archive_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | request_timeout_exception()
-          | missing_parameter_value_exception()
+          | resource_not_found_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   @type upload_multipart_part_errors() ::
-          no_longer_supported_exception()
+          missing_parameter_value_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | request_timeout_exception()
-          | missing_parameter_value_exception()
+          | resource_not_found_exception()
+          | no_longer_supported_exception()
+          | invalid_parameter_value_exception()
 
   def metadata do
     %{
@@ -1354,9 +1354,9 @@ defmodule AWS.Glacier do
           | {:error, abort_multipart_upload_errors()}
   def abort_multipart_upload(
         %Client{} = client,
-        account_id,
-        upload_id,
         vault_name,
+        upload_id,
+        account_id,
         input,
         options \\ []
       ) do
@@ -1417,7 +1417,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, abort_vault_lock_errors()}
-  def abort_vault_lock(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def abort_vault_lock(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy"
 
@@ -1463,7 +1463,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, add_tags_to_vault_errors()}
-  def add_tags_to_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def add_tags_to_vault(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/tags?operation=add"
 
@@ -1564,9 +1564,9 @@ defmodule AWS.Glacier do
           | {:error, complete_multipart_upload_errors()}
   def complete_multipart_upload(
         %Client{} = client,
-        account_id,
-        upload_id,
         vault_name,
+        upload_id,
+        account_id,
         input,
         options \\ []
       ) do
@@ -1575,8 +1575,8 @@ defmodule AWS.Glacier do
 
     {headers, input} =
       [
-        {"archiveSize", "x-amz-archive-size"},
-        {"checksum", "x-amz-sha256-tree-hash"}
+        {"checksum", "x-amz-sha256-tree-hash"},
+        {"archiveSize", "x-amz-archive-size"}
       ]
       |> Request.build_params(input)
 
@@ -1588,9 +1588,9 @@ defmodule AWS.Glacier do
         options,
         :response_header_parameters,
         [
-          {"x-amz-archive-id", "archiveId"},
+          {"Location", "location"},
           {"x-amz-sha256-tree-hash", "checksum"},
-          {"Location", "location"}
+          {"x-amz-archive-id", "archiveId"}
         ]
       )
 
@@ -1646,9 +1646,9 @@ defmodule AWS.Glacier do
           | {:error, complete_vault_lock_errors()}
   def complete_vault_lock(
         %Client{} = client,
-        account_id,
-        lock_id,
         vault_name,
+        lock_id,
+        account_id,
         input,
         options \\ []
       ) do
@@ -1720,7 +1720,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, create_vault_errors()}
-  def create_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def create_vault(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
     headers = []
     custom_headers = []
@@ -1799,7 +1799,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_archive_errors()}
-  def delete_archive(%Client{} = client, account_id, archive_id, vault_name, input, options \\ []) do
+  def delete_archive(%Client{} = client, vault_name, archive_id, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/archives/#{AWS.Util.encode_uri(archive_id)}"
 
@@ -1866,7 +1866,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_vault_errors()}
-  def delete_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def delete_vault(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
     headers = []
     custom_headers = []
@@ -1914,7 +1914,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_vault_access_policy_errors()}
-  def delete_vault_access_policy(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def delete_vault_access_policy(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/access-policy"
 
@@ -1973,7 +1973,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_vault_notifications_errors()}
-  def delete_vault_notifications(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def delete_vault_notifications(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/notification-configuration"
 
@@ -2033,7 +2033,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, describe_job_errors()}
-  def describe_job(%Client{} = client, account_id, job_id, vault_name, options \\ []) do
+  def describe_job(%Client{} = client, vault_name, job_id, account_id, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -2084,7 +2084,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, describe_vault_errors()}
-  def describe_vault(%Client{} = client, account_id, vault_name, options \\ []) do
+  def describe_vault(%Client{} = client, vault_name, account_id, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
     headers = []
     query_params = []
@@ -2194,9 +2194,9 @@ defmodule AWS.Glacier do
           | {:error, get_job_output_errors()}
   def get_job_output(
         %Client{} = client,
-        account_id,
-        job_id,
         vault_name,
+        job_id,
+        account_id,
         range \\ nil,
         options \\ []
       ) do
@@ -2219,11 +2219,11 @@ defmodule AWS.Glacier do
         options,
         :response_header_parameters,
         [
-          {"Accept-Ranges", "acceptRanges"},
-          {"x-amz-archive-description", "archiveDescription"},
-          {"x-amz-sha256-tree-hash", "checksum"},
+          {"Content-Type", "contentType"},
           {"Content-Range", "contentRange"},
-          {"Content-Type", "contentType"}
+          {"x-amz-sha256-tree-hash", "checksum"},
+          {"x-amz-archive-description", "archiveDescription"},
+          {"Accept-Ranges", "acceptRanges"}
         ]
       )
 
@@ -2247,7 +2247,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_vault_access_policy_errors()}
-  def get_vault_access_policy(%Client{} = client, account_id, vault_name, options \\ []) do
+  def get_vault_access_policy(%Client{} = client, vault_name, account_id, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/access-policy"
 
@@ -2300,7 +2300,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_vault_lock_errors()}
-  def get_vault_lock(%Client{} = client, account_id, vault_name, options \\ []) do
+  def get_vault_lock(%Client{} = client, vault_name, account_id, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy"
 
@@ -2342,7 +2342,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_vault_notifications_errors()}
-  def get_vault_notifications(%Client{} = client, account_id, vault_name, options \\ []) do
+  def get_vault_notifications(%Client{} = client, vault_name, account_id, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/notification-configuration"
 
@@ -2374,7 +2374,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, initiate_job_errors()}
-  def initiate_job(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def initiate_job(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/jobs"
 
@@ -2387,9 +2387,9 @@ defmodule AWS.Glacier do
         options,
         :response_header_parameters,
         [
-          {"x-amz-job-id", "jobId"},
+          {"Location", "location"},
           {"x-amz-job-output-path", "jobOutputPath"},
-          {"Location", "location"}
+          {"x-amz-job-id", "jobId"}
         ]
       )
 
@@ -2471,14 +2471,14 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, initiate_multipart_upload_errors()}
-  def initiate_multipart_upload(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def initiate_multipart_upload(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads"
 
     {headers, input} =
       [
-        {"archiveDescription", "x-amz-archive-description"},
-        {"partSize", "x-amz-part-size"}
+        {"partSize", "x-amz-part-size"},
+        {"archiveDescription", "x-amz-archive-description"}
       ]
       |> Request.build_params(input)
 
@@ -2489,7 +2489,7 @@ defmodule AWS.Glacier do
       Keyword.put(
         options,
         :response_header_parameters,
-        [{"Location", "location"}, {"x-amz-multipart-upload-id", "uploadId"}]
+        [{"x-amz-multipart-upload-id", "uploadId"}, {"Location", "location"}]
       )
 
     meta = metadata()
@@ -2556,7 +2556,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, initiate_vault_lock_errors()}
-  def initiate_vault_lock(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def initiate_vault_lock(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy"
 
@@ -2653,12 +2653,12 @@ defmodule AWS.Glacier do
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
-        account_id,
         vault_name,
-        completed \\ nil,
-        limit \\ nil,
-        marker \\ nil,
+        account_id,
         statuscode \\ nil,
+        marker \\ nil,
+        limit \\ nil,
+        completed \\ nil,
         options \\ []
       ) do
     url_path =
@@ -2668,15 +2668,8 @@ defmodule AWS.Glacier do
     query_params = []
 
     query_params =
-      if !is_nil(statuscode) do
-        [{"statuscode", statuscode} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(completed) do
+        [{"completed", completed} | query_params]
       else
         query_params
       end
@@ -2689,8 +2682,15 @@ defmodule AWS.Glacier do
       end
 
     query_params =
-      if !is_nil(completed) do
-        [{"completed", completed} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(statuscode) do
+        [{"statuscode", statuscode} | query_params]
       else
         query_params
       end
@@ -2755,10 +2755,10 @@ defmodule AWS.Glacier do
           | {:error, list_multipart_uploads_errors()}
   def list_multipart_uploads(
         %Client{} = client,
-        account_id,
         vault_name,
-        limit \\ nil,
+        account_id,
         marker \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path =
@@ -2768,15 +2768,15 @@ defmodule AWS.Glacier do
     query_params = []
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
       else
         query_params
       end
@@ -2837,11 +2837,11 @@ defmodule AWS.Glacier do
           | {:error, list_parts_errors()}
   def list_parts(
         %Client{} = client,
-        account_id,
-        upload_id,
         vault_name,
-        limit \\ nil,
+        upload_id,
+        account_id,
         marker \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path =
@@ -2851,15 +2851,15 @@ defmodule AWS.Glacier do
     query_params = []
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
       else
         query_params
       end
@@ -2900,7 +2900,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_tags_for_vault_errors()}
-  def list_tags_for_vault(%Client{} = client, account_id, vault_name, options \\ []) do
+  def list_tags_for_vault(%Client{} = client, vault_name, account_id, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/tags"
 
@@ -2955,21 +2955,21 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_vaults_errors()}
-  def list_vaults(%Client{} = client, account_id, limit \\ nil, marker \\ nil, options \\ []) do
+  def list_vaults(%Client{} = client, account_id, marker \\ nil, limit \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(marker) do
-        [{"marker", marker} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
       else
         query_params
       end
@@ -3041,7 +3041,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, remove_tags_from_vault_errors()}
-  def remove_tags_from_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def remove_tags_from_vault(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/tags?operation=remove"
 
@@ -3133,7 +3133,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, set_vault_access_policy_errors()}
-  def set_vault_access_policy(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def set_vault_access_policy(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/access-policy"
 
@@ -3218,7 +3218,7 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, set_vault_notifications_errors()}
-  def set_vault_notifications(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def set_vault_notifications(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/notification-configuration"
 
@@ -3306,14 +3306,14 @@ defmodule AWS.Glacier do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, upload_archive_errors()}
-  def upload_archive(%Client{} = client, account_id, vault_name, input, options \\ []) do
+  def upload_archive(%Client{} = client, vault_name, account_id, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/archives"
 
     {headers, input} =
       [
-        {"archiveDescription", "x-amz-archive-description"},
-        {"checksum", "x-amz-sha256-tree-hash"}
+        {"checksum", "x-amz-sha256-tree-hash"},
+        {"archiveDescription", "x-amz-archive-description"}
       ]
       |> Request.build_params(input)
 
@@ -3325,9 +3325,9 @@ defmodule AWS.Glacier do
         options,
         :response_header_parameters,
         [
-          {"x-amz-archive-id", "archiveId"},
+          {"Location", "location"},
           {"x-amz-sha256-tree-hash", "checksum"},
-          {"Location", "location"}
+          {"x-amz-archive-id", "archiveId"}
         ]
       )
 
@@ -3428,9 +3428,9 @@ defmodule AWS.Glacier do
           | {:error, upload_multipart_part_errors()}
   def upload_multipart_part(
         %Client{} = client,
-        account_id,
-        upload_id,
         vault_name,
+        upload_id,
+        account_id,
         input,
         options \\ []
       ) do
@@ -3439,8 +3439,8 @@ defmodule AWS.Glacier do
 
     {headers, input} =
       [
-        {"checksum", "x-amz-sha256-tree-hash"},
-        {"range", "Content-Range"}
+        {"range", "Content-Range"},
+        {"checksum", "x-amz-sha256-tree-hash"}
       ]
       |> Request.build_params(input)
 

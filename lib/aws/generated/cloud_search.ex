@@ -27,78 +27,6 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      update_service_access_policies_request() :: %{
-        required("AccessPolicies") => String.t() | atom(),
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type update_service_access_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_domain_response() :: %{
-        "DomainStatus" => domain_status()
-      }
-      
-  """
-  @type delete_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_domain_endpoint_options_request() :: %{
-        optional("Deployed") => boolean(),
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_domain_endpoint_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_analysis_schemes_response() :: %{
-        "AnalysisSchemes" => list(analysis_scheme_status())
-      }
-      
-  """
-  @type describe_analysis_schemes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      define_analysis_scheme_response() :: %{
-        "AnalysisScheme" => analysis_scheme_status()
-      }
-      
-  """
-  @type define_analysis_scheme_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      text_array_options() :: %{
-        "AnalysisScheme" => String.t() | atom(),
-        "DefaultValue" => String.t() | atom(),
-        "HighlightEnabled" => boolean(),
-        "ReturnEnabled" => boolean(),
-        "SourceFields" => String.t() | atom()
-      }
-      
-  """
-  @type text_array_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       delete_expression_request() :: %{
         required("DomainName") => String.t() | atom(),
         required("ExpressionName") => String.t() | atom()
@@ -111,213 +39,16 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      expression_status() :: %{
-        "Options" => expression(),
-        "Status" => option_status()
-      }
-      
-  """
-  @type expression_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      date_array_options() :: %{
-        "DefaultValue" => String.t() | atom(),
-        "FacetEnabled" => boolean(),
-        "ReturnEnabled" => boolean(),
-        "SearchEnabled" => boolean(),
-        "SourceFields" => String.t() | atom()
-      }
-      
-  """
-  @type date_array_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_suggester_options() :: %{
-        "FuzzyMatching" => list(any()),
-        "SortExpression" => String.t() | atom(),
-        "SourceField" => String.t() | atom()
-      }
-      
-  """
-  @type document_suggester_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      literal_array_options() :: %{
-        "DefaultValue" => String.t() | atom(),
-        "FacetEnabled" => boolean(),
-        "ReturnEnabled" => boolean(),
-        "SearchEnabled" => boolean(),
-        "SourceFields" => String.t() | atom()
-      }
-      
-  """
-  @type literal_array_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analysis_options() :: %{
-        "AlgorithmicStemming" => list(any()),
-        "JapaneseTokenizationDictionary" => String.t() | atom(),
-        "StemmingDictionary" => String.t() | atom(),
-        "Stopwords" => String.t() | atom(),
-        "Synonyms" => String.t() | atom()
-      }
-      
-  """
-  @type analysis_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_index_field_request() :: %{
-        required("DomainName") => String.t() | atom(),
-        required("IndexFieldName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_index_field_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_endpoint() :: %{
-        "Endpoint" => String.t() | atom()
-      }
-      
-  """
-  @type service_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_domain_endpoint_options_response() :: %{
-        "DomainEndpointOptions" => domain_endpoint_options_status()
-      }
-      
-  """
-  @type describe_domain_endpoint_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_availability_options_response() :: %{
-        "AvailabilityOptions" => availability_options_status()
-      }
-      
-  """
-  @type update_availability_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_domains_request() :: %{
-        optional("DomainNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_domains_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      int_options() :: %{
+      int_array_options() :: %{
         "DefaultValue" => float(),
         "FacetEnabled" => boolean(),
         "ReturnEnabled" => boolean(),
         "SearchEnabled" => boolean(),
-        "SortEnabled" => boolean(),
-        "SourceField" => String.t() | atom()
+        "SourceFields" => String.t() | atom()
       }
       
   """
-  @type int_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_index_field_response() :: %{
-        "IndexField" => index_field_status()
-      }
-      
-  """
-  @type delete_index_field_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      define_suggester_response() :: %{
-        "Suggester" => suggester_status()
-      }
-      
-  """
-  @type define_suggester_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disabled_operation_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type disabled_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scaling_parameters() :: %{
-        "DesiredInstanceType" => list(any()),
-        "DesiredPartitionCount" => integer(),
-        "DesiredReplicationCount" => integer()
-      }
-      
-  """
-  @type scaling_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      define_index_field_response() :: %{
-        "IndexField" => index_field_status()
-      }
-      
-  """
-  @type define_index_field_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scaling_parameters_status() :: %{
-        "Options" => scaling_parameters(),
-        "Status" => option_status()
-      }
-      
-  """
-  @type scaling_parameters_status() :: %{(String.t() | atom()) => any()}
+  @type int_array_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,101 +70,6 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      describe_suggesters_response() :: %{
-        "Suggesters" => list(suggester_status())
-      }
-      
-  """
-  @type describe_suggesters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analysis_scheme() :: %{
-        "AnalysisOptions" => analysis_options(),
-        "AnalysisSchemeLanguage" => list(any()),
-        "AnalysisSchemeName" => String.t() | atom()
-      }
-      
-  """
-  @type analysis_scheme() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_domain_endpoint_options_request() :: %{
-        required("DomainEndpointOptions") => domain_endpoint_options(),
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type update_domain_endpoint_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_access_policies_request() :: %{
-        optional("Deployed") => boolean(),
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_service_access_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_domain_request() :: %{
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      define_analysis_scheme_request() :: %{
-        required("AnalysisScheme") => analysis_scheme(),
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type define_analysis_scheme_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      suggester_status() :: %{
-        "Options" => suggester(),
-        "Status" => option_status()
-      }
-      
-  """
-  @type suggester_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      suggester() :: %{
-        "DocumentSuggesterOptions" => document_suggester_options(),
-        "SuggesterName" => String.t() | atom()
-      }
-      
-  """
-  @type suggester() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       availability_options_status() :: %{
         "Options" => boolean(),
         "Status" => option_status()
@@ -446,39 +82,121 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      resource_not_found_exception() :: %{
+      limit_exceeded_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_domain_request() :: %{
+      describe_availability_options_response() :: %{
+        "AvailabilityOptions" => availability_options_status()
+      }
+      
+  """
+  @type describe_availability_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_endpoint_options() :: %{
+        "EnforceHTTPS" => boolean(),
+        "TLSSecurityPolicy" => list(any())
+      }
+      
+  """
+  @type domain_endpoint_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      double_array_options() :: %{
+        "DefaultValue" => float(),
+        "FacetEnabled" => boolean(),
+        "ReturnEnabled" => boolean(),
+        "SearchEnabled" => boolean(),
+        "SourceFields" => String.t() | atom()
+      }
+      
+  """
+  @type double_array_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_already_exists_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_type_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_type_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_domain_response() :: %{
+        "DomainStatus" => domain_status()
+      }
+      
+  """
+  @type delete_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      define_analysis_scheme_response() :: %{
+        "AnalysisScheme" => analysis_scheme_status()
+      }
+      
+  """
+  @type define_analysis_scheme_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_index_field_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("IndexFieldName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_index_field_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_domain_endpoint_options_request() :: %{
+        optional("Deployed") => boolean(),
         required("DomainName") => String.t() | atom()
       }
       
   """
-  @type create_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      option_status() :: %{
-        "CreationDate" => non_neg_integer(),
-        "PendingDeletion" => boolean(),
-        "State" => list(any()),
-        "UpdateDate" => non_neg_integer(),
-        "UpdateVersion" => integer()
-      }
-      
-  """
-  @type option_status() :: %{(String.t() | atom()) => any()}
+  @type describe_domain_endpoint_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,24 +218,132 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      update_domain_endpoint_options_response() :: %{
-        "DomainEndpointOptions" => domain_endpoint_options_status()
+      describe_suggesters_response() :: %{
+        "Suggesters" => list(suggester_status())
       }
       
   """
-  @type update_domain_endpoint_options_response() :: %{(String.t() | atom()) => any()}
+  @type describe_suggesters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      define_index_field_request() :: %{
-        required("DomainName") => String.t() | atom(),
-        required("IndexField") => index_field()
+      describe_availability_options_request() :: %{
+        optional("Deployed") => boolean(),
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type define_index_field_request() :: %{(String.t() | atom()) => any()}
+  @type describe_availability_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_service_access_policies_response() :: %{
+        "AccessPolicies" => access_policies_status()
+      }
+      
+  """
+  @type update_service_access_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_availability_options_response() :: %{
+        "AvailabilityOptions" => availability_options_status()
+      }
+      
+  """
+  @type update_availability_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_index_fields_request() :: %{
+        optional("Deployed") => boolean(),
+        required("DomainName") => String.t() | atom(),
+        optional("FieldNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_index_fields_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      base_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type base_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_domain_endpoint_options_response() :: %{
+        "DomainEndpointOptions" => domain_endpoint_options_status()
+      }
+      
+  """
+  @type describe_domain_endpoint_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suggester_status() :: %{
+        "Options" => suggester(),
+        "Status" => option_status()
+      }
+      
+  """
+  @type suggester_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_suggester_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("SuggesterName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_suggester_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_suggester_options() :: %{
+        "FuzzyMatching" => list(any()),
+        "SortExpression" => String.t() | atom(),
+        "SourceField" => String.t() | atom()
+      }
+      
+  """
+  @type document_suggester_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_analysis_schemes_request() :: %{
+        optional("AnalysisSchemeNames") => list(String.t() | atom()),
+        optional("Deployed") => boolean(),
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_analysis_schemes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -534,37 +360,115 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      update_scaling_parameters_response() :: %{
-        "ScalingParameters" => scaling_parameters_status()
+      resource_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type update_scaling_parameters_response() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_index_fields_request() :: %{
-        optional("Deployed") => boolean(),
-        optional("FieldNames") => list(String.t() | atom()),
+      date_options() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "FacetEnabled" => boolean(),
+        "ReturnEnabled" => boolean(),
+        "SearchEnabled" => boolean(),
+        "SortEnabled" => boolean(),
+        "SourceField" => String.t() | atom()
+      }
+      
+  """
+  @type date_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_domain_endpoint_options_response() :: %{
+        "DomainEndpointOptions" => domain_endpoint_options_status()
+      }
+      
+  """
+  @type update_domain_endpoint_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      define_analysis_scheme_request() :: %{
+        required("AnalysisScheme") => analysis_scheme(),
         required("DomainName") => String.t() | atom()
       }
       
   """
-  @type describe_index_fields_request() :: %{(String.t() | atom()) => any()}
+  @type define_analysis_scheme_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      define_suggester_request() :: %{
-        required("DomainName") => String.t() | atom(),
-        required("Suggester") => suggester()
+      describe_domains_request() :: %{
+        optional("DomainNames") => list(String.t() | atom())
       }
       
   """
-  @type define_suggester_request() :: %{(String.t() | atom()) => any()}
+  @type describe_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expression() :: %{
+        "ExpressionName" => String.t() | atom(),
+        "ExpressionValue" => String.t() | atom()
+      }
+      
+  """
+  @type expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_domain_endpoint_options_request() :: %{
+        required("DomainEndpointOptions") => domain_endpoint_options(),
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type update_domain_endpoint_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expression_status() :: %{
+        "Options" => expression(),
+        "Status" => option_status()
+      }
+      
+  """
+  @type expression_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      int_options() :: %{
+        "DefaultValue" => float(),
+        "FacetEnabled" => boolean(),
+        "ReturnEnabled" => boolean(),
+        "SearchEnabled" => boolean(),
+        "SortEnabled" => boolean(),
+        "SourceField" => String.t() | atom()
+      }
+      
+  """
+  @type int_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,40 +490,109 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      int_array_options() :: %{
-        "DefaultValue" => float(),
-        "FacetEnabled" => boolean(),
+      delete_suggester_response() :: %{
+        "Suggester" => suggester_status()
+      }
+      
+  """
+  @type delete_suggester_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_scheme() :: %{
+        "AnalysisOptions" => analysis_options(),
+        "AnalysisSchemeLanguage" => list(any()),
+        "AnalysisSchemeName" => String.t() | atom()
+      }
+      
+  """
+  @type analysis_scheme() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_scaling_parameters_request() :: %{
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_scaling_parameters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      index_field_status() :: %{
+        "Options" => index_field(),
+        "Status" => option_status()
+      }
+      
+  """
+  @type index_field_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      define_expression_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("Expression") => expression()
+      }
+      
+  """
+  @type define_expression_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      text_array_options() :: %{
+        "AnalysisScheme" => String.t() | atom(),
+        "DefaultValue" => String.t() | atom(),
+        "HighlightEnabled" => boolean(),
         "ReturnEnabled" => boolean(),
-        "SearchEnabled" => boolean(),
         "SourceFields" => String.t() | atom()
       }
       
   """
-  @type int_array_options() :: %{(String.t() | atom()) => any()}
+  @type text_array_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_suggesters_request() :: %{
-        optional("Deployed") => boolean(),
-        optional("SuggesterNames") => list(String.t() | atom()),
-        required("DomainName") => String.t() | atom()
+      build_suggesters_response() :: %{
+        "FieldNames" => list(String.t() | atom())
       }
       
   """
-  @type describe_suggesters_request() :: %{(String.t() | atom()) => any()}
+  @type build_suggesters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      index_documents_request() :: %{
-        required("DomainName") => String.t() | atom()
+      validation_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type index_documents_request() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_analysis_scheme_response() :: %{
+        "AnalysisScheme" => analysis_scheme_status()
+      }
+      
+  """
+  @type delete_analysis_scheme_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -631,6 +604,44 @@ defmodule AWS.CloudSearch do
       
   """
   @type list_domain_names_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      define_index_field_response() :: %{
+        "IndexField" => index_field_status()
+      }
+      
+  """
+  @type define_index_field_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      option_status() :: %{
+        "CreationDate" => non_neg_integer(),
+        "PendingDeletion" => boolean(),
+        "State" => list(any()),
+        "UpdateDate" => non_neg_integer(),
+        "UpdateVersion" => integer()
+      }
+      
+  """
+  @type option_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      define_suggester_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("Suggester") => suggester()
+      }
+      
+  """
+  @type define_suggester_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,47 +670,176 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      delete_analysis_scheme_response() :: %{
-        "AnalysisScheme" => analysis_scheme_status()
+      literal_array_options() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "FacetEnabled" => boolean(),
+        "ReturnEnabled" => boolean(),
+        "SearchEnabled" => boolean(),
+        "SourceFields" => String.t() | atom()
       }
       
   """
-  @type delete_analysis_scheme_response() :: %{(String.t() | atom()) => any()}
+  @type literal_array_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_expression_response() :: %{
-        "Expression" => expression_status()
+      scaling_parameters() :: %{
+        "DesiredInstanceType" => list(any()),
+        "DesiredPartitionCount" => integer(),
+        "DesiredReplicationCount" => integer()
       }
       
   """
-  @type delete_expression_response() :: %{(String.t() | atom()) => any()}
+  @type scaling_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_analysis_schemes_request() :: %{
-        optional("AnalysisSchemeNames") => list(String.t() | atom()),
-        optional("Deployed") => boolean(),
+      service_endpoint() :: %{
+        "Endpoint" => String.t() | atom()
+      }
+      
+  """
+  @type service_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scaling_parameters_status() :: %{
+        "Options" => scaling_parameters(),
+        "Status" => option_status()
+      }
+      
+  """
+  @type scaling_parameters_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_scaling_parameters_response() :: %{
+        "ScalingParameters" => scaling_parameters_status()
+      }
+      
+  """
+  @type describe_scaling_parameters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_domain_response() :: %{
+        "DomainStatus" => domain_status()
+      }
+      
+  """
+  @type create_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_analysis_scheme_request() :: %{
+        required("AnalysisSchemeName") => String.t() | atom(),
         required("DomainName") => String.t() | atom()
       }
       
   """
-  @type describe_analysis_schemes_request() :: %{(String.t() | atom()) => any()}
+  @type delete_analysis_scheme_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_scaling_parameters_request() :: %{
+      describe_domains_response() :: %{
+        "DomainStatusList" => list(domain_status())
+      }
+      
+  """
+  @type describe_domains_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      index_documents_request() :: %{
         required("DomainName") => String.t() | atom()
       }
       
   """
-  @type describe_scaling_parameters_request() :: %{(String.t() | atom()) => any()}
+  @type index_documents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      build_suggesters_request() :: %{
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type build_suggesters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_index_fields_response() :: %{
+        "IndexFields" => list(index_field_status())
+      }
+      
+  """
+  @type describe_index_fields_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_scaling_parameters_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("ScalingParameters") => scaling_parameters()
+      }
+      
+  """
+  @type update_scaling_parameters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_access_policies_response() :: %{
+        "AccessPolicies" => access_policies_status()
+      }
+      
+  """
+  @type describe_service_access_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_expressions_response() :: %{
+        "Expressions" => list(expression_status())
+      }
+      
+  """
+  @type describe_expressions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limits() :: %{
+        required("MaximumPartitionCount") => integer(),
+        required("MaximumReplicationCount") => integer()
+      }
+      
+  """
+  @type limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -728,196 +868,13 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      double_array_options() :: %{
-        "DefaultValue" => float(),
-        "FacetEnabled" => boolean(),
-        "ReturnEnabled" => boolean(),
-        "SearchEnabled" => boolean(),
-        "SourceFields" => String.t() | atom()
-      }
-      
-  """
-  @type double_array_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_expressions_request() :: %{
-        optional("Deployed") => boolean(),
-        optional("ExpressionNames") => list(String.t() | atom()),
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_expressions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_type_exception() :: %{
+      disabled_operation_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      date_options() :: %{
-        "DefaultValue" => String.t() | atom(),
-        "FacetEnabled" => boolean(),
-        "ReturnEnabled" => boolean(),
-        "SearchEnabled" => boolean(),
-        "SortEnabled" => boolean(),
-        "SourceField" => String.t() | atom()
-      }
-      
-  """
-  @type date_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_access_policies_response() :: %{
-        "AccessPolicies" => access_policies_status()
-      }
-      
-  """
-  @type describe_service_access_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      define_expression_response() :: %{
-        "Expression" => expression_status()
-      }
-      
-  """
-  @type define_expression_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_suggesters_response() :: %{
-        "FieldNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type build_suggesters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      index_field_status() :: %{
-        "Options" => index_field(),
-        "Status" => option_status()
-      }
-      
-  """
-  @type index_field_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_scaling_parameters_request() :: %{
-        required("DomainName") => String.t() | atom(),
-        required("ScalingParameters") => scaling_parameters()
-      }
-      
-  """
-  @type update_scaling_parameters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_domain_response() :: %{
-        "DomainStatus" => domain_status()
-      }
-      
-  """
-  @type create_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      base_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type base_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expression() :: %{
-        "ExpressionName" => String.t() | atom(),
-        "ExpressionValue" => String.t() | atom()
-      }
-      
-  """
-  @type expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limits() :: %{
-        required("MaximumPartitionCount") => integer(),
-        required("MaximumReplicationCount") => integer()
-      }
-      
-  """
-  @type limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_suggesters_request() :: %{
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type build_suggesters_request() :: %{(String.t() | atom()) => any()}
+  @type disabled_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -939,70 +896,24 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      describe_index_fields_response() :: %{
-        "IndexFields" => list(index_field_status())
+      access_policies_status() :: %{
+        "Options" => String.t() | atom(),
+        "Status" => option_status()
       }
       
   """
-  @type describe_index_fields_response() :: %{(String.t() | atom()) => any()}
+  @type access_policies_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_domains_response() :: %{
-        "DomainStatusList" => list(domain_status())
-      }
-      
-  """
-  @type describe_domains_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_availability_options_request() :: %{
-        optional("Deployed") => boolean(),
+      delete_domain_request() :: %{
         required("DomainName") => String.t() | atom()
       }
       
   """
-  @type describe_availability_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_expressions_response() :: %{
-        "Expressions" => list(expression_status())
-      }
-      
-  """
-  @type describe_expressions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_availability_options_request() :: %{
-        required("DomainName") => String.t() | atom(),
-        required("MultiAZ") => boolean()
-      }
-      
-  """
-  @type update_availability_options_request() :: %{(String.t() | atom()) => any()}
+  @type delete_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1020,117 +931,96 @@ defmodule AWS.CloudSearch do
 
   ## Example:
       
-      delete_suggester_request() :: %{
+      suggester() :: %{
+        "DocumentSuggesterOptions" => document_suggester_options(),
+        "SuggesterName" => String.t() | atom()
+      }
+      
+  """
+  @type suggester() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_expressions_request() :: %{
+        optional("Deployed") => boolean(),
         required("DomainName") => String.t() | atom(),
-        required("SuggesterName") => String.t() | atom()
+        optional("ExpressionNames") => list(String.t() | atom())
       }
       
   """
-  @type delete_suggester_request() :: %{(String.t() | atom()) => any()}
+  @type describe_expressions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_policies_status() :: %{
-        "Options" => String.t() | atom(),
-        "Status" => option_status()
+      delete_expression_response() :: %{
+        "Expression" => expression_status()
       }
       
   """
-  @type access_policies_status() :: %{(String.t() | atom()) => any()}
+  @type delete_expression_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_already_exists_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      update_availability_options_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("MultiAZ") => boolean()
       }
       
   """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type update_availability_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_availability_options_response() :: %{
-        "AvailabilityOptions" => availability_options_status()
-      }
-      
-  """
-  @type describe_availability_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_service_access_policies_response() :: %{
-        "AccessPolicies" => access_policies_status()
-      }
-      
-  """
-  @type update_service_access_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_analysis_scheme_request() :: %{
-        required("AnalysisSchemeName") => String.t() | atom(),
+      describe_service_access_policies_request() :: %{
+        optional("Deployed") => boolean(),
         required("DomainName") => String.t() | atom()
       }
       
   """
-  @type delete_analysis_scheme_request() :: %{(String.t() | atom()) => any()}
+  @type describe_service_access_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_suggester_response() :: %{
+      describe_analysis_schemes_response() :: %{
+        "AnalysisSchemes" => list(analysis_scheme_status())
+      }
+      
+  """
+  @type describe_analysis_schemes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      define_suggester_response() :: %{
         "Suggester" => suggester_status()
       }
       
   """
-  @type delete_suggester_response() :: %{(String.t() | atom()) => any()}
+  @type define_suggester_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      define_expression_request() :: %{
+      describe_suggesters_request() :: %{
+        optional("Deployed") => boolean(),
         required("DomainName") => String.t() | atom(),
-        required("Expression") => expression()
+        optional("SuggesterNames") => list(String.t() | atom())
       }
       
   """
-  @type define_expression_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_scaling_parameters_response() :: %{
-        "ScalingParameters" => scaling_parameters_status()
-      }
-      
-  """
-  @type describe_scaling_parameters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      domain_endpoint_options() :: %{
-        "EnforceHTTPS" => boolean(),
-        "TLSSecurityPolicy" => list(any())
-      }
-      
-  """
-  @type domain_endpoint_options() :: %{(String.t() | atom()) => any()}
+  @type describe_suggesters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1144,157 +1034,267 @@ defmodule AWS.CloudSearch do
   """
   @type analysis_scheme_status() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      update_service_access_policies_request() :: %{
+        required("AccessPolicies") => String.t() | atom(),
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type update_service_access_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_index_field_response() :: %{
+        "IndexField" => index_field_status()
+      }
+      
+  """
+  @type delete_index_field_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      define_expression_response() :: %{
+        "Expression" => expression_status()
+      }
+      
+  """
+  @type define_expression_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_options() :: %{
+        "AlgorithmicStemming" => list(any()),
+        "JapaneseTokenizationDictionary" => String.t() | atom(),
+        "StemmingDictionary" => String.t() | atom(),
+        "Stopwords" => String.t() | atom(),
+        "Synonyms" => String.t() | atom()
+      }
+      
+  """
+  @type analysis_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      date_array_options() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "FacetEnabled" => boolean(),
+        "ReturnEnabled" => boolean(),
+        "SearchEnabled" => boolean(),
+        "SourceFields" => String.t() | atom()
+      }
+      
+  """
+  @type date_array_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_scaling_parameters_response() :: %{
+        "ScalingParameters" => scaling_parameters_status()
+      }
+      
+  """
+  @type update_scaling_parameters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      define_index_field_request() :: %{
+        required("DomainName") => String.t() | atom(),
+        required("IndexField") => index_field()
+      }
+      
+  """
+  @type define_index_field_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_domain_request() :: %{
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
+
   @type build_suggesters_errors() ::
-          base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
           | resource_not_found_exception()
+          | base_exception()
 
   @type create_domain_errors() ::
-          resource_already_exists_exception()
-          | limit_exceeded_exception()
-          | base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
+          | base_exception()
+          | resource_already_exists_exception()
+          | limit_exceeded_exception()
 
   @type define_analysis_scheme_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   @type define_expression_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   @type define_index_field_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   @type define_suggester_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   @type delete_analysis_scheme_errors() ::
-          base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
 
-  @type delete_domain_errors() :: base_exception() | internal_exception()
+  @type delete_domain_errors() :: internal_exception() | base_exception()
 
   @type delete_expression_errors() ::
-          base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
 
   @type delete_index_field_errors() ::
-          base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
 
   @type delete_suggester_errors() ::
-          base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
 
   @type describe_analysis_schemes_errors() ::
-          base_exception() | internal_exception() | resource_not_found_exception()
+          internal_exception() | resource_not_found_exception() | base_exception()
 
   @type describe_availability_options_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
-          | internal_exception()
-          | invalid_type_exception()
-          | resource_not_found_exception()
+          internal_exception()
           | disabled_operation_exception()
+          | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   @type describe_domain_endpoint_options_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
-          | internal_exception()
-          | resource_not_found_exception()
+          internal_exception()
           | disabled_operation_exception()
+          | resource_not_found_exception()
+          | base_exception()
+          | limit_exceeded_exception()
 
-  @type describe_domains_errors() :: base_exception() | internal_exception()
+  @type describe_domains_errors() :: internal_exception() | base_exception()
 
   @type describe_expressions_errors() ::
-          base_exception() | internal_exception() | resource_not_found_exception()
+          internal_exception() | resource_not_found_exception() | base_exception()
 
   @type describe_index_fields_errors() ::
-          base_exception() | internal_exception() | resource_not_found_exception()
+          internal_exception() | resource_not_found_exception() | base_exception()
 
   @type describe_scaling_parameters_errors() ::
-          base_exception() | internal_exception() | resource_not_found_exception()
+          internal_exception() | resource_not_found_exception() | base_exception()
 
   @type describe_service_access_policies_errors() ::
-          base_exception() | internal_exception() | resource_not_found_exception()
+          internal_exception() | resource_not_found_exception() | base_exception()
 
   @type describe_suggesters_errors() ::
-          base_exception() | internal_exception() | resource_not_found_exception()
+          internal_exception() | resource_not_found_exception() | base_exception()
 
   @type index_documents_errors() ::
-          base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
           | resource_not_found_exception()
+          | base_exception()
 
   @type list_domain_names_errors() :: base_exception()
 
   @type update_availability_options_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
-          | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
-          | resource_not_found_exception()
+          internal_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   @type update_domain_endpoint_options_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
-          | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
-          | resource_not_found_exception()
+          internal_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   @type update_scaling_parameters_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   @type update_service_access_policies_errors() ::
-          limit_exceeded_exception()
-          | base_exception()
+          internal_exception()
           | validation_exception()
-          | internal_exception()
-          | invalid_type_exception()
           | resource_not_found_exception()
+          | base_exception()
+          | invalid_type_exception()
+          | limit_exceeded_exception()
 
   def metadata do
     %{
@@ -1324,7 +1324,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, build_suggesters_errors()}
   def build_suggesters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BuildSuggesters", input, options)
   end
@@ -1342,7 +1343,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -1360,7 +1362,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, define_analysis_scheme_errors()}
   def define_analysis_scheme(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineAnalysisScheme", input, options)
   end
@@ -1379,7 +1382,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, define_expression_errors()}
   def define_expression(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineExpression", input, options)
   end
@@ -1401,7 +1405,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, define_index_field_errors()}
   def define_index_field(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineIndexField", input, options)
   end
@@ -1421,7 +1426,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, define_suggester_errors()}
   def define_suggester(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineSuggester", input, options)
   end
@@ -1438,7 +1444,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_analysis_scheme_errors()}
   def delete_analysis_scheme(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnalysisScheme", input, options)
   end
@@ -1456,7 +1463,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -1473,7 +1481,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_expression_errors()}
   def delete_expression(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExpression", input, options)
   end
@@ -1490,7 +1499,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_index_field_errors()}
   def delete_index_field(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIndexField", input, options)
   end
@@ -1507,7 +1517,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_suggester_errors()}
   def delete_suggester(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSuggester", input, options)
   end
@@ -1529,7 +1540,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_analysis_schemes_errors()}
   def describe_analysis_schemes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAnalysisSchemes", input, options)
   end
@@ -1548,7 +1560,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_availability_options_errors()}
   def describe_availability_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAvailabilityOptions", input, options)
   end
@@ -1570,7 +1583,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_domain_endpoint_options_errors()}
   def describe_domain_endpoint_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomainEndpointOptions", input, options)
   end
@@ -1591,7 +1605,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_domains_errors()}
   def describe_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomains", input, options)
   end
@@ -1611,7 +1626,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_expressions_errors()}
   def describe_expressions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExpressions", input, options)
   end
@@ -1632,7 +1648,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_index_fields_errors()}
   def describe_index_fields(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIndexFields", input, options)
   end
@@ -1650,7 +1667,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_scaling_parameters_errors()}
   def describe_scaling_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingParameters", input, options)
   end
@@ -1675,7 +1693,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_service_access_policies_errors()}
   def describe_service_access_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceAccessPolicies", input, options)
   end
@@ -1696,7 +1715,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_suggesters_errors()}
   def describe_suggesters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSuggesters", input, options)
   end
@@ -1714,7 +1734,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, index_documents_errors()}
   def index_documents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IndexDocuments", input, options)
   end
@@ -1728,7 +1749,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, list_domain_names_errors()}
   def list_domain_names(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomainNames", input, options)
   end
@@ -1749,7 +1771,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, update_availability_options_errors()}
   def update_availability_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAvailabilityOptions", input, options)
   end
@@ -1767,7 +1790,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, update_domain_endpoint_options_errors()}
   def update_domain_endpoint_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomainEndpointOptions", input, options)
   end
@@ -1789,7 +1813,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, update_scaling_parameters_errors()}
   def update_scaling_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScalingParameters", input, options)
   end
@@ -1808,7 +1833,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, update_service_access_policies_errors()}
   def update_service_access_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceAccessPolicies", input, options)
   end

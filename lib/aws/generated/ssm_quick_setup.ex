@@ -18,48 +18,64 @@ defmodule AWS.SSMQuickSetup do
 
   ## Example:
 
-      configuration_definition_summary() :: %{
-        "FirstClassParameters" => map(),
-        "Id" => [String.t() | atom()],
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configurations_output() :: %{
+        "ConfigurationsList" => list(configuration_summary()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_configurations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_definition_input() :: %{
+        optional("LocalDeploymentAdministrationRoleArn") => String.t() | atom(),
+        optional("LocalDeploymentExecutionRoleName") => [String.t() | atom()],
+        optional("Parameters") => map(),
+        optional("TypeVersion") => [String.t() | atom()]
+      }
+
+  """
+  @type update_configuration_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_definition_input() :: %{
+        "LocalDeploymentAdministrationRoleArn" => String.t() | atom(),
+        "LocalDeploymentExecutionRoleName" => [String.t() | atom()],
+        "Parameters" => map(),
         "Type" => [String.t() | atom()],
         "TypeVersion" => [String.t() | atom()]
       }
 
   """
-  @type configuration_definition_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      status_summary() :: %{
-        "LastUpdatedAt" => [non_neg_integer()],
-        "Status" => list(any()),
-        "StatusDetails" => map(),
-        "StatusMessage" => [String.t() | atom()],
-        "StatusType" => list(any())
-      }
-
-  """
-  @type status_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_manager_output() :: %{
-        "ConfigurationDefinitions" => list(configuration_definition()),
-        "CreatedAt" => [non_neg_integer()],
-        "Description" => [String.t() | atom()],
-        "LastModifiedAt" => [non_neg_integer()],
-        "ManagerArn" => [String.t() | atom()],
-        "Name" => [String.t() | atom()],
-        "StatusSummaries" => list(status_summary()),
-        "Tags" => map()
-      }
-
-  """
-  @type get_configuration_manager_output() :: %{(String.t() | atom()) => any()}
+  @type configuration_definition_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -80,6 +96,128 @@ defmodule AWS.SSMQuickSetup do
 
   """
   @type configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_settings_output() :: %{
+        "ServiceSettings" => service_settings()
+      }
+
+  """
+  @type get_service_settings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_definition() :: %{
+        "Id" => [String.t() | atom()],
+        "LocalDeploymentAdministrationRoleArn" => String.t() | atom(),
+        "LocalDeploymentExecutionRoleName" => [String.t() | atom()],
+        "Parameters" => map(),
+        "Type" => [String.t() | atom()],
+        "TypeVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type configuration_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_managers_output() :: %{
+        "ConfigurationManagersList" => list(configuration_manager_summary()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_configuration_managers_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_manager_input() :: %{}
+
+  """
+  @type delete_configuration_manager_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_input() :: %{}
+
+  """
+  @type get_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_settings_input() :: %{
+        optional("ExplorerEnablingRoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_service_settings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "Key" => [String.t() | atom()],
+        "Values" => list([String.t() | atom()]())
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_manager_input() :: %{}
+
+  """
+  @type get_configuration_manager_input() :: %{}
 
   @typedoc """
 
@@ -106,43 +244,6 @@ defmodule AWS.SSMQuickSetup do
 
   ## Example:
 
-      list_configuration_managers_output() :: %{
-        "ConfigurationManagersList" => list(configuration_manager_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_configuration_managers_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_manager_input() :: %{
-        optional("Description") => [String.t() | atom()],
-        optional("Name") => [String.t() | atom()],
-        optional("Tags") => map(),
-        required("ConfigurationDefinitions") => list(configuration_definition_input())
-      }
-
-  """
-  @type create_configuration_manager_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       resource_not_found_exception() :: %{
         "Message" => [String.t() | atom()]
       }
@@ -154,259 +255,33 @@ defmodule AWS.SSMQuickSetup do
 
   ## Example:
 
-      update_configuration_manager_input() :: %{
-        optional("Description") => [String.t() | atom()],
-        optional("Name") => [String.t() | atom()]
-      }
-
-  """
-  @type update_configuration_manager_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_definition() :: %{
+      configuration_definition_summary() :: %{
+        "FirstClassParameters" => map(),
         "Id" => [String.t() | atom()],
-        "LocalDeploymentAdministrationRoleArn" => String.t() | atom(),
-        "LocalDeploymentExecutionRoleName" => [String.t() | atom()],
-        "Parameters" => map(),
         "Type" => [String.t() | atom()],
         "TypeVersion" => [String.t() | atom()]
       }
 
   """
-  @type configuration_definition() :: %{(String.t() | atom()) => any()}
+  @type configuration_definition_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_configuration_input() :: %{}
-
-  """
-  @type get_configuration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_quick_setup_types_output() :: %{
-        "QuickSetupTypeList" => list(quick_setup_type_output())
+      get_configuration_manager_output() :: %{
+        "ConfigurationDefinitions" => list(configuration_definition()),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => [String.t() | atom()],
+        "LastModifiedAt" => [non_neg_integer()],
+        "ManagerArn" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "StatusSummaries" => list(status_summary()),
+        "Tags" => map()
       }
 
   """
-  @type list_quick_setup_types_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configurations_output() :: %{
-        "ConfigurationsList" => list(configuration_summary()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_configurations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_manager_input() :: %{}
-
-  """
-  @type get_configuration_manager_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag_entry())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_manager_input() :: %{}
-
-  """
-  @type delete_configuration_manager_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "Key" => [String.t() | atom()],
-        "Values" => list([String.t() | atom()]())
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("TagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_definition_input() :: %{
-        optional("LocalDeploymentAdministrationRoleArn") => String.t() | atom(),
-        optional("LocalDeploymentExecutionRoleName") => [String.t() | atom()],
-        optional("Parameters") => map(),
-        optional("TypeVersion") => [String.t() | atom()]
-      }
-
-  """
-  @type update_configuration_definition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_settings() :: %{
-        "ExplorerEnablingRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type service_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_settings_output() :: %{
-        "ServiceSettings" => service_settings()
-      }
-
-  """
-  @type get_service_settings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_settings_input() :: %{
-        optional("ExplorerEnablingRoleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_service_settings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quick_setup_type_output() :: %{
-        "LatestVersion" => [String.t() | atom()],
-        "Type" => [String.t() | atom()]
-      }
-
-  """
-  @type quick_setup_type_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_entry() :: %{
-        "Key" => [String.t() | atom()],
-        "Value" => [String.t() | atom()]
-      }
-
-  """
-  @type tag_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_manager_output() :: %{
-        "ManagerArn" => [String.t() | atom()]
-      }
-
-  """
-  @type create_configuration_manager_output() :: %{(String.t() | atom()) => any()}
+  @type get_configuration_manager_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -427,29 +302,59 @@ defmodule AWS.SSMQuickSetup do
 
   ## Example:
 
-      list_configuration_managers_input() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxItems") => [integer()],
-        optional("StartingToken") => [String.t() | atom()]
+      service_settings() :: %{
+        "ExplorerEnablingRoleArn" => String.t() | atom()
       }
 
   """
-  @type list_configuration_managers_input() :: %{(String.t() | atom()) => any()}
+  @type service_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      configuration_definition_input() :: %{
-        "LocalDeploymentAdministrationRoleArn" => String.t() | atom(),
-        "LocalDeploymentExecutionRoleName" => [String.t() | atom()],
-        "Parameters" => map(),
-        "Type" => [String.t() | atom()],
-        "TypeVersion" => [String.t() | atom()]
+      untag_resource_input() :: %{
+        required("TagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type configuration_definition_input() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      status_summary() :: %{
+        "LastUpdatedAt" => [non_neg_integer()],
+        "Status" => list(any()),
+        "StatusDetails" => map(),
+        "StatusMessage" => [String.t() | atom()],
+        "StatusType" => list(any())
+      }
+
+  """
+  @type status_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_entry() :: %{
+        "Key" => [String.t() | atom()],
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type tag_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,109 +371,204 @@ defmodule AWS.SSMQuickSetup do
   """
   @type list_configurations_input() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      quick_setup_type_output() :: %{
+        "LatestVersion" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
+      }
+
+  """
+  @type quick_setup_type_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_quick_setup_types_output() :: %{
+        "QuickSetupTypeList" => list(quick_setup_type_output())
+      }
+
+  """
+  @type list_quick_setup_types_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag_entry())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_manager_input() :: %{
+        optional("Description") => [String.t() | atom()],
+        optional("Name") => [String.t() | atom()]
+      }
+
+  """
+  @type update_configuration_manager_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_manager_input() :: %{
+        required("ConfigurationDefinitions") => list(configuration_definition_input()),
+        optional("Description") => [String.t() | atom()],
+        optional("Name") => [String.t() | atom()],
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_configuration_manager_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_managers_input() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxItems") => [integer()],
+        optional("StartingToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_configuration_managers_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_manager_output() :: %{
+        "ManagerArn" => [String.t() | atom()]
+      }
+
+  """
+  @type create_configuration_manager_output() :: %{(String.t() | atom()) => any()}
+
   @type create_configuration_manager_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type delete_configuration_manager_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type get_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type get_configuration_manager_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type get_service_settings_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type list_configuration_managers_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type list_configurations_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type list_quick_setup_types_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type update_configuration_definition_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type update_configuration_manager_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          validation_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   @type update_service_settings_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          validation_exception()
           | internal_server_exception()
+          | throttling_exception()
           | conflict_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -880,7 +880,7 @@ defmodule AWS.SSMQuickSetup do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_configuration_definition_errors()}
-  def update_configuration_definition(%Client{} = client, id, manager_arn, input, options \\ []) do
+  def update_configuration_definition(%Client{} = client, manager_arn, id, input, options \\ []) do
     url_path =
       "/configurationDefinition/#{AWS.Util.encode_uri(manager_arn)}/#{AWS.Util.encode_uri(id)}"
 

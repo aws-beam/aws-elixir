@@ -40,425 +40,23 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
-      partition_key() :: %{
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type partition_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_type_request() :: %{
-        required("keyspaceName") => String.t() | atom(),
-        required("typeName") => String.t() | atom()
-      }
-      
-  """
-  @type get_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_type_request() :: %{
-        required("keyspaceName") => String.t() | atom(),
-        required("typeName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_type_response() :: %{
-        "keyspaceArn" => String.t() | atom(),
-        "typeName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_table_request() :: %{
-        optional("addColumns") => list(column_definition()),
-        optional("autoScalingSpecification") => auto_scaling_specification(),
-        optional("capacitySpecification") => capacity_specification(),
-        optional("cdcSpecification") => cdc_specification(),
-        optional("clientSideTimestamps") => client_side_timestamps(),
-        optional("defaultTimeToLive") => integer(),
-        optional("encryptionSpecification") => encryption_specification(),
-        optional("pointInTimeRecovery") => point_in_time_recovery(),
-        optional("replicaSpecifications") => list(replica_specification()),
-        optional("ttl") => time_to_live(),
-        optional("warmThroughputSpecification") => warm_throughput_specification(),
-        required("keyspaceName") => String.t() | atom(),
-        required("tableName") => String.t() | atom()
-      }
-      
-  """
-  @type update_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_keyspace_response() :: %{
-        "resourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type update_keyspace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_types_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "types" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      keyspace_summary() :: %{
-        "keyspaceName" => String.t() | atom(),
-        "replicationRegions" => list(String.t() | atom()),
-        "replicationStrategy" => String.t() | atom(),
-        "resourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type keyspace_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replica_specification() :: %{
-        "readCapacityAutoScaling" => auto_scaling_settings(),
-        "readCapacityUnits" => float(),
-        "region" => String.t() | atom()
-      }
-      
-  """
-  @type replica_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_specification() :: %{
-        "regionList" => list(String.t() | atom()),
-        "replicationStrategy" => String.t() | atom()
-      }
-      
-  """
-  @type replication_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_keyspaces_response() :: %{
+      list_tags_for_resource_request() :: %{
+        optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        required("keyspaces") => list(keyspace_summary())
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_keyspaces_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      schema_definition() :: %{
-        "allColumns" => list(column_definition()),
-        "clusteringKeys" => list(clustering_key()),
-        "partitionKeys" => list(partition_key()),
-        "staticColumns" => list(static_column())
-      }
+      delete_keyspace_response() :: %{}
       
   """
-  @type schema_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cdc_specification() :: %{
-        "propagateTags" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => list(tag()),
-        "viewType" => String.t() | atom()
-      }
-      
-  """
-  @type cdc_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_table_request() :: %{
-        required("keyspaceName") => String.t() | atom(),
-        required("tableName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      table_summary() :: %{
-        "keyspaceName" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "tableName" => String.t() | atom()
-      }
-      
-  """
-  @type table_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_tracking_scaling_policy_configuration() :: %{
-        "disableScaleIn" => boolean(),
-        "scaleInCooldown" => integer(),
-        "scaleOutCooldown" => integer(),
-        "targetValue" => float()
-      }
-      
-  """
-  @type target_tracking_scaling_policy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_table_request() :: %{
-        required("keyspaceName") => String.t() | atom(),
-        required("tableName") => String.t() | atom()
-      }
-      
-  """
-  @type get_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_table_request() :: %{
-        optional("autoScalingSpecification") => auto_scaling_specification(),
-        optional("capacitySpecification") => capacity_specification(),
-        optional("cdcSpecification") => cdc_specification(),
-        optional("clientSideTimestamps") => client_side_timestamps(),
-        optional("comment") => comment(),
-        optional("defaultTimeToLive") => integer(),
-        optional("encryptionSpecification") => encryption_specification(),
-        optional("pointInTimeRecovery") => point_in_time_recovery(),
-        optional("replicaSpecifications") => list(replica_specification()),
-        optional("tags") => list(tag()),
-        optional("ttl") => time_to_live(),
-        optional("warmThroughputSpecification") => warm_throughput_specification(),
-        required("keyspaceName") => String.t() | atom(),
-        required("schemaDefinition") => schema_definition(),
-        required("tableName") => String.t() | atom()
-      }
-      
-  """
-  @type create_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_table_response() :: %{
-        optional("capacitySpecification") => capacity_specification_summary(),
-        optional("cdcSpecification") => cdc_specification_summary(),
-        optional("clientSideTimestamps") => client_side_timestamps(),
-        optional("comment") => comment(),
-        optional("creationTimestamp") => non_neg_integer(),
-        optional("defaultTimeToLive") => integer(),
-        optional("encryptionSpecification") => encryption_specification(),
-        optional("latestStreamArn") => String.t() | atom(),
-        optional("pointInTimeRecovery") => point_in_time_recovery_summary(),
-        optional("replicaSpecifications") => list(replica_specification_summary()),
-        optional("schemaDefinition") => schema_definition(),
-        optional("status") => String.t() | atom(),
-        optional("ttl") => time_to_live(),
-        optional("warmThroughputSpecification") => warm_throughput_specification_summary(),
-        required("keyspaceName") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom(),
-        required("tableName") => String.t() | atom()
-      }
-      
-  """
-  @type get_table_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_scaling_policy() :: %{
-        "targetTrackingScalingPolicyConfiguration" => target_tracking_scaling_policy_configuration()
-      }
-      
-  """
-  @type auto_scaling_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      client_side_timestamps() :: %{
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type client_side_timestamps() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_type_request() :: %{
-        required("fieldDefinitions") => list(field_definition()),
-        required("keyspaceName") => String.t() | atom(),
-        required("typeName") => String.t() | atom()
-      }
-      
-  """
-  @type create_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_specification() :: %{
-        "readCapacityUnits" => float(),
-        "throughputMode" => String.t() | atom(),
-        "writeCapacityUnits" => float()
-      }
-      
-  """
-  @type capacity_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_keyspace_request() :: %{
-        optional("replicationSpecification") => replication_specification(),
-        optional("tags") => list(tag()),
-        required("keyspaceName") => String.t() | atom()
-      }
-      
-  """
-  @type create_keyspace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_keyspace_request() :: %{
-        required("keyspaceName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_keyspace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_scaling_settings() :: %{
-        "autoScalingDisabled" => boolean(),
-        "maximumUnits" => float(),
-        "minimumUnits" => float(),
-        "scalingPolicy" => auto_scaling_policy()
-      }
-      
-  """
-  @type auto_scaling_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_type_response() :: %{
-        "directParentTypes" => list(String.t() | atom()),
-        "directReferringTables" => list(String.t() | atom()),
-        "fieldDefinitions" => list(field_definition()),
-        "keyspaceArn" => String.t() | atom(),
-        "keyspaceName" => String.t() | atom(),
-        "lastModifiedTimestamp" => non_neg_integer(),
-        "maxNestingDepth" => integer(),
-        "status" => String.t() | atom(),
-        "typeName" => String.t() | atom()
-      }
-      
-  """
-  @type get_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_keyspace_response() :: %{}
 
   @typedoc """
 
@@ -476,298 +74,16 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
-      list_tables_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("tables") => list(table_summary())
-      }
-      
-  """
-  @type list_tables_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_scaling_specification() :: %{
-        "readCapacityAutoScaling" => auto_scaling_settings(),
-        "writeCapacityAutoScaling" => auto_scaling_settings()
-      }
-      
-  """
-  @type auto_scaling_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      comment() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type comment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_table_response() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_table_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      point_in_time_recovery() :: %{
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type point_in_time_recovery() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      field_definition() :: %{
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type field_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_type_response() :: %{
-        "keyspaceArn" => String.t() | atom(),
-        "typeName" => String.t() | atom()
-      }
-      
-  """
-  @type create_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("tags") => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_keyspace_response() :: %{}
-      
-  """
-  @type delete_keyspace_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      replica_specification_summary() :: %{
-        "capacitySpecification" => capacity_specification_summary(),
-        "region" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "warmThroughputSpecification" => warm_throughput_specification_summary()
-      }
-      
-  """
-  @type replica_specification_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_table_auto_scaling_settings_request() :: %{
+      get_keyspace_response() :: %{
         required("keyspaceName") => String.t() | atom(),
-        required("tableName") => String.t() | atom()
-      }
-      
-  """
-  @type get_table_auto_scaling_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_keyspaces_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_keyspaces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      point_in_time_recovery_summary() :: %{
-        "earliestRestorableTimestamp" => non_neg_integer(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type point_in_time_recovery_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_table_response() :: %{}
-      
-  """
-  @type delete_table_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_specification_summary() :: %{
-        "lastUpdateToPayPerRequestTimestamp" => non_neg_integer(),
-        "readCapacityUnits" => float(),
-        "throughputMode" => String.t() | atom(),
-        "writeCapacityUnits" => float()
-      }
-      
-  """
-  @type capacity_specification_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      clustering_key() :: %{
-        "name" => String.t() | atom(),
-        "orderBy" => String.t() | atom()
-      }
-      
-  """
-  @type clustering_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_table_request() :: %{
-        optional("autoScalingSpecification") => auto_scaling_specification(),
-        optional("capacitySpecificationOverride") => capacity_specification(),
-        optional("encryptionSpecificationOverride") => encryption_specification(),
-        optional("pointInTimeRecoveryOverride") => point_in_time_recovery(),
-        optional("replicaSpecifications") => list(replica_specification()),
-        optional("restoreTimestamp") => non_neg_integer(),
-        optional("tagsOverride") => list(tag()),
-        required("sourceKeyspaceName") => String.t() | atom(),
-        required("sourceTableName") => String.t() | atom(),
-        required("targetKeyspaceName") => String.t() | atom(),
-        required("targetTableName") => String.t() | atom()
-      }
-      
-  """
-  @type restore_table_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
+        optional("replicationGroupStatuses") => list(replication_group_status()),
+        optional("replicationRegions") => list(String.t() | atom()),
+        required("replicationStrategy") => String.t() | atom(),
         required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_keyspace_request() :: %{
-        required("keyspaceName") => String.t() | atom()
-      }
-      
-  """
-  @type get_keyspace_request() :: %{(String.t() | atom()) => any()}
+  @type get_keyspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,64 +102,35 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
-      get_keyspace_response() :: %{
-        optional("replicationGroupStatuses") => list(replication_group_status()),
-        optional("replicationRegions") => list(String.t() | atom()),
-        required("keyspaceName") => String.t() | atom(),
-        required("replicationStrategy") => String.t() | atom(),
+      create_keyspace_response() :: %{
         required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type get_keyspace_response() :: %{(String.t() | atom()) => any()}
+  @type create_keyspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      replica_auto_scaling_specification() :: %{
-        "autoScalingSpecification" => auto_scaling_specification(),
-        "region" => String.t() | atom()
+      update_table_request() :: %{
+        optional("addColumns") => list(column_definition()),
+        optional("autoScalingSpecification") => auto_scaling_specification(),
+        optional("capacitySpecification") => capacity_specification(),
+        optional("cdcSpecification") => cdc_specification(),
+        optional("clientSideTimestamps") => client_side_timestamps(),
+        optional("defaultTimeToLive") => integer(),
+        optional("encryptionSpecification") => encryption_specification(),
+        required("keyspaceName") => String.t() | atom(),
+        optional("pointInTimeRecovery") => point_in_time_recovery(),
+        optional("replicaSpecifications") => list(replica_specification()),
+        required("tableName") => String.t() | atom(),
+        optional("ttl") => time_to_live(),
+        optional("warmThroughputSpecification") => warm_throughput_specification()
       }
       
   """
-  @type replica_auto_scaling_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_group_status() :: %{
-        "keyspaceStatus" => String.t() | atom(),
-        "region" => String.t() | atom(),
-        "tablesReplicationProgress" => String.t() | atom()
-      }
-      
-  """
-  @type replication_group_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_table_response() :: %{
-        required("restoredTableARN") => String.t() | atom()
-      }
-      
-  """
-  @type restore_table_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      warm_throughput_specification() :: %{
-        "readUnitsPerSecond" => [float()],
-        "writeUnitsPerSecond" => [float()]
-      }
-      
-  """
-  @type warm_throughput_specification() :: %{(String.t() | atom()) => any()}
+  @type update_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,37 +162,100 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
-      encryption_specification() :: %{
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "type" => String.t() | atom()
+      restore_table_request() :: %{
+        optional("autoScalingSpecification") => auto_scaling_specification(),
+        optional("capacitySpecificationOverride") => capacity_specification(),
+        optional("encryptionSpecificationOverride") => encryption_specification(),
+        optional("pointInTimeRecoveryOverride") => point_in_time_recovery(),
+        optional("replicaSpecifications") => list(replica_specification()),
+        optional("restoreTimestamp") => non_neg_integer(),
+        required("sourceKeyspaceName") => String.t() | atom(),
+        required("sourceTableName") => String.t() | atom(),
+        optional("tagsOverride") => list(tag()),
+        required("targetKeyspaceName") => String.t() | atom(),
+        required("targetTableName") => String.t() | atom()
       }
       
   """
-  @type encryption_specification() :: %{(String.t() | atom()) => any()}
+  @type restore_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_table_response() :: %{
-        required("resourceArn") => String.t() | atom()
+      get_table_response() :: %{
+        optional("capacitySpecification") => capacity_specification_summary(),
+        optional("cdcSpecification") => cdc_specification_summary(),
+        optional("clientSideTimestamps") => client_side_timestamps(),
+        optional("comment") => comment(),
+        optional("creationTimestamp") => non_neg_integer(),
+        optional("defaultTimeToLive") => integer(),
+        optional("encryptionSpecification") => encryption_specification(),
+        required("keyspaceName") => String.t() | atom(),
+        optional("latestStreamArn") => String.t() | atom(),
+        optional("pointInTimeRecovery") => point_in_time_recovery_summary(),
+        optional("replicaSpecifications") => list(replica_specification_summary()),
+        required("resourceArn") => String.t() | atom(),
+        optional("schemaDefinition") => schema_definition(),
+        optional("status") => String.t() | atom(),
+        required("tableName") => String.t() | atom(),
+        optional("ttl") => time_to_live(),
+        optional("warmThroughputSpecification") => warm_throughput_specification_summary()
       }
       
   """
-  @type update_table_response() :: %{(String.t() | atom()) => any()}
+  @type get_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_types_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
+      schema_definition() :: %{
+        "allColumns" => list(column_definition()),
+        "clusteringKeys" => list(clustering_key()),
+        "partitionKeys" => list(partition_key()),
+        "staticColumns" => list(static_column())
+      }
+      
+  """
+  @type schema_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_keyspace_request() :: %{
         required("keyspaceName") => String.t() | atom()
       }
       
   """
-  @type list_types_request() :: %{(String.t() | atom()) => any()}
+  @type get_keyspace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_table_request() :: %{
+        required("keyspaceName") => String.t() | atom(),
+        required("tableName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_tracking_scaling_policy_configuration() :: %{
+        "disableScaleIn" => boolean(),
+        "scaleInCooldown" => integer(),
+        "scaleOutCooldown" => integer(),
+        "targetValue" => float()
+      }
+      
+  """
+  @type target_tracking_scaling_policy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -922,37 +272,162 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
-      cdc_specification_summary() :: %{
-        "status" => String.t() | atom(),
-        "viewType" => String.t() | atom()
+      get_table_auto_scaling_settings_request() :: %{
+        required("keyspaceName") => String.t() | atom(),
+        required("tableName") => String.t() | atom()
       }
       
   """
-  @type cdc_specification_summary() :: %{(String.t() | atom()) => any()}
+  @type get_table_auto_scaling_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_keyspace_response() :: %{
+      create_keyspace_request() :: %{
+        required("keyspaceName") => String.t() | atom(),
+        optional("replicationSpecification") => replication_specification(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_keyspace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_specification() :: %{
+        "regionList" => list(String.t() | atom()),
+        "replicationStrategy" => String.t() | atom()
+      }
+      
+  """
+  @type replication_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_keyspaces_response() :: %{
+        required("keyspaces") => list(keyspace_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_keyspaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_specification_summary() :: %{
+        "lastUpdateToPayPerRequestTimestamp" => non_neg_integer(),
+        "readCapacityUnits" => float(),
+        "throughputMode" => String.t() | atom(),
+        "writeCapacityUnits" => float()
+      }
+      
+  """
+  @type capacity_specification_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      point_in_time_recovery_summary() :: %{
+        "earliestRestorableTimestamp" => non_neg_integer(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type point_in_time_recovery_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_specification() :: %{
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_table_response() :: %{
         required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type create_keyspace_response() :: %{(String.t() | atom()) => any()}
+  @type create_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tables_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("keyspaceName") => String.t() | atom()
+      auto_scaling_policy() :: %{
+        "targetTrackingScalingPolicyConfiguration" => target_tracking_scaling_policy_configuration()
       }
       
   """
-  @type list_tables_request() :: %{(String.t() | atom()) => any()}
+  @type auto_scaling_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      clustering_key() :: %{
+        "name" => String.t() | atom(),
+        "orderBy" => String.t() | atom()
+      }
+      
+  """
+  @type clustering_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_type_response() :: %{
+        "directParentTypes" => list(String.t() | atom()),
+        "directReferringTables" => list(String.t() | atom()),
+        "fieldDefinitions" => list(field_definition()),
+        "keyspaceArn" => String.t() | atom(),
+        "keyspaceName" => String.t() | atom(),
+        "lastModifiedTimestamp" => non_neg_integer(),
+        "maxNestingDepth" => integer(),
+        "status" => String.t() | atom(),
+        "typeName" => String.t() | atom()
+      }
+      
+  """
+  @type get_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -970,6 +445,40 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
+      partition_key() :: %{
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type partition_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       warm_throughput_specification_summary() :: %{
         "readUnitsPerSecond" => [float()],
         "status" => String.t() | atom(),
@@ -978,6 +487,497 @@ defmodule AWS.Keyspaces do
       
   """
   @type warm_throughput_specification_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replica_specification_summary() :: %{
+        "capacitySpecification" => capacity_specification_summary(),
+        "region" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "warmThroughputSpecification" => warm_throughput_specification_summary()
+      }
+      
+  """
+  @type replica_specification_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_types_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "types" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_group_status() :: %{
+        "keyspaceStatus" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "tablesReplicationProgress" => String.t() | atom()
+      }
+      
+  """
+  @type replication_group_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      warm_throughput_specification() :: %{
+        "readUnitsPerSecond" => [float()],
+        "writeUnitsPerSecond" => [float()]
+      }
+      
+  """
+  @type warm_throughput_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replica_auto_scaling_specification() :: %{
+        "autoScalingSpecification" => auto_scaling_specification(),
+        "region" => String.t() | atom()
+      }
+      
+  """
+  @type replica_auto_scaling_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_type_response() :: %{
+        "keyspaceArn" => String.t() | atom(),
+        "typeName" => String.t() | atom()
+      }
+      
+  """
+  @type delete_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tables_request() :: %{
+        required("keyspaceName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_tables_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_type_response() :: %{
+        "keyspaceArn" => String.t() | atom(),
+        "typeName" => String.t() | atom()
+      }
+      
+  """
+  @type create_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_table_response() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_keyspaces_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_keyspaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cdc_specification_summary() :: %{
+        "status" => String.t() | atom(),
+        "viewType" => String.t() | atom()
+      }
+      
+  """
+  @type cdc_specification_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_keyspace_request() :: %{
+        required("keyspaceName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_keyspace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tables_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("tables") => list(table_summary())
+      }
+      
+  """
+  @type list_tables_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_type_request() :: %{
+        required("keyspaceName") => String.t() | atom(),
+        required("typeName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_scaling_settings() :: %{
+        "autoScalingDisabled" => boolean(),
+        "maximumUnits" => float(),
+        "minimumUnits" => float(),
+        "scalingPolicy" => auto_scaling_policy()
+      }
+      
+  """
+  @type auto_scaling_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_scaling_specification() :: %{
+        "readCapacityAutoScaling" => auto_scaling_settings(),
+        "writeCapacityAutoScaling" => auto_scaling_settings()
+      }
+      
+  """
+  @type auto_scaling_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      field_definition() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type field_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_table_response() :: %{}
+      
+  """
+  @type delete_table_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      replica_specification() :: %{
+        "readCapacityAutoScaling" => auto_scaling_settings(),
+        "readCapacityUnits" => float(),
+        "region" => String.t() | atom()
+      }
+      
+  """
+  @type replica_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_table_response() :: %{
+        required("restoredTableARN") => String.t() | atom()
+      }
+      
+  """
+  @type restore_table_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_type_request() :: %{
+        required("keyspaceName") => String.t() | atom(),
+        required("typeName") => String.t() | atom()
+      }
+      
+  """
+  @type get_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_side_timestamps() :: %{
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type client_side_timestamps() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_specification() :: %{
+        "readCapacityUnits" => float(),
+        "throughputMode" => String.t() | atom(),
+        "writeCapacityUnits" => float()
+      }
+      
+  """
+  @type capacity_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_table_request() :: %{
+        optional("autoScalingSpecification") => auto_scaling_specification(),
+        optional("capacitySpecification") => capacity_specification(),
+        optional("cdcSpecification") => cdc_specification(),
+        optional("clientSideTimestamps") => client_side_timestamps(),
+        optional("comment") => comment(),
+        optional("defaultTimeToLive") => integer(),
+        optional("encryptionSpecification") => encryption_specification(),
+        required("keyspaceName") => String.t() | atom(),
+        optional("pointInTimeRecovery") => point_in_time_recovery(),
+        optional("replicaSpecifications") => list(replica_specification()),
+        required("schemaDefinition") => schema_definition(),
+        required("tableName") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("ttl") => time_to_live(),
+        optional("warmThroughputSpecification") => warm_throughput_specification()
+      }
+      
+  """
+  @type create_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cdc_specification() :: %{
+        "propagateTags" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => list(tag()),
+        "viewType" => String.t() | atom()
+      }
+      
+  """
+  @type cdc_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_summary() :: %{
+        "keyspaceName" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "tableName" => String.t() | atom()
+      }
+      
+  """
+  @type table_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      comment() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type comment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_type_request() :: %{
+        required("fieldDefinitions") => list(field_definition()),
+        required("keyspaceName") => String.t() | atom(),
+        required("typeName") => String.t() | atom()
+      }
+      
+  """
+  @type create_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      keyspace_summary() :: %{
+        "keyspaceName" => String.t() | atom(),
+        "replicationRegions" => list(String.t() | atom()),
+        "replicationStrategy" => String.t() | atom(),
+        "resourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type keyspace_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_request() :: %{
+        required("keyspaceName") => String.t() | atom(),
+        required("tableName") => String.t() | atom()
+      }
+      
+  """
+  @type get_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_types_request() :: %{
+        required("keyspaceName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_keyspace_response() :: %{
+        "resourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_keyspace_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      point_in_time_recovery() :: %{
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type point_in_time_recovery() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_keyspace_errors() ::
           validation_exception()
@@ -991,40 +991,40 @@ defmodule AWS.Keyspaces do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type create_type_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_keyspace_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_table_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_type_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type get_keyspace_errors() ::
           validation_exception()
@@ -1087,40 +1087,40 @@ defmodule AWS.Keyspaces do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type tag_resource_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type untag_resource_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type update_keyspace_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type update_table_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -1156,7 +1156,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_keyspace_errors()}
   def create_keyspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateKeyspace", input, options)
   end
@@ -1180,7 +1181,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -1201,7 +1203,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_type_errors()}
   def create_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateType", input, options)
   end
@@ -1215,7 +1218,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_keyspace_errors()}
   def delete_keyspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteKeyspace", input, options)
   end
@@ -1237,7 +1241,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -1256,7 +1261,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_type_errors()}
   def delete_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteType", input, options)
   end
@@ -1273,7 +1279,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_keyspace_errors()}
   def get_keyspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKeyspace", input, options)
   end
@@ -1291,7 +1298,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -1324,7 +1332,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_table_auto_scaling_settings_errors()}
   def get_table_auto_scaling_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableAutoScalingSettings", input, options)
   end
@@ -1346,7 +1355,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_type_errors()}
   def get_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetType", input, options)
   end
@@ -1360,7 +1370,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_keyspaces_errors()}
   def list_keyspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListKeyspaces", input, options)
   end
@@ -1377,7 +1388,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end
@@ -1395,7 +1407,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1414,7 +1427,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_types_errors()}
   def list_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTypes", input, options)
   end
@@ -1469,7 +1483,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, restore_table_errors()}
   def restore_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTable", input, options)
   end
@@ -1492,7 +1507,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1506,7 +1522,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1579,7 +1596,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, update_keyspace_errors()}
   def update_keyspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateKeyspace", input, options)
   end
@@ -1597,7 +1615,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end

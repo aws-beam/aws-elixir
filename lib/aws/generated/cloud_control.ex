@@ -14,13 +14,12 @@ defmodule AWS.CloudControl do
 
   ## Example:
       
-      list_resource_requests_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceRequestStatusSummaries" => list(progress_event())
+      service_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type list_resource_requests_output() :: %{(String.t() | atom()) => any()}
+  @type service_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -37,105 +36,13 @@ defmodule AWS.CloudControl do
 
   ## Example:
       
-      get_resource_request_status_input() :: %{
-        required("RequestToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_request_status_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      handler_internal_failure_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type handler_internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      general_service_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type general_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_resource_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("TypeVersionId") => String.t() | atom(),
-        required("DesiredState") => String.t() | atom(),
-        required("TypeName") => String.t() | atom()
-      }
-      
-  """
-  @type create_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      network_failure_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type network_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resource_output() :: %{
-        optional("ProgressEvent") => progress_event()
-      }
-      
-  """
-  @type update_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      private_type_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type private_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_resource_input() :: %{
         optional("ClientToken") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("TypeVersionId") => String.t() | atom(),
         required("Identifier") => String.t() | atom(),
         required("PatchDocument") => String.t() | atom(),
-        required("TypeName") => String.t() | atom()
+        optional("RoleArn") => String.t() | atom(),
+        required("TypeName") => String.t() | atom(),
+        optional("TypeVersionId") => String.t() | atom()
       }
       
   """
@@ -145,51 +52,56 @@ defmodule AWS.CloudControl do
 
   ## Example:
       
-      unsupported_action_exception() :: %{
+      cancel_resource_request_output() :: %{
+        optional("ProgressEvent") => progress_event()
+      }
+      
+  """
+  @type cancel_resource_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_resource_request_input() :: %{
+        required("RequestToken") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_resource_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_token_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_action_exception() :: %{(String.t() | atom()) => any()}
+  @type request_token_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_resource_output() :: %{
-        optional("ResourceDescription") => resource_description(),
-        optional("TypeName") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resources_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceModel") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("TypeVersionId") => String.t() | atom(),
-        required("TypeName") => String.t() | atom()
-      }
-      
-  """
-  @type list_resources_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
+      concurrent_modification_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -206,34 +118,120 @@ defmodule AWS.CloudControl do
 
   ## Example:
       
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
+      create_resource_output() :: %{
+        optional("ProgressEvent") => progress_event()
       }
       
   """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type create_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      type_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      get_resource_request_status_output() :: %{
+        optional("HooksProgressEvent") => list(hook_progress_event()),
+        optional("ProgressEvent") => progress_event()
       }
       
   """
-  @type type_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type get_resource_request_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      client_token_conflict_exception() :: %{
+      delete_resource_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("TypeName") => String.t() | atom(),
+        optional("TypeVersionId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resources_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceModel") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("TypeName") => String.t() | atom(),
+        optional("TypeVersionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_resources_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_type_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type client_token_conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type private_type_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hook_progress_event() :: %{
+        "FailureMode" => String.t() | atom(),
+        "HookEventTime" => non_neg_integer(),
+        "HookStatus" => String.t() | atom(),
+        "HookStatusMessage" => String.t() | atom(),
+        "HookTypeArn" => String.t() | atom(),
+        "HookTypeName" => String.t() | atom(),
+        "HookTypeVersionId" => String.t() | atom(),
+        "InvocationPoint" => String.t() | atom()
+      }
+      
+  """
+  @type hook_progress_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resources_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceDescriptions" => list(resource_description()),
+        "TypeName" => String.t() | atom()
+      }
+      
+  """
+  @type list_resources_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_output() :: %{
+        optional("ResourceDescription") => resource_description(),
+        optional("TypeName") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,12 +258,145 @@ defmodule AWS.CloudControl do
 
   ## Example:
       
-      cancel_resource_request_output() :: %{
+      unsupported_action_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_action_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      general_service_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type general_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_internal_error_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      handler_failure_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type handler_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_updatable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type not_updatable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_credentials_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_credentials_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      type_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type type_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      handler_internal_failure_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type handler_internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resource_output() :: %{
         optional("ProgressEvent") => progress_event()
       }
       
   """
-  @type cancel_resource_request_output() :: %{(String.t() | atom()) => any()}
+  @type update_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_request_status_input() :: %{
+        required("RequestToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_request_status_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_request_status_filter() :: %{
+        "OperationStatuses" => list(String.t() | atom()),
+        "Operations" => list(String.t() | atom())
+      }
+      
+  """
+  @type resource_request_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -284,24 +415,86 @@ defmodule AWS.CloudControl do
 
   ## Example:
       
-      cancel_resource_request_input() :: %{
-        required("RequestToken") => String.t() | atom()
+      not_stabilized_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cancel_resource_request_input() :: %{(String.t() | atom()) => any()}
+  @type not_stabilized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_resource_request_status_output() :: %{
-        optional("HooksProgressEvent") => list(hook_progress_event()),
-        optional("ProgressEvent") => progress_event()
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type get_resource_request_status_output() :: %{(String.t() | atom()) => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resource_requests_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceRequestStatusSummaries" => list(progress_event())
+      }
+      
+  """
+  @type list_resource_requests_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_failure_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type network_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resource_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("DesiredState") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("TypeName") => String.t() | atom(),
+        optional("TypeVersionId") => String.t() | atom()
+      }
+      
+  """
+  @type create_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_token_conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type client_token_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_input() :: %{
+        required("Identifier") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("TypeName") => String.t() | atom(),
+        optional("TypeVersionId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -315,304 +508,111 @@ defmodule AWS.CloudControl do
   """
   @type resource_description() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      hook_progress_event() :: %{
-        "FailureMode" => String.t() | atom(),
-        "HookEventTime" => non_neg_integer(),
-        "HookStatus" => String.t() | atom(),
-        "HookStatusMessage" => String.t() | atom(),
-        "HookTypeArn" => String.t() | atom(),
-        "HookTypeName" => String.t() | atom(),
-        "HookTypeVersionId" => String.t() | atom(),
-        "InvocationPoint" => String.t() | atom()
-      }
-      
-  """
-  @type hook_progress_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("TypeVersionId") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("TypeName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_updatable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type not_updatable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_stabilized_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type not_stabilized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_token_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type request_token_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      handler_failure_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type handler_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_resource_output() :: %{
-        optional("ProgressEvent") => progress_event()
-      }
-      
-  """
-  @type create_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_credentials_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_credentials_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_input() :: %{
-        optional("RoleArn") => String.t() | atom(),
-        optional("TypeVersionId") => String.t() | atom(),
-        required("Identifier") => String.t() | atom(),
-        required("TypeName") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resources_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceDescriptions" => list(resource_description()),
-        "TypeName" => String.t() | atom()
-      }
-      
-  """
-  @type list_resources_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_internal_error_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_internal_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_request_status_filter() :: %{
-        "OperationStatuses" => list(String.t() | atom()),
-        "Operations" => list(String.t() | atom())
-      }
-      
-  """
-  @type resource_request_status_filter() :: %{(String.t() | atom()) => any()}
-
   @type cancel_resource_request_errors() ::
-          request_token_not_found_exception() | concurrent_modification_exception()
+          concurrent_modification_exception() | request_token_not_found_exception()
 
   @type create_resource_errors() ::
-          service_internal_error_exception()
+          client_token_conflict_exception()
+          | network_failure_exception()
+          | invalid_request_exception()
+          | not_stabilized_exception()
+          | already_exists_exception()
           | resource_conflict_exception()
+          | handler_internal_failure_exception()
+          | type_not_found_exception()
           | invalid_credentials_exception()
+          | not_updatable_exception()
           | handler_failure_exception()
+          | service_internal_error_exception()
+          | general_service_exception()
+          | unsupported_action_exception()
+          | resource_not_found_exception()
+          | private_type_exception()
+          | concurrent_operation_exception()
           | throttling_exception()
           | service_limit_exceeded_exception()
-          | not_stabilized_exception()
-          | not_updatable_exception()
-          | client_token_conflict_exception()
-          | type_not_found_exception()
-          | invalid_request_exception()
-          | concurrent_operation_exception()
-          | resource_not_found_exception()
-          | unsupported_action_exception()
-          | private_type_exception()
-          | network_failure_exception()
-          | already_exists_exception()
-          | general_service_exception()
-          | handler_internal_failure_exception()
 
   @type delete_resource_errors() ::
-          service_internal_error_exception()
+          client_token_conflict_exception()
+          | network_failure_exception()
+          | invalid_request_exception()
+          | not_stabilized_exception()
+          | already_exists_exception()
           | resource_conflict_exception()
+          | handler_internal_failure_exception()
+          | type_not_found_exception()
           | invalid_credentials_exception()
+          | not_updatable_exception()
           | handler_failure_exception()
+          | service_internal_error_exception()
+          | general_service_exception()
+          | unsupported_action_exception()
+          | resource_not_found_exception()
+          | private_type_exception()
+          | concurrent_operation_exception()
           | throttling_exception()
           | service_limit_exceeded_exception()
-          | not_stabilized_exception()
-          | not_updatable_exception()
-          | client_token_conflict_exception()
-          | type_not_found_exception()
-          | invalid_request_exception()
-          | concurrent_operation_exception()
-          | resource_not_found_exception()
-          | unsupported_action_exception()
-          | private_type_exception()
-          | network_failure_exception()
-          | already_exists_exception()
-          | general_service_exception()
-          | handler_internal_failure_exception()
 
   @type get_resource_errors() ::
-          service_internal_error_exception()
+          network_failure_exception()
+          | invalid_request_exception()
+          | not_stabilized_exception()
+          | already_exists_exception()
           | resource_conflict_exception()
+          | handler_internal_failure_exception()
+          | type_not_found_exception()
           | invalid_credentials_exception()
+          | not_updatable_exception()
           | handler_failure_exception()
+          | service_internal_error_exception()
+          | general_service_exception()
+          | unsupported_action_exception()
+          | resource_not_found_exception()
+          | private_type_exception()
           | throttling_exception()
           | service_limit_exceeded_exception()
-          | not_stabilized_exception()
-          | not_updatable_exception()
-          | type_not_found_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | unsupported_action_exception()
-          | private_type_exception()
-          | network_failure_exception()
-          | already_exists_exception()
-          | general_service_exception()
-          | handler_internal_failure_exception()
 
   @type get_resource_request_status_errors() :: request_token_not_found_exception()
 
   @type list_resources_errors() ::
-          service_internal_error_exception()
+          network_failure_exception()
+          | invalid_request_exception()
+          | not_stabilized_exception()
+          | already_exists_exception()
           | resource_conflict_exception()
+          | handler_internal_failure_exception()
+          | type_not_found_exception()
           | invalid_credentials_exception()
+          | not_updatable_exception()
           | handler_failure_exception()
+          | service_internal_error_exception()
+          | general_service_exception()
+          | unsupported_action_exception()
+          | resource_not_found_exception()
+          | private_type_exception()
           | throttling_exception()
           | service_limit_exceeded_exception()
-          | not_stabilized_exception()
-          | not_updatable_exception()
-          | type_not_found_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | unsupported_action_exception()
-          | private_type_exception()
-          | network_failure_exception()
-          | already_exists_exception()
-          | general_service_exception()
-          | handler_internal_failure_exception()
 
   @type update_resource_errors() ::
-          service_internal_error_exception()
+          client_token_conflict_exception()
+          | network_failure_exception()
+          | invalid_request_exception()
+          | not_stabilized_exception()
+          | already_exists_exception()
           | resource_conflict_exception()
+          | handler_internal_failure_exception()
+          | type_not_found_exception()
           | invalid_credentials_exception()
+          | not_updatable_exception()
           | handler_failure_exception()
+          | service_internal_error_exception()
+          | general_service_exception()
+          | unsupported_action_exception()
+          | resource_not_found_exception()
+          | private_type_exception()
+          | concurrent_operation_exception()
           | throttling_exception()
           | service_limit_exceeded_exception()
-          | not_stabilized_exception()
-          | not_updatable_exception()
-          | client_token_conflict_exception()
-          | type_not_found_exception()
-          | invalid_request_exception()
-          | concurrent_operation_exception()
-          | resource_not_found_exception()
-          | unsupported_action_exception()
-          | private_type_exception()
-          | network_failure_exception()
-          | already_exists_exception()
-          | general_service_exception()
-          | handler_internal_failure_exception()
 
   def metadata do
     %{
@@ -646,7 +646,8 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, cancel_resource_request_errors()}
   def cancel_resource_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelResourceRequest", input, options)
   end
@@ -670,7 +671,8 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, create_resource_errors()}
   def create_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResource", input, options)
   end
@@ -694,7 +696,8 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, delete_resource_errors()}
   def delete_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResource", input, options)
   end
@@ -716,7 +719,8 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, get_resource_errors()}
   def get_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResource", input, options)
   end
@@ -735,7 +739,8 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, get_resource_request_status_errors()}
   def get_resource_request_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceRequestStatus", input, options)
   end
@@ -755,7 +760,8 @@ defmodule AWS.CloudControl do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_resource_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceRequests", input, options)
   end
@@ -777,7 +783,8 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResources", input, options)
   end
@@ -814,7 +821,8 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, update_resource_errors()}
   def update_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResource", input, options)
   end

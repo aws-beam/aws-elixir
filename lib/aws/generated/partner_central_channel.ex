@@ -14,38 +14,23 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
-      accept_channel_handshake_detail() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => list(any())
+      create_program_management_account_response() :: %{
+        "programManagementAccountDetail" => create_program_management_account_detail()
       }
       
   """
-  @type accept_channel_handshake_detail() :: %{(String.t() | atom()) => any()}
+  @type create_program_management_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      program_management_account_type_sort() :: %{
-        "sortBy" => list(any()),
-        "sortOrder" => list(any())
+      program_management_account_type_filters() :: %{
+        "programs" => list(list(any())())
       }
       
   """
-  @type program_management_account_type_sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type program_management_account_type_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -57,359 +42,6 @@ defmodule AWS.PartnerCentralChannel do
       
   """
   @type update_program_management_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_program_management_account_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("catalog") => String.t() | atom(),
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_program_management_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      partner_led_support() :: %{
-        "coverage" => list(any()),
-        "provider" => list(any()),
-        "tamLocation" => [String.t() | atom()]
-      }
-      
-  """
-  @type partner_led_support() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_relationship_request() :: %{
-        optional("displayName") => String.t() | atom(),
-        optional("requestedSupportPlan") => list(),
-        optional("revision") => String.t() | atom(),
-        required("catalog") => String.t() | atom(),
-        required("identifier") => String.t() | atom(),
-        required("programManagementAccountIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type update_relationship_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_program_management_account_response() :: %{}
-      
-  """
-  @type delete_program_management_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_channel_handshake_detail() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type reject_channel_handshake_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revoke_service_period_payload() :: %{
-        "note" => String.t() | atom(),
-        "programManagementAccountIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type revoke_service_period_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_channel_handshake_response() :: %{
-        "channelHandshakeDetail" => cancel_channel_handshake_detail()
-      }
-      
-  """
-  @type cancel_channel_handshake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_relationships_request() :: %{
-        optional("associatedAccountIds") => list(String.t() | atom()),
-        optional("associationTypes") => list(list(any())()),
-        optional("displayNames") => list(String.t() | atom()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("programManagementAccountIdentifiers") => list(String.t() | atom()),
-        optional("sort") => list_relationships_sort_base(),
-        required("catalog") => String.t() | atom()
-      }
-      
-  """
-  @type list_relationships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_relationship_response() :: %{
-        "relationshipDetail" => update_relationship_detail()
-      }
-      
-  """
-  @type update_relationship_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      channel_handshake_summary() :: %{
-        "arn" => String.t() | atom(),
-        "associatedResourceId" => String.t() | atom(),
-        "catalog" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "detail" => list(),
-        "handshakeType" => list(any()),
-        "id" => String.t() | atom(),
-        "ownerAccountId" => String.t() | atom(),
-        "receiverAccountId" => String.t() | atom(),
-        "senderAccountId" => String.t() | atom(),
-        "senderDisplayName" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type channel_handshake_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_relationship_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("requestedSupportPlan") => list(),
-        optional("resaleAccountModel") => list(any()),
-        optional("tags") => list(tag()),
-        required("associatedAccountId") => String.t() | atom(),
-        required("associationType") => list(any()),
-        required("catalog") => String.t() | atom(),
-        required("displayName") => String.t() | atom(),
-        required("programManagementAccountIdentifier") => String.t() | atom(),
-        required("sector") => list(any())
-      }
-      
-  """
-  @type create_relationship_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_channel_handshake_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("payload") => list(),
-        optional("tags") => list(tag()),
-        required("associatedResourceIdentifier") => String.t() | atom(),
-        required("catalog") => String.t() | atom(),
-        required("handshakeType") => list(any())
-      }
-      
-  """
-  @type create_channel_handshake_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revoke_service_period_handshake_detail() :: %{
-        "endDate" => non_neg_integer(),
-        "minimumNoticeDays" => String.t() | atom(),
-        "note" => String.t() | atom(),
-        "servicePeriodType" => list(any()),
-        "startDate" => non_neg_integer()
-      }
-      
-  """
-  @type revoke_service_period_handshake_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_channel_handshake_request() :: %{
-        required("catalog") => String.t() | atom(),
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type reject_channel_handshake_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_program_management_account_request() :: %{
-        optional("displayName") => String.t() | atom(),
-        optional("revision") => String.t() | atom(),
-        required("catalog") => String.t() | atom(),
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type update_program_management_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_program_management_account_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("accountId") => String.t() | atom(),
-        required("catalog") => String.t() | atom(),
-        required("displayName") => String.t() | atom(),
-        required("program") => list(any())
-      }
-      
-  """
-  @type create_program_management_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_program_management_accounts_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("displayNames") => list(String.t() | atom()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("programs") => list(list(any())()),
-        optional("sort") => list_program_management_accounts_sort_base(),
-        optional("statuses") => list(list(any())()),
-        required("catalog") => String.t() | atom()
-      }
-      
-  """
-  @type list_program_management_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_channel_handshake_response() :: %{
-        "channelHandshakeDetail" => create_channel_handshake_detail()
-      }
-      
-  """
-  @type create_channel_handshake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_program_management_accounts_response() :: %{
-        "items" => list(program_management_account_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_program_management_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_relationships_sort_base() :: %{
-        "sortBy" => list(any()),
-        "sortOrder" => list(any())
-      }
-      
-  """
-  @type list_relationships_sort_base() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_channel_handshake_detail() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type cancel_channel_handshake_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      relationship_detail() :: %{
-        "arn" => String.t() | atom(),
-        "associatedAccountId" => String.t() | atom(),
-        "associationType" => list(any()),
-        "catalog" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "displayName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "programManagementAccountId" => String.t() | atom(),
-        "resaleAccountModel" => list(any()),
-        "revision" => String.t() | atom(),
-        "sector" => list(any()),
-        "startDate" => non_neg_integer(),
-        "updatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type relationship_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_program_management_account_response() :: %{
-        "programManagementAccountDetail" => create_program_management_account_detail()
-      }
-      
-  """
-  @type create_program_management_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,40 +60,37 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
-      get_relationship_request() :: %{
-        required("catalog") => String.t() | atom(),
-        required("identifier") => String.t() | atom(),
-        required("programManagementAccountIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_relationship_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
+      access_denied_exception() :: %{
         "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+        "reason" => [String.t() | atom()]
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resold_enterprise() :: %{
-        "chargeAccountId" => String.t() | atom(),
-        "coverage" => list(any()),
-        "tamLocation" => [String.t() | atom()]
+      reject_channel_handshake_detail() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
       }
       
   """
-  @type resold_enterprise() :: %{(String.t() | atom()) => any()}
+  @type reject_channel_handshake_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -481,12 +110,25 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
-      revoke_service_period_type_filters() :: %{
-        "servicePeriodTypes" => list(list(any())())
+      get_relationship_response() :: %{
+        "relationshipDetail" => relationship_detail()
       }
       
   """
-  @type revoke_service_period_type_filters() :: %{(String.t() | atom()) => any()}
+  @type get_relationship_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_channel_handshake_detail() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type cancel_channel_handshake_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -509,6 +151,54 @@ defmodule AWS.PartnerCentralChannel do
       
   """
   @type relationship_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_relationship_detail() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+      
+  """
+  @type create_relationship_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_channel_handshake_response() :: %{
+        "channelHandshakeDetail" => accept_channel_handshake_detail()
+      }
+      
+  """
+  @type accept_channel_handshake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -538,15 +228,296 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
+      validation_exception_field() :: %{
+        "code" => [String.t() | atom()],
         "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+        "name" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_program_management_accounts_response() :: %{
+        "items" => list(program_management_account_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_program_management_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_channel_handshake_request() :: %{
+        required("catalog") => String.t() | atom(),
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_channel_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_relationship_response() :: %{}
+      
+  """
+  @type delete_relationship_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_service_period_handshake_detail() :: %{
+        "endDate" => non_neg_integer(),
+        "minimumNoticeDays" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "servicePeriodType" => list(any()),
+        "startDate" => non_neg_integer()
+      }
+      
+  """
+  @type revoke_service_period_handshake_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_service_period_type_sort() :: %{
+        "sortBy" => list(any()),
+        "sortOrder" => list(any())
+      }
+      
+  """
+  @type start_service_period_type_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resold_enterprise() :: %{
+        "chargeAccountId" => String.t() | atom(),
+        "coverage" => list(any()),
+        "tamLocation" => [String.t() | atom()]
+      }
+      
+  """
+  @type resold_enterprise() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_program_management_account_response() :: %{}
+      
+  """
+  @type delete_program_management_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_relationship_request() :: %{
+        required("catalog") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("identifier") => String.t() | atom(),
+        required("programManagementAccountIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_relationship_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      program_management_account_handshake_detail() :: %{
+        "program" => list(any())
+      }
+      
+  """
+  @type program_management_account_handshake_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_service_period_type_filters() :: %{
+        "servicePeriodTypes" => list(list(any())())
+      }
+      
+  """
+  @type start_service_period_type_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_relationship_response() :: %{
+        "relationshipDetail" => create_relationship_detail()
+      }
+      
+  """
+  @type create_relationship_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_program_management_account_request() :: %{
+        required("accountId") => String.t() | atom(),
+        required("catalog") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("displayName") => String.t() | atom(),
+        required("program") => list(any()),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_program_management_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_channel_handshake_response() :: %{
+        "channelHandshakeDetail" => cancel_channel_handshake_detail()
+      }
+      
+  """
+  @type cancel_channel_handshake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_relationship_request() :: %{
+        required("catalog") => String.t() | atom(),
+        required("identifier") => String.t() | atom(),
+        required("programManagementAccountIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_relationship_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_program_management_accounts_sort_base() :: %{
+        "sortBy" => list(any()),
+        "sortOrder" => list(any())
+      }
+      
+  """
+  @type list_program_management_accounts_sort_base() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_service_period_type_sort() :: %{
+        "sortBy" => list(any()),
+        "sortOrder" => list(any())
+      }
+      
+  """
+  @type revoke_service_period_type_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_relationships_sort_base() :: %{
+        "sortBy" => list(any()),
+        "sortOrder" => list(any())
+      }
+      
+  """
+  @type list_relationships_sort_base() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_channel_handshake_response() :: %{
+        "channelHandshakeDetail" => reject_channel_handshake_detail()
+      }
+      
+  """
+  @type reject_channel_handshake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_channel_handshakes_request() :: %{
+        optional("associatedResourceIdentifiers") => list(String.t() | atom()),
+        required("catalog") => String.t() | atom(),
+        required("handshakeType") => list(any()),
+        optional("handshakeTypeFilters") => list(),
+        optional("handshakeTypeSort") => list(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("participantType") => list(any()),
+        optional("statuses") => list(list(any())())
+      }
+      
+  """
+  @type list_channel_handshakes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -565,29 +536,6 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_channel_handshakes_response() :: %{
-        "items" => list(channel_handshake_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_channel_handshakes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_relationships_response() :: %{
         "items" => list(relationship_summary()),
         "nextToken" => String.t() | atom()
@@ -595,87 +543,6 @@ defmodule AWS.PartnerCentralChannel do
       
   """
   @type list_relationships_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_service_period_handshake_detail() :: %{
-        "endDate" => non_neg_integer(),
-        "minimumNoticeDays" => String.t() | atom(),
-        "note" => String.t() | atom(),
-        "servicePeriodType" => list(any()),
-        "startDate" => non_neg_integer()
-      }
-      
-  """
-  @type start_service_period_handshake_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_channel_handshake_response() :: %{
-        "channelHandshakeDetail" => reject_channel_handshake_detail()
-      }
-      
-  """
-  @type reject_channel_handshake_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_channel_handshake_request() :: %{
-        required("catalog") => String.t() | atom(),
-        required("identifier") => String.t() | atom()
-      }
-      
-  """
-  @type accept_channel_handshake_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_channel_handshakes_request() :: %{
-        optional("associatedResourceIdentifiers") => list(String.t() | atom()),
-        optional("handshakeTypeFilters") => list(),
-        optional("handshakeTypeSort") => list(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("statuses") => list(list(any())()),
-        required("catalog") => String.t() | atom(),
-        required("handshakeType") => list(any()),
-        required("participantType") => list(any())
-      }
-      
-  """
-  @type list_channel_handshakes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -693,100 +560,138 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
-      delete_relationship_response() :: %{}
-      
-  """
-  @type delete_relationship_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_relationship_detail() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom()
-      }
-      
-  """
-  @type create_relationship_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()],
-        "reason" => [String.t() | atom()]
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_channel_handshake_request() :: %{
+      update_relationship_request() :: %{
         required("catalog") => String.t() | atom(),
-        required("identifier") => String.t() | atom()
+        optional("displayName") => String.t() | atom(),
+        required("identifier") => String.t() | atom(),
+        required("programManagementAccountIdentifier") => String.t() | atom(),
+        optional("requestedSupportPlan") => list(),
+        optional("revision") => String.t() | atom()
       }
       
   """
-  @type cancel_channel_handshake_request() :: %{(String.t() | atom()) => any()}
+  @type update_relationship_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_program_management_accounts_sort_base() :: %{
-        "sortBy" => list(any()),
-        "sortOrder" => list(any())
+      partner_led_support() :: %{
+        "coverage" => list(any()),
+        "provider" => list(any()),
+        "tamLocation" => [String.t() | atom()]
       }
       
   """
-  @type list_program_management_accounts_sort_base() :: %{(String.t() | atom()) => any()}
+  @type partner_led_support() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_service_period_type_filters() :: %{
-        "servicePeriodTypes" => list(list(any())())
+      create_relationship_request() :: %{
+        required("associatedAccountId") => String.t() | atom(),
+        required("associationType") => list(any()),
+        required("catalog") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("displayName") => String.t() | atom(),
+        required("programManagementAccountIdentifier") => String.t() | atom(),
+        optional("requestedSupportPlan") => list(),
+        optional("resaleAccountModel") => list(any()),
+        required("sector") => list(any()),
+        optional("tags") => list(tag())
       }
       
   """
-  @type start_service_period_type_filters() :: %{(String.t() | atom()) => any()}
+  @type create_relationship_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_response() :: %{}
+      update_program_management_account_request() :: %{
+        required("catalog") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        required("identifier") => String.t() | atom(),
+        optional("revision") => String.t() | atom()
+      }
       
   """
-  @type tag_resource_response() :: %{}
+  @type update_program_management_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      program_management_account_handshake_detail() :: %{
-        "program" => list(any())
+      relationship_detail() :: %{
+        "arn" => String.t() | atom(),
+        "associatedAccountId" => String.t() | atom(),
+        "associationType" => list(any()),
+        "catalog" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "displayName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "programManagementAccountId" => String.t() | atom(),
+        "resaleAccountModel" => list(any()),
+        "revision" => String.t() | atom(),
+        "sector" => list(any()),
+        "startDate" => non_neg_integer(),
+        "updatedAt" => non_neg_integer()
       }
       
   """
-  @type program_management_account_handshake_detail() :: %{(String.t() | atom()) => any()}
+  @type relationship_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_relationship_response() :: %{
-        "relationshipDetail" => create_relationship_detail()
+      list_program_management_accounts_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        required("catalog") => String.t() | atom(),
+        optional("displayNames") => list(String.t() | atom()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("programs") => list(list(any())()),
+        optional("sort") => list_program_management_accounts_sort_base(),
+        optional("statuses") => list(list(any())())
       }
       
   """
-  @type create_relationship_response() :: %{(String.t() | atom()) => any()}
+  @type list_program_management_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_relationship_response() :: %{
+        "relationshipDetail" => update_relationship_detail()
+      }
+      
+  """
+  @type update_relationship_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_channel_handshake_response() :: %{
+        "channelHandshakeDetail" => create_channel_handshake_detail()
+      }
+      
+  """
+  @type create_channel_handshake_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -806,52 +711,16 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
+      start_service_period_payload() :: %{
+        "endDate" => non_neg_integer(),
+        "minimumNoticeDays" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "programManagementAccountIdentifier" => String.t() | atom(),
+        "servicePeriodType" => list(any())
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_relationship_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("catalog") => String.t() | atom(),
-        required("identifier") => String.t() | atom(),
-        required("programManagementAccountIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_relationship_request() :: %{(String.t() | atom()) => any()}
+  @type start_service_period_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -878,203 +747,334 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
-      revoke_service_period_type_sort() :: %{
-        "sortBy" => list(any()),
-        "sortOrder" => list(any())
+      revoke_service_period_type_filters() :: %{
+        "servicePeriodTypes" => list(list(any())())
       }
       
   """
-  @type revoke_service_period_type_sort() :: %{(String.t() | atom()) => any()}
+  @type revoke_service_period_type_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      accept_channel_handshake_response() :: %{
-        "channelHandshakeDetail" => accept_channel_handshake_detail()
+      list_relationships_request() :: %{
+        optional("associatedAccountIds") => list(String.t() | atom()),
+        optional("associationTypes") => list(list(any())()),
+        required("catalog") => String.t() | atom(),
+        optional("displayNames") => list(String.t() | atom()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("programManagementAccountIdentifiers") => list(String.t() | atom()),
+        optional("sort") => list_relationships_sort_base()
       }
       
   """
-  @type accept_channel_handshake_response() :: %{(String.t() | atom()) => any()}
+  @type list_relationships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_service_period_type_sort() :: %{
-        "sortBy" => list(any()),
-        "sortOrder" => list(any())
-      }
+      untag_resource_response() :: %{}
       
   """
-  @type start_service_period_type_sort() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      get_relationship_response() :: %{
-        "relationshipDetail" => relationship_detail()
-      }
-      
-  """
-  @type get_relationship_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_service_period_payload() :: %{
+      start_service_period_handshake_detail() :: %{
         "endDate" => non_neg_integer(),
         "minimumNoticeDays" => String.t() | atom(),
         "note" => String.t() | atom(),
-        "programManagementAccountIdentifier" => String.t() | atom(),
-        "servicePeriodType" => list(any())
+        "servicePeriodType" => list(any()),
+        "startDate" => non_neg_integer()
       }
       
   """
-  @type start_service_period_payload() :: %{(String.t() | atom()) => any()}
+  @type start_service_period_handshake_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      program_management_account_type_filters() :: %{
-        "programs" => list(list(any())())
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type program_management_account_type_filters() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_handshake_summary() :: %{
+        "arn" => String.t() | atom(),
+        "associatedResourceId" => String.t() | atom(),
+        "catalog" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "detail" => list(),
+        "handshakeType" => list(any()),
+        "id" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "receiverAccountId" => String.t() | atom(),
+        "senderAccountId" => String.t() | atom(),
+        "senderDisplayName" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type channel_handshake_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      program_management_account_type_sort() :: %{
+        "sortBy" => list(any()),
+        "sortOrder" => list(any())
+      }
+      
+  """
+  @type program_management_account_type_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_channel_handshake_request() :: %{
+        required("catalog") => String.t() | atom(),
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type accept_channel_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_channel_handshake_request() :: %{
+        required("associatedResourceIdentifier") => String.t() | atom(),
+        required("catalog") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("handshakeType") => list(any()),
+        optional("payload") => list(),
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type create_channel_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_channel_handshakes_response() :: %{
+        "items" => list(channel_handshake_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_channel_handshakes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_service_period_payload() :: %{
+        "note" => String.t() | atom(),
+        "programManagementAccountIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type revoke_service_period_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_channel_handshake_request() :: %{
+        required("catalog") => String.t() | atom(),
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type reject_channel_handshake_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_program_management_account_request() :: %{
+        required("catalog") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_program_management_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_channel_handshake_detail() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type accept_channel_handshake_detail() :: %{(String.t() | atom()) => any()}
 
   @type accept_channel_handshake_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type cancel_channel_handshake_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type create_channel_handshake_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   @type create_program_management_account_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   @type create_relationship_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   @type delete_program_management_account_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   @type delete_relationship_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   @type get_relationship_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type list_channel_handshakes_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type list_program_management_accounts_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type list_relationships_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type reject_channel_handshake_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   @type update_program_management_account_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   @type update_relationship_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
+          | access_denied_exception()
           | conflict_exception()
 
   def metadata do
@@ -1102,7 +1102,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, accept_channel_handshake_errors()}
   def accept_channel_handshake(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptChannelHandshake", input, options)
   end
@@ -1116,7 +1117,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, cancel_channel_handshake_errors()}
   def cancel_channel_handshake(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelChannelHandshake", input, options)
   end
@@ -1131,7 +1133,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, create_channel_handshake_errors()}
   def create_channel_handshake(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateChannelHandshake", input, options)
   end
@@ -1149,7 +1152,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, create_program_management_account_errors()}
   def create_program_management_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProgramManagementAccount", input, options)
   end
@@ -1163,7 +1167,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, create_relationship_errors()}
   def create_relationship(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRelationship", input, options)
   end
@@ -1181,7 +1186,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, delete_program_management_account_errors()}
   def delete_program_management_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProgramManagementAccount", input, options)
   end
@@ -1195,7 +1201,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, delete_relationship_errors()}
   def delete_relationship(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRelationship", input, options)
   end
@@ -1209,7 +1216,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, get_relationship_errors()}
   def get_relationship(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelationship", input, options)
   end
@@ -1223,7 +1231,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, list_channel_handshakes_errors()}
   def list_channel_handshakes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListChannelHandshakes", input, options)
   end
@@ -1241,7 +1250,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, list_program_management_accounts_errors()}
   def list_program_management_accounts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProgramManagementAccounts", input, options)
   end
@@ -1255,7 +1265,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, list_relationships_errors()}
   def list_relationships(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRelationships", input, options)
   end
@@ -1269,7 +1280,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1283,7 +1295,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, reject_channel_handshake_errors()}
   def reject_channel_handshake(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectChannelHandshake", input, options)
   end
@@ -1297,7 +1310,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1311,7 +1325,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1329,7 +1344,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, update_program_management_account_errors()}
   def update_program_management_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProgramManagementAccount", input, options)
   end
@@ -1343,7 +1359,8 @@ defmodule AWS.PartnerCentralChannel do
           | {:error, term()}
           | {:error, update_relationship_errors()}
   def update_relationship(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRelationship", input, options)
   end

@@ -13,6 +13,163 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      list_knowledge_bases_response() :: %{
+        "knowledgeBaseSummaries" => list(knowledge_base_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_serverless_configuration() :: %{
+        "authConfiguration" => redshift_serverless_auth_configuration(),
+        "workgroupArn" => String.t() | atom()
+      }
+
+  """
+  @type redshift_serverless_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_configuration() :: %{
+        "toolChoice" => list(),
+        "tools" => list(list())
+      }
+
+  """
+  @type tool_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fixed_size_chunking_configuration() :: %{
+        "maxTokens" => [integer()],
+        "overlapPercentage" => [integer()]
+      }
+
+  """
+  @type fixed_size_chunking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_alias() :: %{
+        "agentAliasArn" => String.t() | atom(),
+        "agentAliasHistoryEvents" => list(agent_alias_history_event()),
+        "agentAliasId" => String.t() | atom(),
+        "agentAliasName" => String.t() | atom(),
+        "agentAliasStatus" => list(any()),
+        "agentId" => String.t() | atom(),
+        "aliasInvocationState" => list(any()),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type agent_alias() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_search_serverless_configuration() :: %{
+        "collectionArn" => String.t() | atom(),
+        "fieldMapping" => open_search_serverless_field_mapping(),
+        "vectorIndexName" => String.t() | atom()
+      }
+
+  """
+  @type open_search_serverless_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingestion_job_response() :: %{
+        "ingestionJob" => ingestion_job()
+      }
+
+  """
+  @type get_ingestion_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_reranking_configuration() :: %{
+        "bedrockRerankingConfiguration" => vector_search_bedrock_reranking_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type vector_search_reranking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_attribute_value() :: %{
+        "booleanValue" => [boolean()],
+        "numberValue" => float(),
+        "stringListValue" => list(String.t() | atom()),
+        "stringValue" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_attribute_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_request() :: %{
+        optional("agentCollaboration") => list(any()),
+        required("agentName") => String.t() | atom(),
+        required("agentResourceRoleArn") => String.t() | atom(),
+        optional("customOrchestration") => custom_orchestration(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("foundationModel") => String.t() | atom(),
+        optional("guardrailConfiguration") => guardrail_configuration(),
+        optional("idleSessionTTLInSeconds") => integer(),
+        optional("instruction") => String.t() | atom(),
+        optional("memoryConfiguration") => memory_configuration(),
+        optional("orchestrationType") => list(any()),
+        optional("promptOverrideConfiguration") => prompt_override_configuration()
+      }
+
+  """
+  @type update_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validate_flow_definition_response() :: %{
         "validations" => list(flow_validation())
       }
@@ -24,12 +181,475 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      custom_orchestration() :: %{
-        "executor" => list()
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type custom_orchestration() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_crawler_configuration() :: %{
+        "filterConfiguration" => crawl_filter_configuration()
+      }
+
+  """
+  @type salesforce_crawler_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_provisioned_configuration() :: %{
+        "authConfiguration" => redshift_provisioned_auth_configuration(),
+        "clusterIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type redshift_provisioned_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_enrichment_configuration() :: %{
+        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_context_enrichment_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type context_enrichment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_action_group() :: %{
+        "actionGroupExecutor" => list(),
+        "actionGroupId" => String.t() | atom(),
+        "actionGroupName" => String.t() | atom(),
+        "actionGroupState" => list(any()),
+        "agentId" => String.t() | atom(),
+        "agentVersion" => String.t() | atom(),
+        "apiSchema" => list(),
+        "clientToken" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "functionSchema" => list(),
+        "parentActionGroupSignatureParams" => map(),
+        "parentActionSignature" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type agent_action_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_knowledge_base() :: %{
+        "agentId" => String.t() | atom(),
+        "agentVersion" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "knowledgeBaseState" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type agent_knowledge_base() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_knowledge_base_response() :: %{
+        "agentKnowledgeBase" => agent_knowledge_base()
+      }
+
+  """
+  @type get_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_storage() :: %{
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type intermediate_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{
+        optional("expectedRevisionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_action_group_request() :: %{
+        optional("actionGroupExecutor") => list(),
+        required("actionGroupName") => String.t() | atom(),
+        optional("actionGroupState") => list(any()),
+        optional("apiSchema") => list(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("functionSchema") => list(),
+        optional("parentActionGroupSignature") => list(any()),
+        optional("parentActionGroupSignatureParams") => map()
+      }
+
+  """
+  @type create_agent_action_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cache_point_block() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type cache_point_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_request() :: %{
+        optional("skipResourceInUseCheck") => [boolean()]
+      }
+
+  """
+  @type delete_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_configuration() :: %{
+        "latency" => list(any())
+      }
+
+  """
+  @type performance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_extraction_configuration() :: %{
+        "audioExtractionStatus" => list(any())
+      }
+
+  """
+  @type audio_extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      confluence_crawler_configuration() :: %{
+        "filterConfiguration" => crawl_filter_configuration()
+      }
+
+  """
+  @type confluence_crawler_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_configuration() :: %{
+        "confluenceConfiguration" => confluence_data_source_configuration(),
+        "managedKnowledgeBaseConnectorConfiguration" => managed_knowledge_base_connector_configuration(),
+        "s3Configuration" => s3_data_source_configuration(),
+        "salesforceConfiguration" => salesforce_data_source_configuration(),
+        "sharePointConfiguration" => share_point_data_source_configuration(),
+        "type" => list(any()),
+        "webConfiguration" => web_data_source_configuration()
+      }
+
+  """
+  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_summary() :: %{
+        "agentId" => String.t() | atom(),
+        "agentName" => String.t() | atom(),
+        "agentStatus" => list(any()),
+        "description" => String.t() | atom(),
+        "guardrailConfiguration" => guardrail_configuration(),
+        "latestAgentVersion" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type agent_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("definition") => flow_definition(),
+        optional("description") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_search_managed_cluster_configuration() :: %{
+        "domainArn" => String.t() | atom(),
+        "domainEndpoint" => String.t() | atom(),
+        "fieldMapping" => open_search_managed_cluster_field_mapping(),
+        "vectorIndexName" => String.t() | atom()
+      }
+
+  """
+  @type open_search_managed_cluster_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_alias_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item()),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_flow_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rds_field_mapping() :: %{
+        "customMetadataField" => String.t() | atom(),
+        "metadataField" => String.t() | atom(),
+        "primaryKeyField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
+      }
+
+  """
+  @type rds_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      loop_flow_node_configuration() :: %{
+        "definition" => flow_definition()
+      }
+
+  """
+  @type loop_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_for_reranking() :: %{
+        "fieldName" => [String.t() | atom()]
+      }
+
+  """
+  @type field_for_reranking() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_knowledge_bases_response() :: %{
+        "agentKnowledgeBaseSummaries" => list(agent_knowledge_base_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agent_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_version_response() :: %{
+        "agentVersion" => agent_version()
+      }
+
+  """
+  @type get_agent_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_query_engine_storage_configuration() :: %{
+        "awsDataCatalogConfiguration" => redshift_query_engine_aws_data_catalog_storage_configuration(),
+        "redshiftConfiguration" => redshift_query_engine_redshift_storage_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type redshift_query_engine_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_version_response() :: %{
+        "agentId" => String.t() | atom(),
+        "agentStatus" => list(any()),
+        "agentVersion" => String.t() | atom()
+      }
+
+  """
+  @type delete_agent_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transformation_function() :: %{
+        "transformationLambdaConfiguration" => transformation_lambda_configuration()
+      }
+
+  """
+  @type transformation_function() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_ingestion_configuration() :: %{
+        "chunkingConfiguration" => chunking_configuration(),
+        "contextEnrichmentConfiguration" => context_enrichment_configuration(),
+        "customTransformationConfiguration" => custom_transformation_configuration(),
+        "parsingConfiguration" => parsing_configuration()
+      }
+
+  """
+  @type vector_ingestion_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_alias_response() :: %{
+        "flowId" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type delete_flow_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      curated_query() :: %{
+        "naturalLanguage" => String.t() | atom(),
+        "sql" => String.t() | atom()
+      }
+
+  """
+  @type curated_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_response() :: %{
+        "agent" => agent()
+      }
+
+  """
+  @type create_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parsing_prompt() :: %{
+        "parsingPromptText" => String.t() | atom()
+      }
+
+  """
+  @type parsing_prompt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_alias_request() :: %{}
+
+  """
+  @type delete_flow_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_descriptor() :: %{
+        "aliasArn" => String.t() | atom()
+      }
+
+  """
+  @type agent_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -47,49 +667,256 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      multiple_loop_controller_nodes_flow_validation_details() :: %{
-        "loopNode" => String.t() | atom()
+      create_agent_alias_response() :: %{
+        "agentAlias" => agent_alias()
       }
 
   """
-  @type multiple_loop_controller_nodes_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type create_agent_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      knowledge_base_configuration() :: %{
-        "kendraKnowledgeBaseConfiguration" => kendra_knowledge_base_configuration(),
-        "sqlKnowledgeBaseConfiguration" => sql_knowledge_base_configuration(),
-        "type" => list(any()),
-        "vectorKnowledgeBaseConfiguration" => vector_knowledge_base_configuration()
+      get_agent_collaborator_response() :: %{
+        "agentCollaborator" => agent_collaborator()
       }
 
   """
-  @type knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unknown_node_output_flow_validation_details() :: %{
-        "node" => String.t() | atom(),
-        "output" => String.t() | atom()
-      }
+      disassociate_agent_collaborator_response() :: %{}
 
   """
-  @type unknown_node_output_flow_validation_details() :: %{(String.t() | atom()) => any()}
+  @type disassociate_agent_collaborator_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      prepare_agent_request() :: %{}
+      neptune_analytics_configuration() :: %{
+        "fieldMapping" => neptune_analytics_field_mapping(),
+        "graphArn" => String.t() | atom()
+      }
 
   """
-  @type prepare_agent_request() :: %{}
+  @type neptune_analytics_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_alias_request() :: %{
+        required("agentAliasName") => String.t() | atom(),
+        optional("aliasInvocationState") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item())
+      }
+
+  """
+  @type update_agent_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_group_summary() :: %{
+        "actionGroupId" => String.t() | atom(),
+        "actionGroupName" => String.t() | atom(),
+        "actionGroupState" => list(any()),
+        "description" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type action_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_node_configuration_flow_validation_details() :: %{
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type missing_node_configuration_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_metadata() :: %{
+        "accessControlList" => list(document_access_control_entry()),
+        "inlineAttributes" => list(metadata_attribute()),
+        "s3Location" => custom_s3_location(),
+        "type" => list(any())
+      }
+
+  """
+  @type document_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_node() :: %{
+        "configuration" => list(),
+        "inputs" => list(flow_node_input()),
+        "name" => String.t() | atom(),
+        "outputs" => list(flow_node_output()),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_node() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_input_variable() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type prompt_input_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type create_flow_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_prompt_template_configuration() :: %{
+        "cachePoint" => cache_point_block(),
+        "inputVariables" => list(prompt_input_variable()),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type text_prompt_template_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      share_point_data_source_configuration() :: %{
+        "crawlerConfiguration" => share_point_crawler_configuration(),
+        "sourceConfiguration" => share_point_source_configuration()
+      }
+
+  """
+  @type share_point_data_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_ingestion_job_response() :: %{
+        "ingestionJob" => ingestion_job()
+      }
+
+  """
+  @type start_ingestion_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      share_point_source_configuration() :: %{
+        "authType" => list(any()),
+        "credentialsSecretArn" => String.t() | atom(),
+        "domain" => String.t() | atom(),
+        "hostType" => list(any()),
+        "siteUrls" => list(String.t() | atom()),
+        "tenantId" => String.t() | atom()
+      }
+
+  """
+  @type share_point_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_source_response() :: %{
+        "dataSource" => data_source()
+      }
+
+  """
+  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_alias_request() :: %{
+        optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item())
+      }
+
+  """
+  @type update_flow_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_condition() :: %{
+        "expression" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type flow_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_agent_knowledge_base_response() :: %{
+        "agentKnowledgeBase" => agent_knowledge_base()
+      }
+
+  """
+  @type associate_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_agent_knowledge_base_request() :: %{}
+
+  """
+  @type disassociate_agent_knowledge_base_request() :: %{}
 
   @typedoc """
 
@@ -110,141 +937,89 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      storage_flow_node_s3_configuration() :: %{
-        "bucketName" => String.t() | atom()
-      }
-
-  """
-  @type storage_flow_node_s3_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_agent_collaborator_response() :: %{}
-
-  """
-  @type disassociate_agent_collaborator_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ingestion_job_statistics() :: %{
-        "numberOfDocumentsDeleted" => [float()],
-        "numberOfDocumentsFailed" => [float()],
-        "numberOfDocumentsScanned" => [float()],
-        "numberOfMetadataDocumentsModified" => [float()],
-        "numberOfMetadataDocumentsScanned" => [float()],
-        "numberOfModifiedDocumentsIndexed" => [float()],
-        "numberOfNewDocumentsIndexed" => [float()]
-      }
-
-  """
-  @type ingestion_job_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_alias_request() :: %{
-        optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
+      create_knowledge_base_request() :: %{
+        optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
         required("name") => String.t() | atom(),
-        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item())
+        required("roleArn") => String.t() | atom(),
+        optional("storageConfiguration") => storage_configuration(),
+        optional("tags") => map()
       }
 
   """
-  @type update_flow_alias_request() :: %{(String.t() | atom()) => any()}
+  @type create_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      redshift_serverless_auth_configuration() :: %{
-        "type" => list(any()),
-        "usernamePasswordSecretArn" => String.t() | atom()
-      }
+      any_tool_choice() :: %{}
 
   """
-  @type redshift_serverless_auth_configuration() :: %{(String.t() | atom()) => any()}
+  @type any_tool_choice() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_agent_action_group_request() :: %{
-        optional("actionGroupExecutor") => list(),
-        optional("actionGroupState") => list(any()),
-        optional("apiSchema") => list(),
-        optional("description") => String.t() | atom(),
-        optional("functionSchema") => list(),
-        optional("parentActionGroupSignature") => list(any()),
-        optional("parentActionGroupSignatureParams") => map(),
-        required("actionGroupName") => String.t() | atom()
-      }
+      iterator_flow_node_configuration() :: %{}
 
   """
-  @type update_agent_action_group_request() :: %{(String.t() | atom()) => any()}
+  @type iterator_flow_node_configuration() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      missing_node_input_flow_validation_details() :: %{
-        "input" => String.t() | atom(),
-        "node" => String.t() | atom()
+      salesforce_data_source_configuration() :: %{
+        "crawlerConfiguration" => salesforce_crawler_configuration(),
+        "sourceConfiguration" => salesforce_source_configuration()
       }
 
   """
-  @type missing_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
+  @type salesforce_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      delete_prompt_response() :: %{
+        "id" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type delete_prompt_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      share_point_data_source_configuration() :: %{
-        "crawlerConfiguration" => share_point_crawler_configuration(),
-        "sourceConfiguration" => share_point_source_configuration()
+      prompt_configuration() :: %{
+        "additionalModelRequestFields" => [any()],
+        "basePromptTemplate" => String.t() | atom(),
+        "foundationModel" => String.t() | atom(),
+        "inferenceConfiguration" => inference_configuration(),
+        "parserMode" => list(any()),
+        "promptCreationMode" => list(any()),
+        "promptState" => list(any()),
+        "promptType" => list(any())
       }
 
   """
-  @type share_point_data_source_configuration() :: %{(String.t() | atom()) => any()}
+  @type prompt_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      text_prompt_template_configuration() :: %{
-        "cachePoint" => cache_point_block(),
-        "inputVariables" => list(prompt_input_variable()),
-        "text" => String.t() | atom()
+      delete_agent_version_request() :: %{
+        optional("skipResourceInUseCheck") => [boolean()]
       }
 
   """
-  @type text_prompt_template_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      missing_default_condition_flow_validation_details() :: %{
-        "node" => String.t() | atom()
-      }
-
-  """
-  @type missing_default_condition_flow_validation_details() :: %{(String.t() | atom()) => any()}
+  @type delete_agent_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,7 +1036,98 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      update_flow_alias_response() :: %{
+      prompt_model_inference_configuration() :: %{
+        "maxTokens" => integer(),
+        "stopSequences" => list([String.t() | atom()]()),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type prompt_model_inference_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_knowledge_base_configuration() :: %{
+        "embeddingModelArn" => String.t() | atom(),
+        "embeddingModelConfiguration" => embedding_model_configuration(),
+        "supplementalDataStorageConfiguration" => supplemental_data_storage_configuration()
+      }
+
+  """
+  @type vector_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_version_summary() :: %{
+        "agentName" => String.t() | atom(),
+        "agentStatus" => list(any()),
+        "agentVersion" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "guardrailConfiguration" => guardrail_configuration(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type agent_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_starting_nodes_flow_validation_details() :: %{}
+
+  """
+  @type missing_starting_nodes_flow_validation_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_node_output() :: %{
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_generation_configuration() :: %{
+        "executionTimeoutSeconds" => integer(),
+        "generationContext" => query_generation_context()
+      }
+
+  """
+  @type query_generation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      duplicate_condition_expression_flow_validation_details() :: %{
+        "expression" => String.t() | atom(),
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type duplicate_condition_expression_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_alias_response() :: %{
         "arn" => String.t() | atom(),
         "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
@@ -274,66 +1140,41 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type update_flow_alias_response() :: %{(String.t() | atom()) => any()}
+  @type get_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      memory_configuration() :: %{
-        "enabledMemoryTypes" => list(list(any())()),
-        "sessionSummaryConfiguration" => session_summary_configuration(),
-        "storageDays" => integer()
+      metadata_attribute() :: %{
+        "key" => String.t() | atom(),
+        "value" => metadata_attribute_value()
       }
 
   """
-  @type memory_configuration() :: %{(String.t() | atom()) => any()}
+  @type metadata_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      query_generation_context() :: %{
-        "curatedQueries" => list(curated_query()),
-        "tables" => list(query_generation_table())
+      flow_conditional_connection_configuration() :: %{
+        "condition" => String.t() | atom()
       }
 
   """
-  @type query_generation_context() :: %{(String.t() | atom()) => any()}
+  @type flow_conditional_connection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unreachable_node_flow_validation_details() :: %{
-        "node" => String.t() | atom()
+      redshift_query_engine_aws_data_catalog_storage_configuration() :: %{
+        "tableNames" => list(String.t() | atom())
       }
 
   """
-  @type unreachable_node_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      context_enrichment_configuration() :: %{
-        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_context_enrichment_configuration(),
-        "type" => list(any())
-      }
-
-  """
-  @type context_enrichment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      missing_connection_configuration_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
-      }
-
-  """
-  @type missing_connection_configuration_flow_validation_details() :: %{
+  @type redshift_query_engine_aws_data_catalog_storage_configuration() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -341,101 +1182,168 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      get_agent_alias_response() :: %{
-        "agentAlias" => agent_alias()
+      pinecone_configuration() :: %{
+        "connectionString" => String.t() | atom(),
+        "credentialsSecretArn" => String.t() | atom(),
+        "fieldMapping" => pinecone_field_mapping(),
+        "namespace" => String.t() | atom()
       }
 
   """
-  @type get_agent_alias_response() :: %{(String.t() | atom()) => any()}
+  @type pinecone_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_prompt_version_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t() | atom(),
-        "defaultVariant" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "variants" => list(prompt_variant()),
-        "version" => String.t() | atom()
+      bedrock_embedding_model_configuration() :: %{
+        "audio" => list(audio_configuration()),
+        "dimensions" => integer(),
+        "embeddingDataType" => list(any()),
+        "video" => list(video_configuration())
       }
 
   """
-  @type create_prompt_version_response() :: %{(String.t() | atom()) => any()}
+  @type bedrock_embedding_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      flow_condition() :: %{
-        "expression" => String.t() | atom(),
+      list_prompts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("promptIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_prompts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_action_group_request() :: %{
+        optional("actionGroupExecutor") => list(),
+        required("actionGroupName") => String.t() | atom(),
+        optional("actionGroupState") => list(any()),
+        optional("apiSchema") => list(),
+        optional("description") => String.t() | atom(),
+        optional("functionSchema") => list(),
+        optional("parentActionGroupSignature") => list(any()),
+        optional("parentActionGroupSignatureParams") => map()
+      }
+
+  """
+  @type update_agent_action_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_request() :: %{
+        optional("agentCollaboration") => list(any()),
+        required("agentName") => String.t() | atom(),
+        optional("agentResourceRoleArn") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customOrchestration") => custom_orchestration(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("foundationModel") => String.t() | atom(),
+        optional("guardrailConfiguration") => guardrail_configuration(),
+        optional("idleSessionTTLInSeconds") => integer(),
+        optional("instruction") => String.t() | atom(),
+        optional("memoryConfiguration") => memory_configuration(),
+        optional("orchestrationType") => list(any()),
+        optional("promptOverrideConfiguration") => prompt_override_configuration(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message() :: %{
+        "content" => list(list()),
+        "role" => list(any())
+      }
+
+  """
+  @type message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_flow_node_configuration() :: %{
+        "agentAliasArn" => String.t() | atom()
+      }
+
+  """
+  @type agent_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_node_input_flow_validation_details() :: %{
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type unknown_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_validation() :: %{
+        "details" => list(),
+        "message" => String.t() | atom(),
+        "severity" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_flow_definition_request() :: %{
+        required("definition") => flow_definition()
+      }
+
+  """
+  @type validate_flow_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
         "name" => String.t() | atom()
       }
 
   """
-  @type flow_condition() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inline_code_flow_node_configuration() :: %{
-        "code" => String.t() | atom(),
-        "language" => list(any())
+      s3_content() :: %{
+        "s3Location" => s3_location()
       }
 
   """
-  @type inline_code_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_flow_node_inline_configuration() :: %{
-        "additionalModelRequestFields" => [any()],
-        "inferenceConfiguration" => list(),
-        "modelId" => String.t() | atom(),
-        "templateConfiguration" => list(),
-        "templateType" => list(any())
-      }
-
-  """
-  @type prompt_flow_node_inline_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type prompt_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      open_search_managed_cluster_field_mapping() :: %{
-        "metadataField" => String.t() | atom(),
-        "textField" => String.t() | atom(),
-        "vectorField" => String.t() | atom()
-      }
-
-  """
-  @type open_search_managed_cluster_field_mapping() :: %{(String.t() | atom()) => any()}
+  @type s3_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -453,246 +1361,51 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      storage_flow_node_configuration() :: %{
-        "serviceConfiguration" => list()
-      }
-
-  """
-  @type storage_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_query_engine_storage_configuration() :: %{
-        "awsDataCatalogConfiguration" => redshift_query_engine_aws_data_catalog_storage_configuration(),
-        "redshiftConfiguration" => redshift_query_engine_redshift_storage_configuration(),
-        "type" => list(any())
-      }
-
-  """
-  @type redshift_query_engine_storage_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("customerEncryptionKeyArn") => String.t() | atom(),
-        optional("definition") => flow_definition(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("executionRoleArn") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_action_groups_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_agent_action_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_source_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("dataDeletionPolicy") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
-        optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
-        required("dataSourceConfiguration") => data_source_configuration(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_segmentation_configuration() :: %{
-        "fixedLengthDuration" => [integer()]
-      }
-
-  """
-  @type video_segmentation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      loop_flow_node_configuration() :: %{
-        "definition" => flow_definition()
-      }
-
-  """
-  @type loop_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      loop_incompatible_node_type_flow_validation_details() :: %{
-        "incompatibleNodeName" => String.t() | atom(),
-        "incompatibleNodeType" => list(any()),
-        "node" => String.t() | atom()
-      }
-
-  """
-  @type loop_incompatible_node_type_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_configuration() :: %{
-        "confluenceConfiguration" => confluence_data_source_configuration(),
-        "s3Configuration" => s3_data_source_configuration(),
-        "salesforceConfiguration" => salesforce_data_source_configuration(),
-        "sharePointConfiguration" => share_point_data_source_configuration(),
-        "type" => list(any()),
-        "webConfiguration" => web_data_source_configuration()
-      }
-
-  """
-  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pattern_object_filter_configuration() :: %{
-        "filters" => list(pattern_object_filter())
-      }
-
-  """
-  @type pattern_object_filter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingest_knowledge_base_documents_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("documents") => list(knowledge_base_document())
-      }
-
-  """
-  @type ingest_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_source_configuration() :: %{
-        "urlConfiguration" => url_configuration()
-      }
-
-  """
-  @type web_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_ingestion_job_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type start_ingestion_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      any_tool_choice() :: %{}
-
-  """
-  @type any_tool_choice() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_configuration() :: %{
-        "maximumLength" => integer(),
-        "stopSequences" => list([String.t() | atom()]()),
-        "temperature" => float(),
-        "topK" => integer(),
-        "topP" => float()
-      }
-
-  """
-  @type inference_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fixed_size_chunking_configuration() :: %{
-        "maxTokens" => [integer()],
-        "overlapPercentage" => [integer()]
-      }
-
-  """
-  @type fixed_size_chunking_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agents_response() :: %{
-        "agentSummaries" => list(agent_summary()),
+      list_ingestion_jobs_response() :: %{
+        "ingestionJobSummaries" => list(ingestion_job_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agents_response() :: %{(String.t() | atom()) => any()}
+  @type list_ingestion_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      transformation() :: %{
-        "stepToApply" => list(any()),
-        "transformationFunction" => transformation_function()
+      delete_agent_response() :: %{
+        "agentId" => String.t() | atom(),
+        "agentStatus" => list(any())
       }
 
   """
-  @type transformation() :: %{(String.t() | atom()) => any()}
+  @type delete_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      auto_tool_choice() :: %{}
+      unknown_connection_target_input_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
+      }
 
   """
-  @type auto_tool_choice() :: %{}
+  @type unknown_connection_target_input_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      media_extraction_configuration() :: %{
+        "audioExtractionConfiguration" => audio_extraction_configuration(),
+        "imageExtractionConfiguration" => image_extraction_configuration(),
+        "videoExtractionConfiguration" => video_extraction_configuration()
+      }
+
+  """
+  @type media_extraction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,6 +1424,286 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      malformed_condition_expression_flow_validation_details() :: %{
+        "cause" => String.t() | atom(),
+        "condition" => String.t() | atom(),
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type malformed_condition_expression_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      ingestion_job_filter() :: %{
+        "attribute" => list(any()),
+        "operator" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type ingestion_job_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrockagent_function() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "parameters" => map(),
+        "requireConfirmation" => list(any())
+      }
+
+  """
+  @type bedrockagent_function() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      confluence_source_configuration() :: %{
+        "authType" => list(any()),
+        "credentialsSecretArn" => String.t() | atom(),
+        "hostType" => list(any()),
+        "hostUrl" => String.t() | atom()
+      }
+
+  """
+  @type confluence_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_knowledge_base_documents_response() :: %{
+        "documentDetails" => list(knowledge_base_document_detail())
+      }
+
+  """
+  @type get_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingest_knowledge_base_documents_response() :: %{
+        "documentDetails" => list(knowledge_base_document_detail())
+      }
+
+  """
+  @type ingest_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_query_engine_redshift_storage_configuration() :: %{
+        "databaseName" => String.t() | atom()
+      }
+
+  """
+  @type redshift_query_engine_redshift_storage_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      pattern_object_filter_configuration() :: %{
+        "filters" => list(pattern_object_filter())
+      }
+
+  """
+  @type pattern_object_filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_connection_configuration_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
+      }
+
+  """
+  @type missing_connection_configuration_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_prompt_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_alias_response() :: %{
+        "agentAliasId" => String.t() | atom(),
+        "agentAliasStatus" => list(any()),
+        "agentId" => String.t() | atom()
+      }
+
+  """
+  @type delete_agent_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_response() :: %{
+        "agent" => agent()
+      }
+
+  """
+  @type get_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_knowledge_bases_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_agent_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_knowledge_base_configuration() :: %{
+        "embeddingModelArn" => String.t() | atom(),
+        "embeddingModelConfiguration" => embedding_model_configuration(),
+        "embeddingModelType" => list(any()),
+        "serverSideEncryptionConfiguration" => server_side_encryption_configuration()
+      }
+
+  """
+  @type managed_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_ending_nodes_flow_validation_details() :: %{}
+
+  """
+  @type missing_ending_nodes_flow_validation_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_action_group_request() :: %{}
+
+  """
+  @type get_agent_action_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      confluence_data_source_configuration() :: %{
+        "crawlerConfiguration" => confluence_crawler_configuration(),
+        "sourceConfiguration" => confluence_source_configuration()
+      }
+
+  """
+  @type confluence_data_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_version_request() :: %{
+        optional("skipResourceInUseCheck") => [boolean()]
+      }
+
+  """
+  @type delete_flow_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_foundation_model_configuration() :: %{
+        "modelArn" => String.t() | atom(),
+        "parsingModality" => list(any()),
+        "parsingPrompt" => parsing_prompt()
+      }
+
+  """
+  @type bedrock_foundation_model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chunking_configuration() :: %{
+        "chunkingStrategy" => list(any()),
+        "fixedSizeChunkingConfiguration" => fixed_size_chunking_configuration(),
+        "hierarchicalChunkingConfiguration" => hierarchical_chunking_configuration(),
+        "semanticChunkingConfiguration" => semantic_chunking_configuration()
+      }
+
+  """
+  @type chunking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiple_loop_controller_nodes_flow_validation_details() :: %{
+        "loopNode" => String.t() | atom()
+      }
+
+  """
+  @type multiple_loop_controller_nodes_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_alias_request() :: %{}
+
+  """
+  @type delete_agent_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_knowledge_base_documents_response() :: %{
+        "documentDetails" => list(knowledge_base_document_detail()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_transformation_configuration() :: %{
         "intermediateStorage" => intermediate_storage(),
         "transformations" => list(transformation())
@@ -723,48 +1716,516 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      create_agent_request() :: %{
-        optional("agentCollaboration") => list(any()),
-        optional("agentResourceRoleArn") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("customOrchestration") => custom_orchestration(),
-        optional("customerEncryptionKeyArn") => String.t() | atom(),
+      tool_specification() :: %{
+        "description" => String.t() | atom(),
+        "inputSchema" => list(),
+        "name" => String.t() | atom(),
+        "strict" => [boolean()]
+      }
+
+  """
+  @type tool_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_knowledge_base_response() :: %{
+        "knowledgeBase" => knowledge_base()
+      }
+
+  """
+  @type update_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collector_flow_node_configuration() :: %{}
+
+  """
+  @type collector_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_variant() :: %{
+        "additionalModelRequestFields" => [any()],
+        "genAiResource" => list(),
+        "inferenceConfiguration" => list(),
+        "metadata" => list(prompt_metadata_entry()),
+        "modelId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "templateConfiguration" => list(),
+        "templateType" => list(any())
+      }
+
+  """
+  @type prompt_variant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_content() :: %{
+        "customDocumentIdentifier" => custom_document_identifier(),
+        "inlineContent" => inline_content(),
+        "s3Location" => custom_s3_location(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type custom_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      loop_controller_flow_node_configuration() :: %{
+        "continueCondition" => flow_condition(),
+        "maxIterations" => [integer()]
+      }
+
+  """
+  @type loop_controller_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mongo_db_atlas_configuration() :: %{
+        "collectionName" => String.t() | atom(),
+        "credentialsSecretArn" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "endpointServiceName" => String.t() | atom(),
+        "fieldMapping" => mongo_db_atlas_field_mapping(),
+        "textIndexName" => String.t() | atom(),
+        "vectorIndexName" => String.t() | atom()
+      }
+
+  """
+  @type mongo_db_atlas_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_orchestration() :: %{
+        "executor" => list()
+      }
+
+  """
+  @type custom_orchestration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_extraction_configuration() :: %{
+        "imageExtractionStatus" => list(any())
+      }
+
+  """
+  @type image_extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_knowledge_base_request() :: %{
         optional("description") => String.t() | atom(),
-        optional("foundationModel") => String.t() | atom(),
-        optional("guardrailConfiguration") => guardrail_configuration(),
-        optional("idleSessionTTLInSeconds") => integer(),
-        optional("instruction") => String.t() | atom(),
-        optional("memoryConfiguration") => memory_configuration(),
-        optional("orchestrationType") => list(any()),
-        optional("promptOverrideConfiguration") => prompt_override_configuration(),
-        optional("tags") => map(),
-        required("agentName") => String.t() | atom()
+        optional("knowledgeBaseState") => list(any())
       }
 
   """
-  @type create_agent_request() :: %{(String.t() | atom()) => any()}
+  @type update_agent_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      session_summary_configuration() :: %{
-        "maxRecentSessions" => integer()
+      create_data_source_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dataDeletionPolicy") => list(any()),
+        required("dataSourceConfiguration") => data_source_configuration(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
+        optional("vectorIngestionConfiguration") => vector_ingestion_configuration()
       }
 
   """
-  @type session_summary_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unknown_connection_source_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
+      flow_definition() :: %{
+        "connections" => list(flow_connection()),
+        "nodes" => list(flow_node())
       }
 
   """
-  @type unknown_connection_source_flow_validation_details() :: %{(String.t() | atom()) => any()}
+  @type flow_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_data_automation_configuration() :: %{
+        "parsingModality" => list(any())
+      }
+
+  """
+  @type bedrock_data_automation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_foundation_model_context_enrichment_configuration() :: %{
+        "enrichmentStrategyConfiguration" => enrichment_strategy_configuration(),
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type bedrock_foundation_model_context_enrichment_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      semantic_chunking_configuration() :: %{
+        "breakpointPercentileThreshold" => [integer()],
+        "bufferSize" => [integer()],
+        "maxTokens" => [integer()]
+      }
+
+  """
+  @type semantic_chunking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_version_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type flow_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mongo_db_atlas_field_mapping() :: %{
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
+      }
+
+  """
+  @type mongo_db_atlas_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseConfiguration" => knowledge_base_configuration(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "storageConfiguration" => storage_configuration(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type knowledge_base() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malformed_node_input_expression_flow_validation_details() :: %{
+        "cause" => String.t() | atom(),
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type malformed_node_input_expression_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      agent_alias_history_event() :: %{
+        "endDate" => non_neg_integer(),
+        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
+        "startDate" => non_neg_integer()
+      }
+
+  """
+  @type agent_alias_history_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_collaborator_response() :: %{
+        "agentCollaborator" => agent_collaborator()
+      }
+
+  """
+  @type update_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_node_input() :: %{
+        "category" => list(any()),
+        "expression" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_node_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      supplemental_data_storage_location() :: %{
+        "s3Location" => s3_location(),
+        "type" => list(any())
+      }
+
+  """
+  @type supplemental_data_storage_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flow_aliases_response() :: %{
+        "flowAliasSummaries" => list(flow_alias_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_flow_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_collaborators_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_agent_collaborators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_version_request() :: %{}
+
+  """
+  @type get_agent_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_knowledge_base_request() :: %{}
+
+  """
+  @type get_knowledge_base_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "resourceArn" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_prompt_template() :: %{
+        "textPromptTemplate" => String.t() | atom()
+      }
+
+  """
+  @type knowledge_base_prompt_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lex_flow_node_configuration() :: %{
+        "botAliasArn" => String.t() | atom(),
+        "localeId" => String.t() | atom()
+      }
+
+  """
+  @type lex_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ingestion_jobs_request() :: %{
+        optional("filters") => list(ingestion_job_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => ingestion_job_sort_by()
+      }
+
+  """
+  @type list_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_search_serverless_field_mapping() :: %{
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
+      }
+
+  """
+  @type open_search_serverless_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchical_chunking_level_configuration() :: %{
+        "maxTokens" => [integer()]
+      }
+
+  """
+  @type hierarchical_chunking_level_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_flow_node_configuration() :: %{
+        "guardrailConfiguration" => guardrail_configuration(),
+        "inferenceConfiguration" => list(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "modelId" => String.t() | atom(),
+        "numberOfResults" => [integer()],
+        "orchestrationConfiguration" => knowledge_base_orchestration_configuration(),
+        "promptTemplate" => knowledge_base_prompt_template(),
+        "rerankingConfiguration" => vector_search_reranking_configuration()
+      }
+
+  """
+  @type knowledge_base_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingestion_job() :: %{
+        "dataSourceId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "ingestionJobId" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "statistics" => ingestion_job_statistics(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type ingestion_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_action_group_response() :: %{
+        "agentActionGroup" => agent_action_group()
+      }
+
+  """
+  @type get_agent_action_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      loop_input_flow_node_configuration() :: %{}
+
+  """
+  @type loop_input_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        optional("expectedRevisionId") => String.t() | atom(),
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -792,151 +2253,150 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      flow_data_connection_configuration() :: %{
-        "sourceOutput" => String.t() | atom(),
-        "targetInput" => String.t() | atom()
-      }
+      prepare_agent_request() :: %{}
 
   """
-  @type flow_data_connection_configuration() :: %{(String.t() | atom()) => any()}
+  @type prepare_agent_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      salesforce_data_source_configuration() :: %{
-        "crawlerConfiguration" => salesforce_crawler_configuration(),
-        "sourceConfiguration" => salesforce_source_configuration()
+      associate_agent_collaborator_request() :: %{
+        required("agentDescriptor") => agent_descriptor(),
+        optional("clientToken") => String.t() | atom(),
+        required("collaborationInstruction") => String.t() | atom(),
+        required("collaboratorName") => String.t() | atom(),
+        optional("relayConversationHistory") => list(any())
       }
 
   """
-  @type salesforce_data_source_configuration() :: %{(String.t() | atom()) => any()}
+  @type associate_agent_collaborator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_prompts_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "promptSummaries" => list(prompt_summary())
+      list_agent_aliases_response() :: %{
+        "agentAliasSummaries" => list(agent_alias_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_prompts_response() :: %{(String.t() | atom()) => any()}
+  @type list_agent_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      open_search_serverless_field_mapping() :: %{
-        "metadataField" => String.t() | atom(),
-        "textField" => String.t() | atom(),
-        "vectorField" => String.t() | atom()
+      transformation_lambda_configuration() :: %{
+        "lambdaArn" => String.t() | atom()
       }
 
   """
-  @type open_search_serverless_field_mapping() :: %{(String.t() | atom()) => any()}
+  @type transformation_lambda_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_agent_alias_request() :: %{
-        optional("aliasInvocationState") => list(any()),
+      delete_agent_request() :: %{
+        optional("skipResourceInUseCheck") => [boolean()]
+      }
+
+  """
+  @type delete_agent_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sources_response() :: %{
+        "dataSourceSummaries" => list(data_source_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_alias_request() :: %{}
+
+  """
+  @type get_agent_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_alias_request() :: %{
+        required("agentAliasName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()),
-        required("agentAliasName") => String.t() | atom()
+        optional("tags") => map()
       }
 
   """
-  @type update_agent_alias_request() :: %{(String.t() | atom()) => any()}
+  @type create_agent_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      prompt_override_configuration() :: %{
-        "overrideLambda" => String.t() | atom(),
-        "promptConfigurations" => list(prompt_configuration())
+      incompatible_connection_data_type_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
       }
 
   """
-  @type prompt_override_configuration() :: %{(String.t() | atom()) => any()}
+  @type incompatible_connection_data_type_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      mongo_db_atlas_field_mapping() :: %{
-        "metadataField" => String.t() | atom(),
-        "textField" => String.t() | atom(),
-        "vectorField" => String.t() | atom()
+      prompt_flow_node_configuration() :: %{
+        "guardrailConfiguration" => guardrail_configuration(),
+        "sourceConfiguration" => list()
       }
 
   """
-  @type mongo_db_atlas_field_mapping() :: %{(String.t() | atom()) => any()}
+  @type prompt_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_agent_knowledge_base_response() :: %{
-        "agentKnowledgeBase" => agent_knowledge_base()
-      }
+      prepare_flow_request() :: %{}
 
   """
-  @type update_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+  @type prepare_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_knowledge_base_documents_request() :: %{
-        required("documentIdentifiers") => list(document_identifier())
+      prepare_flow_response() :: %{
+        "id" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type get_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_node() :: %{
-        "configuration" => list(),
-        "inputs" => list(flow_node_input()),
-        "name" => String.t() | atom(),
-        "outputs" => list(flow_node_output()),
-        "type" => list(any())
-      }
-
-  """
-  @type flow_node() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_generation_column() :: %{
-        "description" => String.t() | atom(),
-        "inclusion" => list(any()),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type query_generation_column() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_knowledge_base_documents_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
+  @type prepare_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -953,174 +2413,27 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      metadata_attribute() :: %{
-        "key" => String.t() | atom(),
-        "value" => metadata_attribute_value()
+      update_agent_collaborator_request() :: %{
+        required("agentDescriptor") => agent_descriptor(),
+        required("collaborationInstruction") => String.t() | atom(),
+        required("collaboratorName") => String.t() | atom(),
+        optional("relayConversationHistory") => list(any())
       }
 
   """
-  @type metadata_attribute() :: %{(String.t() | atom()) => any()}
+  @type update_agent_collaborator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      curated_query() :: %{
-        "naturalLanguage" => String.t() | atom(),
-        "sql" => String.t() | atom()
+      byte_content_doc() :: %{
+        "data" => binary(),
+        "mimeType" => [String.t() | atom()]
       }
 
   """
-  @type curated_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_segmentation_configuration() :: %{
-        "fixedLengthDuration" => [integer()]
-      }
-
-  """
-  @type audio_segmentation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_collaborator_summary() :: %{
-        "agentDescriptor" => agent_descriptor(),
-        "agentId" => String.t() | atom(),
-        "agentVersion" => String.t() | atom(),
-        "collaborationInstruction" => String.t() | atom(),
-        "collaboratorId" => String.t() | atom(),
-        "collaboratorName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "relayConversationHistory" => list(any())
-      }
-
-  """
-  @type agent_collaborator_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_request() :: %{
-        optional("skipResourceInUseCheck") => [boolean()]
-      }
-
-  """
-  @type delete_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_ingestion_job_request() :: %{}
-
-  """
-  @type stop_ingestion_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_knowledge_base_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("storageConfiguration") => storage_configuration(),
-        required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_knowledge_base_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_validation() :: %{
-        "details" => list(),
-        "message" => String.t() | atom(),
-        "severity" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type flow_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parameter_detail() :: %{
-        "description" => String.t() | atom(),
-        "required" => [boolean()],
-        "type" => list(any())
-      }
-
-  """
-  @type parameter_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_definition() :: %{
-        "connections" => list(flow_connection()),
-        "nodes" => list(flow_node())
-      }
-
-  """
-  @type flow_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_flow_version_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t() | atom(),
-        "definition" => flow_definition(),
-        "description" => String.t() | atom(),
-        "executionRoleArn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type get_flow_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_knowledge_base_response() :: %{
-        "knowledgeBaseId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_knowledge_base_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      open_search_serverless_configuration() :: %{
-        "collectionArn" => String.t() | atom(),
-        "fieldMapping" => open_search_serverless_field_mapping(),
-        "vectorIndexName" => String.t() | atom()
-      }
-
-  """
-  @type open_search_serverless_configuration() :: %{(String.t() | atom()) => any()}
+  @type byte_content_doc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1139,1007 +2452,34 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      s3_vectors_configuration() :: %{
-        "indexArn" => String.t() | atom(),
-        "indexName" => String.t() | atom(),
-        "vectorBucketArn" => String.t() | atom()
+      vector_search_bedrock_reranking_configuration() :: %{
+        "metadataConfiguration" => metadata_configuration_for_reranking(),
+        "modelConfiguration" => vector_search_bedrock_reranking_model_configuration(),
+        "numberOfRerankedResults" => [integer()]
       }
 
   """
-  @type s3_vectors_configuration() :: %{(String.t() | atom()) => any()}
+  @type vector_search_bedrock_reranking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_flow_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_flow_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_prompt_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t() | atom(),
-        "defaultVariant" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "variants" => list(prompt_variant()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type update_prompt_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_node_input() :: %{
-        "category" => list(any()),
-        "expression" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type flow_node_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      loop_controller_flow_node_configuration() :: %{
-        "continueCondition" => flow_condition(),
-        "maxIterations" => [integer()]
-      }
-
-  """
-  @type loop_controller_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prepare_agent_response() :: %{
+      agent_collaborator() :: %{
+        "agentDescriptor" => agent_descriptor(),
         "agentId" => String.t() | atom(),
-        "agentStatus" => list(any()),
         "agentVersion" => String.t() | atom(),
-        "preparedAt" => non_neg_integer()
-      }
-
-  """
-  @type prepare_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iterator_flow_node_configuration() :: %{}
-
-  """
-  @type iterator_flow_node_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_metadata_entry() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type prompt_metadata_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_input_variable() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type prompt_input_variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_source_response() :: %{
-        "dataSource" => data_source()
-      }
-
-  """
-  @type update_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow_response() :: %{
-        "arn" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "collaborationInstruction" => String.t() | atom(),
+        "collaboratorId" => String.t() | atom(),
+        "collaboratorName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t() | atom(),
-        "definition" => flow_definition(),
-        "description" => String.t() | atom(),
-        "executionRoleArn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "version" => String.t() | atom()
+        "lastUpdatedAt" => non_neg_integer(),
+        "relayConversationHistory" => list(any())
       }
 
   """
-  @type create_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rds_configuration() :: %{
-        "credentialsSecretArn" => String.t() | atom(),
-        "databaseName" => String.t() | atom(),
-        "fieldMapping" => rds_field_mapping(),
-        "resourceArn" => String.t() | atom(),
-        "tableName" => String.t() | atom()
-      }
-
-  """
-  @type rds_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_response() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type delete_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_knowledge_base_response() :: %{
-        "knowledgeBase" => knowledge_base()
-      }
-
-  """
-  @type create_knowledge_base_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parsing_configuration() :: %{
-        "bedrockDataAutomationConfiguration" => bedrock_data_automation_configuration(),
-        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration(),
-        "parsingStrategy" => list(any())
-      }
-
-  """
-  @type parsing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_flow_aliases_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_flow_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_knowledge_base_request() :: %{}
-
-  """
-  @type get_agent_knowledge_base_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_version_summary() :: %{
-        "agentName" => String.t() | atom(),
-        "agentStatus" => list(any()),
-        "agentVersion" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "guardrailConfiguration" => guardrail_configuration(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type agent_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_identifier() :: %{
-        "custom" => custom_document_identifier(),
-        "dataSourceType" => list(any()),
-        "s3" => s3_location()
-      }
-
-  """
-  @type document_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      malformed_node_input_expression_flow_validation_details() :: %{
-        "cause" => String.t() | atom(),
-        "input" => String.t() | atom(),
-        "node" => String.t() | atom()
-      }
-
-  """
-  @type malformed_node_input_expression_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      share_point_crawler_configuration() :: %{
-        "filterConfiguration" => crawl_filter_configuration()
-      }
-
-  """
-  @type share_point_crawler_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingest_knowledge_base_documents_response() :: %{
-        "documentDetails" => list(knowledge_base_document_detail())
-      }
-
-  """
-  @type ingest_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action_group_summary() :: %{
-        "actionGroupId" => String.t() | atom(),
-        "actionGroupName" => String.t() | atom(),
-        "actionGroupState" => list(any()),
-        "description" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type action_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bedrock_foundation_model_context_enrichment_configuration() :: %{
-        "enrichmentStrategyConfiguration" => enrichment_strategy_configuration(),
-        "modelArn" => String.t() | atom()
-      }
-
-  """
-  @type bedrock_foundation_model_context_enrichment_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_provisioned_auth_configuration() :: %{
-        "databaseUser" => [String.t() | atom()],
-        "type" => list(any()),
-        "usernamePasswordSecretArn" => String.t() | atom()
-      }
-
-  """
-  @type redshift_provisioned_auth_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_flow_node_configuration() :: %{
-        "guardrailConfiguration" => guardrail_configuration(),
-        "inferenceConfiguration" => list(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "modelId" => String.t() | atom(),
-        "numberOfResults" => [integer()],
-        "orchestrationConfiguration" => knowledge_base_orchestration_configuration(),
-        "promptTemplate" => knowledge_base_prompt_template(),
-        "rerankingConfiguration" => vector_search_reranking_configuration()
-      }
-
-  """
-  @type knowledge_base_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow_alias_response() :: %{
-        "arn" => String.t() | atom(),
-        "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "flowId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type create_flow_alias_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_query_engine_configuration() :: %{
-        "provisionedConfiguration" => redshift_provisioned_configuration(),
-        "serverlessConfiguration" => redshift_serverless_configuration(),
-        "type" => list(any())
-      }
-
-  """
-  @type redshift_query_engine_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_agent_version_request() :: %{
-        optional("skipResourceInUseCheck") => [boolean()]
-      }
-
-  """
-  @type delete_agent_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_prompt_response() :: %{
-        "id" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type delete_prompt_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_agent_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_orchestration_configuration() :: %{
-        "additionalModelRequestFields" => map(),
-        "inferenceConfig" => list(),
-        "performanceConfig" => performance_configuration(),
-        "promptTemplate" => knowledge_base_prompt_template()
-      }
-
-  """
-  @type knowledge_base_orchestration_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      salesforce_source_configuration() :: %{
-        "authType" => list(any()),
-        "credentialsSecretArn" => String.t() | atom(),
-        "hostUrl" => String.t() | atom()
-      }
-
-  """
-  @type salesforce_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingestion_job() :: %{
-        "dataSourceId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "failureReasons" => list(String.t() | atom()),
-        "ingestionJobId" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "startedAt" => non_neg_integer(),
-        "statistics" => ingestion_job_statistics(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type ingestion_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_collaborator_request() :: %{
-        optional("relayConversationHistory") => list(any()),
-        required("agentDescriptor") => agent_descriptor(),
-        required("collaborationInstruction") => String.t() | atom(),
-        required("collaboratorName") => String.t() | atom()
-      }
-
-  """
-  @type update_agent_collaborator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_prompt_request() :: %{
-        optional("promptVersion") => String.t() | atom()
-      }
-
-  """
-  @type delete_prompt_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kendra_knowledge_base_configuration() :: %{
-        "kendraIndexArn" => String.t() | atom()
-      }
-
-  """
-  @type kendra_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hierarchical_chunking_configuration() :: %{
-        "levelConfigurations" => list(hierarchical_chunking_level_configuration()),
-        "overlapTokens" => [integer()]
-      }
-
-  """
-  @type hierarchical_chunking_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_connection() :: %{
-        "configuration" => list(),
-        "name" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "target" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type flow_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_prompt_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t() | atom(),
-        "defaultVariant" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "variants" => list(prompt_variant()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type get_prompt_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_action_group_response() :: %{
-        "agentActionGroup" => agent_action_group()
-      }
-
-  """
-  @type get_agent_action_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_provisioned_configuration() :: %{
-        "authConfiguration" => redshift_provisioned_auth_configuration(),
-        "clusterIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type redshift_provisioned_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transformation_function() :: %{
-        "transformationLambdaConfiguration" => transformation_lambda_configuration()
-      }
-
-  """
-  @type transformation_function() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_agent_action_group_response() :: %{}
-
-  """
-  @type delete_agent_action_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      mismatched_node_output_type_flow_validation_details() :: %{
-        "expectedType" => list(any()),
-        "node" => String.t() | atom(),
-        "output" => String.t() | atom()
-      }
-
-  """
-  @type mismatched_node_output_type_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_agent_action_group_response() :: %{
-        "agentActionGroup" => agent_action_group()
-      }
-
-  """
-  @type create_agent_action_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_agent_alias_response() :: %{
-        "agentAliasId" => String.t() | atom(),
-        "agentAliasStatus" => list(any()),
-        "agentId" => String.t() | atom()
-      }
-
-  """
-  @type delete_agent_alias_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_flows_response() :: %{
-        "flowSummaries" => list(flow_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_flows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_version_request() :: %{}
-
-  """
-  @type get_agent_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_agent_response() :: %{
-        "agent" => agent()
-      }
-
-  """
-  @type create_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sources_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieval_flow_node_configuration() :: %{
-        "serviceConfiguration" => list()
-      }
-
-  """
-  @type retrieval_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_version_response() :: %{
-        "id" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type delete_flow_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_source_response() :: %{
-        "dataSourceId" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_aliases_response() :: %{
-        "agentAliasSummaries" => list(agent_alias_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_agent_aliases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_knowledge_base_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("storageConfiguration") => storage_configuration(),
-        optional("tags") => map(),
-        required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_knowledge_base_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "failureReasons" => list(String.t() | atom()),
-        "knowledgeBaseArn" => String.t() | atom(),
-        "knowledgeBaseConfiguration" => knowledge_base_configuration(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "storageConfiguration" => storage_configuration(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type knowledge_base() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_flow_versions_response() :: %{
-        "flowVersionSummaries" => list(flow_version_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_flow_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bedrockagent_function() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "parameters" => map(),
-        "requireConfirmation" => list(any())
-      }
-
-  """
-  @type bedrockagent_function() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow_alias_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item())
-      }
-
-  """
-  @type create_flow_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ingestion_job_request() :: %{}
-
-  """
-  @type get_ingestion_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_summary() :: %{
-        "description" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type knowledge_base_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_response() :: %{
-        "agent" => agent()
-      }
-
-  """
-  @type update_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      duplicate_condition_expression_flow_validation_details() :: %{
-        "expression" => String.t() | atom(),
-        "node" => String.t() | atom()
-      }
-
-  """
-  @type duplicate_condition_expression_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_knowledge_bases_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_prompt_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("customerEncryptionKeyArn") => String.t() | atom(),
-        optional("defaultVariant") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("variants") => list(prompt_variant()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_prompt_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_knowledge_base_summary() :: %{
-        "description" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "knowledgeBaseState" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type agent_knowledge_base_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingestion_job_summary() :: %{
-        "dataSourceId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "ingestionJobId" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "startedAt" => non_neg_integer(),
-        "statistics" => ingestion_job_statistics(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type ingestion_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pattern_object_filter() :: %{
-        "exclusionFilters" => list(String.t() | atom()),
-        "inclusionFilters" => list(String.t() | atom()),
-        "objectType" => String.t() | atom()
-      }
-
-  """
-  @type pattern_object_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_document() :: %{
-        "content" => document_content(),
-        "metadata" => document_metadata()
-      }
-
-  """
-  @type knowledge_base_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_node_output() :: %{
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type flow_node_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      embedding_model_configuration() :: %{
-        "bedrockEmbeddingModelConfiguration" => bedrock_embedding_model_configuration()
-      }
-
-  """
-  @type embedding_model_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      field_for_reranking() :: %{
-        "fieldName" => [String.t() | atom()]
-      }
-
-  """
-  @type field_for_reranking() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_flow_version_request() :: %{}
-
-  """
-  @type get_flow_version_request() :: %{}
+  @type agent_collaborator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2165,340 +2505,29 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      seed_url() :: %{
-        "url" => String.t() | atom()
+      mismatched_node_output_type_flow_validation_details() :: %{
+        "expectedType" => list(any()),
+        "node" => String.t() | atom(),
+        "output" => String.t() | atom()
       }
 
   """
-  @type seed_url() :: %{(String.t() | atom()) => any()}
+  @type mismatched_node_output_type_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_ingestion_job_response() :: %{
-        "ingestionJob" => ingestion_job()
+      update_knowledge_base_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        optional("storageConfiguration") => storage_configuration()
       }
 
   """
-  @type get_ingestion_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_version_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "status" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type flow_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transformation_lambda_configuration() :: %{
-        "lambdaArn" => String.t() | atom()
-      }
-
-  """
-  @type transformation_lambda_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_request() :: %{}
-
-  """
-  @type get_data_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      url_configuration() :: %{
-        "seedUrls" => list(seed_url())
-      }
-
-  """
-  @type url_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_flow_definition_request() :: %{
-        required("definition") => flow_definition()
-      }
-
-  """
-  @type validate_flow_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unknown_connection_source_output_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
-      }
-
-  """
-  @type unknown_connection_source_output_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_flow_node_configuration() :: %{
-        "agentAliasArn" => String.t() | atom()
-      }
-
-  """
-  @type agent_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_crawler_limits() :: %{
-        "maxPages" => [integer()],
-        "rateLimit" => [integer()]
-      }
-
-  """
-  @type web_crawler_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_content() :: %{
-        "s3Location" => s3_location()
-      }
-
-  """
-  @type s3_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_flow_node_configuration() :: %{}
-
-  """
-  @type input_flow_node_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      intermediate_storage() :: %{
-        "s3Location" => s3_location()
-      }
-
-  """
-  @type intermediate_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_knowledge_base_documents_response() :: %{
-        "documentDetails" => list(knowledge_base_document_detail()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_alias_response() :: %{
-        "flowId" => String.t() | atom(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type delete_flow_alias_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bedrock_foundation_model_configuration() :: %{
-        "modelArn" => String.t() | atom(),
-        "parsingModality" => list(any()),
-        "parsingPrompt" => parsing_prompt()
-      }
-
-  """
-  @type bedrock_foundation_model_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_specification() :: %{
-        "description" => String.t() | atom(),
-        "inputSchema" => list(),
-        "name" => String.t() | atom(),
-        "strict" => [boolean()]
-      }
-
-  """
-  @type tool_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_alias_response() :: %{
-        "agentAlias" => agent_alias()
-      }
-
-  """
-  @type update_agent_alias_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prepare_flow_response() :: %{
-        "id" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type prepare_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redis_enterprise_cloud_configuration() :: %{
-        "credentialsSecretArn" => String.t() | atom(),
-        "endpoint" => String.t() | atom(),
-        "fieldMapping" => redis_enterprise_cloud_field_mapping(),
-        "vectorIndexName" => String.t() | atom()
-      }
-
-  """
-  @type redis_enterprise_cloud_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_configuration() :: %{
-        "mongoDbAtlasConfiguration" => mongo_db_atlas_configuration(),
-        "neptuneAnalyticsConfiguration" => neptune_analytics_configuration(),
-        "opensearchManagedClusterConfiguration" => open_search_managed_cluster_configuration(),
-        "opensearchServerlessConfiguration" => open_search_serverless_configuration(),
-        "pineconeConfiguration" => pinecone_configuration(),
-        "rdsConfiguration" => rds_configuration(),
-        "redisEnterpriseCloudConfiguration" => redis_enterprise_cloud_configuration(),
-        "s3VectorsConfiguration" => s3_vectors_configuration(),
-        "type" => list(any())
-      }
-
-  """
-  @type storage_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_knowledge_bases_response() :: %{
-        "agentKnowledgeBaseSummaries" => list(agent_knowledge_base_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_agent_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sources_response() :: %{
-        "dataSourceSummaries" => list(data_source_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_source_request() :: %{}
-
-  """
-  @type delete_data_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      confluence_data_source_configuration() :: %{
-        "crawlerConfiguration" => confluence_crawler_configuration(),
-        "sourceConfiguration" => confluence_source_configuration()
-      }
-
-  """
-  @type confluence_data_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_document_detail() :: %{
-        "dataSourceId" => String.t() | atom(),
-        "identifier" => document_identifier(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type knowledge_base_document_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      chunking_configuration() :: %{
-        "chunkingStrategy" => list(any()),
-        "fixedSizeChunkingConfiguration" => fixed_size_chunking_configuration(),
-        "hierarchicalChunkingConfiguration" => hierarchical_chunking_configuration(),
-        "semanticChunkingConfiguration" => semantic_chunking_configuration()
-      }
-
-  """
-  @type chunking_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2537,108 +2566,469 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      delete_agent_action_group_request() :: %{
-        optional("skipResourceInUseCheck") => [boolean()]
+      update_agent_alias_response() :: %{
+        "agentAlias" => agent_alias()
       }
 
   """
-  @type delete_agent_action_group_request() :: %{(String.t() | atom()) => any()}
+  @type update_agent_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_flow_alias_response() :: %{
-        "arn" => String.t() | atom(),
-        "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "flowId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_flow_alias_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ingestion_jobs_response() :: %{
-        "ingestionJobSummaries" => list(ingestion_job_summary()),
+      list_agent_collaborators_response() :: %{
+        "agentCollaboratorSummaries" => list(agent_collaborator_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_ingestion_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type list_agent_collaborators_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
+      get_data_source_request() :: %{}
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type get_data_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_ingestion_jobs_request() :: %{
-        optional("filters") => list(ingestion_job_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => ingestion_job_sort_by()
-      }
-
-  """
-  @type list_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_alias_summary() :: %{
-        "agentAliasId" => String.t() | atom(),
-        "agentAliasName" => String.t() | atom(),
-        "agentAliasStatus" => list(any()),
-        "aliasInvocationState" => list(any()),
+      update_prompt_response() :: %{
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "defaultVariant" => String.t() | atom(),
         "description" => String.t() | atom(),
-        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "variants" => list(prompt_variant()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type update_prompt_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deletion_protection_configuration() :: %{
+        "deletionProtectionStatus" => list(any()),
+        "deletionProtectionThreshold" => [integer()]
+      }
+
+  """
+  @type deletion_protection_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_action_groups_response() :: %{
+        "actionGroupSummaries" => list(action_group_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agent_action_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_flow_node_resource_configuration() :: %{
+        "promptArn" => String.t() | atom()
+      }
+
+  """
+  @type prompt_flow_node_resource_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_agent_collaborator_response() :: %{
+        "agentCollaborator" => agent_collaborator()
+      }
+
+  """
+  @type associate_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unreachable_node_flow_validation_details() :: %{
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type unreachable_node_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_override_configuration() :: %{
+        "overrideLambda" => String.t() | atom(),
+        "promptConfigurations" => list(prompt_configuration())
+      }
+
+  """
+  @type prompt_override_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_document_detail() :: %{
+        "dataSourceId" => String.t() | atom(),
+        "identifier" => document_identifier(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_alias_summary() :: %{(String.t() | atom()) => any()}
+  @type knowledge_base_document_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      parsing_prompt() :: %{
-        "parsingPromptText" => String.t() | atom()
+      stop_ingestion_job_response() :: %{
+        "ingestionJob" => ingestion_job()
       }
 
   """
-  @type parsing_prompt() :: %{(String.t() | atom()) => any()}
+  @type stop_ingestion_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cache_point_block() :: %{
+      auto_tool_choice() :: %{}
+
+  """
+  @type auto_tool_choice() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      prepare_agent_response() :: %{
+        "agentId" => String.t() | atom(),
+        "agentStatus" => list(any()),
+        "agentVersion" => String.t() | atom(),
+        "preparedAt" => non_neg_integer()
+      }
+
+  """
+  @type prepare_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redis_enterprise_cloud_configuration() :: %{
+        "credentialsSecretArn" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "fieldMapping" => redis_enterprise_cloud_field_mapping(),
+        "vectorIndexName" => String.t() | atom()
+      }
+
+  """
+  @type redis_enterprise_cloud_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_source_configuration() :: %{
+        "urlConfiguration" => url_configuration()
+      }
+
+  """
+  @type web_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingest_knowledge_base_documents_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("documents") => list(knowledge_base_document())
+      }
+
+  """
+  @type ingest_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_bedrock_reranking_model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type vector_search_bedrock_reranking_model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_alias_concurrency_configuration() :: %{
+        "maxConcurrency" => [integer()],
         "type" => list(any())
       }
 
   """
-  @type cache_point_block() :: %{(String.t() | atom()) => any()}
+  @type flow_alias_concurrency_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_source_request() :: %{
+        optional("dataDeletionPolicy") => list(any()),
+        required("dataSourceConfiguration") => data_source_configuration(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
+        optional("vectorIngestionConfiguration") => vector_ingestion_configuration()
+      }
+
+  """
+  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_connection_target_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
+      }
+
+  """
+  @type unknown_connection_target_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_summary_configuration() :: %{
+        "maxRecentSessions" => integer()
+      }
+
+  """
+  @type session_summary_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_configuration() :: %{
+        "guardrailIdentifier" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_prompt_request() :: %{
+        optional("promptVersion") => String.t() | atom()
+      }
+
+  """
+  @type delete_prompt_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_configuration() :: %{
+        "mongoDbAtlasConfiguration" => mongo_db_atlas_configuration(),
+        "neptuneAnalyticsConfiguration" => neptune_analytics_configuration(),
+        "opensearchManagedClusterConfiguration" => open_search_managed_cluster_configuration(),
+        "opensearchServerlessConfiguration" => open_search_serverless_configuration(),
+        "pineconeConfiguration" => pinecone_configuration(),
+        "rdsConfiguration" => rds_configuration(),
+        "redisEnterpriseCloudConfiguration" => redis_enterprise_cloud_configuration(),
+        "s3VectorsConfiguration" => s3_vectors_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_flow_node_s3_configuration() :: %{
+        "bucketName" => String.t() | atom()
+      }
+
+  """
+  @type retrieval_flow_node_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_node_output_flow_validation_details() :: %{
+        "node" => String.t() | atom(),
+        "output" => String.t() | atom()
+      }
+
+  """
+  @type missing_node_output_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_crawler_limits() :: %{
+        "maxPages" => [integer()],
+        "rateLimit" => [integer()]
+      }
+
+  """
+  @type web_crawler_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingestion_job_request() :: %{}
+
+  """
+  @type get_ingestion_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_query_engine_configuration() :: %{
+        "provisionedConfiguration" => redshift_provisioned_configuration(),
+        "serverlessConfiguration" => redshift_serverless_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type redshift_query_engine_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "definition" => flow_definition(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type create_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_collaborator_summary() :: %{
+        "agentDescriptor" => agent_descriptor(),
+        "agentId" => String.t() | atom(),
+        "agentVersion" => String.t() | atom(),
+        "collaborationInstruction" => String.t() | atom(),
+        "collaboratorId" => String.t() | atom(),
+        "collaboratorName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "relayConversationHistory" => list(any())
+      }
+
+  """
+  @type agent_collaborator_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_source_configuration() :: %{
+        "authType" => list(any()),
+        "credentialsSecretArn" => String.t() | atom(),
+        "hostUrl" => String.t() | atom()
+      }
+
+  """
+  @type salesforce_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_alias_response() :: %{
+        "agentAlias" => agent_alias()
+      }
+
+  """
+  @type get_agent_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2653,105 +3043,201 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      create_flow_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom()
+      create_flow_version_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "definition" => flow_definition(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_flow_version_request() :: %{(String.t() | atom()) => any()}
+  @type create_flow_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vector_search_reranking_configuration() :: %{
-        "bedrockRerankingConfiguration" => vector_search_bedrock_reranking_configuration(),
-        "type" => list(any())
+      embedding_model_configuration() :: %{
+        "bedrockEmbeddingModelConfiguration" => bedrock_embedding_model_configuration()
       }
 
   """
-  @type vector_search_reranking_configuration() :: %{(String.t() | atom()) => any()}
+  @type embedding_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      byte_content_doc() :: %{
-        "data" => binary(),
-        "mimeType" => [String.t() | atom()]
+      redshift_provisioned_auth_configuration() :: %{
+        "databaseUser" => [String.t() | atom()],
+        "type" => list(any()),
+        "usernamePasswordSecretArn" => String.t() | atom()
       }
 
   """
-  @type byte_content_doc() :: %{(String.t() | atom()) => any()}
+  @type redshift_provisioned_auth_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
+      pinecone_field_mapping() :: %{
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type pinecone_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_flow_alias_request() :: %{}
-
-  """
-  @type delete_flow_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_action_group_request() :: %{}
-
-  """
-  @type get_agent_action_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_agent_collaborator_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("relayConversationHistory") => list(any()),
-        required("agentDescriptor") => agent_descriptor(),
-        required("collaborationInstruction") => String.t() | atom(),
-        required("collaboratorName") => String.t() | atom()
+      unsatisfied_connection_conditions_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
       }
 
   """
-  @type associate_agent_collaborator_request() :: %{(String.t() | atom()) => any()}
+  @type unsatisfied_connection_conditions_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      delete_agent_response() :: %{
-        "agentId" => String.t() | atom(),
-        "agentStatus" => list(any())
+      flow_alias_routing_configuration_list_item() :: %{
+        "flowVersion" => String.t() | atom()
       }
 
   """
-  @type delete_agent_response() :: %{(String.t() | atom()) => any()}
+  @type flow_alias_routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      salesforce_crawler_configuration() :: %{
-        "filterConfiguration" => crawl_filter_configuration()
+      prompt_metadata_entry() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type salesforce_crawler_configuration() :: %{(String.t() | atom()) => any()}
+  @type prompt_metadata_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enrichment_strategy_configuration() :: %{
+        "method" => list(any())
+      }
+
+  """
+  @type enrichment_strategy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_versions_response() :: %{
+        "agentVersionSummaries" => list(agent_version_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agent_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "definition" => flow_definition(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type update_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type prompt_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingestion_job_statistics() :: %{
+        "numberOfDocumentsDeleted" => [float()],
+        "numberOfDocumentsFailed" => [float()],
+        "numberOfDocumentsScanned" => [float()],
+        "numberOfDocumentsSkipped" => [float()],
+        "numberOfMetadataDocumentsModified" => [float()],
+        "numberOfMetadataDocumentsScanned" => [float()],
+        "numberOfModifiedDocumentsIndexed" => [float()],
+        "numberOfNewDocumentsIndexed" => [float()]
+      }
+
+  """
+  @type ingestion_job_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingestion_job_summary() :: %{
+        "dataSourceId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "ingestionJobId" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "statistics" => ingestion_job_statistics(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type ingestion_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2764,17 +3250,6 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_agent_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_action_group_response() :: %{
-        "agentActionGroup" => agent_action_group()
-      }
-
-  """
-  @type update_agent_action_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2799,12 +3274,248 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      s3_location() :: %{
+      condition_flow_node_configuration() :: %{
+        "conditions" => list(flow_condition())
+      }
+
+  """
+  @type condition_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agents_response() :: %{
+        "agentSummaries" => list(agent_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_s3_location() :: %{
+        "bucketOwnerAccountId" => String.t() | atom(),
         "uri" => String.t() | atom()
       }
 
   """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
+  @type custom_s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameter_detail() :: %{
+        "description" => String.t() | atom(),
+        "required" => [boolean()],
+        "type" => list(any())
+      }
+
+  """
+  @type parameter_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kendra_knowledge_base_configuration() :: %{
+        "kendraIndexArn" => String.t() | atom()
+      }
+
+  """
+  @type kendra_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_collaborator_request() :: %{}
+
+  """
+  @type get_agent_collaborator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_orchestration_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "inferenceConfig" => list(),
+        "performanceConfig" => performance_configuration(),
+        "promptTemplate" => knowledge_base_prompt_template()
+      }
+
+  """
+  @type knowledge_base_orchestration_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      crawl_filter_configuration() :: %{
+        "patternObjectFilter" => pattern_object_filter_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type crawl_filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiple_loop_input_nodes_flow_validation_details() :: %{
+        "loopNode" => String.t() | atom()
+      }
+
+  """
+  @type multiple_loop_input_nodes_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_flow_node_configuration() :: %{
+        "serviceConfiguration" => list()
+      }
+
+  """
+  @type retrieval_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_ingestion_job_request() :: %{}
+
+  """
+  @type stop_ingestion_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_response() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type delete_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source() :: %{
+        "createdAt" => non_neg_integer(),
+        "dataDeletionPolicy" => list(any()),
+        "dataSourceConfiguration" => data_source_configuration(),
+        "dataSourceId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "knowledgeBaseId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "vectorIngestionConfiguration" => vector_ingestion_configuration()
+      }
+
+  """
+  @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingestion_job_sort_by() :: %{
+        "attribute" => list(any()),
+        "order" => list(any())
+      }
+
+  """
+  @type ingestion_job_sort_by() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_prompts_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "promptSummaries" => list(prompt_summary())
+      }
+
+  """
+  @type list_prompts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_flow_node_inline_configuration() :: %{
+        "additionalModelRequestFields" => [any()],
+        "inferenceConfiguration" => list(),
+        "modelId" => String.t() | atom(),
+        "templateConfiguration" => list(),
+        "templateType" => list(any())
+      }
+
+  """
+  @type prompt_flow_node_inline_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_identifier() :: %{
+        "s3BucketName" => String.t() | atom(),
+        "s3ObjectKey" => String.t() | atom()
+      }
+
+  """
+  @type s3_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_knowledge_base_documents_response() :: %{
+        "documentDetails" => list(knowledge_base_document_detail())
+      }
+
+  """
+  @type delete_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_prompt_request() :: %{
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("defaultVariant") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("variants") => list(prompt_variant())
+      }
+
+  """
+  @type update_prompt_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_version_response() :: %{
+        "id" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type delete_flow_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2822,114 +3533,112 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      unknown_connection_target_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
+      share_point_crawler_configuration() :: %{
+        "filterConfiguration" => crawl_filter_configuration()
       }
 
   """
-  @type unknown_connection_target_flow_validation_details() :: %{(String.t() | atom()) => any()}
+  @type share_point_crawler_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multiple_node_input_connections_flow_validation_details() :: %{
-        "input" => String.t() | atom(),
-        "node" => String.t() | atom()
+      metadata_configuration_for_reranking() :: %{
+        "selectionMode" => list(any()),
+        "selectiveModeConfiguration" => list()
       }
 
   """
-  @type multiple_node_input_connections_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type metadata_configuration_for_reranking() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      confluence_source_configuration() :: %{
-        "authType" => list(any()),
-        "credentialsSecretArn" => String.t() | atom(),
-        "hostType" => list(any()),
-        "hostUrl" => String.t() | atom()
+      query_generation_context() :: %{
+        "curatedQueries" => list(curated_query()),
+        "tables" => list(query_generation_table())
       }
 
   """
-  @type confluence_source_configuration() :: %{(String.t() | atom()) => any()}
+  @type query_generation_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_agent_knowledge_base_request() :: %{}
-
-  """
-  @type disassociate_agent_knowledge_base_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_prompt_request() :: %{
-        optional("promptVersion") => String.t() | atom()
+      knowledge_base_document() :: %{
+        "content" => document_content(),
+        "metadata" => document_metadata()
       }
 
   """
-  @type get_prompt_request() :: %{(String.t() | atom()) => any()}
+  @type knowledge_base_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_document_identifier() :: %{
-        "id" => [String.t() | atom()]
+      unspecified_flow_validation_details() :: %{}
+
+  """
+  @type unspecified_flow_validation_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type custom_document_identifier() :: %{(String.t() | atom()) => any()}
+  @type list_agent_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      knowledge_base_prompt_template() :: %{
-        "textPromptTemplate" => String.t() | atom()
+      list_agent_action_groups_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type knowledge_base_prompt_template() :: %{(String.t() | atom()) => any()}
+  @type list_agent_action_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      server_side_encryption_configuration() :: %{
-        "kmsKeyArn" => String.t() | atom()
+      delete_data_source_request() :: %{}
+
+  """
+  @type delete_data_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_loop_input_node_flow_validation_details() :: %{
+        "loopNode" => String.t() | atom()
       }
 
   """
-  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type missing_loop_input_node_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      neptune_analytics_configuration() :: %{
-        "fieldMapping" => neptune_analytics_field_mapping(),
-        "graphArn" => String.t() | atom()
+      get_flow_request() :: %{
+        optional("includedData") => list(any())
       }
 
   """
-  @type neptune_analytics_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      missing_ending_nodes_flow_validation_details() :: %{}
-
-  """
-  @type missing_ending_nodes_flow_validation_details() :: %{}
+  @type get_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2964,306 +3673,601 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      agent_collaborator() :: %{
-        "agentDescriptor" => agent_descriptor(),
-        "agentId" => String.t() | atom(),
-        "agentVersion" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "collaborationInstruction" => String.t() | atom(),
-        "collaboratorId" => String.t() | atom(),
-        "collaboratorName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "relayConversationHistory" => list(any())
+      storage_flow_node_s3_configuration() :: %{
+        "bucketName" => String.t() | atom()
       }
 
   """
-  @type agent_collaborator() :: %{(String.t() | atom()) => any()}
+  @type storage_flow_node_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      agent_alias_routing_configuration_list_item() :: %{
-        "agentVersion" => String.t() | atom(),
-        "provisionedThroughput" => String.t() | atom()
+      s3_vectors_configuration() :: %{
+        "indexArn" => String.t() | atom(),
+        "indexName" => String.t() | atom(),
+        "vectorBucketArn" => String.t() | atom()
       }
 
   """
-  @type agent_alias_routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
+  @type s3_vectors_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_agent_collaborator_response() :: %{
-        "agentCollaborator" => agent_collaborator()
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
       }
 
   """
-  @type update_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      semantic_chunking_configuration() :: %{
-        "breakpointPercentileThreshold" => [integer()],
-        "bufferSize" => [integer()],
-        "maxTokens" => [integer()]
+      flow_data_connection_configuration() :: %{
+        "sourceOutput" => String.t() | atom(),
+        "targetInput" => String.t() | atom()
       }
 
   """
-  @type semantic_chunking_configuration() :: %{(String.t() | atom()) => any()}
+  @type flow_data_connection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      missing_starting_nodes_flow_validation_details() :: %{}
-
-  """
-  @type missing_starting_nodes_flow_validation_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pinecone_configuration() :: %{
-        "connectionString" => String.t() | atom(),
-        "credentialsSecretArn" => String.t() | atom(),
-        "fieldMapping" => pinecone_field_mapping(),
-        "namespace" => String.t() | atom()
+      get_knowledge_base_documents_request() :: %{
+        required("documentIdentifiers") => list(document_identifier())
       }
 
   """
-  @type pinecone_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      agent_alias() :: %{
-        "agentAliasArn" => String.t() | atom(),
-        "agentAliasHistoryEvents" => list(agent_alias_history_event()),
-        "agentAliasId" => String.t() | atom(),
-        "agentAliasName" => String.t() | atom(),
-        "agentAliasStatus" => list(any()),
-        "agentId" => String.t() | atom(),
-        "aliasInvocationState" => list(any()),
-        "clientToken" => String.t() | atom(),
+      get_flow_version_request() :: %{
+        optional("includedData") => list(any())
+      }
+
+  """
+  @type get_flow_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_agent_resource() :: %{
+        "agentIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type prompt_agent_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_alias_response() :: %{
+        "arn" => String.t() | atom(),
+        "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
-        "failureReasons" => list(String.t() | atom()),
-        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
+        "flowId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_alias() :: %{(String.t() | atom()) => any()}
+  @type create_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vector_search_bedrock_reranking_configuration() :: %{
-        "metadataConfiguration" => metadata_configuration_for_reranking(),
-        "modelConfiguration" => vector_search_bedrock_reranking_model_configuration(),
-        "numberOfRerankedResults" => [integer()]
+      redis_enterprise_cloud_field_mapping() :: %{
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
       }
 
   """
-  @type vector_search_bedrock_reranking_configuration() :: %{(String.t() | atom()) => any()}
+  @type redis_enterprise_cloud_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      s3_identifier() :: %{
-        "s3BucketName" => String.t() | atom(),
-        "s3ObjectKey" => String.t() | atom()
-      }
+      get_agent_knowledge_base_request() :: %{}
 
   """
-  @type s3_identifier() :: %{(String.t() | atom()) => any()}
+  @type get_agent_knowledge_base_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_prompts_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("promptIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_prompts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_agent_collaborator_request() :: %{}
-
-  """
-  @type disassociate_agent_collaborator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_collaborators_request() :: %{
+      list_knowledge_base_documents_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_collaborators_request() :: %{(String.t() | atom()) => any()}
+  @type list_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      share_point_source_configuration() :: %{
-        "authType" => list(any()),
-        "credentialsSecretArn" => String.t() | atom(),
-        "domain" => String.t() | atom(),
-        "hostType" => list(any()),
-        "siteUrls" => list(String.t() | atom()),
-        "tenantId" => String.t() | atom()
+      supplemental_data_storage_configuration() :: %{
+        "storageLocations" => list(supplemental_data_storage_location())
       }
 
   """
-  @type share_point_source_configuration() :: %{(String.t() | atom()) => any()}
+  @type supplemental_data_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      web_crawler_configuration() :: %{
-        "crawlerLimits" => web_crawler_limits(),
-        "exclusionFilters" => list(String.t() | atom()),
-        "inclusionFilters" => list(String.t() | atom()),
-        "scope" => list(any()),
-        "userAgent" => String.t() | atom(),
-        "userAgentHeader" => String.t() | atom()
+      url_configuration() :: %{
+        "seedUrls" => list(seed_url())
       }
 
   """
-  @type web_crawler_configuration() :: %{(String.t() | atom()) => any()}
+  @type url_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
+      get_prompt_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "defaultVariant" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "variants" => list(prompt_variant()),
+        "version" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type get_prompt_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_agent_action_group_request() :: %{
-        optional("actionGroupExecutor") => list(),
-        optional("actionGroupState") => list(any()),
-        optional("apiSchema") => list(),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("functionSchema") => list(),
-        optional("parentActionGroupSignature") => list(any()),
-        optional("parentActionGroupSignatureParams") => map(),
-        required("actionGroupName") => String.t() | atom()
-      }
-
-  """
-  @type create_agent_action_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_collaborator_request() :: %{}
-
-  """
-  @type get_agent_collaborator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_action_groups_response() :: %{
-        "actionGroupSummaries" => list(action_group_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_agent_action_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_s3_location() :: %{
-        "bucketOwnerAccountId" => String.t() | atom(),
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type custom_s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      crawl_filter_configuration() :: %{
-        "patternObjectFilter" => pattern_object_filter_configuration(),
-        "type" => list(any())
-      }
-
-  """
-  @type crawl_filter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_source_response() :: %{
+      update_data_source_response() :: %{
         "dataSource" => data_source()
       }
 
   """
-  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
+  @type update_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ingestion_job_filter() :: %{
-        "attribute" => list(any()),
-        "operator" => list(any()),
-        "values" => list(String.t() | atom())
+      invalid_loop_boundary_flow_validation_details() :: %{
+        "connection" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom()
       }
 
   """
-  @type ingestion_job_filter() :: %{(String.t() | atom()) => any()}
+  @type invalid_loop_boundary_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      document_content() :: %{
-        "custom" => custom_content(),
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flow_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_flow_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_knowledge_base_response() :: %{
+        "knowledgeBase" => knowledge_base()
+      }
+
+  """
+  @type create_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_identifier() :: %{
+        "custom" => custom_document_identifier(),
         "dataSourceType" => list(any()),
-        "s3" => s3_content()
+        "s3" => s3_location()
       }
 
   """
-  @type document_content() :: %{(String.t() | atom()) => any()}
+  @type document_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_configuration() :: %{
+        "enabledMemoryTypes" => list(list(any())()),
+        "sessionSummaryConfiguration" => session_summary_configuration(),
+        "storageDays" => integer()
+      }
+
+  """
+  @type memory_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_response() :: %{
+        "resourceArn" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_default_condition_flow_validation_details() :: %{
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type missing_default_condition_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_segmentation_configuration() :: %{
+        "fixedLengthDuration" => [integer()]
+      }
+
+  """
+  @type audio_segmentation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_ingestion_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type start_ingestion_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_flow_node_configuration() :: %{}
+
+  """
+  @type input_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_content() :: %{
+        "byteContent" => byte_content_doc(),
+        "textContent" => text_content_doc(),
+        "type" => list(any())
+      }
+
+  """
+  @type inline_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_node_output_flow_validation_details() :: %{
+        "node" => String.t() | atom(),
+        "output" => String.t() | atom()
+      }
+
+  """
+  @type unknown_node_output_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_prompt_request() :: %{
+        optional("includedData") => list(any()),
+        optional("promptVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_prompt_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_agent_knowledge_base_response() :: %{}
+
+  """
+  @type disassociate_agent_knowledge_base_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      parsing_configuration() :: %{
+        "bedrockDataAutomationConfiguration" => bedrock_data_automation_configuration(),
+        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration(),
+        "parsingStrategy" => list(any())
+      }
+
+  """
+  @type parsing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rds_configuration() :: %{
+        "credentialsSecretArn" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "fieldMapping" => rds_field_mapping(),
+        "resourceArn" => String.t() | atom(),
+        "tableName" => String.t() | atom()
+      }
+
+  """
+  @type rds_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_action_group_response() :: %{
+        "agentActionGroup" => agent_action_group()
+      }
+
+  """
+  @type create_agent_action_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pattern_object_filter() :: %{
+        "exclusionFilters" => list(String.t() | atom()),
+        "inclusionFilters" => list(String.t() | atom()),
+        "objectType" => String.t() | atom()
+      }
+
+  """
+  @type pattern_object_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_function_flow_node_configuration() :: %{
+        "lambdaArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_function_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_connection_source_output_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
+      }
+
+  """
+  @type unknown_connection_source_output_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      web_data_source_configuration() :: %{
+        "crawlerConfiguration" => web_crawler_configuration(),
+        "sourceConfiguration" => web_source_configuration()
+      }
+
+  """
+  @type web_data_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_document_identifier() :: %{
+        "id" => [String.t() | atom()]
+      }
+
+  """
+  @type custom_document_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_summary() :: %{
+        "description" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type knowledge_base_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_search_managed_cluster_field_mapping() :: %{
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
+      }
+
+  """
+  @type open_search_managed_cluster_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      neptune_analytics_field_mapping() :: %{
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom()
+      }
+
+  """
+  @type neptune_analytics_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_generation_column() :: %{
+        "description" => String.t() | atom(),
+        "inclusion" => list(any()),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type query_generation_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unfulfilled_node_input_flow_validation_details() :: %{
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type unfulfilled_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_configuration() :: %{
+        "maximumLength" => integer(),
+        "stopSequences" => list([String.t() | atom()]()),
+        "temperature" => float(),
+        "topK" => integer(),
+        "topP" => float()
+      }
+
+  """
+  @type inference_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flows_response() :: %{
+        "flowSummaries" => list(flow_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_flows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_connection_source_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
+      }
+
+  """
+  @type unknown_connection_source_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_configuration() :: %{
+        "kendraKnowledgeBaseConfiguration" => kendra_knowledge_base_configuration(),
+        "managedKnowledgeBaseConfiguration" => managed_knowledge_base_configuration(),
+        "sqlKnowledgeBaseConfiguration" => sql_knowledge_base_configuration(),
+        "type" => list(any()),
+        "vectorKnowledgeBaseConfiguration" => vector_knowledge_base_configuration()
+      }
+
+  """
+  @type knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      seed_url() :: %{
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type seed_url() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_serverless_auth_configuration() :: %{
+        "type" => list(any()),
+        "usernamePasswordSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type redshift_serverless_auth_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3287,12 +4291,290 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      create_agent_alias_response() :: %{
-        "agentAlias" => agent_alias()
+      video_segmentation_configuration() :: %{
+        "fixedLengthDuration" => [integer()]
       }
 
   """
-  @type create_agent_alias_response() :: %{(String.t() | atom()) => any()}
+  @type video_segmentation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_configuration() :: %{
+        "queryEngineConfiguration" => redshift_query_engine_configuration(),
+        "queryGenerationConfiguration" => query_generation_configuration(),
+        "storageConfigurations" => list(redshift_query_engine_storage_configuration())
+      }
+
+  """
+  @type redshift_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transformation() :: %{
+        "stepToApply" => list(any()),
+        "transformationFunction" => transformation_function()
+      }
+
+  """
+  @type transformation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("defaultVariant") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("variants") => list(prompt_variant())
+      }
+
+  """
+  @type create_prompt_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_connection() :: %{
+        "configuration" => list(),
+        "name" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_knowledge_base_response() :: %{
+        "knowledgeBase" => knowledge_base()
+      }
+
+  """
+  @type get_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_code_flow_node_configuration() :: %{
+        "code" => String.t() | atom(),
+        "language" => list(any())
+      }
+
+  """
+  @type inline_code_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_agent_collaborator_request() :: %{}
+
+  """
+  @type disassociate_agent_collaborator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_configuration() :: %{
+        "segmentationConfiguration" => audio_segmentation_configuration()
+      }
+
+  """
+  @type audio_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_access_control_entry() :: %{
+        "access" => list(any()),
+        "name" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type document_access_control_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_knowledge_base_response() :: %{
+        "agentKnowledgeBase" => agent_knowledge_base()
+      }
+
+  """
+  @type update_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_source_response() :: %{
+        "dataSourceId" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_flow_node_configuration() :: %{}
+
+  """
+  @type output_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      duplicate_connections_flow_validation_details() :: %{
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom()
+      }
+
+  """
+  @type duplicate_connections_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_content() :: %{
+        "custom" => custom_content(),
+        "dataSourceType" => list(any()),
+        "s3" => s3_content()
+      }
+
+  """
+  @type document_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_agent_knowledge_base_request() :: %{
+        required("description") => String.t() | atom(),
+        required("knowledgeBaseId") => String.t() | atom(),
+        optional("knowledgeBaseState") => list(any())
+      }
+
+  """
+  @type associate_agent_knowledge_base_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_connection_condition_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
+      }
+
+  """
+  @type unknown_connection_condition_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_version_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "defaultVariant" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "variants" => list(prompt_variant()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type create_prompt_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cyclic_connection_flow_validation_details() :: %{
+        "connection" => String.t() | atom()
+      }
+
+  """
+  @type cyclic_connection_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_knowledge_base_response() :: %{
+        "knowledgeBaseId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_node_input_flow_validation_details() :: %{
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type missing_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_generation_table() :: %{
+        "columns" => list(query_generation_column()),
+        "description" => String.t() | atom(),
+        "inclusion" => list(any()),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type query_generation_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchical_chunking_configuration() :: %{
+        "levelConfigurations" => list(hierarchical_chunking_level_configuration()),
+        "overlapTokens" => [integer()]
+      }
+
+  """
+  @type hierarchical_chunking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3314,322 +4596,26 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      agent_descriptor() :: %{
-        "aliasArn" => String.t() | atom()
+      list_knowledge_bases_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type agent_descriptor() :: %{(String.t() | atom()) => any()}
+  @type list_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      enrichment_strategy_configuration() :: %{
-        "method" => list(any())
+      s3_data_source_configuration() :: %{
+        "bucketArn" => String.t() | atom(),
+        "bucketOwnerAccountId" => String.t() | atom(),
+        "inclusionPrefixes" => list(String.t() | atom())
       }
 
   """
-  @type enrichment_strategy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      missing_loop_input_node_flow_validation_details() :: %{
-        "loopNode" => String.t() | atom()
-      }
-
-  """
-  @type missing_loop_input_node_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      open_search_managed_cluster_configuration() :: %{
-        "domainArn" => String.t() | atom(),
-        "domainEndpoint" => String.t() | atom(),
-        "fieldMapping" => open_search_managed_cluster_field_mapping(),
-        "vectorIndexName" => String.t() | atom()
-      }
-
-  """
-  @type open_search_managed_cluster_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sql_knowledge_base_configuration() :: %{
-        "redshiftConfiguration" => redshift_configuration(),
-        "type" => list(any())
-      }
-
-  """
-  @type sql_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_prompt_request() :: %{
-        optional("customerEncryptionKeyArn") => String.t() | atom(),
-        optional("defaultVariant") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("variants") => list(prompt_variant()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_prompt_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unknown_node_input_flow_validation_details() :: %{
-        "input" => String.t() | atom(),
-        "node" => String.t() | atom()
-      }
-
-  """
-  @type unknown_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiple_loop_input_nodes_flow_validation_details() :: %{
-        "loopNode" => String.t() | atom()
-      }
-
-  """
-  @type multiple_loop_input_nodes_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_action_group() :: %{
-        "actionGroupExecutor" => list(),
-        "actionGroupId" => String.t() | atom(),
-        "actionGroupName" => String.t() | atom(),
-        "actionGroupState" => list(any()),
-        "agentId" => String.t() | atom(),
-        "agentVersion" => String.t() | atom(),
-        "apiSchema" => list(),
-        "clientToken" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "functionSchema" => list(),
-        "parentActionGroupSignatureParams" => map(),
-        "parentActionSignature" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type agent_action_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lex_flow_node_configuration() :: %{
-        "botAliasArn" => String.t() | atom(),
-        "localeId" => String.t() | atom()
-      }
-
-  """
-  @type lex_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_configuration() :: %{
-        "toolChoice" => list(),
-        "tools" => list(list())
-      }
-
-  """
-  @type tool_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_model_inference_configuration() :: %{
-        "maxTokens" => integer(),
-        "stopSequences" => list([String.t() | atom()]()),
-        "temperature" => float(),
-        "topP" => float()
-      }
-
-  """
-  @type prompt_model_inference_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_prompt_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_prompt_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_knowledge_base_response() :: %{
-        "agentKnowledgeBase" => agent_knowledge_base()
-      }
-
-  """
-  @type get_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_agent_alias_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()),
-        optional("tags") => map(),
-        required("agentAliasName") => String.t() | atom()
-      }
-
-  """
-  @type create_agent_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_attribute_value() :: %{
-        "booleanValue" => [boolean()],
-        "numberValue" => float(),
-        "stringListValue" => list(String.t() | atom()),
-        "stringValue" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type metadata_attribute_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_configuration() :: %{
-        "segmentationConfiguration" => audio_segmentation_configuration()
-      }
-
-  """
-  @type audio_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_flow_alias_request() :: %{}
-
-  """
-  @type get_flow_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_request() :: %{
-        optional("agentCollaboration") => list(any()),
-        optional("customOrchestration") => custom_orchestration(),
-        optional("customerEncryptionKeyArn") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("guardrailConfiguration") => guardrail_configuration(),
-        optional("idleSessionTTLInSeconds") => integer(),
-        optional("instruction") => String.t() | atom(),
-        optional("memoryConfiguration") => memory_configuration(),
-        optional("orchestrationType") => list(any()),
-        optional("promptOverrideConfiguration") => prompt_override_configuration(),
-        required("agentName") => String.t() | atom(),
-        required("agentResourceRoleArn") => String.t() | atom(),
-        required("foundationModel") => String.t() | atom()
-      }
-
-  """
-  @type update_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cyclic_connection_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
-      }
-
-  """
-  @type cyclic_connection_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_alias_concurrency_configuration() :: %{
-        "maxConcurrency" => [integer()],
-        "type" => list(any())
-      }
-
-  """
-  @type flow_alias_concurrency_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_agent_request() :: %{
-        optional("skipResourceInUseCheck") => [boolean()]
-      }
-
-  """
-  @type delete_agent_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      condition_flow_node_configuration() :: %{
-        "conditions" => list(flow_condition())
-      }
-
-  """
-  @type condition_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+  @type s3_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3649,750 +4635,98 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      list_agent_collaborators_response() :: %{
-        "agentCollaboratorSummaries" => list(agent_collaborator_summary()),
+      get_flow_alias_request() :: %{}
+
+  """
+  @type get_flow_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flow_versions_response() :: %{
+        "flowVersionSummaries" => list(flow_version_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agent_collaborators_response() :: %{(String.t() | atom()) => any()}
+  @type list_flow_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      malformed_condition_expression_flow_validation_details() :: %{
-        "cause" => String.t() | atom(),
-        "condition" => String.t() | atom(),
-        "node" => String.t() | atom()
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_flow_node_configuration() :: %{
+        "serviceConfiguration" => list()
       }
 
   """
-  @type malformed_condition_expression_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type storage_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metadata_configuration_for_reranking() :: %{
-        "selectionMode" => list(any()),
-        "selectiveModeConfiguration" => list()
-      }
-
-  """
-  @type metadata_configuration_for_reranking() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow_version_response() :: %{
+      update_flow_alias_response() :: %{
         "arn" => String.t() | atom(),
+        "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t() | atom(),
-        "definition" => flow_definition(),
         "description" => String.t() | atom(),
-        "executionRoleArn" => String.t() | atom(),
+        "flowId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "status" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type create_flow_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_agent_alias_request() :: %{}
-
-  """
-  @type delete_agent_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_knowledge_base_response() :: %{
-        "knowledgeBase" => knowledge_base()
-      }
-
-  """
-  @type update_knowledge_base_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_alias_history_event() :: %{
-        "endDate" => non_neg_integer(),
-        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
-        "startDate" => non_neg_integer()
-      }
-
-  """
-  @type agent_alias_history_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_loop_boundary_flow_validation_details() :: %{
-        "connection" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "target" => String.t() | atom()
-      }
-
-  """
-  @type invalid_loop_boundary_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_source_request() :: %{
-        optional("dataDeletionPolicy") => list(any()),
-        optional("description") => String.t() | atom(),
-        optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
-        optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
-        required("dataSourceConfiguration") => data_source_configuration(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_knowledge_base_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("knowledgeBaseState") => list(any())
-      }
-
-  """
-  @type update_agent_knowledge_base_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redis_enterprise_cloud_field_mapping() :: %{
-        "metadataField" => String.t() | atom(),
-        "textField" => String.t() | atom(),
-        "vectorField" => String.t() | atom()
-      }
-
-  """
-  @type redis_enterprise_cloud_field_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_metadata() :: %{
-        "inlineAttributes" => list(metadata_attribute()),
-        "s3Location" => custom_s3_location(),
-        "type" => list(any())
-      }
-
-  """
-  @type document_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_flow_node_configuration() :: %{}
-
-  """
-  @type output_flow_node_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ingestion_job_sort_by() :: %{
-        "attribute" => list(any()),
-        "order" => list(any())
-      }
-
-  """
-  @type ingestion_job_sort_by() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_flow_aliases_response() :: %{
-        "flowAliasSummaries" => list(flow_alias_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_flow_aliases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      duplicate_connections_flow_validation_details() :: %{
-        "source" => String.t() | atom(),
-        "target" => String.t() | atom()
-      }
-
-  """
-  @type duplicate_connections_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_ingestion_job_response() :: %{
-        "ingestionJob" => ingestion_job()
-      }
-
-  """
-  @type stop_ingestion_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_response() :: %{
-        "agent" => agent()
-      }
-
-  """
-  @type get_agent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hierarchical_chunking_level_configuration() :: %{
-        "maxTokens" => [integer()]
-      }
-
-  """
-  @type hierarchical_chunking_level_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsatisfied_connection_conditions_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
-      }
-
-  """
-  @type unsatisfied_connection_conditions_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_serverless_configuration() :: %{
-        "authConfiguration" => redshift_serverless_auth_configuration(),
-        "workgroupArn" => String.t() | atom()
-      }
-
-  """
-  @type redshift_serverless_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_knowledge_base() :: %{
-        "agentId" => String.t() | atom(),
-        "agentVersion" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "knowledgeBaseState" => list(any()),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_knowledge_base() :: %{(String.t() | atom()) => any()}
+  @type update_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lambda_function_flow_node_configuration() :: %{
-        "lambdaArn" => String.t() | atom()
+      managed_knowledge_base_connector_configuration() :: %{
+        "connectorParameters" => [any()],
+        "deletionProtectionConfiguration" => deletion_protection_configuration(),
+        "mediaExtractionConfiguration" => media_extraction_configuration()
       }
 
   """
-  @type lambda_function_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+  @type managed_knowledge_base_connector_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vector_search_bedrock_reranking_model_configuration() :: %{
-        "additionalModelRequestFields" => map(),
-        "modelArn" => String.t() | atom()
-      }
-
-  """
-  @type vector_search_bedrock_reranking_model_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collector_flow_node_configuration() :: %{}
-
-  """
-  @type collector_flow_node_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_summary() :: %{
-        "agentId" => String.t() | atom(),
-        "agentName" => String.t() | atom(),
-        "agentStatus" => list(any()),
-        "description" => String.t() | atom(),
-        "guardrailConfiguration" => guardrail_configuration(),
-        "latestAgentVersion" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type agent_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bedrock_data_automation_configuration() :: %{
-        "parsingModality" => list(any())
-      }
-
-  """
-  @type bedrock_data_automation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      confluence_crawler_configuration() :: %{
-        "filterConfiguration" => crawl_filter_configuration()
-      }
-
-  """
-  @type confluence_crawler_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_knowledge_bases_response() :: %{
-        "knowledgeBaseSummaries" => list(knowledge_base_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_knowledge_base_response() :: %{
-        "knowledgeBase" => knowledge_base()
-      }
-
-  """
-  @type get_knowledge_base_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prepare_flow_request() :: %{}
-
-  """
-  @type prepare_flow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_conditional_connection_configuration() :: %{
-        "condition" => String.t() | atom()
-      }
-
-  """
-  @type flow_conditional_connection_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_knowledge_base_documents_response() :: %{
-        "documentDetails" => list(knowledge_base_document_detail())
-      }
-
-  """
-  @type get_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      incompatible_connection_data_type_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
-      }
-
-  """
-  @type incompatible_connection_data_type_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_agent_knowledge_base_response() :: %{}
-
-  """
-  @type disassociate_agent_knowledge_base_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_versions_response() :: %{
-        "agentVersionSummaries" => list(agent_version_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_agent_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      web_data_source_configuration() :: %{
-        "crawlerConfiguration" => web_crawler_configuration(),
-        "sourceConfiguration" => web_source_configuration()
-      }
-
-  """
-  @type web_data_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_version_response() :: %{
-        "agentVersion" => agent_version()
-      }
-
-  """
-  @type get_agent_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      supplemental_data_storage_location() :: %{
-        "s3Location" => s3_location(),
-        "type" => list(any())
-      }
-
-  """
-  @type supplemental_data_storage_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_configuration() :: %{
-        "guardrailIdentifier" => String.t() | atom(),
-        "guardrailVersion" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      missing_node_output_flow_validation_details() :: %{
-        "node" => String.t() | atom(),
-        "output" => String.t() | atom()
-      }
-
-  """
-  @type missing_node_output_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_ingestion_job_response() :: %{
-        "ingestionJob" => ingestion_job()
-      }
-
-  """
-  @type start_ingestion_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_request() :: %{}
-
-  """
-  @type get_agent_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      inline_content() :: %{
-        "byteContent" => byte_content_doc(),
-        "textContent" => text_content_doc(),
-        "type" => list(any())
-      }
-
-  """
-  @type inline_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_alias_routing_configuration_list_item() :: %{
-        "flowVersion" => String.t() | atom()
-      }
-
-  """
-  @type flow_alias_routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unspecified_flow_validation_details() :: %{}
-
-  """
-  @type unspecified_flow_validation_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_response() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t() | atom(),
-        "definition" => flow_definition(),
-        "description" => String.t() | atom(),
-        "executionRoleArn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type update_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_agent_resource() :: %{
-        "agentIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type prompt_agent_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_flow_node_resource_configuration() :: %{
-        "promptArn" => String.t() | atom()
-      }
-
-  """
-  @type prompt_flow_node_resource_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      neptune_analytics_field_mapping() :: %{
-        "metadataField" => String.t() | atom(),
-        "textField" => String.t() | atom()
-      }
-
-  """
-  @type neptune_analytics_field_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_query_engine_redshift_storage_configuration() :: %{
-        "databaseName" => String.t() | atom()
-      }
-
-  """
-  @type redshift_query_engine_redshift_storage_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_flow_request() :: %{}
-
-  """
-  @type get_flow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_collaborator_response() :: %{
-        "agentCollaborator" => agent_collaborator()
-      }
-
-  """
-  @type get_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_knowledge_bases_request() :: %{
+      list_flow_aliases_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
+  @type list_flow_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_source() :: %{
-        "createdAt" => non_neg_integer(),
-        "dataDeletionPolicy" => list(any()),
-        "dataSourceConfiguration" => data_source_configuration(),
-        "dataSourceId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "failureReasons" => list(String.t() | atom()),
-        "knowledgeBaseId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "vectorIngestionConfiguration" => vector_ingestion_configuration()
-      }
-
-  """
-  @type data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_knowledge_base_request() :: %{}
-
-  """
-  @type get_knowledge_base_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      unfulfilled_node_input_flow_validation_details() :: %{
+      multiple_node_input_connections_flow_validation_details() :: %{
         "input" => String.t() | atom(),
         "node" => String.t() | atom()
       }
 
   """
-  @type unfulfilled_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_agent_knowledge_base_request() :: %{
-        optional("knowledgeBaseState") => list(any()),
-        required("description") => String.t() | atom(),
-        required("knowledgeBaseId") => String.t() | atom()
-      }
-
-  """
-  @type associate_agent_knowledge_base_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unknown_connection_target_input_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
-      }
-
-  """
-  @type unknown_connection_target_input_flow_validation_details() :: %{
+  @type multiple_node_input_connections_flow_validation_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4400,37 +4734,76 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      redshift_configuration() :: %{
-        "queryEngineConfiguration" => redshift_query_engine_configuration(),
-        "queryGenerationConfiguration" => query_generation_configuration(),
-        "storageConfigurations" => list(redshift_query_engine_storage_configuration())
+      update_agent_action_group_response() :: %{
+        "agentActionGroup" => agent_action_group()
       }
 
   """
-  @type redshift_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_agent_action_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_agent_knowledge_base_response() :: %{
-        "agentKnowledgeBase" => agent_knowledge_base()
-      }
+      delete_agent_action_group_response() :: %{}
 
   """
-  @type associate_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
+  @type delete_agent_action_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      pinecone_field_mapping() :: %{
-        "metadataField" => String.t() | atom(),
-        "textField" => String.t() | atom()
+      agent_alias_routing_configuration_list_item() :: %{
+        "agentVersion" => String.t() | atom(),
+        "provisionedThroughput" => String.t() | atom()
       }
 
   """
-  @type pinecone_field_mapping() :: %{(String.t() | atom()) => any()}
+  @type agent_alias_routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sql_knowledge_base_configuration() :: %{
+        "redshiftConfiguration" => redshift_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type sql_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_version_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "definition" => flow_definition(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type get_flow_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_side_encryption_configuration() :: %{
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4447,41 +4820,93 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      vector_ingestion_configuration() :: %{
-        "chunkingConfiguration" => chunking_configuration(),
-        "contextEnrichmentConfiguration" => context_enrichment_configuration(),
-        "customTransformationConfiguration" => custom_transformation_configuration(),
-        "parsingConfiguration" => parsing_configuration()
+      delete_agent_action_group_request() :: %{
+        optional("skipResourceInUseCheck") => [boolean()]
       }
 
   """
-  @type vector_ingestion_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_agent_action_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unknown_connection_condition_flow_validation_details() :: %{
-        "connection" => String.t() | atom()
+      list_data_sources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type unknown_connection_condition_flow_validation_details() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vector_knowledge_base_configuration() :: %{
-        "embeddingModelArn" => String.t() | atom(),
-        "embeddingModelConfiguration" => embedding_model_configuration(),
-        "supplementalDataStorageConfiguration" => supplemental_data_storage_configuration()
+      web_crawler_configuration() :: %{
+        "crawlerLimits" => web_crawler_limits(),
+        "exclusionFilters" => list(String.t() | atom()),
+        "inclusionFilters" => list(String.t() | atom()),
+        "scope" => list(any()),
+        "userAgent" => String.t() | atom(),
+        "userAgentHeader" => String.t() | atom()
       }
 
   """
-  @type vector_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
+  @type web_crawler_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_extraction_configuration() :: %{
+        "videoExtractionStatus" => list(any())
+      }
+
+  """
+  @type video_extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_request() :: %{}
+
+  """
+  @type get_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_response() :: %{
+        "agent" => agent()
+      }
+
+  """
+  @type update_agent_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      loop_incompatible_node_type_flow_validation_details() :: %{
+        "incompatibleNodeName" => String.t() | atom(),
+        "incompatibleNodeType" => list(any()),
+        "node" => String.t() | atom()
+      }
+
+  """
+  @type loop_incompatible_node_type_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4498,842 +4923,616 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      redshift_query_engine_aws_data_catalog_storage_configuration() :: %{
-        "tableNames" => list(String.t() | atom())
-      }
-
-  """
-  @type redshift_query_engine_aws_data_catalog_storage_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      retrieval_flow_node_s3_configuration() :: %{
-        "bucketName" => String.t() | atom()
-      }
-
-  """
-  @type retrieval_flow_node_s3_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_agent_version_response() :: %{
-        "agentId" => String.t() | atom(),
-        "agentStatus" => list(any()),
-        "agentVersion" => String.t() | atom()
-      }
-
-  """
-  @type delete_agent_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_generation_table() :: %{
-        "columns" => list(query_generation_column()),
+      agent_knowledge_base_summary() :: %{
         "description" => String.t() | atom(),
-        "inclusion" => list(any()),
-        "name" => String.t() | atom()
+        "knowledgeBaseId" => String.t() | atom(),
+        "knowledgeBaseState" => list(any()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type query_generation_table() :: %{(String.t() | atom()) => any()}
+  @type agent_knowledge_base_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      mongo_db_atlas_configuration() :: %{
-        "collectionName" => String.t() | atom(),
-        "credentialsSecretArn" => String.t() | atom(),
-        "databaseName" => String.t() | atom(),
-        "endpoint" => String.t() | atom(),
-        "endpointServiceName" => String.t() | atom(),
-        "fieldMapping" => mongo_db_atlas_field_mapping(),
-        "textIndexName" => String.t() | atom(),
-        "vectorIndexName" => String.t() | atom()
+      agent_alias_summary() :: %{
+        "agentAliasId" => String.t() | atom(),
+        "agentAliasName" => String.t() | atom(),
+        "agentAliasStatus" => list(any()),
+        "aliasInvocationState" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type mongo_db_atlas_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_content() :: %{
-        "customDocumentIdentifier" => custom_document_identifier(),
-        "inlineContent" => inline_content(),
-        "s3Location" => custom_s3_location(),
-        "sourceType" => list(any())
-      }
-
-  """
-  @type custom_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_alias_request() :: %{}
-
-  """
-  @type get_agent_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_knowledge_base_documents_response() :: %{
-        "documentDetails" => list(knowledge_base_document_detail())
-      }
-
-  """
-  @type delete_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bedrock_embedding_model_configuration() :: %{
-        "audio" => list(audio_configuration()),
-        "dimensions" => integer(),
-        "embeddingDataType" => list(any()),
-        "video" => list(video_configuration())
-      }
-
-  """
-  @type bedrock_embedding_model_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      missing_node_configuration_flow_validation_details() :: %{
-        "node" => String.t() | atom()
-      }
-
-  """
-  @type missing_node_configuration_flow_validation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_flow_node_configuration() :: %{
-        "guardrailConfiguration" => guardrail_configuration(),
-        "sourceConfiguration" => list()
-      }
-
-  """
-  @type prompt_flow_node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_agent_collaborator_response() :: %{
-        "agentCollaborator" => agent_collaborator()
-      }
-
-  """
-  @type associate_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_data_source_configuration() :: %{
-        "bucketArn" => String.t() | atom(),
-        "bucketOwnerAccountId" => String.t() | atom(),
-        "inclusionPrefixes" => list(String.t() | atom())
-      }
-
-  """
-  @type s3_data_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rds_field_mapping() :: %{
-        "customMetadataField" => String.t() | atom(),
-        "metadataField" => String.t() | atom(),
-        "primaryKeyField" => String.t() | atom(),
-        "textField" => String.t() | atom(),
-        "vectorField" => String.t() | atom()
-      }
-
-  """
-  @type rds_field_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      loop_input_flow_node_configuration() :: %{}
-
-  """
-  @type loop_input_flow_node_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_version_request() :: %{
-        optional("skipResourceInUseCheck") => [boolean()]
-      }
-
-  """
-  @type delete_flow_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_configuration() :: %{
-        "additionalModelRequestFields" => [any()],
-        "basePromptTemplate" => String.t() | atom(),
-        "foundationModel" => String.t() | atom(),
-        "inferenceConfiguration" => inference_configuration(),
-        "parserMode" => list(any()),
-        "promptCreationMode" => list(any()),
-        "promptState" => list(any()),
-        "promptType" => list(any())
-      }
-
-  """
-  @type prompt_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      performance_configuration() :: %{
-        "latency" => list(any())
-      }
-
-  """
-  @type performance_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      supplemental_data_storage_configuration() :: %{
-        "storageLocations" => list(supplemental_data_storage_location())
-      }
-
-  """
-  @type supplemental_data_storage_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message() :: %{
-        "content" => list(list()),
-        "role" => list(any())
-      }
-
-  """
-  @type message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_variant() :: %{
-        "additionalModelRequestFields" => [any()],
-        "genAiResource" => list(),
-        "inferenceConfiguration" => list(),
-        "metadata" => list(prompt_metadata_entry()),
-        "modelId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "templateConfiguration" => list(),
-        "templateType" => list(any())
-      }
-
-  """
-  @type prompt_variant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_generation_configuration() :: %{
-        "executionTimeoutSeconds" => integer(),
-        "generationContext" => query_generation_context()
-      }
-
-  """
-  @type query_generation_configuration() :: %{(String.t() | atom()) => any()}
+  @type agent_alias_summary() :: %{(String.t() | atom()) => any()}
 
   @type associate_agent_collaborator_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type associate_agent_knowledge_base_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_agent_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_agent_action_group_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_agent_alias_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_data_source_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_flow_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_flow_alias_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_flow_version_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_knowledge_base_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_prompt_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type create_prompt_version_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_agent_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_agent_action_group_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_agent_alias_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type delete_agent_version_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_data_source_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_flow_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_flow_alias_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_flow_version_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_knowledge_base_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type delete_knowledge_base_documents_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type delete_prompt_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | validation_exception()
 
   @type disassociate_agent_collaborator_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type disassociate_agent_knowledge_base_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type get_agent_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_agent_action_group_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_agent_alias_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_agent_collaborator_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_agent_knowledge_base_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_agent_version_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_data_source_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_flow_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_flow_alias_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_flow_version_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_ingestion_job_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_knowledge_base_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_knowledge_base_documents_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type get_prompt_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
+
+  @type get_resource_policy_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type ingest_knowledge_base_documents_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_agent_action_groups_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_agent_aliases_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_agent_collaborators_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_agent_knowledge_bases_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_agent_versions_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_agents_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type list_data_sources_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_flow_aliases_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_flow_versions_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_flows_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type list_ingestion_jobs_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_knowledge_base_documents_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_knowledge_bases_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type list_prompts_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type list_tags_for_resource_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type prepare_agent_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type prepare_flow_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
+
+  @type put_resource_policy_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | validation_exception()
 
   @type start_ingestion_job_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type stop_ingestion_job_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type untag_resource_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type update_agent_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_agent_action_group_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_agent_alias_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_agent_collaborator_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_agent_knowledge_base_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_data_source_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_flow_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_flow_alias_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_knowledge_base_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type update_prompt_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | validation_exception()
 
   @type validate_flow_definition_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -5367,8 +5566,8 @@ defmodule AWS.BedrockAgent do
           | {:error, associate_agent_collaborator_errors()}
   def associate_agent_collaborator(
         %Client{} = client,
-        agent_id,
         agent_version,
+        agent_id,
         input,
         options \\ []
       ) do
@@ -5414,8 +5613,8 @@ defmodule AWS.BedrockAgent do
           | {:error, associate_agent_knowledge_base_errors()}
   def associate_agent_knowledge_base(
         %Client{} = client,
-        agent_id,
         agent_version,
+        agent_id,
         input,
         options \\ []
       ) do
@@ -5534,7 +5733,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, create_agent_action_group_errors()}
-  def create_agent_action_group(%Client{} = client, agent_id, agent_version, input, options \\ []) do
+  def create_agent_action_group(%Client{} = client, agent_version, agent_id, input, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/"
 
@@ -5729,20 +5928,26 @@ defmodule AWS.BedrockAgent do
   sources and configure a supported vector store. For more information, see [Set up a knowledge
   base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowlege-base-prereq.html).
 
-  If you prefer to let Amazon Bedrock create and manage a vector store for you in
-  Amazon OpenSearch Service, use the console. For more information, see [Create a knowledge
-  base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create).
+  To create a managed knowledge base, provide a
+  `managedKnowledgeBaseConfiguration` during creation. For more information, see
+  [Build a managed knowledge base](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html).
 
     * Provide the `name` and an optional `description`.
 
     * Provide the Amazon Resource Name (ARN) with permissions to create
   a knowledge base in the `roleArn` field.
 
-    * Provide the embedding model to use in the `embeddingModelArn`
-  field in the `knowledgeBaseConfiguration` object.
+    * For managed knowledge bases, set `embeddingModelType` to `MANAGED`
+  to use the service-managed embedding model, or `CUSTOM` with an
+  `embeddingModelArn` to use your own. To use your own KMS key for encryption,
+  provide the ARN in `serverSideEncryptionConfiguration`. No vector store
+  configuration is required for managed knowledge bases.
 
-    * Provide the configuration for your vector store in the
-  `storageConfiguration` object.
+    * For self-managed knowledge bases, provide the embedding model to
+  use in the `embeddingModelArn` field in the `knowledgeBaseConfiguration` object.
+
+    * For self-managed knowledge bases, provide the configuration for
+  your vector store in the `storageConfiguration` object.
 
       * For an Amazon OpenSearch Service database, use the
   `opensearchServerlessConfiguration` object. For more information, see [Create a vector store in Amazon OpenSearch
@@ -5903,9 +6108,9 @@ defmodule AWS.BedrockAgent do
           | {:error, delete_agent_action_group_errors()}
   def delete_agent_action_group(
         %Client{} = client,
-        action_group_id,
-        agent_id,
         agent_version,
+        agent_id,
+        action_group_id,
         input,
         options \\ []
       ) do
@@ -5950,7 +6155,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_agent_alias_errors()}
-  def delete_agent_alias(%Client{} = client, agent_alias_id, agent_id, input, options \\ []) do
+  def delete_agent_alias(%Client{} = client, agent_id, agent_alias_id, input, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
 
@@ -5987,7 +6192,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_agent_version_errors()}
-  def delete_agent_version(%Client{} = client, agent_id, agent_version, input, options \\ []) do
+  def delete_agent_version(%Client{} = client, agent_version, agent_id, input, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/"
 
@@ -6031,8 +6236,8 @@ defmodule AWS.BedrockAgent do
           | {:error, delete_data_source_errors()}
   def delete_data_source(
         %Client{} = client,
-        data_source_id,
         knowledge_base_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -6108,8 +6313,8 @@ defmodule AWS.BedrockAgent do
           | {:error, delete_flow_alias_errors()}
   def delete_flow_alias(
         %Client{} = client,
-        alias_identifier,
         flow_identifier,
+        alias_identifier,
         input,
         options \\ []
       ) do
@@ -6149,7 +6354,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_flow_version_errors()}
-  def delete_flow_version(%Client{} = client, flow_identifier, flow_version, input, options \\ []) do
+  def delete_flow_version(%Client{} = client, flow_version, flow_identifier, input, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
 
@@ -6231,8 +6436,8 @@ defmodule AWS.BedrockAgent do
           | {:error, delete_knowledge_base_documents_errors()}
   def delete_knowledge_base_documents(
         %Client{} = client,
-        data_source_id,
         knowledge_base_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -6298,6 +6503,48 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Removes the resource policy associated with a knowledge base.
+
+  After deletion, other AWS accounts can no longer access the knowledge base using
+  cross-account permissions.
+  """
+  @spec delete_resource_policy(
+          map(),
+          String.t() | atom(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"expectedRevisionId", "expectedRevisionId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Disassociates an agent collaborator.
   """
   @spec disassociate_agent_collaborator(
@@ -6314,9 +6561,9 @@ defmodule AWS.BedrockAgent do
           | {:error, disassociate_agent_collaborator_errors()}
   def disassociate_agent_collaborator(
         %Client{} = client,
-        agent_id,
-        agent_version,
         collaborator_id,
+        agent_version,
+        agent_id,
         input,
         options \\ []
       ) do
@@ -6359,9 +6606,9 @@ defmodule AWS.BedrockAgent do
           | {:error, disassociate_agent_knowledge_base_errors()}
   def disassociate_agent_knowledge_base(
         %Client{} = client,
-        agent_id,
-        agent_version,
         knowledge_base_id,
+        agent_version,
+        agent_id,
         input,
         options \\ []
       ) do
@@ -6421,9 +6668,9 @@ defmodule AWS.BedrockAgent do
           | {:error, get_agent_action_group_errors()}
   def get_agent_action_group(
         %Client{} = client,
-        action_group_id,
-        agent_id,
         agent_version,
+        agent_id,
+        action_group_id,
         options \\ []
       ) do
     url_path =
@@ -6445,7 +6692,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_agent_alias_errors()}
-  def get_agent_alias(%Client{} = client, agent_alias_id, agent_id, options \\ []) do
+  def get_agent_alias(%Client{} = client, agent_id, agent_alias_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
 
@@ -6473,9 +6720,9 @@ defmodule AWS.BedrockAgent do
           | {:error, get_agent_collaborator_errors()}
   def get_agent_collaborator(
         %Client{} = client,
-        agent_id,
-        agent_version,
         collaborator_id,
+        agent_version,
+        agent_id,
         options \\ []
       ) do
     url_path =
@@ -6505,9 +6752,9 @@ defmodule AWS.BedrockAgent do
           | {:error, get_agent_knowledge_base_errors()}
   def get_agent_knowledge_base(
         %Client{} = client,
-        agent_id,
-        agent_version,
         knowledge_base_id,
+        agent_version,
+        agent_id,
         options \\ []
       ) do
     url_path =
@@ -6529,7 +6776,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_agent_version_errors()}
-  def get_agent_version(%Client{} = client, agent_id, agent_version, options \\ []) do
+  def get_agent_version(%Client{} = client, agent_version, agent_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/"
 
@@ -6549,7 +6796,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_data_source_errors()}
-  def get_data_source(%Client{} = client, data_source_id, knowledge_base_id, options \\ []) do
+  def get_data_source(%Client{} = client, knowledge_base_id, data_source_id, options \\ []) do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
 
@@ -6567,15 +6814,22 @@ defmodule AWS.BedrockAgent do
   For more information, see [Manage a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_flow(map(), String.t() | atom(), list()) ::
+  @spec get_flow(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_flow_errors()}
-  def get_flow(%Client{} = client, flow_identifier, options \\ []) do
+  def get_flow(%Client{} = client, flow_identifier, included_data \\ nil, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(included_data) do
+        [{"includedData", included_data} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -6593,7 +6847,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_flow_alias_errors()}
-  def get_flow_alias(%Client{} = client, alias_identifier, flow_identifier, options \\ []) do
+  def get_flow_alias(%Client{} = client, flow_identifier, alias_identifier, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
 
@@ -6611,17 +6865,36 @@ defmodule AWS.BedrockAgent do
   For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_flow_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
+  @spec get_flow_version(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_flow_version_errors()}
-  def get_flow_version(%Client{} = client, flow_identifier, flow_version, options \\ []) do
+  def get_flow_version(
+        %Client{} = client,
+        flow_version,
+        flow_identifier,
+        included_data \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(included_data) do
+        [{"includedData", included_data} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -6647,9 +6920,9 @@ defmodule AWS.BedrockAgent do
           | {:error, get_ingestion_job_errors()}
   def get_ingestion_job(
         %Client{} = client,
-        data_source_id,
-        ingestion_job_id,
         knowledge_base_id,
+        ingestion_job_id,
+        data_source_id,
         options \\ []
       ) do
     url_path =
@@ -6701,8 +6974,8 @@ defmodule AWS.BedrockAgent do
           | {:error, get_knowledge_base_documents_errors()}
   def get_knowledge_base_documents(
         %Client{} = client,
-        data_source_id,
         knowledge_base_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -6737,15 +7010,34 @@ defmodule AWS.BedrockAgent do
   and [View information about a version of your prompt](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-view.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_prompt(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+  @spec get_prompt(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_prompt_errors()}
-  def get_prompt(%Client{} = client, prompt_identifier, prompt_version \\ nil, options \\ []) do
+  def get_prompt(
+        %Client{} = client,
+        prompt_identifier,
+        prompt_version \\ nil,
+        included_data \\ nil,
+        options \\ []
+      ) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(included_data) do
+        [{"includedData", included_data} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(prompt_version) do
@@ -6753,6 +7045,24 @@ defmodule AWS.BedrockAgent do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the resource policy associated with a knowledge base.
+  """
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -6781,8 +7091,8 @@ defmodule AWS.BedrockAgent do
           | {:error, ingest_knowledge_base_documents_errors()}
   def ingest_knowledge_base_documents(
         %Client{} = client,
-        data_source_id,
         knowledge_base_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -6822,7 +7132,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_agent_action_groups_errors()}
-  def list_agent_action_groups(%Client{} = client, agent_id, agent_version, input, options \\ []) do
+  def list_agent_action_groups(%Client{} = client, agent_version, agent_id, input, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/"
 
@@ -6888,7 +7198,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_agent_collaborators_errors()}
-  def list_agent_collaborators(%Client{} = client, agent_id, agent_version, input, options \\ []) do
+  def list_agent_collaborators(%Client{} = client, agent_version, agent_id, input, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/agentcollaborators/"
 
@@ -6927,8 +7237,8 @@ defmodule AWS.BedrockAgent do
           | {:error, list_agent_knowledge_bases_errors()}
   def list_agent_knowledge_bases(
         %Client{} = client,
-        agent_id,
         agent_version,
+        agent_id,
         input,
         options \\ []
       ) do
@@ -7058,8 +7368,8 @@ defmodule AWS.BedrockAgent do
   def list_flow_aliases(
         %Client{} = client,
         flow_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases"
@@ -7067,15 +7377,15 @@ defmodule AWS.BedrockAgent do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7105,8 +7415,8 @@ defmodule AWS.BedrockAgent do
   def list_flow_versions(
         %Client{} = client,
         flow_identifier,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions"
@@ -7114,15 +7424,15 @@ defmodule AWS.BedrockAgent do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7143,21 +7453,21 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_flows_errors()}
-  def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_flows(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/flows/"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -7185,8 +7495,8 @@ defmodule AWS.BedrockAgent do
           | {:error, list_ingestion_jobs_errors()}
   def list_ingestion_jobs(
         %Client{} = client,
-        data_source_id,
         knowledge_base_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -7232,8 +7542,8 @@ defmodule AWS.BedrockAgent do
           | {:error, list_knowledge_base_documents_errors()}
   def list_knowledge_base_documents(
         %Client{} = client,
-        data_source_id,
         knowledge_base_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -7311,9 +7621,9 @@ defmodule AWS.BedrockAgent do
           | {:error, list_prompts_errors()}
   def list_prompts(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         prompt_identifier \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/prompts/"
@@ -7321,8 +7631,8 @@ defmodule AWS.BedrockAgent do
     query_params = []
 
     query_params =
-      if !is_nil(prompt_identifier) do
-        [{"promptIdentifier", prompt_identifier} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -7335,8 +7645,8 @@ defmodule AWS.BedrockAgent do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(prompt_identifier) do
+        [{"promptIdentifier", prompt_identifier} | query_params]
       else
         query_params
       end
@@ -7426,6 +7736,38 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Associates a resource policy with a knowledge base.
+
+  A resource policy allows other AWS accounts to access the knowledge base. For
+  more information, see [Cross-account access for knowledge bases](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-cross-account.html).
+  """
+  @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Begins a data ingestion job.
 
   Data sources are ingested into your knowledge base so that Large Language Models
@@ -7444,8 +7786,8 @@ defmodule AWS.BedrockAgent do
           | {:error, start_ingestion_job_errors()}
   def start_ingestion_job(
         %Client{} = client,
-        data_source_id,
         knowledge_base_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -7491,9 +7833,9 @@ defmodule AWS.BedrockAgent do
           | {:error, stop_ingestion_job_errors()}
   def stop_ingestion_job(
         %Client{} = client,
-        data_source_id,
-        ingestion_job_id,
         knowledge_base_id,
+        ingestion_job_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -7631,9 +7973,9 @@ defmodule AWS.BedrockAgent do
           | {:error, update_agent_action_group_errors()}
   def update_agent_action_group(
         %Client{} = client,
-        action_group_id,
-        agent_id,
         agent_version,
+        agent_id,
+        action_group_id,
         input,
         options \\ []
       ) do
@@ -7673,7 +8015,7 @@ defmodule AWS.BedrockAgent do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_agent_alias_errors()}
-  def update_agent_alias(%Client{} = client, agent_alias_id, agent_id, input, options \\ []) do
+  def update_agent_alias(%Client{} = client, agent_id, agent_alias_id, input, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
 
@@ -7713,9 +8055,9 @@ defmodule AWS.BedrockAgent do
           | {:error, update_agent_collaborator_errors()}
   def update_agent_collaborator(
         %Client{} = client,
-        agent_id,
-        agent_version,
         collaborator_id,
+        agent_version,
+        agent_id,
         input,
         options \\ []
       ) do
@@ -7759,9 +8101,9 @@ defmodule AWS.BedrockAgent do
           | {:error, update_agent_knowledge_base_errors()}
   def update_agent_knowledge_base(
         %Client{} = client,
-        agent_id,
-        agent_version,
         knowledge_base_id,
+        agent_version,
+        agent_id,
         input,
         options \\ []
       ) do
@@ -7806,8 +8148,8 @@ defmodule AWS.BedrockAgent do
           | {:error, update_data_source_errors()}
   def update_data_source(
         %Client{} = client,
-        data_source_id,
         knowledge_base_id,
+        data_source_id,
         input,
         options \\ []
       ) do
@@ -7887,8 +8229,8 @@ defmodule AWS.BedrockAgent do
           | {:error, update_flow_alias_errors()}
   def update_flow_alias(
         %Client{} = client,
-        alias_identifier,
         flow_identifier,
+        alias_identifier,
         input,
         options \\ []
       ) do

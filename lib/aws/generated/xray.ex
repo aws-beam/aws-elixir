@@ -15,128 +15,146 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      put_encryption_config_result() :: %{
-        "EncryptionConfig" => encryption_config()
+      start_trace_retrieval_request() :: %{
+        required("EndTime") => non_neg_integer(),
+        required("StartTime") => non_neg_integer(),
+        required("TraceIds") => list(String.t() | atom())
       }
 
   """
-  @type put_encryption_config_result() :: %{(String.t() | atom()) => any()}
+  @type start_trace_retrieval_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_service_graph_result() :: %{
-        "ContainsOldGroupVersions" => boolean(),
-        "EndTime" => non_neg_integer(),
+      retrieved_trace() :: %{
+        "Duration" => float(),
+        "Id" => String.t() | atom(),
+        "Spans" => list(span())
+      }
+
+  """
+  @type retrieved_trace() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_group_result() :: %{
+        "Group" => group()
+      }
+
+  """
+  @type update_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_traces_result() :: %{
         "NextToken" => String.t() | atom(),
-        "Services" => list(service()),
-        "StartTime" => non_neg_integer()
+        "Traces" => list(trace()),
+        "UnprocessedTraceIds" => list(String.t() | atom())
       }
 
   """
-  @type get_service_graph_result() :: %{(String.t() | atom()) => any()}
+  @type batch_get_traces_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      insight_impact_graph_edge() :: %{
-        "ReferenceId" => integer()
+      put_trace_segments_result() :: %{
+        "UnprocessedTraceSegments" => list(unprocessed_trace_segment())
       }
 
   """
-  @type insight_impact_graph_edge() :: %{(String.t() | atom()) => any()}
+  @type put_trace_segments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      edge_statistics() :: %{
-        "ErrorStatistics" => error_statistics(),
-        "FaultStatistics" => fault_statistics(),
-        "OkCount" => float(),
-        "TotalCount" => float(),
-        "TotalResponseTime" => float()
+      create_group_result() :: %{
+        "Group" => group()
       }
 
   """
-  @type edge_statistics() :: %{(String.t() | atom()) => any()}
+  @type create_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      insight_summary() :: %{
-        "Categories" => list(list(any())()),
-        "ClientRequestImpactStatistics" => request_impact_statistics(),
-        "EndTime" => non_neg_integer(),
+      span() :: %{
+        "Document" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type span() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backend_connection_errors() :: %{
+        "ConnectionRefusedCount" => integer(),
+        "HTTPCode4XXCount" => integer(),
+        "HTTPCode5XXCount" => integer(),
+        "OtherCount" => integer(),
+        "TimeoutCount" => integer(),
+        "UnknownHostCount" => integer()
+      }
+
+  """
+  @type backend_connection_errors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type rule_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_indexing_rules_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_indexing_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group() :: %{
+        "FilterExpression" => String.t() | atom(),
         "GroupARN" => String.t() | atom(),
         "GroupName" => String.t() | atom(),
-        "InsightId" => String.t() | atom(),
-        "LastUpdateTime" => non_neg_integer(),
-        "RootCauseServiceId" => service_id(),
-        "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
-        "StartTime" => non_neg_integer(),
-        "State" => list(any()),
-        "Summary" => String.t() | atom(),
-        "TopAnomalousServices" => list(anomalous_service())
+        "InsightsConfiguration" => insights_configuration()
       }
 
   """
-  @type insight_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      graph_link() :: %{
-        "DestinationTraceIds" => list(String.t() | atom()),
-        "ReferenceType" => String.t() | atom(),
-        "SourceTraceId" => String.t() | atom()
-      }
-
-  """
-  @type graph_link() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      response_time_root_cause_service() :: %{
-        "AccountId" => String.t() | atom(),
-        "EntityPath" => list(response_time_root_cause_entity()),
-        "Inferred" => boolean(),
-        "Name" => String.t() | atom(),
-        "Names" => list(String.t() | atom()),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type response_time_root_cause_service() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_trace_retrieval_result() :: %{
-        "RetrievalToken" => String.t() | atom()
-      }
-
-  """
-  @type start_trace_retrieval_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insights_configuration() :: %{
-        "InsightsEnabled" => boolean(),
-        "NotificationsEnabled" => boolean()
-      }
-
-  """
-  @type insights_configuration() :: %{(String.t() | atom()) => any()}
+  @type group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -154,81 +172,98 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      encryption_config() :: %{
-        "KeyId" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => list(any())
+      get_retrieved_traces_graph_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("RetrievalToken") => String.t() | atom()
       }
 
   """
-  @type encryption_config() :: %{(String.t() | atom()) => any()}
+  @type get_retrieved_traces_graph_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_encryption_config_request() :: %{
-        optional("KeyId") => String.t() | atom(),
-        required("Type") => list(any())
+      get_trace_graph_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("TraceIds") => list(String.t() | atom())
       }
 
   """
-  @type put_encryption_config_request() :: %{(String.t() | atom()) => any()}
+  @type get_trace_graph_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_group_result() :: %{
-        "Group" => group()
+      create_sampling_rule_result() :: %{
+        "SamplingRuleRecord" => sampling_rule_record()
       }
 
   """
-  @type create_group_result() :: %{(String.t() | atom()) => any()}
+  @type create_sampling_rule_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      instance_id_detail() :: %{
-        "Id" => String.t() | atom()
+      delete_group_request() :: %{
+        optional("GroupARN") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom()
       }
 
   """
-  @type instance_id_detail() :: %{(String.t() | atom()) => any()}
+  @type delete_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_indexing_rules_request() :: %{
-        optional("NextToken") => String.t() | atom()
+      telemetry_record() :: %{
+        "BackendConnectionErrors" => backend_connection_errors(),
+        "SegmentsReceivedCount" => integer(),
+        "SegmentsRejectedCount" => integer(),
+        "SegmentsSentCount" => integer(),
+        "SegmentsSpilloverCount" => integer(),
+        "Timestamp" => non_neg_integer()
       }
 
   """
-  @type get_indexing_rules_request() :: %{(String.t() | atom()) => any()}
+  @type telemetry_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_group_result() :: %{
-        "Group" => group()
-      }
+      put_telemetry_records_result() :: %{}
 
   """
-  @type get_group_result() :: %{(String.t() | atom()) => any()}
+  @type put_telemetry_records_result() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      put_trace_segments_request() :: %{
-        required("TraceSegmentDocuments") => list(String.t() | atom())
+      get_indexing_rules_result() :: %{
+        "IndexingRules" => list(indexing_rule()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type put_trace_segments_request() :: %{(String.t() | atom()) => any()}
+  @type get_indexing_rules_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_rule_record() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ModifiedAt" => non_neg_integer(),
+        "SamplingRule" => sampling_rule()
+      }
+
+  """
+  @type sampling_rule_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -245,15 +280,443 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      list_retrieved_traces_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RetrievalStatus" => list(any()),
-        "TraceFormat" => list(any()),
-        "Traces" => list(retrieved_trace())
+      policy_count_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type list_retrieved_traces_result() :: %{(String.t() | atom()) => any()}
+  @type policy_count_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trace_summary() :: %{
+        "Annotations" => map(),
+        "AvailabilityZones" => list(availability_zone_detail()),
+        "Duration" => float(),
+        "EntryPoint" => service_id(),
+        "ErrorRootCauses" => list(error_root_cause()),
+        "FaultRootCauses" => list(fault_root_cause()),
+        "HasError" => boolean(),
+        "HasFault" => boolean(),
+        "HasThrottle" => boolean(),
+        "Http" => http(),
+        "Id" => String.t() | atom(),
+        "InstanceIds" => list(instance_id_detail()),
+        "IsPartial" => boolean(),
+        "MatchedEventTime" => non_neg_integer(),
+        "ResourceARNs" => list(resource_arn_detail()),
+        "ResponseTime" => float(),
+        "ResponseTimeRootCauses" => list(response_time_root_cause()),
+        "Revision" => integer(),
+        "ServiceIds" => list(service_id()),
+        "StartTime" => non_neg_integer(),
+        "Users" => list(trace_user())
+      }
+
+  """
+  @type trace_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      edge() :: %{
+        "Aliases" => list(alias()),
+        "EdgeType" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "ReceivedEventAgeHistogram" => list(histogram_entry()),
+        "ReferenceId" => integer(),
+        "ResponseTimeHistogram" => list(histogram_entry()),
+        "StartTime" => non_neg_integer(),
+        "SummaryStatistics" => edge_statistics()
+      }
+
+  """
+  @type edge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_id_detail() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type instance_id_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service() :: %{
+        "AccountId" => String.t() | atom(),
+        "DurationHistogram" => list(histogram_entry()),
+        "Edges" => list(edge()),
+        "EndTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Names" => list(String.t() | atom()),
+        "ReferenceId" => integer(),
+        "ResponseTimeHistogram" => list(histogram_entry()),
+        "Root" => boolean(),
+        "StartTime" => non_neg_integer(),
+        "State" => String.t() | atom(),
+        "SummaryStatistics" => service_statistics(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sampling_targets_request() :: %{
+        optional("SamplingBoostStatisticsDocuments") => list(sampling_boost_statistics_document()),
+        required("SamplingStatisticsDocuments") => list(sampling_statistics_document())
+      }
+
+  """
+  @type get_sampling_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lockout_prevention_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type lockout_prevention_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_trace_retrieval_result() :: %{}
+
+  """
+  @type cancel_trace_retrieval_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_rate_boost() :: %{
+        "CooldownWindowMinutes" => integer(),
+        "MaxRate" => float()
+      }
+
+  """
+  @type sampling_rate_boost() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insight_events_result() :: %{
+        "InsightEvents" => list(insight_event()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_insight_events_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malformed_policy_document_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_trace_segment_destination_result() :: %{
+        "Destination" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type update_trace_segment_destination_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_statistic_summary() :: %{
+        "BorrowCount" => integer(),
+        "RequestCount" => integer(),
+        "RuleName" => String.t() | atom(),
+        "SampledCount" => integer(),
+        "Timestamp" => non_neg_integer()
+      }
+
+  """
+  @type sampling_statistic_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_time_series_service_statistics_request() :: %{
+        required("EndTime") => non_neg_integer(),
+        optional("EntitySelectorExpression") => String.t() | atom(),
+        optional("ForecastStatistics") => boolean(),
+        optional("GroupARN") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Period") => integer(),
+        required("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_time_series_service_statistics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_boost_statistics_document() :: %{
+        "AnomalyCount" => integer(),
+        "RuleName" => String.t() | atom(),
+        "SampledAnomalyCount" => integer(),
+        "ServiceName" => String.t() | atom(),
+        "Timestamp" => non_neg_integer(),
+        "TotalCount" => integer()
+      }
+
+  """
+  @type sampling_boost_statistics_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      availability_zone_detail() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type availability_zone_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      indexing_rule() :: %{
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Rule" => list()
+      }
+
+  """
+  @type indexing_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_graph_request() :: %{
+        required("EndTime") => non_neg_integer(),
+        optional("GroupARN") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_service_graph_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_impact_graph_edge() :: %{
+        "ReferenceId" => integer()
+      }
+
+  """
+  @type insight_impact_graph_edge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sampling_targets_result() :: %{
+        "LastRuleModification" => non_neg_integer(),
+        "SamplingTargetDocuments" => list(sampling_target_document()),
+        "UnprocessedBoostStatistics" => list(unprocessed_statistics()),
+        "UnprocessedStatistics" => list(unprocessed_statistics())
+      }
+
+  """
+  @type get_sampling_targets_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      histogram_entry() :: %{
+        "Count" => integer(),
+        "Value" => float()
+      }
+
+  """
+  @type histogram_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trace_summaries_request() :: %{
+        required("EndTime") => non_neg_integer(),
+        optional("FilterExpression") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Sampling") => boolean(),
+        optional("SamplingStrategy") => sampling_strategy(),
+        required("StartTime") => non_neg_integer(),
+        optional("TimeRangeType") => list(any())
+      }
+
+  """
+  @type get_trace_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      response_time_root_cause() :: %{
+        "ClientImpacting" => boolean(),
+        "Services" => list(response_time_root_cause_service())
+      }
+
+  """
+  @type response_time_root_cause() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_encryption_config_result() :: %{
+        "EncryptionConfig" => encryption_config()
+      }
+
+  """
+  @type get_encryption_config_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_root_cause_service() :: %{
+        "AccountId" => String.t() | atom(),
+        "EntityPath" => list(error_root_cause_entity()),
+        "Inferred" => boolean(),
+        "Name" => String.t() | atom(),
+        "Names" => list(String.t() | atom()),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type error_root_cause_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_trace_retrieval_result() :: %{
+        "RetrievalToken" => String.t() | atom()
+      }
+
+  """
+  @type start_trace_retrieval_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight() :: %{
+        "Categories" => list(list(any())()),
+        "ClientRequestImpactStatistics" => request_impact_statistics(),
+        "EndTime" => non_neg_integer(),
+        "GroupARN" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "InsightId" => String.t() | atom(),
+        "RootCauseServiceId" => service_id(),
+        "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "Summary" => String.t() | atom(),
+        "TopAnomalousServices" => list(anomalous_service())
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trace_segment_destination_result() :: %{
+        "Destination" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_trace_segment_destination_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sampling_rule_result() :: %{
+        "SamplingRuleRecord" => sampling_rule_record()
+      }
+
+  """
+  @type update_sampling_rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trace_segment_destination_request() :: %{}
+
+  """
+  @type get_trace_segment_destination_request() :: %{}
 
   @typedoc """
 
@@ -293,167 +756,37 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      anomalous_service() :: %{
-        "ServiceId" => service_id()
+      get_insight_summaries_result() :: %{
+        "InsightSummaries" => list(insight_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type anomalous_service() :: %{(String.t() | atom()) => any()}
+  @type get_insight_summaries_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_trace_summaries_request() :: %{
-        optional("FilterExpression") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Sampling") => boolean(),
-        optional("SamplingStrategy") => sampling_strategy(),
-        optional("TimeRangeType") => list(any()),
-        required("EndTime") => non_neg_integer(),
-        required("StartTime") => non_neg_integer()
-      }
-
-  """
-  @type get_trace_summaries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      probabilistic_rule_value() :: %{
-        "ActualSamplingPercentage" => float(),
-        "DesiredSamplingPercentage" => float()
-      }
-
-  """
-  @type probabilistic_rule_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_impact_graph_service() :: %{
-        "AccountId" => String.t() | atom(),
-        "Edges" => list(insight_impact_graph_edge()),
-        "Name" => String.t() | atom(),
-        "Names" => list(String.t() | atom()),
-        "ReferenceId" => integer(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type insight_impact_graph_service() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_retrieved_traces_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("TraceFormat") => list(any()),
-        required("RetrievalToken") => String.t() | atom()
-      }
-
-  """
-  @type list_retrieved_traces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trace_summaries_result() :: %{
-        "ApproximateTime" => non_neg_integer(),
-        "NextToken" => String.t() | atom(),
-        "TraceSummaries" => list(trace_summary()),
-        "TracesProcessedCount" => float()
-      }
-
-  """
-  @type get_trace_summaries_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sampling_rule_result() :: %{
-        "SamplingRuleRecord" => sampling_rule_record()
-      }
-
-  """
-  @type create_sampling_rule_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_result() :: %{
-        "ResourcePolicy" => resource_policy()
-      }
-
-  """
-  @type put_resource_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      availability_zone_detail() :: %{
+      root_cause_exception() :: %{
+        "Message" => String.t() | atom(),
         "Name" => String.t() | atom()
       }
 
   """
-  @type availability_zone_detail() :: %{(String.t() | atom()) => any()}
+  @type root_cause_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_sampling_rule_request() :: %{
-        optional("RuleARN") => String.t() | atom(),
-        optional("RuleName") => String.t() | atom()
+      put_encryption_config_request() :: %{
+        optional("KeyId") => String.t() | atom(),
+        required("Type") => list(any())
       }
 
   """
-  @type delete_sampling_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_telemetry_records_request() :: %{
-        optional("EC2InstanceId") => String.t() | atom(),
-        optional("Hostname") => String.t() | atom(),
-        optional("ResourceARN") => String.t() | atom(),
-        required("TelemetryRecords") => list(telemetry_record())
-      }
-
-  """
-  @type put_telemetry_records_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sampling_statistic_summary() :: %{
-        "BorrowCount" => integer(),
-        "RequestCount" => integer(),
-        "RuleName" => String.t() | atom(),
-        "SampledCount" => integer(),
-        "Timestamp" => non_neg_integer()
-      }
-
-  """
-  @type sampling_statistic_summary() :: %{(String.t() | atom()) => any()}
+  @type put_encryption_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,6 +804,95 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      list_retrieved_traces_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("RetrievalToken") => String.t() | atom(),
+        optional("TraceFormat") => list(any())
+      }
+
+  """
+  @type list_retrieved_traces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_statistics_document() :: %{
+        "BorrowCount" => integer(),
+        "ClientID" => String.t() | atom(),
+        "RequestCount" => integer(),
+        "RuleName" => String.t() | atom(),
+        "SampledCount" => integer(),
+        "Timestamp" => non_neg_integer()
+      }
+
+  """
+  @type sampling_statistics_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{
+        required("PolicyName") => String.t() | atom(),
+        optional("PolicyRevisionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insights_configuration() :: %{
+        "InsightsEnabled" => boolean(),
+        "NotificationsEnabled" => boolean()
+      }
+
+  """
+  @type insights_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sampling_rule_result() :: %{
+        "SamplingRuleRecord" => sampling_rule_record()
+      }
+
+  """
+  @type delete_sampling_rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessed_trace_segment() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unprocessed_trace_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieved_service() :: %{
+        "Links" => list(graph_link()),
+        "Service" => service()
+      }
+
+  """
+  @type retrieved_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_trace_graph_result() :: %{
         "NextToken" => String.t() | atom(),
         "Services" => list(service())
@@ -483,69 +905,10 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      sampling_rate_boost() :: %{
-        "CooldownWindowMinutes" => integer(),
-        "MaxRate" => float()
-      }
+      get_encryption_config_request() :: %{}
 
   """
-  @type sampling_rate_boost() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sampling_rules_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_sampling_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service() :: %{
-        "AccountId" => String.t() | atom(),
-        "DurationHistogram" => list(histogram_entry()),
-        "Edges" => list(edge()),
-        "EndTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Names" => list(String.t() | atom()),
-        "ReferenceId" => integer(),
-        "ResponseTimeHistogram" => list(histogram_entry()),
-        "Root" => boolean(),
-        "StartTime" => non_neg_integer(),
-        "State" => String.t() | atom(),
-        "SummaryStatistics" => service_statistics(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type service() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_size_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type policy_size_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      probabilistic_rule_value_update() :: %{
-        "DesiredSamplingPercentage" => float()
-      }
-
-  """
-  @type probabilistic_rule_value_update() :: %{(String.t() | atom()) => any()}
+  @type get_encryption_config_request() :: %{}
 
   @typedoc """
 
@@ -567,115 +930,42 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      put_resource_policy_request() :: %{
+        optional("BypassPolicyLockoutCheck") => boolean(),
+        required("PolicyDocument") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        optional("PolicyRevisionId") => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      retrieved_trace() :: %{
-        "Duration" => float(),
-        "Id" => String.t() | atom(),
-        "Spans" => list(span())
-      }
-
-  """
-  @type retrieved_trace() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_traces_result() :: %{
+      get_service_graph_result() :: %{
+        "ContainsOldGroupVersions" => boolean(),
+        "EndTime" => non_neg_integer(),
         "NextToken" => String.t() | atom(),
-        "Traces" => list(trace()),
-        "UnprocessedTraceIds" => list(String.t() | atom())
+        "Services" => list(service()),
+        "StartTime" => non_neg_integer()
       }
 
   """
-  @type batch_get_traces_result() :: %{(String.t() | atom()) => any()}
+  @type get_service_graph_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      indexing_rule() :: %{
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Rule" => list()
+      get_groups_result() :: %{
+        "Groups" => list(group_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type indexing_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_request() :: %{
-        optional("FilterExpression") => String.t() | atom(),
-        optional("GroupARN") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom(),
-        optional("InsightsConfiguration") => insights_configuration()
-      }
-
-  """
-  @type update_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment() :: %{
-        "Document" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_trace_segment_destination_result() :: %{
-        "Destination" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type update_trace_segment_destination_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insight_events_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InsightId") => String.t() | atom()
-      }
-
-  """
-  @type get_insight_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieved_service() :: %{
-        "Links" => list(graph_link()),
-        "Service" => service()
-      }
-
-  """
-  @type retrieved_service() :: %{(String.t() | atom()) => any()}
+  @type get_groups_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -693,51 +983,172 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      error_statistics() :: %{
-        "OtherCount" => float(),
-        "ThrottleCount" => float(),
-        "TotalCount" => float()
+      update_trace_segment_destination_request() :: %{
+        optional("Destination") => list(any())
       }
 
   """
-  @type error_statistics() :: %{(String.t() | atom()) => any()}
+  @type update_trace_segment_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      value_with_service_ids() :: %{
-        "AnnotationValue" => list(),
-        "ServiceIds" => list(service_id())
+      error_root_cause_entity() :: %{
+        "Exceptions" => list(root_cause_exception()),
+        "Name" => String.t() | atom(),
+        "Remote" => boolean()
       }
 
   """
-  @type value_with_service_ids() :: %{(String.t() | atom()) => any()}
+  @type error_root_cause_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_trace_retrieval_request() :: %{
-        required("EndTime") => non_neg_integer(),
-        required("StartTime") => non_neg_integer(),
-        required("TraceIds") => list(String.t() | atom())
+      create_group_request() :: %{
+        optional("FilterExpression") => String.t() | atom(),
+        required("GroupName") => String.t() | atom(),
+        optional("InsightsConfiguration") => insights_configuration(),
+        optional("Tags") => list(tag())
       }
 
   """
-  @type start_trace_retrieval_request() :: %{(String.t() | atom()) => any()}
+  @type create_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      span() :: %{
-        "Document" => String.t() | atom(),
-        "Id" => String.t() | atom()
+      get_retrieved_traces_graph_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RetrievalStatus" => list(any()),
+        "Services" => list(retrieved_service())
       }
 
   """
-  @type span() :: %{(String.t() | atom()) => any()}
+  @type get_retrieved_traces_graph_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_summary() :: %{
+        "Categories" => list(list(any())()),
+        "ClientRequestImpactStatistics" => request_impact_statistics(),
+        "EndTime" => non_neg_integer(),
+        "GroupARN" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "InsightId" => String.t() | atom(),
+        "LastUpdateTime" => non_neg_integer(),
+        "RootCauseServiceId" => service_id(),
+        "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "Summary" => String.t() | atom(),
+        "TopAnomalousServices" => list(anomalous_service())
+      }
+
+  """
+  @type insight_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sampling_rules_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SamplingRuleRecords" => list(sampling_rule_record())
+      }
+
+  """
+  @type get_sampling_rules_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_config() :: %{
+        "KeyId" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insight_impact_graph_result() :: %{
+        "EndTime" => non_neg_integer(),
+        "InsightId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "ServiceGraphEndTime" => non_neg_integer(),
+        "ServiceGraphStartTime" => non_neg_integer(),
+        "Services" => list(insight_impact_graph_service()),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type get_insight_impact_graph_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_statistics() :: %{
+        "ErrorStatistics" => error_statistics(),
+        "FaultStatistics" => fault_statistics(),
+        "OkCount" => float(),
+        "TotalCount" => float(),
+        "TotalResponseTime" => float()
+      }
+
+  """
+  @type service_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retrieved_traces_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "RetrievalStatus" => list(any()),
+        "TraceFormat" => list(any()),
+        "Traces" => list(retrieved_trace())
+      }
+
+  """
+  @type list_retrieved_traces_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_telemetry_records_request() :: %{
+        optional("EC2InstanceId") => String.t() | atom(),
+        optional("Hostname") => String.t() | atom(),
+        optional("ResourceARN") => String.t() | atom(),
+        required("TelemetryRecords") => list(telemetry_record())
+      }
+
+  """
+  @type put_telemetry_records_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_request() :: %{
+        optional("GroupARN") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom()
+      }
+
+  """
+  @type get_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,34 +1167,13 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      invalid_policy_revision_id_exception() :: %{
-        "Message" => String.t() | atom()
+      probabilistic_rule_value() :: %{
+        "ActualSamplingPercentage" => float(),
+        "DesiredSamplingPercentage" => float()
       }
 
   """
-  @type invalid_policy_revision_id_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sampling_rule_result() :: %{
-        "SamplingRuleRecord" => sampling_rule_record()
-      }
-
-  """
-  @type update_sampling_rule_result() :: %{(String.t() | atom()) => any()}
+  @type probabilistic_rule_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -800,49 +1190,466 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
+      fault_statistics() :: %{
+        "OtherCount" => float(),
+        "TotalCount" => float()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type fault_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_telemetry_records_result() :: %{}
+      tag_resource_response() :: %{}
 
   """
-  @type put_telemetry_records_result() :: %{}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      insight_event() :: %{
-        "ClientRequestImpactStatistics" => request_impact_statistics(),
-        "EventTime" => non_neg_integer(),
-        "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
-        "Summary" => String.t() | atom(),
-        "TopAnomalousServices" => list(anomalous_service())
+      http() :: %{
+        "ClientIp" => String.t() | atom(),
+        "HttpMethod" => String.t() | atom(),
+        "HttpStatus" => integer(),
+        "HttpURL" => String.t() | atom(),
+        "UserAgent" => String.t() | atom()
       }
 
   """
-  @type insight_event() :: %{(String.t() | atom()) => any()}
+  @type http() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      response_time_root_cause() :: %{
-        "ClientImpacting" => boolean(),
-        "Services" => list(response_time_root_cause_service())
+      resource_arn_detail() :: %{
+        "ARN" => String.t() | atom()
       }
 
   """
-  @type response_time_root_cause() :: %{(String.t() | atom()) => any()}
+  @type resource_arn_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_policy_revision_id_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_policy_revision_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_trace_retrieval_request() :: %{
+        required("RetrievalToken") => String.t() | atom()
+      }
+
+  """
+  @type cancel_trace_retrieval_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sampling_boost() :: %{
+        "BoostRate" => float(),
+        "BoostRateTTL" => non_neg_integer()
+      }
+
+  """
+  @type sampling_boost() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fault_root_cause_entity() :: %{
+        "Exceptions" => list(root_cause_exception()),
+        "Name" => String.t() | atom(),
+        "Remote" => boolean()
+      }
+
+  """
+  @type fault_root_cause_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_policies_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourcePolicies" => list(resource_policy())
+      }
+
+  """
+  @type list_resource_policies_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_statistics() :: %{
+        "OtherCount" => float(),
+        "ThrottleCount" => float(),
+        "TotalCount" => float()
+      }
+
+  """
+  @type error_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_size_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type policy_size_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_result() :: %{
+        "Group" => group()
+      }
+
+  """
+  @type get_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_result() :: %{
+        "ResourcePolicy" => resource_policy()
+      }
+
+  """
+  @type put_resource_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      response_time_root_cause_entity() :: %{
+        "Coverage" => float(),
+        "Name" => String.t() | atom(),
+        "Remote" => boolean()
+      }
+
+  """
+  @type response_time_root_cause_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_indexing_rule_request() :: %{
+        required("Name") => String.t() | atom(),
+        required("Rule") => list()
+      }
+
+  """
+  @type update_indexing_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forecast_statistics() :: %{
+        "FaultCountHigh" => float(),
+        "FaultCountLow" => float()
+      }
+
+  """
+  @type forecast_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sampling_rules_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_sampling_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fault_root_cause_service() :: %{
+        "AccountId" => String.t() | atom(),
+        "EntityPath" => list(fault_root_cause_entity()),
+        "Inferred" => boolean(),
+        "Name" => String.t() | atom(),
+        "Names" => list(String.t() | atom()),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type fault_root_cause_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_policy() :: %{
+        "LastUpdatedTime" => non_neg_integer(),
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "PolicyRevisionId" => String.t() | atom()
+      }
+
+  """
+  @type resource_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trace_summaries_result() :: %{
+        "ApproximateTime" => non_neg_integer(),
+        "NextToken" => String.t() | atom(),
+        "TraceSummaries" => list(trace_summary()),
+        "TracesProcessedCount" => float()
+      }
+
+  """
+  @type get_trace_summaries_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      value_with_service_ids() :: %{
+        "AnnotationValue" => list(),
+        "ServiceIds" => list(service_id())
+      }
+
+  """
+  @type value_with_service_ids() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_id() :: %{
+        "AccountId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Names" => list(String.t() | atom()),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type service_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      response_time_root_cause_service() :: %{
+        "AccountId" => String.t() | atom(),
+        "EntityPath" => list(response_time_root_cause_entity()),
+        "Inferred" => boolean(),
+        "Name" => String.t() | atom(),
+        "Names" => list(String.t() | atom()),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type response_time_root_cause_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_summary() :: %{
+        "FilterExpression" => String.t() | atom(),
+        "GroupARN" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "InsightsConfiguration" => insights_configuration()
+      }
+
+  """
+  @type group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_result() :: %{}
+
+  """
+  @type delete_resource_policy_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      anomalous_service() :: %{
+        "ServiceId" => service_id()
+      }
+
+  """
+  @type anomalous_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment() :: %{
+        "Document" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_trace_segments_request() :: %{
+        required("TraceSegmentDocuments") => list(String.t() | atom())
+      }
+
+  """
+  @type put_trace_segments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_group_result() :: %{}
+
+  """
+  @type delete_group_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_time_series_service_statistics_result() :: %{
+        "ContainsOldGroupVersions" => boolean(),
+        "NextToken" => String.t() | atom(),
+        "TimeSeriesServiceStatistics" => list(time_series_service_statistics())
+      }
+
+  """
+  @type get_time_series_service_statistics_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insight_summaries_request() :: %{
+        required("EndTime") => non_neg_integer(),
+        optional("GroupARN") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("StartTime") => non_neg_integer(),
+        optional("States") => list(list(any())())
+      }
+
+  """
+  @type get_insight_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_encryption_config_result() :: %{
+        "EncryptionConfig" => encryption_config()
+      }
+
+  """
+  @type put_encryption_config_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insight_events_request() :: %{
+        required("InsightId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_insight_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -872,105 +1679,206 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      unprocessed_trace_segment() :: %{
-        "ErrorCode" => String.t() | atom(),
+      trace_user() :: %{
+        "ServiceIds" => list(service_id()),
+        "UserName" => String.t() | atom()
+      }
+
+  """
+  @type trace_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_group_request() :: %{
+        optional("FilterExpression") => String.t() | atom(),
+        optional("GroupARN") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("InsightsConfiguration") => insights_configuration()
+      }
+
+  """
+  @type update_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fault_root_cause() :: %{
+        "ClientImpacting" => boolean(),
+        "Services" => list(fault_root_cause_service())
+      }
+
+  """
+  @type fault_root_cause() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alias() :: %{
+        "Name" => String.t() | atom(),
+        "Names" => list(String.t() | atom()),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type alias() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      edge_statistics() :: %{
+        "ErrorStatistics" => error_statistics(),
+        "FaultStatistics" => fault_statistics(),
+        "OkCount" => float(),
+        "TotalCount" => float(),
+        "TotalResponseTime" => float()
+      }
+
+  """
+  @type edge_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_indexing_rule_result() :: %{
+        "IndexingRule" => indexing_rule()
+      }
+
+  """
+  @type update_indexing_rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      probabilistic_rule_value_update() :: %{
+        "DesiredSamplingPercentage" => float()
+      }
+
+  """
+  @type probabilistic_rule_value_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sampling_statistic_summaries_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "SamplingStatisticSummaries" => list(sampling_statistic_summary())
+      }
+
+  """
+  @type get_sampling_statistic_summaries_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sampling_rule_request() :: %{
+        optional("RuleARN") => String.t() | atom(),
+        optional("RuleName") => String.t() | atom()
+      }
+
+  """
+  @type delete_sampling_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insight_impact_graph_request() :: %{
+        required("EndTime") => non_neg_integer(),
+        required("InsightId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_insight_impact_graph_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trace() :: %{
+        "Duration" => float(),
         "Id" => String.t() | atom(),
-        "Message" => String.t() | atom()
+        "LimitExceeded" => boolean(),
+        "Segments" => list(segment())
       }
 
   """
-  @type unprocessed_trace_segment() :: %{(String.t() | atom()) => any()}
+  @type trace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_service_graph_request() :: %{
-        optional("GroupARN") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        required("EndTime") => non_neg_integer(),
-        required("StartTime") => non_neg_integer()
+      insight_impact_graph_service() :: %{
+        "AccountId" => String.t() | atom(),
+        "Edges" => list(insight_impact_graph_edge()),
+        "Name" => String.t() | atom(),
+        "Names" => list(String.t() | atom()),
+        "ReferenceId" => integer(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type get_service_graph_request() :: %{(String.t() | atom()) => any()}
+  @type insight_impact_graph_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      graph_link() :: %{
+        "DestinationTraceIds" => list(String.t() | atom()),
+        "ReferenceType" => String.t() | atom(),
+        "SourceTraceId" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type graph_link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
+      get_sampling_statistic_summaries_request() :: %{
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type get_sampling_statistic_summaries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_insight_events_result() :: %{
-        "InsightEvents" => list(insight_event()),
-        "NextToken" => String.t() | atom()
+      request_impact_statistics() :: %{
+        "FaultCount" => float(),
+        "OkCount" => float(),
+        "TotalCount" => float()
       }
 
   """
-  @type get_insight_events_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sampling_targets_request() :: %{
-        optional("SamplingBoostStatisticsDocuments") => list(sampling_boost_statistics_document()),
-        required("SamplingStatisticsDocuments") => list(sampling_statistics_document())
-      }
-
-  """
-  @type get_sampling_targets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sampling_strategy() :: %{
-        "Name" => list(any()),
-        "Value" => float()
-      }
-
-  """
-  @type sampling_strategy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insight_summaries_request() :: %{
-        optional("GroupARN") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("States") => list(list(any())()),
-        required("EndTime") => non_neg_integer(),
-        required("StartTime") => non_neg_integer()
-      }
-
-  """
-  @type get_insight_summaries_request() :: %{(String.t() | atom()) => any()}
+  @type request_impact_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -991,292 +1899,9 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      get_sampling_targets_result() :: %{
-        "LastRuleModification" => non_neg_integer(),
-        "SamplingTargetDocuments" => list(sampling_target_document()),
-        "UnprocessedBoostStatistics" => list(unprocessed_statistics()),
-        "UnprocessedStatistics" => list(unprocessed_statistics())
-      }
-
-  """
-  @type get_sampling_targets_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_group_result() :: %{}
-
-  """
-  @type delete_group_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sampling_boost() :: %{
-        "BoostRate" => float(),
-        "BoostRateTTL" => non_neg_integer()
-      }
-
-  """
-  @type sampling_boost() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fault_root_cause_service() :: %{
-        "AccountId" => String.t() | atom(),
-        "EntityPath" => list(fault_root_cause_entity()),
-        "Inferred" => boolean(),
-        "Name" => String.t() | atom(),
-        "Names" => list(String.t() | atom()),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type fault_root_cause_service() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_policies_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_resource_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fault_statistics() :: %{
-        "OtherCount" => float(),
-        "TotalCount" => float()
-      }
-
-  """
-  @type fault_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_request() :: %{
-        optional("FilterExpression") => String.t() | atom(),
-        optional("InsightsConfiguration") => insights_configuration(),
-        optional("Tags") => list(tag()),
-        required("GroupName") => String.t() | atom()
-      }
-
-  """
-  @type create_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_time_series_service_statistics_request() :: %{
-        optional("EntitySelectorExpression") => String.t() | atom(),
-        optional("ForecastStatistics") => boolean(),
-        optional("GroupARN") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Period") => integer(),
-        required("EndTime") => non_neg_integer(),
-        required("StartTime") => non_neg_integer()
-      }
-
-  """
-  @type get_time_series_service_statistics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sampling_statistic_summaries_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SamplingStatisticSummaries" => list(sampling_statistic_summary())
-      }
-
-  """
-  @type get_sampling_statistic_summaries_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_groups_result() :: %{
-        "Groups" => list(group_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_groups_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trace_graph_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("TraceIds") => list(String.t() | atom())
-      }
-
-  """
-  @type get_trace_graph_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_root_cause_service() :: %{
-        "AccountId" => String.t() | atom(),
-        "EntityPath" => list(error_root_cause_entity()),
-        "Inferred" => boolean(),
-        "Name" => String.t() | atom(),
-        "Names" => list(String.t() | atom()),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type error_root_cause_service() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trace() :: %{
-        "Duration" => float(),
-        "Id" => String.t() | atom(),
-        "LimitExceeded" => boolean(),
-        "Segments" => list(segment())
-      }
-
-  """
-  @type trace() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_encryption_config_request() :: %{}
-
-  """
-  @type get_encryption_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_policy() :: %{
-        "LastUpdatedTime" => non_neg_integer(),
-        "PolicyDocument" => String.t() | atom(),
-        "PolicyName" => String.t() | atom(),
-        "PolicyRevisionId" => String.t() | atom()
-      }
-
-  """
-  @type resource_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sampling_boost_statistics_document() :: %{
-        "AnomalyCount" => integer(),
-        "RuleName" => String.t() | atom(),
-        "SampledAnomalyCount" => integer(),
-        "ServiceName" => String.t() | atom(),
-        "Timestamp" => non_neg_integer(),
-        "TotalCount" => integer()
-      }
-
-  """
-  @type sampling_boost_statistics_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fault_root_cause_entity() :: %{
-        "Exceptions" => list(root_cause_exception()),
-        "Name" => String.t() | atom(),
-        "Remote" => boolean()
-      }
-
-  """
-  @type fault_root_cause_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_root_cause_entity() :: %{
-        "Exceptions" => list(root_cause_exception()),
-        "Name" => String.t() | atom(),
-        "Remote" => boolean()
-      }
-
-  """
-  @type error_root_cause_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_trace_segment_destination_request() :: %{
-        optional("Destination") => list(any())
-      }
-
-  """
-  @type update_trace_segment_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_retrieved_traces_graph_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("RetrievalToken") => String.t() | atom()
-      }
-
-  """
-  @type get_retrieved_traces_graph_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sampling_rule_result() :: %{
-        "SamplingRuleRecord" => sampling_rule_record()
-      }
-
-  """
-  @type delete_sampling_rule_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_sampling_rule_request() :: %{
-        optional("Tags") => list(tag()),
-        required("SamplingRule") => sampling_rule()
+        required("SamplingRule") => sampling_rule(),
+        optional("Tags") => list(tag())
       }
 
   """
@@ -1286,614 +1911,13 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      put_resource_policy_request() :: %{
-        optional("BypassPolicyLockoutCheck") => boolean(),
-        optional("PolicyRevisionId") => String.t() | atom(),
-        required("PolicyDocument") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lockout_prevention_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type lockout_prevention_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alias() :: %{
-        "Name" => String.t() | atom(),
-        "Names" => list(String.t() | atom()),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type alias() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_trace_retrieval_result() :: %{}
-
-  """
-  @type cancel_trace_retrieval_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_trace_segments_result() :: %{
-        "UnprocessedTraceSegments" => list(unprocessed_trace_segment())
-      }
-
-  """
-  @type put_trace_segments_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forecast_statistics() :: %{
-        "FaultCountHigh" => float(),
-        "FaultCountLow" => float()
-      }
-
-  """
-  @type forecast_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sampling_rule_record() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "ModifiedAt" => non_neg_integer(),
-        "SamplingRule" => sampling_rule()
-      }
-
-  """
-  @type sampling_rule_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type rule_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sampling_statistic_summaries_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_sampling_statistic_summaries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_connection_errors() :: %{
-        "ConnectionRefusedCount" => integer(),
-        "HTTPCode4XXCount" => integer(),
-        "HTTPCode5XXCount" => integer(),
-        "OtherCount" => integer(),
-        "TimeoutCount" => integer(),
-        "UnknownHostCount" => integer()
-      }
-
-  """
-  @type backend_connection_errors() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      telemetry_record() :: %{
-        "BackendConnectionErrors" => backend_connection_errors(),
-        "SegmentsReceivedCount" => integer(),
-        "SegmentsRejectedCount" => integer(),
-        "SegmentsSentCount" => integer(),
-        "SegmentsSpilloverCount" => integer(),
-        "Timestamp" => non_neg_integer()
-      }
-
-  """
-  @type telemetry_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_indexing_rules_result() :: %{
-        "IndexingRules" => list(indexing_rule()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_indexing_rules_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceARN") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trace_segment_destination_request() :: %{}
-
-  """
-  @type get_trace_segment_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_id() :: %{
-        "AccountId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Names" => list(String.t() | atom()),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type service_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trace_summary() :: %{
-        "Annotations" => map(),
-        "AvailabilityZones" => list(availability_zone_detail()),
-        "Duration" => float(),
-        "EntryPoint" => service_id(),
-        "ErrorRootCauses" => list(error_root_cause()),
-        "FaultRootCauses" => list(fault_root_cause()),
-        "HasError" => boolean(),
-        "HasFault" => boolean(),
-        "HasThrottle" => boolean(),
-        "Http" => http(),
-        "Id" => String.t() | atom(),
-        "InstanceIds" => list(instance_id_detail()),
-        "IsPartial" => boolean(),
-        "MatchedEventTime" => non_neg_integer(),
-        "ResourceARNs" => list(resource_arn_detail()),
-        "ResponseTime" => float(),
-        "ResponseTimeRootCauses" => list(response_time_root_cause()),
-        "Revision" => integer(),
-        "ServiceIds" => list(service_id()),
-        "StartTime" => non_neg_integer(),
-        "Users" => list(trace_user())
-      }
-
-  """
-  @type trace_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_result() :: %{
-        "Group" => group()
-      }
-
-  """
-  @type update_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group() :: %{
-        "FilterExpression" => String.t() | atom(),
-        "GroupARN" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "InsightsConfiguration" => insights_configuration()
-      }
-
-  """
-  @type group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_impact_statistics() :: %{
-        "FaultCount" => float(),
-        "OkCount" => float(),
-        "TotalCount" => float()
-      }
-
-  """
-  @type request_impact_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fault_root_cause() :: %{
-        "ClientImpacting" => boolean(),
-        "Services" => list(fault_root_cause_service())
-      }
-
-  """
-  @type fault_root_cause() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      malformed_policy_document_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_group_request() :: %{
-        optional("GroupARN") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom()
-      }
-
-  """
-  @type delete_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_statistics() :: %{
-        "ErrorStatistics" => error_statistics(),
-        "FaultStatistics" => fault_statistics(),
-        "OkCount" => float(),
-        "TotalCount" => float(),
-        "TotalResponseTime" => float()
-      }
-
-  """
-  @type service_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sampling_rules_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "SamplingRuleRecords" => list(sampling_rule_record())
-      }
-
-  """
-  @type get_sampling_rules_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trace_user() :: %{
-        "ServiceIds" => list(service_id()),
-        "UserName" => String.t() | atom()
-      }
-
-  """
-  @type trace_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      response_time_root_cause_entity() :: %{
-        "Coverage" => float(),
-        "Name" => String.t() | atom(),
-        "Remote" => boolean()
-      }
-
-  """
-  @type response_time_root_cause_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t() | atom(),
-        required("PolicyName") => String.t() | atom()
-      }
-
-  """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_summary() :: %{
-        "FilterExpression" => String.t() | atom(),
-        "GroupARN" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "InsightsConfiguration" => insights_configuration()
-      }
-
-  """
-  @type group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insight_impact_graph_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("EndTime") => non_neg_integer(),
-        required("InsightId") => String.t() | atom(),
-        required("StartTime") => non_neg_integer()
-      }
-
-  """
-  @type get_insight_impact_graph_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trace_segment_destination_result() :: %{
-        "Destination" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_trace_segment_destination_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_arn_detail() :: %{
-        "ARN" => String.t() | atom()
-      }
-
-  """
-  @type resource_arn_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      root_cause_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type root_cause_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight() :: %{
-        "Categories" => list(list(any())()),
-        "ClientRequestImpactStatistics" => request_impact_statistics(),
-        "EndTime" => non_neg_integer(),
-        "GroupARN" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "InsightId" => String.t() | atom(),
-        "RootCauseServiceId" => service_id(),
-        "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
-        "StartTime" => non_neg_integer(),
-        "State" => list(any()),
-        "Summary" => String.t() | atom(),
-        "TopAnomalousServices" => list(anomalous_service())
-      }
-
-  """
-  @type insight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_result() :: %{}
-
-  """
-  @type delete_resource_policy_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      edge() :: %{
-        "Aliases" => list(alias()),
-        "EdgeType" => String.t() | atom(),
-        "EndTime" => non_neg_integer(),
-        "ReceivedEventAgeHistogram" => list(histogram_entry()),
-        "ReferenceId" => integer(),
-        "ResponseTimeHistogram" => list(histogram_entry()),
-        "StartTime" => non_neg_integer(),
-        "SummaryStatistics" => edge_statistics()
-      }
-
-  """
-  @type edge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_request() :: %{
-        optional("GroupARN") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom()
-      }
-
-  """
-  @type get_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_trace_retrieval_request() :: %{
-        required("RetrievalToken") => String.t() | atom()
-      }
-
-  """
-  @type cancel_trace_retrieval_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_retrieved_traces_graph_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "RetrievalStatus" => list(any()),
-        "Services" => list(retrieved_service())
-      }
-
-  """
-  @type get_retrieved_traces_graph_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      histogram_entry() :: %{
-        "Count" => integer(),
+      sampling_strategy() :: %{
+        "Name" => list(any()),
         "Value" => float()
       }
 
   """
-  @type histogram_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_time_series_service_statistics_result() :: %{
-        "ContainsOldGroupVersions" => boolean(),
-        "NextToken" => String.t() | atom(),
-        "TimeSeriesServiceStatistics" => list(time_series_service_statistics())
-      }
-
-  """
-  @type get_time_series_service_statistics_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insight_summaries_result() :: %{
-        "InsightSummaries" => list(insight_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_insight_summaries_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_encryption_config_result() :: %{
-        "EncryptionConfig" => encryption_config()
-      }
-
-  """
-  @type get_encryption_config_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sampling_statistics_document() :: %{
-        "BorrowCount" => integer(),
-        "ClientID" => String.t() | atom(),
-        "RequestCount" => integer(),
-        "RuleName" => String.t() | atom(),
-        "SampledCount" => integer(),
-        "Timestamp" => non_neg_integer()
-      }
-
-  """
-  @type sampling_statistics_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insight_impact_graph_result() :: %{
-        "EndTime" => non_neg_integer(),
-        "InsightId" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "ServiceGraphEndTime" => non_neg_integer(),
-        "ServiceGraphStartTime" => non_neg_integer(),
-        "Services" => list(insight_impact_graph_service()),
-        "StartTime" => non_neg_integer()
-      }
-
-  """
-  @type get_insight_impact_graph_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_indexing_rule_result() :: %{
-        "IndexingRule" => indexing_rule()
-      }
-
-  """
-  @type update_indexing_rule_result() :: %{(String.t() | atom()) => any()}
+  @type sampling_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1910,152 +1934,128 @@ defmodule AWS.XRay do
 
   ## Example:
 
-      http() :: %{
-        "ClientIp" => String.t() | atom(),
-        "HttpMethod" => String.t() | atom(),
-        "HttpStatus" => integer(),
-        "HttpURL" => String.t() | atom(),
-        "UserAgent" => String.t() | atom()
+      list_resource_policies_request() :: %{
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type http() :: %{(String.t() | atom()) => any()}
+  @type list_resource_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      policy_count_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      insight_event() :: %{
+        "ClientRequestImpactStatistics" => request_impact_statistics(),
+        "EventTime" => non_neg_integer(),
+        "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
+        "Summary" => String.t() | atom(),
+        "TopAnomalousServices" => list(anomalous_service())
       }
 
   """
-  @type policy_count_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type insight_event() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      update_indexing_rule_request() :: %{
-        required("Name") => String.t() | atom(),
-        required("Rule") => list()
-      }
-
-  """
-  @type update_indexing_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_policies_result() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourcePolicies" => list(resource_policy())
-      }
-
-  """
-  @type list_resource_policies_result() :: %{(String.t() | atom()) => any()}
-
-  @type batch_get_traces_errors() :: invalid_request_exception() | throttled_exception()
+  @type batch_get_traces_errors() :: throttled_exception() | invalid_request_exception()
 
   @type cancel_trace_retrieval_errors() ::
-          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+          resource_not_found_exception() | throttled_exception() | invalid_request_exception()
 
-  @type create_group_errors() :: invalid_request_exception() | throttled_exception()
+  @type create_group_errors() :: throttled_exception() | invalid_request_exception()
 
   @type create_sampling_rule_errors() ::
-          rule_limit_exceeded_exception() | invalid_request_exception() | throttled_exception()
+          throttled_exception() | invalid_request_exception() | rule_limit_exceeded_exception()
 
-  @type delete_group_errors() :: invalid_request_exception() | throttled_exception()
+  @type delete_group_errors() :: throttled_exception() | invalid_request_exception()
 
   @type delete_resource_policy_errors() ::
-          invalid_request_exception()
-          | throttled_exception()
+          throttled_exception()
           | invalid_policy_revision_id_exception()
+          | invalid_request_exception()
 
-  @type delete_sampling_rule_errors() :: invalid_request_exception() | throttled_exception()
+  @type delete_sampling_rule_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_encryption_config_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_encryption_config_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_group_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_group_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_groups_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_groups_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_indexing_rules_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_indexing_rules_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_insight_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_insight_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_insight_events_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_insight_events_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_insight_impact_graph_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_insight_impact_graph_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_insight_summaries_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_insight_summaries_errors() :: throttled_exception() | invalid_request_exception()
 
   @type get_retrieved_traces_graph_errors() ::
-          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+          resource_not_found_exception() | throttled_exception() | invalid_request_exception()
 
-  @type get_sampling_rules_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_sampling_rules_errors() :: throttled_exception() | invalid_request_exception()
 
   @type get_sampling_statistic_summaries_errors() ::
-          invalid_request_exception() | throttled_exception()
+          throttled_exception() | invalid_request_exception()
 
-  @type get_sampling_targets_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_sampling_targets_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type get_service_graph_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_service_graph_errors() :: throttled_exception() | invalid_request_exception()
 
   @type get_time_series_service_statistics_errors() ::
-          invalid_request_exception() | throttled_exception()
+          throttled_exception() | invalid_request_exception()
 
-  @type get_trace_graph_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_trace_graph_errors() :: throttled_exception() | invalid_request_exception()
 
   @type get_trace_segment_destination_errors() ::
-          invalid_request_exception() | throttled_exception()
+          throttled_exception() | invalid_request_exception()
 
-  @type get_trace_summaries_errors() :: invalid_request_exception() | throttled_exception()
+  @type get_trace_summaries_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type list_resource_policies_errors() :: invalid_request_exception() | throttled_exception()
+  @type list_resource_policies_errors() :: throttled_exception() | invalid_request_exception()
 
   @type list_retrieved_traces_errors() ::
-          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+          resource_not_found_exception() | throttled_exception() | invalid_request_exception()
 
   @type list_tags_for_resource_errors() ::
-          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+          resource_not_found_exception() | throttled_exception() | invalid_request_exception()
 
-  @type put_encryption_config_errors() :: invalid_request_exception() | throttled_exception()
+  @type put_encryption_config_errors() :: throttled_exception() | invalid_request_exception()
 
   @type put_resource_policy_errors() ::
-          policy_count_limit_exceeded_exception()
+          throttled_exception()
+          | policy_size_limit_exceeded_exception()
+          | invalid_policy_revision_id_exception()
           | malformed_policy_document_exception()
           | lockout_prevention_exception()
-          | throttled_exception()
-          | invalid_policy_revision_id_exception()
-          | policy_size_limit_exceeded_exception()
+          | policy_count_limit_exceeded_exception()
 
-  @type put_telemetry_records_errors() :: invalid_request_exception() | throttled_exception()
+  @type put_telemetry_records_errors() :: throttled_exception() | invalid_request_exception()
 
-  @type put_trace_segments_errors() :: invalid_request_exception() | throttled_exception()
+  @type put_trace_segments_errors() :: throttled_exception() | invalid_request_exception()
 
   @type start_trace_retrieval_errors() ::
-          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+          resource_not_found_exception() | throttled_exception() | invalid_request_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | throttled_exception()
+          | invalid_request_exception()
+          | too_many_tags_exception()
 
   @type untag_resource_errors() ::
-          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+          resource_not_found_exception() | throttled_exception() | invalid_request_exception()
 
-  @type update_group_errors() :: invalid_request_exception() | throttled_exception()
+  @type update_group_errors() :: throttled_exception() | invalid_request_exception()
 
   @type update_indexing_rule_errors() ::
-          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+          resource_not_found_exception() | throttled_exception() | invalid_request_exception()
 
-  @type update_sampling_rule_errors() :: invalid_request_exception() | throttled_exception()
+  @type update_sampling_rule_errors() :: throttled_exception() | invalid_request_exception()
 
   @type update_trace_segment_destination_errors() ::
-          invalid_request_exception() | throttled_exception()
+          throttled_exception() | invalid_request_exception()
 
   def metadata do
     %{

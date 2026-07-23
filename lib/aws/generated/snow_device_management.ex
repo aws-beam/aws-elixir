@@ -13,6 +13,20 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
+      task_summary() :: %{
+        "state" => String.t() | atom(),
+        "tags" => map(),
+        "taskArn" => [String.t() | atom()],
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       physical_network_interface() :: %{
         "defaultGateway" => [String.t() | atom()],
         "ipAddress" => [String.t() | atom()],
@@ -42,48 +56,48 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
-      list_executions_output() :: %{
-        optional("executions") => list(execution_summary()),
+      list_device_resources_output() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("resources") => list(resource_summary())
+      }
+
+  """
+  @type list_device_resources_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_devices_input() :: %{
+        optional("jobId") => String.t() | atom(),
+        optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_executions_output() :: %{(String.t() | atom()) => any()}
+  @type list_devices_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_device_ec2_output() :: %{
-        optional("instances") => list(instance_summary())
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type describe_device_ec2_output() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_task_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("command") => list(),
-        required("targets") => list([String.t() | atom()]())
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type create_task_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_execution_input() :: %{}
-
-  """
-  @type describe_execution_input() :: %{}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -105,98 +119,43 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
-      instance_block_device_mapping() :: %{
-        "deviceName" => [String.t() | atom()],
-        "ebs" => ebs_instance_block_device()
-      }
-
-  """
-  @type instance_block_device_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_task_output() :: %{
-        optional("taskId") => [String.t() | atom()]
-      }
-
-  """
-  @type cancel_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      task_summary() :: %{
-        "state" => String.t() | atom(),
-        "tags" => map(),
-        "taskArn" => [String.t() | atom()],
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_device_input() :: %{}
-
-  """
-  @type describe_device_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_task_output() :: %{
+      describe_task_output() :: %{
+        optional("completedAt") => [non_neg_integer()],
+        optional("createdAt") => [non_neg_integer()],
+        optional("description") => String.t() | atom(),
+        optional("lastUpdatedAt") => [non_neg_integer()],
+        optional("state") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("targets") => list([String.t() | atom()]()),
         optional("taskArn") => [String.t() | atom()],
         optional("taskId") => [String.t() | atom()]
       }
 
   """
-  @type create_task_output() :: %{(String.t() | atom()) => any()}
+  @type describe_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_summary() :: %{
-        "arn" => [String.t() | atom()],
-        "id" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_summary() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_output() :: %{
-        optional("tags") => map()
+      list_tasks_output() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("tasks") => list(task_summary())
       }
 
   """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity() :: %{
-        "available" => [float()],
-        "name" => [String.t() | atom()],
-        "total" => [float()],
-        "unit" => [String.t() | atom()],
-        "used" => [float()]
-      }
-
-  """
-  @type capacity() :: %{(String.t() | atom()) => any()}
+  @type list_tasks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -216,13 +175,34 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
-      list_tasks_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("tasks") => list(task_summary())
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type list_tasks_output() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unlock() :: %{}
+
+  """
+  @type unlock() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tasks_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("state") => String.t() | atom()
+      }
+
+  """
+  @type list_tasks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -239,33 +219,26 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
+      list_device_resources_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("type") => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type list_device_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_device_output() :: %{
-        optional("associatedWithJob") => [String.t() | atom()],
-        optional("deviceCapacities") => list(capacity()),
-        optional("deviceState") => String.t() | atom(),
-        optional("deviceType") => [String.t() | atom()],
-        optional("lastReachedOutAt") => [non_neg_integer()],
-        optional("lastUpdatedAt") => [non_neg_integer()],
-        optional("managedDeviceArn") => [String.t() | atom()],
-        optional("managedDeviceId") => String.t() | atom(),
-        optional("physicalNetworkInterfaces") => list(physical_network_interface()),
-        optional("software") => software_information(),
-        optional("tags") => map()
+      instance_summary() :: %{
+        "instance" => instance(),
+        "lastUpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type describe_device_output() :: %{(String.t() | atom()) => any()}
+  @type instance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,37 +256,131 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
-      list_devices_input() :: %{
-        optional("jobId") => String.t() | atom(),
+      cancel_task_input() :: %{}
+
+  """
+  @type cancel_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      software_information() :: %{
+        "installState" => [String.t() | atom()],
+        "installedVersion" => [String.t() | atom()],
+        "installingVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type software_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ebs_instance_block_device() :: %{
+        "attachTime" => [non_neg_integer()],
+        "deleteOnTermination" => [boolean()],
+        "status" => String.t() | atom(),
+        "volumeId" => [String.t() | atom()]
+      }
+
+  """
+  @type ebs_instance_block_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_task_output() :: %{
+        optional("taskId") => [String.t() | atom()]
+      }
+
+  """
+  @type cancel_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_device_ec2_output() :: %{
+        optional("instances") => list(instance_summary())
+      }
+
+  """
+  @type describe_device_ec2_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_identifier() :: %{
+        "groupId" => [String.t() | atom()],
+        "groupName" => [String.t() | atom()]
+      }
+
+  """
+  @type security_group_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_executions_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        optional("state") => String.t() | atom(),
+        required("taskId") => String.t() | atom()
       }
 
   """
-  @type list_devices_input() :: %{(String.t() | atom()) => any()}
+  @type list_executions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_input() :: %{
-        required("tags") => map()
+      list_tags_for_resource_output() :: %{
+        optional("tags") => map()
       }
 
   """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      instance_state() :: %{
-        "code" => [integer()],
-        "name" => String.t() | atom()
+      describe_device_ec2_input() :: %{
+        required("instanceIds") => list([String.t() | atom()]())
       }
 
   """
-  @type instance_state() :: %{(String.t() | atom()) => any()}
+  @type describe_device_ec2_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -328,14 +395,43 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
-      list_device_resources_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("type") => [String.t() | atom()]
+      describe_device_input() :: %{}
+
+  """
+  @type describe_device_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_executions_output() :: %{
+        optional("executions") => list(execution_summary()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_device_resources_input() :: %{(String.t() | atom()) => any()}
+  @type list_executions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_task_output() :: %{
+        optional("taskArn") => [String.t() | atom()],
+        optional("taskId") => [String.t() | atom()]
+      }
+
+  """
+  @type create_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -355,23 +451,25 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
+      describe_execution_input() :: %{}
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_execution_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      describe_device_ec2_input() :: %{
-        required("instanceIds") => list([String.t() | atom()]())
+      capacity() :: %{
+        "available" => [float()],
+        "name" => [String.t() | atom()],
+        "total" => [float()],
+        "unit" => [String.t() | atom()],
+        "used" => [float()]
       }
 
   """
-  @type describe_device_ec2_input() :: %{(String.t() | atom()) => any()}
+  @type capacity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -400,97 +498,83 @@ defmodule AWS.SnowDeviceManagement do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      instance_state() :: %{
+        "code" => [integer()],
+        "name" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type instance_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unlock() :: %{}
-
-  """
-  @type unlock() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list([String.t() | atom()]())
+      instance_block_device_mapping() :: %{
+        "deviceName" => [String.t() | atom()],
+        "ebs" => ebs_instance_block_device()
       }
 
   """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type instance_block_device_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_device_resources_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("resources") => list(resource_summary())
-      }
-
-  """
-  @type list_device_resources_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_task_output() :: %{
-        optional("completedAt") => [non_neg_integer()],
-        optional("createdAt") => [non_neg_integer()],
-        optional("description") => String.t() | atom(),
+      describe_device_output() :: %{
+        optional("associatedWithJob") => [String.t() | atom()],
+        optional("deviceCapacities") => list(capacity()),
+        optional("deviceState") => String.t() | atom(),
+        optional("deviceType") => [String.t() | atom()],
+        optional("lastReachedOutAt") => [non_neg_integer()],
         optional("lastUpdatedAt") => [non_neg_integer()],
-        optional("state") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("targets") => list([String.t() | atom()]()),
-        optional("taskArn") => [String.t() | atom()],
-        optional("taskId") => [String.t() | atom()]
+        optional("managedDeviceArn") => [String.t() | atom()],
+        optional("managedDeviceId") => String.t() | atom(),
+        optional("physicalNetworkInterfaces") => list(physical_network_interface()),
+        optional("software") => software_information(),
+        optional("tags") => map()
       }
 
   """
-  @type describe_task_output() :: %{(String.t() | atom()) => any()}
+  @type describe_device_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ebs_instance_block_device() :: %{
-        "attachTime" => [non_neg_integer()],
-        "deleteOnTermination" => [boolean()],
-        "status" => String.t() | atom(),
-        "volumeId" => [String.t() | atom()]
-      }
-
-  """
-  @type ebs_instance_block_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
+      service_quota_exceeded_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_input() :: %{}
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
 
   """
-  @type list_tags_for_resource_input() :: %{}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_task_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("command") => list(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("targets") => list([String.t() | atom()]())
+      }
+
+  """
+  @type create_task_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -501,167 +585,83 @@ defmodule AWS.SnowDeviceManagement do
   """
   @type describe_task_input() :: %{}
 
-  @typedoc """
-
-  ## Example:
-
-      instance_summary() :: %{
-        "instance" => instance(),
-        "lastUpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type instance_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_group_identifier() :: %{
-        "groupId" => [String.t() | atom()],
-        "groupName" => [String.t() | atom()]
-      }
-
-  """
-  @type security_group_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      software_information() :: %{
-        "installState" => [String.t() | atom()],
-        "installedVersion" => [String.t() | atom()],
-        "installingVersion" => [String.t() | atom()]
-      }
-
-  """
-  @type software_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tasks_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("state") => String.t() | atom()
-      }
-
-  """
-  @type list_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_executions_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("state") => String.t() | atom(),
-        required("taskId") => String.t() | atom()
-      }
-
-  """
-  @type list_executions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_task_input() :: %{}
-
-  """
-  @type cancel_task_input() :: %{}
-
   @type cancel_task_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
 
   @type create_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type describe_device_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
 
   @type describe_device_ec2_instances_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
 
   @type describe_execution_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
 
   @type describe_task_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
 
   @type list_device_resources_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
 
   @type list_devices_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type list_executions_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type list_tasks_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          access_denied_exception()
+          | throttling_exception()
           | internal_server_exception()
+          | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   def metadata do
     %{
@@ -826,7 +826,7 @@ defmodule AWS.SnowDeviceManagement do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, describe_execution_errors()}
-  def describe_execution(%Client{} = client, managed_device_id, task_id, input, options \\ []) do
+  def describe_execution(%Client{} = client, task_id, managed_device_id, input, options \\ []) do
     url_path =
       "/task/#{AWS.Util.encode_uri(task_id)}/execution/#{AWS.Util.encode_uri(managed_device_id)}"
 
@@ -898,9 +898,9 @@ defmodule AWS.SnowDeviceManagement do
   def list_device_resources(
         %Client{} = client,
         managed_device_id,
-        max_results \\ nil,
-        next_token \\ nil,
         type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/resources"
@@ -908,8 +908,8 @@ defmodule AWS.SnowDeviceManagement do
     query_params = []
 
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -922,8 +922,8 @@ defmodule AWS.SnowDeviceManagement do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(type) do
+        [{"type", type} | query_params]
       else
         query_params
       end
@@ -951,9 +951,9 @@ defmodule AWS.SnowDeviceManagement do
           | {:error, list_devices_errors()}
   def list_devices(
         %Client{} = client,
-        job_id \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        job_id \\ nil,
         options \\ []
       ) do
     url_path = "/managed-devices"
@@ -961,8 +961,8 @@ defmodule AWS.SnowDeviceManagement do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(job_id) do
+        [{"jobId", job_id} | query_params]
       else
         query_params
       end
@@ -975,8 +975,8 @@ defmodule AWS.SnowDeviceManagement do
       end
 
     query_params =
-      if !is_nil(job_id) do
-        [{"jobId", job_id} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -991,10 +991,10 @@ defmodule AWS.SnowDeviceManagement do
   """
   @spec list_executions(
           map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_executions_output(), any()}
@@ -1003,10 +1003,10 @@ defmodule AWS.SnowDeviceManagement do
           | {:error, list_executions_errors()}
   def list_executions(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        state \\ nil,
         task_id,
+        state \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/executions"
@@ -1014,15 +1014,8 @@ defmodule AWS.SnowDeviceManagement do
     query_params = []
 
     query_params =
-      if !is_nil(task_id) do
-        [{"taskId", task_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1035,8 +1028,15 @@ defmodule AWS.SnowDeviceManagement do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(state) do
+        [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(task_id) do
+        [{"taskId", task_id} | query_params]
       else
         query_params
       end
@@ -1080,9 +1080,9 @@ defmodule AWS.SnowDeviceManagement do
           | {:error, list_tasks_errors()}
   def list_tasks(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         state \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/tasks"
@@ -1090,8 +1090,8 @@ defmodule AWS.SnowDeviceManagement do
     query_params = []
 
     query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -1104,8 +1104,8 @@ defmodule AWS.SnowDeviceManagement do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(state) do
+        [{"state", state} | query_params]
       else
         query_params
       end

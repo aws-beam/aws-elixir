@@ -20,126 +20,120 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Example:
 
-      list_app_instances_response() :: %{
-        "AppInstances" => list(app_instance_summary()),
-        "NextToken" => String.t() | atom()
+      service_failure_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type list_app_instances_response() :: %{(String.t() | atom()) => any()}
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      app_instance_bot_summary() :: %{
-        "AppInstanceBotArn" => String.t() | atom(),
+      list_app_instance_admins_response() :: %{
+        "AppInstanceAdmins" => list(app_instance_admin_summary()),
+        "AppInstanceArn" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_app_instance_admins_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_instance_bot_request() :: %{}
+
+  """
+  @type delete_app_instance_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      app_instance_summary() :: %{
+        "AppInstanceArn" => String.t() | atom(),
         "Metadata" => String.t() | atom(),
         "Name" => String.t() | atom()
       }
 
   """
-  @type app_instance_bot_summary() :: %{(String.t() | atom()) => any()}
+  @type app_instance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_app_instance_user_expiration_settings_request() :: %{
-        optional("ExpirationSettings") => expiration_settings()
+      update_app_instance_bot_response() :: %{
+        "AppInstanceBotArn" => String.t() | atom()
       }
 
   """
-  @type put_app_instance_user_expiration_settings_request() :: %{(String.t() | atom()) => any()}
+  @type update_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_app_instance_admin_request() :: %{}
-
-  """
-  @type delete_app_instance_admin_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_instance_user_request() :: %{}
-
-  """
-  @type delete_app_instance_user_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
+      update_app_instance_user_request() :: %{
+        required("Metadata") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_app_instance_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_app_instance_admins_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      create_app_instance_admin_request() :: %{
+        required("AppInstanceAdminArn") => String.t() | atom()
       }
 
   """
-  @type list_app_instance_admins_request() :: %{(String.t() | atom()) => any()}
+  @type create_app_instance_admin_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      endpoint_state() :: %{
-        "Status" => list(any()),
-        "StatusReason" => list(any())
-      }
+      describe_app_instance_request() :: %{}
 
   """
-  @type endpoint_state() :: %{(String.t() | atom()) => any()}
+  @type describe_app_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_app_instance_bots_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AppInstanceArn") => String.t() | atom()
+      app_instance_user_endpoint_summary() :: %{
+        "AllowMessages" => list(any()),
+        "AppInstanceUserArn" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
+        "EndpointState" => endpoint_state(),
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
       }
 
   """
-  @type list_app_instance_bots_request() :: %{(String.t() | atom()) => any()}
+  @type app_instance_user_endpoint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_app_instance_response() :: %{
-        "AppInstanceArn" => String.t() | atom()
+      list_app_instance_users_response() :: %{
+        "AppInstanceArn" => String.t() | atom(),
+        "AppInstanceUsers" => list(app_instance_user_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type create_app_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_instance_response() :: %{
-        "AppInstanceArn" => String.t() | atom()
-      }
-
-  """
-  @type update_app_instance_response() :: %{(String.t() | atom()) => any()}
+  @type list_app_instance_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -160,106 +154,51 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Example:
 
-      list_app_instance_admins_response() :: %{
-        "AppInstanceAdmins" => list(app_instance_admin_summary()),
-        "AppInstanceArn" => String.t() | atom(),
-        "NextToken" => String.t() | atom()
+      create_app_instance_bot_request() :: %{
+        required("AppInstanceArn") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Configuration") => configuration(),
+        optional("Metadata") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
 
   """
-  @type list_app_instance_admins_response() :: %{(String.t() | atom()) => any()}
+  @type create_app_instance_bot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_failure_exception() :: %{
+      put_app_instance_retention_settings_request() :: %{
+        required("AppInstanceRetentionSettings") => app_instance_retention_settings()
+      }
+
+  """
+  @type put_app_instance_retention_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_instance_bot_response() :: %{
+        "AppInstanceBot" => app_instance_bot()
+      }
+
+  """
+  @type describe_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t() | atom()
       }
 
   """
-  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_client_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_request() :: %{}
-
-  """
-  @type describe_app_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_instances_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_app_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration() :: %{
-        "Lex" => lex_configuration()
-      }
-
-  """
-  @type configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_instance_request() :: %{
-        required("Metadata") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_app_instance_request() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,22 +216,459 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Example:
 
-      endpoint_attributes() :: %{
-        "DeviceToken" => String.t() | atom(),
-        "VoipDeviceToken" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
 
   """
-  @type endpoint_attributes() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_app_instance_user_endpoint_request() :: %{}
+
+  """
+  @type deregister_app_instance_user_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_instance_retention_settings_response() :: %{
+        "AppInstanceRetentionSettings" => app_instance_retention_settings(),
+        "InitiateDeletionTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type get_app_instance_retention_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_instance_bot_request() :: %{}
+
+  """
+  @type describe_app_instance_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_instances_response() :: %{
+        "AppInstances" => list(app_instance_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_app_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_app_instance_user_endpoint_response() :: %{
+        "AppInstanceUserArn" => String.t() | atom(),
+        "EndpointId" => String.t() | atom()
+      }
+
+  """
+  @type register_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_instance_bot_response() :: %{
+        "AppInstanceBotArn" => String.t() | atom()
+      }
+
+  """
+  @type create_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_instance_user_request() :: %{}
+
+  """
+  @type describe_app_instance_user_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_app_instance_user_expiration_settings_request() :: %{
+        optional("ExpirationSettings") => expiration_settings()
+      }
+
+  """
+  @type put_app_instance_user_expiration_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_instance_bots_request() :: %{
+        required("AppInstanceArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_app_instance_bots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_state() :: %{
+        "Status" => list(any()),
+        "StatusReason" => list(any())
+      }
+
+  """
+  @type endpoint_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_app_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_instance_user_summary() :: %{
+        "AppInstanceUserArn" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type app_instance_user_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_instance_bots_response() :: %{
+        "AppInstanceArn" => String.t() | atom(),
+        "AppInstanceBots" => list(app_instance_bot_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_app_instance_bots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_instance_bot_request() :: %{
+        optional("Configuration") => configuration(),
+        required("Metadata") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_app_instance_bot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_instance_admin_response() :: %{
+        "AppInstanceAdmin" => identity(),
+        "AppInstanceArn" => String.t() | atom()
+      }
+
+  """
+  @type create_app_instance_admin_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_instance_admins_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_app_instance_admins_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_limit_exceeded_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_instance_user_endpoint_request() :: %{}
+
+  """
+  @type describe_app_instance_user_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      app_instance_bot() :: %{
+        "AppInstanceBotArn" => String.t() | atom(),
+        "Configuration" => configuration(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type app_instance_bot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_instance_user_endpoint_response() :: %{
+        "AppInstanceUserArn" => String.t() | atom(),
+        "EndpointId" => String.t() | atom()
+      }
+
+  """
+  @type update_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_instance_response() :: %{
+        "AppInstanceArn" => String.t() | atom()
+      }
+
+  """
+  @type create_app_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_instance_user_response() :: %{
+        "AppInstanceUser" => app_instance_user()
+      }
+
+  """
+  @type describe_app_instance_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoked_by() :: %{
+        "StandardMessages" => list(any()),
+        "TargetedMessages" => list(any())
+      }
+
+  """
+  @type invoked_by() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_instance_user_response() :: %{
+        "AppInstanceUserArn" => String.t() | atom()
+      }
+
+  """
+  @type update_app_instance_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_instance_user_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_app_instance_user_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_instance_response() :: %{
+        "AppInstanceArn" => String.t() | atom()
+      }
+
+  """
+  @type update_app_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_instance_admin_response() :: %{
+        "AppInstanceAdmin" => app_instance_admin()
+      }
+
+  """
+  @type describe_app_instance_admin_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_app_instance_user_expiration_settings_response() :: %{
+        "AppInstanceUserArn" => String.t() | atom(),
+        "ExpirationSettings" => expiration_settings()
+      }
+
+  """
+  @type put_app_instance_user_expiration_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_instance_bot_summary() :: %{
+        "AppInstanceBotArn" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type app_instance_bot_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_instance_user_request() :: %{
+        required("AppInstanceArn") => String.t() | atom(),
+        required("AppInstanceUserId") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
+        optional("ExpirationSettings") => expiration_settings(),
+        optional("Metadata") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_app_instance_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_app_instance_users_request() :: %{
+        required("AppInstanceArn") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AppInstanceArn") => String.t() | atom()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
@@ -314,34 +690,11 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_app_instance_retention_settings_request() :: %{
-        required("AppInstanceRetentionSettings") => app_instance_retention_settings()
-      }
-
-  """
-  @type put_app_instance_retention_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       register_app_instance_user_endpoint_request() :: %{
         optional("AllowMessages") => list(any()),
-        optional("Name") => String.t() | atom(),
         required("ClientRequestToken") => String.t() | atom(),
         required("EndpointAttributes") => endpoint_attributes(),
+        optional("Name") => String.t() | atom(),
         required("ResourceArn") => String.t() | atom(),
         required("Type") => list(any())
       }
@@ -353,89 +706,21 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Example:
 
-      get_app_instance_retention_settings_request() :: %{}
-
-  """
-  @type get_app_instance_retention_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
+      channel_retention_settings() :: %{
+        "RetentionDays" => integer()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type channel_retention_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_app_instance_bot_request() :: %{}
+      delete_app_instance_user_request() :: %{}
 
   """
-  @type delete_app_instance_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_app_instance_user_expiration_settings_response() :: %{
-        "AppInstanceUserArn" => String.t() | atom(),
-        "ExpirationSettings" => expiration_settings()
-      }
-
-  """
-  @type put_app_instance_user_expiration_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_instance_user_endpoint_response() :: %{
-        "AppInstanceUserArn" => String.t() | atom(),
-        "EndpointId" => String.t() | atom()
-      }
-
-  """
-  @type update_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_user_response() :: %{
-        "AppInstanceUser" => app_instance_user()
-      }
-
-  """
-  @type describe_app_instance_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_bot_response() :: %{
-        "AppInstanceBot" => app_instance_bot()
-      }
-
-  """
-  @type describe_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
+  @type delete_app_instance_user_request() :: %{}
 
   @typedoc """
 
@@ -452,62 +737,66 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Example:
 
-      update_app_instance_user_response() :: %{
-        "AppInstanceUserArn" => String.t() | atom()
-      }
-
-  """
-  @type update_app_instance_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_instance_users_response() :: %{
-        "AppInstanceArn" => String.t() | atom(),
-        "AppInstanceUsers" => list(app_instance_user_summary()),
+      list_app_instance_user_endpoints_response() :: %{
+        "AppInstanceUserEndpoints" => list(app_instance_user_endpoint_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_app_instance_users_response() :: %{(String.t() | atom()) => any()}
+  @type list_app_instance_user_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_limit_exceeded_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
+      app_instance_retention_settings() :: %{
+        "ChannelRetentionSettings" => channel_retention_settings()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type app_instance_retention_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      app_instance_summary() :: %{
-        "AppInstanceArn" => String.t() | atom(),
-        "Metadata" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      endpoint_attributes() :: %{
+        "DeviceToken" => String.t() | atom(),
+        "VoipDeviceToken" => String.t() | atom()
       }
 
   """
-  @type app_instance_summary() :: %{(String.t() | atom()) => any()}
+  @type endpoint_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      not_found_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
+      delete_app_instance_request() :: %{}
+
+  """
+  @type delete_app_instance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_instance_user_endpoint_request() :: %{
+        optional("AllowMessages") => list(any()),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type update_app_instance_user_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_instance_retention_settings_request() :: %{}
+
+  """
+  @type get_app_instance_retention_settings_request() :: %{}
 
   @typedoc """
 
@@ -529,46 +818,141 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Example:
 
-      list_app_instance_user_endpoints_response() :: %{
-        "AppInstanceUserEndpoints" => list(app_instance_user_endpoint_summary()),
-        "NextToken" => String.t() | atom()
+      configuration() :: %{
+        "Lex" => lex_configuration()
       }
 
   """
-  @type list_app_instance_user_endpoints_response() :: %{(String.t() | atom()) => any()}
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_app_instance_bot_response() :: %{
-        "AppInstanceBotArn" => String.t() | atom()
+      create_app_instance_user_response() :: %{
+        "AppInstanceUserArn" => String.t() | atom()
       }
 
   """
-  @type update_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
+  @type create_app_instance_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
+      app_instance_admin() :: %{
+        "Admin" => identity(),
+        "AppInstanceArn" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type app_instance_admin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      channel_retention_settings() :: %{
-        "RetentionDays" => integer()
+      delete_app_instance_admin_request() :: %{}
+
+  """
+  @type delete_app_instance_admin_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_instance_admin_request() :: %{}
+
+  """
+  @type describe_app_instance_admin_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_instance_request() :: %{
+        required("Metadata") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type channel_retention_settings() :: %{(String.t() | atom()) => any()}
+  @type update_app_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_instance_user_endpoint_response() :: %{
+        "AppInstanceUserEndpoint" => app_instance_user_endpoint()
+      }
+
+  """
+  @type describe_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_instance() :: %{
+        "AppInstanceArn" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type app_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_instance_admin_summary() :: %{
+        "Admin" => identity()
+      }
+
+  """
+  @type app_instance_admin_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_instance_request() :: %{
+        required("ClientRequestToken") => String.t() | atom(),
+        optional("Metadata") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_app_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -594,182 +978,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_instance_user_endpoint_summary() :: %{
-        "AllowMessages" => list(any()),
-        "AppInstanceUserArn" => String.t() | atom(),
-        "EndpointId" => String.t() | atom(),
-        "EndpointState" => endpoint_state(),
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type app_instance_user_endpoint_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_instance_retention_settings_response() :: %{
-        "AppInstanceRetentionSettings" => app_instance_retention_settings(),
-        "InitiateDeletionTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type get_app_instance_retention_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_instance_admin() :: %{
-        "Admin" => identity(),
-        "AppInstanceArn" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type app_instance_admin() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_instance_bots_response() :: %{
-        "AppInstanceArn" => String.t() | atom(),
-        "AppInstanceBots" => list(app_instance_bot_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_app_instance_bots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_instance_user_request() :: %{
-        required("Metadata") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_app_instance_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_admin_response() :: %{
-        "AppInstanceAdmin" => app_instance_admin()
-      }
-
-  """
-  @type describe_app_instance_admin_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_instance_request() :: %{
-        optional("Metadata") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_app_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_instance_bot_response() :: %{
-        "AppInstanceBotArn" => String.t() | atom()
-      }
-
-  """
-  @type create_app_instance_bot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_instance_admin_summary() :: %{
-        "Admin" => identity()
-      }
-
-  """
-  @type app_instance_admin_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoked_by() :: %{
-        "StandardMessages" => list(any()),
-        "TargetedMessages" => list(any())
-      }
-
-  """
-  @type invoked_by() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_instance_bot_request() :: %{
-        optional("Metadata") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("AppInstanceArn") => String.t() | atom(),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("Configuration") => configuration()
-      }
-
-  """
-  @type create_app_instance_bot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_instance_admin_response() :: %{
-        "AppInstanceAdmin" => identity(),
-        "AppInstanceArn" => String.t() | atom()
-      }
-
-  """
-  @type create_app_instance_admin_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       put_app_instance_retention_settings_response() :: %{
         "AppInstanceRetentionSettings" => app_instance_retention_settings(),
         "InitiateDeletionTimestamp" => non_neg_integer()
@@ -777,28 +985,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   """
   @type put_app_instance_retention_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_instance_retention_settings() :: %{
-        "ChannelRetentionSettings" => channel_retention_settings()
-      }
-
-  """
-  @type app_instance_retention_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_instance_admin_request() :: %{
-        required("AppInstanceAdminArn") => String.t() | atom()
-      }
-
-  """
-  @type create_app_instance_admin_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -812,458 +998,272 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_admin_request() :: %{}
-
-  """
-  @type describe_app_instance_admin_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_user_endpoint_request() :: %{}
-
-  """
-  @type describe_app_instance_user_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_app_instance_user_endpoint_request() :: %{}
-
-  """
-  @type deregister_app_instance_user_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_instance_request() :: %{}
-
-  """
-  @type delete_app_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      app_instance_user_summary() :: %{
-        "AppInstanceUserArn" => String.t() | atom(),
-        "Metadata" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type app_instance_user_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_app_instance_user_endpoint_response() :: %{
-        "AppInstanceUserArn" => String.t() | atom(),
-        "EndpointId" => String.t() | atom()
-      }
-
-  """
-  @type register_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_instance_user_endpoint_request() :: %{
-        optional("AllowMessages") => list(any()),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_app_instance_user_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_user_endpoint_response() :: %{
-        "AppInstanceUserEndpoint" => app_instance_user_endpoint()
-      }
-
-  """
-  @type describe_app_instance_user_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_user_request() :: %{}
-
-  """
-  @type describe_app_instance_user_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_instance_bot_request() :: %{
-        optional("Configuration") => configuration(),
-        required("Metadata") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_app_instance_bot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_instance_user_endpoints_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_app_instance_user_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_instance_bot_request() :: %{}
-
-  """
-  @type describe_app_instance_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_instance_user_request() :: %{
-        optional("ExpirationSettings") => expiration_settings(),
-        optional("Metadata") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("AppInstanceArn") => String.t() | atom(),
-        required("AppInstanceUserId") => String.t() | atom(),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_app_instance_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_instance() :: %{
-        "AppInstanceArn" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Metadata" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type app_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_instance_bot() :: %{
-        "AppInstanceBotArn" => String.t() | atom(),
-        "Configuration" => configuration(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Metadata" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type app_instance_bot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_instance_user_response() :: %{
-        "AppInstanceUserArn" => String.t() | atom()
-      }
-
-  """
-  @type create_app_instance_user_response() :: %{(String.t() | atom()) => any()}
-
   @type create_app_instance_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type create_app_instance_admin_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type create_app_instance_bot_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type create_app_instance_user_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type delete_app_instance_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type delete_app_instance_admin_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type delete_app_instance_bot_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type delete_app_instance_user_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type deregister_app_instance_user_endpoint_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type describe_app_instance_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type describe_app_instance_admin_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type describe_app_instance_bot_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
           | not_found_exception()
           | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
           | service_failure_exception()
 
   @type describe_app_instance_user_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type describe_app_instance_user_endpoint_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type get_app_instance_retention_settings_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type list_app_instance_admins_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type list_app_instance_bots_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type list_app_instance_user_endpoints_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type list_app_instance_users_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type list_app_instances_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type put_app_instance_retention_settings_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type put_app_instance_user_expiration_settings_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type register_app_instance_user_endpoint_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
           | service_failure_exception()
 
   @type update_app_instance_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type update_app_instance_bot_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type update_app_instance_user_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | resource_limit_exceeded_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   @type update_app_instance_user_endpoint_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | throttled_client_exception()
+          | conflict_exception()
           | service_failure_exception()
 
   def metadata do
@@ -1480,8 +1480,8 @@ defmodule AWS.ChimeSDKIdentity do
           | {:error, delete_app_instance_admin_errors()}
   def delete_app_instance_admin(
         %Client{} = client,
-        app_instance_admin_arn,
         app_instance_arn,
+        app_instance_admin_arn,
         input,
         options \\ []
       ) do
@@ -1591,8 +1591,8 @@ defmodule AWS.ChimeSDKIdentity do
           | {:error, deregister_app_instance_user_endpoint_errors()}
   def deregister_app_instance_user_endpoint(
         %Client{} = client,
-        app_instance_user_arn,
         endpoint_id,
+        app_instance_user_arn,
         input,
         options \\ []
       ) do
@@ -1646,8 +1646,8 @@ defmodule AWS.ChimeSDKIdentity do
           | {:error, describe_app_instance_admin_errors()}
   def describe_app_instance_admin(
         %Client{} = client,
-        app_instance_admin_arn,
         app_instance_arn,
+        app_instance_admin_arn,
         options \\ []
       ) do
     url_path =
@@ -1712,8 +1712,8 @@ defmodule AWS.ChimeSDKIdentity do
           | {:error, describe_app_instance_user_endpoint_errors()}
   def describe_app_instance_user_endpoint(
         %Client{} = client,
-        app_instance_user_arn,
         endpoint_id,
+        app_instance_user_arn,
         options \\ []
       ) do
     url_path =
@@ -1762,8 +1762,8 @@ defmodule AWS.ChimeSDKIdentity do
   def list_app_instance_admins(
         %Client{} = client,
         app_instance_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
@@ -1771,15 +1771,15 @@ defmodule AWS.ChimeSDKIdentity do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -1794,9 +1794,9 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec list_app_instance_bots(
           map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_app_instance_bots_response(), any()}
@@ -1805,9 +1805,9 @@ defmodule AWS.ChimeSDKIdentity do
           | {:error, list_app_instance_bots_errors()}
   def list_app_instance_bots(
         %Client{} = client,
-        app_instance_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        app_instance_arn,
         options \\ []
       ) do
     url_path = "/app-instance-bots"
@@ -1815,8 +1815,8 @@ defmodule AWS.ChimeSDKIdentity do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(app_instance_arn) do
+        [{"app-instance-arn", app_instance_arn} | query_params]
       else
         query_params
       end
@@ -1829,8 +1829,8 @@ defmodule AWS.ChimeSDKIdentity do
       end
 
     query_params =
-      if !is_nil(app_instance_arn) do
-        [{"app-instance-arn", app_instance_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -1858,8 +1858,8 @@ defmodule AWS.ChimeSDKIdentity do
   def list_app_instance_user_endpoints(
         %Client{} = client,
         app_instance_user_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}/endpoints"
@@ -1867,15 +1867,15 @@ defmodule AWS.ChimeSDKIdentity do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -1891,9 +1891,9 @@ defmodule AWS.ChimeSDKIdentity do
   """
   @spec list_app_instance_users(
           map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_app_instance_users_response(), any()}
@@ -1902,9 +1902,9 @@ defmodule AWS.ChimeSDKIdentity do
           | {:error, list_app_instance_users_errors()}
   def list_app_instance_users(
         %Client{} = client,
-        app_instance_arn,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        app_instance_arn,
         options \\ []
       ) do
     url_path = "/app-instance-users"
@@ -1912,8 +1912,8 @@ defmodule AWS.ChimeSDKIdentity do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(app_instance_arn) do
+        [{"app-instance-arn", app_instance_arn} | query_params]
       else
         query_params
       end
@@ -1926,8 +1926,8 @@ defmodule AWS.ChimeSDKIdentity do
       end
 
     query_params =
-      if !is_nil(app_instance_arn) do
-        [{"app-instance-arn", app_instance_arn} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -1946,21 +1946,21 @@ defmodule AWS.ChimeSDKIdentity do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_app_instances_errors()}
-  def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_app_instances(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/app-instances"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -2303,8 +2303,8 @@ defmodule AWS.ChimeSDKIdentity do
           | {:error, update_app_instance_user_endpoint_errors()}
   def update_app_instance_user_endpoint(
         %Client{} = client,
-        app_instance_user_arn,
         endpoint_id,
+        app_instance_user_arn,
         input,
         options \\ []
       ) do

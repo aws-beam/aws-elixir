@@ -21,267 +21,12 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      sse_description() :: %{
-        "Status" => list(any())
-      }
-      
-  """
-  @type sse_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_quota_for_customer_exceeded_fault() :: %{
+      subnet_group_in_use_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type node_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_node_response() :: %{
-        "Cluster" => cluster()
-      }
-      
-  """
-  @type reboot_node_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_subnet_group_response() :: %{
-        "SubnetGroup" => subnet_group()
-      }
-      
-  """
-  @type create_subnet_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_parameter_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        required("ParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type create_parameter_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_parameter_groups_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ParameterGroups" => list(parameter_group())
-      }
-      
-  """
-  @type describe_parameter_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type untag_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cluster_response() :: %{
-        "Cluster" => cluster()
-      }
-      
-  """
-  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_parameter_group_response() :: %{
-        "ParameterGroup" => parameter_group()
-      }
-      
-  """
-  @type create_parameter_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_parameters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Source") => String.t() | atom(),
-        required("ParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_parameters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      security_group_membership() :: %{
-        "SecurityGroupIdentifier" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type security_group_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet() :: %{
-        "SubnetAvailabilityZone" => String.t() | atom(),
-        "SubnetIdentifier" => String.t() | atom(),
-        "SupportedNetworkTypes" => list(list(any())())
-      }
-      
-  """
-  @type subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_subnet() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_name_value() :: %{
-        "ParameterName" => String.t() | atom(),
-        "ParameterValue" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_name_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_parameters_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Parameters" => list(parameter())
-      }
-      
-  """
-  @type describe_parameters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_group_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_parameter_group_request() :: %{
-        required("ParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_parameter_group_request() :: %{(String.t() | atom()) => any()}
+  @type subnet_group_in_use_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -300,51 +45,25 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      tag_not_found_fault() :: %{
+      node_quota_for_customer_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type tag_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type node_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_cluster_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("NotificationTopicArn") => String.t() | atom(),
-        optional("NotificationTopicStatus") => String.t() | atom(),
-        optional("ParameterGroupName") => String.t() | atom(),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        required("ClusterName") => String.t() | atom()
+      describe_parameter_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ParameterGroupNames") => list(String.t() | atom())
       }
       
   """
-  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_combination_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_vpc_network_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
+  @type describe_parameter_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,23 +80,163 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      subnet_not_allowed_fault() :: %{
-        "message" => String.t() | atom()
+      create_cluster_request() :: %{
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("ClusterEndpointEncryptionType") => list(any()),
+        required("ClusterName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("IamRoleArn") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
+        required("NodeType") => String.t() | atom(),
+        optional("NotificationTopicArn") => String.t() | atom(),
+        optional("ParameterGroupName") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        required("ReplicationFactor") => integer(),
+        optional("SSESpecification") => sse_specification(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SubnetGroupName") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type subnet_not_allowed_fault() :: %{(String.t() | atom()) => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_subnet_group_request() :: %{
-        required("SubnetGroupName") => String.t() | atom()
+      create_parameter_group_response() :: %{
+        "ParameterGroup" => parameter_group()
       }
       
   """
-  @type delete_subnet_group_request() :: %{(String.t() | atom()) => any()}
+  @type create_parameter_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_in_use() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type untag_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_subnet_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("SubnetGroupName") => String.t() | atom(),
+        optional("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_subnet_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subnet_group_response() :: %{
+        "DeletionMessage" => String.t() | atom()
+      }
+      
+  """
+  @type delete_subnet_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_parameters_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Parameters" => list(parameter())
+      }
+      
+  """
+  @type describe_parameters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sse_specification() :: %{
+        "Enabled" => boolean()
+      }
+      
+  """
+  @type sse_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "Port" => integer(),
+        "URL" => String.t() | atom()
+      }
+      
+  """
+  @type endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{}
+      
+  """
+  @type service_quota_exceeded_exception() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_clusters_request() :: %{
+        optional("ClusterNames") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subnet_group_response() :: %{
+        "SubnetGroup" => subnet_group()
+      }
+      
+  """
+  @type create_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -398,6 +257,101 @@ defmodule AWS.DAX do
 
   ## Example:
       
+      dax_node() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "Endpoint" => endpoint(),
+        "NodeCreateTime" => non_neg_integer(),
+        "NodeId" => String.t() | atom(),
+        "NodeStatus" => String.t() | atom(),
+        "ParameterGroupStatus" => String.t() | atom()
+      }
+      
+  """
+  @type dax_node() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_arn_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_arn_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceName") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type tag_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_quota_for_cluster_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type node_quota_for_cluster_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_name_value() :: %{
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_name_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type tag_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       decrease_replication_factor_response() :: %{
         "Cluster" => cluster()
       }
@@ -409,50 +363,12 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      create_cluster_request() :: %{
-        optional("AvailabilityZones") => list(String.t() | atom()),
-        optional("ClusterEndpointEncryptionType") => list(any()),
-        optional("Description") => String.t() | atom(),
-        optional("NetworkType") => list(any()),
-        optional("NotificationTopicArn") => String.t() | atom(),
-        optional("ParameterGroupName") => String.t() | atom(),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("SSESpecification") => sse_specification(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("SubnetGroupName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ClusterName") => String.t() | atom(),
-        required("IamRoleArn") => String.t() | atom(),
-        required("NodeType") => String.t() | atom(),
-        required("ReplicationFactor") => integer()
+      invalid_vpc_network_state_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_default_parameters_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Parameters" => list(parameter())
-      }
-      
-  """
-  @type describe_default_parameters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -487,32 +403,229 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      subnet_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
+      security_group_membership() :: %{
+        "SecurityGroupIdentifier" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{}
+      notification_configuration() :: %{
+        "TopicArn" => String.t() | atom(),
+        "TopicStatus" => String.t() | atom()
+      }
       
   """
-  @type service_quota_exceeded_exception() :: %{}
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_parameter_value_exception() :: %{
+      invalid_parameter_group_state_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type node_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_linked_role_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_linked_role_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_parameter_group_response() :: %{
+        "DeletionMessage" => String.t() | atom()
+      }
+      
+  """
+  @type delete_parameter_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_subnet_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SubnetGroupNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_subnet_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cluster_request() :: %{
+        required("ClusterName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_request() :: %{
+        required("ClusterName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("NotificationTopicArn") => String.t() | atom(),
+        optional("NotificationTopicStatus") => String.t() | atom(),
+        optional("ParameterGroupName") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("SecurityGroupIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_subnet_group_response() :: %{
+        "SubnetGroup" => subnet_group()
+      }
+      
+  """
+  @type update_subnet_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_default_parameters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_default_parameters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_type_specific_value() :: %{
+        "NodeType" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type node_type_specific_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_quota_for_customer_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_events_request() :: %{
+        optional("Duration") => integer(),
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceName") => String.t() | atom(),
+        optional("SourceType") => list(any()),
+        optional("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type describe_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_parameter_group_response() :: %{
+        "ParameterGroup" => parameter_group()
+      }
+      
+  """
+  @type update_parameter_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_not_allowed_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_not_allowed_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -531,6 +644,18 @@ defmodule AWS.DAX do
 
   ## Example:
       
+      describe_clusters_response() :: %{
+        "Clusters" => list(cluster()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_subnet_groups_response() :: %{
         "NextToken" => String.t() | atom(),
         "SubnetGroups" => list(subnet_group())
@@ -538,6 +663,244 @@ defmodule AWS.DAX do
       
   """
   @type describe_subnet_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sse_description() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type sse_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_value_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_combination_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_node_request() :: %{
+        required("ClusterName") => String.t() | atom(),
+        required("NodeId") => String.t() | atom()
+      }
+      
+  """
+  @type reboot_node_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_group() :: %{
+        "Description" => String.t() | atom(),
+        "ParameterGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_parameter_group_request() :: %{
+        required("ParameterGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_parameter_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      increase_replication_factor_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type increase_replication_factor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subnet_group_request() :: %{
+        required("SubnetGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_subnet_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subnet_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("SubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_subnet_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_subnet() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_cluster_capacity_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -563,78 +926,6 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      update_subnet_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("SubnetIds") => list(String.t() | atom()),
-        required("SubnetGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type update_subnet_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_arn_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_arn_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_default_parameters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_default_parameters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_subnet_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        required("SubnetGroupName") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_subnet_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_type_specific_value() :: %{
-        "NodeType" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type node_type_specific_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       delete_cluster_response() :: %{
         "Cluster" => cluster()
       }
@@ -646,89 +937,62 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      delete_subnet_group_response() :: %{
-        "DeletionMessage" => String.t() | atom()
+      describe_parameter_groups_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ParameterGroups" => list(parameter_group())
       }
       
   """
-  @type delete_subnet_group_response() :: %{(String.t() | atom()) => any()}
+  @type describe_parameter_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      decrease_replication_factor_request() :: %{
-        optional("AvailabilityZones") => list(String.t() | atom()),
-        optional("NodeIdsToRemove") => list(String.t() | atom()),
-        required("ClusterName") => String.t() | atom(),
-        required("NewReplicationFactor") => integer()
+      describe_events_response() :: %{
+        "Events" => list(event()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type decrease_replication_factor_request() :: %{(String.t() | atom()) => any()}
+  @type describe_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cluster_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t() | atom()
+      describe_default_parameters_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Parameters" => list(parameter())
       }
       
   """
-  @type cluster_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type describe_default_parameters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      notification_configuration() :: %{
-        "TopicArn" => String.t() | atom(),
-        "TopicStatus" => String.t() | atom()
+      create_parameter_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type notification_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_parameter_group_response() :: %{
-        "DeletionMessage" => String.t() | atom()
+      subnet() :: %{
+        "SubnetAvailabilityZone" => String.t() | atom(),
+        "SubnetIdentifier" => String.t() | atom(),
+        "SupportedNetworkTypes" => list(list(any())())
       }
       
   """
-  @type delete_parameter_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint() :: %{
-        "Address" => String.t() | atom(),
-        "Port" => integer(),
-        "URL" => String.t() | atom()
-      }
-      
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dax_node() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "Endpoint" => endpoint(),
-        "NodeCreateTime" => non_neg_integer(),
-        "NodeId" => String.t() | atom(),
-        "NodeStatus" => String.t() | atom(),
-        "ParameterGroupStatus" => String.t() | atom()
-      }
-      
-  """
-  @type dax_node() :: %{(String.t() | atom()) => any()}
+  @type subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -748,145 +1012,29 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      delete_cluster_request() :: %{
-        required("ClusterName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_events_request() :: %{
-        optional("Duration") => integer(),
-        optional("EndTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SourceName") => String.t() | atom(),
-        optional("SourceType") => list(any()),
-        optional("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type describe_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_subnet_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SubnetGroupNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_subnet_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_in_use() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_in_use() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_linked_role_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_linked_role_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      increase_replication_factor_response() :: %{
-        "Cluster" => cluster()
-      }
-      
-  """
-  @type increase_replication_factor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sse_specification() :: %{
-        "Enabled" => boolean()
-      }
-      
-  """
-  @type sse_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type tag_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_parameter_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ParameterGroupNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_parameter_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_clusters_response() :: %{
-        "Clusters" => list(cluster()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_node_request() :: %{
+      decrease_replication_factor_request() :: %{
+        optional("AvailabilityZones") => list(String.t() | atom()),
         required("ClusterName") => String.t() | atom(),
-        required("NodeId") => String.t() | atom()
+        required("NewReplicationFactor") => integer(),
+        optional("NodeIdsToRemove") => list(String.t() | atom())
       }
       
   """
-  @type reboot_node_request() :: %{(String.t() | atom()) => any()}
+  @type decrease_replication_factor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_parameters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ParameterGroupName") => String.t() | atom(),
+        optional("Source") => String.t() | atom()
+      }
+      
+  """
+  @type describe_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -898,28 +1046,6 @@ defmodule AWS.DAX do
       
   """
   @type invalid_cluster_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_parameter_group_response() :: %{
-        "ParameterGroup" => parameter_group()
-      }
-      
-  """
-  @type update_parameter_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_group_in_use_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_group_in_use_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -937,298 +1063,172 @@ defmodule AWS.DAX do
 
   ## Example:
       
-      parameter_group() :: %{
-        "Description" => String.t() | atom(),
-        "ParameterGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_cluster_capacity_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceName") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type node_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_clusters_request() :: %{
-        optional("ClusterNames") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_events_response() :: %{
-        "Events" => list(event()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_subnet_group_response() :: %{
-        "SubnetGroup" => subnet_group()
-      }
-      
-  """
-  @type update_subnet_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_quota_for_cluster_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type node_quota_for_cluster_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cluster_response() :: %{
+      reboot_node_response() :: %{
         "Cluster" => cluster()
       }
       
   """
-  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type reboot_node_response() :: %{(String.t() | atom()) => any()}
 
   @type create_cluster_errors() ::
-          node_quota_for_cluster_exceeded_fault()
-          | parameter_group_not_found_fault()
-          | cluster_already_exists_fault()
+          invalid_cluster_state_fault()
           | insufficient_cluster_capacity_fault()
-          | invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | cluster_quota_for_customer_exceeded_fault()
-          | invalid_parameter_value_exception()
-          | service_quota_exceeded_exception()
-          | tag_quota_per_resource_exceeded()
-          | invalid_vpc_network_state_fault()
           | invalid_parameter_combination_exception()
-          | subnet_group_not_found_fault()
+          | cluster_already_exists_fault()
+          | invalid_parameter_value_exception()
+          | parameter_group_not_found_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | service_linked_role_not_found_fault()
           | invalid_parameter_group_state_fault()
+          | invalid_vpc_network_state_fault()
+          | node_quota_for_cluster_exceeded_fault()
+          | service_quota_exceeded_exception()
+          | subnet_group_not_found_fault()
+          | tag_quota_per_resource_exceeded()
           | node_quota_for_customer_exceeded_fault()
 
   @type create_parameter_group_errors() ::
-          service_linked_role_not_found_fault()
-          | parameter_group_quota_exceeded_fault()
-          | parameter_group_already_exists_fault()
-          | invalid_parameter_value_exception()
+          parameter_group_already_exists_fault()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | parameter_group_quota_exceeded_fault()
+          | service_linked_role_not_found_fault()
           | invalid_parameter_group_state_fault()
 
   @type create_subnet_group_errors() ::
-          subnet_quota_exceeded_fault()
-          | service_linked_role_not_found_fault()
+          invalid_subnet()
           | subnet_group_quota_exceeded_fault()
+          | subnet_quota_exceeded_fault()
           | subnet_not_allowed_fault()
-          | invalid_subnet()
           | subnet_group_already_exists_fault()
+          | service_linked_role_not_found_fault()
 
   @type decrease_replication_factor_errors() ::
-          node_not_found_fault()
-          | invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_parameter_value_exception()
+          invalid_cluster_state_fault()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | service_linked_role_not_found_fault()
+          | node_not_found_fault()
           | cluster_not_found_fault()
 
   @type delete_cluster_errors() ::
           invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | service_linked_role_not_found_fault()
           | cluster_not_found_fault()
 
   @type delete_parameter_group_errors() ::
-          parameter_group_not_found_fault()
-          | service_linked_role_not_found_fault()
+          invalid_parameter_combination_exception()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          | parameter_group_not_found_fault()
+          | service_linked_role_not_found_fault()
           | invalid_parameter_group_state_fault()
 
   @type delete_subnet_group_errors() ::
-          subnet_group_in_use_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
           | subnet_group_not_found_fault()
+          | subnet_group_in_use_fault()
 
   @type describe_clusters_errors() ::
-          service_linked_role_not_found_fault()
+          invalid_parameter_combination_exception()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          | service_linked_role_not_found_fault()
           | cluster_not_found_fault()
 
   @type describe_default_parameters_errors() ::
-          service_linked_role_not_found_fault()
+          invalid_parameter_combination_exception()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          | service_linked_role_not_found_fault()
 
   @type describe_events_errors() ::
-          service_linked_role_not_found_fault()
+          invalid_parameter_combination_exception()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          | service_linked_role_not_found_fault()
 
   @type describe_parameter_groups_errors() ::
-          parameter_group_not_found_fault()
-          | service_linked_role_not_found_fault()
+          invalid_parameter_combination_exception()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          | parameter_group_not_found_fault()
+          | service_linked_role_not_found_fault()
 
   @type describe_parameters_errors() ::
-          parameter_group_not_found_fault()
-          | service_linked_role_not_found_fault()
+          invalid_parameter_combination_exception()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          | parameter_group_not_found_fault()
+          | service_linked_role_not_found_fault()
 
   @type describe_subnet_groups_errors() ::
           service_linked_role_not_found_fault() | subnet_group_not_found_fault()
 
   @type increase_replication_factor_errors() ::
-          node_quota_for_cluster_exceeded_fault()
+          invalid_cluster_state_fault()
           | insufficient_cluster_capacity_fault()
-          | invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_parameter_value_exception()
-          | invalid_vpc_network_state_fault()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | service_linked_role_not_found_fault()
+          | invalid_vpc_network_state_fault()
+          | node_quota_for_cluster_exceeded_fault()
           | cluster_not_found_fault()
           | node_quota_for_customer_exceeded_fault()
 
   @type list_tags_errors() ::
           invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_arn_fault()
-          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | service_linked_role_not_found_fault()
           | cluster_not_found_fault()
+          | invalid_arn_fault()
 
   @type reboot_node_errors() ::
-          node_not_found_fault()
-          | invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_parameter_value_exception()
+          invalid_cluster_state_fault()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | service_linked_role_not_found_fault()
+          | node_not_found_fault()
           | cluster_not_found_fault()
 
   @type tag_resource_errors() ::
           invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_arn_fault()
-          | invalid_parameter_value_exception()
-          | tag_quota_per_resource_exceeded()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | service_linked_role_not_found_fault()
           | cluster_not_found_fault()
+          | invalid_arn_fault()
+          | tag_quota_per_resource_exceeded()
 
   @type untag_resource_errors() ::
           invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_arn_fault()
-          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | service_linked_role_not_found_fault()
           | tag_not_found_fault()
           | cluster_not_found_fault()
+          | invalid_arn_fault()
 
   @type update_cluster_errors() ::
-          parameter_group_not_found_fault()
-          | invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | invalid_parameter_value_exception()
+          invalid_cluster_state_fault()
           | invalid_parameter_combination_exception()
+          | invalid_parameter_value_exception()
+          | parameter_group_not_found_fault()
+          | service_linked_role_not_found_fault()
           | invalid_parameter_group_state_fault()
           | cluster_not_found_fault()
 
   @type update_parameter_group_errors() ::
-          parameter_group_not_found_fault()
-          | service_linked_role_not_found_fault()
+          invalid_parameter_combination_exception()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
+          | parameter_group_not_found_fault()
+          | service_linked_role_not_found_fault()
           | invalid_parameter_group_state_fault()
 
   @type update_subnet_group_errors() ::
-          subnet_quota_exceeded_fault()
-          | service_linked_role_not_found_fault()
-          | subnet_in_use()
+          invalid_subnet()
+          | subnet_quota_exceeded_fault()
           | subnet_not_allowed_fault()
+          | service_linked_role_not_found_fault()
           | subnet_group_not_found_fault()
-          | invalid_subnet()
+          | subnet_in_use()
 
   def metadata do
     %{
@@ -1257,7 +1257,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1274,7 +1275,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
@@ -1288,7 +1290,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
@@ -1306,7 +1309,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, decrease_replication_factor_errors()}
   def decrease_replication_factor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecreaseReplicationFactor", input, options)
   end
@@ -1325,7 +1329,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -1342,7 +1347,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
@@ -1359,7 +1365,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
@@ -1390,7 +1397,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -1405,7 +1413,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_default_parameters_errors()}
   def describe_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDefaultParameters", input, options)
   end
@@ -1426,7 +1435,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -1443,7 +1453,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
@@ -1457,7 +1468,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
@@ -1474,7 +1486,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
@@ -1488,7 +1501,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, increase_replication_factor_errors()}
   def increase_replication_factor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IncreaseReplicationFactor", input, options)
   end
@@ -1505,7 +1519,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -1526,7 +1541,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, reboot_node_errors()}
   def reboot_node(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootNode", input, options)
   end
@@ -1543,7 +1559,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1560,7 +1577,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1579,7 +1597,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -1596,7 +1615,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
@@ -1610,7 +1630,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end

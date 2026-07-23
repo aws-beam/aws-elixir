@@ -21,40 +21,755 @@ defmodule AWS.Amplify do
 
   ## Example:
 
-      app() :: %{
-        "appArn" => String.t() | atom(),
-        "appId" => String.t() | atom(),
-        "autoBranchCreationConfig" => auto_branch_creation_config(),
-        "autoBranchCreationPatterns" => list(String.t() | atom()),
-        "basicAuthCredentials" => String.t() | atom(),
-        "buildSpec" => String.t() | atom(),
-        "cacheConfig" => cache_config(),
-        "computeRoleArn" => String.t() | atom(),
-        "createTime" => non_neg_integer(),
-        "customHeaders" => String.t() | atom(),
-        "customRules" => list(custom_rule()),
-        "defaultDomain" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "enableAutoBranchCreation" => boolean(),
-        "enableBasicAuth" => boolean(),
-        "enableBranchAutoBuild" => boolean(),
-        "enableBranchAutoDeletion" => boolean(),
-        "environmentVariables" => map(),
-        "iamServiceRoleArn" => String.t() | atom(),
-        "jobConfig" => job_config(),
-        "name" => String.t() | atom(),
-        "platform" => list(any()),
-        "productionBranch" => production_branch(),
-        "repository" => String.t() | atom(),
-        "repositoryCloneMethod" => list(any()),
-        "tags" => map(),
-        "updateTime" => non_neg_integer(),
-        "wafConfiguration" => waf_configuration(),
-        "webhookCreateTime" => non_neg_integer()
+      get_branch_result() :: %{
+        "branch" => branch()
       }
 
   """
-  @type app() :: %{(String.t() | atom()) => any()}
+  @type get_branch_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_webhook_request() :: %{
+        required("branchName") => String.t() | atom(),
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type create_webhook_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backend() :: %{
+        "stackArn" => String.t() | atom()
+      }
+
+  """
+  @type backend() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_webhook_request() :: %{
+        optional("branchName") => String.t() | atom(),
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_webhook_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_association_request() :: %{
+        optional("autoSubDomainCreationPatterns") => list(String.t() | atom()),
+        optional("autoSubDomainIAMRole") => String.t() | atom(),
+        optional("certificateSettings") => certificate_settings(),
+        optional("enableAutoSubDomain") => boolean(),
+        optional("subDomainSettings") => list(sub_domain_setting())
+      }
+
+  """
+  @type update_domain_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_webhook_request() :: %{}
+
+  """
+  @type get_webhook_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_artifact_url_request() :: %{}
+
+  """
+  @type get_artifact_url_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apps_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_apps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_association_request() :: %{
+        optional("autoSubDomainCreationPatterns") => list(String.t() | atom()),
+        optional("autoSubDomainIAMRole") => String.t() | atom(),
+        optional("certificateSettings") => certificate_settings(),
+        required("domainName") => String.t() | atom(),
+        optional("enableAutoSubDomain") => boolean(),
+        required("subDomainSettings") => list(sub_domain_setting())
+      }
+
+  """
+  @type create_domain_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_environment_request() :: %{}
+
+  """
+  @type get_backend_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sub_domain_setting() :: %{
+        "branchName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
+      }
+
+  """
+  @type sub_domain_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_branch_result() :: %{
+        "branch" => branch()
+      }
+
+  """
+  @type delete_branch_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_association() :: %{
+        "autoSubDomainCreationPatterns" => list(String.t() | atom()),
+        "autoSubDomainIAMRole" => String.t() | atom(),
+        "certificate" => certificate(),
+        "certificateVerificationDNSRecord" => String.t() | atom(),
+        "domainAssociationArn" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "domainStatus" => list(any()),
+        "enableAutoSubDomain" => boolean(),
+        "statusReason" => String.t() | atom(),
+        "subDomains" => list(sub_domain()),
+        "updateStatus" => list(any())
+      }
+
+  """
+  @type domain_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_association_result() :: %{
+        "domainAssociation" => domain_association()
+      }
+
+  """
+  @type get_domain_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_job_result() :: %{
+        "jobSummary" => job_summary()
+      }
+
+  """
+  @type stop_job_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_branch_result() :: %{
+        "branch" => branch()
+      }
+
+  """
+  @type update_branch_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_request() :: %{
+        optional("commitId") => String.t() | atom(),
+        optional("commitMessage") => String.t() | atom(),
+        optional("commitTime") => non_neg_integer(),
+        optional("jobId") => String.t() | atom(),
+        optional("jobReason") => String.t() | atom(),
+        required("jobType") => list(any())
+      }
+
+  """
+  @type start_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_association_request() :: %{}
+
+  """
+  @type delete_domain_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_webhook_result() :: %{
+        "webhook" => webhook()
+      }
+
+  """
+  @type get_webhook_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_request() :: %{
+        optional("accessToken") => String.t() | atom(),
+        optional("autoBranchCreationConfig") => auto_branch_creation_config(),
+        optional("autoBranchCreationPatterns") => list(String.t() | atom()),
+        optional("basicAuthCredentials") => String.t() | atom(),
+        optional("buildSpec") => String.t() | atom(),
+        optional("cacheConfig") => cache_config(),
+        optional("computeRoleArn") => String.t() | atom(),
+        optional("customHeaders") => String.t() | atom(),
+        optional("customRules") => list(custom_rule()),
+        optional("description") => String.t() | atom(),
+        optional("enableAutoBranchCreation") => boolean(),
+        optional("enableBasicAuth") => boolean(),
+        optional("enableBranchAutoBuild") => boolean(),
+        optional("enableBranchAutoDeletion") => boolean(),
+        optional("environmentVariables") => map(),
+        optional("iamServiceRoleArn") => String.t() | atom(),
+        optional("jobConfig") => job_config(),
+        required("name") => String.t() | atom(),
+        optional("oauthToken") => String.t() | atom(),
+        optional("platform") => list(any()),
+        optional("repository") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_branches_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_branches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_request() :: %{}
+
+  """
+  @type delete_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate() :: %{
+        "certificateVerificationDNSRecord" => String.t() | atom(),
+        "customCertificateArn" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_artifacts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_artifacts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_branch_request() :: %{}
+
+  """
+  @type delete_branch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apps_result() :: %{
+        "apps" => list(app()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_apps_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_result() :: %{
+        "jobSummaries" => list(job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_environment_request() :: %{}
+
+  """
+  @type delete_backend_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_artifact_url_result() :: %{
+        "artifactId" => String.t() | atom(),
+        "artifactUrl" => String.t() | atom()
+      }
+
+  """
+  @type get_artifact_url_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      artifact() :: %{
+        "artifactFileName" => String.t() | atom(),
+        "artifactId" => String.t() | atom()
+      }
+
+  """
+  @type artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_branch_request() :: %{}
+
+  """
+  @type get_branch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_webhooks_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "webhooks" => list(webhook())
+      }
+
+  """
+  @type list_webhooks_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_rule() :: %{
+        "condition" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "target" => String.t() | atom()
+      }
+
+  """
+  @type custom_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cache_config() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type cache_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_webhook_result() :: %{
+        "webhook" => webhook()
+      }
+
+  """
+  @type create_webhook_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_backend_environment_result() :: %{
+        "backendEnvironment" => backend_environment()
+      }
+
+  """
+  @type get_backend_environment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_result() :: %{
+        "app" => app()
+      }
+
+  """
+  @type create_app_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_request() :: %{}
+
+  """
+  @type get_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_association_result() :: %{
+        "domainAssociation" => domain_association()
+      }
+
+  """
+  @type delete_domain_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_summary() :: %{
+        "commitId" => String.t() | atom(),
+        "commitMessage" => String.t() | atom(),
+        "commitTime" => non_neg_integer(),
+        "endTime" => non_neg_integer(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "jobType" => list(any()),
+        "sourceUrl" => String.t() | atom(),
+        "sourceUrlType" => list(any()),
+        "startTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_deployment_result() :: %{
+        "jobSummary" => job_summary()
+      }
+
+  """
+  @type start_deployment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_webhook_request() :: %{}
+
+  """
+  @type delete_webhook_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_result() :: %{
+        "jobSummary" => job_summary()
+      }
+
+  """
+  @type start_job_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_request() :: %{}
+
+  """
+  @type get_app_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_branch_request() :: %{
+        optional("backend") => backend(),
+        optional("backendEnvironmentArn") => String.t() | atom(),
+        optional("basicAuthCredentials") => String.t() | atom(),
+        optional("buildSpec") => String.t() | atom(),
+        optional("computeRoleArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("enableAutoBuild") => boolean(),
+        optional("enableBasicAuth") => boolean(),
+        optional("enableNotification") => boolean(),
+        optional("enablePerformanceMode") => boolean(),
+        optional("enablePullRequestPreview") => boolean(),
+        optional("enableSkewProtection") => boolean(),
+        optional("environmentVariables") => map(),
+        optional("framework") => String.t() | atom(),
+        optional("pullRequestEnvironmentName") => String.t() | atom(),
+        optional("stage") => list(any()),
+        optional("ttl") => String.t() | atom()
+      }
+
+  """
+  @type update_branch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step() :: %{
+        "artifactsUrl" => String.t() | atom(),
+        "context" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "logUrl" => String.t() | atom(),
+        "screenshots" => map(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "stepName" => String.t() | atom(),
+        "testArtifactsUrl" => String.t() | atom(),
+        "testConfigUrl" => String.t() | atom()
+      }
+
+  """
+  @type step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_webhooks_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_webhooks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_job_request() :: %{}
+
+  """
+  @type stop_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      webhook() :: %{
+        "appId" => String.t() | atom(),
+        "branchName" => String.t() | atom(),
+        "createTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "updateTime" => non_neg_integer(),
+        "webhookArn" => String.t() | atom(),
+        "webhookId" => String.t() | atom(),
+        "webhookUrl" => String.t() | atom()
+      }
+
+  """
+  @type webhook() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_environment_result() :: %{
+        "backendEnvironment" => backend_environment()
+      }
+
+  """
+  @type create_backend_environment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_association_result() :: %{
+        "domainAssociation" => domain_association()
+      }
+
+  """
+  @type create_domain_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_associations_result() :: %{
+        "domainAssociations" => list(domain_association()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_associations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      production_branch() :: %{
+        "branchName" => String.t() | atom(),
+        "lastDeployTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "thumbnailUrl" => String.t() | atom()
+      }
+
+  """
+  @type production_branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,237 +815,12 @@ defmodule AWS.Amplify do
 
   ## Example:
 
-      start_job_result() :: %{
-        "jobSummary" => job_summary()
+      delete_app_result() :: %{
+        "app" => app()
       }
 
   """
-  @type start_job_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_association_request() :: %{}
-
-  """
-  @type get_domain_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_access_logs_result() :: %{
-        "logUrl" => String.t() | atom()
-      }
-
-  """
-  @type generate_access_logs_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sub_domain() :: %{
-        "dnsRecord" => String.t() | atom(),
-        "subDomainSetting" => sub_domain_setting(),
-        "verified" => boolean()
-      }
-
-  """
-  @type sub_domain() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_request() :: %{
-        optional("accessToken") => String.t() | atom(),
-        optional("autoBranchCreationConfig") => auto_branch_creation_config(),
-        optional("autoBranchCreationPatterns") => list(String.t() | atom()),
-        optional("basicAuthCredentials") => String.t() | atom(),
-        optional("buildSpec") => String.t() | atom(),
-        optional("cacheConfig") => cache_config(),
-        optional("computeRoleArn") => String.t() | atom(),
-        optional("customHeaders") => String.t() | atom(),
-        optional("customRules") => list(custom_rule()),
-        optional("description") => String.t() | atom(),
-        optional("enableAutoBranchCreation") => boolean(),
-        optional("enableBasicAuth") => boolean(),
-        optional("enableBranchAutoBuild") => boolean(),
-        optional("enableBranchAutoDeletion") => boolean(),
-        optional("environmentVariables") => map(),
-        optional("iamServiceRoleArn") => String.t() | atom(),
-        optional("jobConfig") => job_config(),
-        optional("oauthToken") => String.t() | atom(),
-        optional("platform") => list(any()),
-        optional("repository") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_app_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_branch_request() :: %{
-        optional("backend") => backend(),
-        optional("backendEnvironmentArn") => String.t() | atom(),
-        optional("basicAuthCredentials") => String.t() | atom(),
-        optional("buildSpec") => String.t() | atom(),
-        optional("computeRoleArn") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("enableAutoBuild") => boolean(),
-        optional("enableBasicAuth") => boolean(),
-        optional("enableNotification") => boolean(),
-        optional("enablePerformanceMode") => boolean(),
-        optional("enablePullRequestPreview") => boolean(),
-        optional("enableSkewProtection") => boolean(),
-        optional("environmentVariables") => map(),
-        optional("framework") => String.t() | atom(),
-        optional("pullRequestEnvironmentName") => String.t() | atom(),
-        optional("stage") => list(any()),
-        optional("tags") => map(),
-        optional("ttl") => String.t() | atom(),
-        required("branchName") => String.t() | atom()
-      }
-
-  """
-  @type create_branch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_result() :: %{
-        "jobSummaries" => list(job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_environment_result() :: %{
-        "backendEnvironment" => backend_environment()
-      }
-
-  """
-  @type create_backend_environment_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_association_request() :: %{
-        optional("autoSubDomainCreationPatterns") => list(String.t() | atom()),
-        optional("autoSubDomainIAMRole") => String.t() | atom(),
-        optional("certificateSettings") => certificate_settings(),
-        optional("enableAutoSubDomain") => boolean(),
-        optional("subDomainSettings") => list(sub_domain_setting())
-      }
-
-  """
-  @type update_domain_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_association_request() :: %{
-        optional("autoSubDomainCreationPatterns") => list(String.t() | atom()),
-        optional("autoSubDomainIAMRole") => String.t() | atom(),
-        optional("certificateSettings") => certificate_settings(),
-        optional("enableAutoSubDomain") => boolean(),
-        required("domainName") => String.t() | atom(),
-        required("subDomainSettings") => list(sub_domain_setting())
-      }
-
-  """
-  @type create_domain_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend() :: %{
-        "stackArn" => String.t() | atom()
-      }
-
-  """
-  @type backend() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_webhook_result() :: %{
-        "webhook" => webhook()
-      }
-
-  """
-  @type create_webhook_result() :: %{(String.t() | atom()) => any()}
+  @type delete_app_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,292 +832,6 @@ defmodule AWS.Amplify do
 
   """
   @type create_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_result() :: %{
-        "jobSummary" => job_summary()
-      }
-
-  """
-  @type delete_job_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_access_logs_request() :: %{
-        optional("endTime") => non_neg_integer(),
-        optional("startTime") => non_neg_integer(),
-        required("domainName") => String.t() | atom()
-      }
-
-  """
-  @type generate_access_logs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_branches_result() :: %{
-        "branches" => list(branch()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_branches_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_artifact_url_request() :: %{}
-
-  """
-  @type get_artifact_url_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_job_request() :: %{}
-
-  """
-  @type stop_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_association_request() :: %{}
-
-  """
-  @type delete_domain_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_backend_environments_result() :: %{
-        "backendEnvironments" => list(backend_environment()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_backend_environments_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_webhook_request() :: %{}
-
-  """
-  @type delete_webhook_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_apps_result() :: %{
-        "apps" => list(app()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_apps_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_backend_environment_request() :: %{
-        optional("deploymentArtifacts") => String.t() | atom(),
-        optional("stackName") => String.t() | atom(),
-        required("environmentName") => String.t() | atom()
-      }
-
-  """
-  @type create_backend_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backend_environment_result() :: %{
-        "backendEnvironment" => backend_environment()
-      }
-
-  """
-  @type delete_backend_environment_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_result() :: %{
-        "job" => job()
-      }
-
-  """
-  @type get_job_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_request() :: %{}
-
-  """
-  @type get_app_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_summary() :: %{
-        "commitId" => String.t() | atom(),
-        "commitMessage" => String.t() | atom(),
-        "commitTime" => non_neg_integer(),
-        "endTime" => non_neg_integer(),
-        "jobArn" => String.t() | atom(),
-        "jobId" => String.t() | atom(),
-        "jobType" => list(any()),
-        "sourceUrl" => String.t() | atom(),
-        "sourceUrlType" => list(any()),
-        "startTime" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sub_domain_setting() :: %{
-        "branchName" => String.t() | atom(),
-        "prefix" => String.t() | atom()
-      }
-
-  """
-  @type sub_domain_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_result() :: %{
-        "app" => app()
-      }
-
-  """
-  @type update_app_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_association() :: %{
-        "autoSubDomainCreationPatterns" => list(String.t() | atom()),
-        "autoSubDomainIAMRole" => String.t() | atom(),
-        "certificate" => certificate(),
-        "certificateVerificationDNSRecord" => String.t() | atom(),
-        "domainAssociationArn" => String.t() | atom(),
-        "domainName" => String.t() | atom(),
-        "domainStatus" => list(any()),
-        "enableAutoSubDomain" => boolean(),
-        "statusReason" => String.t() | atom(),
-        "subDomains" => list(sub_domain()),
-        "updateStatus" => list(any())
-      }
-
-  """
-  @type domain_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_environment_result() :: %{
-        "backendEnvironment" => backend_environment()
-      }
-
-  """
-  @type get_backend_environment_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_deployment_result() :: %{
-        "jobSummary" => job_summary()
-      }
-
-  """
-  @type start_deployment_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dependent_service_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type dependent_service_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_webhook_result() :: %{
-        "webhook" => webhook()
-      }
-
-  """
-  @type delete_webhook_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      production_branch() :: %{
-        "branchName" => String.t() | atom(),
-        "lastDeployTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "thumbnailUrl" => String.t() | atom()
-      }
-
-  """
-  @type production_branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,163 +850,6 @@ defmodule AWS.Amplify do
 
   ## Example:
 
-      update_webhook_request() :: %{
-        optional("branchName") => String.t() | atom(),
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_webhook_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_webhooks_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "webhooks" => list(webhook())
-      }
-
-  """
-  @type list_webhooks_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_webhook_request() :: %{
-        optional("description") => String.t() | atom(),
-        required("branchName") => String.t() | atom()
-      }
-
-  """
-  @type create_webhook_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_environment() :: %{
-        "backendEnvironmentArn" => String.t() | atom(),
-        "createTime" => non_neg_integer(),
-        "deploymentArtifacts" => String.t() | atom(),
-        "environmentName" => String.t() | atom(),
-        "stackName" => String.t() | atom(),
-        "updateTime" => non_neg_integer()
-      }
-
-  """
-  @type backend_environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      waf_configuration() :: %{
-        "statusReason" => String.t() | atom(),
-        "wafStatus" => list(any()),
-        "webAclArn" => String.t() | atom()
-      }
-
-  """
-  @type waf_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_result() :: %{
-        "app" => app()
-      }
-
-  """
-  @type delete_app_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_branch_result() :: %{
-        "branch" => branch()
-      }
-
-  """
-  @type update_branch_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_branch_request() :: %{}
-
-  """
-  @type get_branch_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_domain_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_job_request() :: %{
-        optional("commitId") => String.t() | atom(),
-        optional("commitMessage") => String.t() | atom(),
-        optional("commitTime") => non_neg_integer(),
-        optional("jobId") => String.t() | atom(),
-        optional("jobReason") => String.t() | atom(),
-        required("jobType") => list(any())
-      }
-
-  """
-  @type start_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cache_config() :: %{
-        "type" => list(any())
-      }
-
-  """
-  @type cache_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_backend_environments_request() :: %{
         optional("environmentName") => String.t() | atom(),
         optional("maxResults") => integer(),
@@ -811,192 +858,6 @@ defmodule AWS.Amplify do
 
   """
   @type list_backend_environments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_backend_environment_request() :: %{}
-
-  """
-  @type delete_backend_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_rule() :: %{
-        "condition" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "target" => String.t() | atom()
-      }
-
-  """
-  @type custom_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_branch_result() :: %{
-        "branch" => branch()
-      }
-
-  """
-  @type create_branch_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate() :: %{
-        "certificateVerificationDNSRecord" => String.t() | atom(),
-        "customCertificateArn" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_branch_request() :: %{}
-
-  """
-  @type delete_branch_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_webhook_request() :: %{}
-
-  """
-  @type get_webhook_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_request() :: %{}
-
-  """
-  @type delete_app_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job_config() :: %{
-        "buildComputeType" => list(any())
-      }
-
-  """
-  @type job_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_branch_request() :: %{
-        optional("backend") => backend(),
-        optional("backendEnvironmentArn") => String.t() | atom(),
-        optional("basicAuthCredentials") => String.t() | atom(),
-        optional("buildSpec") => String.t() | atom(),
-        optional("computeRoleArn") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("enableAutoBuild") => boolean(),
-        optional("enableBasicAuth") => boolean(),
-        optional("enableNotification") => boolean(),
-        optional("enablePerformanceMode") => boolean(),
-        optional("enablePullRequestPreview") => boolean(),
-        optional("enableSkewProtection") => boolean(),
-        optional("environmentVariables") => map(),
-        optional("framework") => String.t() | atom(),
-        optional("pullRequestEnvironmentName") => String.t() | atom(),
-        optional("stage") => list(any()),
-        optional("ttl") => String.t() | atom()
-      }
-
-  """
-  @type update_branch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_association_result() :: %{
-        "domainAssociation" => domain_association()
-      }
-
-  """
-  @type update_domain_association_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_request() :: %{}
-
-  """
-  @type delete_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_association_result() :: %{
-        "domainAssociation" => domain_association()
-      }
-
-  """
-  @type get_domain_association_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job() :: %{
-        "steps" => list(step()),
-        "summary" => job_summary()
-      }
-
-  """
-  @type job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_artifacts_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_artifacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1033,188 +894,54 @@ defmodule AWS.Amplify do
 
   ## Example:
 
-      get_job_request() :: %{}
-
-  """
-  @type get_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_settings() :: %{
-        "customCertificateArn" => String.t() | atom(),
-        "type" => list(any())
+      create_branch_request() :: %{
+        optional("backend") => backend(),
+        optional("backendEnvironmentArn") => String.t() | atom(),
+        optional("basicAuthCredentials") => String.t() | atom(),
+        required("branchName") => String.t() | atom(),
+        optional("buildSpec") => String.t() | atom(),
+        optional("computeRoleArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("enableAutoBuild") => boolean(),
+        optional("enableBasicAuth") => boolean(),
+        optional("enableNotification") => boolean(),
+        optional("enablePerformanceMode") => boolean(),
+        optional("enablePullRequestPreview") => boolean(),
+        optional("enableSkewProtection") => boolean(),
+        optional("environmentVariables") => map(),
+        optional("framework") => String.t() | atom(),
+        optional("pullRequestEnvironmentName") => String.t() | atom(),
+        optional("stage") => list(any()),
+        optional("tags") => map(),
+        optional("ttl") => String.t() | atom()
       }
 
   """
-  @type certificate_settings() :: %{(String.t() | atom()) => any()}
+  @type create_branch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("tags") => map()
       }
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_apps_request() :: %{
+      list_domain_associations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_apps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_result() :: %{
-        "app" => app()
-      }
-
-  """
-  @type get_app_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_association_result() :: %{
-        "domainAssociation" => domain_association()
-      }
-
-  """
-  @type delete_domain_association_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      artifact() :: %{
-        "artifactFileName" => String.t() | atom(),
-        "artifactId" => String.t() | atom()
-      }
-
-  """
-  @type artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_artifacts_result() :: %{
-        "artifacts" => list(artifact()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_artifacts_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_webhook_result() :: %{
-        "webhook" => webhook()
-      }
-
-  """
-  @type get_webhook_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      step() :: %{
-        "artifactsUrl" => String.t() | atom(),
-        "context" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "logUrl" => String.t() | atom(),
-        "screenshots" => map(),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "statusReason" => String.t() | atom(),
-        "stepName" => String.t() | atom(),
-        "testArtifactsUrl" => String.t() | atom(),
-        "testConfigUrl" => String.t() | atom()
-      }
-
-  """
-  @type step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_webhooks_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_webhooks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_branch_result() :: %{
-        "branch" => branch()
-      }
-
-  """
-  @type get_branch_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_branch_result() :: %{
-        "branch" => branch()
-      }
-
-  """
-  @type delete_branch_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_result() :: %{
-        "app" => app()
-      }
-
-  """
-  @type create_app_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_backend_environment_request() :: %{}
-
-  """
-  @type get_backend_environment_request() :: %{}
+  @type list_domain_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1240,66 +967,94 @@ defmodule AWS.Amplify do
 
   ## Example:
 
-      list_branches_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      certificate_settings() :: %{
+        "customCertificateArn" => String.t() | atom(),
+        "type" => list(any())
       }
 
   """
-  @type list_branches_request() :: %{(String.t() | atom()) => any()}
+  @type certificate_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_artifact_url_result() :: %{
-        "artifactId" => String.t() | atom(),
-        "artifactUrl" => String.t() | atom()
+      dependent_service_failure_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type get_artifact_url_result() :: %{(String.t() | atom()) => any()}
+  @type dependent_service_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_domain_associations_result() :: %{
-        "domainAssociations" => list(domain_association()),
+      list_artifacts_result() :: %{
+        "artifacts" => list(artifact()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_domain_associations_result() :: %{(String.t() | atom()) => any()}
+  @type list_artifacts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      webhook() :: %{
-        "appId" => String.t() | atom(),
-        "branchName" => String.t() | atom(),
-        "createTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "updateTime" => non_neg_integer(),
-        "webhookArn" => String.t() | atom(),
-        "webhookId" => String.t() | atom(),
-        "webhookUrl" => String.t() | atom()
+      list_backend_environments_result() :: %{
+        "backendEnvironments" => list(backend_environment()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type webhook() :: %{(String.t() | atom()) => any()}
+  @type list_backend_environments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_job_result() :: %{
-        "jobSummary" => job_summary()
+      generate_access_logs_request() :: %{
+        required("domainName") => String.t() | atom(),
+        optional("endTime") => non_neg_integer(),
+        optional("startTime") => non_neg_integer()
       }
 
   """
-  @type stop_job_result() :: %{(String.t() | atom()) => any()}
+  @type generate_access_logs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_backend_environment_result() :: %{
+        "backendEnvironment" => backend_environment()
+      }
+
+  """
+  @type delete_backend_environment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_association_result() :: %{
+        "domainAssociation" => domain_association()
+      }
+
+  """
+  @type update_domain_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1318,12 +1073,148 @@ defmodule AWS.Amplify do
 
   ## Example:
 
-      create_domain_association_result() :: %{
-        "domainAssociation" => domain_association()
+      delete_app_request() :: %{}
+
+  """
+  @type delete_app_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job() :: %{
+        "steps" => list(step()),
+        "summary" => job_summary()
       }
 
   """
-  @type create_domain_association_result() :: %{(String.t() | atom()) => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_result() :: %{
+        "jobSummary" => job_summary()
+      }
+
+  """
+  @type delete_job_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_webhook_result() :: %{
+        "webhook" => webhook()
+      }
+
+  """
+  @type delete_webhook_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_branches_result() :: %{
+        "branches" => list(branch()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_branches_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_result() :: %{
+        "app" => app()
+      }
+
+  """
+  @type get_app_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_access_logs_result() :: %{
+        "logUrl" => String.t() | atom()
+      }
+
+  """
+  @type generate_access_logs_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backend_environment() :: %{
+        "backendEnvironmentArn" => String.t() | atom(),
+        "createTime" => non_neg_integer(),
+        "deploymentArtifacts" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "stackName" => String.t() | atom(),
+        "updateTime" => non_neg_integer()
+      }
+
+  """
+  @type backend_environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_branch_result() :: %{
+        "branch" => branch()
+      }
+
+  """
+  @type create_branch_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job_config() :: %{
+        "buildComputeType" => list(any())
+      }
+
+  """
+  @type job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1336,195 +1227,304 @@ defmodule AWS.Amplify do
   """
   @type update_webhook_result() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      get_domain_association_request() :: %{}
+
+  """
+  @type get_domain_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_result() :: %{
+        "job" => job()
+      }
+
+  """
+  @type get_job_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sub_domain() :: %{
+        "dnsRecord" => String.t() | atom(),
+        "subDomainSetting" => sub_domain_setting(),
+        "verified" => boolean()
+      }
+
+  """
+  @type sub_domain() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_result() :: %{
+        "app" => app()
+      }
+
+  """
+  @type update_app_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app() :: %{
+        "appArn" => String.t() | atom(),
+        "appId" => String.t() | atom(),
+        "autoBranchCreationConfig" => auto_branch_creation_config(),
+        "autoBranchCreationPatterns" => list(String.t() | atom()),
+        "basicAuthCredentials" => String.t() | atom(),
+        "buildSpec" => String.t() | atom(),
+        "cacheConfig" => cache_config(),
+        "computeRoleArn" => String.t() | atom(),
+        "createTime" => non_neg_integer(),
+        "customHeaders" => String.t() | atom(),
+        "customRules" => list(custom_rule()),
+        "defaultDomain" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "enableAutoBranchCreation" => boolean(),
+        "enableBasicAuth" => boolean(),
+        "enableBranchAutoBuild" => boolean(),
+        "enableBranchAutoDeletion" => boolean(),
+        "environmentVariables" => map(),
+        "iamServiceRoleArn" => String.t() | atom(),
+        "jobConfig" => job_config(),
+        "name" => String.t() | atom(),
+        "platform" => list(any()),
+        "productionBranch" => production_branch(),
+        "repository" => String.t() | atom(),
+        "repositoryCloneMethod" => list(any()),
+        "tags" => map(),
+        "updateTime" => non_neg_integer(),
+        "wafConfiguration" => waf_configuration(),
+        "webhookCreateTime" => non_neg_integer()
+      }
+
+  """
+  @type app() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_backend_environment_request() :: %{
+        optional("deploymentArtifacts") => String.t() | atom(),
+        required("environmentName") => String.t() | atom(),
+        optional("stackName") => String.t() | atom()
+      }
+
+  """
+  @type create_backend_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      waf_configuration() :: %{
+        "statusReason" => String.t() | atom(),
+        "wafStatus" => list(any()),
+        "webAclArn" => String.t() | atom()
+      }
+
+  """
+  @type waf_configuration() :: %{(String.t() | atom()) => any()}
+
   @type create_app_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type create_backend_environment_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type create_branch_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type create_deployment_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
 
   @type create_domain_association_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type create_webhook_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type delete_app_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type delete_backend_environment_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type delete_branch_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type delete_domain_association_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type delete_job_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type delete_webhook_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type generate_access_logs_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type get_app_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type get_artifact_url_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type get_backend_environment_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type get_branch_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type get_domain_association_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type get_job_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type get_webhook_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type list_apps_errors() ::
-          bad_request_exception() | unauthorized_exception() | internal_failure_exception()
+          unauthorized_exception() | bad_request_exception() | internal_failure_exception()
 
   @type list_artifacts_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
 
   @type list_backend_environments_errors() ::
-          bad_request_exception() | unauthorized_exception() | internal_failure_exception()
+          unauthorized_exception() | bad_request_exception() | internal_failure_exception()
 
   @type list_branches_errors() ::
-          bad_request_exception() | unauthorized_exception() | internal_failure_exception()
+          unauthorized_exception() | bad_request_exception() | internal_failure_exception()
 
   @type list_domain_associations_errors() ::
-          bad_request_exception() | unauthorized_exception() | internal_failure_exception()
+          unauthorized_exception() | bad_request_exception() | internal_failure_exception()
 
   @type list_jobs_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception() | resource_not_found_exception() | internal_failure_exception()
 
   @type list_webhooks_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | unauthorized_exception()
           | internal_failure_exception()
 
   @type start_deployment_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type start_job_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type stop_job_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
           | internal_failure_exception()
 
   @type tag_resource_errors() ::
@@ -1534,30 +1534,30 @@ defmodule AWS.Amplify do
           bad_request_exception() | resource_not_found_exception() | internal_failure_exception()
 
   @type update_app_errors() ::
-          bad_request_exception()
+          unauthorized_exception()
           | not_found_exception()
-          | unauthorized_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type update_branch_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type update_domain_association_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   @type update_webhook_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | dependent_service_failure_exception()
+          dependent_service_failure_exception()
           | unauthorized_exception()
+          | not_found_exception()
+          | bad_request_exception()
           | internal_failure_exception()
 
   def metadata do
@@ -1697,7 +1697,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, create_deployment_errors()}
-  def create_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
+  def create_deployment(%Client{} = client, branch_name, app_id, input, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/deployments"
 
@@ -1838,8 +1838,8 @@ defmodule AWS.Amplify do
           | {:error, delete_backend_environment_errors()}
   def delete_backend_environment(
         %Client{} = client,
-        app_id,
         environment_name,
+        app_id,
         input,
         options \\ []
       ) do
@@ -1879,7 +1879,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_branch_errors()}
-  def delete_branch(%Client{} = client, app_id, branch_name, input, options \\ []) do
+  def delete_branch(%Client{} = client, branch_name, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
     headers = []
     custom_headers = []
@@ -1914,7 +1914,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_domain_association_errors()}
-  def delete_domain_association(%Client{} = client, app_id, domain_name, input, options \\ []) do
+  def delete_domain_association(%Client{} = client, domain_name, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     custom_headers = []
@@ -1950,7 +1950,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_job_errors()}
-  def delete_job(%Client{} = client, app_id, branch_name, job_id, input, options \\ []) do
+  def delete_job(%Client{} = client, job_id, branch_name, app_id, input, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -2082,7 +2082,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_backend_environment_errors()}
-  def get_backend_environment(%Client{} = client, app_id, environment_name, options \\ []) do
+  def get_backend_environment(%Client{} = client, environment_name, app_id, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments/#{AWS.Util.encode_uri(environment_name)}"
 
@@ -2102,7 +2102,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_branch_errors()}
-  def get_branch(%Client{} = client, app_id, branch_name, options \\ []) do
+  def get_branch(%Client{} = client, branch_name, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
     headers = []
     query_params = []
@@ -2120,7 +2120,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_domain_association_errors()}
-  def get_domain_association(%Client{} = client, app_id, domain_name, options \\ []) do
+  def get_domain_association(%Client{} = client, domain_name, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
@@ -2138,7 +2138,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_job_errors()}
-  def get_job(%Client{} = client, app_id, branch_name, job_id, options \\ []) do
+  def get_job(%Client{} = client, job_id, branch_name, app_id, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -2176,21 +2176,21 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_apps_errors()}
-  def list_apps(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_apps(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/apps"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2228,11 +2228,11 @@ defmodule AWS.Amplify do
           | {:error, list_artifacts_errors()}
   def list_artifacts(
         %Client{} = client,
-        app_id,
-        branch_name,
         job_id,
-        max_results \\ nil,
+        branch_name,
+        app_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -2242,15 +2242,15 @@ defmodule AWS.Amplify do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2285,9 +2285,9 @@ defmodule AWS.Amplify do
   def list_backend_environments(
         %Client{} = client,
         app_id,
-        environment_name \\ nil,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        environment_name \\ nil,
         options \\ []
       ) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments"
@@ -2295,8 +2295,8 @@ defmodule AWS.Amplify do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(environment_name) do
+        [{"environmentName", environment_name} | query_params]
       else
         query_params
       end
@@ -2309,8 +2309,8 @@ defmodule AWS.Amplify do
       end
 
     query_params =
-      if !is_nil(environment_name) do
-        [{"environmentName", environment_name} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2337,8 +2337,8 @@ defmodule AWS.Amplify do
   def list_branches(
         %Client{} = client,
         app_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches"
@@ -2346,15 +2346,15 @@ defmodule AWS.Amplify do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2381,8 +2381,8 @@ defmodule AWS.Amplify do
   def list_domain_associations(
         %Client{} = client,
         app_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains"
@@ -2390,15 +2390,15 @@ defmodule AWS.Amplify do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2425,10 +2425,10 @@ defmodule AWS.Amplify do
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
-        app_id,
         branch_name,
-        max_results \\ nil,
+        app_id,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path =
@@ -2438,15 +2438,15 @@ defmodule AWS.Amplify do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2491,8 +2491,8 @@ defmodule AWS.Amplify do
   def list_webhooks(
         %Client{} = client,
         app_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/webhooks"
@@ -2500,15 +2500,15 @@ defmodule AWS.Amplify do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -2540,7 +2540,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, start_deployment_errors()}
-  def start_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
+  def start_deployment(%Client{} = client, branch_name, app_id, input, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/deployments/start"
 
@@ -2571,7 +2571,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, start_job_errors()}
-  def start_job(%Client{} = client, app_id, branch_name, input, options \\ []) do
+  def start_job(%Client{} = client, branch_name, app_id, input, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs"
 
@@ -2609,7 +2609,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, stop_job_errors()}
-  def stop_job(%Client{} = client, app_id, branch_name, job_id, input, options \\ []) do
+  def stop_job(%Client{} = client, job_id, branch_name, app_id, input, options \\ []) do
     url_path =
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/stop"
 
@@ -2738,7 +2738,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_branch_errors()}
-  def update_branch(%Client{} = client, app_id, branch_name, input, options \\ []) do
+  def update_branch(%Client{} = client, branch_name, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
     headers = []
     custom_headers = []
@@ -2773,7 +2773,7 @@ defmodule AWS.Amplify do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_domain_association_errors()}
-  def update_domain_association(%Client{} = client, app_id, domain_name, input, options \\ []) do
+  def update_domain_association(%Client{} = client, domain_name, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     custom_headers = []

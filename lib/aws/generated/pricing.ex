@@ -40,12 +40,14 @@ defmodule AWS.Pricing do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+      filter() :: %{
+        "Field" => String.t() | atom(),
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,15 +64,25 @@ defmodule AWS.Pricing do
 
   ## Example:
       
-      describe_services_request() :: %{
-        optional("FormatVersion") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ServiceCode") => String.t() | atom()
+      get_price_list_file_url_request() :: %{
+        required("FileFormat") => String.t() | atom(),
+        required("PriceListArn") => String.t() | atom()
       }
       
   """
-  @type describe_services_request() :: %{(String.t() | atom()) => any()}
+  @type get_price_list_file_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service() :: %{
+        "AttributeNames" => list(String.t() | atom()),
+        "ServiceCode" => String.t() | atom()
+      }
+      
+  """
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -89,39 +101,23 @@ defmodule AWS.Pricing do
 
   ## Example:
       
-      expired_next_token_exception() :: %{
+      invalid_next_token_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type expired_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      filter() :: %{
-        "Field" => String.t() | atom(),
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_attribute_values_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AttributeName") => String.t() | atom(),
-        required("ServiceCode") => String.t() | atom()
-      }
-      
-  """
-  @type get_attribute_values_request() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,29 +130,6 @@ defmodule AWS.Pricing do
       
   """
   @type get_attribute_values_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_price_list_file_url_request() :: %{
-        required("FileFormat") => String.t() | atom(),
-        required("PriceListArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_price_list_file_url_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_price_list_file_url_response() :: %{
-        "Url" => String.t() | atom()
-      }
-      
-  """
-  @type get_price_list_file_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,14 +150,63 @@ defmodule AWS.Pricing do
 
   ## Example:
       
-      get_products_response() :: %{
-        "FormatVersion" => String.t() | atom(),
+      list_price_lists_response() :: %{
         "NextToken" => String.t() | atom(),
-        "PriceList" => list(String.t() | atom())
+        "PriceLists" => list(price_list())
       }
       
   """
-  @type get_products_response() :: %{(String.t() | atom()) => any()}
+  @type list_price_lists_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expired_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type expired_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_attribute_values_request() :: %{
+        required("AttributeName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
+      }
+      
+  """
+  @type get_attribute_values_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_services_request() :: %{
+        optional("FormatVersion") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ServiceCode") => String.t() | atom()
+      }
+      
+  """
+  @type describe_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,62 +223,17 @@ defmodule AWS.Pricing do
 
   ## Example:
       
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_price_lists_request() :: %{
+        required("CurrencyCode") => String.t() | atom(),
+        required("EffectiveDate") => non_neg_integer(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("RegionCode") => String.t() | atom(),
-        required("CurrencyCode") => String.t() | atom(),
-        required("EffectiveDate") => non_neg_integer(),
         required("ServiceCode") => String.t() | atom()
       }
       
   """
   @type list_price_lists_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_price_lists_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PriceLists" => list(price_list())
-      }
-      
-  """
-  @type list_price_lists_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,80 +253,103 @@ defmodule AWS.Pricing do
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      get_products_response() :: %{
+        "FormatVersion" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "PriceList" => list(String.t() | atom())
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type get_products_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service() :: %{
-        "AttributeNames" => list(String.t() | atom()),
-        "ServiceCode" => String.t() | atom()
+      get_price_list_file_url_response() :: %{
+        "Url" => String.t() | atom()
       }
       
   """
-  @type service() :: %{(String.t() | atom()) => any()}
+  @type get_price_list_file_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      throttling_exception() :: %{
+      access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @type describe_services_errors() ::
-          throttling_exception()
+          invalid_parameter_exception()
           | not_found_exception()
-          | invalid_parameter_exception()
-          | invalid_next_token_exception()
-          | internal_error_exception()
-          | expired_next_token_exception()
           | access_denied_exception()
+          | internal_error_exception()
+          | throttling_exception()
+          | expired_next_token_exception()
+          | invalid_next_token_exception()
 
   @type get_attribute_values_errors() ::
-          throttling_exception()
+          invalid_parameter_exception()
           | not_found_exception()
-          | invalid_parameter_exception()
-          | invalid_next_token_exception()
-          | internal_error_exception()
-          | expired_next_token_exception()
           | access_denied_exception()
+          | internal_error_exception()
+          | throttling_exception()
+          | expired_next_token_exception()
+          | invalid_next_token_exception()
 
   @type get_price_list_file_url_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
+          invalid_parameter_exception()
           | not_found_exception()
-          | invalid_parameter_exception()
-          | internal_error_exception()
           | access_denied_exception()
+          | internal_error_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
 
   @type get_products_errors() ::
-          throttling_exception()
+          invalid_parameter_exception()
           | not_found_exception()
-          | invalid_parameter_exception()
-          | invalid_next_token_exception()
-          | internal_error_exception()
-          | expired_next_token_exception()
           | access_denied_exception()
+          | internal_error_exception()
+          | throttling_exception()
+          | expired_next_token_exception()
+          | invalid_next_token_exception()
 
   @type list_price_lists_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
+          invalid_parameter_exception()
           | not_found_exception()
-          | invalid_parameter_exception()
-          | invalid_next_token_exception()
-          | internal_error_exception()
-          | expired_next_token_exception()
           | access_denied_exception()
+          | internal_error_exception()
+          | throttling_exception()
+          | expired_next_token_exception()
+          | resource_not_found_exception()
+          | invalid_next_token_exception()
 
   def metadata do
     %{
@@ -382,7 +382,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServices", input, options)
   end
@@ -400,7 +401,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_attribute_values_errors()}
   def get_attribute_values(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAttributeValues", input, options)
   end
@@ -422,7 +424,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_price_list_file_url_errors()}
   def get_price_list_file_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPriceListFileUrl", input, options)
   end
@@ -436,7 +439,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_products_errors()}
   def get_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProducts", input, options)
   end
@@ -463,7 +467,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, list_price_lists_errors()}
   def list_price_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPriceLists", input, options)
   end

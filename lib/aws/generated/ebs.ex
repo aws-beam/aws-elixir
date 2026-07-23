@@ -47,13 +47,13 @@ defmodule AWS.EBS do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
+      put_snapshot_block_response() :: %{
+        "Checksum" => String.t() | atom(),
+        "ChecksumAlgorithm" => list(any())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type put_snapshot_block_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,50 +71,24 @@ defmodule AWS.EBS do
 
   ## Example:
 
-      changed_block() :: %{
-        "BlockIndex" => integer(),
-        "FirstBlockToken" => String.t() | atom(),
-        "SecondBlockToken" => String.t() | atom()
+      get_snapshot_block_request() :: %{
+        required("BlockToken") => String.t() | atom()
       }
 
   """
-  @type changed_block() :: %{(String.t() | atom()) => any()}
+  @type get_snapshot_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      complete_snapshot_request() :: %{
-        optional("Checksum") => String.t() | atom(),
-        optional("ChecksumAggregationMethod") => list(any()),
-        optional("ChecksumAlgorithm") => list(any()),
-        required("ChangedBlocksCount") => integer()
+      request_throttled_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
 
   """
-  @type complete_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_snapshot_response() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type complete_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrent_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type concurrent_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type request_throttled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,51 +105,25 @@ defmodule AWS.EBS do
 
   ## Example:
 
-      get_snapshot_block_request() :: %{
-        required("BlockToken") => String.t() | atom()
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
 
   """
-  @type get_snapshot_block_request() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_snapshot_block_response() :: %{
-        "BlockData" => binary(),
-        "Checksum" => String.t() | atom(),
-        "ChecksumAlgorithm" => list(any()),
-        "DataLength" => integer()
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
 
   """
-  @type get_snapshot_block_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_changed_blocks_request() :: %{
-        optional("FirstSnapshotId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartingBlockIndex") => integer()
-      }
-
-  """
-  @type list_changed_blocks_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,14 +144,75 @@ defmodule AWS.EBS do
 
   ## Example:
 
-      list_snapshot_blocks_request() :: %{
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_snapshot_block_request() :: %{
+        required("BlockData") => binary(),
+        required("Checksum") => String.t() | atom(),
+        required("ChecksumAlgorithm") => list(any()),
+        required("DataLength") => integer(),
+        optional("Progress") => integer()
+      }
+
+  """
+  @type put_snapshot_block_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      concurrent_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type concurrent_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_snapshot_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type complete_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_changed_blocks_request() :: %{
+        optional("FirstSnapshotId") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("StartingBlockIndex") => integer()
       }
 
   """
-  @type list_snapshot_blocks_request() :: %{(String.t() | atom()) => any()}
+  @type list_changed_blocks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,69 +228,6 @@ defmodule AWS.EBS do
 
   """
   @type list_snapshot_blocks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_snapshot_block_request() :: %{
-        optional("Progress") => integer(),
-        required("BlockData") => binary(),
-        required("Checksum") => String.t() | atom(),
-        required("ChecksumAlgorithm") => list(any()),
-        required("DataLength") => integer()
-      }
-
-  """
-  @type put_snapshot_block_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_snapshot_block_response() :: %{
-        "Checksum" => String.t() | atom(),
-        "ChecksumAlgorithm" => list(any())
-      }
-
-  """
-  @type put_snapshot_block_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_throttled_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type request_throttled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -305,6 +251,84 @@ defmodule AWS.EBS do
 
   ## Example:
 
+      get_snapshot_block_response() :: %{
+        "BlockData" => binary(),
+        "Checksum" => String.t() | atom(),
+        "ChecksumAlgorithm" => list(any()),
+        "DataLength" => integer()
+      }
+
+  """
+  @type get_snapshot_block_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_snapshot_blocks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartingBlockIndex") => integer()
+      }
+
+  """
+  @type list_snapshot_blocks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_snapshot_request() :: %{
+        required("ChangedBlocksCount") => integer(),
+        optional("Checksum") => String.t() | atom(),
+        optional("ChecksumAggregationMethod") => list(any()),
+        optional("ChecksumAlgorithm") => list(any())
+      }
+
+  """
+  @type complete_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      changed_block() :: %{
+        "BlockIndex" => integer(),
+        "FirstBlockToken" => String.t() | atom(),
+        "SecondBlockToken" => String.t() | atom()
+      }
+
+  """
+  @type changed_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_snapshot_response() :: %{
         "BlockSize" => integer(),
         "Description" => String.t() | atom(),
@@ -322,79 +346,55 @@ defmodule AWS.EBS do
   """
   @type start_snapshot_response() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
   @type complete_snapshot_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | request_throttled_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | request_throttled_exception()
 
   @type get_snapshot_block_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | request_throttled_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | request_throttled_exception()
 
   @type list_changed_blocks_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | request_throttled_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | request_throttled_exception()
 
   @type list_snapshot_blocks_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | request_throttled_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | request_throttled_exception()
 
   @type put_snapshot_block_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | request_throttled_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | internal_server_exception()
           | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | request_throttled_exception()
 
   @type start_snapshot_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | request_throttled_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | concurrent_limit_exceeded_exception()
+          | internal_server_exception()
           | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | request_throttled_exception()
 
   def metadata do
     %{
@@ -436,10 +436,10 @@ defmodule AWS.EBS do
 
     {headers, input} =
       [
-        {"ChangedBlocksCount", "x-amz-ChangedBlocksCount"},
-        {"Checksum", "x-amz-Checksum"},
+        {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"},
         {"ChecksumAggregationMethod", "x-amz-Checksum-Aggregation-Method"},
-        {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"}
+        {"Checksum", "x-amz-Checksum"},
+        {"ChangedBlocksCount", "x-amz-ChangedBlocksCount"}
       ]
       |> Request.build_params(input)
 
@@ -481,7 +481,7 @@ defmodule AWS.EBS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_snapshot_block_errors()}
-  def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ []) do
+  def get_snapshot_block(%Client{} = client, snapshot_id, block_index, block_token, options \\ []) do
     url_path =
       "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
 
@@ -500,9 +500,9 @@ defmodule AWS.EBS do
         options,
         :response_header_parameters,
         [
-          {"x-amz-Checksum", "Checksum"},
+          {"x-amz-Data-Length", "DataLength"},
           {"x-amz-Checksum-Algorithm", "ChecksumAlgorithm"},
-          {"x-amz-Data-Length", "DataLength"}
+          {"x-amz-Checksum", "Checksum"}
         ]
       )
 
@@ -537,10 +537,10 @@ defmodule AWS.EBS do
   def list_changed_blocks(
         %Client{} = client,
         second_snapshot_id,
-        first_snapshot_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         starting_block_index \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        first_snapshot_id \\ nil,
         options \\ []
       ) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(second_snapshot_id)}/changedblocks"
@@ -548,15 +548,8 @@ defmodule AWS.EBS do
     query_params = []
 
     query_params =
-      if !is_nil(starting_block_index) do
-        [{"startingBlockIndex", starting_block_index} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"pageToken", next_token} | query_params]
+      if !is_nil(first_snapshot_id) do
+        [{"firstSnapshotId", first_snapshot_id} | query_params]
       else
         query_params
       end
@@ -569,8 +562,15 @@ defmodule AWS.EBS do
       end
 
     query_params =
-      if !is_nil(first_snapshot_id) do
-        [{"firstSnapshotId", first_snapshot_id} | query_params]
+      if !is_nil(next_token) do
+        [{"pageToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(starting_block_index) do
+        [{"startingBlockIndex", starting_block_index} | query_params]
       else
         query_params
       end
@@ -604,9 +604,9 @@ defmodule AWS.EBS do
   def list_snapshot_blocks(
         %Client{} = client,
         snapshot_id,
-        max_results \\ nil,
-        next_token \\ nil,
         starting_block_index \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks"
@@ -614,8 +614,8 @@ defmodule AWS.EBS do
     query_params = []
 
     query_params =
-      if !is_nil(starting_block_index) do
-        [{"startingBlockIndex", starting_block_index} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -628,8 +628,8 @@ defmodule AWS.EBS do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(starting_block_index) do
+        [{"startingBlockIndex", starting_block_index} | query_params]
       else
         query_params
       end
@@ -665,16 +665,16 @@ defmodule AWS.EBS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, put_snapshot_block_errors()}
-  def put_snapshot_block(%Client{} = client, block_index, snapshot_id, input, options \\ []) do
+  def put_snapshot_block(%Client{} = client, snapshot_id, block_index, input, options \\ []) do
     url_path =
       "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
 
     {headers, input} =
       [
-        {"Checksum", "x-amz-Checksum"},
-        {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"},
+        {"Progress", "x-amz-Progress"},
         {"DataLength", "x-amz-Data-Length"},
-        {"Progress", "x-amz-Progress"}
+        {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"},
+        {"Checksum", "x-amz-Checksum"}
       ]
       |> Request.build_params(input)
 
@@ -686,8 +686,8 @@ defmodule AWS.EBS do
         options,
         :response_header_parameters,
         [
-          {"x-amz-Checksum", "Checksum"},
-          {"x-amz-Checksum-Algorithm", "ChecksumAlgorithm"}
+          {"x-amz-Checksum-Algorithm", "ChecksumAlgorithm"},
+          {"x-amz-Checksum", "Checksum"}
         ]
       )
 

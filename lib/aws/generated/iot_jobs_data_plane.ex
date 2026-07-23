@@ -47,64 +47,111 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Example:
 
-      certificate_validation_exception() :: %{
+      update_job_execution_response() :: %{
+        "executionState" => job_execution_state(),
+        "jobDocument" => String.t() | atom()
+      }
+
+  """
+  @type update_job_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_next_pending_job_execution_request() :: %{
+        optional("statusDetails") => map(),
+        optional("stepTimeoutInMinutes") => float()
+      }
+
+  """
+  @type start_next_pending_job_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_job_execution_request() :: %{
+        optional("executionNumber") => float(),
+        optional("expectedVersion") => float(),
+        optional("includeJobDocument") => boolean(),
+        optional("includeJobExecutionState") => boolean(),
+        required("status") => list(any()),
+        optional("statusDetails") => map(),
+        optional("stepTimeoutInMinutes") => float()
+      }
+
+  """
+  @type update_job_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminal_state_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type certificate_validation_exception() :: %{(String.t() | atom()) => any()}
+  @type terminal_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      command_parameter_value() :: %{
-        "B" => boolean(),
-        "BIN" => binary(),
-        "D" => float(),
-        "I" => integer(),
-        "L" => float(),
-        "S" => String.t() | atom(),
-        "UL" => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type command_parameter_value() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
+      throttling_exception() :: %{
         "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom()
+        "payload" => binary()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_job_execution_request() :: %{
-        optional("executionNumber") => float(),
-        optional("includeJobDocument") => boolean()
-      }
-
-  """
-  @type describe_job_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_execution_response() :: %{
+      start_next_pending_job_execution_response() :: %{
         "execution" => job_execution()
       }
 
   """
-  @type describe_job_execution_response() :: %{(String.t() | atom()) => any()}
+  @type start_next_pending_job_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_state_transition_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_state_transition_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_execution_state() :: %{
+        "status" => list(any()),
+        "statusDetails" => map(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type job_execution_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,12 +178,38 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Example:
 
-      internal_server_exception() :: %{
+      start_command_execution_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("commandArn") => String.t() | atom(),
+        optional("executionTimeoutSeconds") => float(),
+        optional("parameters") => map(),
+        required("targetArn") => String.t() | atom()
+      }
+
+  """
+  @type start_command_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,12 +226,79 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Example:
 
-      invalid_state_transition_exception() :: %{
+      describe_job_execution_response() :: %{
+        "execution" => job_execution()
+      }
+
+  """
+  @type describe_job_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter_value() :: %{
+        "B" => boolean(),
+        "BIN" => binary(),
+        "D" => float(),
+        "I" => integer(),
+        "L" => float(),
+        "S" => String.t() | atom(),
+        "UL" => String.t() | atom()
+      }
+
+  """
+  @type command_parameter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_execution_summary() :: %{
+        "executionNumber" => float(),
+        "jobId" => String.t() | atom(),
+        "lastUpdatedAt" => float(),
+        "queuedAt" => float(),
+        "startedAt" => float(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type job_execution_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_state_transition_exception() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_command_execution_response() :: %{
+        "executionId" => String.t() | atom()
+      }
+
+  """
+  @type start_command_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,213 +325,73 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Example:
 
-      job_execution_state() :: %{
-        "status" => list(any()),
-        "statusDetails" => map(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type job_execution_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_execution_summary() :: %{
-        "executionNumber" => float(),
-        "jobId" => String.t() | atom(),
-        "lastUpdatedAt" => float(),
-        "queuedAt" => float(),
-        "startedAt" => float(),
-        "versionNumber" => float()
-      }
-
-  """
-  @type job_execution_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
+      certificate_validation_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type certificate_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_command_execution_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("executionTimeoutSeconds") => float(),
-        optional("parameters") => map(),
-        required("commandArn") => String.t() | atom(),
-        required("targetArn") => String.t() | atom()
-      }
-
-  """
-  @type start_command_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_command_execution_response() :: %{
-        "executionId" => String.t() | atom()
-      }
-
-  """
-  @type start_command_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_next_pending_job_execution_request() :: %{
-        optional("statusDetails") => map(),
-        optional("stepTimeoutInMinutes") => float()
-      }
-
-  """
-  @type start_next_pending_job_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_next_pending_job_execution_response() :: %{
-        "execution" => job_execution()
-      }
-
-  """
-  @type start_next_pending_job_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminal_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type terminal_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "payload" => binary()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_job_execution_request() :: %{
+      describe_job_execution_request() :: %{
         optional("executionNumber") => float(),
-        optional("expectedVersion") => float(),
-        optional("includeJobDocument") => boolean(),
-        optional("includeJobExecutionState") => boolean(),
-        optional("statusDetails") => map(),
-        optional("stepTimeoutInMinutes") => float(),
-        required("status") => list(any())
+        optional("includeJobDocument") => boolean()
       }
 
   """
-  @type update_job_execution_request() :: %{(String.t() | atom()) => any()}
+  @type describe_job_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_job_execution_response() :: %{
-        "executionState" => job_execution_state(),
-        "jobDocument" => String.t() | atom()
-      }
-
-  """
-  @type update_job_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
+      internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @type describe_job_execution_errors() ::
-          throttling_exception()
-          | terminal_state_exception()
-          | service_unavailable_exception()
-          | resource_not_found_exception()
+          certificate_validation_exception()
           | invalid_request_exception()
-          | certificate_validation_exception()
+          | service_unavailable_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | terminal_state_exception()
 
   @type get_pending_job_executions_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | resource_not_found_exception()
+          certificate_validation_exception()
           | invalid_request_exception()
-          | certificate_validation_exception()
+          | service_unavailable_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
 
   @type start_command_execution_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
           | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
 
   @type start_next_pending_job_execution_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | resource_not_found_exception()
+          certificate_validation_exception()
           | invalid_request_exception()
-          | certificate_validation_exception()
+          | service_unavailable_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
 
   @type update_job_execution_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | resource_not_found_exception()
-          | invalid_state_transition_exception()
+          certificate_validation_exception()
           | invalid_request_exception()
-          | certificate_validation_exception()
+          | service_unavailable_exception()
+          | invalid_state_transition_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -430,10 +430,10 @@ defmodule AWS.IoTJobsDataPlane do
           | {:error, describe_job_execution_errors()}
   def describe_job_execution(
         %Client{} = client,
-        job_id,
         thing_name,
-        execution_number \\ nil,
+        job_id,
         include_job_document \\ nil,
+        execution_number \\ nil,
         options \\ []
       ) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -441,15 +441,15 @@ defmodule AWS.IoTJobsDataPlane do
     query_params = []
 
     query_params =
-      if !is_nil(include_job_document) do
-        [{"includeJobDocument", include_job_document} | query_params]
+      if !is_nil(execution_number) do
+        [{"executionNumber", execution_number} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(execution_number) do
-        [{"executionNumber", execution_number} | query_params]
+      if !is_nil(include_job_document) do
+        [{"includeJobDocument", include_job_document} | query_params]
       else
         query_params
       end
@@ -569,7 +569,7 @@ defmodule AWS.IoTJobsDataPlane do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_job_execution_errors()}
-  def update_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
+  def update_job_execution(%Client{} = client, thing_name, job_id, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     custom_headers = []

@@ -38,30 +38,234 @@ defmodule AWS.Rbin do
 
   ## Example:
 
-      conflict_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
+      lock_rule_response() :: %{
+        "Description" => String.t() | atom(),
+        "ExcludeResourceTags" => list(resource_tag()),
+        "Identifier" => String.t() | atom(),
+        "LockConfiguration" => lock_configuration(),
+        "LockState" => list(any()),
+        "ResourceTags" => list(resource_tag()),
+        "ResourceType" => list(any()),
+        "RetentionPeriod" => retention_period(),
+        "RuleArn" => String.t() | atom(),
+        "Status" => list(any())
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type lock_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_rule_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("ExcludeResourceTags") => list(resource_tag()),
-        optional("LockConfiguration") => lock_configuration(),
-        optional("ResourceTags") => list(resource_tag()),
-        optional("Tags") => list(tag()),
-        required("ResourceType") => list(any()),
-        required("RetentionPeriod") => retention_period()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type create_rule_request() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rule_request() :: %{}
+
+  """
+  @type delete_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rules_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Rules" => list(rule_summary())
+      }
+
+  """
+  @type list_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retention_period() :: %{
+        "RetentionPeriodUnit" => list(any()),
+        "RetentionPeriodValue" => integer()
+      }
+
+  """
+  @type retention_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rules_request() :: %{
+        optional("ExcludeResourceTags") => list(resource_tag()),
+        optional("LockState") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceTags") => list(resource_tag()),
+        required("ResourceType") => list(any())
+      }
+
+  """
+  @type list_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rule_response() :: %{}
+
+  """
+  @type delete_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lock_configuration() :: %{
+        "UnlockDelay" => unlock_delay()
+      }
+
+  """
+  @type lock_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_tag() :: %{
+        "ResourceTagKey" => String.t() | atom(),
+        "ResourceTagValue" => String.t() | atom()
+      }
+
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_rule_request() :: %{}
+
+  """
+  @type get_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lock_rule_request() :: %{
+        required("LockConfiguration") => lock_configuration()
+      }
+
+  """
+  @type lock_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rule_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("ExcludeResourceTags") => list(resource_tag()),
+        optional("ResourceTags") => list(resource_tag()),
+        optional("ResourceType") => list(any()),
+        optional("RetentionPeriod") => retention_period()
+      }
+
+  """
+  @type update_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -88,97 +292,27 @@ defmodule AWS.Rbin do
 
   ## Example:
 
-      delete_rule_request() :: %{}
+      unlock_rule_request() :: %{}
 
   """
-  @type delete_rule_request() :: %{}
+  @type unlock_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_rule_response() :: %{}
-
-  """
-  @type delete_rule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_rule_request() :: %{}
-
-  """
-  @type get_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_rule_response() :: %{
-        "Description" => String.t() | atom(),
-        "ExcludeResourceTags" => list(resource_tag()),
-        "Identifier" => String.t() | atom(),
-        "LockConfiguration" => lock_configuration(),
-        "LockEndTime" => non_neg_integer(),
-        "LockState" => list(any()),
-        "ResourceTags" => list(resource_tag()),
-        "ResourceType" => list(any()),
-        "RetentionPeriod" => retention_period(),
-        "RuleArn" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rules_request() :: %{
+      create_rule_request() :: %{
+        optional("Description") => String.t() | atom(),
         optional("ExcludeResourceTags") => list(resource_tag()),
-        optional("LockState") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
+        optional("LockConfiguration") => lock_configuration(),
         optional("ResourceTags") => list(resource_tag()),
-        required("ResourceType") => list(any())
+        required("ResourceType") => list(any()),
+        required("RetentionPeriod") => retention_period(),
+        optional("Tags") => list(tag())
       }
 
   """
-  @type list_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rules_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Rules" => list(rule_summary())
-      }
-
-  """
-  @type list_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
+  @type create_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -195,33 +329,11 @@ defmodule AWS.Rbin do
 
   ## Example:
 
-      lock_configuration() :: %{
-        "UnlockDelay" => unlock_delay()
-      }
-
-  """
-  @type lock_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lock_rule_request() :: %{
-        required("LockConfiguration") => lock_configuration()
-      }
-
-  """
-  @type lock_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lock_rule_response() :: %{
+      update_rule_response() :: %{
         "Description" => String.t() | atom(),
         "ExcludeResourceTags" => list(resource_tag()),
         "Identifier" => String.t() | atom(),
-        "LockConfiguration" => lock_configuration(),
+        "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
         "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
@@ -231,102 +343,7 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type lock_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_tag() :: %{
-        "ResourceTagKey" => String.t() | atom(),
-        "ResourceTagValue" => String.t() | atom()
-      }
-
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retention_period() :: %{
-        "RetentionPeriodUnit" => list(any()),
-        "RetentionPeriodValue" => integer()
-      }
-
-  """
-  @type retention_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_summary() :: %{
-        "Description" => String.t() | atom(),
-        "Identifier" => String.t() | atom(),
-        "LockState" => list(any()),
-        "RetentionPeriod" => retention_period(),
-        "RuleArn" => String.t() | atom()
-      }
-
-  """
-  @type rule_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
+  @type update_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,15 +356,6 @@ defmodule AWS.Rbin do
 
   """
   @type unlock_delay() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unlock_rule_request() :: %{}
-
-  """
-  @type unlock_rule_request() :: %{}
 
   @typedoc """
 
@@ -385,34 +393,38 @@ defmodule AWS.Rbin do
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_rule_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("ExcludeResourceTags") => list(resource_tag()),
-        optional("ResourceTags") => list(resource_tag()),
-        optional("ResourceType") => list(any()),
-        optional("RetentionPeriod") => retention_period()
+      rule_summary() :: %{
+        "Description" => String.t() | atom(),
+        "Identifier" => String.t() | atom(),
+        "LockState" => list(any()),
+        "RetentionPeriod" => retention_period(),
+        "RuleArn" => String.t() | atom()
       }
 
   """
-  @type update_rule_request() :: %{(String.t() | atom()) => any()}
+  @type rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_rule_response() :: %{
+      conflict_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_rule_response() :: %{
         "Description" => String.t() | atom(),
         "ExcludeResourceTags" => list(resource_tag()),
         "Identifier" => String.t() | atom(),
+        "LockConfiguration" => lock_configuration(),
         "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
         "ResourceTags" => list(resource_tag()),
@@ -423,66 +435,54 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type update_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type get_rule_response() :: %{(String.t() | atom()) => any()}
 
   @type create_rule_errors() ::
-          validation_exception()
+          internal_server_exception()
           | service_quota_exceeded_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type delete_rule_errors() ::
-          validation_exception()
+          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type get_rule_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_server_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
-  @type list_rules_errors() :: validation_exception() | internal_server_exception()
+  @type list_rules_errors() :: internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_server_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type lock_rule_errors() ::
-          validation_exception()
+          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
 
   @type unlock_rule_errors() ::
-          validation_exception()
+          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_server_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type update_rule_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
+          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | service_quota_exceeded_exception()
+          | validation_exception()
 
   def metadata do
     %{

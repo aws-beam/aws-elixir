@@ -22,10 +22,1727 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      get_message_insights_response() :: %{
+        "EmailTags" => list(message_tag()),
+        "FromEmailAddress" => String.t() | atom(),
+        "Insights" => list(email_insights()),
+        "MessageId" => String.t() | atom(),
+        "Subject" => String.t() | atom()
+      }
+
+  """
+  @type get_message_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tenant() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "SendingStatus" => list(any()),
+        "SuppressionAttributes" => tenant_suppression_attributes(),
+        "Tags" => list(tag()),
+        "TenantArn" => String.t() | atom(),
+        "TenantId" => String.t() | atom(),
+        "TenantName" => String.t() | atom()
+      }
+
+  """
+  @type tenant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tenant_resources_request() :: %{
+        optional("Filter") => map(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        required("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type list_tenant_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_contact_list_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Topics") => list(topic())
+      }
+
+  """
+  @type update_contact_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_insights() :: %{
+        "Destination" => String.t() | atom(),
+        "Events" => list(insights_event()),
+        "Isp" => String.t() | atom()
+      }
+
+  """
+  @type email_insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_email_response() :: %{
+        "MessageId" => String.t() | atom()
+      }
+
+  """
+  @type send_email_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_message_insights_request() :: %{}
+
+  """
+  @type get_message_insights_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_job_request() :: %{}
+
+  """
+  @type get_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tenant_response() :: %{}
+
+  """
+  @type delete_tenant_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_configuration_set_attributes_response() :: %{}
+
+  """
+  @type put_email_identity_configuration_set_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_vdm_options_request() :: %{
+        optional("VdmOptions") => vdm_options()
+      }
+
+  """
+  @type put_configuration_set_vdm_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_import_job_request() :: %{
+        required("ImportDataSource") => import_data_source(),
+        required("ImportDestination") => import_destination()
+      }
+
+  """
+  @type create_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_set_event_destination_response() :: %{}
+
+  """
+  @type update_configuration_set_event_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_email_identity_policies_request() :: %{}
+
+  """
+  @type get_email_identity_policies_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mail_from_attributes() :: %{
+        "BehaviorOnMxFailure" => list(any()),
+        "MailFromDomain" => String.t() | atom(),
+        "MailFromDomainStatus" => list(any())
+      }
+
+  """
+  @type mail_from_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suppression_list_destination() :: %{
+        "SuppressionListImportAction" => list(any())
+      }
+
+  """
+  @type suppression_list_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suppression_attributes() :: %{
+        "SuppressedReasons" => list(list(any())()),
+        "ValidationAttributes" => suppression_validation_attributes()
+      }
+
+  """
+  @type suppression_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suppression_confidence_threshold() :: %{
+        "ConfidenceVerdictThreshold" => list(any())
+      }
+
+  """
+  @type suppression_confidence_threshold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suppression_validation_options() :: %{
+        "ConditionThreshold" => suppression_condition_threshold()
+      }
+
+  """
+  @type suppression_validation_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_request() :: %{}
+
+  """
+  @type delete_contact_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dedicated_ip_pool_request() :: %{}
+
+  """
+  @type delete_dedicated_ip_pool_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_export_job_request() :: %{
+        required("ExportDataSource") => export_data_source(),
+        required("ExportDestination") => export_destination()
+      }
+
+  """
+  @type create_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dedicated_ip_pool_response() :: %{}
+
+  """
+  @type create_dedicated_ip_pool_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_identity_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("DkimSigningAttributes") => dkim_signing_attributes(),
+        required("EmailIdentity") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_email_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_delivery_options_response() :: %{}
+
+  """
+  @type put_configuration_set_delivery_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_archiving_options_response() :: %{}
+
+  """
+  @type put_configuration_set_archiving_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      suppressed_destination_attributes() :: %{
+        "FeedbackId" => String.t() | atom(),
+        "MessageId" => String.t() | atom()
+      }
+
+  """
+  @type suppressed_destination_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tenant_info() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "TenantArn" => String.t() | atom(),
+        "TenantId" => String.t() | atom(),
+        "TenantName" => String.t() | atom()
+      }
+
+  """
+  @type tenant_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mail_from_domain_not_verified_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type mail_from_domain_not_verified_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_set_request() :: %{}
+
+  """
+  @type delete_configuration_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_details() :: %{
+        "Bounce" => bounce(),
+        "Complaint" => complaint()
+      }
+
+  """
+  @type event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_email_templates_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_email_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_region_endpoint() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "EndpointId" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Regions" => list(String.t() | atom()),
+        "Status" => list(any())
+      }
+
+  """
+  @type multi_region_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_template_request() :: %{}
+
+  """
+  @type delete_email_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_isp_placement() :: %{
+        "InboxPercentage" => float(),
+        "InboxRawCount" => float(),
+        "IspName" => String.t() | atom(),
+        "SpamPercentage" => float(),
+        "SpamRawCount" => float()
+      }
+
+  """
+  @type domain_isp_placement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_deliverability_campaign_request() :: %{}
+
+  """
+  @type get_domain_deliverability_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_list_response() :: %{}
+
+  """
+  @type delete_contact_list_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      import_job_summary() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "FailedRecordsCount" => integer(),
+        "ImportDestination" => import_destination(),
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "ProcessedRecordsCount" => integer()
+      }
+
+  """
+  @type import_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_contact_list_request() :: %{}
+
+  """
+  @type get_contact_list_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_deliverability_campaigns_request() :: %{
+        required("EndDate") => non_neg_integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        required("StartDate") => non_neg_integer()
+      }
+
+  """
+  @type list_domain_deliverability_campaigns_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Impact" => list(any()),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "ResourceArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_verification_email_template_request() :: %{
+        required("FailureRedirectionURL") => String.t() | atom(),
+        required("FromEmailAddress") => String.t() | atom(),
+        required("SuccessRedirectionURL") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("TemplateContent") => String.t() | atom(),
+        required("TemplateName") => String.t() | atom(),
+        required("TemplateSubject") => String.t() | atom()
+      }
+
+  """
+  @type create_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_jobs_response() :: %{
+        "ExportJobs" => list(export_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_export_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_identity_policy_response() :: %{}
+
+  """
+  @type update_email_identity_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_multi_region_endpoint_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "EndpointId" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Routes" => list(route()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_multi_region_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_verification_email_template_request() :: %{
+        required("FailureRedirectionURL") => String.t() | atom(),
+        required("FromEmailAddress") => String.t() | atom(),
+        required("SuccessRedirectionURL") => String.t() | atom(),
+        required("TemplateContent") => String.t() | atom(),
+        required("TemplateSubject") => String.t() | atom()
+      }
+
+  """
+  @type update_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_contact_request() :: %{}
+
+  """
+  @type get_contact_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      template() :: %{
+        "Attachments" => list(attachment()),
+        "Headers" => list(message_header()),
+        "TemplateArn" => String.t() | atom(),
+        "TemplateContent" => email_template_content(),
+        "TemplateData" => String.t() | atom(),
+        "TemplateName" => String.t() | atom()
+      }
+
+  """
+  @type template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_contact_list_response() :: %{
+        "ContactListName" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Tags" => list(tag()),
+        "Topics" => list(topic())
+      }
+
+  """
+  @type get_contact_list_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_email_identities_response() :: %{
+        "EmailIdentities" => list(identity_info()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_email_identities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_address_insights_mailbox_evaluations() :: %{
+        "HasValidDnsRecords" => email_address_insights_verdict(),
+        "HasValidSyntax" => email_address_insights_verdict(),
+        "IsDisposable" => email_address_insights_verdict(),
+        "IsRandomInput" => email_address_insights_verdict(),
+        "IsRoleAddress" => email_address_insights_verdict(),
+        "MailboxExists" => email_address_insights_verdict()
+      }
+
+  """
+  @type email_address_insights_mailbox_evaluations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_identity_policy_response() :: %{}
+
+  """
+  @type delete_email_identity_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_suppression_options_response() :: %{}
+
+  """
+  @type put_configuration_set_suppression_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tenant_response() :: %{
+        "Tenant" => tenant()
+      }
+
+  """
+  @type get_tenant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_custom_verification_email_template_response() :: %{}
 
   """
   @type create_custom_verification_email_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_feedback_attributes_request() :: %{
+        optional("EmailForwardingEnabled") => boolean()
+      }
+
+  """
+  @type put_email_identity_feedback_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tenants_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_tenants_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tenant_resource_association_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type create_tenant_resource_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inbox_placement_tracking_option() :: %{
+        "Global" => boolean(),
+        "TrackedIsps" => list(String.t() | atom())
+      }
+
+  """
+  @type inbox_placement_tracking_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_verification_email_template_response() :: %{}
+
+  """
+  @type update_custom_verification_email_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pricing_attributes() :: %{
+        "CurrentPlan" => list(any()),
+        "NextPlan" => list(any())
+      }
+
+  """
+  @type pricing_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      details() :: %{
+        "RoutesDetails" => list(route_details())
+      }
+
+  """
+  @type details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tenant_resource_association_response() :: %{}
+
+  """
+  @type create_tenant_resource_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_statistics_report_response() :: %{
+        "DailyVolumes" => list(daily_volume()),
+        "OverallVolume" => overall_volume()
+      }
+
+  """
+  @type get_domain_statistics_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      raw_message() :: %{
+        "Data" => binary()
+      }
+
+  """
+  @type raw_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_suppressed_destinations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SuppressedDestinationSummaries" => list(suppressed_destination_summary())
+      }
+
+  """
+  @type list_suppressed_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_template_request() :: %{
+        optional("Tags") => list(tag()),
+        required("TemplateContent") => email_template_content(),
+        required("TemplateName") => String.t() | atom()
+      }
+
+  """
+  @type create_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complaint() :: %{
+        "ComplaintFeedbackType" => String.t() | atom(),
+        "ComplaintSubType" => String.t() | atom()
+      }
+
+  """
+  @type complaint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deliverability_test_reports_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_deliverability_test_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_set_event_destinations_request() :: %{}
+
+  """
+  @type get_configuration_set_event_destinations_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_destination_definition() :: %{
+        "CloudWatchDestination" => cloud_watch_destination(),
+        "Enabled" => boolean(),
+        "EventBridgeDestination" => event_bridge_destination(),
+        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
+        "MatchingEventTypes" => list(list(any())()),
+        "PinpointDestination" => pinpoint_destination(),
+        "SnsDestination" => sns_destination()
+      }
+
+  """
+  @type event_destination_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_verification_email_template_request() :: %{}
+
+  """
+  @type delete_custom_verification_email_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_destination() :: %{
+        "DimensionConfigurations" => list(cloud_watch_dimension_configuration())
+      }
+
+  """
+  @type cloud_watch_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_reputation_entity_customer_managed_status_response() :: %{}
+
+  """
+  @type update_reputation_entity_customer_managed_status_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_suppressed_destinations_request() :: %{
+        optional("EndDate") => non_neg_integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("Reasons") => list(list(any())()),
+        optional("StartDate") => non_neg_integer(),
+        optional("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type list_suppressed_destinations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suppressed_destination_summary() :: %{
+        "EmailAddress" => String.t() | atom(),
+        "LastUpdateTime" => non_neg_integer(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type suppressed_destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_template_response() :: %{}
+
+  """
+  @type create_email_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_data_result() :: %{
+        "Id" => String.t() | atom(),
+        "Timestamps" => list(non_neg_integer()),
+        "Values" => list(float())
+      }
+
+  """
+  @type metric_data_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_dedicated_ip_pool_scaling_attributes_response() :: %{}
+
+  """
+  @type put_dedicated_ip_pool_scaling_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      import_destination() :: %{
+        "ContactListDestination" => contact_list_destination(),
+        "SuppressionListDestination" => suppression_list_destination()
+      }
+
+  """
+  @type import_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_email_templates_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TemplatesMetadata" => list(email_template_metadata())
+      }
+
+  """
+  @type list_email_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s_o_a_record() :: %{
+        "AdminEmail" => String.t() | atom(),
+        "PrimaryNameServer" => String.t() | atom(),
+        "SerialNumber" => float()
+      }
+
+  """
+  @type s_o_a_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bulk_email_content() :: %{
+        "Template" => template()
+      }
+
+  """
+  @type bulk_email_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_dkim_attributes_response() :: %{}
+
+  """
+  @type put_email_identity_dkim_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      message() :: %{
+        "Attachments" => list(attachment()),
+        "Body" => body(),
+        "Headers" => list(message_header()),
+        "Subject" => content()
+      }
+
+  """
+  @type message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tenant_resources_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TenantResources" => list(tenant_resource())
+      }
+
+  """
+  @type list_tenant_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_list_response() :: %{}
+
+  """
+  @type create_contact_list_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_verification_email_template_response() :: %{
+        "FailureRedirectionURL" => String.t() | atom(),
+        "FromEmailAddress" => String.t() | atom(),
+        "SuccessRedirectionURL" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TemplateContent" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateSubject" => String.t() | atom()
+      }
+
+  """
+  @type get_custom_verification_email_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_tenant_suppression_attributes_request() :: %{
+        optional("SuppressedReasons") => list(list(any())()),
+        optional("SuppressionScope") => list(any()),
+        required("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type put_tenant_suppression_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_suppressed_destination_request() :: %{
+        optional("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type delete_suppressed_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_tracking_options_request() :: %{
+        optional("CustomRedirectDomain") => String.t() | atom(),
+        optional("HttpsPolicy") => list(any())
+      }
+
+  """
+  @type put_configuration_set_tracking_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insights_event() :: %{
+        "Details" => event_details(),
+        "Timestamp" => non_neg_integer(),
+        "Type" => list(any())
+      }
+
+  """
+  @type insights_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_email_template_response() :: %{
+        "Tags" => list(tag()),
+        "TemplateContent" => email_template_content(),
+        "TemplateName" => String.t() | atom()
+      }
+
+  """
+  @type get_email_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_set_response() :: %{}
+
+  """
+  @type delete_configuration_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_pricing_attributes_response() :: %{}
+
+  """
+  @type put_account_pricing_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_suppressed_destination_response() :: %{
+        "SuppressedDestination" => suppressed_destination()
+      }
+
+  """
+  @type get_suppressed_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_response() :: %{
+        "DedicatedIpAutoWarmupEnabled" => boolean(),
+        "Details" => account_details(),
+        "EnforcementStatus" => String.t() | atom(),
+        "PricingAttributes" => pricing_attributes(),
+        "ProductionAccessEnabled" => boolean(),
+        "SendQuota" => send_quota(),
+        "SendingEnabled" => boolean(),
+        "SuppressionAttributes" => suppression_attributes(),
+        "VdmAttributes" => vdm_attributes()
+      }
+
+  """
+  @type get_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      placement_statistics() :: %{
+        "DkimPercentage" => float(),
+        "InboxPercentage" => float(),
+        "MissingPercentage" => float(),
+        "SpamPercentage" => float(),
+        "SpfPercentage" => float()
+      }
+
+  """
+  @type placement_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dashboard_options() :: %{
+        "EngagementMetrics" => list(any())
+      }
+
+  """
+  @type dashboard_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contact_lists_response() :: %{
+        "ContactLists" => list(contact_list()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_contact_lists_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tenant_request() :: %{
+        optional("SuppressionAttributes") => tenant_suppression_attributes(),
+        optional("Tags") => list(tag()),
+        required("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type create_tenant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_destination() :: %{
+        "DataFormat" => list(any()),
+        "S3Url" => String.t() | atom()
+      }
+
+  """
+  @type export_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_suppression_attributes_response() :: %{}
+
+  """
+  @type put_account_suppression_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dkim_attributes() :: %{
+        "CurrentSigningKeyLength" => list(any()),
+        "LastKeyGenerationTimestamp" => non_neg_integer(),
+        "NextSigningKeyLength" => list(any()),
+        "SigningAttributesOrigin" => list(any()),
+        "SigningEnabled" => boolean(),
+        "SigningHostedZone" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tokens" => list(String.t() | atom())
+      }
+
+  """
+  @type dkim_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_insights_filters() :: %{
+        "Destination" => list(String.t() | atom()),
+        "FromEmailAddress" => list(String.t() | atom()),
+        "Isp" => list(String.t() | atom()),
+        "LastDeliveryEvent" => list(list(any())()),
+        "LastEngagementEvent" => list(list(any())()),
+        "Subject" => list(String.t() | atom())
+      }
+
+  """
+  @type message_insights_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_identity_policy_request() :: %{
+        required("Policy") => String.t() | atom()
+      }
+
+  """
+  @type update_email_identity_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_metric_data_request() :: %{
+        required("Queries") => list(batch_get_metric_data_query())
+      }
+
+  """
+  @type batch_get_metric_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reputation_entity_response() :: %{
+        "ReputationEntity" => reputation_entity()
+      }
+
+  """
+  @type get_reputation_entity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bulk_email_entry() :: %{
+        required("Destination") => destination(),
+        optional("ReplacementEmailContent") => replacement_email_content(),
+        optional("ReplacementHeaders") => list(message_header()),
+        optional("ReplacementTags") => list(message_tag())
+      }
+
+  """
+  @type bulk_email_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_set_event_destination_request() :: %{
+        required("EventDestination") => event_destination_definition(),
+        required("EventDestinationName") => String.t() | atom()
+      }
+
+  """
+  @type create_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_contact_request() :: %{
+        optional("AttributesData") => String.t() | atom(),
+        optional("TopicPreferences") => list(topic_preference()),
+        optional("UnsubscribeAll") => boolean()
+      }
+
+  """
+  @type update_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      body() :: %{
+        "Html" => content(),
+        "Text" => content()
+      }
+
+  """
+  @type body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_template_metadata() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "TemplateName" => String.t() | atom()
+      }
+
+  """
+  @type email_template_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tenants_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tenants" => list(tenant_info())
+      }
+
+  """
+  @type list_tenants_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dedicated_ips_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PoolName") => String.t() | atom()
+      }
+
+  """
+  @type get_dedicated_ips_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_set_event_destination_request() :: %{}
+
+  """
+  @type delete_configuration_set_event_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      verification_info() :: %{
+        "ErrorType" => list(any()),
+        "LastCheckedTimestamp" => non_neg_integer(),
+        "LastSuccessTimestamp" => non_neg_integer(),
+        "SOARecord" => s_o_a_record()
+      }
+
+  """
+  @type verification_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_custom_verification_email_response() :: %{
+        "MessageId" => String.t() | atom()
+      }
+
+  """
+  @type send_custom_verification_email_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pinpoint_destination() :: %{
+        "ApplicationArn" => String.t() | atom()
+      }
+
+  """
+  @type pinpoint_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_delivery_options_request() :: %{
+        optional("MaxDeliverySeconds") => float(),
+        optional("SendingPoolName") => String.t() | atom(),
+        optional("TlsPolicy") => list(any())
+      }
+
+  """
+  @type put_configuration_set_delivery_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content() :: %{
+        "Charset" => String.t() | atom(),
+        "Data" => String.t() | atom()
+      }
+
+  """
+  @type content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vdm_options() :: %{
+        "DashboardOptions" => dashboard_options(),
+        "GuardianOptions" => guardian_options()
+      }
+
+  """
+  @type vdm_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_header() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type message_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_request() :: %{
+        optional("AttributesData") => String.t() | atom(),
+        required("EmailAddress") => String.t() | atom(),
+        optional("TopicPreferences") => list(topic_preference()),
+        optional("UnsubscribeAll") => boolean()
+      }
+
+  """
+  @type create_contact_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_insights_data_source() :: %{
+        "EndDate" => non_neg_integer(),
+        "Exclude" => message_insights_filters(),
+        "Include" => message_insights_filters(),
+        "MaxResults" => integer(),
+        "StartDate" => non_neg_integer()
+      }
+
+  """
+  @type message_insights_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dkim_signing_attributes() :: %{
+        "DomainSigningAttributesOrigin" => list(any()),
+        "DomainSigningPrivateKey" => String.t() | atom(),
+        "DomainSigningSelector" => String.t() | atom(),
+        "NextSigningKeyLength" => list(any())
+      }
+
+  """
+  @type dkim_signing_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_render_email_template_request() :: %{
+        required("TemplateData") => String.t() | atom()
+      }
+
+  """
+  @type test_render_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_metric_data_response() :: %{
+        "Errors" => list(metric_data_error()),
+        "Results" => list(metric_data_result())
+      }
+
+  """
+  @type batch_get_metric_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tenant_suppression_attributes() :: %{
+        "SuppressedReasons" => list(list(any())()),
+        "SuppressionScope" => list(any())
+      }
+
+  """
+  @type tenant_suppression_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_tracking_options_response() :: %{}
+
+  """
+  @type put_configuration_set_tracking_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      kinesis_firehose_destination() :: %{
+        "DeliveryStreamArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type kinesis_firehose_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dedicated_ip_request() :: %{}
+
+  """
+  @type get_dedicated_ip_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_mail_from_attributes_request() :: %{
+        optional("BehaviorOnMxFailure") => list(any()),
+        optional("MailFromDomain") => String.t() | atom()
+      }
+
+  """
+  @type put_email_identity_mail_from_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_details() :: %{
+        "AdditionalContactEmailAddresses" => list(String.t() | atom()),
+        "ContactLanguage" => list(any()),
+        "MailType" => list(any()),
+        "ReviewDetails" => review_details(),
+        "UseCaseDescription" => String.t() | atom(),
+        "WebsiteURL" => String.t() | atom()
+      }
+
+  """
+  @type account_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bulk_email_entry_result() :: %{
+        "Error" => String.t() | atom(),
+        "MessageId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type bulk_email_entry_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reputation_entities_request() :: %{
+        optional("Filter") => map(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_reputation_entities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_set_event_destination_response() :: %{}
+
+  """
+  @type delete_configuration_set_event_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_dedicated_ip_warmup_attributes_request() :: %{
+        required("WarmupPercentage") => integer()
+      }
+
+  """
+  @type put_dedicated_ip_warmup_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dedicated_ip_pool_request() :: %{}
+
+  """
+  @type get_dedicated_ip_pool_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      email_template_content() :: %{
+        "Html" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+
+  """
+  @type email_template_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dedicated_ip() :: %{
+        "Ip" => String.t() | atom(),
+        "PoolName" => String.t() | atom(),
+        "WarmupPercentage" => integer(),
+        "WarmupStatus" => list(any())
+      }
+
+  """
+  @type dedicated_ip() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommendations_request() :: %{
+        optional("Filter") => map(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -40,10 +1757,861 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      put_configuration_set_tracking_options_response() :: %{}
+      event_destination() :: %{
+        "CloudWatchDestination" => cloud_watch_destination(),
+        "Enabled" => boolean(),
+        "EventBridgeDestination" => event_bridge_destination(),
+        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
+        "MatchingEventTypes" => list(list(any())()),
+        "Name" => String.t() | atom(),
+        "PinpointDestination" => pinpoint_destination(),
+        "SnsDestination" => sns_destination()
+      }
 
   """
-  @type put_configuration_set_tracking_options_response() :: %{}
+  @type event_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_verification_email_template_response() :: %{}
+
+  """
+  @type delete_custom_verification_email_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      replacement_email_content() :: %{
+        "ReplacementTemplate" => replacement_template()
+      }
+
+  """
+  @type replacement_email_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deliverability_test_report_response() :: %{
+        "DeliverabilityTestStatus" => list(any()),
+        "ReportId" => String.t() | atom()
+      }
+
+  """
+  @type create_deliverability_test_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_info() :: %{
+        "IdentityName" => String.t() | atom(),
+        "IdentityType" => list(any()),
+        "SendingEnabled" => boolean(),
+        "VerificationStatus" => list(any())
+      }
+
+  """
+  @type identity_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "BccAddresses" => list(String.t() | atom()),
+        "CcAddresses" => list(String.t() | atom()),
+        "ToAddresses" => list(String.t() | atom())
+      }
+
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_set_request() :: %{}
+
+  """
+  @type get_configuration_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deliverability_test_report() :: %{
+        "CreateDate" => non_neg_integer(),
+        "DeliverabilityTestStatus" => list(any()),
+        "FromEmailAddress" => String.t() | atom(),
+        "ReportId" => String.t() | atom(),
+        "ReportName" => String.t() | atom(),
+        "Subject" => String.t() | atom()
+      }
+
+  """
+  @type deliverability_test_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_reputation_entity_policy_response() :: %{}
+
+  """
+  @type update_reputation_entity_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_sets_response() :: %{
+        "ConfigurationSets" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_export_job_request() :: %{}
+
+  """
+  @type cancel_export_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_jobs_request() :: %{
+        optional("ExportSourceType") => list(any()),
+        optional("JobStatus") => list(any()),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_export_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dedicated_ip_pool() :: %{
+        "PoolName" => String.t() | atom(),
+        "ScalingMode" => list(any())
+      }
+
+  """
+  @type dedicated_ip_pool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dashboard_attributes() :: %{
+        "EngagementMetrics" => list(any())
+      }
+
+  """
+  @type dashboard_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_vdm_attributes_request() :: %{
+        required("VdmAttributes") => vdm_attributes()
+      }
+
+  """
+  @type put_account_vdm_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dedicated_ips_response() :: %{
+        "DedicatedIps" => list(dedicated_ip()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_dedicated_ips_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_bulk_email_request() :: %{
+        required("BulkEmailEntries") => list(bulk_email_entry()),
+        optional("ConfigurationSetName") => String.t() | atom(),
+        required("DefaultContent") => bulk_email_content(),
+        optional("DefaultEmailTags") => list(message_tag()),
+        optional("EndpointId") => String.t() | atom(),
+        optional("FeedbackForwardingEmailAddress") => String.t() | atom(),
+        optional("FeedbackForwardingEmailAddressIdentityArn") => String.t() | atom(),
+        optional("FromEmailAddress") => String.t() | atom(),
+        optional("FromEmailAddressIdentityArn") => String.t() | atom(),
+        optional("ReplyToAddresses") => list(String.t() | atom()),
+        optional("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type send_bulk_email_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sns_destination() :: %{
+        "TopicArn" => String.t() | atom()
+      }
+
+  """
+  @type sns_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_dedicated_ip_warmup_attributes_response() :: %{}
+
+  """
+  @type put_account_dedicated_ip_warmup_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_response() :: %{}
+
+  """
+  @type create_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_dkim_signing_attributes_request() :: %{
+        optional("SigningAttributes") => dkim_signing_attributes(),
+        required("SigningAttributesOrigin") => list(any())
+      }
+
+  """
+  @type put_email_identity_dkim_signing_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vdm_attributes() :: %{
+        "DashboardAttributes" => dashboard_attributes(),
+        "GuardianAttributes" => guardian_attributes(),
+        "VdmEnabled" => list(any())
+      }
+
+  """
+  @type vdm_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_dimension_configuration() :: %{
+        "DefaultDimensionValue" => String.t() | atom(),
+        "DimensionName" => String.t() | atom(),
+        "DimensionValueSource" => list(any())
+      }
+
+  """
+  @type cloud_watch_dimension_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dedicated_ip_pools_response() :: %{
+        "DedicatedIpPools" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_dedicated_ip_pools_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_set_response() :: %{
+        "ArchivingOptions" => archiving_options(),
+        "ConfigurationSetName" => String.t() | atom(),
+        "DeliveryOptions" => delivery_options(),
+        "ReputationOptions" => reputation_options(),
+        "SendingOptions" => sending_options(),
+        "SuppressionOptions" => suppression_options(),
+        "Tags" => list(tag()),
+        "TrackingOptions" => tracking_options(),
+        "VdmOptions" => vdm_options()
+      }
+
+  """
+  @type get_configuration_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_reputation_entity_customer_managed_status_request() :: %{
+        required("SendingStatus") => list(any())
+      }
+
+  """
+  @type update_reputation_entity_customer_managed_status_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      archiving_options() :: %{
+        "ArchiveArn" => String.t() | atom()
+      }
+
+  """
+  @type archiving_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replacement_template() :: %{
+        "ReplacementTemplateData" => String.t() | atom()
+      }
+
+  """
+  @type replacement_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_job_summary() :: %{
+        "CompletedTimestamp" => non_neg_integer(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "ExportSourceType" => list(any()),
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any())
+      }
+
+  """
+  @type export_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route() :: %{
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reputation_entities_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ReputationEntities" => list(reputation_entity())
+      }
+
+  """
+  @type list_reputation_entities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact() :: %{
+        "EmailAddress" => String.t() | atom(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "TopicDefaultPreferences" => list(topic_preference()),
+        "TopicPreferences" => list(topic_preference()),
+        "UnsubscribeAll" => boolean()
+      }
+
+  """
+  @type contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_email_template_request() :: %{}
+
+  """
+  @type get_email_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      suppression_condition_threshold() :: %{
+        "ConditionThresholdEnabled" => list(any()),
+        "OverallConfidenceThreshold" => suppression_confidence_threshold()
+      }
+
+  """
+  @type suppression_condition_threshold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_contact_response() :: %{
+        "AttributesData" => String.t() | atom(),
+        "ContactListName" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EmailAddress" => String.t() | atom(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "TopicDefaultPreferences" => list(topic_preference()),
+        "TopicPreferences" => list(topic_preference()),
+        "UnsubscribeAll" => boolean()
+      }
+
+  """
+  @type get_contact_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_list() :: %{
+        "ContactListName" => String.t() | atom(),
+        "LastUpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type contact_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multi_region_endpoints_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_multi_region_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_details_response() :: %{}
+
+  """
+  @type put_account_details_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tenant_request() :: %{
+        required("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type get_tenant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_vdm_options_response() :: %{}
+
+  """
+  @type put_configuration_set_vdm_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_data_error() :: %{
+        "Code" => list(any()),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type metric_data_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deliverability_test_report_request() :: %{
+        required("Content") => email_content(),
+        required("FromEmailAddress") => String.t() | atom(),
+        optional("ReportName") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_deliverability_test_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_list_request() :: %{}
+
+  """
+  @type delete_contact_list_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multi_region_endpoints_response() :: %{
+        "MultiRegionEndpoints" => list(multi_region_endpoint()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_multi_region_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_identity_response() :: %{}
+
+  """
+  @type delete_email_identity_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_verification_email_template_request() :: %{}
+
+  """
+  @type get_custom_verification_email_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_dedicated_ip_in_pool_request() :: %{
+        required("DestinationPoolName") => String.t() | atom()
+      }
+
+  """
+  @type put_dedicated_ip_in_pool_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_verification_email_template_metadata() :: %{
+        "FailureRedirectionURL" => String.t() | atom(),
+        "FromEmailAddress" => String.t() | atom(),
+        "SuccessRedirectionURL" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateSubject" => String.t() | atom()
+      }
+
+  """
+  @type custom_verification_email_template_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_set_response() :: %{}
+
+  """
+  @type create_configuration_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      import_data_source() :: %{
+        "DataFormat" => list(any()),
+        "S3Url" => String.t() | atom()
+      }
+
+  """
+  @type import_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_multi_region_endpoint_request() :: %{}
+
+  """
+  @type get_multi_region_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_reputation_options_request() :: %{
+        optional("ReputationMetricsEnabled") => boolean()
+      }
+
+  """
+  @type put_configuration_set_reputation_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tenant_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "SendingStatus" => list(any()),
+        "SuppressionAttributes" => tenant_suppression_attributes(),
+        "Tags" => list(tag()),
+        "TenantArn" => String.t() | atom(),
+        "TenantId" => String.t() | atom(),
+        "TenantName" => String.t() | atom()
+      }
+
+  """
+  @type create_tenant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_metric() :: %{
+        "Aggregation" => list(any()),
+        "Name" => list(any())
+      }
+
+  """
+  @type export_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_dedicated_ip_warmup_attributes_request() :: %{
+        optional("AutoWarmupEnabled") => boolean()
+      }
+
+  """
+  @type put_account_dedicated_ip_warmup_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      isp_placement() :: %{
+        "IspName" => String.t() | atom(),
+        "PlacementStatistics" => placement_statistics()
+      }
+
+  """
+  @type isp_placement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_blacklist_reports_request() :: %{
+        required("BlacklistItemNames") => list(String.t() | atom())
+      }
+
+  """
+  @type get_blacklist_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_identity_response() :: %{
+        "DkimAttributes" => dkim_attributes(),
+        "IdentityType" => list(any()),
+        "VerifiedForSendingStatus" => boolean()
+      }
+
+  """
+  @type create_email_identity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_management_options() :: %{
+        "ContactListName" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type list_management_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deliverability_test_report_response() :: %{
+        "DeliverabilityTestReport" => deliverability_test_report(),
+        "IspPlacements" => list(isp_placement()),
+        "Message" => String.t() | atom(),
+        "OverallPlacement" => placement_statistics(),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type get_deliverability_test_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_template_response() :: %{}
+
+  """
+  @type update_email_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_verification_email_templates_response() :: %{
+        "CustomVerificationEmailTemplates" => list(custom_verification_email_template_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_custom_verification_email_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      overall_volume() :: %{
+        "DomainIspPlacements" => list(domain_isp_placement()),
+        "ReadRatePercent" => float(),
+        "VolumeStatistics" => volume_statistics()
+      }
+
+  """
+  @type overall_volume() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_destination() :: %{
+        "EventBusArn" => String.t() | atom()
+      }
+
+  """
+  @type event_bridge_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_filter() :: %{
+        "TopicName" => String.t() | atom(),
+        "UseDefaultIfPreferenceUnavailable" => boolean()
+      }
+
+  """
+  @type topic_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attachment() :: %{
+        "ContentDescription" => String.t() | atom(),
+        "ContentDisposition" => list(any()),
+        "ContentId" => String.t() | atom(),
+        "ContentTransferEncoding" => list(any()),
+        "ContentType" => String.t() | atom(),
+        "FileName" => String.t() | atom(),
+        "RawContent" => binary()
+      }
+
+  """
+  @type attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_sets_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_configuration_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_details_request() :: %{
+        optional("AdditionalContactEmailAddresses") => list(String.t() | atom()),
+        optional("ContactLanguage") => list(any()),
+        required("MailType") => list(any()),
+        optional("ProductionAccessEnabled") => boolean(),
+        optional("UseCaseDescription") => String.t() | atom(),
+        required("WebsiteURL") => String.t() | atom()
+      }
+
+  """
+  @type put_account_details_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -61,12 +2629,984 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      create_import_job_response() :: %{
+      list_import_jobs_response() :: %{
+        "ImportJobs" => list(import_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_list_request() :: %{
+        required("ContactListName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("Topics") => list(topic())
+      }
+
+  """
+  @type create_contact_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contacts_request() :: %{
+        optional("Filter") => list_contacts_filter(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_contacts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reputation_entity() :: %{
+        "AwsSesManagedStatus" => status_record(),
+        "CustomerManagedStatus" => status_record(),
+        "ReputationEntityReference" => String.t() | atom(),
+        "ReputationEntityType" => list(any()),
+        "ReputationImpact" => list(any()),
+        "ReputationManagementPolicy" => String.t() | atom(),
+        "SendingStatusAggregate" => list(any())
+      }
+
+  """
+  @type reputation_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dedicated_ip_pool_response() :: %{}
+
+  """
+  @type delete_dedicated_ip_pool_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_pricing_attributes_request() :: %{
+        required("Plan") => list(any())
+      }
+
+  """
+  @type put_account_pricing_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sending_paused_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type sending_paused_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multi_region_endpoint_response() :: %{
+        "EndpointId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type create_multi_region_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_identity_policy_request() :: %{}
+
+  """
+  @type delete_email_identity_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tenant_request() :: %{
+        required("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type delete_tenant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dedicated_ip_response() :: %{
+        "DedicatedIp" => dedicated_ip()
+      }
+
+  """
+  @type get_dedicated_ip_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_dkim_signing_attributes_response() :: %{
+        "DkimStatus" => list(any()),
+        "DkimTokens" => list(String.t() | atom()),
+        "SigningHostedZone" => String.t() | atom()
+      }
+
+  """
+  @type put_email_identity_dkim_signing_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_request() :: %{}
+
+  """
+  @type get_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tenant_resource_association_response() :: %{}
+
+  """
+  @type delete_tenant_resource_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics_data_source() :: %{
+        "Dimensions" => map(),
+        "EndDate" => non_neg_integer(),
+        "Metrics" => list(export_metric()),
+        "Namespace" => list(any()),
+        "StartDate" => non_neg_integer()
+      }
+
+  """
+  @type metrics_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_identity_request() :: %{}
+
+  """
+  @type delete_email_identity_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deliverability_test_report_request() :: %{}
+
+  """
+  @type get_deliverability_test_report_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_sending_attributes_request() :: %{
+        optional("SendingEnabled") => boolean()
+      }
+
+  """
+  @type put_account_sending_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardian_attributes() :: %{
+        "OptimizedSharedDelivery" => list(any())
+      }
+
+  """
+  @type guardian_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reputation_options() :: %{
+        "LastFreshStart" => non_neg_integer(),
+        "ReputationMetricsEnabled" => boolean()
+      }
+
+  """
+  @type reputation_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_set_request() :: %{
+        optional("ArchivingOptions") => archiving_options(),
+        required("ConfigurationSetName") => String.t() | atom(),
+        optional("DeliveryOptions") => delivery_options(),
+        optional("ReputationOptions") => reputation_options(),
+        optional("SendingOptions") => sending_options(),
+        optional("SuppressionOptions") => suppression_options(),
+        optional("Tags") => list(tag()),
+        optional("TrackingOptions") => tracking_options(),
+        optional("VdmOptions") => vdm_options()
+      }
+
+  """
+  @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dedicated_ip_pool_request() :: %{
+        required("PoolName") => String.t() | atom(),
+        optional("ScalingMode") => list(any()),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_dedicated_ip_pool_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contacts_filter() :: %{
+        "FilteredStatus" => list(any()),
+        "TopicFilter" => topic_filter()
+      }
+
+  """
+  @type list_contacts_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_suppressed_destination_request() :: %{
+        optional("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type get_suppressed_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_job_request() :: %{}
+
+  """
+  @type get_export_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_sending_attributes_response() :: %{}
+
+  """
+  @type put_account_sending_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_template_request() :: %{
+        required("TemplateContent") => email_template_content()
+      }
+
+  """
+  @type update_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_suppression_attributes_request() :: %{
+        optional("SuppressedReasons") => list(list(any())()),
+        optional("ValidationAttributes") => suppression_validation_attributes()
+      }
+
+  """
+  @type put_account_suppression_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deliverability_test_reports_response() :: %{
+        "DeliverabilityTestReports" => list(deliverability_test_report()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_deliverability_test_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      review_details() :: %{
+        "CaseId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type review_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_preference() :: %{
+        "SubscriptionStatus" => list(any()),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type topic_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_next_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_suppressed_destination_response() :: %{}
+
+  """
+  @type delete_suppressed_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deliverability_dashboard_options_response() :: %{
+        "AccountStatus" => list(any()),
+        "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()),
+        "DashboardEnabled" => boolean(),
+        "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()),
+        "SubscriptionExpiryDate" => non_neg_integer()
+      }
+
+  """
+  @type get_deliverability_dashboard_options_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_contact_response() :: %{}
+
+  """
+  @type update_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_export_job_response() :: %{
         "JobId" => String.t() | atom()
       }
 
   """
-  @type create_import_job_response() :: %{(String.t() | atom()) => any()}
+  @type create_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic() :: %{
+        "DefaultSubscriptionStatus" => list(any()),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type topic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_quota() :: %{
+        "Max24HourSend" => float(),
+        "MaxSendRate" => float(),
+        "SentLast24Hours" => float()
+      }
+
+  """
+  @type send_quota() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reputation_entity_request() :: %{}
+
+  """
+  @type get_reputation_entity_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      export_data_source() :: %{
+        "MessageInsightsDataSource" => message_insights_data_source(),
+        "MetricsDataSource" => metrics_data_source()
+      }
+
+  """
+  @type export_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_email_identity_request() :: %{}
+
+  """
+  @type get_email_identity_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_set_event_destination_response() :: %{}
+
+  """
+  @type create_configuration_set_event_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_dedicated_ip_pool_scaling_attributes_request() :: %{
+        required("ScalingMode") => list(any())
+      }
+
+  """
+  @type put_dedicated_ip_pool_scaling_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_archiving_options_request() :: %{
+        optional("ArchiveArn") => String.t() | atom()
+      }
+
+  """
+  @type put_configuration_set_archiving_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_sending_options_response() :: %{}
+
+  """
+  @type put_configuration_set_sending_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_set_event_destinations_response() :: %{
+        "EventDestinations" => list(event_destination())
+      }
+
+  """
+  @type get_configuration_set_event_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_tenants_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceTenants" => list(resource_tenant_metadata())
+      }
+
+  """
+  @type list_resource_tenants_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_mail_from_attributes_response() :: %{}
+
+  """
+  @type put_email_identity_mail_from_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      message_rejected() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type message_rejected() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deliverability_dashboard_options_request() :: %{}
+
+  """
+  @type get_deliverability_dashboard_options_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      status_record() :: %{
+        "Cause" => String.t() | atom(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type status_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_multi_region_endpoint_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type delete_multi_region_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_jobs_request() :: %{
+        optional("ImportDestinationType") => list(any()),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_details() :: %{
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type route_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_template_response() :: %{}
+
+  """
+  @type delete_email_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contact_lists_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_contact_lists_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_render_email_template_response() :: %{
+        "RenderedTemplate" => String.t() | atom()
+      }
+
+  """
+  @type test_render_email_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_job_response() :: %{
+        "CompletedTimestamp" => non_neg_integer(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "FailedRecordsCount" => integer(),
+        "FailureInfo" => failure_info(),
+        "ImportDataSource" => import_data_source(),
+        "ImportDestination" => import_destination(),
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "ProcessedRecordsCount" => integer()
+      }
+
+  """
+  @type get_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mailbox_validation() :: %{
+        "Evaluations" => email_address_insights_mailbox_evaluations(),
+        "IsValid" => email_address_insights_verdict()
+      }
+
+  """
+  @type mailbox_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_reputation_entity_policy_request() :: %{
+        required("ReputationEntityPolicy") => String.t() | atom()
+      }
+
+  """
+  @type update_reputation_entity_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dedicated_ip_pools_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_dedicated_ip_pools_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_suppressed_destination_request() :: %{
+        required("EmailAddress") => String.t() | atom(),
+        required("Reason") => list(any()),
+        optional("TenantName") => String.t() | atom()
+      }
+
+  """
+  @type put_suppressed_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_sending_options_request() :: %{
+        optional("SendingEnabled") => boolean()
+      }
+
+  """
+  @type put_configuration_set_sending_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_vdm_attributes_response() :: %{}
+
+  """
+  @type put_account_vdm_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_job_response() :: %{
+        "CompletedTimestamp" => non_neg_integer(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "ExportDataSource" => export_data_source(),
+        "ExportDestination" => export_destination(),
+        "ExportSourceType" => list(any()),
+        "FailureInfo" => failure_info(),
+        "JobId" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "Statistics" => export_statistics()
+      }
+
+  """
+  @type get_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contacts_response() :: %{
+        "Contacts" => list(contact()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_contacts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_blacklist_reports_response() :: %{
+        "BlacklistReport" => map()
+      }
+
+  """
+  @type get_blacklist_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dedicated_ip_pool_response() :: %{
+        "DedicatedIpPool" => dedicated_ip_pool()
+      }
+
+  """
+  @type get_dedicated_ip_pool_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_export_job_response() :: %{}
+
+  """
+  @type cancel_export_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_contact_list_response() :: %{}
+
+  """
+  @type update_contact_list_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_dedicated_ip_warmup_attributes_response() :: %{}
+
+  """
+  @type put_dedicated_ip_warmup_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_suppression_options_request() :: %{
+        optional("SuppressedReasons") => list(list(any())()),
+        optional("SuppressionScope") => list(any()),
+        optional("ValidationOptions") => suppression_validation_options()
+      }
+
+  """
+  @type put_configuration_set_suppression_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_suspended_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type account_suspended_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delivery_options() :: %{
+        "MaxDeliverySeconds" => float(),
+        "SendingPoolName" => String.t() | atom(),
+        "TlsPolicy" => list(any())
+      }
+
+  """
+  @type delivery_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suppression_validation_attributes() :: %{
+        "ConditionThreshold" => suppression_condition_threshold()
+      }
+
+  """
+  @type suppression_validation_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_tenant_suppression_attributes_response() :: %{}
+
+  """
+  @type put_tenant_suppression_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_set_event_destination_request() :: %{
+        required("EventDestination") => event_destination_definition()
+      }
+
+  """
+  @type update_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failure_info() :: %{
+        "ErrorMessage" => String.t() | atom(),
+        "FailedRecordsS3Url" => String.t() | atom()
+      }
+
+  """
+  @type failure_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_deliverability_tracking_option() :: %{
+        "Domain" => String.t() | atom(),
+        "InboxPlacementTrackingOption" => inbox_placement_tracking_option(),
+        "SubscriptionStartDate" => non_neg_integer()
+      }
+
+  """
+  @type domain_deliverability_tracking_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_tenants_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_resource_tenants_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_feedback_attributes_response() :: %{}
+
+  """
+  @type put_email_identity_feedback_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommendations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Recommendations" => list(recommendation())
+      }
+
+  """
+  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,246 +3632,12 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      dkim_signing_attributes() :: %{
-        "DomainSigningAttributesOrigin" => list(any()),
-        "DomainSigningPrivateKey" => String.t() | atom(),
-        "DomainSigningSelector" => String.t() | atom(),
-        "NextSigningKeyLength" => list(any())
+      put_email_identity_dkim_attributes_request() :: %{
+        optional("SigningEnabled") => boolean()
       }
 
   """
-  @type dkim_signing_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tenant_resource() :: %{
-        "ResourceArn" => String.t() | atom(),
-        "ResourceType" => list(any())
-      }
-
-  """
-  @type tenant_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dashboard_options() :: %{
-        "EngagementMetrics" => list(any())
-      }
-
-  """
-  @type dashboard_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_email_identity_dkim_attributes_response() :: %{}
-
-  """
-  @type put_email_identity_dkim_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_set_response() :: %{}
-
-  """
-  @type delete_configuration_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_suppression_attributes_response() :: %{}
-
-  """
-  @type put_account_suppression_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_email_identity_policy_response() :: %{}
-
-  """
-  @type update_email_identity_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_archiving_options_request() :: %{
-        optional("ArchiveArn") => String.t() | atom()
-      }
-
-  """
-  @type put_configuration_set_archiving_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deliverability_test_reports_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_deliverability_test_reports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_suppressed_destination_request() :: %{}
-
-  """
-  @type get_suppressed_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_export_jobs_request() :: %{
-        optional("ExportSourceType") => list(any()),
-        optional("JobStatus") => list(any()),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_export_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_import_job_request() :: %{
-        required("ImportDataSource") => import_data_source(),
-        required("ImportDestination") => import_destination()
-      }
-
-  """
-  @type create_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suppression_attributes() :: %{
-        "SuppressedReasons" => list(list(any())()),
-        "ValidationAttributes" => suppression_validation_attributes()
-      }
-
-  """
-  @type suppression_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_reputation_entity_policy_request() :: %{
-        required("ReputationEntityPolicy") => String.t() | atom()
-      }
-
-  """
-  @type update_reputation_entity_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_sending_attributes_request() :: %{
-        optional("SendingEnabled") => boolean()
-      }
-
-  """
-  @type put_account_sending_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_response() :: %{
-        "DedicatedIpAutoWarmupEnabled" => boolean(),
-        "Details" => account_details(),
-        "EnforcementStatus" => String.t() | atom(),
-        "ProductionAccessEnabled" => boolean(),
-        "SendQuota" => send_quota(),
-        "SendingEnabled" => boolean(),
-        "SuppressionAttributes" => suppression_attributes(),
-        "VdmAttributes" => vdm_attributes()
-      }
-
-  """
-  @type get_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tenant_response() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "SendingStatus" => list(any()),
-        "Tags" => list(tag()),
-        "TenantArn" => String.t() | atom(),
-        "TenantId" => String.t() | atom(),
-        "TenantName" => String.t() | atom()
-      }
-
-  """
-  @type create_tenant_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_contact_request() :: %{}
-
-  """
-  @type delete_contact_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deliverability_test_report_request() :: %{}
-
-  """
-  @type get_deliverability_test_report_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_contact_list_response() :: %{
-        "ContactListName" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Tags" => list(tag()),
-        "Topics" => list(topic())
-      }
-
-  """
-  @type get_contact_list_response() :: %{(String.t() | atom()) => any()}
+  @type put_email_identity_dkim_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,1882 +3657,16 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      delete_contact_list_response() :: %{}
-
-  """
-  @type delete_contact_list_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_email_identities_response() :: %{
-        "EmailIdentities" => list(identity_info()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_email_identities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_email_template_request() :: %{
-        required("TemplateContent") => email_template_content()
-      }
-
-  """
-  @type update_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dedicated_ip_pool_response() :: %{}
-
-  """
-  @type create_dedicated_ip_pool_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_reputation_options_response() :: %{}
-
-  """
-  @type put_configuration_set_reputation_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_export_job_response() :: %{}
-
-  """
-  @type cancel_export_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tenant_resource_association_response() :: %{}
-
-  """
-  @type delete_tenant_resource_association_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_identity_policy_request() :: %{
-        required("Policy") => String.t() | atom()
-      }
-
-  """
-  @type create_email_identity_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_contacts_filter() :: %{
-        "FilteredStatus" => list(any()),
-        "TopicFilter" => topic_filter()
-      }
-
-  """
-  @type list_contacts_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reputation_entities_request() :: %{
-        optional("Filter") => map(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_reputation_entities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_email_identity_feedback_attributes_request() :: %{
-        optional("EmailForwardingEnabled") => boolean()
-      }
-
-  """
-  @type put_email_identity_feedback_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      isp_placement() :: %{
-        "IspName" => String.t() | atom(),
-        "PlacementStatistics" => placement_statistics()
-      }
-
-  """
-  @type isp_placement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tenants_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_tenants_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_details() :: %{
-        "Bounce" => bounce(),
-        "Complaint" => complaint()
-      }
-
-  """
-  @type event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_template_content() :: %{
-        "Html" => String.t() | atom(),
-        "Subject" => String.t() | atom(),
-        "Text" => String.t() | atom()
-      }
-
-  """
-  @type email_template_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_contact_lists_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_contact_lists_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contact_list_destination() :: %{
-        "ContactListImportAction" => list(any()),
-        "ContactListName" => String.t() | atom()
-      }
-
-  """
-  @type contact_list_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_vdm_options_request() :: %{
-        optional("VdmOptions") => vdm_options()
-      }
-
-  """
-  @type put_configuration_set_vdm_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deliverability_test_reports_response() :: %{
-        "DeliverabilityTestReports" => list(deliverability_test_report()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_deliverability_test_reports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suppression_condition_threshold() :: %{
-        "ConditionThresholdEnabled" => list(any()),
-        "OverallConfidenceThreshold" => suppression_confidence_threshold()
-      }
-
-  """
-  @type suppression_condition_threshold() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kinesis_firehose_destination() :: %{
-        "DeliveryStreamArn" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type kinesis_firehose_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vdm_options() :: %{
-        "DashboardOptions" => dashboard_options(),
-        "GuardianOptions" => guardian_options()
-      }
-
-  """
-  @type vdm_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_dedicated_ip_warmup_attributes_response() :: %{}
-
-  """
-  @type put_account_dedicated_ip_warmup_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_contact_list_response() :: %{}
-
-  """
-  @type update_contact_list_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      verification_info() :: %{
-        "ErrorType" => list(any()),
-        "LastCheckedTimestamp" => non_neg_integer(),
-        "LastSuccessTimestamp" => non_neg_integer(),
-        "SOARecord" => s_o_a_record()
-      }
-
-  """
-  @type verification_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_export_job_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-
-  """
-  @type create_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_insights_data_source() :: %{
-        "EndDate" => non_neg_integer(),
-        "Exclude" => message_insights_filters(),
-        "Include" => message_insights_filters(),
-        "MaxResults" => integer(),
-        "StartDate" => non_neg_integer()
-      }
-
-  """
-  @type message_insights_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suppressed_destination_summary() :: %{
+      suppressed_destination() :: %{
+        "Attributes" => suppressed_destination_attributes(),
         "EmailAddress" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type suppressed_destination_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_details() :: %{
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type route_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tenant_request() :: %{
-        required("TenantName") => String.t() | atom()
-      }
-
-  """
-  @type delete_tenant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_identity_policy_response() :: %{}
-
-  """
-  @type delete_email_identity_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multi_region_endpoints_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_multi_region_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_quota() :: %{
-        "Max24HourSend" => float(),
-        "MaxSendRate" => float(),
-        "SentLast24Hours" => float()
-      }
-
-  """
-  @type send_quota() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_custom_verification_email_template_response() :: %{
-        "FailureRedirectionURL" => String.t() | atom(),
-        "FromEmailAddress" => String.t() | atom(),
-        "SuccessRedirectionURL" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "TemplateContent" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateSubject" => String.t() | atom()
-      }
-
-  """
-  @type get_custom_verification_email_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dkim_attributes() :: %{
-        "CurrentSigningKeyLength" => list(any()),
-        "LastKeyGenerationTimestamp" => non_neg_integer(),
-        "NextSigningKeyLength" => list(any()),
-        "SigningAttributesOrigin" => list(any()),
-        "SigningEnabled" => boolean(),
-        "SigningHostedZone" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tokens" => list(String.t() | atom())
-      }
-
-  """
-  @type dkim_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_identity_policies_response() :: %{
-        "Policies" => map()
-      }
-
-  """
-  @type get_email_identity_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_dedicated_ip_pool_scaling_attributes_request() :: %{
-        required("ScalingMode") => list(any())
-      }
-
-  """
-  @type put_dedicated_ip_pool_scaling_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_identity_response() :: %{
-        "DkimAttributes" => dkim_attributes(),
-        "IdentityType" => list(any()),
-        "VerifiedForSendingStatus" => boolean()
-      }
-
-  """
-  @type create_email_identity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_email_templates_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_email_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_render_email_template_request() :: %{
-        required("TemplateData") => String.t() | atom()
-      }
-
-  """
-  @type test_render_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sending_paused_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type sending_paused_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_deliverability_dashboard_option_request() :: %{
-        optional("SubscribedDomains") => list(domain_deliverability_tracking_option()),
-        required("DashboardEnabled") => boolean()
-      }
-
-  """
-  @type put_deliverability_dashboard_option_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attachment() :: %{
-        "ContentDescription" => String.t() | atom(),
-        "ContentDisposition" => list(any()),
-        "ContentId" => String.t() | atom(),
-        "ContentTransferEncoding" => list(any()),
-        "ContentType" => String.t() | atom(),
-        "FileName" => String.t() | atom(),
-        "RawContent" => binary()
-      }
-
-  """
-  @type attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_details_request() :: %{
-        optional("AdditionalContactEmailAddresses") => list(String.t() | atom()),
-        optional("ContactLanguage") => list(any()),
-        optional("ProductionAccessEnabled") => boolean(),
-        optional("UseCaseDescription") => String.t() | atom(),
-        required("MailType") => list(any()),
-        required("WebsiteURL") => String.t() | atom()
-      }
-
-  """
-  @type put_account_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_bulk_email_response() :: %{
-        "BulkEmailEntryResults" => list(bulk_email_entry_result())
-      }
-
-  """
-  @type send_bulk_email_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_custom_verification_email_template_request() :: %{}
-
-  """
-  @type get_custom_verification_email_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_delivery_options_response() :: %{}
-
-  """
-  @type put_configuration_set_delivery_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      account_suspended_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type account_suspended_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_tenant_metadata() :: %{
-        "AssociatedTimestamp" => non_neg_integer(),
-        "ResourceArn" => String.t() | atom(),
-        "TenantId" => String.t() | atom(),
+        "Reason" => list(any()),
         "TenantName" => String.t() | atom()
       }
 
   """
-  @type resource_tenant_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_content() :: %{
-        "Raw" => raw_message(),
-        "Simple" => message(),
-        "Template" => template()
-      }
-
-  """
-  @type email_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deliverability_dashboard_options_response() :: %{
-        "AccountStatus" => list(any()),
-        "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()),
-        "DashboardEnabled" => boolean(),
-        "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()),
-        "SubscriptionExpiryDate" => non_neg_integer()
-      }
-
-  """
-  @type get_deliverability_dashboard_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_deliverability_campaign_request() :: %{}
-
-  """
-  @type get_domain_deliverability_campaign_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_set_event_destination_response() :: %{}
-
-  """
-  @type delete_configuration_set_event_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multi_region_endpoints_response() :: %{
-        "MultiRegionEndpoints" => list(multi_region_endpoint()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_multi_region_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_address_insights_verdict() :: %{
-        "ConfidenceVerdict" => list(any())
-      }
-
-  """
-  @type email_address_insights_verdict() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_vdm_attributes_response() :: %{}
-
-  """
-  @type put_account_vdm_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tenant_info() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "TenantArn" => String.t() | atom(),
-        "TenantId" => String.t() | atom(),
-        "TenantName" => String.t() | atom()
-      }
-
-  """
-  @type tenant_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_identity_request() :: %{}
-
-  """
-  @type delete_email_identity_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s_o_a_record() :: %{
-        "AdminEmail" => String.t() | atom(),
-        "PrimaryNameServer" => String.t() | atom(),
-        "SerialNumber" => float()
-      }
-
-  """
-  @type s_o_a_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_dimension_configuration() :: %{
-        "DefaultDimensionValue" => String.t() | atom(),
-        "DimensionName" => String.t() | atom(),
-        "DimensionValueSource" => list(any())
-      }
-
-  """
-  @type cloud_watch_dimension_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_archiving_options_response() :: %{}
-
-  """
-  @type put_configuration_set_archiving_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_verification_email_template_response() :: %{}
-
-  """
-  @type delete_custom_verification_email_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_suppressed_destination_request() :: %{
-        required("EmailAddress") => String.t() | atom(),
-        required("Reason") => list(any())
-      }
-
-  """
-  @type put_suppressed_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_deliverability_test_report_response() :: %{
-        "DeliverabilityTestStatus" => list(any()),
-        "ReportId" => String.t() | atom()
-      }
-
-  """
-  @type create_deliverability_test_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_destination_definition() :: %{
-        "CloudWatchDestination" => cloud_watch_destination(),
-        "Enabled" => boolean(),
-        "EventBridgeDestination" => event_bridge_destination(),
-        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-        "MatchingEventTypes" => list(list(any())()),
-        "PinpointDestination" => pinpoint_destination(),
-        "SnsDestination" => sns_destination()
-      }
-
-  """
-  @type event_destination_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_suppressed_destinations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SuppressedDestinationSummaries" => list(suppressed_destination_summary())
-      }
-
-  """
-  @type list_suppressed_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_deliverability_campaigns_response() :: %{
-        "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domain_deliverability_campaigns_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_set_request() :: %{}
-
-  """
-  @type delete_configuration_set_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_suppression_attributes_request() :: %{
-        optional("SuppressedReasons") => list(list(any())()),
-        optional("ValidationAttributes") => suppression_validation_attributes()
-      }
-
-  """
-  @type put_account_suppression_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tenant_response() :: %{
-        "Tenant" => tenant()
-      }
-
-  """
-  @type get_tenant_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_email_response() :: %{
-        "MessageId" => String.t() | atom()
-      }
-
-  """
-  @type send_email_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_suppressed_destinations_request() :: %{
-        optional("EndDate") => non_neg_integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("Reasons") => list(list(any())()),
-        optional("StartDate") => non_neg_integer()
-      }
-
-  """
-  @type list_suppressed_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dedicated_ip_pool_request() :: %{}
-
-  """
-  @type delete_dedicated_ip_pool_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_template_request() :: %{}
-
-  """
-  @type delete_email_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_destination() :: %{
-        "DimensionConfigurations" => list(cloud_watch_dimension_configuration())
-      }
-
-  """
-  @type cloud_watch_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blacklist_entry() :: %{
-        "Description" => String.t() | atom(),
-        "ListingTime" => non_neg_integer(),
-        "RblName" => String.t() | atom()
-      }
-
-  """
-  @type blacklist_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_suppression_options_request() :: %{
-        optional("SuppressedReasons") => list(list(any())()),
-        optional("ValidationOptions") => suppression_validation_options()
-      }
-
-  """
-  @type put_configuration_set_suppression_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mail_from_domain_not_verified_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type mail_from_domain_not_verified_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      overall_volume() :: %{
-        "DomainIspPlacements" => list(domain_isp_placement()),
-        "ReadRatePercent" => float(),
-        "VolumeStatistics" => volume_statistics()
-      }
-
-  """
-  @type overall_volume() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dedicated_ip_pool_request() :: %{}
-
-  """
-  @type get_dedicated_ip_pool_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_isp_placement() :: %{
-        "InboxPercentage" => float(),
-        "InboxRawCount" => float(),
-        "IspName" => String.t() | atom(),
-        "SpamPercentage" => float(),
-        "SpamRawCount" => float()
-      }
-
-  """
-  @type domain_isp_placement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_template_request() :: %{
-        optional("Tags") => list(tag()),
-        required("TemplateContent") => email_template_content(),
-        required("TemplateName") => String.t() | atom()
-      }
-
-  """
-  @type create_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_contact_response() :: %{}
-
-  """
-  @type create_contact_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      reputation_entity() :: %{
-        "AwsSesManagedStatus" => status_record(),
-        "CustomerManagedStatus" => status_record(),
-        "ReputationEntityReference" => String.t() | atom(),
-        "ReputationEntityType" => list(any()),
-        "ReputationImpact" => list(any()),
-        "ReputationManagementPolicy" => String.t() | atom(),
-        "SendingStatusAggregate" => list(any())
-      }
-
-  """
-  @type reputation_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dedicated_ip() :: %{
-        "Ip" => String.t() | atom(),
-        "PoolName" => String.t() | atom(),
-        "WarmupPercentage" => integer(),
-        "WarmupStatus" => list(any())
-      }
-
-  """
-  @type dedicated_ip() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_identity_policy_response() :: %{}
-
-  """
-  @type create_email_identity_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      email_insights() :: %{
-        "Destination" => String.t() | atom(),
-        "Events" => list(insights_event()),
-        "Isp" => String.t() | atom()
-      }
-
-  """
-  @type email_insights() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_blacklist_reports_request() :: %{
-        required("BlacklistItemNames") => list(String.t() | atom())
-      }
-
-  """
-  @type get_blacklist_reports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_address_insights_mailbox_evaluations() :: %{
-        "HasValidDnsRecords" => email_address_insights_verdict(),
-        "HasValidSyntax" => email_address_insights_verdict(),
-        "IsDisposable" => email_address_insights_verdict(),
-        "IsRandomInput" => email_address_insights_verdict(),
-        "IsRoleAddress" => email_address_insights_verdict(),
-        "MailboxExists" => email_address_insights_verdict()
-      }
-
-  """
-  @type email_address_insights_mailbox_evaluations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_email_identity_configuration_set_attributes_response() :: %{}
-
-  """
-  @type put_email_identity_configuration_set_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      message_insights_filters() :: %{
-        "Destination" => list(String.t() | atom()),
-        "FromEmailAddress" => list(String.t() | atom()),
-        "Isp" => list(String.t() | atom()),
-        "LastDeliveryEvent" => list(list(any())()),
-        "LastEngagementEvent" => list(list(any())()),
-        "Subject" => list(String.t() | atom())
-      }
-
-  """
-  @type message_insights_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mail_from_attributes() :: %{
-        "BehaviorOnMxFailure" => list(any()),
-        "MailFromDomain" => String.t() | atom(),
-        "MailFromDomainStatus" => list(any())
-      }
-
-  """
-  @type mail_from_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tenant() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "SendingStatus" => list(any()),
-        "Tags" => list(tag()),
-        "TenantArn" => String.t() | atom(),
-        "TenantId" => String.t() | atom(),
-        "TenantName" => String.t() | atom()
-      }
-
-  """
-  @type tenant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_set_response() :: %{}
-
-  """
-  @type create_configuration_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_verification_email_templates_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_custom_verification_email_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reputation_options() :: %{
-        "LastFreshStart" => non_neg_integer(),
-        "ReputationMetricsEnabled" => boolean()
-      }
-
-  """
-  @type reputation_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_deliverability_dashboard_option_response() :: %{}
-
-  """
-  @type put_deliverability_dashboard_option_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_tenants_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_resource_tenants_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suppression_confidence_threshold() :: %{
-        "ConfidenceVerdictThreshold" => list(any())
-      }
-
-  """
-  @type suppression_confidence_threshold() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reputation_entity_response() :: %{
-        "ReputationEntity" => reputation_entity()
-      }
-
-  """
-  @type get_reputation_entity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_jobs_request() :: %{
-        optional("ImportDestinationType") => list(any()),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_suppressed_destination_response() :: %{}
-
-  """
-  @type delete_suppressed_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_identity_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("DkimSigningAttributes") => dkim_signing_attributes(),
-        optional("Tags") => list(tag()),
-        required("EmailIdentity") => String.t() | atom()
-      }
-
-  """
-  @type create_email_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inbox_placement_tracking_option() :: %{
-        "Global" => boolean(),
-        "TrackedIsps" => list(String.t() | atom())
-      }
-
-  """
-  @type inbox_placement_tracking_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_suppression_options_response() :: %{}
-
-  """
-  @type put_configuration_set_suppression_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_export_job_request() :: %{}
-
-  """
-  @type get_export_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      message_header() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type message_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_metric_data_query() :: %{
-        "Dimensions" => map(),
-        "EndDate" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "Metric" => list(any()),
-        "Namespace" => list(any()),
-        "StartDate" => non_neg_integer()
-      }
-
-  """
-  @type batch_get_metric_data_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_message_insights_request() :: %{}
-
-  """
-  @type get_message_insights_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_suppressed_destination_request() :: %{}
-
-  """
-  @type delete_suppressed_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      export_data_source() :: %{
-        "MessageInsightsDataSource" => message_insights_data_source(),
-        "MetricsDataSource" => metrics_data_source()
-      }
-
-  """
-  @type export_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_data_error() :: %{
-        "Code" => list(any()),
-        "Id" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type metric_data_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_tenants_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceTenants" => list(resource_tenant_metadata())
-      }
-
-  """
-  @type list_resource_tenants_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_export_job_response() :: %{
-        "CompletedTimestamp" => non_neg_integer(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "ExportDataSource" => export_data_source(),
-        "ExportDestination" => export_destination(),
-        "ExportSourceType" => list(any()),
-        "FailureInfo" => failure_info(),
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "Statistics" => export_statistics()
-      }
-
-  """
-  @type get_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_destination() :: %{
-        "CloudWatchDestination" => cloud_watch_destination(),
-        "Enabled" => boolean(),
-        "EventBridgeDestination" => event_bridge_destination(),
-        "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-        "MatchingEventTypes" => list(list(any())()),
-        "Name" => String.t() | atom(),
-        "PinpointDestination" => pinpoint_destination(),
-        "SnsDestination" => sns_destination()
-      }
-
-  """
-  @type event_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_contact_response() :: %{}
-
-  """
-  @type update_contact_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      guardian_attributes() :: %{
-        "OptimizedSharedDelivery" => list(any())
-      }
-
-  """
-  @type guardian_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_set_event_destination_request() :: %{
-        required("EventDestination") => event_destination_definition()
-      }
-
-  """
-  @type update_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_tag() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type message_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_deliverability_campaigns_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        required("EndDate") => non_neg_integer(),
-        required("StartDate") => non_neg_integer()
-      }
-
-  """
-  @type list_domain_deliverability_campaigns_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suppression_list_destination() :: %{
-        "SuppressionListImportAction" => list(any())
-      }
-
-  """
-  @type suppression_list_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_set_event_destinations_request() :: %{}
-
-  """
-  @type get_configuration_set_event_destinations_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_region_endpoint() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "EndpointId" => String.t() | atom(),
-        "EndpointName" => String.t() | atom(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Regions" => list(String.t() | atom()),
-        "Status" => list(any())
-      }
-
-  """
-  @type multi_region_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_vdm_options_response() :: %{}
-
-  """
-  @type put_configuration_set_vdm_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_statistics_report_request() :: %{
-        required("EndDate") => non_neg_integer(),
-        required("StartDate") => non_neg_integer()
-      }
-
-  """
-  @type get_domain_statistics_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Impact" => list(any()),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "ResourceArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      details() :: %{
-        "RoutesDetails" => list(route_details())
-      }
-
-  """
-  @type details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_dedicated_ip_warmup_attributes_request() :: %{
-        optional("AutoWarmupEnabled") => boolean()
-      }
-
-  """
-  @type put_account_dedicated_ip_warmup_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_job_request() :: %{}
-
-  """
-  @type get_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_dedicated_ip_in_pool_response() :: %{}
-
-  """
-  @type put_dedicated_ip_in_pool_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_next_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      topic() :: %{
-        "DefaultSubscriptionStatus" => list(any()),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "TopicName" => String.t() | atom()
-      }
-
-  """
-  @type topic() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_template_response() :: %{}
-
-  """
-  @type delete_email_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_reputation_entity_policy_response() :: %{}
-
-  """
-  @type update_reputation_entity_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      account_details() :: %{
-        "AdditionalContactEmailAddresses" => list(String.t() | atom()),
-        "ContactLanguage" => list(any()),
-        "MailType" => list(any()),
-        "ReviewDetails" => review_details(),
-        "UseCaseDescription" => String.t() | atom(),
-        "WebsiteURL" => String.t() | atom()
-      }
-
-  """
-  @type account_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_custom_verification_email_response() :: %{
-        "MessageId" => String.t() | atom()
-      }
-
-  """
-  @type send_custom_verification_email_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route() :: %{
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_multi_region_endpoint_response() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "EndpointId" => String.t() | atom(),
-        "EndpointName" => String.t() | atom(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Routes" => list(route()),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_multi_region_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      placement_statistics() :: %{
-        "DkimPercentage" => float(),
-        "InboxPercentage" => float(),
-        "MissingPercentage" => float(),
-        "SpamPercentage" => float(),
-        "SpfPercentage" => float()
-      }
-
-  """
-  @type placement_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_info() :: %{
-        "IdentityName" => String.t() | atom(),
-        "IdentityType" => list(any()),
-        "SendingEnabled" => boolean(),
-        "VerificationStatus" => list(any())
-      }
-
-  """
-  @type identity_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metrics_data_source() :: %{
-        "Dimensions" => map(),
-        "EndDate" => non_neg_integer(),
-        "Metrics" => list(export_metric()),
-        "Namespace" => list(any()),
-        "StartDate" => non_neg_integer()
-      }
-
-  """
-  @type metrics_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_management_options() :: %{
-        "ContactListName" => String.t() | atom(),
-        "TopicName" => String.t() | atom()
-      }
-
-  """
-  @type list_management_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_verification_email_template_request() :: %{
-        optional("Tags") => list(tag()),
-        required("FailureRedirectionURL") => String.t() | atom(),
-        required("FromEmailAddress") => String.t() | atom(),
-        required("SuccessRedirectionURL") => String.t() | atom(),
-        required("TemplateContent") => String.t() | atom(),
-        required("TemplateName") => String.t() | atom(),
-        required("TemplateSubject") => String.t() | atom()
-      }
-
-  """
-  @type create_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_metric_data_request() :: %{
-        required("Queries") => list(batch_get_metric_data_query())
-      }
-
-  """
-  @type batch_get_metric_data_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_sets_response() :: %{
-        "ConfigurationSets" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configuration_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dedicated_ip_pools_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_dedicated_ip_pools_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_custom_verification_email_template_request() :: %{
-        required("FailureRedirectionURL") => String.t() | atom(),
-        required("FromEmailAddress") => String.t() | atom(),
-        required("SuccessRedirectionURL") => String.t() | atom(),
-        required("TemplateContent") => String.t() | atom(),
-        required("TemplateSubject") => String.t() | atom()
-      }
-
-  """
-  @type update_custom_verification_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_set_event_destinations_response() :: %{
-        "EventDestinations" => list(event_destination())
-      }
-
-  """
-  @type get_configuration_set_event_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tenant_resources_request() :: %{
-        optional("Filter") => map(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        required("TenantName") => String.t() | atom()
-      }
-
-  """
-  @type list_tenant_resources_request() :: %{(String.t() | atom()) => any()}
+  @type suppressed_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2238,18 +3678,6 @@ defmodule AWS.SESv2 do
 
   """
   @type get_domain_deliverability_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_sets_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_configuration_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2268,761 +3696,35 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      get_dedicated_ips_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PoolName") => String.t() | atom()
+      get_domain_statistics_report_request() :: %{
+        required("EndDate") => non_neg_integer(),
+        required("StartDate") => non_neg_integer()
       }
 
   """
-  @type get_dedicated_ips_request() :: %{(String.t() | atom()) => any()}
+  @type get_domain_statistics_report_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_multi_region_endpoint_response() :: %{
-        "Status" => list(any())
+      put_deliverability_dashboard_option_response() :: %{}
+
+  """
+  @type put_deliverability_dashboard_option_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_email_identity_configuration_set_attributes_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom()
       }
 
   """
-  @type delete_multi_region_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      raw_message() :: %{
-        "Data" => binary()
-      }
-
-  """
-  @type raw_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_dedicated_ip_in_pool_request() :: %{
-        required("DestinationPoolName") => String.t() | atom()
-      }
-
-  """
-  @type put_dedicated_ip_in_pool_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_message_insights_response() :: %{
-        "EmailTags" => list(message_tag()),
-        "FromEmailAddress" => String.t() | atom(),
-        "Insights" => list(email_insights()),
-        "MessageId" => String.t() | atom(),
-        "Subject" => String.t() | atom()
-      }
-
-  """
-  @type get_message_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_address_insights_response() :: %{
-        "MailboxValidation" => mailbox_validation()
-      }
-
-  """
-  @type get_email_address_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_verification_email_templates_response() :: %{
-        "CustomVerificationEmailTemplates" => list(custom_verification_email_template_metadata()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_custom_verification_email_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_email_identity_dkim_attributes_request() :: %{
-        optional("SigningEnabled") => boolean()
-      }
-
-  """
-  @type put_email_identity_dkim_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_verification_email_template_request() :: %{}
-
-  """
-  @type delete_custom_verification_email_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dashboard_attributes() :: %{
-        "EngagementMetrics" => list(any())
-      }
-
-  """
-  @type dashboard_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tenant_resource_association_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TenantName") => String.t() | atom()
-      }
-
-  """
-  @type delete_tenant_resource_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_sending_options_response() :: %{}
-
-  """
-  @type put_configuration_set_sending_options_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      replacement_email_content() :: %{
-        "ReplacementTemplate" => replacement_template()
-      }
-
-  """
-  @type replacement_email_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_contact_list_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("Topics") => list(topic()),
-        required("ContactListName") => String.t() | atom()
-      }
-
-  """
-  @type create_contact_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multi_region_endpoint_request() :: %{
-        optional("Tags") => list(tag()),
-        required("Details") => details(),
-        required("EndpointName") => String.t() | atom()
-      }
-
-  """
-  @type create_multi_region_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contact() :: %{
-        "EmailAddress" => String.t() | atom(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "TopicDefaultPreferences" => list(topic_preference()),
-        "TopicPreferences" => list(topic_preference()),
-        "UnsubscribeAll" => boolean()
-      }
-
-  """
-  @type contact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_job_summary() :: %{
-        "CompletedTimestamp" => non_neg_integer(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "ExportSourceType" => list(any()),
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any())
-      }
-
-  """
-  @type export_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_suppressed_destination_response() :: %{
-        "SuppressedDestination" => suppressed_destination()
-      }
-
-  """
-  @type get_suppressed_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vdm_attributes() :: %{
-        "DashboardAttributes" => dashboard_attributes(),
-        "GuardianAttributes" => guardian_attributes(),
-        "VdmEnabled" => list(any())
-      }
-
-  """
-  @type vdm_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_statistics() :: %{
-        "ExportedRecordsCount" => integer(),
-        "ProcessedRecordsCount" => integer()
-      }
-
-  """
-  @type export_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_bulk_email_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("DefaultEmailTags") => list(message_tag()),
-        optional("EndpointId") => String.t() | atom(),
-        optional("FeedbackForwardingEmailAddress") => String.t() | atom(),
-        optional("FeedbackForwardingEmailAddressIdentityArn") => String.t() | atom(),
-        optional("FromEmailAddress") => String.t() | atom(),
-        optional("FromEmailAddressIdentityArn") => String.t() | atom(),
-        optional("ReplyToAddresses") => list(String.t() | atom()),
-        optional("TenantName") => String.t() | atom(),
-        required("BulkEmailEntries") => list(bulk_email_entry()),
-        required("DefaultContent") => bulk_email_content()
-      }
-
-  """
-  @type send_bulk_email_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dedicated_ip_pool_response() :: %{}
-
-  """
-  @type delete_dedicated_ip_pool_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      suppressed_destination() :: %{
-        "Attributes" => suppressed_destination_attributes(),
-        "EmailAddress" => String.t() | atom(),
-        "LastUpdateTime" => non_neg_integer(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type suppressed_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insights_event() :: %{
-        "Details" => event_details(),
-        "Timestamp" => non_neg_integer(),
-        "Type" => list(any())
-      }
-
-  """
-  @type insights_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_export_job_request() :: %{
-        required("ExportDataSource") => export_data_source(),
-        required("ExportDestination") => export_destination()
-      }
-
-  """
-  @type create_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_tracking_options_request() :: %{
-        optional("CustomRedirectDomain") => String.t() | atom(),
-        optional("HttpsPolicy") => list(any())
-      }
-
-  """
-  @type put_configuration_set_tracking_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dedicated_ip_pool_request() :: %{
-        optional("ScalingMode") => list(any()),
-        optional("Tags") => list(tag()),
-        required("PoolName") => String.t() | atom()
-      }
-
-  """
-  @type create_dedicated_ip_pool_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_bridge_destination() :: %{
-        "EventBusArn" => String.t() | atom()
-      }
-
-  """
-  @type event_bridge_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_custom_verification_email_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        required("EmailAddress") => String.t() | atom(),
-        required("TemplateName") => String.t() | atom()
-      }
-
-  """
-  @type send_custom_verification_email_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_reputation_entity_customer_managed_status_response() :: %{}
-
-  """
-  @type update_reputation_entity_customer_managed_status_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dedicated_ip_response() :: %{
-        "DedicatedIp" => dedicated_ip()
-      }
-
-  """
-  @type get_dedicated_ip_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_email_identity_dkim_signing_attributes_request() :: %{
-        optional("SigningAttributes") => dkim_signing_attributes(),
-        required("SigningAttributesOrigin") => list(any())
-      }
-
-  """
-  @type put_email_identity_dkim_signing_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tenant_resources_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TenantResources" => list(tenant_resource())
-      }
-
-  """
-  @type list_tenant_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tenants_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tenants" => list(tenant_info())
-      }
-
-  """
-  @type list_tenants_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_jobs_response() :: %{
-        "ImportJobs" => list(import_job_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_metric_data_response() :: %{
-        "Errors" => list(metric_data_error()),
-        "Results" => list(metric_data_result())
-      }
-
-  """
-  @type batch_get_metric_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_custom_verification_email_template_response() :: %{}
-
-  """
-  @type update_custom_verification_email_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_set_event_destination_request() :: %{}
-
-  """
-  @type delete_configuration_set_event_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_dedicated_ip_pool_scaling_attributes_response() :: %{}
-
-  """
-  @type put_dedicated_ip_pool_scaling_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_reputation_entity_customer_managed_status_request() :: %{
-        required("SendingStatus") => list(any())
-      }
-
-  """
-  @type update_reputation_entity_customer_managed_status_request() :: %{
+  @type put_email_identity_configuration_set_attributes_request() :: %{
           (String.t() | atom()) => any()
         }
-
-  @typedoc """
-
-  ## Example:
-
-      get_contact_request() :: %{}
-
-  """
-  @type get_contact_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_set_event_destination_response() :: %{}
-
-  """
-  @type create_configuration_set_event_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      import_destination() :: %{
-        "ContactListDestination" => contact_list_destination(),
-        "SuppressionListDestination" => suppression_list_destination()
-      }
-
-  """
-  @type import_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_contacts_request() :: %{
-        optional("Filter") => list_contacts_filter(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-
-  """
-  @type list_contacts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bulk_email_content() :: %{
-        "Template" => template()
-      }
-
-  """
-  @type bulk_email_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_contact_response() :: %{}
-
-  """
-  @type delete_contact_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_delivery_options_request() :: %{
-        optional("MaxDeliverySeconds") => float(),
-        optional("SendingPoolName") => String.t() | atom(),
-        optional("TlsPolicy") => list(any())
-      }
-
-  """
-  @type put_configuration_set_delivery_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reputation_entities_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ReputationEntities" => list(reputation_entity())
-      }
-
-  """
-  @type list_reputation_entities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_email_identity_mail_from_attributes_request() :: %{
-        optional("BehaviorOnMxFailure") => list(any()),
-        optional("MailFromDomain") => String.t() | atom()
-      }
-
-  """
-  @type put_email_identity_mail_from_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dedicated_ip_pool() :: %{
-        "PoolName" => String.t() | atom(),
-        "ScalingMode" => list(any())
-      }
-
-  """
-  @type dedicated_ip_pool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_identity_response() :: %{}
-
-  """
-  @type delete_email_identity_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_job_response() :: %{
-        "CompletedTimestamp" => non_neg_integer(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "FailedRecordsCount" => integer(),
-        "FailureInfo" => failure_info(),
-        "ImportDataSource" => import_data_source(),
-        "ImportDestination" => import_destination(),
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "ProcessedRecordsCount" => integer()
-      }
-
-  """
-  @type get_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_deliverability_test_report_request() :: %{
-        optional("ReportName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Content") => email_content(),
-        required("FromEmailAddress") => String.t() | atom()
-      }
-
-  """
-  @type create_deliverability_test_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      topic_preference() :: %{
-        "SubscriptionStatus" => list(any()),
-        "TopicName" => String.t() | atom()
-      }
-
-  """
-  @type topic_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_contacts_response() :: %{
-        "Contacts" => list(contact()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_contacts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_contact_list_response() :: %{}
-
-  """
-  @type create_contact_list_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      archiving_options() :: %{
-        "ArchiveArn" => String.t() | atom()
-      }
-
-  """
-  @type archiving_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suppression_options() :: %{
-        "SuppressedReasons" => list(list(any())()),
-        "ValidationOptions" => suppression_validation_options()
-      }
-
-  """
-  @type suppression_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      daily_volume() :: %{
-        "DomainIspPlacements" => list(domain_isp_placement()),
-        "StartDate" => non_neg_integer(),
-        "VolumeStatistics" => volume_statistics()
-      }
-
-  """
-  @type daily_volume() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      status_record() :: %{
-        "Cause" => String.t() | atom(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Status" => list(any())
-      }
-
-  """
-  @type status_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      import_job_summary() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "FailedRecordsCount" => integer(),
-        "ImportDestination" => import_destination(),
-        "JobId" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "ProcessedRecordsCount" => integer()
-      }
-
-  """
-  @type import_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reputation_entity_request() :: %{}
-
-  """
-  @type get_reputation_entity_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multi_region_endpoint_response() :: %{
-        "EndpointId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type create_multi_region_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3034,663 +3736,6 @@ defmodule AWS.SESv2 do
 
   """
   @type sending_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tenant_response() :: %{}
-
-  """
-  @type delete_tenant_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_identity_policy_request() :: %{}
-
-  """
-  @type delete_email_identity_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tenant_resource_association_response() :: %{}
-
-  """
-  @type create_tenant_resource_association_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_email_templates_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TemplatesMetadata" => list(email_template_metadata())
-      }
-
-  """
-  @type list_email_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_blacklist_reports_response() :: %{
-        "BlacklistReport" => map()
-      }
-
-  """
-  @type get_blacklist_reports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_contact_request() :: %{
-        optional("AttributesData") => String.t() | atom(),
-        optional("TopicPreferences") => list(topic_preference()),
-        optional("UnsubscribeAll") => boolean()
-      }
-
-  """
-  @type update_contact_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_email_identity_dkim_signing_attributes_response() :: %{
-        "DkimStatus" => list(any()),
-        "DkimTokens" => list(String.t() | atom()),
-        "SigningHostedZone" => String.t() | atom()
-      }
-
-  """
-  @type put_email_identity_dkim_signing_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_export_job_request() :: %{}
-
-  """
-  @type cancel_export_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tenant_resource_association_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TenantName") => String.t() | atom()
-      }
-
-  """
-  @type create_tenant_resource_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination() :: %{
-        "BccAddresses" => list(String.t() | atom()),
-        "CcAddresses" => list(String.t() | atom()),
-        "ToAddresses" => list(String.t() | atom())
-      }
-
-  """
-  @type destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_multi_region_endpoint_request() :: %{}
-
-  """
-  @type get_multi_region_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      body() :: %{
-        "Html" => content(),
-        "Text" => content()
-      }
-
-  """
-  @type body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deliverability_dashboard_options_request() :: %{}
-
-  """
-  @type get_deliverability_dashboard_options_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_statistics_report_response() :: %{
-        "DailyVolumes" => list(daily_volume()),
-        "OverallVolume" => overall_volume()
-      }
-
-  """
-  @type get_domain_statistics_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_sending_attributes_response() :: %{}
-
-  """
-  @type put_account_sending_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_identity_policies_request() :: %{}
-
-  """
-  @type get_email_identity_policies_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      message_rejected() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type message_rejected() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_contact_request() :: %{
-        optional("AttributesData") => String.t() | atom(),
-        optional("TopicPreferences") => list(topic_preference()),
-        optional("UnsubscribeAll") => boolean(),
-        required("EmailAddress") => String.t() | atom()
-      }
-
-  """
-  @type create_contact_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contact_list() :: %{
-        "ContactListName" => String.t() | atom(),
-        "LastUpdatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type contact_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardian_options() :: %{
-        "OptimizedSharedDelivery" => list(any())
-      }
-
-  """
-  @type guardian_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dedicated_ip_pools_response() :: %{
-        "DedicatedIpPools" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_dedicated_ip_pools_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_set_request() :: %{}
-
-  """
-  @type get_configuration_set_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_email_identity_mail_from_attributes_response() :: %{}
-
-  """
-  @type put_email_identity_mail_from_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_set_event_destination_request() :: %{
-        required("EventDestination") => event_destination_definition(),
-        required("EventDestinationName") => String.t() | atom()
-      }
-
-  """
-  @type create_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_deliverability_tracking_option() :: %{
-        "Domain" => String.t() | atom(),
-        "InboxPlacementTrackingOption" => inbox_placement_tracking_option(),
-        "SubscriptionStartDate" => non_neg_integer()
-      }
-
-  """
-  @type domain_deliverability_tracking_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_contact_list_request() :: %{}
-
-  """
-  @type delete_contact_list_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      suppression_validation_attributes() :: %{
-        "ConditionThreshold" => suppression_condition_threshold()
-      }
-
-  """
-  @type suppression_validation_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configuration_set_sending_options_request() :: %{
-        optional("SendingEnabled") => boolean()
-      }
-
-  """
-  @type put_configuration_set_sending_options_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dedicated_ip_pool_response() :: %{
-        "DedicatedIpPool" => dedicated_ip_pool()
-      }
-
-  """
-  @type get_dedicated_ip_pool_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bulk_email_entry_result() :: %{
-        "Error" => String.t() | atom(),
-        "MessageId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type bulk_email_entry_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delivery_options() :: %{
-        "MaxDeliverySeconds" => float(),
-        "SendingPoolName" => String.t() | atom(),
-        "TlsPolicy" => list(any())
-      }
-
-  """
-  @type delivery_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_set_event_destination_response() :: %{}
-
-  """
-  @type update_configuration_set_event_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      mailbox_validation() :: %{
-        "Evaluations" => email_address_insights_mailbox_evaluations(),
-        "IsValid" => email_address_insights_verdict()
-      }
-
-  """
-  @type mailbox_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tenant_request() :: %{
-        required("TenantName") => String.t() | atom()
-      }
-
-  """
-  @type get_tenant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_template_response() :: %{
-        "Tags" => list(tag()),
-        "TemplateContent" => email_template_content(),
-        "TemplateName" => String.t() | atom()
-      }
-
-  """
-  @type get_email_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content() :: %{
-        "Charset" => String.t() | atom(),
-        "Data" => String.t() | atom()
-      }
-
-  """
-  @type content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_email_identity_policy_request() :: %{
-        required("Policy") => String.t() | atom()
-      }
-
-  """
-  @type update_email_identity_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_suppressed_destination_response() :: %{}
-
-  """
-  @type put_suppressed_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_template_request() :: %{}
-
-  """
-  @type get_email_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_vdm_attributes_request() :: %{
-        required("VdmAttributes") => vdm_attributes()
-      }
-
-  """
-  @type put_account_vdm_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_set_response() :: %{
-        "ArchivingOptions" => archiving_options(),
-        "ConfigurationSetName" => String.t() | atom(),
-        "DeliveryOptions" => delivery_options(),
-        "ReputationOptions" => reputation_options(),
-        "SendingOptions" => sending_options(),
-        "SuppressionOptions" => suppression_options(),
-        "Tags" => list(tag()),
-        "TrackingOptions" => tracking_options(),
-        "VdmOptions" => vdm_options()
-      }
-
-  """
-  @type get_configuration_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_email_template_response() :: %{}
-
-  """
-  @type update_email_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      suppressed_destination_attributes() :: %{
-        "FeedbackId" => String.t() | atom(),
-        "MessageId" => String.t() | atom()
-      }
-
-  """
-  @type suppressed_destination_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template() :: %{
-        "Attachments" => list(attachment()),
-        "Headers" => list(message_header()),
-        "TemplateArn" => String.t() | atom(),
-        "TemplateContent" => email_template_content(),
-        "TemplateData" => String.t() | atom(),
-        "TemplateName" => String.t() | atom()
-      }
-
-  """
-  @type template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_email_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom(),
-        optional("Destination") => destination(),
-        optional("EmailTags") => list(message_tag()),
-        optional("EndpointId") => String.t() | atom(),
-        optional("FeedbackForwardingEmailAddress") => String.t() | atom(),
-        optional("FeedbackForwardingEmailAddressIdentityArn") => String.t() | atom(),
-        optional("FromEmailAddress") => String.t() | atom(),
-        optional("FromEmailAddressIdentityArn") => String.t() | atom(),
-        optional("ListManagementOptions") => list_management_options(),
-        optional("ReplyToAddresses") => list(String.t() | atom()),
-        optional("TenantName") => String.t() | atom(),
-        required("Content") => email_content()
-      }
-
-  """
-  @type send_email_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_contact_list_request() :: %{}
-
-  """
-  @type get_contact_list_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_account_details_response() :: %{}
-
-  """
-  @type put_account_details_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      review_details() :: %{
-        "CaseId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type review_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_dedicated_ip_warmup_attributes_response() :: %{}
-
-  """
-  @type put_dedicated_ip_warmup_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_export_jobs_response() :: %{
-        "ExportJobs" => list(export_job_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_export_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failure_info() :: %{
-        "ErrorMessage" => String.t() | atom(),
-        "FailedRecordsS3Url" => String.t() | atom()
-      }
-
-  """
-  @type failure_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_data_source() :: %{
-        "DataFormat" => list(any()),
-        "S3Url" => String.t() | atom()
-      }
-
-  """
-  @type import_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_dedicated_ip_warmup_attributes_request() :: %{
-        required("WarmupPercentage") => integer()
-      }
-
-  """
-  @type put_dedicated_ip_warmup_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_address_insights_request() :: %{
-        required("EmailAddress") => String.t() | atom()
-      }
-
-  """
-  @type get_email_address_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3720,97 +3765,149 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      replacement_template() :: %{
-        "ReplacementTemplateData" => String.t() | atom()
+      concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type replacement_template() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_recommendations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Recommendations" => list(recommendation())
+      send_email_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        required("Content") => email_content(),
+        optional("Destination") => destination(),
+        optional("EmailTags") => list(message_tag()),
+        optional("EndpointId") => String.t() | atom(),
+        optional("FeedbackForwardingEmailAddress") => String.t() | atom(),
+        optional("FeedbackForwardingEmailAddressIdentityArn") => String.t() | atom(),
+        optional("FromEmailAddress") => String.t() | atom(),
+        optional("FromEmailAddressIdentityArn") => String.t() | atom(),
+        optional("ListManagementOptions") => list_management_options(),
+        optional("ReplyToAddresses") => list(String.t() | atom()),
+        optional("TenantName") => String.t() | atom()
       }
 
   """
-  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
+  @type send_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_tenant_request() :: %{
-        optional("Tags") => list(tag()),
-        required("TenantName") => String.t() | atom()
+      get_email_identity_policies_response() :: %{
+        "Policies" => map()
       }
 
   """
-  @type create_tenant_request() :: %{(String.t() | atom()) => any()}
+  @type get_email_identity_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_email_identity_configuration_set_attributes_request() :: %{
-        optional("ConfigurationSetName") => String.t() | atom()
+      put_suppressed_destination_response() :: %{}
+
+  """
+  @type put_suppressed_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_verification_email_templates_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => integer()
       }
 
   """
-  @type put_email_identity_configuration_set_attributes_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_custom_verification_email_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_account_request() :: %{}
-
-  """
-  @type get_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dedicated_ip_request() :: %{}
-
-  """
-  @type get_dedicated_ip_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      export_destination() :: %{
-        "DataFormat" => list(any()),
-        "S3Url" => String.t() | atom()
+      send_custom_verification_email_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        required("EmailAddress") => String.t() | atom(),
+        required("TemplateName") => String.t() | atom()
       }
 
   """
-  @type export_destination() :: %{(String.t() | atom()) => any()}
+  @type send_custom_verification_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_contact_response() :: %{
-        "AttributesData" => String.t() | atom(),
-        "ContactListName" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "EmailAddress" => String.t() | atom(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "TopicDefaultPreferences" => list(topic_preference()),
-        "TopicPreferences" => list(topic_preference()),
-        "UnsubscribeAll" => boolean()
+      list_domain_deliverability_campaigns_response() :: %{
+        "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_contact_response() :: %{(String.t() | atom()) => any()}
+  @type list_domain_deliverability_campaigns_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multi_region_endpoint_request() :: %{
+        required("Details") => details(),
+        required("EndpointName") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_multi_region_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_content() :: %{
+        "Raw" => raw_message(),
+        "Simple" => message(),
+        "Template" => template()
+      }
+
+  """
+  @type email_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_dedicated_ip_in_pool_response() :: %{}
+
+  """
+  @type put_dedicated_ip_in_pool_response() :: %{}
 
   @typedoc """
 
@@ -3828,373 +3925,355 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
-      suppression_validation_options() :: %{
-        "ConditionThreshold" => suppression_condition_threshold()
+      daily_volume() :: %{
+        "DomainIspPlacements" => list(domain_isp_placement()),
+        "StartDate" => non_neg_integer(),
+        "VolumeStatistics" => volume_statistics()
       }
 
   """
-  @type suppression_validation_options() :: %{(String.t() | atom()) => any()}
+  @type daily_volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      complaint() :: %{
-        "ComplaintFeedbackType" => String.t() | atom(),
-        "ComplaintSubType" => String.t() | atom()
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type complaint() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_configuration_set_reputation_options_request() :: %{
-        optional("ReputationMetricsEnabled") => boolean()
+      contact_list_destination() :: %{
+        "ContactListImportAction" => list(any()),
+        "ContactListName" => String.t() | atom()
       }
 
   """
-  @type put_configuration_set_reputation_options_request() :: %{(String.t() | atom()) => any()}
+  @type contact_list_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bulk_email_entry() :: %{
-        optional("ReplacementEmailContent") => replacement_email_content(),
-        optional("ReplacementHeaders") => list(message_header()),
-        optional("ReplacementTags") => list(message_tag()),
-        required("Destination") => destination()
+      create_email_identity_policy_request() :: %{
+        required("Policy") => String.t() | atom()
       }
 
   """
-  @type bulk_email_entry() :: %{(String.t() | atom()) => any()}
+  @type create_email_identity_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_configuration_set_request() :: %{
-        optional("ArchivingOptions") => archiving_options(),
-        optional("DeliveryOptions") => delivery_options(),
-        optional("ReputationOptions") => reputation_options(),
-        optional("SendingOptions") => sending_options(),
-        optional("SuppressionOptions") => suppression_options(),
-        optional("Tags") => list(tag()),
-        optional("TrackingOptions") => tracking_options(),
-        optional("VdmOptions") => vdm_options(),
-        required("ConfigurationSetName") => String.t() | atom()
+      get_email_address_insights_response() :: %{
+        "MailboxValidation" => mailbox_validation()
       }
 
   """
-  @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
+  @type get_email_address_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      email_template_metadata() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "TemplateName" => String.t() | atom()
+      resource_tenant_metadata() :: %{
+        "AssociatedTimestamp" => non_neg_integer(),
+        "ResourceArn" => String.t() | atom(),
+        "TenantId" => String.t() | atom(),
+        "TenantName" => String.t() | atom()
       }
 
   """
-  @type email_template_metadata() :: %{(String.t() | atom()) => any()}
+  @type resource_tenant_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      export_metric() :: %{
-        "Aggregation" => list(any()),
-        "Name" => list(any())
+      tenant_resource() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => list(any())
       }
 
   """
-  @type export_metric() :: %{(String.t() | atom()) => any()}
+  @type tenant_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sns_destination() :: %{
-        "TopicArn" => String.t() | atom()
-      }
-
-  """
-  @type sns_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_render_email_template_response() :: %{
-        "RenderedTemplate" => String.t() | atom()
-      }
-
-  """
-  @type test_render_email_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_template_response() :: %{}
-
-  """
-  @type create_email_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_contact_list_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Topics") => list(topic())
-      }
-
-  """
-  @type update_contact_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_data_result() :: %{
+      batch_get_metric_data_query() :: %{
+        "Dimensions" => map(),
+        "EndDate" => non_neg_integer(),
         "Id" => String.t() | atom(),
-        "Timestamps" => list(non_neg_integer()),
-        "Values" => list(float())
+        "Metric" => list(any()),
+        "Namespace" => list(any()),
+        "StartDate" => non_neg_integer()
       }
 
   """
-  @type metric_data_result() :: %{(String.t() | atom()) => any()}
+  @type batch_get_metric_data_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      pinpoint_destination() :: %{
-        "ApplicationArn" => String.t() | atom()
+      delete_tenant_resource_association_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TenantName") => String.t() | atom()
       }
 
   """
-  @type pinpoint_destination() :: %{(String.t() | atom()) => any()}
+  @type delete_tenant_resource_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_email_identity_feedback_attributes_response() :: %{}
-
-  """
-  @type put_email_identity_feedback_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      deliverability_test_report() :: %{
-        "CreateDate" => non_neg_integer(),
-        "DeliverabilityTestStatus" => list(any()),
-        "FromEmailAddress" => String.t() | atom(),
-        "ReportId" => String.t() | atom(),
-        "ReportName" => String.t() | atom(),
-        "Subject" => String.t() | atom()
+      suppression_options() :: %{
+        "SuppressedReasons" => list(list(any())()),
+        "SuppressionScope" => list(any()),
+        "ValidationOptions" => suppression_validation_options()
       }
 
   """
-  @type deliverability_test_report() :: %{(String.t() | atom()) => any()}
+  @type suppression_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_deliverability_test_report_response() :: %{
-        "DeliverabilityTestReport" => deliverability_test_report(),
-        "IspPlacements" => list(isp_placement()),
-        "Message" => String.t() | atom(),
-        "OverallPlacement" => placement_statistics(),
-        "Tags" => list(tag())
+      get_email_address_insights_request() :: %{
+        required("EmailAddress") => String.t() | atom()
       }
 
   """
-  @type get_deliverability_test_report_response() :: %{(String.t() | atom()) => any()}
+  @type get_email_address_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_recommendations_request() :: %{
-        optional("Filter") => map(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => integer()
+      email_address_insights_verdict() :: %{
+        "ConfidenceVerdict" => list(any())
       }
 
   """
-  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type email_address_insights_verdict() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_verification_email_template_metadata() :: %{
-        "FailureRedirectionURL" => String.t() | atom(),
-        "FromEmailAddress" => String.t() | atom(),
-        "SuccessRedirectionURL" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateSubject" => String.t() | atom()
+      internal_service_error_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type custom_verification_email_template_metadata() :: %{(String.t() | atom()) => any()}
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      topic_filter() :: %{
-        "TopicName" => String.t() | atom(),
-        "UseDefaultIfPreferenceUnavailable" => boolean()
+      guardian_options() :: %{
+        "OptimizedSharedDelivery" => list(any())
       }
 
   """
-  @type topic_filter() :: %{(String.t() | atom()) => any()}
+  @type guardian_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_email_identity_request() :: %{}
-
-  """
-  @type get_email_identity_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dedicated_ips_response() :: %{
-        "DedicatedIps" => list(dedicated_ip()),
-        "NextToken" => String.t() | atom()
+      create_import_job_response() :: %{
+        "JobId" => String.t() | atom()
       }
 
   """
-  @type get_dedicated_ips_response() :: %{(String.t() | atom()) => any()}
+  @type create_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_contact_lists_response() :: %{
-        "ContactLists" => list(contact_list()),
-        "NextToken" => String.t() | atom()
+      message_tag() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type list_contact_lists_response() :: %{(String.t() | atom()) => any()}
+  @type message_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      message() :: %{
-        "Attachments" => list(attachment()),
-        "Body" => body(),
-        "Headers" => list(message_header()),
-        "Subject" => content()
+      blacklist_entry() :: %{
+        "Description" => String.t() | atom(),
+        "ListingTime" => non_neg_integer(),
+        "RblName" => String.t() | atom()
       }
 
   """
-  @type message() :: %{(String.t() | atom()) => any()}
+  @type blacklist_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_identity_policy_response() :: %{}
+
+  """
+  @type create_email_identity_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_response() :: %{}
+
+  """
+  @type delete_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_reputation_options_response() :: %{}
+
+  """
+  @type put_configuration_set_reputation_options_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_deliverability_dashboard_option_request() :: %{
+        required("DashboardEnabled") => boolean(),
+        optional("SubscribedDomains") => list(domain_deliverability_tracking_option())
+      }
+
+  """
+  @type put_deliverability_dashboard_option_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_statistics() :: %{
+        "ExportedRecordsCount" => integer(),
+        "ProcessedRecordsCount" => integer()
+      }
+
+  """
+  @type export_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_bulk_email_response() :: %{
+        "BulkEmailEntryResults" => list(bulk_email_entry_result())
+      }
+
+  """
+  @type send_bulk_email_response() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_metric_data_errors() ::
-          bad_request_exception()
+          internal_service_error_exception()
           | not_found_exception()
+          | bad_request_exception()
           | too_many_requests_exception()
-          | internal_service_error_exception()
 
   @type cancel_export_job_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type create_configuration_set_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
+          | limit_exceeded_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_configuration_set_event_destination_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_contact_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
+          not_found_exception()
+          | bad_request_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_contact_list_errors() ::
           bad_request_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_custom_verification_email_template_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_dedicated_ip_pool_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | concurrent_modification_exception()
-          | too_many_requests_exception()
+          | limit_exceeded_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_deliverability_test_report_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
-          | message_rejected()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
-          | mail_from_domain_not_verified_exception()
-          | too_many_requests_exception()
           | account_suspended_exception()
+          | message_rejected()
+          | limit_exceeded_exception()
           | sending_paused_exception()
+          | too_many_requests_exception()
+          | mail_from_domain_not_verified_exception()
 
   @type create_email_identity_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
+          | limit_exceeded_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_email_identity_policy_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_email_template_errors() ::
           bad_request_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_export_job_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type create_import_job_errors() ::
@@ -4203,148 +4282,148 @@ defmodule AWS.SESv2 do
   @type create_multi_region_endpoint_errors() ::
           bad_request_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_tenant_errors() ::
           bad_request_exception()
           | limit_exceeded_exception()
-          | too_many_requests_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type create_tenant_resource_association_errors() ::
-          bad_request_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
+          not_found_exception()
+          | bad_request_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type delete_configuration_set_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type delete_configuration_set_event_destination_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type delete_contact_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type delete_contact_list_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type delete_custom_verification_email_template_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type delete_dedicated_ip_pool_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type delete_email_identity_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type delete_email_identity_policy_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type delete_email_template_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type delete_multi_region_endpoint_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type delete_suppressed_destination_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type delete_tenant_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type delete_tenant_resource_association_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_account_errors() :: bad_request_exception() | too_many_requests_exception()
 
   @type get_blacklist_reports_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_configuration_set_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_configuration_set_event_destinations_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_contact_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_contact_list_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_custom_verification_email_template_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_dedicated_ip_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_dedicated_ip_pool_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_dedicated_ips_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_deliverability_dashboard_options_errors() ::
           bad_request_exception() | limit_exceeded_exception() | too_many_requests_exception()
 
   @type get_deliverability_test_report_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_domain_deliverability_campaign_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_domain_statistics_report_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_email_address_insights_errors() ::
           bad_request_exception() | too_many_requests_exception()
 
   @type get_email_identity_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_email_identity_policies_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_email_template_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_export_job_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_import_job_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_message_insights_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_multi_region_endpoint_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_reputation_entity_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_suppressed_destination_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type get_tenant_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type list_configuration_sets_errors() ::
           bad_request_exception() | too_many_requests_exception()
@@ -4352,7 +4431,7 @@ defmodule AWS.SESv2 do
   @type list_contact_lists_errors() :: bad_request_exception() | too_many_requests_exception()
 
   @type list_contacts_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type list_custom_verification_email_templates_errors() ::
           bad_request_exception() | too_many_requests_exception()
@@ -4361,10 +4440,10 @@ defmodule AWS.SESv2 do
           bad_request_exception() | too_many_requests_exception()
 
   @type list_deliverability_test_reports_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type list_domain_deliverability_campaigns_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type list_email_identities_errors() :: bad_request_exception() | too_many_requests_exception()
 
@@ -4378,22 +4457,25 @@ defmodule AWS.SESv2 do
           bad_request_exception() | too_many_requests_exception()
 
   @type list_recommendations_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type list_reputation_entities_errors() ::
           bad_request_exception() | too_many_requests_exception()
 
   @type list_resource_tenants_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type list_suppressed_destinations_errors() ::
-          bad_request_exception() | invalid_next_token_exception() | too_many_requests_exception()
+          not_found_exception()
+          | bad_request_exception()
+          | invalid_next_token_exception()
+          | too_many_requests_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type list_tenant_resources_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type list_tenants_errors() :: bad_request_exception() | too_many_requests_exception()
 
@@ -4401,6 +4483,9 @@ defmodule AWS.SESv2 do
           bad_request_exception() | too_many_requests_exception()
 
   @type put_account_details_errors() ::
+          bad_request_exception() | conflict_exception() | too_many_requests_exception()
+
+  @type put_account_pricing_attributes_errors() ::
           bad_request_exception() | conflict_exception() | too_many_requests_exception()
 
   @type put_account_sending_attributes_errors() ::
@@ -4413,130 +4498,133 @@ defmodule AWS.SESv2 do
           bad_request_exception() | too_many_requests_exception()
 
   @type put_configuration_set_archiving_options_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_configuration_set_delivery_options_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_configuration_set_reputation_options_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_configuration_set_sending_options_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_configuration_set_suppression_options_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_configuration_set_tracking_options_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_configuration_set_vdm_options_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_dedicated_ip_in_pool_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_dedicated_ip_pool_scaling_attributes_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type put_dedicated_ip_warmup_attributes_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_deliverability_dashboard_option_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | already_exists_exception()
+          | too_many_requests_exception()
 
   @type put_email_identity_configuration_set_attributes_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_email_identity_dkim_attributes_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_email_identity_dkim_signing_attributes_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_email_identity_feedback_attributes_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_email_identity_mail_from_attributes_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type put_suppressed_destination_errors() ::
-          bad_request_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
+
+  @type put_tenant_suppression_attributes_errors() ::
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type send_bulk_email_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
-          | message_rejected()
-          | not_found_exception()
-          | mail_from_domain_not_verified_exception()
-          | too_many_requests_exception()
+          not_found_exception()
+          | bad_request_exception()
           | account_suspended_exception()
+          | message_rejected()
+          | limit_exceeded_exception()
           | sending_paused_exception()
+          | too_many_requests_exception()
+          | mail_from_domain_not_verified_exception()
 
   @type send_custom_verification_email_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
+          not_found_exception()
+          | bad_request_exception()
           | message_rejected()
-          | not_found_exception()
-          | mail_from_domain_not_verified_exception()
-          | too_many_requests_exception()
+          | limit_exceeded_exception()
           | sending_paused_exception()
+          | too_many_requests_exception()
+          | mail_from_domain_not_verified_exception()
 
   @type send_email_errors() ::
-          bad_request_exception()
-          | limit_exceeded_exception()
-          | message_rejected()
-          | not_found_exception()
-          | mail_from_domain_not_verified_exception()
-          | too_many_requests_exception()
+          not_found_exception()
+          | bad_request_exception()
           | account_suspended_exception()
+          | message_rejected()
+          | limit_exceeded_exception()
           | sending_paused_exception()
+          | too_many_requests_exception()
+          | mail_from_domain_not_verified_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type test_render_email_template_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type update_configuration_set_event_destination_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type update_contact_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type update_contact_list_errors() ::
-          bad_request_exception()
+          not_found_exception()
+          | bad_request_exception()
           | concurrent_modification_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type update_custom_verification_email_template_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type update_email_identity_policy_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type update_email_template_errors() ::
-          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+          not_found_exception() | bad_request_exception() | too_many_requests_exception()
 
   @type update_reputation_entity_customer_managed_status_errors() ::
           bad_request_exception() | conflict_exception() | too_many_requests_exception()
@@ -4991,8 +5079,8 @@ defmodule AWS.SESv2 do
           | {:error, create_email_identity_policy_errors()}
   def create_email_identity_policy(
         %Client{} = client,
-        email_identity,
         policy_name,
+        email_identity,
         input,
         options \\ []
       ) do
@@ -5120,7 +5208,7 @@ defmodule AWS.SESv2 do
   executed.
   The secondary region has to be provided in request's parameters.
   From the data flow standpoint there is no difference between primary
-  and secondary regions - sending traffic will be split equally between the two.
+  and secondary regions - sending traffic is divided between the two.
   The primary region is the region where the resource has been created and where
   it can be managed.
   """
@@ -5160,6 +5248,12 @@ defmodule AWS.SESv2 do
   isolate and manage
   email sending for different customers or business units within your Amazon SES
   API v2 account.
+
+  You can optionally specify `SuppressionAttributes` to configure tenant-level
+  suppression at creation time. When tenant-level suppression is enabled, Amazon
+  SES maintains a
+  separate suppression list for the tenant instead of using the account-level
+  suppression list.
   """
   @spec create_tenant(map(), create_tenant_request(), list()) ::
           {:ok, create_tenant_response(), any()}
@@ -5293,8 +5387,8 @@ defmodule AWS.SESv2 do
           | {:error, delete_configuration_set_event_destination_errors()}
   def delete_configuration_set_event_destination(
         %Client{} = client,
-        configuration_set_name,
         event_destination_name,
+        configuration_set_name,
         input,
         options \\ []
       ) do
@@ -5334,7 +5428,7 @@ defmodule AWS.SESv2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_contact_errors()}
-  def delete_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
+  def delete_contact(%Client{} = client, email_address, contact_list_name, input, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
@@ -5532,8 +5626,8 @@ defmodule AWS.SESv2 do
           | {:error, delete_email_identity_policy_errors()}
   def delete_email_identity_policy(
         %Client{} = client,
-        email_identity,
         policy_name,
+        email_identity,
         input,
         options \\ []
       ) do
@@ -5629,7 +5723,13 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Removes an email address from the suppression list for your account.
+  Removes an email address from the suppression list for your account or for a
+  specific
+  tenant.
+
+  To target a tenant's suppression list, specify the `TenantName`
+  parameter. If you omit `TenantName`, the address is removed from the
+  account-level suppression list.
   """
   @spec delete_suppressed_destination(
           map(),
@@ -5645,7 +5745,12 @@ defmodule AWS.SESv2 do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"TenantName", "TenantName"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -5845,7 +5950,7 @@ defmodule AWS.SESv2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_contact_errors()}
-  def get_contact(%Client{} = client, contact_list_name, email_address, options \\ []) do
+  def get_contact(%Client{} = client, email_address, contact_list_name, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
@@ -5964,9 +6069,9 @@ defmodule AWS.SESv2 do
           | {:error, get_dedicated_ips_errors()}
   def get_dedicated_ips(
         %Client{} = client,
-        next_token \\ nil,
-        page_size \\ nil,
         pool_name \\ nil,
+        page_size \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/dedicated-ips"
@@ -5974,8 +6079,8 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(pool_name) do
-        [{"PoolName", pool_name} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5988,8 +6093,8 @@ defmodule AWS.SESv2 do
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(pool_name) do
+        [{"PoolName", pool_name} | query_params]
       else
         query_params
       end
@@ -6091,8 +6196,8 @@ defmodule AWS.SESv2 do
   def get_domain_statistics_report(
         %Client{} = client,
         domain,
-        end_date,
         start_date,
+        end_date,
         options \\ []
       ) do
     url_path =
@@ -6102,15 +6207,15 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(start_date) do
-        [{"StartDate", start_date} | query_params]
+      if !is_nil(end_date) do
+        [{"EndDate", end_date} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(end_date) do
-        [{"EndDate", end_date} | query_params]
+      if !is_nil(start_date) do
+        [{"StartDate", start_date} | query_params]
       else
         query_params
       end
@@ -6212,7 +6317,7 @@ defmodule AWS.SESv2 do
   text
   part) for the template you specify.
 
-  You can execute this operation no more than once per second.
+  You can execute this operation no more than 50 times per second.
   """
   @spec get_email_template(map(), String.t() | atom(), list()) ::
           {:ok, get_email_template_response(), any()}
@@ -6329,8 +6434,8 @@ defmodule AWS.SESv2 do
           | {:error, get_reputation_entity_errors()}
   def get_reputation_entity(
         %Client{} = client,
-        reputation_entity_reference,
         reputation_entity_type,
+        reputation_entity_reference,
         options \\ []
       ) do
     url_path =
@@ -6347,17 +6452,33 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieves information about a specific email address that's on the suppression
   list
-  for your account.
+  for your account or for a specific tenant.
+
+  To target a tenant's suppression list,
+  specify the `TenantName` parameter. If you omit `TenantName`,
+  the operation targets the account-level suppression list.
   """
-  @spec get_suppressed_destination(map(), String.t() | atom(), list()) ::
+  @spec get_suppressed_destination(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_suppressed_destination_errors()}
-  def get_suppressed_destination(%Client{} = client, email_address, options \\ []) do
+  def get_suppressed_destination(
+        %Client{} = client,
+        email_address,
+        tenant_name \\ nil,
+        options \\ []
+      ) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(tenant_name) do
+        [{"TenantName", tenant_name} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -6366,7 +6487,7 @@ defmodule AWS.SESv2 do
 
   @doc """
   Get information about a specific tenant, including the tenant's name, ID, ARN,
-  creation timestamp, tags, and sending status.
+  creation timestamp, tags, sending status, and suppression attributes.
   """
   @spec get_tenant(map(), get_tenant_request(), list()) ::
           {:ok, get_tenant_response(), any()}
@@ -6417,8 +6538,8 @@ defmodule AWS.SESv2 do
           | {:error, list_configuration_sets_errors()}
   def list_configuration_sets(
         %Client{} = client,
-        next_token \\ nil,
         page_size \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/configuration-sets"
@@ -6426,15 +6547,15 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end
@@ -6456,21 +6577,21 @@ defmodule AWS.SESv2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_contact_lists_errors()}
-  def list_contact_lists(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_contact_lists(%Client{} = client, page_size \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/email/contact-lists"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end
@@ -6533,8 +6654,8 @@ defmodule AWS.SESv2 do
           | {:error, list_custom_verification_email_templates_errors()}
   def list_custom_verification_email_templates(
         %Client{} = client,
-        next_token \\ nil,
         page_size \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/custom-verification-email-templates"
@@ -6542,15 +6663,15 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end
@@ -6577,8 +6698,8 @@ defmodule AWS.SESv2 do
           | {:error, list_dedicated_ip_pools_errors()}
   def list_dedicated_ip_pools(
         %Client{} = client,
-        next_token \\ nil,
         page_size \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/dedicated-ip-pools"
@@ -6586,15 +6707,15 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end
@@ -6625,8 +6746,8 @@ defmodule AWS.SESv2 do
           | {:error, list_deliverability_test_reports_errors()}
   def list_deliverability_test_reports(
         %Client{} = client,
-        next_token \\ nil,
         page_size \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/deliverability-dashboard/test-reports"
@@ -6634,15 +6755,15 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end
@@ -6676,10 +6797,10 @@ defmodule AWS.SESv2 do
   def list_domain_deliverability_campaigns(
         %Client{} = client,
         subscribed_domain,
-        end_date,
-        next_token \\ nil,
-        page_size \\ nil,
         start_date,
+        page_size \\ nil,
+        next_token \\ nil,
+        end_date,
         options \\ []
       ) do
     url_path =
@@ -6689,15 +6810,8 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(start_date) do
-        [{"StartDate", start_date} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(end_date) do
+        [{"EndDate", end_date} | query_params]
       else
         query_params
       end
@@ -6710,8 +6824,15 @@ defmodule AWS.SESv2 do
       end
 
     query_params =
-      if !is_nil(end_date) do
-        [{"EndDate", end_date} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_date) do
+        [{"StartDate", start_date} | query_params]
       else
         query_params
       end
@@ -6738,8 +6859,8 @@ defmodule AWS.SESv2 do
           | {:error, list_email_identities_errors()}
   def list_email_identities(
         %Client{} = client,
-        next_token \\ nil,
         page_size \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/identities"
@@ -6747,15 +6868,15 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end
@@ -6777,21 +6898,21 @@ defmodule AWS.SESv2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_email_templates_errors()}
-  def list_email_templates(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_email_templates(%Client{} = client, page_size \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/email/templates"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end
@@ -6878,8 +6999,8 @@ defmodule AWS.SESv2 do
           | {:error, list_multi_region_endpoints_errors()}
   def list_multi_region_endpoints(
         %Client{} = client,
-        next_token \\ nil,
         page_size \\ nil,
+        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/multi-region-endpoints"
@@ -6887,15 +7008,15 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
       else
         query_params
       end
@@ -7010,10 +7131,15 @@ defmodule AWS.SESv2 do
 
   @doc """
   Retrieves a list of email addresses that are on the suppression list for your
-  account.
+  account or for a specific tenant.
+
+  To target a tenant's suppression list, specify the
+  `TenantName` parameter. If you omit `TenantName`, the operation
+  targets the account-level suppression list.
   """
   @spec list_suppressed_destinations(
           map(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -7027,11 +7153,12 @@ defmodule AWS.SESv2 do
           | {:error, list_suppressed_destinations_errors()}
   def list_suppressed_destinations(
         %Client{} = client,
-        end_date \\ nil,
-        next_token \\ nil,
-        page_size \\ nil,
-        reasons \\ nil,
+        tenant_name \\ nil,
         start_date \\ nil,
+        reasons \\ nil,
+        page_size \\ nil,
+        next_token \\ nil,
+        end_date \\ nil,
         options \\ []
       ) do
     url_path = "/v2/email/suppression/addresses"
@@ -7039,22 +7166,8 @@ defmodule AWS.SESv2 do
     query_params = []
 
     query_params =
-      if !is_nil(start_date) do
-        [{"StartDate", start_date} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(reasons) do
-        [{"Reason", reasons} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
+      if !is_nil(end_date) do
+        [{"EndDate", end_date} | query_params]
       else
         query_params
       end
@@ -7067,8 +7180,29 @@ defmodule AWS.SESv2 do
       end
 
     query_params =
-      if !is_nil(end_date) do
-        [{"EndDate", end_date} | query_params]
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(reasons) do
+        [{"Reason", reasons} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_date) do
+        [{"StartDate", start_date} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(tenant_name) do
+        [{"TenantName", tenant_name} | query_params]
       else
         query_params
       end
@@ -7233,6 +7367,38 @@ defmodule AWS.SESv2 do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Set the pricing plan for your Amazon SES account.
+
+  Use this operation to choose a billing plan
+  that packages multiple Amazon SES features at a single rate.
+  """
+  @spec put_account_pricing_attributes(map(), put_account_pricing_attributes_request(), list()) ::
+          {:ok, put_account_pricing_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_account_pricing_attributes_errors()}
+  def put_account_pricing_attributes(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/account/pricing-attributes"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -7512,7 +7678,13 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Specify the account suppression list preferences for a configuration set.
+  Specify the suppression list preferences for a configuration set.
+
+  You can
+  also use this operation to specify a `SuppressionScope` to override the
+  suppression scope of the tenant or account for emails sent using this
+  configuration
+  set.
   """
   @spec put_configuration_set_suppression_options(
           map(),
@@ -8029,7 +8201,12 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Adds an email address to the suppression list for your account.
+  Adds an email address to the suppression list for your account or for a specific
+  tenant.
+
+  To target a tenant's suppression list, specify the `TenantName`
+  parameter. If you omit `TenantName`, the address is added to the
+  account-level suppression list.
   """
   @spec put_suppressed_destination(map(), put_suppressed_destination_request(), list()) ::
           {:ok, put_suppressed_destination_response(), any()}
@@ -8048,6 +8225,47 @@ defmodule AWS.SESv2 do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Configure the suppression list preferences for a tenant.
+
+  Use this operation to enable
+  or disable tenant-level suppression, or to change the suppressed reasons for a
+  tenant.
+
+  When you set the suppression scope to `TENANT`, Amazon SES maintains a separate
+  suppression list for the tenant. When you set the scope to `ACCOUNT`, the tenant
+  uses the account-level suppression list.
+  """
+  @spec put_tenant_suppression_attributes(
+          map(),
+          put_tenant_suppression_attributes_request(),
+          list()
+        ) ::
+          {:ok, put_tenant_suppression_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_tenant_suppression_attributes_errors()}
+  def put_tenant_suppression_attributes(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenant/suppression"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -8280,8 +8498,8 @@ defmodule AWS.SESv2 do
 
     {query_params, input} =
       [
-        {"ResourceArn", "ResourceArn"},
-        {"TagKeys", "TagKeys"}
+        {"TagKeys", "TagKeys"},
+        {"ResourceArn", "ResourceArn"}
       ]
       |> Request.build_params(input)
 
@@ -8322,8 +8540,8 @@ defmodule AWS.SESv2 do
           | {:error, update_configuration_set_event_destination_errors()}
   def update_configuration_set_event_destination(
         %Client{} = client,
-        configuration_set_name,
         event_destination_name,
+        configuration_set_name,
         input,
         options \\ []
       ) do
@@ -8367,7 +8585,7 @@ defmodule AWS.SESv2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_contact_errors()}
-  def update_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
+  def update_contact(%Client{} = client, email_address, contact_list_name, input, options \\ []) do
     url_path =
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
@@ -8501,8 +8719,8 @@ defmodule AWS.SESv2 do
           | {:error, update_email_identity_policy_errors()}
   def update_email_identity_policy(
         %Client{} = client,
-        email_identity,
         policy_name,
+        email_identity,
         input,
         options \\ []
       ) do
@@ -8596,8 +8814,8 @@ defmodule AWS.SESv2 do
           | {:error, update_reputation_entity_customer_managed_status_errors()}
   def update_reputation_entity_customer_managed_status(
         %Client{} = client,
-        reputation_entity_reference,
         reputation_entity_type,
+        reputation_entity_reference,
         input,
         options \\ []
       ) do
@@ -8647,8 +8865,8 @@ defmodule AWS.SESv2 do
           | {:error, update_reputation_entity_policy_errors()}
   def update_reputation_entity_policy(
         %Client{} = client,
-        reputation_entity_reference,
         reputation_entity_type,
+        reputation_entity_reference,
         input,
         options \\ []
       ) do

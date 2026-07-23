@@ -19,122 +19,58 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      service_vpc_endpoint() :: %{
-        "ServiceName" => list(any()),
-        "VpcEndpointId" => String.t() | atom()
+      list_tags_for_resource_request() :: %{
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type service_vpc_endpoint() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("Arn") => String.t() | atom(),
-        required("Tags") => list(tag())
+      change_progress_status() :: %{
+        "ChangeProgressStages" => list(change_progress_stage()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TotalNumberOfStages" => integer()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type change_progress_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_pipeline_response() :: %{
-        "Pipeline" => pipeline()
-      }
+      get_pipeline_change_progress_request() :: %{}
 
   """
-  @type get_pipeline_response() :: %{(String.t() | atom()) => any()}
+  @type get_pipeline_change_progress_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_resource_policy_response() :: %{}
-
-  """
-  @type delete_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pipelines_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Pipelines" => list(pipeline_summary())
-      }
-
-  """
-  @type list_pipelines_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pipeline_response() :: %{
-        "Pipeline" => pipeline()
-      }
-
-  """
-  @type update_pipeline_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pipelines_request() :: %{
+      list_pipeline_endpoints_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_pipelines_request() :: %{(String.t() | atom()) => any()}
+  @type list_pipeline_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      revoke_pipeline_endpoint_connections_response() :: %{
-        "PipelineArn" => String.t() | atom()
+      put_resource_policy_request() :: %{
+        required("Policy") => String.t() | atom()
       }
 
   """
-  @type revoke_pipeline_endpoint_connections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_pipeline_response() :: %{
-        "Pipeline" => pipeline()
-      }
-
-  """
-  @type create_pipeline_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_pipeline_change_progress_response() :: %{
-        "ChangeProgressStatuses" => list(change_progress_status())
-      }
-
-  """
-  @type get_pipeline_change_progress_response() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -169,197 +105,15 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      start_pipeline_response() :: %{
-        "Pipeline" => pipeline()
+      change_progress_stage() :: %{
+        "Description" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
       }
 
   """
-  @type start_pipeline_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_pipeline_endpoint_request() :: %{
-        required("PipelineArn") => String.t() | atom(),
-        required("VpcOptions") => pipeline_endpoint_vpc_options()
-      }
-
-  """
-  @type create_pipeline_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_endpoint_connection() :: %{
-        "EndpointId" => String.t() | atom(),
-        "PipelineArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "VpcEndpointOwner" => String.t() | atom()
-      }
-
-  """
-  @type pipeline_endpoint_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_response() :: %{
-        "Policy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disabled_operation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type disabled_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_progress_status() :: %{
-        "ChangeProgressStages" => list(change_progress_stage()),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "TotalNumberOfStages" => integer()
-      }
-
-  """
-  @type change_progress_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_endpoint() :: %{
-        "EndpointId" => String.t() | atom(),
-        "IngestEndpointUrl" => String.t() | atom(),
-        "PipelineArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "VpcId" => String.t() | atom(),
-        "VpcOptions" => pipeline_endpoint_vpc_options()
-      }
-
-  """
-  @type pipeline_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_pipeline_endpoint_request() :: %{}
-
-  """
-  @type delete_pipeline_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("Arn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_log_destination() :: %{
-        "LogGroup" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_log_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_pipeline_request() :: %{}
-
-  """
-  @type start_pipeline_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      buffer_options() :: %{
-        "PersistentBufferEnabled" => boolean()
-      }
-
-  """
-  @type buffer_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pipeline_blueprints_request() :: %{}
-
-  """
-  @type list_pipeline_blueprints_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pipeline_blueprints_response() :: %{
-        "Blueprints" => list(pipeline_blueprint_summary())
-      }
-
-  """
-  @type list_pipeline_blueprints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pipeline_endpoint_connections_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PipelineEndpointConnections" => list(pipeline_endpoint_connection())
-      }
-
-  """
-  @type list_pipeline_endpoint_connections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type change_progress_stage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -377,33 +131,56 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      list_pipelines_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Pipelines" => list(pipeline_summary())
       }
 
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type list_pipelines_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_pipeline_request() :: %{
-        optional("BufferOptions") => buffer_options(),
-        optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
-        optional("LogPublishingOptions") => log_publishing_options(),
-        optional("PipelineRoleArn") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("VpcOptions") => vpc_options(),
-        required("MaxUnits") => integer(),
-        required("MinUnits") => integer(),
-        required("PipelineConfigurationBody") => String.t() | atom(),
-        required("PipelineName") => String.t() | atom()
+      delete_pipeline_request() :: %{}
+
+  """
+  @type delete_pipeline_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_message() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type create_pipeline_request() :: %{(String.t() | atom()) => any()}
+  @type validation_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Arn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_pipeline_response() :: %{
+        "Pipeline" => pipeline()
+      }
+
+  """
+  @type stop_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -426,6 +203,38 @@ defmodule AWS.OSIS do
 
   ## Example:
 
+      create_pipeline_request() :: %{
+        optional("BufferOptions") => buffer_options(),
+        optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
+        optional("LogPublishingOptions") => log_publishing_options(),
+        required("MaxUnits") => integer(),
+        required("MinUnits") => integer(),
+        required("PipelineConfigurationBody") => String.t() | atom(),
+        required("PipelineName") => String.t() | atom(),
+        optional("PipelineRoleArn") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("VpcOptions") => vpc_options()
+      }
+
+  """
+  @type create_pipeline_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("Arn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_pipeline_blueprint_request() :: %{
         optional("Format") => String.t() | atom()
       }
@@ -437,10 +246,78 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      delete_pipeline_request() :: %{}
+      list_pipeline_blueprints_request() :: %{}
 
   """
-  @type delete_pipeline_request() :: %{}
+  @type list_pipeline_blueprints_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_pagination_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_options() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcAttachmentOptions" => vpc_attachment_options(),
+        "VpcEndpointManagement" => list(any())
+      }
+
+  """
+  @type vpc_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_status_reason() :: %{
+        "Description" => String.t() | atom()
+      }
+
+  """
+  @type pipeline_status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_pipeline_request() :: %{}
+
+  """
+  @type get_pipeline_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pipeline_endpoint_connections_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PipelineEndpointConnections" => list(pipeline_endpoint_connection())
+      }
+
+  """
+  @type list_pipeline_endpoint_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -458,10 +335,377 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      get_pipeline_change_progress_request() :: %{}
+      pipeline_blueprint_summary() :: %{
+        "BlueprintName" => String.t() | atom(),
+        "DisplayDescription" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Service" => String.t() | atom(),
+        "UseCase" => String.t() | atom()
+      }
 
   """
-  @type get_pipeline_change_progress_request() :: %{}
+  @type pipeline_blueprint_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_pipeline_change_progress_response() :: %{
+        "ChangeProgressStatuses" => list(change_progress_status())
+      }
+
+  """
+  @type get_pipeline_change_progress_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_publishing_options() :: %{
+        "CloudWatchLogDestination" => cloud_watch_log_destination(),
+        "IsLoggingEnabled" => boolean()
+      }
+
+  """
+  @type log_publishing_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_pipeline_endpoint_request() :: %{
+        required("PipelineArn") => String.t() | atom(),
+        required("VpcOptions") => pipeline_endpoint_vpc_options()
+      }
+
+  """
+  @type create_pipeline_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_pipeline_request() :: %{}
+
+  """
+  @type start_pipeline_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disabled_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type disabled_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_pipeline_response() :: %{}
+
+  """
+  @type delete_pipeline_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_destination() :: %{
+        "Endpoint" => String.t() | atom(),
+        "ServiceName" => String.t() | atom()
+      }
+
+  """
+  @type pipeline_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_pipeline_endpoint_connections_request() :: %{
+        required("EndpointIds") => list(String.t() | atom()),
+        required("PipelineArn") => String.t() | atom()
+      }
+
+  """
+  @type revoke_pipeline_endpoint_connections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_pipeline_endpoint_response() :: %{}
+
+  """
+  @type delete_pipeline_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_pipeline_request() :: %{
+        required("PipelineConfigurationBody") => String.t() | atom()
+      }
+
+  """
+  @type validate_pipeline_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pipeline_blueprints_response() :: %{
+        "Blueprints" => list(pipeline_blueprint_summary())
+      }
+
+  """
+  @type list_pipeline_blueprints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_pipeline_response() :: %{
+        "Pipeline" => pipeline()
+      }
+
+  """
+  @type get_pipeline_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipeline_response() :: %{
+        "Pipeline" => pipeline()
+      }
+
+  """
+  @type update_pipeline_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_attachment_options() :: %{
+        "AttachToVpc" => boolean(),
+        "CidrBlock" => String.t() | atom()
+      }
+
+  """
+  @type vpc_attachment_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_endpoint_vpc_options() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type pipeline_endpoint_vpc_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_pipeline_endpoint_response() :: %{
+        "EndpointId" => String.t() | atom(),
+        "PipelineArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type create_pipeline_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_blueprint() :: %{
+        "BlueprintName" => String.t() | atom(),
+        "DisplayDescription" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "PipelineConfigurationBody" => String.t() | atom(),
+        "Service" => String.t() | atom(),
+        "UseCase" => String.t() | atom()
+      }
+
+  """
+  @type pipeline_blueprint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_vpc_endpoint() :: %{
+        "ServiceName" => list(any()),
+        "VpcEndpointId" => String.t() | atom()
+      }
+
+  """
+  @type service_vpc_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_endpoint() :: %{
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcId" => String.t() | atom(),
+        "VpcOptions" => vpc_options()
+      }
+
+  """
+  @type vpc_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_log_destination() :: %{
+        "LogGroup" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_log_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pipelines_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_pipelines_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_pipeline_request() :: %{}
+
+  """
+  @type stop_pipeline_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -487,193 +731,21 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      encryption_at_rest_options() :: %{
-        "KmsKeyArn" => String.t() | atom()
+      delete_pipeline_endpoint_request() :: %{}
+
+  """
+  @type delete_pipeline_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      buffer_options() :: %{
+        "PersistentBufferEnabled" => boolean()
       }
 
   """
-  @type encryption_at_rest_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_pipeline_endpoint_response() :: %{
-        "EndpointId" => String.t() | atom(),
-        "PipelineArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type create_pipeline_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_endpoint() :: %{
-        "VpcEndpointId" => String.t() | atom(),
-        "VpcId" => String.t() | atom(),
-        "VpcOptions" => vpc_options()
-      }
-
-  """
-  @type vpc_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_blueprint() :: %{
-        "BlueprintName" => String.t() | atom(),
-        "DisplayDescription" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "PipelineConfigurationBody" => String.t() | atom(),
-        "Service" => String.t() | atom(),
-        "UseCase" => String.t() | atom()
-      }
-
-  """
-  @type pipeline_blueprint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_request() :: %{}
-
-  """
-  @type get_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      log_publishing_options() :: %{
-        "CloudWatchLogDestination" => cloud_watch_log_destination(),
-        "IsLoggingEnabled" => boolean()
-      }
-
-  """
-  @type log_publishing_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_blueprint_summary() :: %{
-        "BlueprintName" => String.t() | atom(),
-        "DisplayDescription" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "Service" => String.t() | atom(),
-        "UseCase" => String.t() | atom()
-      }
-
-  """
-  @type pipeline_blueprint_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_pipeline_request() :: %{}
-
-  """
-  @type stop_pipeline_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      change_progress_stage() :: %{
-        "Description" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type change_progress_stage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_request() :: %{
-        required("Policy") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_message() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_endpoint_vpc_options() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type pipeline_endpoint_vpc_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      revoke_pipeline_endpoint_connections_request() :: %{
-        required("EndpointIds") => list(String.t() | atom()),
-        required("PipelineArn") => String.t() | atom()
-      }
-
-  """
-  @type revoke_pipeline_endpoint_connections_request() :: %{(String.t() | atom()) => any()}
+  @type buffer_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -691,21 +763,34 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      start_pipeline_response() :: %{
+        "Pipeline" => pipeline()
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type start_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_pipeline_response() :: %{
-        "Pipeline" => pipeline()
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
       }
 
   """
-  @type stop_pipeline_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_at_rest_options() :: %{
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type encryption_at_rest_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,101 +808,73 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      get_pipeline_request() :: %{}
-
-  """
-  @type get_pipeline_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_status_reason() :: %{
-        "Description" => String.t() | atom()
+      create_pipeline_response() :: %{
+        "Pipeline" => pipeline()
       }
 
   """
-  @type pipeline_status_reason() :: %{(String.t() | atom()) => any()}
+  @type create_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      pipeline_destination() :: %{
-        "Endpoint" => String.t() | atom(),
-        "ServiceName" => String.t() | atom()
+      pipeline_endpoint_connection() :: %{
+        "EndpointId" => String.t() | atom(),
+        "PipelineArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcEndpointOwner" => String.t() | atom()
       }
 
   """
-  @type pipeline_destination() :: %{(String.t() | atom()) => any()}
+  @type pipeline_endpoint_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{
-        required("Arn") => String.t() | atom()
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_endpoint() :: %{
+        "EndpointId" => String.t() | atom(),
+        "IngestEndpointUrl" => String.t() | atom(),
+        "PipelineArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "VpcId" => String.t() | atom(),
+        "VpcOptions" => pipeline_endpoint_vpc_options()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type pipeline_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vpc_options() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcAttachmentOptions" => vpc_attachment_options(),
-        "VpcEndpointManagement" => list(any())
+      revoke_pipeline_endpoint_connections_response() :: %{
+        "PipelineArn" => String.t() | atom()
       }
 
   """
-  @type vpc_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_response() :: %{
-        "Policy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_pipeline_endpoint_response() :: %{}
-
-  """
-  @type delete_pipeline_endpoint_response() :: %{}
+  @type revoke_pipeline_endpoint_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,230 +889,173 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      list_pipeline_endpoints_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      delete_resource_policy_response() :: %{}
 
   """
-  @type list_pipeline_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_attachment_options() :: %{
-        "AttachToVpc" => boolean(),
-        "CidrBlock" => String.t() | atom()
-      }
-
-  """
-  @type vpc_attachment_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_pipeline_request() :: %{
-        required("PipelineConfigurationBody") => String.t() | atom()
-      }
-
-  """
-  @type validate_pipeline_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_pipeline_response() :: %{}
-
-  """
-  @type delete_pipeline_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_pagination_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_response() :: %{}
 
   @type create_pipeline_errors() ::
-          resource_already_exists_exception()
+          resource_not_found_exception()
+          | internal_exception()
+          | resource_already_exists_exception()
+          | disabled_operation_exception()
           | limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type create_pipeline_endpoint_errors() ::
-          limit_exceeded_exception()
+          resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+          | limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type delete_pipeline_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
           | disabled_operation_exception()
+          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_pipeline_endpoint_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_exception()
+          internal_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_resource_policy_errors() ::
-          limit_exceeded_exception()
+          resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+          | limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type get_pipeline_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_pipeline_blueprint_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_pipeline_change_progress_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_resource_policy_errors() ::
-          limit_exceeded_exception()
+          resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+          | limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type list_pipeline_blueprints_errors() ::
-          invalid_pagination_token_exception()
+          internal_exception()
+          | disabled_operation_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | disabled_operation_exception()
+          | invalid_pagination_token_exception()
 
   @type list_pipeline_endpoint_connections_errors() ::
-          limit_exceeded_exception()
+          internal_exception()
+          | disabled_operation_exception()
+          | limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | disabled_operation_exception()
 
   @type list_pipeline_endpoints_errors() ::
-          limit_exceeded_exception()
+          internal_exception()
+          | disabled_operation_exception()
+          | limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | disabled_operation_exception()
 
   @type list_pipelines_errors() ::
-          invalid_pagination_token_exception()
+          internal_exception()
+          | disabled_operation_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | disabled_operation_exception()
+          | invalid_pagination_token_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type put_resource_policy_errors() ::
-          limit_exceeded_exception()
+          resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+          | limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | resource_not_found_exception()
-          | disabled_operation_exception()
 
   @type revoke_pipeline_endpoint_connections_errors() ::
-          limit_exceeded_exception()
+          internal_exception()
+          | disabled_operation_exception()
+          | limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_exception()
-          | disabled_operation_exception()
 
   @type start_pipeline_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
           | disabled_operation_exception()
-
-  @type stop_pipeline_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_exception()
-          | resource_not_found_exception()
           | conflict_exception()
-          | disabled_operation_exception()
-
-  @type tag_resource_errors() ::
-          limit_exceeded_exception()
           | validation_exception()
           | access_denied_exception()
+
+  @type stop_pipeline_errors() ::
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | disabled_operation_exception()
+          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
+
+  @type tag_resource_errors() ::
+          resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+          | limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type update_pipeline_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
           | disabled_operation_exception()
+          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type validate_pipeline_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_exception()
+          internal_exception()
           | disabled_operation_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -1377,8 +1377,8 @@ defmodule AWS.OSIS do
           | {:error, list_pipeline_endpoint_connections_errors()}
   def list_pipeline_endpoint_connections(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2022-01-01/osis/listPipelineEndpointConnections"
@@ -1386,15 +1386,15 @@ defmodule AWS.OSIS do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1419,8 +1419,8 @@ defmodule AWS.OSIS do
           | {:error, list_pipeline_endpoints_errors()}
   def list_pipeline_endpoints(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2022-01-01/osis/listPipelineEndpoints"
@@ -1428,15 +1428,15 @@ defmodule AWS.OSIS do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -1458,21 +1458,21 @@ defmodule AWS.OSIS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_pipelines_errors()}
-  def list_pipelines(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_pipelines(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelines"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

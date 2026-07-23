@@ -13,28 +13,6 @@ defmodule AWS.SageMakerRuntime do
 
   ## Example:
 
-      internal_dependency_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_dependency_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       internal_stream_failure() :: %{
         "Message" => String.t() | atom()
       }
@@ -46,20 +24,87 @@ defmodule AWS.SageMakerRuntime do
 
   ## Example:
 
+      model_not_ready_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type model_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_dependency_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_dependency_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_endpoint_input() :: %{
+        optional("Accept") => String.t() | atom(),
+        required("Body") => binary(),
+        optional("ContentType") => String.t() | atom(),
+        optional("CustomAttributes") => String.t() | atom(),
+        optional("EnableExplanations") => String.t() | atom(),
+        optional("InferenceComponentName") => String.t() | atom(),
+        optional("InferenceId") => String.t() | atom(),
+        optional("SessionId") => String.t() | atom(),
+        optional("TargetContainerHostname") => String.t() | atom(),
+        optional("TargetModel") => String.t() | atom(),
+        optional("TargetVariant") => String.t() | atom()
+      }
+
+  """
+  @type invoke_endpoint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_endpoint_async_input() :: %{
         optional("Accept") => String.t() | atom(),
+        optional("Body") => binary(),
         optional("ContentType") => String.t() | atom(),
         optional("CustomAttributes") => String.t() | atom(),
         optional("Filename") => String.t() | atom(),
         optional("InferenceId") => String.t() | atom(),
+        optional("InputLocation") => String.t() | atom(),
         optional("InvocationTimeoutSeconds") => integer(),
         optional("RequestTTLSeconds") => integer(),
-        optional("S3OutputPathExtension") => String.t() | atom(),
-        required("InputLocation") => String.t() | atom()
+        optional("S3OutputPathExtension") => String.t() | atom()
       }
 
   """
   @type invoke_endpoint_async_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_stream_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type model_stream_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -78,27 +123,6 @@ defmodule AWS.SageMakerRuntime do
 
   ## Example:
 
-      invoke_endpoint_input() :: %{
-        optional("Accept") => String.t() | atom(),
-        optional("ContentType") => String.t() | atom(),
-        optional("CustomAttributes") => String.t() | atom(),
-        optional("EnableExplanations") => String.t() | atom(),
-        optional("InferenceComponentName") => String.t() | atom(),
-        optional("InferenceId") => String.t() | atom(),
-        optional("SessionId") => String.t() | atom(),
-        optional("TargetContainerHostname") => String.t() | atom(),
-        optional("TargetModel") => String.t() | atom(),
-        optional("TargetVariant") => String.t() | atom(),
-        required("Body") => binary()
-      }
-
-  """
-  @type invoke_endpoint_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       invoke_endpoint_output() :: %{
         "Body" => binary(),
         "ClosedSessionId" => String.t() | atom(),
@@ -110,25 +134,6 @@ defmodule AWS.SageMakerRuntime do
 
   """
   @type invoke_endpoint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_endpoint_with_response_stream_input() :: %{
-        optional("Accept") => String.t() | atom(),
-        optional("ContentType") => String.t() | atom(),
-        optional("CustomAttributes") => String.t() | atom(),
-        optional("InferenceComponentName") => String.t() | atom(),
-        optional("InferenceId") => String.t() | atom(),
-        optional("SessionId") => String.t() | atom(),
-        optional("TargetContainerHostname") => String.t() | atom(),
-        optional("TargetVariant") => String.t() | atom(),
-        required("Body") => binary()
-      }
-
-  """
-  @type invoke_endpoint_with_response_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,24 +167,31 @@ defmodule AWS.SageMakerRuntime do
 
   ## Example:
 
-      model_not_ready_exception() :: %{
+      validation_error() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type model_not_ready_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      model_stream_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      invoke_endpoint_with_response_stream_input() :: %{
+        optional("Accept") => String.t() | atom(),
+        required("Body") => binary(),
+        optional("ContentType") => String.t() | atom(),
+        optional("CustomAttributes") => String.t() | atom(),
+        optional("InferenceComponentName") => String.t() | atom(),
+        optional("InferenceId") => String.t() | atom(),
+        optional("SessionId") => String.t() | atom(),
+        optional("TargetContainerHostname") => String.t() | atom(),
+        optional("TargetVariant") => String.t() | atom()
       }
 
   """
-  @type model_stream_error() :: %{(String.t() | atom()) => any()}
+  @type invoke_endpoint_with_response_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,42 +208,31 @@ defmodule AWS.SageMakerRuntime do
 
   ## Example:
 
-      service_unavailable() :: %{
+      internal_failure() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_error() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_error() :: %{(String.t() | atom()) => any()}
+  @type internal_failure() :: %{(String.t() | atom()) => any()}
 
   @type invoke_endpoint_errors() ::
-          validation_error()
-          | service_unavailable()
-          | model_not_ready_exception()
+          internal_failure()
+          | validation_error()
           | model_error()
-          | internal_failure()
+          | service_unavailable()
           | internal_dependency_exception()
+          | model_not_ready_exception()
 
   @type invoke_endpoint_async_errors() ::
-          validation_error() | service_unavailable() | internal_failure()
+          internal_failure() | validation_error() | service_unavailable()
 
   @type invoke_endpoint_with_response_stream_errors() ::
-          validation_error()
-          | service_unavailable()
-          | model_stream_error()
+          internal_failure()
+          | validation_error()
           | model_error()
+          | model_stream_error()
+          | service_unavailable()
           | internal_stream_failure()
-          | internal_failure()
 
   def metadata do
     %{
@@ -290,16 +291,16 @@ defmodule AWS.SageMakerRuntime do
 
     {headers, input} =
       [
-        {"Accept", "Accept"},
-        {"ContentType", "Content-Type"},
-        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
-        {"EnableExplanations", "X-Amzn-SageMaker-Enable-Explanations"},
-        {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
-        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
-        {"SessionId", "X-Amzn-SageMaker-Session-Id"},
-        {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
+        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"},
         {"TargetModel", "X-Amzn-SageMaker-Target-Model"},
-        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
+        {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
+        {"SessionId", "X-Amzn-SageMaker-Session-Id"},
+        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
+        {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
+        {"EnableExplanations", "X-Amzn-SageMaker-Enable-Explanations"},
+        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"ContentType", "Content-Type"},
+        {"Accept", "Accept"}
       ]
       |> Request.build_params(input)
 
@@ -311,11 +312,11 @@ defmodule AWS.SageMakerRuntime do
         options,
         :response_header_parameters,
         [
-          {"X-Amzn-SageMaker-Closed-Session-Id", "ClosedSessionId"},
-          {"Content-Type", "ContentType"},
-          {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
+          {"X-Amzn-SageMaker-New-Session-Id", "NewSessionId"},
           {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"},
-          {"X-Amzn-SageMaker-New-Session-Id", "NewSessionId"}
+          {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
+          {"Content-Type", "ContentType"},
+          {"X-Amzn-SageMaker-Closed-Session-Id", "ClosedSessionId"}
         ]
       )
 
@@ -382,15 +383,15 @@ defmodule AWS.SageMakerRuntime do
 
     {headers, input} =
       [
-        {"Accept", "X-Amzn-SageMaker-Accept"},
-        {"ContentType", "X-Amzn-SageMaker-Content-Type"},
-        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
-        {"Filename", "X-Amzn-SageMaker-Filename"},
-        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
-        {"InputLocation", "X-Amzn-SageMaker-InputLocation"},
-        {"InvocationTimeoutSeconds", "X-Amzn-SageMaker-InvocationTimeoutSeconds"},
+        {"S3OutputPathExtension", "X-Amzn-SageMaker-S3OutputPathExtension"},
         {"RequestTTLSeconds", "X-Amzn-SageMaker-RequestTTLSeconds"},
-        {"S3OutputPathExtension", "X-Amzn-SageMaker-S3OutputPathExtension"}
+        {"InvocationTimeoutSeconds", "X-Amzn-SageMaker-InvocationTimeoutSeconds"},
+        {"InputLocation", "X-Amzn-SageMaker-InputLocation"},
+        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
+        {"Filename", "X-Amzn-SageMaker-Filename"},
+        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"ContentType", "X-Amzn-SageMaker-Content-Type"},
+        {"Accept", "X-Amzn-SageMaker-Accept"}
       ]
       |> Request.build_params(input)
 
@@ -402,9 +403,16 @@ defmodule AWS.SageMakerRuntime do
         options,
         :response_header_parameters,
         [
-          {"X-Amzn-SageMaker-FailureLocation", "FailureLocation"},
-          {"X-Amzn-SageMaker-OutputLocation", "OutputLocation"}
+          {"X-Amzn-SageMaker-OutputLocation", "OutputLocation"},
+          {"X-Amzn-SageMaker-FailureLocation", "FailureLocation"}
         ]
+      )
+
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
       )
 
     meta = metadata()
@@ -483,14 +491,14 @@ defmodule AWS.SageMakerRuntime do
 
     {headers, input} =
       [
-        {"Accept", "X-Amzn-SageMaker-Accept"},
-        {"ContentType", "Content-Type"},
-        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
-        {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
-        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
-        {"SessionId", "X-Amzn-SageMaker-Session-Id"},
+        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"},
         {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
-        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
+        {"SessionId", "X-Amzn-SageMaker-Session-Id"},
+        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
+        {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
+        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"ContentType", "Content-Type"},
+        {"Accept", "X-Amzn-SageMaker-Accept"}
       ]
       |> Request.build_params(input)
 
@@ -502,9 +510,9 @@ defmodule AWS.SageMakerRuntime do
         options,
         :response_header_parameters,
         [
-          {"X-Amzn-SageMaker-Content-Type", "ContentType"},
+          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"},
           {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
-          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"}
+          {"X-Amzn-SageMaker-Content-Type", "ContentType"}
         ]
       )
 

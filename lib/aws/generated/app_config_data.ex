@@ -152,10 +152,10 @@ defmodule AWS.AppConfigData do
   ## Example:
 
       start_configuration_session_request() :: %{
-        optional("RequiredMinimumPollIntervalInSeconds") => integer(),
         required("ApplicationIdentifier") => String.t() | atom(),
         required("ConfigurationProfileIdentifier") => String.t() | atom(),
-        required("EnvironmentIdentifier") => String.t() | atom()
+        required("EnvironmentIdentifier") => String.t() | atom(),
+        optional("RequiredMinimumPollIntervalInSeconds") => integer()
       }
 
   """
@@ -257,10 +257,10 @@ defmodule AWS.AppConfigData do
         options,
         :response_header_parameters,
         [
-          {"Content-Type", "ContentType"},
-          {"Next-Poll-Configuration-Token", "NextPollConfigurationToken"},
+          {"Version-Label", "VersionLabel"},
           {"Next-Poll-Interval-In-Seconds", "NextPollIntervalInSeconds"},
-          {"Version-Label", "VersionLabel"}
+          {"Next-Poll-Configuration-Token", "NextPollConfigurationToken"},
+          {"Content-Type", "ContentType"}
         ]
       )
 

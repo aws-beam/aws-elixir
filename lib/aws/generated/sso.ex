@@ -48,46 +48,22 @@ defmodule AWS.SSO do
 
   ## Example:
 
-      get_role_credentials_request() :: %{
-        required("accessToken") => String.t() | atom(),
-        required("accountId") => String.t() | atom(),
-        required("roleName") => String.t() | atom()
-      }
-
-  """
-  @type get_role_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_role_credentials_response() :: %{
-        "roleCredentials" => role_credentials()
-      }
-
-  """
-  @type get_role_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_account_roles_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
         required("accessToken") => String.t() | atom(),
-        required("accountId") => String.t() | atom()
+        required("accountId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -97,26 +73,23 @@ defmodule AWS.SSO do
 
   ## Example:
 
-      list_account_roles_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "roleList" => list(role_info())
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type list_account_roles_response() :: %{(String.t() | atom()) => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_accounts_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
+      logout_request() :: %{
         required("accessToken") => String.t() | atom()
       }
 
   """
-  @type list_accounts_request() :: %{(String.t() | atom()) => any()}
+  @type logout_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,23 +107,13 @@ defmodule AWS.SSO do
 
   ## Example:
 
-      logout_request() :: %{
-        required("accessToken") => String.t() | atom()
+      role_info() :: %{
+        "accountId" => String.t() | atom(),
+        "roleName" => String.t() | atom()
       }
 
   """
-  @type logout_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type role_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -170,24 +133,14 @@ defmodule AWS.SSO do
 
   ## Example:
 
-      role_info() :: %{
-        "accountId" => String.t() | atom(),
-        "roleName" => String.t() | atom()
+      list_accounts_request() :: %{
+        required("accessToken") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type role_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type list_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,26 +153,73 @@ defmodule AWS.SSO do
   """
   @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_role_credentials_response() :: %{
+        "roleCredentials" => role_credentials()
+      }
+
+  """
+  @type get_role_credentials_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_roles_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "roleList" => list(role_info())
+      }
+
+  """
+  @type list_account_roles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_role_credentials_request() :: %{
+        required("accessToken") => String.t() | atom(),
+        required("accountId") => String.t() | atom(),
+        required("roleName") => String.t() | atom()
+      }
+
+  """
+  @type get_role_credentials_request() :: %{(String.t() | atom()) => any()}
+
   @type get_role_credentials_errors() ::
-          unauthorized_exception()
+          invalid_request_exception()
+          | unauthorized_exception()
           | too_many_requests_exception()
           | resource_not_found_exception()
-          | invalid_request_exception()
 
   @type list_account_roles_errors() ::
-          unauthorized_exception()
+          invalid_request_exception()
+          | unauthorized_exception()
           | too_many_requests_exception()
           | resource_not_found_exception()
-          | invalid_request_exception()
 
   @type list_accounts_errors() ::
-          unauthorized_exception()
+          invalid_request_exception()
+          | unauthorized_exception()
           | too_many_requests_exception()
           | resource_not_found_exception()
-          | invalid_request_exception()
 
   @type logout_errors() ::
-          unauthorized_exception() | too_many_requests_exception() | invalid_request_exception()
+          invalid_request_exception() | unauthorized_exception() | too_many_requests_exception()
 
   def metadata do
     %{
@@ -253,7 +253,7 @@ defmodule AWS.SSO do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_role_credentials_errors()}
-  def get_role_credentials(%Client{} = client, account_id, role_name, access_token, options \\ []) do
+  def get_role_credentials(%Client{} = client, role_name, account_id, access_token, options \\ []) do
     url_path = "/federation/credentials"
     headers = []
 
@@ -267,15 +267,15 @@ defmodule AWS.SSO do
     query_params = []
 
     query_params =
-      if !is_nil(role_name) do
-        [{"role_name", role_name} | query_params]
+      if !is_nil(account_id) do
+        [{"account_id", account_id} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"account_id", account_id} | query_params]
+      if !is_nil(role_name) do
+        [{"role_name", role_name} | query_params]
       else
         query_params
       end
@@ -290,9 +290,9 @@ defmodule AWS.SSO do
   """
   @spec list_account_roles(
           map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
           list()
         ) ::
@@ -302,9 +302,9 @@ defmodule AWS.SSO do
           | {:error, list_account_roles_errors()}
   def list_account_roles(
         %Client{} = client,
-        account_id,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
+        account_id,
         access_token,
         options \\ []
       ) do
@@ -321,8 +321,8 @@ defmodule AWS.SSO do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(account_id) do
+        [{"account_id", account_id} | query_params]
       else
         query_params
       end
@@ -335,8 +335,8 @@ defmodule AWS.SSO do
       end
 
     query_params =
-      if !is_nil(account_id) do
-        [{"account_id", account_id} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end
@@ -367,8 +367,8 @@ defmodule AWS.SSO do
           | {:error, list_accounts_errors()}
   def list_accounts(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         access_token,
         options \\ []
       ) do
@@ -385,15 +385,15 @@ defmodule AWS.SSO do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next_token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max_result", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max_result", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
       else
         query_params
       end

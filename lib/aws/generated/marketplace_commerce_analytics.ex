@@ -15,10 +15,10 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       
       generate_data_set_request() :: %{
         optional("customerDefinedValues") => map(),
-        optional("destinationS3Prefix") => String.t() | atom(),
         required("dataSetPublicationDate") => non_neg_integer(),
         required("dataSetType") => list(any()),
         required("destinationS3BucketName") => String.t() | atom(),
+        optional("destinationS3Prefix") => String.t() | atom(),
         required("roleNameArn") => String.t() | atom(),
         required("snsTopicArn") => String.t() | atom()
       }
@@ -54,9 +54,9 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       
       start_support_data_export_request() :: %{
         optional("customerDefinedValues") => map(),
-        optional("destinationS3Prefix") => String.t() | atom(),
         required("dataSetType") => list(any()),
         required("destinationS3BucketName") => String.t() | atom(),
+        optional("destinationS3Prefix") => String.t() | atom(),
         required("fromDate") => non_neg_integer(),
         required("roleNameArn") => String.t() | atom(),
         required("snsTopicArn") => String.t() | atom()
@@ -119,7 +119,8 @@ defmodule AWS.MarketplaceCommerceAnalytics do
           | {:error, term()}
           | {:error, generate_data_set_errors()}
   def generate_data_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateDataSet", input, options)
   end
@@ -149,7 +150,8 @@ defmodule AWS.MarketplaceCommerceAnalytics do
           | {:error, term()}
           | {:error, start_support_data_export_errors()}
   def start_support_data_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSupportDataExport", input, options)
   end

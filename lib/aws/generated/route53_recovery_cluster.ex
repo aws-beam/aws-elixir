@@ -75,12 +75,12 @@ defmodule AWS.Route53RecoveryCluster do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      get_routing_control_state_request() :: %{
+        required("RoutingControlArn") => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type get_routing_control_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,23 +99,13 @@ defmodule AWS.Route53RecoveryCluster do
 
   ## Example:
       
-      endpoint_temporarily_unavailable_exception() :: %{
-        "message" => String.t() | atom()
+      update_routing_control_state_entry() :: %{
+        "RoutingControlArn" => String.t() | atom(),
+        "RoutingControlState" => list(any())
       }
       
   """
-  @type endpoint_temporarily_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_routing_control_state_request() :: %{
-        required("RoutingControlArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_routing_control_state_request() :: %{(String.t() | atom()) => any()}
+  @type update_routing_control_state_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,13 +124,48 @@ defmodule AWS.Route53RecoveryCluster do
 
   ## Example:
       
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => integer()
+      update_routing_control_state_request() :: %{
+        required("RoutingControlArn") => String.t() | atom(),
+        required("RoutingControlState") => list(any()),
+        optional("SafetyRulesToOverride") => list(String.t() | atom())
       }
       
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type update_routing_control_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_routing_control_state_response() :: %{}
+      
+  """
+  @type update_routing_control_state_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -159,6 +184,40 @@ defmodule AWS.Route53RecoveryCluster do
 
   ## Example:
       
+      endpoint_temporarily_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type endpoint_temporarily_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => integer()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_routing_controls_response() :: %{
         "NextToken" => String.t() | atom(),
         "RoutingControls" => list(routing_control())
@@ -171,14 +230,13 @@ defmodule AWS.Route53RecoveryCluster do
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
+      update_routing_control_states_request() :: %{
+        optional("SafetyRulesToOverride") => list(String.t() | atom()),
+        required("UpdateRoutingControlStateEntries") => list(update_routing_control_state_entry())
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type update_routing_control_states_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,6 +258,15 @@ defmodule AWS.Route53RecoveryCluster do
 
   ## Example:
       
+      update_routing_control_states_response() :: %{}
+      
+  """
+  @type update_routing_control_states_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       service_limit_exceeded_exception() :: %{
         "limitCode" => String.t() | atom(),
         "message" => String.t() | atom(),
@@ -215,128 +282,61 @@ defmodule AWS.Route53RecoveryCluster do
 
   ## Example:
       
-      throttling_exception() :: %{
+      internal_server_exception() :: %{
         "message" => String.t() | atom(),
         "retryAfterSeconds" => integer()
       }
       
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_routing_control_state_entry() :: %{
-        "RoutingControlArn" => String.t() | atom(),
-        "RoutingControlState" => list(any())
-      }
-      
-  """
-  @type update_routing_control_state_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_routing_control_state_request() :: %{
-        optional("SafetyRulesToOverride") => list(String.t() | atom()),
-        required("RoutingControlArn") => String.t() | atom(),
-        required("RoutingControlState") => list(any())
-      }
-      
-  """
-  @type update_routing_control_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_routing_control_state_response() :: %{}
-      
-  """
-  @type update_routing_control_state_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_routing_control_states_request() :: %{
-        optional("SafetyRulesToOverride") => list(String.t() | atom()),
-        required("UpdateRoutingControlStateEntries") => list(update_routing_control_state_entry())
-      }
-      
-  """
-  @type update_routing_control_states_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_routing_control_states_response() :: %{}
-      
-  """
-  @type update_routing_control_states_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "fields" => list(validation_exception_field()),
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom(),
-        "reason" => list(any())
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_routing_control_state_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | endpoint_temporarily_unavailable_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | endpoint_temporarily_unavailable_exception()
+          | validation_exception()
 
   @type list_routing_controls_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | endpoint_temporarily_unavailable_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | endpoint_temporarily_unavailable_exception()
+          | validation_exception()
 
   @type update_routing_control_state_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | endpoint_temporarily_unavailable_exception()
-          | conflict_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | endpoint_temporarily_unavailable_exception()
+          | validation_exception()
+          | conflict_exception()
 
   @type update_routing_control_states_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_limit_exceeded_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | endpoint_temporarily_unavailable_exception()
-          | conflict_exception()
+          | service_limit_exceeded_exception()
+          | throttling_exception()
           | access_denied_exception()
+          | endpoint_temporarily_unavailable_exception()
+          | validation_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -400,7 +400,8 @@ defmodule AWS.Route53RecoveryCluster do
           | {:error, term()}
           | {:error, get_routing_control_state_errors()}
   def get_routing_control_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRoutingControlState", input, options)
   end
@@ -453,7 +454,8 @@ defmodule AWS.Route53RecoveryCluster do
           | {:error, term()}
           | {:error, list_routing_controls_errors()}
   def list_routing_controls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRoutingControls", input, options)
   end
@@ -512,7 +514,8 @@ defmodule AWS.Route53RecoveryCluster do
           | {:error, term()}
           | {:error, update_routing_control_state_errors()}
   def update_routing_control_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRoutingControlState", input, options)
   end
@@ -570,7 +573,8 @@ defmodule AWS.Route53RecoveryCluster do
           | {:error, term()}
           | {:error, update_routing_control_states_errors()}
   def update_routing_control_states(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRoutingControlStates", input, options)
   end

@@ -241,102 +241,106 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      list_enabled_controls_output() :: %{
-        "enabledControls" => list(enabled_control_summary()),
-        "nextToken" => [String.t() | atom()]
+      tag_resource_input() :: %{
+        required("tags") => map()
       }
 
   """
-  @type list_enabled_controls_output() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disable_control_input() :: %{
-        optional("controlIdentifier") => String.t() | atom(),
-        optional("enabledControlIdentifier") => String.t() | atom(),
-        optional("targetIdentifier") => String.t() | atom()
+      reset_landing_zone_input() :: %{
+        required("landingZoneIdentifier") => [String.t() | atom()]
       }
 
   """
-  @type disable_control_input() :: %{(String.t() | atom()) => any()}
+  @type reset_landing_zone_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disable_control_output() :: %{
-        "operationIdentifier" => String.t() | atom()
+      get_baseline_output() :: %{
+        "arn" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type disable_control_output() :: %{(String.t() | atom()) => any()}
+  @type get_baseline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      enablement_status_summary() :: %{
-        "lastOperationIdentifier" => String.t() | atom(),
-        "status" => list(any())
+      list_enabled_baselines_output() :: %{
+        "enabledBaselines" => list(enabled_baseline_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type enablement_status_summary() :: %{(String.t() | atom()) => any()}
+  @type list_enabled_baselines_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      enabled_control_parameter() :: %{
+      enabled_control_parameter_summary() :: %{
         "key" => [String.t() | atom()],
         "value" => [any()]
       }
 
   """
-  @type enabled_control_parameter() :: %{(String.t() | atom()) => any()}
+  @type enabled_control_parameter_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_enabled_baselines_input() :: %{
-        optional("filter") => enabled_baseline_filter(),
-        optional("includeChildren") => [boolean()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      enable_control_output() :: %{
+        "arn" => String.t() | atom(),
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type list_enabled_baselines_input() :: %{(String.t() | atom()) => any()}
+  @type enable_control_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      enabled_control_filter() :: %{
-        "controlIdentifiers" => list(String.t() | atom()),
-        "driftStatuses" => list(list(any())()),
-        "inheritanceDriftStatuses" => list(list(any())()),
-        "parentIdentifiers" => list(String.t() | atom()),
-        "resourceDriftStatuses" => list(list(any())()),
-        "statuses" => list(list(any())())
-      }
+      tag_resource_output() :: %{}
 
   """
-  @type enabled_control_filter() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      enabled_control_inheritance_drift() :: %{
-        "status" => list(any())
+      baseline_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type enabled_control_inheritance_drift() :: %{(String.t() | atom()) => any()}
+  @type baseline_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_parameter_summary() :: %{
+        "key" => [String.t() | atom()],
+        "value" => any()
+      }
+
+  """
+  @type enabled_baseline_parameter_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -355,91 +359,6 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      enabled_baseline_drift_status_summary() :: %{
-        "types" => enabled_baseline_drift_types()
-      }
-
-  """
-  @type enabled_baseline_drift_status_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_control_input() :: %{
-        optional("parameters") => list(enabled_control_parameter()),
-        optional("tags") => map(),
-        required("controlIdentifier") => String.t() | atom(),
-        required("targetIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type enable_control_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_landing_zone_output() :: %{
-        "operationIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type update_landing_zone_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_enabled_control_output() :: %{
-        "enabledControlDetails" => enabled_control_details()
-      }
-
-  """
-  @type get_enabled_control_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_enabled_controls_input() :: %{
-        optional("filter") => enabled_control_filter(),
-        optional("includeChildren") => [boolean()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()],
-        optional("targetIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_enabled_controls_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_enabled_control_input() :: %{
-        required("enabledControlIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type reset_enabled_control_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_landing_zones_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_landing_zones_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_control_operations_output() :: %{
         "controlOperations" => list(control_operation_summary()),
         "nextToken" => String.t() | atom()
@@ -452,23 +371,107 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      reset_enabled_baseline_input() :: %{
-        required("enabledBaselineIdentifier") => String.t() | atom()
+      enabled_baseline_details() :: %{
+        "arn" => String.t() | atom(),
+        "baselineIdentifier" => [String.t() | atom()],
+        "baselineVersion" => [String.t() | atom()],
+        "driftStatusSummary" => enabled_baseline_drift_status_summary(),
+        "parameters" => list(enabled_baseline_parameter_summary()),
+        "parentIdentifier" => String.t() | atom(),
+        "statusSummary" => enablement_status_summary(),
+        "targetIdentifier" => [String.t() | atom()]
       }
 
   """
-  @type reset_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
+  @type enabled_baseline_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_inheritance_drift() :: %{
+        "status" => list(any())
       }
 
   """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+  @type enabled_control_inheritance_drift() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_enabled_baseline_output() :: %{
+        "operationIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type update_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_baseline_input() :: %{
+        required("enabledBaselineIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type disable_baseline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_baseline_input() :: %{
+        required("enabledBaselineIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_parameter() :: %{
+        "key" => [String.t() | atom()],
+        "value" => any()
+      }
+
+  """
+  @type enabled_baseline_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_parameter() :: %{
+        "key" => [String.t() | atom()],
+        "value" => [any()]
+      }
+
+  """
+  @type enabled_control_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -491,12 +494,134 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      get_baseline_operation_input() :: %{
-        required("operationIdentifier") => String.t() | atom()
+      reset_enabled_baseline_input() :: %{
+        required("enabledBaselineIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_baseline_operation_input() :: %{(String.t() | atom()) => any()}
+  @type reset_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_landing_zones_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_landing_zones_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_operation_filter() :: %{
+        "controlIdentifiers" => list(String.t() | atom()),
+        "controlOperationTypes" => list(list(any())()),
+        "enabledControlIdentifiers" => list(String.t() | atom()),
+        "statuses" => list(list(any())()),
+        "targetIdentifiers" => list(String.t() | atom())
+      }
+
+  """
+  @type control_operation_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enabled_baselines_input() :: %{
+        optional("filter") => enabled_baseline_filter(),
+        optional("includeChildren") => [boolean()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_enabled_baselines_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_control_input() :: %{
+        required("controlIdentifier") => String.t() | atom(),
+        optional("parameters") => list(enabled_control_parameter()),
+        optional("tags") => map(),
+        required("targetIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type enable_control_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      region() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type region() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enabled_controls_output() :: %{
+        "enabledControls" => list(enabled_control_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_enabled_controls_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      landing_zone_summary() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type landing_zone_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_control_output() :: %{
+        "operationIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type disable_control_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -514,133 +639,48 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      list_baselines_output() :: %{
-        "baselines" => list(baseline_summary()),
-        "nextToken" => [String.t() | atom()]
+      drift_status_summary() :: %{
+        "driftStatus" => list(any()),
+        "types" => enabled_control_drift_types()
       }
 
   """
-  @type list_baselines_output() :: %{(String.t() | atom()) => any()}
+  @type drift_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_enabled_baselines_output() :: %{
-        "enabledBaselines" => list(enabled_baseline_summary()),
-        "nextToken" => String.t() | atom()
+      reset_landing_zone_output() :: %{
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type list_enabled_baselines_output() :: %{(String.t() | atom()) => any()}
+  @type reset_landing_zone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      enabled_control_summary() :: %{
-        "arn" => String.t() | atom(),
-        "controlIdentifier" => String.t() | atom(),
-        "driftStatusSummary" => drift_status_summary(),
-        "parentIdentifier" => String.t() | atom(),
-        "statusSummary" => enablement_status_summary(),
-        "targetIdentifier" => String.t() | atom()
+      list_control_operations_input() :: %{
+        optional("filter") => control_operation_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type enabled_control_summary() :: %{(String.t() | atom()) => any()}
+  @type list_control_operations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      region() :: %{
-        "name" => String.t() | atom()
+      update_enabled_control_output() :: %{
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type region() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_baseline_input() :: %{
-        required("enabledBaselineIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type disable_baseline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_enabled_baseline_output() :: %{
-        "enabledBaselineDetails" => enabled_baseline_details()
-      }
-
-  """
-  @type get_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enabled_baseline_parameter() :: %{
-        "key" => [String.t() | atom()],
-        "value" => any()
-      }
-
-  """
-  @type enabled_baseline_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_landing_zone_input() :: %{
-        optional("manifest") => any(),
-        optional("remediationTypes") => list(list(any())()),
-        optional("tags") => map(),
-        required("version") => String.t() | atom()
-      }
-
-  """
-  @type create_landing_zone_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_enabled_control_input() :: %{
-        required("enabledControlIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type get_enabled_control_input() :: %{(String.t() | atom()) => any()}
+  @type update_enabled_control_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -658,43 +698,20 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      landing_zone_detail() :: %{
-        "arn" => String.t() | atom(),
-        "driftStatus" => landing_zone_drift_status_summary(),
-        "latestAvailableVersion" => String.t() | atom(),
-        "manifest" => any(),
-        "remediationTypes" => list(list(any())()),
+      control_operation_summary() :: %{
+        "controlIdentifier" => String.t() | atom(),
+        "enabledControlIdentifier" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "operationIdentifier" => String.t() | atom(),
+        "operationType" => list(any()),
+        "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "version" => String.t() | atom()
+        "statusMessage" => [String.t() | atom()],
+        "targetIdentifier" => String.t() | atom()
       }
 
   """
-  @type landing_zone_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_landing_zone_input() :: %{
-        optional("manifest") => any(),
-        optional("remediationTypes") => list(list(any())()),
-        required("landingZoneIdentifier") => [String.t() | atom()],
-        required("version") => String.t() | atom()
-      }
-
-  """
-  @type update_landing_zone_input() :: %{(String.t() | atom()) => any()}
+  @type control_operation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,237 +740,23 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      get_landing_zone_output() :: %{
-        "landingZone" => landing_zone_detail()
-      }
-
-  """
-  @type get_landing_zone_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_landing_zone_operation_input() :: %{
-        required("operationIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type get_landing_zone_operation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enabled_control_parameter_summary() :: %{
-        "key" => [String.t() | atom()],
-        "value" => [any()]
-      }
-
-  """
-  @type enabled_control_parameter_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_baseline_output() :: %{
-        "arn" => String.t() | atom(),
+      disable_baseline_output() :: %{
         "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type enable_baseline_output() :: %{(String.t() | atom()) => any()}
+  @type disable_baseline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_control_operation_input() :: %{
-        required("operationIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type get_control_operation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_landing_zone_input() :: %{
+      get_landing_zone_input() :: %{
         required("landingZoneIdentifier") => [String.t() | atom()]
       }
 
   """
-  @type delete_landing_zone_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_landing_zone_output() :: %{
-        "operationIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type delete_landing_zone_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_landing_zone_operation_output() :: %{
-        "operationDetails" => landing_zone_operation_detail()
-      }
-
-  """
-  @type get_landing_zone_operation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_control_output() :: %{
-        "arn" => String.t() | atom(),
-        "operationIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type enable_control_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      landing_zone_summary() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type landing_zone_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_landing_zone_operations_input() :: %{
-        optional("filter") => landing_zone_operation_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_landing_zone_operations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_baseline_operation_output() :: %{
-        "baselineOperation" => baseline_operation()
-      }
-
-  """
-  @type get_baseline_operation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      baseline_operation() :: %{
-        "endTime" => non_neg_integer(),
-        "operationIdentifier" => String.t() | atom(),
-        "operationType" => list(any()),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "statusMessage" => [String.t() | atom()]
-      }
-
-  """
-  @type baseline_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enabled_baseline_filter() :: %{
-        "baselineIdentifiers" => list(String.t() | atom()),
-        "inheritanceDriftStatuses" => list(list(any())()),
-        "parentIdentifiers" => list(String.t() | atom()),
-        "statuses" => list(list(any())()),
-        "targetIdentifiers" => list(String.t() | atom())
-      }
-
-  """
-  @type enabled_baseline_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_baseline_input() :: %{
-        optional("parameters") => list(enabled_baseline_parameter()),
-        optional("tags") => map(),
-        required("baselineIdentifier") => String.t() | atom(),
-        required("baselineVersion") => String.t() | atom(),
-        required("targetIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type enable_baseline_input() :: %{(String.t() | atom()) => any()}
+  @type get_landing_zone_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,136 +781,12 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      validation_exception() :: %{
+      internal_server_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      enabled_baseline_drift_types() :: %{
-        "inheritance" => enabled_baseline_inheritance_drift()
-      }
-
-  """
-  @type enabled_baseline_drift_types() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_control_operations_input() :: %{
-        optional("filter") => control_operation_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_control_operations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_enabled_baseline_input() :: %{
-        optional("parameters") => list(enabled_baseline_parameter()),
-        required("baselineVersion") => String.t() | atom(),
-        required("enabledBaselineIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type update_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_operation_filter() :: %{
-        "controlIdentifiers" => list(String.t() | atom()),
-        "controlOperationTypes" => list(list(any())()),
-        "enabledControlIdentifiers" => list(String.t() | atom()),
-        "statuses" => list(list(any())()),
-        "targetIdentifiers" => list(String.t() | atom())
-      }
-
-  """
-  @type control_operation_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_enabled_baseline_input() :: %{
-        required("enabledBaselineIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type get_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enabled_baseline_details() :: %{
-        "arn" => String.t() | atom(),
-        "baselineIdentifier" => [String.t() | atom()],
-        "baselineVersion" => [String.t() | atom()],
-        "driftStatusSummary" => enabled_baseline_drift_status_summary(),
-        "parameters" => list(enabled_baseline_parameter_summary()),
-        "parentIdentifier" => String.t() | atom(),
-        "statusSummary" => enablement_status_summary(),
-        "targetIdentifier" => [String.t() | atom()]
-      }
-
-  """
-  @type enabled_baseline_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      landing_zone_drift_status_summary() :: %{
-        "status" => list(any())
-      }
-
-  """
-  @type landing_zone_drift_status_summary() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1125,25 +804,309 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      baseline_summary() :: %{
-        "arn" => [String.t() | atom()],
-        "description" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
+      reset_enabled_control_input() :: %{
+        required("enabledControlIdentifier") => String.t() | atom()
       }
 
   """
-  @type baseline_summary() :: %{(String.t() | atom()) => any()}
+  @type reset_enabled_control_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_landing_zone_input() :: %{
-        required("landingZoneIdentifier") => [String.t() | atom()]
+      list_landing_zone_operations_output() :: %{
+        "landingZoneOperations" => list(landing_zone_operation_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type reset_landing_zone_input() :: %{(String.t() | atom()) => any()}
+  @type list_landing_zone_operations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_landing_zone_output() :: %{
+        "landingZone" => landing_zone_detail()
+      }
+
+  """
+  @type get_landing_zone_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_landing_zone_output() :: %{
+        "operationIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type update_landing_zone_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_baselines_output() :: %{
+        "baselines" => list(baseline_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_baselines_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_filter() :: %{
+        "controlIdentifiers" => list(String.t() | atom()),
+        "driftStatuses" => list(list(any())()),
+        "inheritanceDriftStatuses" => list(list(any())()),
+        "parentIdentifiers" => list(String.t() | atom()),
+        "resourceDriftStatuses" => list(list(any())()),
+        "statuses" => list(list(any())())
+      }
+
+  """
+  @type enabled_control_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_baseline_output() :: %{
+        "enabledBaselineDetails" => enabled_baseline_details()
+      }
+
+  """
+  @type get_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_inheritance_drift() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type enabled_baseline_inheritance_drift() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_control_operation_input() :: %{
+        required("operationIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_control_operation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_landing_zone_input() :: %{
+        optional("manifest") => any(),
+        optional("remediationTypes") => list(list(any())()),
+        optional("tags") => map(),
+        required("version") => String.t() | atom()
+      }
+
+  """
+  @type create_landing_zone_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_landing_zone_operation_input() :: %{
+        required("operationIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_landing_zone_operation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      baseline_operation() :: %{
+        "endTime" => non_neg_integer(),
+        "operationIdentifier" => String.t() | atom(),
+        "operationType" => list(any()),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "statusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type baseline_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_landing_zone_output() :: %{
+        "arn" => String.t() | atom(),
+        "operationIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type create_landing_zone_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_landing_zone_input() :: %{
+        required("landingZoneIdentifier") => [String.t() | atom()],
+        optional("manifest") => any(),
+        optional("remediationTypes") => list(list(any())()),
+        required("version") => String.t() | atom()
+      }
+
+  """
+  @type update_landing_zone_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_enabled_baseline_input() :: %{
+        required("baselineVersion") => String.t() | atom(),
+        required("enabledBaselineIdentifier") => String.t() | atom(),
+        optional("parameters") => list(enabled_baseline_parameter())
+      }
+
+  """
+  @type update_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enablement_status_summary() :: %{
+        "lastOperationIdentifier" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type enablement_status_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_baseline_output() :: %{
+        "arn" => String.t() | atom(),
+        "operationIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type enable_baseline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_baselines_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_baselines_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_baseline_input() :: %{
+        required("baselineIdentifier") => String.t() | atom(),
+        required("baselineVersion") => String.t() | atom(),
+        optional("parameters") => list(enabled_baseline_parameter()),
+        optional("tags") => map(),
+        required("targetIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type enable_baseline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      landing_zone_operation_detail() :: %{
+        "endTime" => non_neg_integer(),
+        "operationIdentifier" => String.t() | atom(),
+        "operationType" => list(any()),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "statusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type landing_zone_operation_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_baseline_operation_output() :: %{
+        "baselineOperation" => baseline_operation()
+      }
+
+  """
+  @type get_baseline_operation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_control_input() :: %{
+        optional("controlIdentifier") => String.t() | atom(),
+        optional("enabledControlIdentifier") => String.t() | atom(),
+        optional("targetIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type disable_control_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1167,178 +1130,100 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      get_control_operation_output() :: %{
-        "controlOperation" => control_operation()
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type get_control_operation_output() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_enabled_baseline_output() :: %{
+      delete_landing_zone_output() :: %{
         "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type update_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
+  @type delete_landing_zone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_landing_zone_output() :: %{
+      landing_zone_detail() :: %{
         "arn" => String.t() | atom(),
-        "operationIdentifier" => String.t() | atom()
+        "driftStatus" => landing_zone_drift_status_summary(),
+        "latestAvailableVersion" => String.t() | atom(),
+        "manifest" => any(),
+        "remediationTypes" => list(list(any())()),
+        "status" => list(any()),
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_landing_zone_output() :: %{(String.t() | atom()) => any()}
+  @type landing_zone_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_baseline_output() :: %{
-        "arn" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type get_baseline_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enabled_baseline_inheritance_drift() :: %{
+      landing_zone_drift_status_summary() :: %{
         "status" => list(any())
       }
 
   """
-  @type enabled_baseline_inheritance_drift() :: %{(String.t() | atom()) => any()}
+  @type landing_zone_drift_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_landing_zone_output() :: %{
-        "operationIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type reset_landing_zone_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_landing_zone_operations_output() :: %{
-        "landingZoneOperations" => list(landing_zone_operation_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_landing_zone_operations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enabled_baseline_parameter_summary() :: %{
-        "key" => [String.t() | atom()],
-        "value" => any()
-      }
-
-  """
-  @type enabled_baseline_parameter_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_baselines_input() :: %{
+      list_landing_zone_operations_input() :: %{
+        optional("filter") => landing_zone_operation_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_baselines_input() :: %{(String.t() | atom()) => any()}
+  @type list_landing_zone_operations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_enabled_baseline_output() :: %{
-        "operationIdentifier" => String.t() | atom()
+      enabled_baseline_drift_types() :: %{
+        "inheritance" => enabled_baseline_inheritance_drift()
       }
 
   """
-  @type reset_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
+  @type enabled_baseline_drift_types() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_landing_zone_input() :: %{
-        required("landingZoneIdentifier") => [String.t() | atom()]
+      enabled_baseline_drift_status_summary() :: %{
+        "types" => enabled_baseline_drift_types()
       }
 
   """
-  @type get_landing_zone_input() :: %{(String.t() | atom()) => any()}
+  @type enabled_baseline_drift_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      drift_status_summary() :: %{
-        "driftStatus" => list(any()),
-        "types" => enabled_control_drift_types()
+      get_landing_zone_operation_output() :: %{
+        "operationDetails" => landing_zone_operation_detail()
       }
 
   """
-  @type drift_status_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      landing_zone_operation_detail() :: %{
-        "endTime" => non_neg_integer(),
-        "operationIdentifier" => String.t() | atom(),
-        "operationType" => list(any()),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "statusMessage" => [String.t() | atom()]
-      }
-
-  """
-  @type landing_zone_operation_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_enabled_control_output() :: %{
-        "operationIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type update_enabled_control_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_baseline_output() :: %{
-        "operationIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type disable_baseline_output() :: %{(String.t() | atom()) => any()}
+  @type get_landing_zone_operation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1355,20 +1240,28 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
-      control_operation_summary() :: %{
+      reset_enabled_baseline_output() :: %{
+        "operationIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type reset_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_control_summary() :: %{
+        "arn" => String.t() | atom(),
         "controlIdentifier" => String.t() | atom(),
-        "enabledControlIdentifier" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "operationIdentifier" => String.t() | atom(),
-        "operationType" => list(any()),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "statusMessage" => [String.t() | atom()],
+        "driftStatusSummary" => drift_status_summary(),
+        "parentIdentifier" => String.t() | atom(),
+        "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => String.t() | atom()
       }
 
   """
-  @type control_operation_summary() :: %{(String.t() | atom()) => any()}
+  @type enabled_control_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1381,203 +1274,310 @@ defmodule AWS.ControlTower do
   """
   @type get_baseline_input() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_control_input() :: %{
+        required("enabledControlIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_enabled_control_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enabled_controls_input() :: %{
+        optional("filter") => enabled_control_filter(),
+        optional("includeChildren") => [boolean()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()],
+        optional("targetIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_enabled_controls_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_landing_zone_input() :: %{
+        required("landingZoneIdentifier") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_landing_zone_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_control_operation_output() :: %{
+        "controlOperation" => control_operation()
+      }
+
+  """
+  @type get_control_operation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_control_output() :: %{
+        "enabledControlDetails" => enabled_control_details()
+      }
+
+  """
+  @type get_enabled_control_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_filter() :: %{
+        "baselineIdentifiers" => list(String.t() | atom()),
+        "inheritanceDriftStatuses" => list(list(any())()),
+        "parentIdentifiers" => list(String.t() | atom()),
+        "statuses" => list(list(any())()),
+        "targetIdentifiers" => list(String.t() | atom())
+      }
+
+  """
+  @type enabled_baseline_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_baseline_operation_input() :: %{
+        required("operationIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_baseline_operation_input() :: %{(String.t() | atom()) => any()}
+
   @type create_landing_zone_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_landing_zone_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type disable_baseline_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type disable_control_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type enable_baseline_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type enable_control_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_baseline_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_baseline_operation_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_control_operation_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_enabled_baseline_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_enabled_control_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_landing_zone_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_landing_zone_operation_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_baselines_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
+          | access_denied_exception()
 
   @type list_control_operations_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
+          | access_denied_exception()
 
   @type list_enabled_baselines_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
+          | access_denied_exception()
 
   @type list_enabled_controls_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_landing_zone_operations_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
+          | access_denied_exception()
 
   @type list_landing_zones_errors() ::
           throttling_exception()
           | validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type reset_enabled_baseline_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type reset_enabled_control_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type reset_landing_zone_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_enabled_baseline_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_enabled_control_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_landing_zone_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | throttling_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

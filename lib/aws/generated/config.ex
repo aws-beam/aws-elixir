@@ -43,14 +43,170 @@ defmodule AWS.Config do
 
   ## Example:
       
-      organization_conformance_pack_template_validation_exception() :: %{
+      no_such_bucket_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type organization_conformance_pack_template_validation_exception() :: %{
+  @type no_such_bucket_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregator_filter_resource_type() :: %{
+        "Type" => list(any()),
+        "Value" => list(String.t() | atom())
+      }
+      
+  """
+  @type aggregator_filter_resource_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aggregate_discovered_resource_counts_response() :: %{
+        "GroupByKey" => String.t() | atom(),
+        "GroupedResourceCounts" => list(grouped_resource_count()),
+        "NextToken" => String.t() | atom(),
+        "TotalDiscoveredResources" => float()
+      }
+      
+  """
+  @type get_aggregate_discovered_resource_counts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_recorder() :: %{
+        "arn" => String.t() | atom(),
+        "connectorArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "recordingGroup" => recording_group(),
+        "recordingMode" => recording_mode(),
+        "recordingScope" => list(any()),
+        "roleARN" => String.t() | atom(),
+        "scopeConfiguration" => scope_configuration(),
+        "servicePrincipal" => String.t() | atom()
+      }
+      
+  """
+  @type configuration_recorder() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_remediation_configuration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_such_remediation_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_aggregator_sources_status_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("UpdateStatus") => list(list(any())())
+      }
+      
+  """
+  @type describe_configuration_aggregator_sources_status_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_context() :: %{
+        "EvaluationContextIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type evaluation_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_aggregation_authorization_request() :: %{
+        required("AuthorizedAccountId") => String.t() | atom(),
+        required("AuthorizedAwsRegion") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_aggregation_authorization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      max_number_of_retention_configurations_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type max_number_of_retention_configurations_exceeded_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      template_s_s_m_document_details() :: %{
+        "DocumentName" => String.t() | atom(),
+        "DocumentVersion" => String.t() | atom()
+      }
+      
+  """
+  @type template_s_s_m_document_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_remediation_configurations_response() :: %{
+        "RemediationConfigurations" => list(remediation_configuration())
+      }
+      
+  """
+  @type describe_remediation_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_role_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_role_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scope() :: %{
+        "ComplianceResourceId" => String.t() | atom(),
+        "ComplianceResourceTypes" => list(String.t() | atom()),
+        "ServicePrincipals" => list(String.t() | atom()),
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom()
+      }
+      
+  """
+  @type scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -65,26 +221,149 @@ defmodule AWS.Config do
 
   ## Example:
       
-      describe_configuration_recorder_status_response() :: %{
-        "ConfigurationRecordersStatus" => list(configuration_recorder_status())
+      put_stored_query_response() :: %{
+        "QueryArn" => String.t() | atom()
       }
       
   """
-  @type describe_configuration_recorder_status_response() :: %{(String.t() | atom()) => any()}
+  @type put_stored_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_organization_config_rule_detailed_status_request() :: %{
-        optional("Filters") => status_detail_filters(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("OrganizationConfigRuleName") => String.t() | atom()
+      get_compliance_details_by_config_rule_response() :: %{
+        "EvaluationResults" => list(evaluation_result()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_organization_config_rule_detailed_status_request() :: %{
+  @type get_compliance_details_by_config_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_service_linked_configuration_recorder_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type put_service_linked_configuration_recorder_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_count() :: %{
+        "count" => float(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type resource_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failed_delete_remediation_exceptions_batch() :: %{
+        "FailedItems" => list(remediation_exception_resource_key()),
+        "FailureMessage" => String.t() | atom()
+      }
+      
+  """
+  @type failed_delete_remediation_exceptions_batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compliance_summary_by_resource_type() :: %{
+        "ComplianceSummary" => compliance_summary(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type compliance_summary_by_resource_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_details() :: %{
+        "ResourceConfiguration" => String.t() | atom(),
+        "ResourceConfigurationSchemaType" => list(any()),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_discovered_resource_counts_request() :: %{
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceTypes") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_discovered_resource_counts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_conformance_pack_compliance_scores_request() :: %{
+        optional("Filters") => conformance_pack_compliance_scores_filters(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type list_conformance_pack_compliance_scores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_s3_kms_key_arn_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_s3_kms_key_arn_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_recorder_filter() :: %{
+        "filterName" => list(any()),
+        "filterValue" => list(String.t() | atom())
+      }
+      
+  """
+  @type configuration_recorder_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_third_party_service_linked_configuration_recorder_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type put_third_party_service_linked_configuration_recorder_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -92,131 +371,337 @@ defmodule AWS.Config do
 
   ## Example:
       
-      config_snapshot_delivery_properties() :: %{
-        "deliveryFrequency" => list(any())
+      delete_service_linked_configuration_recorder_request() :: %{
+        optional("Arn") => String.t() | atom(),
+        optional("ServicePrincipal") => String.t() | atom()
       }
       
   """
-  @type config_snapshot_delivery_properties() :: %{(String.t() | atom()) => any()}
+  @type delete_service_linked_configuration_recorder_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      invalid_recording_group_exception() :: %{
+      start_remediation_execution_request() :: %{
+        required("ConfigRuleName") => String.t() | atom(),
+        required("ResourceKeys") => list(resource_key())
+      }
+      
+  """
+  @type start_remediation_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_config_rule_status() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "LastUpdateTime" => non_neg_integer(),
+        "OrganizationConfigRuleName" => String.t() | atom(),
+        "OrganizationRuleStatus" => list(any())
+      }
+      
+  """
+  @type organization_config_rule_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      config_rule_compliance_summary_filters() :: %{
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom()
+      }
+      
+  """
+  @type config_rule_compliance_summary_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      grouped_resource_count() :: %{
+        "GroupName" => String.t() | atom(),
+        "ResourceCount" => float()
+      }
+      
+  """
+  @type grouped_resource_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_recording_group_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_configuration_aggregator_request() :: %{
-        required("ConfigurationAggregatorName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_configuration_aggregator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_all_features_not_enabled_exception() :: %{
+      no_such_organization_config_rule_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type organization_all_features_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+  @type no_such_organization_config_rule_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      evaluation_result_identifier() :: %{
-        "EvaluationResultQualifier" => evaluation_result_qualifier(),
-        "OrderingTimestamp" => non_neg_integer(),
+      insufficient_permissions_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_permissions_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_resource_types_response() :: %{
+        "ConfigurationRecorder" => configuration_recorder()
+      }
+      
+  """
+  @type associate_resource_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      last_delivery_channel_delete_failed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type last_delivery_channel_delete_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_count_filters() :: %{
+        "AccountId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type resource_count_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_retention_configuration_request() :: %{
+        required("RetentionPeriodInDays") => integer()
+      }
+      
+  """
+  @type put_retention_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_conformance_pack_compliance_count() :: %{
+        "CompliantConformancePackCount" => integer(),
+        "NonCompliantConformancePackCount" => integer()
+      }
+      
+  """
+  @type aggregate_conformance_pack_compliance_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_conformance_pack_compliance_summary_request() :: %{
+        required("ConformancePackNames") => list(String.t() | atom()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_conformance_pack_compliance_summary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_conformance_pack_detailed_status() :: %{
+        "AccountId" => String.t() | atom(),
+        "ConformancePackName" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "LastUpdateTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type organization_conformance_pack_detailed_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_aggregate_compliance_by_conformance_packs_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("Filters") => aggregate_conformance_pack_compliance_filters(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_aggregate_compliance_by_conformance_packs_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_channel() :: %{
+        "configSnapshotDeliveryProperties" => config_snapshot_delivery_properties(),
+        "name" => String.t() | atom(),
+        "s3BucketName" => String.t() | atom(),
+        "s3KeyPrefix" => String.t() | atom(),
+        "s3KmsKeyArn" => String.t() | atom(),
+        "snsTopicARN" => String.t() | atom()
+      }
+      
+  """
+  @type delivery_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_aggregate_resource_config_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        required("ResourceIdentifiers") => list(aggregate_resource_identifier())
+      }
+      
+  """
+  @type batch_get_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aggregate_resource_config_response() :: %{
+        "ConfigurationItem" => configuration_item()
+      }
+      
+  """
+  @type get_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_organization_conformance_pack_response() :: %{
+        "OrganizationConformancePackArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_organization_conformance_pack_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conformance_pack_compliance_summary() :: %{
+        "ConformancePackComplianceStatus" => list(any()),
+        "ConformancePackName" => String.t() | atom()
+      }
+      
+  """
+  @type conformance_pack_compliance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_delivery_channel_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_such_delivery_channel_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_resource_evaluation_response() :: %{
         "ResourceEvaluationId" => String.t() | atom()
       }
       
   """
-  @type evaluation_result_identifier() :: %{(String.t() | atom()) => any()}
+  @type start_resource_evaluation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      remediation_configuration() :: %{
-        "Arn" => String.t() | atom(),
-        "Automatic" => boolean(),
-        "ConfigRuleName" => String.t() | atom(),
-        "CreatedByService" => String.t() | atom(),
-        "ExecutionControls" => execution_controls(),
-        "MaximumAutomaticAttempts" => integer(),
-        "Parameters" => map(),
-        "ResourceType" => String.t() | atom(),
-        "RetryAttemptSeconds" => float(),
-        "TargetId" => String.t() | atom(),
-        "TargetType" => list(any()),
-        "TargetVersion" => String.t() | atom()
+      describe_aggregation_authorizations_response() :: %{
+        "AggregationAuthorizations" => list(aggregation_authorization()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type remediation_configuration() :: %{(String.t() | atom()) => any()}
+  @type describe_aggregation_authorizations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      aggregated_source_status() :: %{
-        "AwsRegion" => String.t() | atom(),
-        "LastErrorCode" => String.t() | atom(),
-        "LastErrorMessage" => String.t() | atom(),
-        "LastUpdateStatus" => list(any()),
-        "LastUpdateTime" => non_neg_integer(),
-        "SourceId" => String.t() | atom(),
-        "SourceType" => list(any())
+      describe_organization_conformance_packs_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OrganizationConformancePacks" => list(organization_conformance_pack())
       }
       
   """
-  @type aggregated_source_status() :: %{(String.t() | atom()) => any()}
+  @type describe_organization_conformance_packs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
+      describe_configuration_recorders_response() :: %{
+        "ConfigurationRecorders" => list(configuration_recorder())
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type describe_configuration_recorders_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_custom_rule_policy_response() :: %{
-        "PolicyText" => String.t() | atom()
+      describe_aggregate_compliance_by_config_rules_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("Filters") => config_rule_compliance_filters(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_custom_rule_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_configuration_aggregator_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_such_configuration_aggregator_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_aggregate_compliance_by_config_rules_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -237,346 +722,101 @@ defmodule AWS.Config do
 
   ## Example:
       
-      get_compliance_details_by_resource_response() :: %{
-        "EvaluationResults" => list(evaluation_result()),
-        "NextToken" => String.t() | atom()
+      put_third_party_service_linked_configuration_recorder_request() :: %{
+        required("ConnectorArn") => String.t() | atom(),
+        required("ScopeConfiguration") => scope_configuration(),
+        required("ServicePrincipal") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type get_compliance_details_by_resource_response() :: %{(String.t() | atom()) => any()}
+  @type put_third_party_service_linked_configuration_recorder_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      last_delivery_channel_delete_failed_exception() :: %{
+      no_such_config_rule_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type last_delivery_channel_delete_failed_exception() :: %{(String.t() | atom()) => any()}
+  @type no_such_config_rule_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_stored_query_response() :: %{
-        "StoredQuery" => stored_query()
-      }
-      
-  """
-  @type get_stored_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_aggregate_discovered_resource_counts_response() :: %{
-        "GroupByKey" => String.t() | atom(),
-        "GroupedResourceCounts" => list(grouped_resource_count()),
-        "NextToken" => String.t() | atom(),
-        "TotalDiscoveredResources" => float()
-      }
-      
-  """
-  @type get_aggregate_discovered_resource_counts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_evaluation_results_request() :: %{
-        required("ConfigRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_evaluation_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_service_linked_configuration_recorder_request() :: %{
-        optional("Tags") => list(tag()),
-        required("ServicePrincipal") => String.t() | atom()
-      }
-      
-  """
-  @type put_service_linked_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_remediation_configuration_response() :: %{}
-      
-  """
-  @type delete_remediation_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_permissions_exception() :: %{
+      max_number_of_organization_conformance_packs_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_permissions_exception() :: %{(String.t() | atom()) => any()}
+  @type max_number_of_organization_conformance_packs_exceeded_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      describe_config_rule_evaluation_status_request() :: %{
-        optional("ConfigRuleNames") => list(String.t() | atom()),
+      evaluation_mode_configuration() :: %{
+        "Mode" => list(any())
+      }
+      
+  """
+  @type evaluation_mode_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_configuration_aggregator_response() :: %{
+        "ConfigurationAggregator" => configuration_aggregator()
+      }
+      
+  """
+  @type put_configuration_aggregator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_evaluations_request() :: %{
+        optional("Evaluations") => list(evaluation()),
+        required("ResultToken") => String.t() | atom(),
+        optional("TestMode") => boolean()
+      }
+      
+  """
+  @type put_evaluations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_conformance_pack_status_request() :: %{
+        optional("ConformancePackNames") => list(String.t() | atom()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_config_rule_evaluation_status_request() :: %{(String.t() | atom()) => any()}
+  @type describe_conformance_pack_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      grouped_resource_count() :: %{
-        "GroupName" => String.t() | atom(),
-        "ResourceCount" => float()
+      get_aggregate_resource_config_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        required("ResourceIdentifier") => aggregate_resource_identifier()
       }
       
   """
-  @type grouped_resource_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_remediation_configuration_request() :: %{
-        optional("ResourceType") => String.t() | atom(),
-        required("ConfigRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_remediation_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      config_rule_evaluation_status() :: %{
-        "ConfigRuleArn" => String.t() | atom(),
-        "ConfigRuleId" => String.t() | atom(),
-        "ConfigRuleName" => String.t() | atom(),
-        "FirstActivatedTime" => non_neg_integer(),
-        "FirstEvaluationStarted" => boolean(),
-        "LastDeactivatedTime" => non_neg_integer(),
-        "LastDebugLogDeliveryStatus" => String.t() | atom(),
-        "LastDebugLogDeliveryStatusReason" => String.t() | atom(),
-        "LastDebugLogDeliveryTime" => non_neg_integer(),
-        "LastErrorCode" => String.t() | atom(),
-        "LastErrorMessage" => String.t() | atom(),
-        "LastFailedEvaluationTime" => non_neg_integer(),
-        "LastFailedInvocationTime" => non_neg_integer(),
-        "LastSuccessfulEvaluationTime" => non_neg_integer(),
-        "LastSuccessfulInvocationTime" => non_neg_integer()
-      }
-      
-  """
-  @type config_rule_evaluation_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      config_rule() :: %{
-        "ConfigRuleArn" => String.t() | atom(),
-        "ConfigRuleId" => String.t() | atom(),
-        "ConfigRuleName" => String.t() | atom(),
-        "ConfigRuleState" => list(any()),
-        "CreatedBy" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EvaluationModes" => list(evaluation_mode_configuration()),
-        "InputParameters" => String.t() | atom(),
-        "MaximumExecutionFrequency" => list(any()),
-        "Scope" => scope(),
-        "Source" => source()
-      }
-      
-  """
-  @type config_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      max_number_of_delivery_channels_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type max_number_of_delivery_channels_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_config_rule_request() :: %{
-        optional("Tags") => list(tag()),
-        required("ConfigRule") => config_rule()
-      }
-      
-  """
-  @type put_config_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_resource_types_response() :: %{
-        "ConfigurationRecorder" => configuration_recorder()
-      }
-      
-  """
-  @type associate_resource_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_delivery_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_delivery_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_retention_configurations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RetentionConfigurations" => list(retention_configuration())
-      }
-      
-  """
-  @type describe_retention_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_aggregator() :: %{
-        "AccountAggregationSources" => list(account_aggregation_source()),
-        "AggregatorFilters" => aggregator_filters(),
-        "ConfigurationAggregatorArn" => String.t() | atom(),
-        "ConfigurationAggregatorName" => String.t() | atom(),
-        "CreatedBy" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "OrganizationAggregationSource" => organization_aggregation_source()
-      }
-      
-  """
-  @type configuration_aggregator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compliance() :: %{
-        "ComplianceContributorCount" => compliance_contributor_count(),
-        "ComplianceType" => list(any())
-      }
-      
-  """
-  @type compliance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remediation_exception() :: %{
-        "ConfigRuleName" => String.t() | atom(),
-        "ExpirationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type remediation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_compliance_by_resource_request() :: %{
-        optional("ComplianceTypes") => list(list(any())()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceId") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom()
-      }
-      
-  """
-  @type describe_compliance_by_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_recorder() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "recordingGroup" => recording_group(),
-        "recordingMode" => recording_mode(),
-        "recordingScope" => list(any()),
-        "roleARN" => String.t() | atom(),
-        "servicePrincipal" => String.t() | atom()
-      }
-      
-  """
-  @type configuration_recorder() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_evaluation_filters() :: %{
-        "EvaluationContextIdentifier" => String.t() | atom(),
-        "EvaluationMode" => list(any()),
-        "TimeWindow" => time_window()
-      }
-      
-  """
-  @type resource_evaluation_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_policy_details() :: %{
-        "EnableDebugLogDelivery" => boolean(),
-        "PolicyRuntime" => String.t() | atom(),
-        "PolicyText" => String.t() | atom()
-      }
-      
-  """
-  @type custom_policy_details() :: %{(String.t() | atom()) => any()}
+  @type get_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -605,103 +845,6 @@ defmodule AWS.Config do
 
   ## Example:
       
-      relationship() :: %{
-        "relationshipName" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceName" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-      
-  """
-  @type relationship() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_remediation_exceptions_response() :: %{
-        "FailedBatches" => list(failed_delete_remediation_exceptions_batch())
-      }
-      
-  """
-  @type delete_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      max_number_of_organization_conformance_packs_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type max_number_of_organization_conformance_packs_exceeded_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_compliance_by_config_rule_request() :: %{
-        optional("ComplianceTypes") => list(list(any())()),
-        optional("ConfigRuleNames") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_compliance_by_config_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_organization_config_rules_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OrganizationConfigRules" => list(organization_config_rule())
-      }
-      
-  """
-  @type describe_organization_config_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_remediation_exceptions_request() :: %{
-        required("ConfigRuleName") => String.t() | atom(),
-        required("ResourceKeys") => list(remediation_exception_resource_key())
-      }
-      
-  """
-  @type delete_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_remediation_configurations_request() :: %{
-        required("RemediationConfigurations") => list(remediation_configuration())
-      }
-      
-  """
-  @type put_remediation_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_remediation_configurations_request() :: %{
-        required("ConfigRuleNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_remediation_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_custom_rule_policy_request() :: %{
         optional("ConfigRuleName") => String.t() | atom()
       }
@@ -713,242 +856,67 @@ defmodule AWS.Config do
 
   ## Example:
       
-      get_aggregate_compliance_details_by_config_rule_response() :: %{
-        "AggregateEvaluationResults" => list(aggregate_evaluation_result()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_aggregate_compliance_details_by_config_rule_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_config_rule_request() :: %{
-        required("ConfigRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_config_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_evaluation_result() :: %{
-        "AccountId" => String.t() | atom(),
-        "Annotation" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom(),
-        "ComplianceType" => list(any()),
-        "ConfigRuleInvokedTime" => non_neg_integer(),
-        "EvaluationResultIdentifier" => evaluation_result_identifier(),
-        "ResultRecordedTime" => non_neg_integer()
-      }
-      
-  """
-  @type aggregate_evaluation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_conformance_pack_detailed_status() :: %{
-        "AccountId" => String.t() | atom(),
-        "ConformancePackName" => String.t() | atom(),
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "LastUpdateTime" => non_neg_integer(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type organization_conformance_pack_detailed_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_delivery_channels_request() :: %{
-        optional("DeliveryChannelNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_delivery_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remediation_parameter_value() :: %{
-        "ResourceValue" => resource_value(),
-        "StaticValue" => static_value()
-      }
-      
-  """
-  @type remediation_parameter_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_aggregate_compliance_by_config_rules_request() :: %{
-        optional("Filters") => config_rule_compliance_filters(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConfigurationAggregatorName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_aggregate_compliance_by_config_rules_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_limit_exception() :: %{
+      invalid_s3_key_prefix_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_limit_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_s3_key_prefix_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_aggregate_config_rule_compliance_summary_request() :: %{
-        optional("Filters") => config_rule_compliance_summary_filters(),
-        optional("GroupByKey") => list(any()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConfigurationAggregatorName") => String.t() | atom()
+      organization_custom_policy_rule_metadata_no_policy() :: %{
+        "DebugLogDeliveryAccounts" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
+        "InputParameters" => String.t() | atom(),
+        "MaximumExecutionFrequency" => list(any()),
+        "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
+        "PolicyRuntime" => String.t() | atom(),
+        "ResourceIdScope" => String.t() | atom(),
+        "ResourceTypesScope" => list(String.t() | atom()),
+        "TagKeyScope" => String.t() | atom(),
+        "TagValueScope" => String.t() | atom()
       }
       
   """
-  @type get_aggregate_config_rule_compliance_summary_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type organization_custom_policy_rule_metadata_no_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_configuration_recorders_response() :: %{
-        "ConfigurationRecorderSummaries" => list(configuration_recorder_summary()),
-        "NextToken" => String.t() | atom()
+      list_discovered_resources_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourceIdentifiers" => list(resource_identifier())
       }
       
   """
-  @type list_configuration_recorders_response() :: %{(String.t() | atom()) => any()}
+  @type list_discovered_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      compliance_contributor_count() :: %{
-        "CapExceeded" => boolean(),
-        "CappedCount" => integer()
+      put_delivery_channel_request() :: %{
+        required("DeliveryChannel") => delivery_channel()
       }
       
   """
-  @type compliance_contributor_count() :: %{(String.t() | atom()) => any()}
+  @type put_delivery_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_remediation_configurations_response() :: %{
-        "RemediationConfigurations" => list(remediation_configuration())
-      }
-      
-  """
-  @type describe_remediation_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recording_mode() :: %{
-        "recordingFrequency" => list(any()),
-        "recordingModeOverrides" => list(recording_mode_override())
-      }
-      
-  """
-  @type recording_mode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_result_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_result_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resource_evaluations_response() :: %{
+      describe_organization_conformance_pack_statuses_response() :: %{
         "NextToken" => String.t() | atom(),
-        "ResourceEvaluations" => list(resource_evaluation())
+        "OrganizationConformancePackStatuses" => list(organization_conformance_pack_status())
       }
       
   """
-  @type list_resource_evaluations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failed_remediation_exception_batch() :: %{
-        "FailedItems" => list(remediation_exception()),
-        "FailureMessage" => String.t() | atom()
-      }
-      
-  """
-  @type failed_remediation_exception_batch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remediation_in_progress_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type remediation_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_compliance_details_by_config_rule_response() :: %{
-        "EvaluationResults" => list(evaluation_result()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_compliance_details_by_config_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      max_number_of_organization_config_rules_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type max_number_of_organization_config_rules_exceeded_exception() :: %{
+  @type describe_organization_conformance_pack_statuses_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -956,12 +924,10 @@ defmodule AWS.Config do
 
   ## Example:
       
-      unmodifiable_entity_exception() :: %{
-        "message" => String.t() | atom()
-      }
+      delete_evaluation_results_response() :: %{}
       
   """
-  @type unmodifiable_entity_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_evaluation_results_response() :: %{}
 
   @typedoc """
 
@@ -981,181 +947,13 @@ defmodule AWS.Config do
 
   ## Example:
       
-      describe_organization_conformance_packs_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OrganizationConformancePacks" => list(organization_conformance_pack())
+      delete_service_linked_configuration_recorder_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type describe_organization_conformance_packs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_recorder_summary() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "recordingScope" => list(any()),
-        "servicePrincipal" => String.t() | atom()
-      }
-      
-  """
-  @type configuration_recorder_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      max_number_of_config_rules_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type max_number_of_config_rules_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_compliance_by_config_rule_response() :: %{
-        "ComplianceByConfigRules" => list(compliance_by_config_rule()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_compliance_by_config_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_evaluations_request() :: %{
-        optional("Evaluations") => list(evaluation()),
-        optional("TestMode") => boolean(),
-        required("ResultToken") => String.t() | atom()
-      }
-      
-  """
-  @type put_evaluations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_evaluation_results_response() :: %{}
-      
-  """
-  @type delete_evaluation_results_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_config_rules_response() :: %{
-        "ConfigRules" => list(config_rule()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_config_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_stored_query_request() :: %{
-        required("QueryName") => String.t() | atom()
-      }
-      
-  """
-  @type get_stored_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_config_rules_filters() :: %{
-        "EvaluationMode" => list(any())
-      }
-      
-  """
-  @type describe_config_rules_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_conformance_pack_compliance_summary_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConformancePackNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_conformance_pack_compliance_summary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_config_rule_status() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "LastUpdateTime" => non_neg_integer(),
-        "OrganizationConfigRuleName" => String.t() | atom(),
-        "OrganizationRuleStatus" => list(any())
-      }
-      
-  """
-  @type organization_config_rule_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_organization_custom_rule_policy_response() :: %{
-        "PolicyText" => String.t() | atom()
-      }
-      
-  """
-  @type get_organization_custom_rule_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deliver_config_snapshot_request() :: %{
-        required("deliveryChannelName") => String.t() | atom()
-      }
-      
-  """
-  @type deliver_config_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_aggregate_config_rule_compliance_summary_response() :: %{
-        "AggregateComplianceCounts" => list(aggregate_compliance_count()),
-        "GroupByKey" => String.t() | atom(),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_aggregate_config_rule_compliance_summary_response() :: %{
+  @type delete_service_linked_configuration_recorder_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -1163,124 +961,281 @@ defmodule AWS.Config do
 
   ## Example:
       
-      resource_count() :: %{
-        "count" => float(),
-        "resourceType" => list(any())
-      }
-      
-  """
-  @type resource_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_compliance_summary_by_resource_type_response() :: %{
-        "ComplianceSummariesByResourceType" => list(compliance_summary_by_resource_type())
-      }
-      
-  """
-  @type get_compliance_summary_by_resource_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_resource_identifier() :: %{
-        "ResourceId" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "ResourceType" => list(any()),
-        "SourceAccountId" => String.t() | atom(),
-        "SourceRegion" => String.t() | atom()
-      }
-      
-  """
-  @type aggregate_resource_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_aggregate_resource_config_response() :: %{
-        "BaseConfigurationItems" => list(base_configuration_item()),
-        "UnprocessedResourceIdentifiers" => list(aggregate_resource_identifier())
-      }
-      
-  """
-  @type batch_get_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_conformance_pack_status_response() :: %{
-        "ConformancePackStatusDetails" => list(conformance_pack_status_detail()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_conformance_pack_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_configuration_recorder_request() :: %{
-        required("ConfigurationRecorderName") => String.t() | atom()
-      }
-      
-  """
-  @type stop_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      select_resource_config_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "QueryInfo" => query_info(),
-        "Results" => list(String.t() | atom())
-      }
-      
-  """
-  @type select_resource_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_config_history_response() :: %{
-        "configurationItems" => list(configuration_item()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_config_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_filters() :: %{
-        "AccountId" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
-      }
-      
-  """
-  @type resource_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_config_rule_in_conformance_pack_exception() :: %{
+      no_such_remediation_exception_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type no_such_config_rule_in_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
+  @type no_such_remediation_exception_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_value() :: %{
+        "Value" => list(any())
+      }
+      
+  """
+  @type resource_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_compliance_by_config_rule_request() :: %{
+        optional("ComplianceTypes") => list(list(any())()),
+        optional("ConfigRuleNames") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_compliance_by_config_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      config_stream_delivery_info() :: %{
+        "lastErrorCode" => String.t() | atom(),
+        "lastErrorMessage" => String.t() | atom(),
+        "lastStatus" => list(any()),
+        "lastStatusChangeTime" => non_neg_integer()
+      }
+      
+  """
+  @type config_stream_delivery_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_organization_config_rules_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OrganizationConfigRules" => list(organization_config_rule())
+      }
+      
+  """
+  @type describe_organization_config_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scope_configuration() :: %{
+        "allRegions" => boolean(),
+        "includedRegions" => list(String.t() | atom()),
+        "scopeType" => String.t() | atom(),
+        "scopeValues" => list(String.t() | atom())
+      }
+      
+  """
+  @type scope_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remediation_in_progress_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type remediation_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conformance_pack_compliance_score() :: %{
+        "ConformancePackName" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Score" => String.t() | atom()
+      }
+      
+  """
+  @type conformance_pack_compliance_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_compliance_by_config_rule() :: %{
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "Compliance" => compliance(),
+        "ConfigRuleName" => String.t() | atom()
+      }
+      
+  """
+  @type aggregate_compliance_by_config_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_resource_evaluation_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("EvaluationContext") => evaluation_context(),
+        required("EvaluationMode") => list(any()),
+        optional("EvaluationTimeout") => integer(),
+        required("ResourceDetails") => resource_details()
+      }
+      
+  """
+  @type start_resource_evaluation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compliance() :: %{
+        "ComplianceContributorCount" => compliance_contributor_count(),
+        "ComplianceType" => list(any())
+      }
+      
+  """
+  @type compliance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connector_request() :: %{
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_config_rule_request() :: %{
+        required("ConfigRule") => config_rule(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_config_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_stored_query_request() :: %{
+        required("StoredQuery") => stored_query(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_stored_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_aggregator_sources_status_response() :: %{
+        "AggregatedSourceStatusList" => list(aggregated_source_status()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_configuration_aggregator_sources_status_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_conformance_pack_compliance_summary_filters() :: %{
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom()
+      }
+      
+  """
+  @type aggregate_conformance_pack_compliance_summary_filters() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_channel_status_response() :: %{
+        "DeliveryChannelsStatus" => list(delivery_channel_status())
+      }
+      
+  """
+  @type describe_delivery_channel_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_recorders_request() :: %{
+        optional("Arn") => String.t() | atom(),
+        optional("ConfigurationRecorderNames") => list(String.t() | atom()),
+        optional("ServicePrincipal") => String.t() | atom()
+      }
+      
+  """
+  @type describe_configuration_recorders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation() :: %{
+        "Annotation" => String.t() | atom(),
+        "ComplianceResourceId" => String.t() | atom(),
+        "ComplianceResourceType" => String.t() | atom(),
+        "ComplianceType" => list(any()),
+        "OrderingTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type evaluation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_conformance_pack_compliance_response() :: %{
+        "ConformancePackName" => String.t() | atom(),
+        "ConformancePackRuleComplianceList" => list(conformance_pack_rule_compliance()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_conformance_pack_compliance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_configuration_aggregator_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_such_configuration_aggregator_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector() :: %{
+        "arn" => String.t() | atom(),
+        "connectorConfiguration" => connector_configuration(),
+        "createdTime" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1298,269 +1253,62 @@ defmodule AWS.Config do
 
   ## Example:
       
-      no_such_remediation_exception_exception() :: %{
-        "message" => String.t() | atom()
+      aggregator_filters() :: %{
+        "ResourceType" => aggregator_filter_resource_type(),
+        "ServicePrincipal" => aggregator_filter_service_principal()
       }
       
   """
-  @type no_such_remediation_exception_exception() :: %{(String.t() | atom()) => any()}
+  @type aggregator_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      remediation_execution_status() :: %{
-        "InvocationTime" => non_neg_integer(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "ResourceKey" => resource_key(),
-        "State" => list(any()),
-        "StepDetails" => list(remediation_execution_step())
+      batch_get_resource_config_response() :: %{
+        "baseConfigurationItems" => list(base_configuration_item()),
+        "unprocessedResourceKeys" => list(resource_key())
       }
       
   """
-  @type remediation_execution_status() :: %{(String.t() | atom()) => any()}
+  @type batch_get_resource_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_delivery_channels_response() :: %{
-        "DeliveryChannels" => list(delivery_channel())
+      recording_strategy() :: %{
+        "useOnly" => list(any())
       }
       
   """
-  @type describe_delivery_channels_response() :: %{(String.t() | atom()) => any()}
+  @type recording_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_conformance_pack_response() :: %{
-        "ConformancePackArn" => String.t() | atom()
+      delete_resource_config_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("ResourceType") => String.t() | atom()
       }
       
   """
-  @type put_conformance_pack_response() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_s_n_s_topic_arn_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_s_n_s_topic_arn_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_aggregation_source() :: %{
-        "AllAwsRegions" => boolean(),
-        "AwsRegions" => list(String.t() | atom()),
-        "RoleArn" => String.t() | atom()
-      }
-      
-  """
-  @type organization_aggregation_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_managed_rule_metadata() :: %{
-        "Description" => String.t() | atom(),
-        "InputParameters" => String.t() | atom(),
-        "MaximumExecutionFrequency" => list(any()),
-        "ResourceIdScope" => String.t() | atom(),
-        "ResourceTypesScope" => list(String.t() | atom()),
-        "RuleIdentifier" => String.t() | atom(),
-        "TagKeyScope" => String.t() | atom(),
-        "TagValueScope" => String.t() | atom()
-      }
-      
-  """
-  @type organization_managed_rule_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_conformance_pack_compliance() :: %{
-        "ComplianceType" => list(any()),
-        "CompliantRuleCount" => integer(),
-        "NonCompliantRuleCount" => integer(),
-        "TotalRuleCount" => integer()
-      }
-      
-  """
-  @type aggregate_conformance_pack_compliance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_discovered_resources_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resourceIdentifiers" => list(resource_identifier())
-      }
-      
-  """
-  @type list_discovered_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idempotent_parameter_mismatch() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type idempotent_parameter_mismatch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_delivery_channel_status_request() :: %{
-        optional("DeliveryChannelNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_delivery_channel_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_organization_config_rules_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OrganizationConfigRuleNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_organization_config_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_organization_config_rule_detailed_status_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OrganizationConfigRuleDetailedStatus" => list(member_account_status())
-      }
-      
-  """
-  @type get_organization_config_rule_detailed_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_compliance_by_resource_response() :: %{
-        "ComplianceByResources" => list(compliance_by_resource()),
+      describe_aggregate_compliance_by_conformance_packs_response() :: %{
+        "AggregateComplianceByConformancePacks" => list(aggregate_compliance_by_conformance_pack()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_compliance_by_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_remediation_configurations_response() :: %{
-        "FailedBatches" => list(failed_remediation_batch())
-      }
-      
-  """
-  @type put_remediation_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      member_account_status() :: %{
-        "AccountId" => String.t() | atom(),
-        "ConfigRuleName" => String.t() | atom(),
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "LastUpdateTime" => non_neg_integer(),
-        "MemberAccountRuleStatus" => list(any())
-      }
-      
-  """
-  @type member_account_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      external_evaluation() :: %{
-        "Annotation" => String.t() | atom(),
-        "ComplianceResourceId" => String.t() | atom(),
-        "ComplianceResourceType" => String.t() | atom(),
-        "ComplianceType" => list(any()),
-        "OrderingTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type external_evaluation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_evaluation_summary_request() :: %{
-        required("ResourceEvaluationId") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_evaluation_summary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      config_rule_compliance_summary_filters() :: %{
-        "AccountId" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom()
-      }
-      
-  """
-  @type config_rule_compliance_summary_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compliance_by_config_rule() :: %{
-        "Compliance" => compliance(),
-        "ConfigRuleName" => String.t() | atom()
-      }
-      
-  """
-  @type compliance_by_config_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stored_query_metadata() :: %{
-        "Description" => String.t() | atom(),
-        "QueryArn" => String.t() | atom(),
-        "QueryId" => String.t() | atom(),
-        "QueryName" => String.t() | atom()
-      }
-      
-  """
-  @type stored_query_metadata() :: %{(String.t() | atom()) => any()}
+  @type describe_aggregate_compliance_by_conformance_packs_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1586,297 +1334,190 @@ defmodule AWS.Config do
 
   ## Example:
       
-      delete_retention_configuration_request() :: %{
-        required("RetentionConfigurationName") => String.t() | atom()
+      delete_aggregation_authorization_request() :: %{
+        required("AuthorizedAccountId") => String.t() | atom(),
+        required("AuthorizedAwsRegion") => String.t() | atom()
       }
       
   """
-  @type delete_retention_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type delete_aggregation_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_organization_config_rule_statuses_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OrganizationConfigRuleNames") => list(String.t() | atom())
+      get_resource_evaluation_summary_request() :: %{
+        required("ResourceEvaluationId") => String.t() | atom()
       }
       
   """
-  @type describe_organization_config_rule_statuses_request() :: %{(String.t() | atom()) => any()}
+  @type get_resource_evaluation_summary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_remediation_execution_status_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceKeys") => list(resource_key()),
-        required("ConfigRuleName") => String.t() | atom()
+      failed_remediation_batch() :: %{
+        "FailedItems" => list(remediation_configuration()),
+        "FailureMessage" => String.t() | atom()
       }
       
   """
-  @type describe_remediation_execution_status_request() :: %{(String.t() | atom()) => any()}
+  @type failed_remediation_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      aggregator_filter_resource_type() :: %{
-        "Type" => list(any()),
-        "Value" => list(String.t() | atom())
-      }
-      
-  """
-  @type aggregator_filter_resource_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conformance_pack_detail() :: %{
-        "ConformancePackArn" => String.t() | atom(),
-        "ConformancePackId" => String.t() | atom(),
-        "ConformancePackInputParameters" => list(conformance_pack_input_parameter()),
-        "ConformancePackName" => String.t() | atom(),
-        "CreatedBy" => String.t() | atom(),
-        "DeliveryS3Bucket" => String.t() | atom(),
-        "DeliveryS3KeyPrefix" => String.t() | atom(),
-        "LastUpdateRequestedTime" => non_neg_integer(),
-        "TemplateSSMDocumentDetails" => template_s_s_m_document_details()
-      }
-      
-  """
-  @type conformance_pack_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_conformance_pack_request() :: %{
-        optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
-        optional("DeliveryS3Bucket") => String.t() | atom(),
-        optional("DeliveryS3KeyPrefix") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("TemplateBody") => String.t() | atom(),
-        optional("TemplateS3Uri") => String.t() | atom(),
-        optional("TemplateSSMDocumentDetails") => template_s_s_m_document_details(),
-        required("ConformancePackName") => String.t() | atom()
-      }
-      
-  """
-  @type put_conformance_pack_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retention_configuration() :: %{
-        "Name" => String.t() | atom(),
-        "RetentionPeriodInDays" => integer()
-      }
-      
-  """
-  @type retention_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_resource_evaluation_response() :: %{
-        "ResourceEvaluationId" => String.t() | atom()
-      }
-      
-  """
-  @type start_resource_evaluation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_recorder_status_request() :: %{
-        optional("Arn") => String.t() | atom(),
-        optional("ConfigurationRecorderNames") => list(String.t() | atom()),
-        optional("ServicePrincipal") => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_recorder_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_window() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type time_window() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_conformance_pack_compliance_summary() :: %{
-        "ComplianceSummary" => aggregate_conformance_pack_compliance_count(),
-        "GroupName" => String.t() | atom()
-      }
-      
-  """
-  @type aggregate_conformance_pack_compliance_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_time_range_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_time_range_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_external_evaluation_request() :: %{
-        required("ConfigRuleName") => String.t() | atom(),
-        required("ExternalEvaluation") => external_evaluation()
-      }
-      
-  """
-  @type put_external_evaluation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pending_aggregation_request() :: %{
-        "RequesterAccountId" => String.t() | atom(),
-        "RequesterAwsRegion" => String.t() | atom()
-      }
-      
-  """
-  @type pending_aggregation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_identifier() :: %{
-        "resourceDeletionTime" => non_neg_integer(),
-        "resourceId" => String.t() | atom(),
-        "resourceName" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-      
-  """
-  @type resource_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_aggregation_source() :: %{
-        "AccountIds" => list(String.t() | atom()),
-        "AllAwsRegions" => boolean(),
-        "AwsRegions" => list(String.t() | atom())
-      }
-      
-  """
-  @type account_aggregation_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_resource_config_response() :: %{
-        "baseConfigurationItems" => list(base_configuration_item()),
-        "unprocessedResourceKeys" => list(resource_key())
-      }
-      
-  """
-  @type batch_get_resource_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_detail() :: %{
-        "EventSource" => list(any()),
-        "MaximumExecutionFrequency" => list(any()),
-        "MessageType" => list(any())
-      }
-      
-  """
-  @type source_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_aggregators_request() :: %{
-        optional("ConfigurationAggregatorNames") => list(String.t() | atom()),
+      list_resource_evaluations_request() :: %{
+        optional("Filters") => resource_evaluation_filters(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_configuration_aggregators_request() :: %{(String.t() | atom()) => any()}
+  @type list_resource_evaluations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_conformance_pack_compliance_scores_request() :: %{
-        optional("Filters") => conformance_pack_compliance_scores_filters(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        optional("SortOrder") => list(any())
+      get_compliance_summary_by_resource_type_request() :: %{
+        optional("ResourceTypes") => list(String.t() | atom())
       }
       
   """
-  @type list_conformance_pack_compliance_scores_request() :: %{(String.t() | atom()) => any()}
+  @type get_compliance_summary_by_resource_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_configuration_recorder_request() :: %{
+        required("ConfigurationRecorderName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recording_mode_override() :: %{
+        "description" => String.t() | atom(),
+        "recordingFrequency" => list(any()),
+        "resourceTypes" => list(list(any())())
+      }
+      
+  """
+  @type recording_mode_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_config_rule_evaluation_status_response() :: %{
+        "ConfigRulesEvaluationStatus" => list(config_rule_evaluation_status()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_config_rule_evaluation_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_channels_request() :: %{
+        optional("DeliveryChannelNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_delivery_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_channels_response() :: %{
+        "DeliveryChannels" => list(delivery_channel())
+      }
+      
+  """
+  @type describe_delivery_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_available_configuration_recorder_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_available_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_aggregate_resource_config_response() :: %{
+        "BaseConfigurationItems" => list(base_configuration_item()),
+        "UnprocessedResourceIdentifiers" => list(aggregate_resource_identifier())
+      }
+      
+  """
+  @type batch_get_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_channel_status() :: %{
+        "configHistoryDeliveryInfo" => config_export_delivery_info(),
+        "configSnapshotDeliveryInfo" => config_export_delivery_info(),
+        "configStreamDeliveryInfo" => config_stream_delivery_info(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type delivery_channel_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_config_rules_response() :: %{
+        "ConfigRules" => list(config_rule()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_config_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1896,554 +1537,12 @@ defmodule AWS.Config do
 
   ## Example:
       
-      describe_pending_aggregation_requests_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
+      get_compliance_summary_by_resource_type_response() :: %{
+        "ComplianceSummariesByResourceType" => list(compliance_summary_by_resource_type())
       }
       
   """
-  @type describe_pending_aggregation_requests_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_remediation_execution_response() :: %{
-        "FailedItems" => list(resource_key()),
-        "FailureMessage" => String.t() | atom()
-      }
-      
-  """
-  @type start_remediation_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_aggregate_compliance_by_config_rules_response() :: %{
-        "AggregateComplianceByConfigRules" => list(aggregate_compliance_by_config_rule()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_aggregate_compliance_by_config_rules_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      max_number_of_configuration_recorders_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type max_number_of_configuration_recorders_exceeded_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_value() :: %{
-        "Value" => list(any())
-      }
-      
-  """
-  @type resource_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_value_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_delivery_channel_name_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_delivery_channel_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregator_filters() :: %{
-        "ResourceType" => aggregator_filter_resource_type(),
-        "ServicePrincipal" => aggregator_filter_service_principal()
-      }
-      
-  """
-  @type aggregator_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_aggregate_resource_config_request() :: %{
-        required("ConfigurationAggregatorName") => String.t() | atom(),
-        required("ResourceIdentifier") => aggregate_resource_identifier()
-      }
-      
-  """
-  @type get_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recording_strategy() :: %{
-        "useOnly" => list(any())
-      }
-      
-  """
-  @type recording_strategy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deliver_config_snapshot_response() :: %{
-        "configSnapshotId" => String.t() | atom()
-      }
-      
-  """
-  @type deliver_config_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_organization_conformance_pack_statuses_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OrganizationConformancePackStatuses" => list(organization_conformance_pack_status())
-      }
-      
-  """
-  @type describe_organization_conformance_pack_statuses_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      put_retention_configuration_request() :: %{
-        required("RetentionPeriodInDays") => integer()
-      }
-      
-  """
-  @type put_retention_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_resource_types_request() :: %{
-        required("ConfigurationRecorderArn") => String.t() | atom(),
-        required("ResourceTypes") => list(list(any())())
-      }
-      
-  """
-  @type disassociate_resource_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_delivery_channel_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_such_delivery_channel_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_organization_conformance_pack_response() :: %{
-        "OrganizationConformancePackArn" => String.t() | atom()
-      }
-      
-  """
-  @type put_organization_conformance_pack_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_s3_kms_key_arn_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_s3_kms_key_arn_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_aggregators_response() :: %{
-        "ConfigurationAggregators" => list(configuration_aggregator()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_aggregators_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      select_aggregate_resource_config_request() :: %{
-        optional("Limit") => integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConfigurationAggregatorName") => String.t() | atom(),
-        required("Expression") => String.t() | atom()
-      }
-      
-  """
-  @type select_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conformance_pack_compliance_filters() :: %{
-        "ComplianceType" => list(any()),
-        "ConfigRuleNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type conformance_pack_compliance_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_remediation_execution_request() :: %{
-        required("ConfigRuleName") => String.t() | atom(),
-        required("ResourceKeys") => list(resource_key())
-      }
-      
-  """
-  @type start_remediation_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_discovered_resources_request() :: %{
-        optional("includeDeletedResources") => boolean(),
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceIds") => list(String.t() | atom()),
-        optional("resourceName") => String.t() | atom(),
-        required("resourceType") => list(any())
-      }
-      
-  """
-  @type list_discovered_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aggregate_discovered_resources_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceIdentifiers" => list(aggregate_resource_identifier())
-      }
-      
-  """
-  @type list_aggregate_discovered_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_delivery_channel_request() :: %{
-        required("DeliveryChannel") => delivery_channel()
-      }
-      
-  """
-  @type put_delivery_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conformance_pack_rule_compliance() :: %{
-        "ComplianceType" => list(any()),
-        "ConfigRuleName" => String.t() | atom(),
-        "Controls" => list(String.t() | atom())
-      }
-      
-  """
-  @type conformance_pack_rule_compliance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_aggregation_authorization_response() :: %{
-        "AggregationAuthorization" => aggregation_authorization()
-      }
-      
-  """
-  @type put_aggregation_authorization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stored_query() :: %{
-        "Description" => String.t() | atom(),
-        "Expression" => String.t() | atom(),
-        "QueryArn" => String.t() | atom(),
-        "QueryId" => String.t() | atom(),
-        "QueryName" => String.t() | atom()
-      }
-      
-  """
-  @type stored_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_stored_query_request() :: %{
-        required("QueryName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_stored_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_external_evaluation_response() :: %{}
-      
-  """
-  @type put_external_evaluation_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_config_history_request() :: %{
-        optional("chronologicalOrder") => list(any()),
-        optional("earlierTime") => non_neg_integer(),
-        optional("laterTime") => non_neg_integer(),
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("resourceId") => String.t() | atom(),
-        required("resourceType") => list(any())
-      }
-      
-  """
-  @type get_resource_config_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_aggregate_compliance_by_conformance_packs_response() :: %{
-        "AggregateComplianceByConformancePacks" => list(aggregate_compliance_by_conformance_pack()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_aggregate_compliance_by_conformance_packs_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_stored_queries_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_stored_queries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_remediation_exceptions_response() :: %{
-        "FailedBatches" => list(failed_remediation_exception_batch())
-      }
-      
-  """
-  @type put_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_config_rules_evaluation_request() :: %{
-        optional("ConfigRuleNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type start_config_rules_evaluation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_aggregation_authorization_request() :: %{
-        required("AuthorizedAccountId") => String.t() | atom(),
-        required("AuthorizedAwsRegion") => String.t() | atom()
-      }
-      
-  """
-  @type delete_aggregation_authorization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recording_mode_override() :: %{
-        "description" => String.t() | atom(),
-        "recordingFrequency" => list(any()),
-        "resourceTypes" => list(list(any())())
-      }
-      
-  """
-  @type recording_mode_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_configuration_recorder_request() :: %{
-        required("ConfigurationRecorderName") => String.t() | atom()
-      }
-      
-  """
-  @type start_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_recorders_request() :: %{
-        optional("Arn") => String.t() | atom(),
-        optional("ConfigurationRecorderNames") => list(String.t() | atom()),
-        optional("ServicePrincipal") => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_recorders_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_compliance_details_by_resource_request() :: %{
-        optional("ComplianceTypes") => list(list(any())()),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceEvaluationId") => String.t() | atom(),
-        optional("ResourceId") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom()
-      }
-      
-  """
-  @type get_compliance_details_by_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_compliance_by_config_rule() :: %{
-        "AccountId" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom(),
-        "Compliance" => compliance(),
-        "ConfigRuleName" => String.t() | atom()
-      }
-      
-  """
-  @type aggregate_compliance_by_config_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_organization_config_rule_response() :: %{
-        "OrganizationConfigRuleArn" => String.t() | atom()
-      }
-      
-  """
-  @type put_organization_config_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_available_delivery_channel_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_available_delivery_channel_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_aggregate_compliance_by_conformance_packs_request() :: %{
-        optional("Filters") => aggregate_conformance_pack_compliance_filters(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConfigurationAggregatorName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_aggregate_compliance_by_conformance_packs_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type get_compliance_summary_by_resource_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2461,86 +1560,50 @@ defmodule AWS.Config do
 
   ## Example:
       
-      describe_remediation_exceptions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RemediationExceptions" => list(remediation_exception())
+      aggregate_compliance_count() :: %{
+        "ComplianceSummary" => compliance_summary(),
+        "GroupName" => String.t() | atom()
       }
       
   """
-  @type describe_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
+  @type aggregate_compliance_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_evaluation() :: %{
-        "EvaluationMode" => list(any()),
-        "EvaluationStartTimestamp" => non_neg_integer(),
-        "ResourceEvaluationId" => String.t() | atom()
-      }
-      
-  """
-  @type resource_evaluation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_conformance_pack_compliance_filters() :: %{
+      config_rule_compliance_filters() :: %{
         "AccountId" => String.t() | atom(),
         "AwsRegion" => String.t() | atom(),
         "ComplianceType" => list(any()),
-        "ConformancePackName" => String.t() | atom()
+        "ConfigRuleName" => String.t() | atom()
       }
       
   """
-  @type aggregate_conformance_pack_compliance_filters() :: %{(String.t() | atom()) => any()}
+  @type config_rule_compliance_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      evaluation_status() :: %{
-        "FailureReason" => String.t() | atom(),
-        "Status" => list(any())
+      get_organization_custom_rule_policy_response() :: %{
+        "PolicyText" => String.t() | atom()
       }
       
   """
-  @type evaluation_status() :: %{(String.t() | atom()) => any()}
+  @type get_organization_custom_rule_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_resource_evaluation_summary_response() :: %{
-        "Compliance" => list(any()),
-        "EvaluationContext" => evaluation_context(),
-        "EvaluationMode" => list(any()),
-        "EvaluationStartTimestamp" => non_neg_integer(),
-        "EvaluationStatus" => evaluation_status(),
-        "ResourceDetails" => resource_details(),
-        "ResourceEvaluationId" => String.t() | atom()
+      get_organization_config_rule_detailed_status_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OrganizationConfigRuleDetailedStatus" => list(member_account_status())
       }
       
   """
-  @type get_resource_evaluation_summary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_aggregate_compliance_details_by_config_rule_request() :: %{
-        optional("ComplianceType") => list(any()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccountId") => String.t() | atom(),
-        required("AwsRegion") => String.t() | atom(),
-        required("ConfigRuleName") => String.t() | atom(),
-        required("ConfigurationAggregatorName") => String.t() | atom()
-      }
-      
-  """
-  @type get_aggregate_compliance_details_by_config_rule_request() :: %{
+  @type get_organization_config_rule_detailed_status_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -2548,81 +1611,79 @@ defmodule AWS.Config do
 
   ## Example:
       
-      describe_conformance_pack_status_request() :: %{
-        optional("ConformancePackNames") => list(String.t() | atom()),
+      aggregate_evaluation_result() :: %{
+        "AccountId" => String.t() | atom(),
+        "Annotation" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "ComplianceType" => list(any()),
+        "ConfigRuleInvokedTime" => non_neg_integer(),
+        "EvaluationResultIdentifier" => evaluation_result_identifier(),
+        "ResultRecordedTime" => non_neg_integer()
+      }
+      
+  """
+  @type aggregate_evaluation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_remediation_configurations_request() :: %{
+        required("ConfigRuleNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_remediation_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_remediation_exceptions_request() :: %{
+        required("ConfigRuleName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceKeys") => list(remediation_exception_resource_key())
+      }
+      
+  """
+  @type describe_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resource_evaluations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceEvaluations" => list(resource_evaluation())
+      }
+      
+  """
+  @type list_resource_evaluations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_aggregators_request() :: %{
+        optional("ConfigurationAggregatorNames") => list(String.t() | atom()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_conformance_pack_status_request() :: %{(String.t() | atom()) => any()}
+  @type describe_configuration_aggregators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      organization_conformance_pack_status() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "LastUpdateTime" => non_neg_integer(),
-        "OrganizationConformancePackName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type organization_conformance_pack_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_configuration_aggregator_request() :: %{
-        optional("AccountAggregationSources") => list(account_aggregation_source()),
-        optional("AggregatorFilters") => aggregator_filters(),
-        optional("OrganizationAggregationSource") => organization_aggregation_source(),
-        optional("Tags") => list(tag()),
-        required("ConfigurationAggregatorName") => String.t() | atom()
-      }
-      
-  """
-  @type put_configuration_aggregator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_role_exception() :: %{
+      invalid_s_n_s_topic_arn_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_role_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      exclusion_by_resource_types() :: %{
-        "resourceTypes" => list(list(any())())
-      }
-      
-  """
-  @type exclusion_by_resource_types() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aggregate_discovered_resources_request() :: %{
-        optional("Filters") => resource_filters(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConfigurationAggregatorName") => String.t() | atom(),
-        required("ResourceType") => list(any())
-      }
-      
-  """
-  @type list_aggregate_discovered_resources_request() :: %{(String.t() | atom()) => any()}
+  @type invalid_s_n_s_topic_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2643,142 +1704,290 @@ defmodule AWS.Config do
 
   ## Example:
       
-      disassociate_resource_types_response() :: %{
-        "ConfigurationRecorder" => configuration_recorder()
+      get_discovered_resource_counts_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourceCounts" => list(resource_count()),
+        "totalDiscoveredResources" => float()
       }
       
   """
-  @type disassociate_resource_types_response() :: %{(String.t() | atom()) => any()}
+  @type get_discovered_resource_counts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_aggregation_authorizations_response() :: %{
-        "AggregationAuthorizations" => list(aggregation_authorization()),
-        "NextToken" => String.t() | atom()
+      external_evaluation() :: %{
+        "Annotation" => String.t() | atom(),
+        "ComplianceResourceId" => String.t() | atom(),
+        "ComplianceResourceType" => String.t() | atom(),
+        "ComplianceType" => list(any()),
+        "OrderingTimestamp" => non_neg_integer()
       }
       
   """
-  @type describe_aggregation_authorizations_response() :: %{(String.t() | atom()) => any()}
+  @type external_evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_resource_config_request() :: %{
-        optional("ResourceName") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Configuration") => String.t() | atom(),
-        required("ResourceId") => String.t() | atom(),
-        required("ResourceType") => String.t() | atom(),
-        required("SchemaVersionId") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_organization_conformance_pack_request() :: %{
-        required("OrganizationConformancePackName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_organization_conformance_pack_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source() :: %{
-        "CustomPolicyDetails" => custom_policy_details(),
-        "Owner" => list(any()),
-        "SourceDetails" => list(source_detail()),
-        "SourceIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_running_configuration_recorder_exception() :: %{
+      max_number_of_organization_config_rules_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type no_running_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery_channel_status() :: %{
-        "configHistoryDeliveryInfo" => config_export_delivery_info(),
-        "configSnapshotDeliveryInfo" => config_export_delivery_info(),
-        "configStreamDeliveryInfo" => config_stream_delivery_info(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type delivery_channel_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      scope() :: %{
-        "ComplianceResourceId" => String.t() | atom(),
-        "ComplianceResourceTypes" => list(String.t() | atom()),
-        "TagKey" => String.t() | atom(),
-        "TagValue" => String.t() | atom()
-      }
-      
-  """
-  @type scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_pending_aggregation_request_request() :: %{
-        required("RequesterAccountId") => String.t() | atom(),
-        required("RequesterAwsRegion") => String.t() | atom()
-      }
-      
-  """
-  @type delete_pending_aggregation_request_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configuration_recorder_filter() :: %{
-        "filterName" => list(any()),
-        "filterValue" => list(String.t() | atom())
-      }
-      
-  """
-  @type configuration_recorder_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_linked_configuration_recorder_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type delete_service_linked_configuration_recorder_response() :: %{
+  @type max_number_of_organization_config_rules_exceeded_exception() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      put_conformance_pack_request() :: %{
+        optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
+        required("ConformancePackName") => String.t() | atom(),
+        optional("DeliveryS3Bucket") => String.t() | atom(),
+        optional("DeliveryS3KeyPrefix") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateS3Uri") => String.t() | atom(),
+        optional("TemplateSSMDocumentDetails") => template_s_s_m_document_details()
+      }
+      
+  """
+  @type put_conformance_pack_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_retention_configuration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_such_retention_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_organization_config_rule_response() :: %{
+        "OrganizationConfigRuleArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_organization_config_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compliance_by_resource() :: %{
+        "Compliance" => compliance(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type compliance_by_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_custom_rule_policy_response() :: %{
+        "PolicyText" => String.t() | atom()
+      }
+      
+  """
+  @type get_custom_rule_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_remediation_configuration_response() :: %{}
+      
+  """
+  @type delete_remediation_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      max_active_resources_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type max_active_resources_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_conformance_pack() :: %{
+        "ConformancePackInputParameters" => list(conformance_pack_input_parameter()),
+        "DeliveryS3Bucket" => String.t() | atom(),
+        "DeliveryS3KeyPrefix" => String.t() | atom(),
+        "ExcludedAccounts" => list(String.t() | atom()),
+        "LastUpdateTime" => non_neg_integer(),
+        "OrganizationConformancePackArn" => String.t() | atom(),
+        "OrganizationConformancePackName" => String.t() | atom()
+      }
+      
+  """
+  @type organization_conformance_pack() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remediation_exception_resource_key() :: %{
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type remediation_exception_resource_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregated_source_status() :: %{
+        "AwsRegion" => String.t() | atom(),
+        "LastErrorCode" => String.t() | atom(),
+        "LastErrorMessage" => String.t() | atom(),
+        "LastUpdateStatus" => list(any()),
+        "LastUpdateTime" => non_neg_integer(),
+        "SourceId" => String.t() | atom(),
+        "SourceType" => list(any())
+      }
+      
+  """
+  @type aggregated_source_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_compliance_details_by_config_rule_request() :: %{
+        optional("ComplianceTypes") => list(list(any())()),
+        required("ConfigRuleName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_compliance_details_by_config_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_time_range_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_time_range_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_channel_status_request() :: %{
+        optional("DeliveryChannelNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_delivery_channel_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_service_linked_configuration_recorder_request() :: %{
+        required("ServicePrincipal") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_service_linked_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_delivery_channel_name_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_delivery_channel_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aggregate_discovered_resource_counts_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("Filters") => resource_count_filters(),
+        optional("GroupByKey") => list(any()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_aggregate_discovered_resource_counts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      max_number_of_config_rules_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type max_number_of_config_rules_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_all_features_not_enabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type organization_all_features_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_configuration_recorder_name_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_configuration_recorder_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2796,169 +2005,37 @@ defmodule AWS.Config do
 
   ## Example:
       
-      put_stored_query_request() :: %{
-        optional("Tags") => list(tag()),
-        required("StoredQuery") => stored_query()
+      describe_config_rules_filters() :: %{
+        "EvaluationMode" => list(any()),
+        "RuleEvaluationVisibility" => list(any())
       }
       
   """
-  @type put_stored_query_request() :: %{(String.t() | atom()) => any()}
+  @type describe_config_rules_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_discovered_resource_counts_request() :: %{
-        optional("limit") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceTypes") => list(String.t() | atom())
+      static_value() :: %{
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type get_discovered_resource_counts_request() :: %{(String.t() | atom()) => any()}
+  @type static_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_evaluations_response() :: %{
-        "FailedEvaluations" => list(evaluation())
+      resource_evaluation() :: %{
+        "EvaluationMode" => list(any()),
+        "EvaluationStartTimestamp" => non_neg_integer(),
+        "ResourceEvaluationId" => String.t() | atom()
       }
       
   """
-  @type put_evaluations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_mode_configuration() :: %{
-        "Mode" => list(any())
-      }
-      
-  """
-  @type evaluation_mode_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failed_delete_remediation_exceptions_batch() :: %{
-        "FailedItems" => list(remediation_exception_resource_key()),
-        "FailureMessage" => String.t() | atom()
-      }
-      
-  """
-  @type failed_delete_remediation_exceptions_batch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_configuration_recorder_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_such_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_organization_conformance_pack_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_such_organization_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_expression_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_expression_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_aggregation_authorization_request() :: %{
-        optional("Tags") => list(tag()),
-        required("AuthorizedAccountId") => String.t() | atom(),
-        required("AuthorizedAwsRegion") => String.t() | atom()
-      }
-      
-  """
-  @type put_aggregation_authorization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_delivery_channel_request() :: %{
-        required("DeliveryChannelName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_delivery_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_retention_configuration_response() :: %{
-        "RetentionConfiguration" => retention_configuration()
-      }
-      
-  """
-  @type put_retention_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery_channel() :: %{
-        "configSnapshotDeliveryProperties" => config_snapshot_delivery_properties(),
-        "name" => String.t() | atom(),
-        "s3BucketName" => String.t() | atom(),
-        "s3KeyPrefix" => String.t() | atom(),
-        "s3KmsKeyArn" => String.t() | atom(),
-        "snsTopicARN" => String.t() | atom()
-      }
-      
-  """
-  @type delivery_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_stored_query_response() :: %{
-        "QueryArn" => String.t() | atom()
-      }
-      
-  """
-  @type put_stored_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_organization_conformance_pack_detailed_status_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OrganizationConformancePackDetailedStatuses" => list(organization_conformance_pack_detailed_status())
-      }
-      
-  """
-  @type get_organization_conformance_pack_detailed_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type resource_evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2977,198 +2054,38 @@ defmodule AWS.Config do
 
   ## Example:
       
-      get_compliance_summary_by_resource_type_request() :: %{
-        optional("ResourceTypes") => list(String.t() | atom())
+      remediation_execution_step() :: %{
+        "ErrorMessage" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "StopTime" => non_neg_integer()
       }
       
   """
-  @type get_compliance_summary_by_resource_type_request() :: %{(String.t() | atom()) => any()}
+  @type remediation_execution_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      no_such_conformance_pack_exception() :: %{
-        "message" => String.t() | atom()
+      delete_organization_conformance_pack_request() :: %{
+        required("OrganizationConformancePackName") => String.t() | atom()
       }
       
   """
-  @type no_such_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_organization_conformance_pack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      conformance_pack_compliance_score() :: %{
-        "ConformancePackName" => String.t() | atom(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "Score" => String.t() | atom()
+      get_connector_response() :: %{
+        "Connector" => connector()
       }
       
   """
-  @type conformance_pack_compliance_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_resource_types_request() :: %{
-        required("ConfigurationRecorderArn") => String.t() | atom(),
-        required("ResourceTypes") => list(list(any())())
-      }
-      
-  """
-  @type associate_resource_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_configuration_aggregator_response() :: %{
-        "ConfigurationAggregator" => configuration_aggregator()
-      }
-      
-  """
-  @type put_configuration_aggregator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conformance_pack_compliance_scores_filters() :: %{
-        "ConformancePackNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type conformance_pack_compliance_scores_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failed_remediation_batch() :: %{
-        "FailedItems" => list(remediation_configuration()),
-        "FailureMessage" => String.t() | atom()
-      }
-      
-  """
-  @type failed_remediation_batch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_organization_config_rule_request() :: %{
-        optional("ExcludedAccounts") => list(String.t() | atom()),
-        optional("OrganizationCustomPolicyRuleMetadata") => organization_custom_policy_rule_metadata(),
-        optional("OrganizationCustomRuleMetadata") => organization_custom_rule_metadata(),
-        optional("OrganizationManagedRuleMetadata") => organization_managed_rule_metadata(),
-        required("OrganizationConfigRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type put_organization_config_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recording_group() :: %{
-        "allSupported" => boolean(),
-        "exclusionByResourceTypes" => exclusion_by_resource_types(),
-        "includeGlobalResourceTypes" => boolean(),
-        "recordingStrategy" => recording_strategy(),
-        "resourceTypes" => list(list(any())())
-      }
-      
-  """
-  @type recording_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_stored_queries_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "StoredQueryMetadata" => list(stored_query_metadata())
-      }
-      
-  """
-  @type list_stored_queries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_key() :: %{
-        "resourceId" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-      
-  """
-  @type resource_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_discovered_resource_counts_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resourceCounts" => list(resource_count()),
-        "totalDiscoveredResources" => float()
-      }
-      
-  """
-  @type get_discovered_resource_counts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_controls() :: %{
-        "SsmControls" => ssm_controls()
-      }
-      
-  """
-  @type execution_controls() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      config_export_delivery_info() :: %{
-        "lastAttemptTime" => non_neg_integer(),
-        "lastErrorCode" => String.t() | atom(),
-        "lastErrorMessage" => String.t() | atom(),
-        "lastStatus" => list(any()),
-        "lastSuccessfulTime" => non_neg_integer(),
-        "nextDeliveryTime" => non_neg_integer()
-      }
-      
-  """
-  @type config_export_delivery_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_discovered_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_discovered_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type get_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3182,434 +2099,6 @@ defmodule AWS.Config do
       
   """
   @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_context() :: %{
-        "EvaluationContextIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type evaluation_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_count_filters() :: %{
-        "AccountId" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "ResourceType" => list(any())
-      }
-      
-  """
-  @type resource_count_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_service_linked_configuration_recorder_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type put_service_linked_configuration_recorder_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_aggregator_sources_status_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("UpdateStatus") => list(list(any())()),
-        required("ConfigurationAggregatorName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_aggregator_sources_status_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_retention_configurations_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("RetentionConfigurationNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_retention_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_aggregate_discovered_resource_counts_request() :: %{
-        optional("Filters") => resource_count_filters(),
-        optional("GroupByKey") => list(any()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConfigurationAggregatorName") => String.t() | atom()
-      }
-      
-  """
-  @type get_aggregate_discovered_resource_counts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_bucket_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_such_bucket_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_available_organization_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_available_organization_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_custom_rule_metadata() :: %{
-        "Description" => String.t() | atom(),
-        "InputParameters" => String.t() | atom(),
-        "LambdaFunctionArn" => String.t() | atom(),
-        "MaximumExecutionFrequency" => list(any()),
-        "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
-        "ResourceIdScope" => String.t() | atom(),
-        "ResourceTypesScope" => list(String.t() | atom()),
-        "TagKeyScope" => String.t() | atom(),
-        "TagValueScope" => String.t() | atom()
-      }
-      
-  """
-  @type organization_custom_rule_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_recorders_response() :: %{
-        "ConfigurationRecorders" => list(configuration_recorder())
-      }
-      
-  """
-  @type describe_configuration_recorders_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_config_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("ResourceType") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      max_active_resources_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type max_active_resources_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_organization_config_rule_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_such_organization_config_rule_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      status_detail_filters() :: %{
-        "AccountId" => String.t() | atom(),
-        "MemberAccountRuleStatus" => list(any())
-      }
-      
-  """
-  @type status_detail_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_config_rules_request() :: %{
-        optional("ConfigRuleNames") => list(String.t() | atom()),
-        optional("Filters") => describe_config_rules_filters(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_config_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_resource_config_request() :: %{
-        required("resourceKeys") => list(resource_key())
-      }
-      
-  """
-  @type batch_get_resource_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_conformance_pack_compliance_details_request() :: %{
-        optional("Filters") => conformance_pack_evaluation_filters(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConformancePackName") => String.t() | atom()
-      }
-      
-  """
-  @type get_conformance_pack_compliance_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_configuration_aggregator_sources_status_response() :: %{
-        "AggregatedSourceStatusList" => list(aggregated_source_status()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_configuration_aggregator_sources_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      field_info() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type field_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_conformance_pack_compliance_request() :: %{
-        optional("Filters") => conformance_pack_compliance_filters(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConformancePackName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_conformance_pack_compliance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      config_stream_delivery_info() :: %{
-        "lastErrorCode" => String.t() | atom(),
-        "lastErrorMessage" => String.t() | atom(),
-        "lastStatus" => list(any()),
-        "lastStatusChangeTime" => non_neg_integer()
-      }
-      
-  """
-  @type config_stream_delivery_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_aggregate_conformance_pack_compliance_summary_request() :: %{
-        optional("Filters") => aggregate_conformance_pack_compliance_summary_filters(),
-        optional("GroupByKey") => list(any()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConfigurationAggregatorName") => String.t() | atom()
-      }
-      
-  """
-  @type get_aggregate_conformance_pack_compliance_summary_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_compliance_by_conformance_pack() :: %{
-        "AccountId" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom(),
-        "Compliance" => aggregate_conformance_pack_compliance(),
-        "ConformancePackName" => String.t() | atom()
-      }
-      
-  """
-  @type aggregate_compliance_by_conformance_pack() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_delivery_channel_status_response() :: %{
-        "DeliveryChannelsStatus" => list(delivery_channel_status())
-      }
-      
-  """
-  @type describe_delivery_channel_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_remediation_execution_status_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RemediationExecutionStatuses" => list(remediation_execution_status())
-      }
-      
-  """
-  @type describe_remediation_execution_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_custom_policy_rule_metadata() :: %{
-        "DebugLogDeliveryAccounts" => list(String.t() | atom()),
-        "Description" => String.t() | atom(),
-        "InputParameters" => String.t() | atom(),
-        "MaximumExecutionFrequency" => list(any()),
-        "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
-        "PolicyRuntime" => String.t() | atom(),
-        "PolicyText" => String.t() | atom(),
-        "ResourceIdScope" => String.t() | atom(),
-        "ResourceTypesScope" => list(String.t() | atom()),
-        "TagKeyScope" => String.t() | atom(),
-        "TagValueScope" => String.t() | atom()
-      }
-      
-  """
-  @type organization_custom_policy_rule_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conformance_pack_compliance_summary() :: %{
-        "ConformancePackComplianceStatus" => list(any()),
-        "ConformancePackName" => String.t() | atom()
-      }
-      
-  """
-  @type conformance_pack_compliance_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compliance_summary_by_resource_type() :: %{
-        "ComplianceSummary" => compliance_summary(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type compliance_summary_by_resource_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_resource_detailed_status_filters() :: %{
-        "AccountId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type organization_resource_detailed_status_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation() :: %{
-        "Annotation" => String.t() | atom(),
-        "ComplianceResourceId" => String.t() | atom(),
-        "ComplianceResourceType" => String.t() | atom(),
-        "ComplianceType" => list(any()),
-        "OrderingTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type evaluation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_aggregation_authorizations_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_aggregation_authorizations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3641,15 +2130,801 @@ defmodule AWS.Config do
 
   ## Example:
       
-      put_remediation_exceptions_request() :: %{
-        optional("ExpirationTime") => non_neg_integer(),
-        optional("Message") => String.t() | atom(),
-        required("ConfigRuleName") => String.t() | atom(),
-        required("ResourceKeys") => list(remediation_exception_resource_key())
+      resource_identifier() :: %{
+        "resourceDeletionTime" => non_neg_integer(),
+        "resourceId" => String.t() | atom(),
+        "resourceName" => String.t() | atom(),
+        "resourceType" => list(any())
       }
       
   """
-  @type put_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
+  @type resource_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      max_number_of_connectors_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type max_number_of_connectors_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_stored_queries_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "StoredQueryMetadata" => list(stored_query_metadata())
+      }
+      
+  """
+  @type list_stored_queries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_stored_query_request() :: %{
+        required("QueryName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_stored_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_connector_request() :: %{
+        required("ConnectorConfiguration") => connector_configuration(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_config_request() :: %{
+        required("Configuration") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom(),
+        optional("ResourceName") => String.t() | atom(),
+        required("ResourceType") => String.t() | atom(),
+        required("SchemaVersionId") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type put_resource_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      select_resource_config_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "QueryInfo" => query_info(),
+        "Results" => list(String.t() | atom())
+      }
+      
+  """
+  @type select_resource_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_config_history_response() :: %{
+        "configurationItems" => list(configuration_item()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_config_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unmodifiable_entity_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unmodifiable_entity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      config_rule() :: %{
+        "ConfigRuleArn" => String.t() | atom(),
+        "ConfigRuleId" => String.t() | atom(),
+        "ConfigRuleName" => String.t() | atom(),
+        "ConfigRuleState" => list(any()),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EvaluationModes" => list(evaluation_mode_configuration()),
+        "InputParameters" => String.t() | atom(),
+        "MaximumExecutionFrequency" => list(any()),
+        "RuleEvaluationVisibility" => list(any()),
+        "Scope" => scope(),
+        "Source" => source()
+      }
+      
+  """
+  @type config_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_aggregation_source() :: %{
+        "AllAwsRegions" => boolean(),
+        "AwsRegions" => list(String.t() | atom()),
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type organization_aggregation_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_organization_config_rule_request() :: %{
+        optional("ExcludedAccounts") => list(String.t() | atom()),
+        required("OrganizationConfigRuleName") => String.t() | atom(),
+        optional("OrganizationCustomPolicyRuleMetadata") => organization_custom_policy_rule_metadata(),
+        optional("OrganizationCustomRuleMetadata") => organization_custom_rule_metadata(),
+        optional("OrganizationManagedRuleMetadata") => organization_managed_rule_metadata(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_organization_config_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      field_info() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type field_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_conformance_pack_compliance_scores_response() :: %{
+        "ConformancePackComplianceScores" => list(conformance_pack_compliance_score()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_conformance_pack_compliance_scores_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aggregate_config_rule_compliance_summary_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("Filters") => config_rule_compliance_summary_filters(),
+        optional("GroupByKey") => list(any()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_aggregate_config_rule_compliance_summary_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_organization_config_rule_statuses_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationConfigRuleNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_organization_config_rule_statuses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_configuration_recorder_request() :: %{
+        required("ConfigurationRecorderName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_recorder_status_request() :: %{
+        optional("Arn") => String.t() | atom(),
+        optional("ConfigurationRecorderNames") => list(String.t() | atom()),
+        optional("ServicePrincipal") => String.t() | atom()
+      }
+      
+  """
+  @type describe_configuration_recorder_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deliver_config_snapshot_response() :: %{
+        "configSnapshotId" => String.t() | atom()
+      }
+      
+  """
+  @type deliver_config_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_pending_aggregation_requests_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PendingAggregationRequests" => list(pending_aggregation_request())
+      }
+      
+  """
+  @type describe_pending_aggregation_requests_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      config_rule_evaluation_status() :: %{
+        "ConfigRuleArn" => String.t() | atom(),
+        "ConfigRuleId" => String.t() | atom(),
+        "ConfigRuleName" => String.t() | atom(),
+        "FirstActivatedTime" => non_neg_integer(),
+        "FirstEvaluationStarted" => boolean(),
+        "LastDeactivatedTime" => non_neg_integer(),
+        "LastDebugLogDeliveryStatus" => String.t() | atom(),
+        "LastDebugLogDeliveryStatusReason" => String.t() | atom(),
+        "LastDebugLogDeliveryTime" => non_neg_integer(),
+        "LastErrorCode" => String.t() | atom(),
+        "LastErrorMessage" => String.t() | atom(),
+        "LastFailedEvaluationTime" => non_neg_integer(),
+        "LastFailedInvocationTime" => non_neg_integer(),
+        "LastSuccessfulEvaluationTime" => non_neg_integer(),
+        "LastSuccessfulInvocationTime" => non_neg_integer()
+      }
+      
+  """
+  @type config_rule_evaluation_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_remediation_exceptions_response() :: %{
+        "FailedBatches" => list(failed_delete_remediation_exceptions_batch())
+      }
+      
+  """
+  @type delete_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remediation_configuration() :: %{
+        "Arn" => String.t() | atom(),
+        "Automatic" => boolean(),
+        "ConfigRuleName" => String.t() | atom(),
+        "CreatedByService" => String.t() | atom(),
+        "ExecutionControls" => execution_controls(),
+        "MaximumAutomaticAttempts" => integer(),
+        "Parameters" => map(),
+        "ResourceType" => String.t() | atom(),
+        "RetryAttemptSeconds" => float(),
+        "TargetId" => String.t() | atom(),
+        "TargetType" => list(any()),
+        "TargetVersion" => String.t() | atom()
+      }
+      
+  """
+  @type remediation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_conformance_pack_compliance_details_response() :: %{
+        "ConformancePackName" => String.t() | atom(),
+        "ConformancePackRuleEvaluationResults" => list(conformance_pack_evaluation_result()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_conformance_pack_compliance_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_organization_conformance_pack_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_such_organization_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_controls() :: %{
+        "SsmControls" => ssm_controls()
+      }
+      
+  """
+  @type execution_controls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_conformance_pack_response() :: %{
+        "ConformancePackArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_conformance_pack_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_evaluations_response() :: %{
+        "FailedEvaluations" => list(evaluation())
+      }
+      
+  """
+  @type put_evaluations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pending_aggregation_request() :: %{
+        "RequesterAccountId" => String.t() | atom(),
+        "RequesterAwsRegion" => String.t() | atom()
+      }
+      
+  """
+  @type pending_aggregation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recording_group() :: %{
+        "allSupported" => boolean(),
+        "exclusionByResourceTypes" => exclusion_by_resource_types(),
+        "includeGlobalResourceTypes" => boolean(),
+        "recordingStrategy" => recording_strategy(),
+        "resourceTypes" => list(list(any())())
+      }
+      
+  """
+  @type recording_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_pending_aggregation_requests_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_pending_aggregation_requests_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      select_resource_config_request() :: %{
+        required("Expression") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type select_resource_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_remediation_exceptions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RemediationExceptions" => list(remediation_exception())
+      }
+      
+  """
+  @type describe_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_result_qualifier() :: %{
+        "ConfigRuleName" => String.t() | atom(),
+        "EvaluationMode" => list(any()),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type evaluation_result_qualifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_remediation_execution_status_request() :: %{
+        required("ConfigRuleName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceKeys") => list(resource_key())
+      }
+      
+  """
+  @type describe_remediation_execution_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_config_history_request() :: %{
+        optional("chronologicalOrder") => list(any()),
+        optional("earlierTime") => non_neg_integer(),
+        optional("laterTime") => non_neg_integer(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceId") => String.t() | atom(),
+        required("resourceType") => list(any())
+      }
+      
+  """
+  @type get_resource_config_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_policy_details() :: %{
+        "EnableDebugLogDelivery" => boolean(),
+        "PolicyRuntime" => String.t() | atom(),
+        "PolicyText" => String.t() | atom()
+      }
+      
+  """
+  @type custom_policy_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_key() :: %{
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type resource_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_remediation_configurations_response() :: %{
+        "FailedBatches" => list(failed_remediation_batch())
+      }
+      
+  """
+  @type put_remediation_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_compliance_by_config_rule_response() :: %{
+        "ComplianceByConfigRules" => list(compliance_by_config_rule()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_compliance_by_config_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      status_detail_filters() :: %{
+        "AccountId" => String.t() | atom(),
+        "MemberAccountRuleStatus" => list(any())
+      }
+      
+  """
+  @type status_detail_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_organization_config_rule_detailed_status_request() :: %{
+        optional("Filters") => status_detail_filters(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("OrganizationConfigRuleName") => String.t() | atom()
+      }
+      
+  """
+  @type get_organization_config_rule_detailed_status_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_stored_query_response() :: %{}
+      
+  """
+  @type delete_stored_query_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connectors_request() :: %{
+        optional("Filters") => list(connector_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_configuration_aggregator_request() :: %{
+        optional("AccountAggregationSources") => list(account_aggregation_source()),
+        optional("AggregatorFilters") => aggregator_filters(),
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("OrganizationAggregationSource") => organization_aggregation_source(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_configuration_aggregator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connectors_response() :: %{
+        "ConnectorSummaries" => list(connector_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_configuration_recorders_response() :: %{
+        "ConfigurationRecorderSummaries" => list(configuration_recorder_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_configuration_recorders_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_configuration_recorders_request() :: %{
+        optional("Filters") => list(configuration_recorder_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_configuration_recorders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_conformance_pack_compliance_summary() :: %{
+        "ComplianceSummary" => aggregate_conformance_pack_compliance_count(),
+        "GroupName" => String.t() | atom()
+      }
+      
+  """
+  @type aggregate_conformance_pack_compliance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_configuration_recorder_request() :: %{
+        required("ConfigurationRecorder") => configuration_recorder(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      max_number_of_conformance_packs_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type max_number_of_conformance_packs_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aggregate_conformance_pack_compliance_summary_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("Filters") => aggregate_conformance_pack_compliance_summary_filters(),
+        optional("GroupByKey") => list(any()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_aggregate_conformance_pack_compliance_summary_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_result() :: %{
+        "Annotation" => String.t() | atom(),
+        "ComplianceType" => list(any()),
+        "ConfigRuleInvokedTime" => non_neg_integer(),
+        "EvaluationResultIdentifier" => evaluation_result_identifier(),
+        "ResultRecordedTime" => non_neg_integer(),
+        "ResultToken" => String.t() | atom()
+      }
+      
+  """
+  @type evaluation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_result_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_result_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_available_delivery_channel_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_available_delivery_channel_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_resource_config_request() :: %{
+        required("resourceKeys") => list(resource_key())
+      }
+      
+  """
+  @type batch_get_resource_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_evaluation_summary_response() :: %{
+        "Compliance" => list(any()),
+        "EvaluationContext" => evaluation_context(),
+        "EvaluationMode" => list(any()),
+        "EvaluationStartTimestamp" => non_neg_integer(),
+        "EvaluationStatus" => evaluation_status(),
+        "ResourceDetails" => resource_details(),
+        "ResourceEvaluationId" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_evaluation_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_compliance_details_by_resource_response() :: %{
+        "EvaluationResults" => list(evaluation_result()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_compliance_details_by_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_config_rule_in_conformance_pack_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_such_config_rule_in_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3673,60 +2948,75 @@ defmodule AWS.Config do
 
   ## Example:
       
-      get_conformance_pack_compliance_details_response() :: %{
-        "ConformancePackName" => String.t() | atom(),
-        "ConformancePackRuleEvaluationResults" => list(conformance_pack_evaluation_result()),
-        "NextToken" => String.t() | atom()
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type get_conformance_pack_compliance_details_response() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      evaluation_result() :: %{
-        "Annotation" => String.t() | atom(),
-        "ComplianceType" => list(any()),
-        "ConfigRuleInvokedTime" => non_neg_integer(),
-        "EvaluationResultIdentifier" => evaluation_result_identifier(),
-        "ResultRecordedTime" => non_neg_integer(),
-        "ResultToken" => String.t() | atom()
+      evaluation_status() :: %{
+        "FailureReason" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type evaluation_result() :: %{(String.t() | atom()) => any()}
+  @type evaluation_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_organization_conformance_pack_request() :: %{
-        optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
-        optional("DeliveryS3Bucket") => String.t() | atom(),
-        optional("DeliveryS3KeyPrefix") => String.t() | atom(),
-        optional("ExcludedAccounts") => list(String.t() | atom()),
-        optional("TemplateBody") => String.t() | atom(),
-        optional("TemplateS3Uri") => String.t() | atom(),
-        required("OrganizationConformancePackName") => String.t() | atom()
+      organization_conformance_pack_status() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "LastUpdateTime" => non_neg_integer(),
+        "OrganizationConformancePackName" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type put_organization_conformance_pack_request() :: %{(String.t() | atom()) => any()}
+  @type organization_conformance_pack_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_organization_conformance_pack_statuses_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OrganizationConformancePackNames") => list(String.t() | atom())
+      organization_resource_detailed_status_filters() :: %{
+        "AccountId" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
-  @type describe_organization_conformance_pack_statuses_request() :: %{
+  @type organization_resource_detailed_status_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_stored_query_request() :: %{
+        required("QueryName") => String.t() | atom()
+      }
+      
+  """
+  @type get_stored_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_organization_conformance_pack_detailed_status_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OrganizationConformancePackDetailedStatuses" => list(organization_conformance_pack_detailed_status())
+      }
+      
+  """
+  @type get_organization_conformance_pack_detailed_status_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -3734,99 +3024,105 @@ defmodule AWS.Config do
 
   ## Example:
       
-      template_s_s_m_document_details() :: %{
-        "DocumentName" => String.t() | atom(),
-        "DocumentVersion" => String.t() | atom()
-      }
-      
-  """
-  @type template_s_s_m_document_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_resource_evaluation_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("EvaluationContext") => evaluation_context(),
-        optional("EvaluationTimeout") => integer(),
-        required("EvaluationMode") => list(any()),
-        required("ResourceDetails") => resource_details()
-      }
-      
-  """
-  @type start_resource_evaluation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_stored_query_response() :: %{}
-      
-  """
-  @type delete_stored_query_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_conformance_pack_compliance_count() :: %{
-        "CompliantConformancePackCount" => integer(),
-        "NonCompliantConformancePackCount" => integer()
-      }
-      
-  """
-  @type aggregate_conformance_pack_compliance_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_organization_config_rule_statuses_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OrganizationConfigRuleStatuses" => list(organization_config_rule_status())
-      }
-      
-  """
-  @type describe_organization_config_rule_statuses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_details() :: %{
-        "ResourceConfiguration" => String.t() | atom(),
-        "ResourceConfigurationSchemaType" => list(any()),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      select_resource_config_request() :: %{
+      describe_organization_conformance_packs_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("Expression") => String.t() | atom()
+        optional("OrganizationConformancePackNames") => list(String.t() | atom())
       }
       
   """
-  @type select_resource_config_request() :: %{(String.t() | atom()) => any()}
+  @type describe_organization_conformance_packs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_s3_key_prefix_exception() :: %{
+      configuration_recorder_summary() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => list(any()),
+        "recordingScope" => list(any()),
+        "servicePrincipal" => String.t() | atom()
+      }
+      
+  """
+  @type configuration_recorder_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_delivery_policy_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_s3_key_prefix_exception() :: %{(String.t() | atom()) => any()}
+  @type insufficient_delivery_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stored_query_metadata() :: %{
+        "Description" => String.t() | atom(),
+        "QueryArn" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
+        "QueryName" => String.t() | atom()
+      }
+      
+  """
+  @type stored_query_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_organization_conformance_pack_detailed_status_request() :: %{
+        optional("Filters") => organization_resource_detailed_status_filters(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("OrganizationConformancePackName") => String.t() | atom()
+      }
+      
+  """
+  @type get_organization_conformance_pack_detailed_status_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_remediation_execution_status_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RemediationExecutionStatuses" => list(remediation_execution_status())
+      }
+      
+  """
+  @type describe_remediation_execution_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_stored_query_response() :: %{
+        "StoredQuery" => stored_query()
+      }
+      
+  """
+  @type get_stored_query_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3862,26 +3158,946 @@ defmodule AWS.Config do
 
   ## Example:
       
-      compliance_by_resource() :: %{
-        "Compliance" => compliance(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
+      delete_config_rule_request() :: %{
+        required("ConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type compliance_by_resource() :: %{(String.t() | atom()) => any()}
+  @type delete_config_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_config_rule_evaluation_status_response() :: %{
-        "ConfigRulesEvaluationStatus" => list(config_rule_evaluation_status()),
+      disassociate_resource_types_request() :: %{
+        required("ConfigurationRecorderArn") => String.t() | atom(),
+        required("ResourceTypes") => list(list(any())())
+      }
+      
+  """
+  @type disassociate_resource_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remediation_execution_status() :: %{
+        "InvocationTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ResourceKey" => resource_key(),
+        "State" => list(any()),
+        "StepDetails" => list(remediation_execution_step())
+      }
+      
+  """
+  @type remediation_execution_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_conformance_pack_compliance_filters() :: %{
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "ComplianceType" => list(any()),
+        "ConformancePackName" => String.t() | atom()
+      }
+      
+  """
+  @type aggregate_conformance_pack_compliance_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_running_configuration_recorder_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_running_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_remediation_configurations_request() :: %{
+        required("RemediationConfigurations") => list(remediation_configuration())
+      }
+      
+  """
+  @type put_remediation_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_organization_config_rules_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationConfigRuleNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_organization_config_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compliance_summary() :: %{
+        "ComplianceSummaryTimestamp" => non_neg_integer(),
+        "CompliantResourceCount" => compliance_contributor_count(),
+        "NonCompliantResourceCount" => compliance_contributor_count()
+      }
+      
+  """
+  @type compliance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_compliance_by_conformance_pack() :: %{
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "Compliance" => aggregate_conformance_pack_compliance(),
+        "ConformancePackName" => String.t() | atom()
+      }
+      
+  """
+  @type aggregate_compliance_by_conformance_pack() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      member_account_status() :: %{
+        "AccountId" => String.t() | atom(),
+        "ConfigRuleName" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "LastUpdateTime" => non_neg_integer(),
+        "MemberAccountRuleStatus" => list(any())
+      }
+      
+  """
+  @type member_account_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_info() :: %{
+        "SelectFields" => list(field_info())
+      }
+      
+  """
+  @type query_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_organization_conformance_pack_request() :: %{
+        optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
+        optional("DeliveryS3Bucket") => String.t() | atom(),
+        optional("DeliveryS3KeyPrefix") => String.t() | atom(),
+        optional("ExcludedAccounts") => list(String.t() | atom()),
+        required("OrganizationConformancePackName") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateS3Uri") => String.t() | atom()
+      }
+      
+  """
+  @type put_organization_conformance_pack_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_detail() :: %{
+        "EventSource" => list(any()),
+        "MaximumExecutionFrequency" => list(any()),
+        "MessageType" => list(any())
+      }
+      
+  """
+  @type source_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_evaluation_results_request() :: %{
+        required("ConfigRuleName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_evaluation_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_value_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_expression_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_expression_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_resource_types_response() :: %{
+        "ConfigurationRecorder" => configuration_recorder()
+      }
+      
+  """
+  @type disassociate_resource_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_compliance_by_resource_response() :: %{
+        "ComplianceByResources" => list(compliance_by_resource()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_config_rule_evaluation_status_response() :: %{(String.t() | atom()) => any()}
+  @type describe_compliance_by_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_retention_configurations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RetentionConfigurations" => list(retention_configuration())
+      }
+      
+  """
+  @type describe_retention_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      select_aggregate_resource_config_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "QueryInfo" => query_info(),
+        "Results" => list(String.t() | atom())
+      }
+      
+  """
+  @type select_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_recorder_status_response() :: %{
+        "ConfigurationRecordersStatus" => list(configuration_recorder_status())
+      }
+      
+  """
+  @type describe_configuration_recorder_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remediation_parameter_value() :: %{
+        "ResourceValue" => resource_value(),
+        "StaticValue" => static_value()
+      }
+      
+  """
+  @type remediation_parameter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_conformance_pack_request() :: %{
+        required("ConformancePackName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_conformance_pack_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_remediation_exceptions_request() :: %{
+        required("ConfigRuleName") => String.t() | atom(),
+        optional("ExpirationTime") => non_neg_integer(),
+        optional("Message") => String.t() | atom(),
+        required("ResourceKeys") => list(remediation_exception_resource_key())
+      }
+      
+  """
+  @type put_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stored_query() :: %{
+        "Description" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "QueryArn" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
+        "QueryName" => String.t() | atom()
+      }
+      
+  """
+  @type stored_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deliver_config_snapshot_request() :: %{
+        required("deliveryChannelName") => String.t() | atom()
+      }
+      
+  """
+  @type deliver_config_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_compliance_details_by_resource_request() :: %{
+        optional("ComplianceTypes") => list(list(any())()),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceEvaluationId") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
+      }
+      
+  """
+  @type get_compliance_details_by_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      select_aggregate_resource_config_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        required("Expression") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type select_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_remediation_configuration_request() :: %{
+        required("ConfigRuleName") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
+      }
+      
+  """
+  @type delete_remediation_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_connector_request() :: %{
+        required("Arn") => String.t() | atom()
+      }
+      
+  """
+  @type get_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_conformance_pack_compliance_details_request() :: %{
+        required("ConformancePackName") => String.t() | atom(),
+        optional("Filters") => conformance_pack_evaluation_filters(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_conformance_pack_compliance_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_conformance_packs_response() :: %{
+        "ConformancePackDetails" => list(conformance_pack_detail()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_conformance_packs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_config_rules_evaluation_request() :: %{
+        optional("ConfigRuleNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type start_config_rules_evaluation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exclusion_by_resource_types() :: %{
+        "resourceTypes" => list(list(any())())
+      }
+      
+  """
+  @type exclusion_by_resource_types() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aggregate_config_rule_compliance_summary_response() :: %{
+        "AggregateComplianceCounts" => list(aggregate_compliance_count()),
+        "GroupByKey" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_aggregate_config_rule_compliance_summary_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_custom_policy_rule_metadata() :: %{
+        "DebugLogDeliveryAccounts" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
+        "InputParameters" => String.t() | atom(),
+        "MaximumExecutionFrequency" => list(any()),
+        "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
+        "PolicyRuntime" => String.t() | atom(),
+        "PolicyText" => String.t() | atom(),
+        "ResourceIdScope" => String.t() | atom(),
+        "ResourceTypesScope" => list(String.t() | atom()),
+        "TagKeyScope" => String.t() | atom(),
+        "TagValueScope" => String.t() | atom()
+      }
+      
+  """
+  @type organization_custom_policy_rule_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source() :: %{
+        "CustomPolicyDetails" => custom_policy_details(),
+        "Owner" => list(any()),
+        "SourceDetails" => list(source_detail()),
+        "SourceIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_config_rules_request() :: %{
+        optional("ConfigRuleNames") => list(String.t() | atom()),
+        optional("Filters") => describe_config_rules_filters(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_config_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compliance_by_config_rule() :: %{
+        "Compliance" => compliance(),
+        "ConfigRuleName" => String.t() | atom()
+      }
+      
+  """
+  @type compliance_by_config_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_aggregate_compliance_details_by_config_rule_request() :: %{
+        required("AccountId") => String.t() | atom(),
+        required("AwsRegion") => String.t() | atom(),
+        optional("ComplianceType") => list(any()),
+        required("ConfigRuleName") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_aggregate_compliance_details_by_config_rule_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_conformance_pack_status_response() :: %{
+        "ConformancePackStatusDetails" => list(conformance_pack_status_detail()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_conformance_pack_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_custom_rule_metadata() :: %{
+        "Description" => String.t() | atom(),
+        "InputParameters" => String.t() | atom(),
+        "LambdaFunctionArn" => String.t() | atom(),
+        "MaximumExecutionFrequency" => list(any()),
+        "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
+        "ResourceIdScope" => String.t() | atom(),
+        "ResourceTypesScope" => list(String.t() | atom()),
+        "TagKeyScope" => String.t() | atom(),
+        "TagValueScope" => String.t() | atom()
+      }
+      
+  """
+  @type organization_custom_rule_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_config_rule_evaluation_status_request() :: %{
+        optional("ConfigRuleNames") => list(String.t() | atom()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_config_rule_evaluation_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_remediation_exceptions_response() :: %{
+        "FailedBatches" => list(failed_remediation_exception_batch())
+      }
+      
+  """
+  @type put_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type organization_access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_available_organization_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_available_organization_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_aggregation_authorizations_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_aggregation_authorizations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "provider" => list(any()),
+        "tenantIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type connector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_recording_group_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_recording_group_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_delivery_channel_request() :: %{
+        required("DeliveryChannelName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_delivery_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      max_number_of_delivery_channels_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type max_number_of_delivery_channels_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_organization_config_rule_request() :: %{
+        required("OrganizationConfigRuleName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_organization_config_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relationship() :: %{
+        "relationshipName" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceName" => String.t() | atom(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type relationship() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_aggregator() :: %{
+        "AccountAggregationSources" => list(account_aggregation_source()),
+        "AggregatorFilters" => aggregator_filters(),
+        "ConfigurationAggregatorArn" => String.t() | atom(),
+        "ConfigurationAggregatorName" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "OrganizationAggregationSource" => organization_aggregation_source()
+      }
+      
+  """
+  @type configuration_aggregator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_resource_types_request() :: %{
+        required("ConfigurationRecorderArn") => String.t() | atom(),
+        required("ResourceTypes") => list(list(any())())
+      }
+      
+  """
+  @type associate_resource_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      config_export_delivery_info() :: %{
+        "lastAttemptTime" => non_neg_integer(),
+        "lastErrorCode" => String.t() | atom(),
+        "lastErrorMessage" => String.t() | atom(),
+        "lastStatus" => list(any()),
+        "lastSuccessfulTime" => non_neg_integer(),
+        "nextDeliveryTime" => non_neg_integer()
+      }
+      
+  """
+  @type config_export_delivery_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_aggregation_source() :: %{
+        "AccountIds" => list(String.t() | atom()),
+        "AllAwsRegions" => boolean(),
+        "AwsRegions" => list(String.t() | atom())
+      }
+      
+  """
+  @type account_aggregation_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conformance_pack_compliance_filters() :: %{
+        "ComplianceType" => list(any()),
+        "ConfigRuleNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type conformance_pack_compliance_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_aggregate_compliance_by_config_rules_response() :: %{
+        "AggregateComplianceByConfigRules" => list(aggregate_compliance_by_config_rule()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_aggregate_compliance_by_config_rules_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      put_aggregation_authorization_response() :: %{
+        "AggregationAuthorization" => aggregation_authorization()
+      }
+      
+  """
+  @type put_aggregation_authorization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_evaluation_filters() :: %{
+        "EvaluationContextIdentifier" => String.t() | atom(),
+        "EvaluationMode" => list(any()),
+        "TimeWindow" => time_window()
+      }
+      
+  """
+  @type resource_evaluation_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_conformance_pack_template_validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type organization_conformance_pack_template_validation_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      conformance_pack_compliance_scores_filters() :: %{
+        "ConformancePackNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type conformance_pack_compliance_scores_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failed_remediation_exception_batch() :: %{
+        "FailedItems" => list(remediation_exception()),
+        "FailureMessage" => String.t() | atom()
+      }
+      
+  """
+  @type failed_remediation_exception_batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_configuration_recorder_request() :: %{
+        required("ConfigurationRecorderName") => String.t() | atom()
+      }
+      
+  """
+  @type start_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aggregate_discovered_resources_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceIdentifiers" => list(aggregate_resource_identifier())
+      }
+      
+  """
+  @type list_aggregate_discovered_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_filters() :: %{
+        "AccountId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+      
+  """
+  @type resource_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_remediation_execution_response() :: %{
+        "FailedItems" => list(resource_key()),
+        "FailureMessage" => String.t() | atom()
+      }
+      
+  """
+  @type start_remediation_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_discovered_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_discovered_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idempotent_parameter_mismatch() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type idempotent_parameter_mismatch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_retention_configuration_response() :: %{
+        "RetentionConfiguration" => retention_configuration()
+      }
+      
+  """
+  @type put_retention_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_configuration_recorder_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_such_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3904,138 +4120,6 @@ defmodule AWS.Config do
 
   ## Example:
       
-      max_number_of_conformance_packs_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type max_number_of_conformance_packs_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_conformance_pack_compliance_scores_response() :: %{
-        "ConformancePackComplianceScores" => list(conformance_pack_compliance_score()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_conformance_pack_compliance_scores_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_pending_aggregation_requests_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PendingAggregationRequests" => list(pending_aggregation_request())
-      }
-      
-  """
-  @type describe_pending_aggregation_requests_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      static_value() :: %{
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type static_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      max_number_of_retention_configurations_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type max_number_of_retention_configurations_exceeded_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_organization_config_rule_request() :: %{
-        required("OrganizationConfigRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_organization_config_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_remediation_exceptions_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceKeys") => list(remediation_exception_resource_key()),
-        required("ConfigRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_aggregate_resource_config_request() :: %{
-        required("ConfigurationAggregatorName") => String.t() | atom(),
-        required("ResourceIdentifiers") => list(aggregate_resource_identifier())
-      }
-      
-  """
-  @type batch_get_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_conformance_packs_response() :: %{
-        "ConformancePackDetails" => list(conformance_pack_detail()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_conformance_packs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_info() :: %{
-        "SelectFields" => list(field_info())
-      }
-      
-  """
-  @type query_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_configuration_recorders_request() :: %{
-        optional("Filters") => list(configuration_recorder_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_configuration_recorders_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_compliance_summary_by_config_rule_response() :: %{
         "ComplianceSummary" => compliance_summary()
       }
@@ -4047,37 +4131,13 @@ defmodule AWS.Config do
 
   ## Example:
       
-      get_aggregate_resource_config_response() :: %{
-        "ConfigurationItem" => configuration_item()
+      get_aggregate_compliance_details_by_config_rule_response() :: %{
+        "AggregateEvaluationResults" => list(aggregate_evaluation_result()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conformance_pack_template_validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conformance_pack_template_validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_organization_conformance_pack_detailed_status_request() :: %{
-        optional("Filters") => organization_resource_detailed_status_filters(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("OrganizationConformancePackName") => String.t() | atom()
-      }
-      
-  """
-  @type get_organization_conformance_pack_detailed_status_request() :: %{
+  @type get_aggregate_compliance_details_by_config_rule_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4085,177 +4145,12 @@ defmodule AWS.Config do
 
   ## Example:
       
-      organization_access_denied_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type organization_access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_retention_configuration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_such_retention_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remediation_exception_resource_key() :: %{
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type remediation_exception_resource_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_configuration_recorder_name_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_configuration_recorder_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compliance_summary() :: %{
-        "ComplianceSummaryTimestamp" => non_neg_integer(),
-        "CompliantResourceCount" => compliance_contributor_count(),
-        "NonCompliantResourceCount" => compliance_contributor_count()
-      }
-      
-  """
-  @type compliance_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_configuration_recorder_request() :: %{
-        required("ConfigurationRecorderName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_conformance_pack_request() :: %{
-        required("ConformancePackName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_conformance_pack_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_result_qualifier() :: %{
-        "ConfigRuleName" => String.t() | atom(),
-        "EvaluationMode" => list(any()),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type evaluation_result_qualifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      organization_conformance_pack() :: %{
-        "ConformancePackInputParameters" => list(conformance_pack_input_parameter()),
-        "DeliveryS3Bucket" => String.t() | atom(),
-        "DeliveryS3KeyPrefix" => String.t() | atom(),
-        "ExcludedAccounts" => list(String.t() | atom()),
-        "LastUpdateTime" => non_neg_integer(),
-        "OrganizationConformancePackArn" => String.t() | atom(),
-        "OrganizationConformancePackName" => String.t() | atom()
-      }
-      
-  """
-  @type organization_conformance_pack() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_organization_conformance_packs_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OrganizationConformancePackNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_organization_conformance_packs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_service_linked_configuration_recorder_request() :: %{
-        required("ServicePrincipal") => String.t() | atom()
-      }
-      
-  """
-  @type delete_service_linked_configuration_recorder_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_compliance_details_by_config_rule_request() :: %{
-        optional("ComplianceTypes") => list(list(any())()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConfigRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type get_compliance_details_by_config_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      config_rule_compliance_filters() :: %{
-        "AccountId" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom(),
-        "ComplianceType" => list(any()),
-        "ConfigRuleName" => String.t() | atom()
-      }
-      
-  """
-  @type config_rule_compliance_filters() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4272,124 +4167,336 @@ defmodule AWS.Config do
 
   ## Example:
       
-      list_resource_evaluations_request() :: %{
-        optional("Filters") => resource_evaluation_filters(),
+      describe_compliance_by_resource_request() :: %{
+        optional("ComplianceTypes") => list(list(any())()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
+      }
+      
+  """
+  @type describe_compliance_by_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conformance_pack_detail() :: %{
+        "ConformancePackArn" => String.t() | atom(),
+        "ConformancePackId" => String.t() | atom(),
+        "ConformancePackInputParameters" => list(conformance_pack_input_parameter()),
+        "ConformancePackName" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
+        "DeliveryS3Bucket" => String.t() | atom(),
+        "DeliveryS3KeyPrefix" => String.t() | atom(),
+        "LastUpdateRequestedTime" => non_neg_integer(),
+        "TemplateSSMDocumentDetails" => template_s_s_m_document_details()
+      }
+      
+  """
+  @type conformance_pack_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_managed_rule_metadata() :: %{
+        "Description" => String.t() | atom(),
+        "InputParameters" => String.t() | atom(),
+        "MaximumExecutionFrequency" => list(any()),
+        "ResourceIdScope" => String.t() | atom(),
+        "ResourceTypesScope" => list(String.t() | atom()),
+        "RuleIdentifier" => String.t() | atom(),
+        "TagKeyScope" => String.t() | atom(),
+        "TagValueScope" => String.t() | atom()
+      }
+      
+  """
+  @type organization_managed_rule_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_organization_config_rule_statuses_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "OrganizationConfigRuleStatuses" => list(organization_config_rule_status())
+      }
+      
+  """
+  @type describe_organization_config_rule_statuses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remediation_exception() :: %{
+        "ConfigRuleName" => String.t() | atom(),
+        "ExpirationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type remediation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compliance_contributor_count() :: %{
+        "CapExceeded" => boolean(),
+        "CappedCount" => integer()
+      }
+      
+  """
+  @type compliance_contributor_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recording_mode() :: %{
+        "recordingFrequency" => list(any()),
+        "recordingModeOverrides" => list(recording_mode_override())
+      }
+      
+  """
+  @type recording_mode() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_pending_aggregation_request_request() :: %{
+        required("RequesterAccountId") => String.t() | atom(),
+        required("RequesterAwsRegion") => String.t() | atom()
+      }
+      
+  """
+  @type delete_pending_aggregation_request_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aggregate_discovered_resources_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        optional("Filters") => resource_filters(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceType") => list(any())
+      }
+      
+  """
+  @type list_aggregate_discovered_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_remediation_exceptions_request() :: %{
+        required("ConfigRuleName") => String.t() | atom(),
+        required("ResourceKeys") => list(remediation_exception_resource_key())
+      }
+      
+  """
+  @type delete_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_aggregators_response() :: %{
+        "ConfigurationAggregators" => list(configuration_aggregator()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_configuration_aggregators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_discovered_resources_request() :: %{
+        optional("includeDeletedResources") => boolean(),
+        optional("limit") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceIds") => list(String.t() | atom()),
+        optional("resourceName") => String.t() | atom(),
+        required("resourceType") => list(any())
+      }
+      
+  """
+  @type list_discovered_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_resource_identifier() :: %{
+        "ResourceId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "SourceAccountId" => String.t() | atom(),
+        "SourceRegion" => String.t() | atom()
+      }
+      
+  """
+  @type aggregate_resource_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_limit_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_limit_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_configuration() :: %{
+        "azure" => azure_connector_configuration()
+      }
+      
+  """
+  @type connector_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      config_snapshot_delivery_properties() :: %{
+        "deliveryFrequency" => list(any())
+      }
+      
+  """
+  @type config_snapshot_delivery_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_conformance_pack_compliance_request() :: %{
+        required("ConformancePackName") => String.t() | atom(),
+        optional("Filters") => conformance_pack_compliance_filters(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_resource_evaluations_request() :: %{(String.t() | atom()) => any()}
+  @type describe_conformance_pack_compliance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      aggregate_compliance_count() :: %{
-        "ComplianceSummary" => compliance_summary(),
-        "GroupName" => String.t() | atom()
-      }
-      
-  """
-  @type aggregate_compliance_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      select_aggregate_resource_config_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "QueryInfo" => query_info(),
-        "Results" => list(String.t() | atom())
-      }
-      
-  """
-  @type select_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_such_config_rule_exception() :: %{
+      conformance_pack_template_validation_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type no_such_config_rule_exception() :: %{(String.t() | atom()) => any()}
+  @type conformance_pack_template_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      remediation_execution_step() :: %{
-        "ErrorMessage" => String.t() | atom(),
+      azure_connector_configuration() :: %{
+        "clientIdentifier" => String.t() | atom(),
+        "tenantIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type azure_connector_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_retention_configurations_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("RetentionConfigurationNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_retention_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_stored_queries_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_stored_queries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_such_conformance_pack_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_such_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retention_configuration() :: %{
         "Name" => String.t() | atom(),
-        "StartTime" => non_neg_integer(),
-        "State" => list(any()),
-        "StopTime" => non_neg_integer()
+        "RetentionPeriodInDays" => integer()
       }
       
   """
-  @type remediation_execution_step() :: %{(String.t() | atom()) => any()}
+  @type retention_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      no_such_remediation_configuration_exception() :: %{
-        "message" => String.t() | atom()
-      }
+      put_external_evaluation_response() :: %{}
       
   """
-  @type no_such_remediation_configuration_exception() :: %{(String.t() | atom()) => any()}
+  @type put_external_evaluation_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      describe_conformance_pack_compliance_response() :: %{
-        "ConformancePackName" => String.t() | atom(),
-        "ConformancePackRuleComplianceList" => list(conformance_pack_rule_compliance()),
-        "NextToken" => String.t() | atom()
+      describe_organization_conformance_pack_statuses_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationConformancePackNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_conformance_pack_compliance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_configuration_recorder_request() :: %{
-        optional("Tags") => list(tag()),
-        required("ConfigurationRecorder") => configuration_recorder()
-      }
-      
-  """
-  @type put_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_available_configuration_recorder_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_available_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aggregate_conformance_pack_compliance_summary_filters() :: %{
-        "AccountId" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom()
-      }
-      
-  """
-  @type aggregate_conformance_pack_compliance_summary_filters() :: %{
+  @type describe_organization_conformance_pack_statuses_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4397,37 +4504,139 @@ defmodule AWS.Config do
 
   ## Example:
       
-      organization_custom_policy_rule_metadata_no_policy() :: %{
-        "DebugLogDeliveryAccounts" => list(String.t() | atom()),
-        "Description" => String.t() | atom(),
-        "InputParameters" => String.t() | atom(),
-        "MaximumExecutionFrequency" => list(any()),
-        "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
-        "PolicyRuntime" => String.t() | atom(),
-        "ResourceIdScope" => String.t() | atom(),
-        "ResourceTypesScope" => list(String.t() | atom()),
-        "TagKeyScope" => String.t() | atom(),
-        "TagValueScope" => String.t() | atom()
+      connector_filter() :: %{
+        "filterName" => list(any()),
+        "filterValues" => list(String.t() | atom())
       }
       
   """
-  @type organization_custom_policy_rule_metadata_no_policy() :: %{(String.t() | atom()) => any()}
+  @type connector_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conformance_pack_rule_compliance() :: %{
+        "ComplianceType" => list(any()),
+        "ConfigRuleName" => String.t() | atom(),
+        "Controls" => list(String.t() | atom())
+      }
+      
+  """
+  @type conformance_pack_rule_compliance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_connector_response() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type put_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_retention_configuration_request() :: %{
+        required("RetentionConfigurationName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_retention_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_window() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type time_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_external_evaluation_request() :: %{
+        required("ConfigRuleName") => String.t() | atom(),
+        required("ExternalEvaluation") => external_evaluation()
+      }
+      
+  """
+  @type put_external_evaluation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      max_number_of_configuration_recorders_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type max_number_of_configuration_recorders_exceeded_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_conformance_pack_compliance() :: %{
+        "ComplianceType" => list(any()),
+        "CompliantRuleCount" => integer(),
+        "NonCompliantRuleCount" => integer(),
+        "TotalRuleCount" => integer()
+      }
+      
+  """
+  @type aggregate_conformance_pack_compliance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_configuration_aggregator_request() :: %{
+        required("ConfigurationAggregatorName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_configuration_aggregator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_result_identifier() :: %{
+        "EvaluationResultQualifier" => evaluation_result_qualifier(),
+        "OrderingTimestamp" => non_neg_integer(),
+        "ResourceEvaluationId" => String.t() | atom()
+      }
+      
+  """
+  @type evaluation_result_identifier() :: %{(String.t() | atom()) => any()}
 
   @type associate_resource_types_errors() ::
-          validation_exception()
-          | no_such_configuration_recorder_exception()
+          no_such_configuration_recorder_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type batch_get_aggregate_resource_config_errors() ::
           validation_exception() | no_such_configuration_aggregator_exception()
 
   @type batch_get_resource_config_errors() ::
-          no_available_configuration_recorder_exception() | validation_exception()
+          validation_exception() | no_available_configuration_recorder_exception()
 
   @type delete_aggregation_authorization_errors() :: invalid_parameter_value_exception()
 
   @type delete_config_rule_errors() ::
-          no_such_config_rule_exception() | resource_in_use_exception()
+          resource_in_use_exception() | no_such_config_rule_exception()
 
   @type delete_configuration_aggregator_errors() :: no_such_configuration_aggregator_exception()
 
@@ -4437,206 +4646,208 @@ defmodule AWS.Config do
   @type delete_conformance_pack_errors() ::
           no_such_conformance_pack_exception() | resource_in_use_exception()
 
+  @type delete_connector_errors() :: resource_not_found_exception() | validation_exception()
+
   @type delete_delivery_channel_errors() ::
           no_such_delivery_channel_exception() | last_delivery_channel_delete_failed_exception()
 
   @type delete_evaluation_results_errors() ::
-          no_such_config_rule_exception() | resource_in_use_exception()
+          resource_in_use_exception() | no_such_config_rule_exception()
 
   @type delete_organization_config_rule_errors() ::
           organization_access_denied_exception()
-          | no_such_organization_config_rule_exception()
           | resource_in_use_exception()
+          | no_such_organization_config_rule_exception()
 
   @type delete_organization_conformance_pack_errors() ::
           organization_access_denied_exception()
-          | no_such_organization_conformance_pack_exception()
           | resource_in_use_exception()
+          | no_such_organization_conformance_pack_exception()
 
   @type delete_pending_aggregation_request_errors() :: invalid_parameter_value_exception()
 
   @type delete_remediation_configuration_errors() ::
-          no_such_remediation_configuration_exception()
-          | invalid_parameter_value_exception()
+          invalid_parameter_value_exception()
           | remediation_in_progress_exception()
           | insufficient_permissions_exception()
+          | no_such_remediation_configuration_exception()
 
   @type delete_remediation_exceptions_errors() :: no_such_remediation_exception_exception()
 
   @type delete_resource_config_errors() ::
-          validation_exception() | no_running_configuration_recorder_exception()
+          no_running_configuration_recorder_exception() | validation_exception()
 
   @type delete_retention_configuration_errors() ::
-          no_such_retention_configuration_exception() | invalid_parameter_value_exception()
+          invalid_parameter_value_exception() | no_such_retention_configuration_exception()
 
   @type delete_service_linked_configuration_recorder_errors() ::
-          validation_exception()
-          | no_such_configuration_recorder_exception()
+          no_such_configuration_recorder_exception()
+          | validation_exception()
           | conflict_exception()
 
-  @type delete_stored_query_errors() :: validation_exception() | resource_not_found_exception()
+  @type delete_stored_query_errors() :: resource_not_found_exception() | validation_exception()
 
   @type deliver_config_snapshot_errors() ::
-          no_available_configuration_recorder_exception()
-          | no_running_configuration_recorder_exception()
+          no_running_configuration_recorder_exception()
+          | no_available_configuration_recorder_exception()
           | no_such_delivery_channel_exception()
 
   @type describe_aggregate_compliance_by_config_rules_errors() ::
-          validation_exception()
+          invalid_limit_exception()
+          | validation_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type describe_aggregate_compliance_by_conformance_packs_errors() ::
-          validation_exception()
+          invalid_limit_exception()
+          | validation_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type describe_aggregation_authorizations_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_next_token_exception()
-          | invalid_limit_exception()
-
-  @type describe_compliance_by_config_rule_errors() ::
-          no_such_config_rule_exception()
+          invalid_limit_exception()
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
+
+  @type describe_compliance_by_config_rule_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | no_such_config_rule_exception()
 
   @type describe_compliance_by_resource_errors() ::
           invalid_parameter_value_exception() | invalid_next_token_exception()
 
   @type describe_config_rule_evaluation_status_errors() ::
-          no_such_config_rule_exception()
-          | invalid_parameter_value_exception()
-          | invalid_next_token_exception()
-
-  @type describe_config_rules_errors() ::
-          no_such_config_rule_exception()
-          | invalid_parameter_value_exception()
-          | invalid_next_token_exception()
-
-  @type describe_configuration_aggregator_sources_status_errors() ::
           invalid_parameter_value_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
+          | no_such_config_rule_exception()
+
+  @type describe_config_rules_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | no_such_config_rule_exception()
+
+  @type describe_configuration_aggregator_sources_status_errors() ::
+          invalid_limit_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
           | no_such_configuration_aggregator_exception()
 
   @type describe_configuration_aggregators_errors() ::
-          invalid_parameter_value_exception()
+          invalid_limit_exception()
+          | invalid_parameter_value_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type describe_configuration_recorder_status_errors() ::
-          validation_exception() | no_such_configuration_recorder_exception()
+          no_such_configuration_recorder_exception() | validation_exception()
 
   @type describe_configuration_recorders_errors() ::
-          validation_exception() | no_such_configuration_recorder_exception()
+          no_such_configuration_recorder_exception() | validation_exception()
 
   @type describe_conformance_pack_compliance_errors() ::
           no_such_conformance_pack_exception()
-          | invalid_parameter_value_exception()
-          | invalid_next_token_exception()
-          | no_such_config_rule_in_conformance_pack_exception()
           | invalid_limit_exception()
+          | invalid_parameter_value_exception()
+          | no_such_config_rule_in_conformance_pack_exception()
+          | invalid_next_token_exception()
 
   @type describe_conformance_pack_status_errors() ::
-          invalid_parameter_value_exception()
+          invalid_limit_exception()
+          | invalid_parameter_value_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
 
   @type describe_conformance_packs_errors() ::
           no_such_conformance_pack_exception()
+          | invalid_limit_exception()
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
 
   @type describe_delivery_channel_status_errors() :: no_such_delivery_channel_exception()
 
   @type describe_delivery_channels_errors() :: no_such_delivery_channel_exception()
 
   @type describe_organization_config_rule_statuses_errors() ::
-          organization_access_denied_exception()
-          | no_such_organization_config_rule_exception()
+          invalid_limit_exception()
+          | organization_access_denied_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
+          | no_such_organization_config_rule_exception()
 
   @type describe_organization_config_rules_errors() ::
-          organization_access_denied_exception()
-          | no_such_organization_config_rule_exception()
+          invalid_limit_exception()
+          | organization_access_denied_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
+          | no_such_organization_config_rule_exception()
 
   @type describe_organization_conformance_pack_statuses_errors() ::
-          organization_access_denied_exception()
+          invalid_limit_exception()
+          | organization_access_denied_exception()
           | no_such_organization_conformance_pack_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
 
   @type describe_organization_conformance_packs_errors() ::
-          organization_access_denied_exception()
+          invalid_limit_exception()
+          | organization_access_denied_exception()
           | no_such_organization_conformance_pack_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
 
   @type describe_pending_aggregation_requests_errors() ::
-          invalid_parameter_value_exception()
+          invalid_limit_exception()
+          | invalid_parameter_value_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
 
   @type describe_remediation_exceptions_errors() ::
           invalid_parameter_value_exception() | invalid_next_token_exception()
 
   @type describe_remediation_execution_status_errors() ::
-          no_such_remediation_configuration_exception()
-          | invalid_parameter_value_exception()
+          invalid_parameter_value_exception()
           | invalid_next_token_exception()
+          | no_such_remediation_configuration_exception()
 
   @type describe_retention_configurations_errors() ::
-          no_such_retention_configuration_exception()
-          | invalid_parameter_value_exception()
+          invalid_parameter_value_exception()
           | invalid_next_token_exception()
+          | no_such_retention_configuration_exception()
 
   @type disassociate_resource_types_errors() ::
-          validation_exception()
-          | no_such_configuration_recorder_exception()
+          no_such_configuration_recorder_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type get_aggregate_compliance_details_by_config_rule_errors() ::
-          validation_exception()
+          invalid_limit_exception()
+          | validation_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type get_aggregate_config_rule_compliance_summary_errors() ::
-          validation_exception()
+          invalid_limit_exception()
+          | validation_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type get_aggregate_conformance_pack_compliance_summary_errors() ::
-          validation_exception()
+          invalid_limit_exception()
+          | validation_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type get_aggregate_discovered_resource_counts_errors() ::
-          validation_exception()
+          invalid_limit_exception()
+          | validation_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type get_aggregate_resource_config_errors() ::
-          validation_exception()
-          | resource_not_discovered_exception()
-          | oversized_configuration_item_exception()
+          resource_not_discovered_exception()
+          | validation_exception()
           | no_such_configuration_aggregator_exception()
+          | oversized_configuration_item_exception()
 
   @type get_compliance_details_by_config_rule_errors() ::
-          no_such_config_rule_exception()
-          | invalid_parameter_value_exception()
+          invalid_parameter_value_exception()
           | invalid_next_token_exception()
+          | no_such_config_rule_exception()
 
   @type get_compliance_details_by_resource_errors() :: invalid_parameter_value_exception()
 
@@ -4644,149 +4855,159 @@ defmodule AWS.Config do
 
   @type get_conformance_pack_compliance_details_errors() ::
           no_such_conformance_pack_exception()
-          | invalid_parameter_value_exception()
-          | invalid_next_token_exception()
-          | no_such_config_rule_in_conformance_pack_exception()
           | invalid_limit_exception()
+          | invalid_parameter_value_exception()
+          | no_such_config_rule_in_conformance_pack_exception()
+          | invalid_next_token_exception()
 
   @type get_conformance_pack_compliance_summary_errors() ::
           no_such_conformance_pack_exception()
-          | invalid_next_token_exception()
           | invalid_limit_exception()
+          | invalid_next_token_exception()
+
+  @type get_connector_errors() :: resource_not_found_exception() | validation_exception()
 
   @type get_custom_rule_policy_errors() :: no_such_config_rule_exception()
 
   @type get_discovered_resource_counts_errors() ::
-          validation_exception() | invalid_next_token_exception() | invalid_limit_exception()
+          invalid_limit_exception() | validation_exception() | invalid_next_token_exception()
 
   @type get_organization_config_rule_detailed_status_errors() ::
-          organization_access_denied_exception()
-          | no_such_organization_config_rule_exception()
+          invalid_limit_exception()
+          | organization_access_denied_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
+          | no_such_organization_config_rule_exception()
 
   @type get_organization_conformance_pack_detailed_status_errors() ::
-          organization_access_denied_exception()
+          invalid_limit_exception()
+          | organization_access_denied_exception()
           | no_such_organization_conformance_pack_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
 
   @type get_organization_custom_rule_policy_errors() ::
           organization_access_denied_exception() | no_such_organization_config_rule_exception()
 
   @type get_resource_config_history_errors() ::
-          no_available_configuration_recorder_exception()
-          | validation_exception()
+          invalid_limit_exception()
           | resource_not_discovered_exception()
-          | invalid_next_token_exception()
+          | validation_exception()
           | invalid_time_range_exception()
-          | invalid_limit_exception()
+          | invalid_next_token_exception()
+          | no_available_configuration_recorder_exception()
 
   @type get_resource_evaluation_summary_errors() :: resource_not_found_exception()
 
-  @type get_stored_query_errors() :: validation_exception() | resource_not_found_exception()
+  @type get_stored_query_errors() :: resource_not_found_exception() | validation_exception()
 
   @type list_aggregate_discovered_resources_errors() ::
-          validation_exception()
+          invalid_limit_exception()
+          | validation_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type list_configuration_recorders_errors() :: validation_exception()
 
   @type list_conformance_pack_compliance_scores_errors() ::
-          invalid_parameter_value_exception()
+          invalid_limit_exception()
+          | invalid_parameter_value_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
+
+  @type list_connectors_errors() :: validation_exception()
 
   @type list_discovered_resources_errors() ::
-          no_available_configuration_recorder_exception()
+          invalid_limit_exception()
           | validation_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
+          | no_available_configuration_recorder_exception()
 
   @type list_resource_evaluations_errors() ::
           invalid_parameter_value_exception()
-          | invalid_next_token_exception()
           | invalid_time_range_exception()
+          | invalid_next_token_exception()
 
   @type list_stored_queries_errors() :: validation_exception() | invalid_next_token_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception()
-          | invalid_next_token_exception()
+          invalid_limit_exception()
           | resource_not_found_exception()
-          | invalid_limit_exception()
+          | validation_exception()
+          | invalid_next_token_exception()
 
   @type put_aggregation_authorization_errors() :: invalid_parameter_value_exception()
 
   @type put_config_rule_errors() ::
-          no_available_configuration_recorder_exception()
-          | invalid_parameter_value_exception()
-          | max_number_of_config_rules_exceeded_exception()
+          invalid_parameter_value_exception()
           | resource_in_use_exception()
+          | max_number_of_config_rules_exceeded_exception()
+          | no_available_configuration_recorder_exception()
           | insufficient_permissions_exception()
 
   @type put_configuration_aggregator_errors() ::
-          organization_access_denied_exception()
-          | limit_exceeded_exception()
+          limit_exceeded_exception()
           | no_available_organization_exception()
-          | invalid_role_exception()
+          | organization_access_denied_exception()
           | invalid_parameter_value_exception()
           | organization_all_features_not_enabled_exception()
+          | invalid_role_exception()
 
   @type put_configuration_recorder_errors() ::
-          invalid_configuration_recorder_name_exception()
-          | validation_exception()
-          | invalid_role_exception()
-          | max_number_of_configuration_recorders_exceeded_exception()
-          | unmodifiable_entity_exception()
+          max_number_of_configuration_recorders_exceeded_exception()
           | invalid_recording_group_exception()
+          | validation_exception()
+          | unmodifiable_entity_exception()
+          | invalid_configuration_recorder_name_exception()
+          | invalid_role_exception()
 
   @type put_conformance_pack_errors() ::
           conformance_pack_template_validation_exception()
-          | max_number_of_conformance_packs_exceeded_exception()
           | invalid_parameter_value_exception()
+          | max_number_of_conformance_packs_exceeded_exception()
           | resource_in_use_exception()
           | insufficient_permissions_exception()
+
+  @type put_connector_errors() ::
+          validation_exception()
+          | max_number_of_connectors_exceeded_exception()
+          | insufficient_permissions_exception()
+          | conflict_exception()
 
   @type put_delivery_channel_errors() ::
-          no_available_configuration_recorder_exception()
-          | invalid_s3_key_prefix_exception()
-          | no_such_bucket_exception()
-          | invalid_s3_kms_key_arn_exception()
+          max_number_of_delivery_channels_exceeded_exception()
+          | insufficient_delivery_policy_exception()
           | invalid_delivery_channel_name_exception()
           | invalid_s_n_s_topic_arn_exception()
-          | insufficient_delivery_policy_exception()
-          | max_number_of_delivery_channels_exceeded_exception()
+          | no_available_configuration_recorder_exception()
+          | invalid_s3_key_prefix_exception()
+          | invalid_s3_kms_key_arn_exception()
+          | no_such_bucket_exception()
 
   @type put_evaluations_errors() ::
-          no_such_config_rule_exception()
-          | invalid_parameter_value_exception()
+          invalid_parameter_value_exception()
           | invalid_result_token_exception()
+          | no_such_config_rule_exception()
 
   @type put_external_evaluation_errors() ::
-          no_such_config_rule_exception() | invalid_parameter_value_exception()
+          invalid_parameter_value_exception() | no_such_config_rule_exception()
 
   @type put_organization_config_rule_errors() ::
-          organization_access_denied_exception()
-          | no_available_organization_exception()
-          | validation_exception()
+          no_available_organization_exception()
+          | organization_access_denied_exception()
           | invalid_parameter_value_exception()
-          | max_number_of_organization_config_rules_exceeded_exception()
           | resource_in_use_exception()
-          | insufficient_permissions_exception()
+          | validation_exception()
           | organization_all_features_not_enabled_exception()
+          | max_number_of_organization_config_rules_exceeded_exception()
+          | insufficient_permissions_exception()
 
   @type put_organization_conformance_pack_errors() ::
-          organization_access_denied_exception()
+          organization_conformance_pack_template_validation_exception()
           | no_available_organization_exception()
-          | validation_exception()
-          | max_number_of_organization_conformance_packs_exceeded_exception()
+          | organization_access_denied_exception()
           | resource_in_use_exception()
-          | insufficient_permissions_exception()
+          | validation_exception()
           | organization_all_features_not_enabled_exception()
-          | organization_conformance_pack_template_validation_exception()
+          | max_number_of_organization_conformance_packs_exceeded_exception()
+          | insufficient_permissions_exception()
 
   @type put_remediation_configurations_errors() ::
           invalid_parameter_value_exception() | insufficient_permissions_exception()
@@ -4795,42 +5016,45 @@ defmodule AWS.Config do
           invalid_parameter_value_exception() | insufficient_permissions_exception()
 
   @type put_resource_config_errors() ::
-          max_active_resources_exceeded_exception()
+          no_running_configuration_recorder_exception()
           | validation_exception()
-          | no_running_configuration_recorder_exception()
+          | max_active_resources_exceeded_exception()
           | insufficient_permissions_exception()
 
   @type put_retention_configuration_errors() ::
-          max_number_of_retention_configurations_exceeded_exception()
-          | invalid_parameter_value_exception()
+          invalid_parameter_value_exception()
+          | max_number_of_retention_configurations_exceeded_exception()
 
   @type put_service_linked_configuration_recorder_errors() ::
           limit_exceeded_exception()
           | validation_exception()
-          | conflict_exception()
           | insufficient_permissions_exception()
+          | conflict_exception()
 
   @type put_stored_query_errors() ::
           too_many_tags_exception()
-          | resource_concurrent_modification_exception()
           | validation_exception()
+          | resource_concurrent_modification_exception()
+
+  @type put_third_party_service_linked_configuration_recorder_errors() ::
+          validation_exception() | insufficient_permissions_exception() | conflict_exception()
 
   @type select_aggregate_resource_config_errors() ::
-          invalid_expression_exception()
+          invalid_limit_exception()
+          | invalid_expression_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
   @type select_resource_config_errors() ::
-          invalid_expression_exception()
+          invalid_limit_exception()
+          | invalid_expression_exception()
           | invalid_next_token_exception()
-          | invalid_limit_exception()
 
   @type start_config_rules_evaluation_errors() ::
-          no_such_config_rule_exception()
-          | limit_exceeded_exception()
+          limit_exceeded_exception()
           | invalid_parameter_value_exception()
           | resource_in_use_exception()
+          | no_such_config_rule_exception()
 
   @type start_configuration_recorder_errors() ::
           no_such_configuration_recorder_exception()
@@ -4838,20 +5062,20 @@ defmodule AWS.Config do
           | unmodifiable_entity_exception()
 
   @type start_remediation_execution_errors() ::
-          no_such_remediation_configuration_exception()
-          | invalid_parameter_value_exception()
+          invalid_parameter_value_exception()
           | insufficient_permissions_exception()
+          | no_such_remediation_configuration_exception()
 
   @type start_resource_evaluation_errors() ::
-          invalid_parameter_value_exception() | idempotent_parameter_mismatch()
+          idempotent_parameter_mismatch() | invalid_parameter_value_exception()
 
   @type stop_configuration_recorder_errors() ::
           no_such_configuration_recorder_exception() | unmodifiable_entity_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception() | validation_exception() | resource_not_found_exception()
+          resource_not_found_exception() | too_many_tags_exception() | validation_exception()
 
-  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type untag_resource_errors() :: resource_not_found_exception() | validation_exception()
 
   def metadata do
     %{
@@ -4884,7 +5108,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, associate_resource_types_errors()}
   def associate_resource_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateResourceTypes", input, options)
   end
@@ -4914,7 +5139,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, batch_get_aggregate_resource_config_errors()}
   def batch_get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetAggregateResourceConfig", input, options)
   end
@@ -4943,7 +5169,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, batch_get_resource_config_errors()}
   def batch_get_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetResourceConfig", input, options)
   end
@@ -4962,7 +5189,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_aggregation_authorization_errors()}
   def delete_aggregation_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAggregationAuthorization", input, options)
   end
@@ -5004,7 +5232,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_config_rule_errors()}
   def delete_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigRule", input, options)
   end
@@ -5019,7 +5248,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_configuration_aggregator_errors()}
   def delete_configuration_aggregator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationAggregator", input, options)
   end
@@ -5041,7 +5271,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_configuration_recorder_errors()}
   def delete_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationRecorder", input, options)
   end
@@ -5079,9 +5310,25 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_conformance_pack_errors()}
   def delete_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConformancePack", input, options)
+  end
+
+  @doc """
+  Deletes the specified connector.
+  """
+  @spec delete_connector(map(), delete_connector_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_connector_errors()}
+  def delete_connector(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteConnector", input, options)
   end
 
   @doc """
@@ -5097,7 +5344,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_delivery_channel_errors()}
   def delete_delivery_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeliveryChannel", input, options)
   end
@@ -5117,7 +5365,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_evaluation_results_errors()}
   def delete_evaluation_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEvaluationResults", input, options)
   end
@@ -5160,7 +5409,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_organization_config_rule_errors()}
   def delete_organization_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOrganizationConfigRule", input, options)
   end
@@ -5208,7 +5458,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_organization_conformance_pack_errors()}
   def delete_organization_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOrganizationConformancePack", input, options)
   end
@@ -5227,7 +5478,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_pending_aggregation_request_errors()}
   def delete_pending_aggregation_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePendingAggregationRequest", input, options)
   end
@@ -5245,7 +5497,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_remediation_configuration_errors()}
   def delete_remediation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRemediationConfiguration", input, options)
   end
@@ -5263,7 +5516,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_remediation_exceptions_errors()}
   def delete_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRemediationExceptions", input, options)
   end
@@ -5281,7 +5535,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_resource_config_errors()}
   def delete_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceConfig", input, options)
   end
@@ -5295,7 +5550,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_retention_configuration_errors()}
   def delete_retention_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRetentionConfiguration", input, options)
   end
@@ -5329,7 +5585,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_service_linked_configuration_recorder_errors()}
   def delete_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServiceLinkedConfigurationRecorder", input, options)
   end
@@ -5344,7 +5601,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_stored_query_errors()}
   def delete_stored_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStoredQuery", input, options)
   end
@@ -5374,7 +5632,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, deliver_config_snapshot_errors()}
   def deliver_config_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeliverConfigSnapshot", input, options)
   end
@@ -5399,7 +5658,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregate_compliance_by_config_rules_errors()}
   def describe_aggregate_compliance_by_config_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAggregateComplianceByConfigRules", input, options)
   end
@@ -5426,7 +5686,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregate_compliance_by_conformance_packs_errors()}
   def describe_aggregate_compliance_by_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5451,7 +5712,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregation_authorizations_errors()}
   def describe_aggregation_authorizations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAggregationAuthorizations", input, options)
   end
@@ -5503,7 +5765,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_compliance_by_config_rule_errors()}
   def describe_compliance_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComplianceByConfigRule", input, options)
   end
@@ -5552,7 +5815,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_compliance_by_resource_errors()}
   def describe_compliance_by_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComplianceByResource", input, options)
   end
@@ -5574,7 +5838,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_config_rule_evaluation_status_errors()}
   def describe_config_rule_evaluation_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigRuleEvaluationStatus", input, options)
   end
@@ -5588,7 +5853,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_config_rules_errors()}
   def describe_config_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigRules", input, options)
   end
@@ -5610,7 +5876,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_aggregator_sources_status_errors()}
   def describe_configuration_aggregator_sources_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5638,7 +5905,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_aggregators_errors()}
   def describe_configuration_aggregators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationAggregators", input, options)
   end
@@ -5668,7 +5936,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_recorder_status_errors()}
   def describe_configuration_recorder_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationRecorderStatus", input, options)
   end
@@ -5693,7 +5962,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_recorders_errors()}
   def describe_configuration_recorders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationRecorders", input, options)
   end
@@ -5713,7 +5983,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_pack_compliance_errors()}
   def describe_conformance_pack_compliance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConformancePackCompliance", input, options)
   end
@@ -5733,7 +6004,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_pack_status_errors()}
   def describe_conformance_pack_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConformancePackStatus", input, options)
   end
@@ -5747,7 +6019,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_packs_errors()}
   def describe_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConformancePacks", input, options)
   end
@@ -5772,7 +6045,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_delivery_channel_status_errors()}
   def describe_delivery_channel_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryChannelStatus", input, options)
   end
@@ -5793,7 +6067,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_delivery_channels_errors()}
   def describe_delivery_channels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryChannels", input, options)
   end
@@ -5820,7 +6095,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_config_rule_statuses_errors()}
   def describe_organization_config_rule_statuses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConfigRuleStatuses", input, options)
   end
@@ -5863,7 +6139,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_config_rules_errors()}
   def describe_organization_config_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConfigRules", input, options)
   end
@@ -5891,7 +6168,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_conformance_pack_statuses_errors()}
   def describe_organization_conformance_pack_statuses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5940,7 +6218,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_conformance_packs_errors()}
   def describe_organization_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConformancePacks", input, options)
   end
@@ -5958,7 +6237,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_pending_aggregation_requests_errors()}
   def describe_pending_aggregation_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingAggregationRequests", input, options)
   end
@@ -5975,7 +6255,8 @@ defmodule AWS.Config do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_remediation_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRemediationConfigurations", input, options)
   end
@@ -6002,7 +6283,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_remediation_exceptions_errors()}
   def describe_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRemediationExceptions", input, options)
   end
@@ -6024,7 +6306,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_remediation_execution_status_errors()}
   def describe_remediation_execution_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRemediationExecutionStatus", input, options)
   end
@@ -6050,7 +6333,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_retention_configurations_errors()}
   def describe_retention_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRetentionConfigurations", input, options)
   end
@@ -6069,7 +6353,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, disassociate_resource_types_errors()}
   def disassociate_resource_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateResourceTypes", input, options)
   end
@@ -6096,7 +6381,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_compliance_details_by_config_rule_errors()}
   def get_aggregate_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -6125,7 +6411,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_config_rule_compliance_summary_errors()}
   def get_aggregate_config_rule_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAggregateConfigRuleComplianceSummary", input, options)
   end
@@ -6150,7 +6437,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_conformance_pack_compliance_summary_errors()}
   def get_aggregate_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -6183,7 +6471,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_discovered_resource_counts_errors()}
   def get_aggregate_discovered_resource_counts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAggregateDiscoveredResourceCounts", input, options)
   end
@@ -6200,7 +6489,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_resource_config_errors()}
   def get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAggregateResourceConfig", input, options)
   end
@@ -6223,7 +6513,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_details_by_config_rule_errors()}
   def get_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceDetailsByConfigRule", input, options)
   end
@@ -6245,7 +6536,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_details_by_resource_errors()}
   def get_compliance_details_by_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceDetailsByResource", input, options)
   end
@@ -6259,7 +6551,8 @@ defmodule AWS.Config do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_compliance_summary_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceSummaryByConfigRule", input, options)
   end
@@ -6282,7 +6575,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_summary_by_resource_type_errors()}
   def get_compliance_summary_by_resource_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceSummaryByResourceType", input, options)
   end
@@ -6301,7 +6595,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_conformance_pack_compliance_details_errors()}
   def get_conformance_pack_compliance_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConformancePackComplianceDetails", input, options)
   end
@@ -6320,9 +6615,25 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_conformance_pack_compliance_summary_errors()}
   def get_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConformancePackComplianceSummary", input, options)
+  end
+
+  @doc """
+  Returns the details of the specified connector.
+  """
+  @spec get_connector(map(), get_connector_request(), list()) ::
+          {:ok, get_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connector_errors()}
+  def get_connector(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetConnector", input, options)
   end
 
   @doc """
@@ -6335,7 +6646,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_custom_rule_policy_errors()}
   def get_custom_rule_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomRulePolicy", input, options)
   end
@@ -6399,7 +6711,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_discovered_resource_counts_errors()}
   def get_discovered_resource_counts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDiscoveredResourceCounts", input, options)
   end
@@ -6418,7 +6731,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_config_rule_detailed_status_errors()}
   def get_organization_config_rule_detailed_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOrganizationConfigRuleDetailedStatus", input, options)
   end
@@ -6437,7 +6751,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_conformance_pack_detailed_status_errors()}
   def get_organization_conformance_pack_detailed_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -6462,7 +6777,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_custom_rule_policy_errors()}
   def get_organization_custom_rule_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOrganizationCustomRulePolicy", input, options)
   end
@@ -6507,7 +6823,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_resource_config_history_errors()}
   def get_resource_config_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceConfigHistory", input, options)
   end
@@ -6534,7 +6851,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_resource_evaluation_summary_errors()}
   def get_resource_evaluation_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceEvaluationSummary", input, options)
   end
@@ -6548,7 +6866,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_stored_query_errors()}
   def get_stored_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStoredQuery", input, options)
   end
@@ -6576,7 +6895,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_aggregate_discovered_resources_errors()}
   def list_aggregate_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAggregateDiscoveredResources", input, options)
   end
@@ -6590,7 +6910,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_configuration_recorders_errors()}
   def list_configuration_recorders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConfigurationRecorders", input, options)
   end
@@ -6618,9 +6939,25 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_conformance_pack_compliance_scores_errors()}
   def list_conformance_pack_compliance_scores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConformancePackComplianceScores", input, options)
+  end
+
+  @doc """
+  Returns a list of connectors depending on the filters you specify.
+  """
+  @spec list_connectors(map(), list_connectors_request(), list()) ::
+          {:ok, list_connectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_connectors_errors()}
+  def list_connectors(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListConnectors", input, options)
   end
 
   @doc """
@@ -6684,7 +7021,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
@@ -6698,7 +7036,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_resource_evaluations_errors()}
   def list_resource_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceEvaluations", input, options)
   end
@@ -6715,7 +7054,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_stored_queries_errors()}
   def list_stored_queries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStoredQueries", input, options)
   end
@@ -6729,7 +7069,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -6758,7 +7099,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_aggregation_authorization_errors()}
   def put_aggregation_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAggregationAuthorization", input, options)
   end
@@ -6838,7 +7180,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_config_rule_errors()}
   def put_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConfigRule", input, options)
   end
@@ -6890,7 +7233,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_configuration_aggregator_errors()}
   def put_configuration_aggregator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConfigurationAggregator", input, options)
   end
@@ -6945,7 +7289,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_configuration_recorder_errors()}
   def put_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConfigurationRecorder", input, options)
   end
@@ -7001,9 +7346,48 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_conformance_pack_errors()}
   def put_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConformancePack", input, options)
+  end
+
+  @doc """
+  Creates a connector that specifies the connection between a third-party cloud
+  service provider and Config.
+
+  A connector is required to create a service-linked configuration recorder for a
+  third-party cloud service provider using the
+  [PutThirdPartyServiceLinkedConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_PutThirdPartyServiceLinkedConfigurationRecorder.html) operation.
+
+  This API creates a service-linked role `AWSServiceRoleForConfigThirdParty` in
+  your account. The service-linked role is created only when the role does not
+  exist in your account.
+
+  ## Connectors cannot be updated
+
+  To update the connector configuration, you must delete all associated
+  configuration recorders, delete the connector, and recreate it with the updated
+  configuration.
+
+  ## Tags are added at creation and cannot be updated with this operation
+
+  Use
+  [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html)
+  and
+  [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)
+  to update tags after creation.
+  """
+  @spec put_connector(map(), put_connector_request(), list()) ::
+          {:ok, put_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_connector_errors()}
+  def put_connector(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutConnector", input, options)
   end
 
   @doc """
@@ -7030,7 +7414,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_delivery_channel_errors()}
   def put_delivery_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDeliveryChannel", input, options)
   end
@@ -7048,7 +7433,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_evaluations_errors()}
   def put_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEvaluations", input, options)
   end
@@ -7065,7 +7451,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_external_evaluation_errors()}
   def put_external_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutExternalEvaluation", input, options)
   end
@@ -7143,7 +7530,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_organization_config_rule_errors()}
   def put_organization_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutOrganizationConfigRule", input, options)
   end
@@ -7210,7 +7598,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_organization_conformance_pack_errors()}
   def put_organization_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutOrganizationConformancePack", input, options)
   end
@@ -7267,7 +7656,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_remediation_configurations_errors()}
   def put_remediation_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRemediationConfigurations", input, options)
   end
@@ -7335,7 +7725,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_remediation_exceptions_errors()}
   def put_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRemediationExceptions", input, options)
   end
@@ -7364,7 +7755,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_resource_config_errors()}
   def put_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourceConfig", input, options)
   end
@@ -7389,7 +7781,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_retention_configuration_errors()}
   def put_retention_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRetentionConfiguration", input, options)
   end
@@ -7435,7 +7828,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_service_linked_configuration_recorder_errors()}
   def put_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutServiceLinkedConfigurationRecorder", input, options)
   end
@@ -7463,9 +7857,61 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_stored_query_errors()}
   def put_stored_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutStoredQuery", input, options)
+  end
+
+  @doc """
+  Creates or updates a service-linked configuration recorder that is linked to a
+  third-party cloud service provider based on the `ConnectorArn` you specify.
+
+  The configuration recorder's `name`, `recordingGroup`, `recordingMode`, and
+  `recordingScope` is set by the service that is linked to the configuration
+  recorder.
+
+  If a service-linked configuration recorder already exists for the specified
+  service principal and connector, calling this operation again updates the
+  `ScopeConfiguration`.
+
+  ## This operation can only be called by the Amazon Web Services service linked to
+  the configuration recorder
+
+  Customers cannot call this operation directly. Only the linked Amazon Web
+  Services service can create or update the service-linked configuration recorder.
+
+  ## Tags are added at creation and cannot be updated with this operation
+
+  Use
+  [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)
+  to update tags after creation.
+  """
+  @spec put_third_party_service_linked_configuration_recorder(
+          map(),
+          put_third_party_service_linked_configuration_recorder_request(),
+          list()
+        ) ::
+          {:ok, put_third_party_service_linked_configuration_recorder_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_third_party_service_linked_configuration_recorder_errors()}
+  def put_third_party_service_linked_configuration_recorder(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "PutThirdPartyServiceLinkedConfigurationRecorder",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -7502,7 +7948,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, select_aggregate_resource_config_errors()}
   def select_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SelectAggregateResourceConfig", input, options)
   end
@@ -7524,7 +7971,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, select_resource_config_errors()}
   def select_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SelectResourceConfig", input, options)
   end
@@ -7584,7 +8032,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_config_rules_evaluation_errors()}
   def start_config_rules_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartConfigRulesEvaluation", input, options)
   end
@@ -7606,7 +8055,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_configuration_recorder_errors()}
   def start_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartConfigurationRecorder", input, options)
   end
@@ -7628,7 +8078,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_remediation_execution_errors()}
   def start_remediation_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartRemediationExecution", input, options)
   end
@@ -7662,7 +8113,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_resource_evaluation_errors()}
   def start_resource_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartResourceEvaluation", input, options)
   end
@@ -7679,7 +8131,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, stop_configuration_recorder_errors()}
   def stop_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopConfigurationRecorder", input, options)
   end
@@ -7699,7 +8152,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -7713,7 +8167,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

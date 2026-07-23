@@ -32,26 +32,12 @@ defmodule AWS.SimpleDBv2 do
 
   ## Example:
 
-      conflict_exception() :: %{
+      invalid_parameter_combination_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_summary() :: %{
-        "domainName" => String.t() | atom(),
-        "exportArn" => String.t() | atom(),
-        "exportStatus" => list(any()),
-        "requestedAt" => non_neg_integer()
-      }
-
-  """
-  @type export_summary() :: %{(String.t() | atom()) => any()}
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -63,6 +49,105 @@ defmodule AWS.SimpleDBv2 do
 
   """
   @type get_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      number_exports_limit_exceeded() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type number_exports_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_domain_export_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("domainName") => String.t() | atom(),
+        required("s3Bucket") => String.t() | atom(),
+        optional("s3BucketOwner") => String.t() | atom(),
+        optional("s3KeyPrefix") => String.t() | atom(),
+        optional("s3SseAlgorithm") => list(any()),
+        optional("s3SseKmsKeyId") => String.t() | atom()
+      }
+
+  """
+  @type start_domain_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_domain_export_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "exportArn" => String.t() | atom(),
+        "requestedAt" => non_neg_integer()
+      }
+
+  """
+  @type start_domain_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_exports_response() :: %{
+        "exportSummaries" => list(export_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_exports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_value_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_exports_request() :: %{
+        optional("domainName") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_exports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_next_token_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,59 +178,26 @@ defmodule AWS.SimpleDBv2 do
 
   ## Example:
 
-      invalid_next_token_exception() :: %{
+      no_such_export_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type no_such_export_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_parameter_combination_exception() :: %{
-        "message" => [String.t() | atom()]
+      export_summary() :: %{
+        "domainName" => String.t() | atom(),
+        "exportArn" => String.t() | atom(),
+        "exportStatus" => list(any()),
+        "requestedAt" => non_neg_integer()
       }
 
   """
-  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_value_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_exports_request() :: %{
-        optional("domainName") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_exports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_exports_response() :: %{
-        "exportSummaries" => list(export_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_exports_response() :: %{(String.t() | atom()) => any()}
+  @type export_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,71 +210,19 @@ defmodule AWS.SimpleDBv2 do
   """
   @type no_such_domain_exception() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      no_such_export_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type no_such_export_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      number_exports_limit_exceeded() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type number_exports_limit_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_domain_export_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("s3BucketOwner") => String.t() | atom(),
-        optional("s3KeyPrefix") => String.t() | atom(),
-        optional("s3SseAlgorithm") => list(any()),
-        optional("s3SseKmsKeyId") => String.t() | atom(),
-        required("domainName") => String.t() | atom(),
-        required("s3Bucket") => String.t() | atom()
-      }
-
-  """
-  @type start_domain_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_domain_export_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "exportArn" => String.t() | atom(),
-        "requestedAt" => non_neg_integer()
-      }
-
-  """
-  @type start_domain_export_response() :: %{(String.t() | atom()) => any()}
-
   @type get_export_errors() :: no_such_export_exception() | invalid_parameter_value_exception()
 
   @type list_exports_errors() ::
           no_such_domain_exception()
-          | invalid_parameter_value_exception()
           | invalid_next_token_exception()
+          | invalid_parameter_value_exception()
 
   @type start_domain_export_errors() ::
-          number_exports_limit_exceeded()
-          | no_such_domain_exception()
+          no_such_domain_exception()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
           | conflict_exception()
+          | number_exports_limit_exceeded()
+          | invalid_parameter_combination_exception()
 
   def metadata do
     %{

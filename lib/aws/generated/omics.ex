@@ -21,1050 +21,22 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      run_log_location() :: %{
-        "engineLogStream" => String.t() | atom(),
-        "runLogStream" => String.t() | atom()
-      }
-
-  """
-  @type run_log_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multipart_read_set_uploads_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_multipart_read_set_uploads_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      abort_multipart_read_set_upload_request() :: %{}
-
-  """
-  @type abort_multipart_read_set_upload_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_store_item() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "reference" => list(),
-        "sseConfig" => sse_config(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "storeArn" => String.t() | atom(),
-        "storeFormat" => String.t() | atom(),
-        "storeSizeBytes" => [float()],
-        "updateTime" => non_neg_integer()
-      }
-
-  """
-  @type annotation_store_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_workflow_request() :: %{
-        optional("accelerators") => String.t() | atom(),
-        optional("containerRegistryMap") => container_registry_map(),
-        optional("containerRegistryMapUri") => String.t() | atom(),
-        optional("definitionRepository") => definition_repository(),
-        optional("definitionUri") => String.t() | atom(),
-        optional("definitionZip") => [binary()],
-        optional("description") => String.t() | atom(),
-        optional("engine") => String.t() | atom(),
-        optional("main") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("parameterTemplate") => map(),
-        optional("parameterTemplatePath") => String.t() | atom(),
-        optional("readmeMarkdown") => String.t() | atom(),
-        optional("readmePath") => String.t() | atom(),
-        optional("readmeUri") => String.t() | atom(),
-        optional("storageCapacity") => [integer()],
-        optional("storageType") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("workflowBucketOwnerId") => String.t() | atom(),
-        required("requestId") => String.t() | atom()
-      }
-
-  """
-  @type create_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_annotation_import_request() :: %{}
-
-  """
-  @type cancel_annotation_import_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_run_cache_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type create_run_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_variant_store_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "reference" => list(),
-        "status" => String.t() | atom(),
-        "updateTime" => non_neg_integer()
-      }
-
-  """
-  @type update_variant_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      definition_repository_details() :: %{
-        "connectionArn" => String.t() | atom(),
-        "fullRepositoryId" => String.t() | atom(),
-        "providerEndpoint" => [String.t() | atom()],
-        "providerType" => [String.t() | atom()],
-        "sourceReference" => source_reference()
-      }
-
-  """
-  @type definition_repository_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_read_set_job_item() :: %{
-        "completionTime" => [non_neg_integer()],
-        "creationTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "sequenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type import_read_set_job_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_read_set_filter() :: %{
-        "createdAfter" => [non_neg_integer()],
-        "createdBefore" => [non_neg_integer()],
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type activate_read_set_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      run_cache_list_item() :: %{
-        "arn" => String.t() | atom(),
-        "cacheBehavior" => String.t() | atom(),
-        "cacheS3Uri" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type run_cache_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_variant_store_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_variant_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_version_list_item() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "digest" => String.t() | atom(),
-        "metadata" => map(),
-        "status" => String.t() | atom(),
+      source_reference() :: %{
         "type" => String.t() | atom(),
-        "versionName" => String.t() | atom(),
-        "workflowId" => String.t() | atom()
+        "value" => String.t() | atom()
       }
 
   """
-  @type workflow_version_list_item() :: %{(String.t() | atom()) => any()}
+  @type source_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_run_batch_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "uuid" => String.t() | atom()
-      }
+      delete_reference_response() :: %{}
 
   """
-  @type start_run_batch_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sequence_store_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "eTagAlgorithmFamily" => String.t() | atom(),
-        "fallbackLocation" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "propagatedSetLevelTags" => list(String.t() | atom()),
-        "s3Access" => sequence_store_s3_access(),
-        "sseConfig" => sse_config(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type update_sequence_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_annotation_store_version_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "storeId" => String.t() | atom(),
-        "updateTime" => non_neg_integer(),
-        "versionName" => String.t() | atom()
-      }
-
-  """
-  @type update_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_shares_request() :: %{
-        optional("filter") => filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        required("resourceOwner") => String.t() | atom()
-      }
-
-  """
-  @type list_shares_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_annotation_store_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_annotation_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_run_request() :: %{
-        optional("export") => list(String.t() | atom())
-      }
-
-  """
-  @type get_run_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inline_setting() :: %{
-        "name" => String.t() | atom(),
-        "outputBucketOwnerId" => String.t() | atom(),
-        "outputUri" => String.t() | atom(),
-        "parameters" => any(),
-        "priority" => [integer()],
-        "runSettingId" => String.t() | atom(),
-        "runTags" => map()
-      }
-
-  """
-  @type inline_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reference_stores_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "referenceStores" => list(reference_store_detail())
-      }
-
-  """
-  @type list_reference_stores_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      read_set_upload_part_list_filter() :: %{
-        "createdAfter" => [non_neg_integer()],
-        "createdBefore" => [non_neg_integer()]
-      }
-
-  """
-  @type read_set_upload_part_list_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_run_cache_request() :: %{
-        optional("cacheBehavior") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_run_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_set_export_jobs_request() :: %{
-        optional("filter") => export_read_set_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_read_set_export_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_runs_response() :: %{
-        "items" => list(run_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_runs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_read_set_filter() :: %{
-        "createdAfter" => [non_neg_integer()],
-        "createdBefore" => [non_neg_integer()],
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type import_read_set_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reference_metadata_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationJobId" => String.t() | atom(),
-        "creationTime" => [non_neg_integer()],
-        "creationType" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "files" => reference_files(),
-        "id" => String.t() | atom(),
-        "md5" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "referenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_reference_metadata_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_annotation_store_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("reference") => list(),
-        optional("sseConfig") => sse_config(),
-        optional("storeOptions") => list(),
-        optional("tags") => map(),
-        optional("versionName") => String.t() | atom(),
-        required("storeFormat") => String.t() | atom()
-      }
-
-  """
-  @type create_annotation_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_read_set_part_request() :: %{
-        required("partNumber") => [integer()],
-        required("partSource") => String.t() | atom(),
-        required("payload") => binary()
-      }
-
-  """
-  @type upload_read_set_part_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_set_activation_jobs_response() :: %{
-        "activationJobs" => list(activate_read_set_job_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_read_set_activation_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_variant_store_response() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type delete_variant_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_read_set_import_job_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("sources") => list(start_read_set_import_job_source_item())
-      }
-
-  """
-  @type start_read_set_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      variant_import_job_item() :: %{
-        "annotationFields" => map(),
-        "completionTime" => non_neg_integer(),
-        "creationTime" => non_neg_integer(),
-        "destinationName" => [String.t() | atom()],
-        "id" => [String.t() | atom()],
-        "roleArn" => String.t() | atom(),
-        "runLeftNormalization" => boolean(),
-        "status" => String.t() | atom(),
-        "updateTime" => non_neg_integer()
-      }
-
-  """
-  @type variant_import_job_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_reference_job_item() :: %{
-        "completionTime" => [non_neg_integer()],
-        "creationTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "referenceStoreId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type import_reference_job_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_read_set_export_job_request() :: %{}
-
-  """
-  @type get_read_set_export_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_run_group_request() :: %{}
-
-  """
-  @type get_run_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sequence_store_request() :: %{}
-
-  """
-  @type delete_sequence_store_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_reference_import_job_response() :: %{
-        "creationTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "referenceStoreId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type start_reference_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_workflow_request() :: %{}
-
-  """
-  @type delete_workflow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_annotation_stores_request() :: %{
-        optional("filter") => list_annotation_stores_filter(),
-        optional("ids") => list(String.t() | atom()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_annotation_stores_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_request() :: %{}
-
-  """
-  @type get_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_annotation_store_response() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type delete_annotation_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_annotation_store_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "reference" => list(),
-        "status" => String.t() | atom(),
-        "storeFormat" => String.t() | atom(),
-        "storeOptions" => list(),
-        "updateTime" => non_neg_integer()
-      }
-
-  """
-  @type update_annotation_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      read_set_filter() :: %{
-        "createdAfter" => [non_neg_integer()],
-        "createdBefore" => [non_neg_integer()],
-        "creationType" => String.t() | atom(),
-        "generatedFrom" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "referenceArn" => String.t() | atom(),
-        "sampleId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "subjectId" => String.t() | atom()
-      }
-
-  """
-  @type read_set_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_read_set_response() :: %{
-        "errors" => list(read_set_batch_error())
-      }
-
-  """
-  @type batch_delete_read_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_set_activation_jobs_request() :: %{
-        optional("filter") => activate_read_set_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_read_set_activation_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_annotation_store_request() :: %{}
-
-  """
-  @type get_annotation_store_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_version_response() :: %{
-        "accelerators" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "containerRegistryMap" => container_registry_map(),
-        "creationTime" => non_neg_integer(),
-        "definition" => String.t() | atom(),
-        "definitionRepositoryDetails" => definition_repository_details(),
-        "description" => String.t() | atom(),
-        "digest" => String.t() | atom(),
-        "engine" => String.t() | atom(),
-        "main" => String.t() | atom(),
-        "metadata" => map(),
-        "parameterTemplate" => map(),
-        "readme" => String.t() | atom(),
-        "readmePath" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "storageCapacity" => [integer()],
-        "storageType" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom(),
-        "uuid" => String.t() | atom(),
-        "versionName" => String.t() | atom(),
-        "workflowBucketOwnerId" => String.t() | atom(),
-        "workflowId" => String.t() | atom()
-      }
-
-  """
-  @type get_workflow_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_variant_import_jobs_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "variantImportJobs" => list(variant_import_job_item())
-      }
-
-  """
-  @type list_variant_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configurations_response() :: %{
-        "items" => list(configuration_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_s3_access_policy_request() :: %{
-        required("s3AccessPolicy") => String.t() | atom()
-      }
-
-  """
-  @type put_s3_access_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_access_config() :: %{
-        "accessLogLocation" => String.t() | atom()
-      }
-
-  """
-  @type s3_access_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_list_item() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "digest" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "metadata" => map(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type workflow_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_read_set_job_detail() :: %{
-        "completionTime" => [non_neg_integer()],
-        "creationTime" => [non_neg_integer()],
-        "destination" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "sequenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type export_read_set_job_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_annotation_store_versions_response() :: %{
-        "errors" => list(version_delete_error())
-      }
-
-  """
-  @type delete_annotation_store_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      submission_summary() :: %{
-        "failedCancelSubmissionCount" => [integer()],
-        "failedDeleteSubmissionCount" => [integer()],
-        "failedStartSubmissionCount" => [integer()],
-        "pendingStartSubmissionCount" => [integer()],
-        "successfulCancelSubmissionCount" => [integer()],
-        "successfulDeleteSubmissionCount" => [integer()],
-        "successfulStartSubmissionCount" => [integer()]
-      }
-
-  """
-  @type submission_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_read_set_part_response() :: %{
-        "checksum" => [String.t() | atom()]
-      }
-
-  """
-  @type upload_read_set_part_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reference_metadata_request() :: %{}
-
-  """
-  @type get_reference_metadata_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_share_request() :: %{}
-
-  """
-  @type accept_share_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_run_caches_response() :: %{
-        "items" => list(run_cache_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_run_caches_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      share_details() :: %{
-        "creationTime" => non_neg_integer(),
-        "ownerId" => [String.t() | atom()],
-        "principalSubscriber" => [String.t() | atom()],
-        "resourceArn" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "shareId" => [String.t() | atom()],
-        "shareName" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "updateTime" => non_neg_integer()
-      }
-
-  """
-  @type share_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_s3_access_policy_request() :: %{}
-
-  """
-  @type get_s3_access_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_store_version_item() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "storeId" => String.t() | atom(),
-        "updateTime" => non_neg_integer(),
-        "versionArn" => String.t() | atom(),
-        "versionName" => String.t() | atom(),
-        "versionSizeBytes" => [float()]
-      }
-
-  """
-  @type annotation_store_version_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_read_set_job_item() :: %{
-        "completionTime" => [non_neg_integer()],
-        "creationTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "sequenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type activate_read_set_job_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_run_group_request() :: %{}
-
-  """
-  @type delete_run_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      default_run_setting() :: %{
-        "cacheBehavior" => String.t() | atom(),
-        "cacheId" => String.t() | atom(),
-        "configurationName" => String.t() | atom(),
-        "logLevel" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "networkingMode" => String.t() | atom(),
-        "outputBucketOwnerId" => String.t() | atom(),
-        "outputUri" => String.t() | atom(),
-        "parameters" => any(),
-        "priority" => [integer()],
-        "retentionMode" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "runGroupId" => String.t() | atom(),
-        "runTags" => map(),
-        "storageCapacity" => [integer()],
-        "storageType" => String.t() | atom(),
-        "workflowId" => String.t() | atom(),
-        "workflowOwnerId" => String.t() | atom(),
-        "workflowType" => String.t() | atom(),
-        "workflowVersionName" => String.t() | atom()
-      }
-
-  """
-  @type default_run_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reference_response() :: %{
-        "payload" => binary()
-      }
-
-  """
-  @type get_reference_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_annotation_stores_response() :: %{
-        "annotationStores" => list(annotation_store_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_annotation_stores_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multipart_read_set_upload_response() :: %{
-        "creationTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "generatedFrom" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "referenceArn" => String.t() | atom(),
-        "sampleId" => String.t() | atom(),
-        "sequenceStoreId" => String.t() | atom(),
-        "sourceFileType" => String.t() | atom(),
-        "subjectId" => String.t() | atom(),
-        "tags" => map(),
-        "uploadId" => String.t() | atom()
-      }
-
-  """
-  @type create_multipart_read_set_upload_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_run_cache_request() :: %{}
-
-  """
-  @type delete_run_cache_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_s3_access_policy_response() :: %{}
-
-  """
-  @type delete_s3_access_policy_response() :: %{}
+  @type delete_reference_response() :: %{}
 
   @typedoc """
 
@@ -1074,40 +46,6 @@ defmodule AWS.Omics do
 
   """
   @type delete_reference_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      request_timeout_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_annotation_store_versions_response() :: %{
-        "annotationStoreVersions" => list(annotation_store_version_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_annotation_store_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_multipart_read_set_upload_response() :: %{
-        "readSetId" => String.t() | atom()
-      }
-
-  """
-  @type complete_multipart_read_set_upload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1123,361 +61,6 @@ defmodule AWS.Omics do
 
   """
   @type update_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reference_list_item() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "md5" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "referenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type reference_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tsv_options() :: %{
-        "readOptions" => read_options()
-      }
-
-  """
-  @type tsv_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_run_batch_request() :: %{
-        required("batchId") => String.t() | atom()
-      }
-
-  """
-  @type cancel_run_batch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      run_list_item() :: %{
-        "arn" => String.t() | atom(),
-        "batchId" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "priority" => [integer()],
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "stopTime" => non_neg_integer(),
-        "storageCapacity" => [integer()],
-        "storageType" => String.t() | atom(),
-        "workflowId" => String.t() | atom(),
-        "workflowVersionName" => String.t() | atom()
-      }
-
-  """
-  @type run_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_reference_import_job_source_item() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "sourceFile" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type start_reference_import_job_source_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_variant_import_request() :: %{}
-
-  """
-  @type cancel_variant_import_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_annotation_store_version_request() :: %{}
-
-  """
-  @type get_annotation_store_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_variant_import_jobs_request() :: %{
-        optional("filter") => list_variant_import_jobs_filter(),
-        optional("ids") => list(String.t() | atom()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_variant_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_annotation_store_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "reference" => list(),
-        "status" => String.t() | atom(),
-        "storeFormat" => String.t() | atom(),
-        "storeOptions" => list(),
-        "versionName" => String.t() | atom()
-      }
-
-  """
-  @type create_annotation_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_annotation_import_response() :: %{}
-
-  """
-  @type cancel_annotation_import_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_share_request() :: %{
-        optional("shareName") => String.t() | atom(),
-        required("principalSubscriber") => [String.t() | atom()],
-        required("resourceArn") => [String.t() | atom()]
-      }
-
-  """
-  @type create_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_set_import_jobs_response() :: %{
-        "importJobs" => list(import_read_set_job_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_read_set_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_read_set_activation_job_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("sources") => list(start_read_set_activation_job_source_item())
-      }
-
-  """
-  @type start_read_set_activation_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_annotation_store_version_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "storeId" => String.t() | atom(),
-        "tags" => map(),
-        "updateTime" => non_neg_integer(),
-        "versionArn" => String.t() | atom(),
-        "versionName" => String.t() | atom(),
-        "versionOptions" => list(),
-        "versionSizeBytes" => [float()]
-      }
-
-  """
-  @type get_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_reference() :: %{
-        "type" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type source_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_read_set_request() :: %{
-        optional("file") => String.t() | atom(),
-        required("partNumber") => [integer()]
-      }
-
-  """
-  @type get_read_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      variant_store_item() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "reference" => list(),
-        "sseConfig" => sse_config(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "storeArn" => String.t() | atom(),
-        "storeSizeBytes" => [float()],
-        "updateTime" => non_neg_integer()
-      }
-
-  """
-  @type variant_store_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      task_list_item() :: %{
-        "cacheHit" => [boolean()],
-        "cacheS3Uri" => String.t() | atom(),
-        "cpus" => [integer()],
-        "creationTime" => non_neg_integer(),
-        "gpus" => [integer()],
-        "instanceType" => String.t() | atom(),
-        "memory" => [integer()],
-        "name" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "stopTime" => non_neg_integer(),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type task_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_request() :: %{
-        optional("export") => list(String.t() | atom()),
-        optional("type") => String.t() | atom(),
-        optional("workflowOwnerId") => String.t() | atom()
-      }
-
-  """
-  @type get_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configurations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("startingToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      run_configurations_response() :: %{
-        "vpcConfig" => vpc_config_response()
-      }
-
-  """
-  @type run_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_references_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "references" => list(reference_list_item())
-      }
-
-  """
-  @type list_references_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_variant_stores_request() :: %{
-        optional("filter") => list_variant_stores_filter(),
-        optional("ids") => list(String.t() | atom()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_variant_stores_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      run_summary() :: %{
-        "cancelledRunCount" => [integer()],
-        "completedRunCount" => [integer()],
-        "deletedRunCount" => [integer()],
-        "failedRunCount" => [integer()],
-        "pendingRunCount" => [integer()],
-        "runningRunCount" => [integer()],
-        "startingRunCount" => [integer()],
-        "stoppingRunCount" => [integer()]
-      }
-
-  """
-  @type run_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1510,218 +93,165 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      create_sequence_store_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("eTagAlgorithmFamily") => String.t() | atom(),
-        optional("fallbackLocation") => String.t() | atom(),
-        optional("propagatedSetLevelTags") => list(String.t() | atom()),
-        optional("s3AccessConfig") => s3_access_config(),
-        optional("sseConfig") => sse_config(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
+      get_s3_access_policy_request() :: %{}
 
   """
-  @type create_sequence_store_request() :: %{(String.t() | atom()) => any()}
+  @type get_s3_access_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      accept_share_response() :: %{
+      get_reference_request() :: %{
+        optional("file") => String.t() | atom(),
+        required("partNumber") => [integer()],
+        optional("range") => String.t() | atom()
+      }
+
+  """
+  @type get_reference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_read_set_filter() :: %{
+        "createdAfter" => [non_neg_integer()],
+        "createdBefore" => [non_neg_integer()],
         "status" => String.t() | atom()
       }
 
   """
-  @type accept_share_response() :: %{(String.t() | atom()) => any()}
+  @type activate_read_set_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_annotation_store_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "numVersions" => [integer()],
-        "reference" => list(),
-        "sseConfig" => sse_config(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "storeArn" => String.t() | atom(),
-        "storeFormat" => String.t() | atom(),
-        "storeOptions" => list(),
-        "storeSizeBytes" => [float()],
-        "tags" => map(),
-        "updateTime" => non_neg_integer()
-      }
+      cancel_annotation_import_request() :: %{}
 
   """
-  @type get_annotation_store_response() :: %{(String.t() | atom()) => any()}
+  @type cancel_annotation_import_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_runs_in_batch_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "runs" => list(run_batch_list_item())
-      }
+      accept_share_request() :: %{}
 
   """
-  @type list_runs_in_batch_response() :: %{(String.t() | atom()) => any()}
+  @type accept_share_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_batch_request() :: %{}
-
-  """
-  @type delete_batch_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      definition_repository() :: %{
-        "connectionArn" => String.t() | atom(),
-        "excludeFilePatterns" => list([String.t() | atom()]()),
-        "fullRepositoryId" => String.t() | atom(),
-        "sourceReference" => source_reference()
-      }
-
-  """
-  @type definition_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_parameter() :: %{
-        "description" => String.t() | atom(),
-        "optional" => [boolean()]
-      }
-
-  """
-  @type workflow_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_shares_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "shares" => list(share_details())
-      }
-
-  """
-  @type list_shares_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_run_cache_request() :: %{
-        optional("cacheBehavior") => String.t() | atom(),
-        optional("cacheBucketOwnerId") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("tags") => map(),
-        required("cacheS3Location") => String.t() | atom(),
-        required("requestId") => String.t() | atom()
-      }
-
-  """
-  @type create_run_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vcf_options() :: %{
-        "ignoreFilterField" => [boolean()],
-        "ignoreQualField" => [boolean()]
-      }
-
-  """
-  @type vcf_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_read_set_activation_job_response() :: %{
-        "completionTime" => [non_neg_integer()],
-        "creationTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "sequenceStoreId" => String.t() | atom(),
-        "sources" => list(activate_read_set_source_item()),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type get_read_set_activation_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_read_set_upload_part_list_item() :: %{
+      read_set_upload_part_list_item() :: %{
         "checksum" => [String.t() | atom()],
+        "creationTime" => [non_neg_integer()],
+        "lastUpdatedTime" => [non_neg_integer()],
         "partNumber" => [integer()],
+        "partSize" => [float()],
         "partSource" => String.t() | atom()
       }
 
   """
-  @type complete_read_set_upload_part_list_item() :: %{(String.t() | atom()) => any()}
+  @type read_set_upload_part_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_run_group_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "maxCpus" => [integer()],
-        "maxDuration" => [integer()],
-        "maxGpus" => [integer()],
-        "maxRuns" => [integer()],
-        "name" => String.t() | atom(),
-        "tags" => map()
+      update_sequence_store_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("fallbackLocation") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("propagatedSetLevelTags") => list(String.t() | atom()),
+        optional("s3AccessConfig") => s3_access_config()
       }
 
   """
-  @type get_run_group_response() :: %{(String.t() | atom()) => any()}
+  @type update_sequence_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      registry_mapping() :: %{
-        "ecrAccountId" => String.t() | atom(),
-        "ecrRepositoryPrefix" => String.t() | atom(),
-        "upstreamRegistryUrl" => String.t() | atom(),
-        "upstreamRepositoryPrefix" => String.t() | atom()
+      read_set_upload_part_list_filter() :: %{
+        "createdAfter" => [non_neg_integer()],
+        "createdBefore" => [non_neg_integer()]
       }
 
   """
-  @type registry_mapping() :: %{(String.t() | atom()) => any()}
+  @type read_set_upload_part_list_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      variant_import_item_source() :: %{
-        "source" => String.t() | atom()
+      run_configurations() :: %{
+        "vpcConfig" => vpc_config()
       }
 
   """
-  @type variant_import_item_source() :: %{(String.t() | atom()) => any()}
+  @type run_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workflow_request() :: %{
+        optional("accelerators") => String.t() | atom(),
+        optional("containerRegistryMap") => container_registry_map(),
+        optional("containerRegistryMapUri") => String.t() | atom(),
+        optional("definitionRepository") => definition_repository(),
+        optional("definitionUri") => String.t() | atom(),
+        optional("definitionZip") => [binary()],
+        optional("description") => String.t() | atom(),
+        optional("engine") => String.t() | atom(),
+        optional("main") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("parameterTemplate") => map(),
+        optional("parameterTemplatePath") => String.t() | atom(),
+        optional("readmeMarkdown") => String.t() | atom(),
+        optional("readmePath") => String.t() | atom(),
+        optional("readmeUri") => String.t() | atom(),
+        required("requestId") => String.t() | atom(),
+        optional("storageCapacity") => [integer()],
+        optional("storageType") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("workflowBucketOwnerId") => String.t() | atom()
+      }
+
+  """
+  @type create_workflow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_read_set_request() :: %{
+        required("ids") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_read_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_s3_access_policy_response() :: %{
+        "s3AccessPointArn" => String.t() | atom(),
+        "s3AccessPolicy" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
+        "storeType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_s3_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1743,51 +273,63 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      version_delete_error() :: %{
-        "message" => [String.t() | atom()],
-        "versionName" => String.t() | atom()
+      cancel_run_batch_response() :: %{}
+
+  """
+  @type cancel_run_batch_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      file_information() :: %{
+        "contentLength" => [float()],
+        "partSize" => [float()],
+        "s3Access" => read_set_s3_access(),
+        "totalParts" => [integer()]
       }
 
   """
-  @type version_delete_error() :: %{(String.t() | atom()) => any()}
+  @type file_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_workflow_version_request() :: %{}
-
-  """
-  @type delete_workflow_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      not_supported_operation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type not_supported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_response() :: %{
+      run_cache_list_item() :: %{
         "arn" => String.t() | atom(),
+        "cacheBehavior" => String.t() | atom(),
+        "cacheS3Uri" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "runConfigurations" => run_configurations_response(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "uuid" => String.t() | atom()
+        "status" => String.t() | atom()
       }
 
   """
-  @type get_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type run_cache_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_batch_request() :: %{}
+
+  """
+  @type delete_batch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tsv_version_options() :: %{
+        "annotationType" => String.t() | atom(),
+        "formatToHeader" => map(),
+        "schema" => list(map())
+      }
+
+  """
+  @type tsv_version_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1805,77 +347,673 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      sequence_store_filter() :: %{
-        "createdAfter" => [non_neg_integer()],
-        "createdBefore" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "updatedAfter" => [non_neg_integer()],
-        "updatedBefore" => [non_neg_integer()]
+      list_read_set_activation_jobs_request() :: %{
+        optional("filter") => activate_read_set_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type sequence_store_filter() :: %{(String.t() | atom()) => any()}
+  @type list_read_set_activation_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_batch_response() :: %{
-        "arn" => String.t() | atom(),
+      create_annotation_store_version_response() :: %{
         "creationTime" => non_neg_integer(),
-        "defaultRunSetting" => default_run_setting(),
-        "failedTime" => non_neg_integer(),
-        "failureReason" => [String.t() | atom()],
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "processedTime" => non_neg_integer(),
-        "runSummary" => run_summary(),
         "status" => String.t() | atom(),
-        "submissionSummary" => submission_summary(),
-        "submittedTime" => non_neg_integer(),
+        "storeId" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "versionOptions" => list()
+      }
+
+  """
+  @type create_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_run_cache_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type create_run_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workflow_version_response() :: %{
+        "arn" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "totalRuns" => [integer()],
+        "uuid" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "workflowId" => String.t() | atom()
+      }
+
+  """
+  @type create_workflow_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_set_batch_error() :: %{
+        "code" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type read_set_batch_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_annotation_store_request() :: %{}
+
+  """
+  @type get_annotation_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_runs_request() :: %{
+        optional("batchId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("name") => String.t() | atom(),
+        optional("runGroupId") => String.t() | atom(),
+        optional("startingToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_annotation_import_response() :: %{
+        "jobId" => String.t() | atom()
+      }
+
+  """
+  @type start_annotation_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multipart_read_set_uploads_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_multipart_read_set_uploads_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_read_set_metadata_request() :: %{}
+
+  """
+  @type get_read_set_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sequence_store_response() :: %{}
+
+  """
+  @type delete_sequence_store_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_variant_store_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("reference") => list(),
+        optional("sseConfig") => sse_config(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_variant_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_annotation_import_jobs_response() :: %{
+        "annotationImportJobs" => list(annotation_import_job_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_annotation_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_config() :: %{
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_read_set_job_detail() :: %{
+        "completionTime" => [non_neg_integer()],
+        "creationTime" => [non_neg_integer()],
+        "destination" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type export_read_set_job_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_variant_store_request() :: %{
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_variant_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_annotation_store_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("reference") => list(),
+        optional("sseConfig") => sse_config(),
+        required("storeFormat") => String.t() | atom(),
+        optional("storeOptions") => list(),
+        optional("tags") => map(),
+        optional("versionName") => String.t() | atom()
+      }
+
+  """
+  @type create_annotation_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      range_not_satisfiable_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type range_not_satisfiable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_batch_request() :: %{
+        optional("maxItems") => [integer()],
+        optional("name") => String.t() | atom(),
+        optional("runGroupId") => String.t() | atom(),
+        optional("startingToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tsv_store_options() :: %{
+        "annotationType" => String.t() | atom(),
+        "formatToHeader" => map(),
+        "schema" => list(map())
+      }
+
+  """
+  @type tsv_store_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_variant_stores_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "variantStores" => list(variant_store_item())
+      }
+
+  """
+  @type list_variant_stores_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_reference_job_item() :: %{
+        "completionTime" => [non_neg_integer()],
+        "creationTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type import_reference_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "resourceArns" => list([String.t() | atom()]()),
+        "status" => list(String.t() | atom()),
+        "type" => list(String.t() | atom())
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_read_set_part_response() :: %{
+        "checksum" => [String.t() | atom()]
+      }
+
+  """
+  @type upload_read_set_part_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configurations_response() :: %{
+        "items" => list(configuration_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_run_caches_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("startingToken") => String.t() | atom()
+      }
+
+  """
+  @type list_run_caches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variant_import_item_source() :: %{
+        "source" => String.t() | atom()
+      }
+
+  """
+  @type variant_import_item_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configurations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("startingToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_run_setting() :: %{
+        "cacheBehavior" => String.t() | atom(),
+        "cacheId" => String.t() | atom(),
+        "configurationName" => String.t() | atom(),
+        "engineSettings" => any(),
+        "logLevel" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "networkingMode" => String.t() | atom(),
+        "outputBucketOwnerId" => String.t() | atom(),
+        "outputUri" => String.t() | atom(),
+        "parameters" => any(),
+        "priority" => [integer()],
+        "retentionMode" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "runGroupId" => String.t() | atom(),
+        "runTags" => map(),
+        "scratchStorageMode" => String.t() | atom(),
+        "storageCapacity" => [integer()],
+        "storageType" => String.t() | atom(),
+        "workflowId" => String.t() | atom(),
+        "workflowOwnerId" => String.t() | atom(),
+        "workflowType" => String.t() | atom(),
+        "workflowVersionName" => String.t() | atom()
+      }
+
+  """
+  @type default_run_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_variant_import_request() :: %{
+        optional("annotationFields") => map(),
+        required("destinationName") => String.t() | atom(),
+        required("items") => list(variant_import_item_source()),
+        required("roleArn") => String.t() | atom(),
+        optional("runLeftNormalization") => boolean()
+      }
+
+  """
+  @type start_variant_import_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_run_batch_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
         "uuid" => String.t() | atom()
       }
 
   """
-  @type get_batch_response() :: %{(String.t() | atom()) => any()}
+  @type start_run_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
+      list_read_set_activation_jobs_response() :: %{
+        "activationJobs" => list(activate_read_set_job_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_read_set_activation_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_registry_map() :: %{
+        "imageMappings" => list(image_mapping()),
+        "registryMappings" => list(registry_mapping())
+      }
+
+  """
+  @type container_registry_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_version_list_item() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "digest" => String.t() | atom(),
+        "metadata" => map(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "workflowId" => String.t() | atom()
+      }
+
+  """
+  @type workflow_version_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_versions_response() :: %{
+        "items" => list(workflow_version_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_workflow_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
+      start_reference_import_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("sources") => list(start_reference_import_job_source_item())
+      }
+
+  """
+  @type start_reference_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workflow_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_batch_request() :: %{}
+
+  """
+  @type get_batch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_details() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reference_store_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sseConfig" => sse_config()
+      }
+
+  """
+  @type get_reference_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_shares_request() :: %{
+        optional("filter") => filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        required("resourceOwner") => String.t() | atom()
+      }
+
+  """
+  @type list_shares_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_reference_store_request() :: %{}
+
+  """
+  @type delete_reference_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_read_set_response() :: %{
+        "errors" => list(read_set_batch_error())
+      }
+
+  """
+  @type batch_delete_read_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_shares_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "shares" => list(share_details())
+      }
+
+  """
+  @type list_shares_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_list_item() :: %{
+        "arn" => String.t() | atom(),
+        "batchId" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "priority" => [integer()],
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "stopTime" => non_neg_integer(),
+        "storageCapacity" => [integer()],
+        "storageType" => String.t() | atom(),
+        "workflowId" => String.t() | atom(),
+        "workflowName" => String.t() | atom(),
+        "workflowVersionName" => String.t() | atom()
+      }
+
+  """
+  @type run_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_runs_in_batch_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "runs" => list(run_batch_list_item())
+      }
+
+  """
+  @type list_runs_in_batch_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_reference_request() :: %{
-        optional("file") => String.t() | atom(),
-        optional("range") => String.t() | atom(),
-        required("partNumber") => [integer()]
+      s3_access_config() :: %{
+        "accessLogLocation" => String.t() | atom()
       }
 
   """
-  @type get_reference_request() :: %{(String.t() | atom()) => any()}
+  @type s3_access_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_read_set_export_jobs_request() :: %{
+        optional("filter") => export_read_set_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_read_set_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1901,64 +1039,6 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      get_sequence_store_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "eTagAlgorithmFamily" => String.t() | atom(),
-        "fallbackLocation" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "propagatedSetLevelTags" => list(String.t() | atom()),
-        "s3Access" => sequence_store_s3_access(),
-        "sseConfig" => sse_config(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_sequence_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      run_group_list_item() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "maxCpus" => [integer()],
-        "maxDuration" => [integer()],
-        "maxGpus" => [integer()],
-        "maxRuns" => [integer()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type run_group_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_annotation_store_version_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "storeId" => String.t() | atom(),
-        "versionName" => String.t() | atom(),
-        "versionOptions" => list()
-      }
-
-  """
-  @type create_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       delete_configuration_request() :: %{}
 
   """
@@ -1968,69 +1048,146 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      start_reference_import_job_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("sources") => list(start_reference_import_job_source_item())
+      update_annotation_store_version_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
+        "updateTime" => non_neg_integer(),
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type start_reference_import_job_request() :: %{(String.t() | atom()) => any()}
+  @type update_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_run_tasks_response() :: %{
-        "items" => list(task_list_item()),
+      reference_list_item() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "md5" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type reference_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vcf_options() :: %{
+        "ignoreFilterField" => [boolean()],
+        "ignoreQualField" => [boolean()]
+      }
+
+  """
+  @type vcf_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_share_request() :: %{}
+
+  """
+  @type get_share_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_batch_response() :: %{
+        "items" => list(batch_list_item()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_run_tasks_response() :: %{(String.t() | atom()) => any()}
+  @type list_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_share_response() :: %{
-        "shareId" => [String.t() | atom()],
-        "shareName" => String.t() | atom(),
+      list_runs_response() :: %{
+        "items" => list(run_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_runs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multipart_read_set_upload_list_item() :: %{
+        "creationTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "sourceFileType" => String.t() | atom(),
+        "subjectId" => String.t() | atom(),
+        "tags" => map(),
+        "uploadId" => String.t() | atom()
+      }
+
+  """
+  @type multipart_read_set_upload_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_annotation_store_versions_filter() :: %{
         "status" => String.t() | atom()
       }
 
   """
-  @type create_share_response() :: %{(String.t() | atom()) => any()}
+  @type list_annotation_store_versions_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_workflow_version_request() :: %{
-        optional("accelerators") => String.t() | atom(),
-        optional("containerRegistryMap") => container_registry_map(),
-        optional("containerRegistryMapUri") => String.t() | atom(),
-        optional("definitionRepository") => definition_repository(),
-        optional("definitionUri") => String.t() | atom(),
-        optional("definitionZip") => [binary()],
-        optional("description") => String.t() | atom(),
-        optional("engine") => String.t() | atom(),
-        optional("main") => String.t() | atom(),
-        optional("parameterTemplate") => map(),
-        optional("parameterTemplatePath") => String.t() | atom(),
-        optional("readmeMarkdown") => String.t() | atom(),
-        optional("readmePath") => String.t() | atom(),
-        optional("readmeUri") => String.t() | atom(),
-        optional("storageCapacity") => [integer()],
-        optional("storageType") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("workflowBucketOwnerId") => String.t() | atom(),
-        required("requestId") => String.t() | atom(),
-        required("versionName") => String.t() | atom()
+      request_timeout_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type create_workflow_version_request() :: %{(String.t() | atom()) => any()}
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_variant_stores_filter() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type list_variant_stores_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2058,215 +1215,24 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      delete_variant_store_request() :: %{
-        optional("force") => [boolean()]
-      }
-
-  """
-  @type delete_variant_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_reference_store_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("sseConfig") => sse_config(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_reference_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_import_item_detail() :: %{
-        "jobStatus" => String.t() | atom(),
-        "source" => String.t() | atom()
-      }
-
-  """
-  @type annotation_import_item_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      e_tag() :: %{
-        "algorithm" => String.t() | atom(),
-        "source1" => [String.t() | atom()],
-        "source2" => [String.t() | atom()]
-      }
-
-  """
-  @type e_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_set_import_jobs_request() :: %{
-        optional("filter") => import_read_set_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_read_set_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_read_set_metadata_request() :: %{}
-
-  """
-  @type get_read_set_metadata_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      reference_store_filter() :: %{
-        "createdAfter" => [non_neg_integer()],
-        "createdBefore" => [non_neg_integer()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type reference_store_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_variant_stores_filter() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type list_variant_stores_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_sets_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "readSets" => list(read_set_list_item())
-      }
-
-  """
-  @type list_read_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_annotation_store_request() :: %{
-        optional("force") => [boolean()]
-      }
-
-  """
-  @type delete_annotation_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflows_request() :: %{
-        optional("maxResults") => [integer()],
+      create_run_group_request() :: %{
+        optional("maxCpus") => [integer()],
+        optional("maxDuration") => [integer()],
+        optional("maxGpus") => [integer()],
+        optional("maxRuns") => [integer()],
         optional("name") => String.t() | atom(),
-        optional("startingToken") => String.t() | atom(),
-        optional("type") => String.t() | atom()
+        required("requestId") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
+  @type create_run_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_multipart_read_set_upload_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("generatedFrom") => String.t() | atom(),
-        optional("referenceArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("sampleId") => String.t() | atom(),
-        required("sourceFileType") => String.t() | atom(),
-        required("subjectId") => String.t() | atom()
-      }
-
-  """
-  @type create_multipart_read_set_upload_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_details() :: %{
-        "image" => String.t() | atom(),
-        "imageDigest" => String.t() | atom(),
-        "sourceImage" => String.t() | atom()
-      }
-
-  """
-  @type image_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sequence_store_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("fallbackLocation") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("propagatedSetLevelTags") => list(String.t() | atom()),
-        optional("s3AccessConfig") => s3_access_config()
-      }
-
-  """
-  @type update_sequence_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_read_set_import_job_response() :: %{
-        "creationTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "sequenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type start_read_set_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reference_store_response() :: %{
+      create_reference_store_response() :: %{
         "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
         "description" => String.t() | atom(),
@@ -2276,830 +1242,37 @@ defmodule AWS.Omics do
       }
 
   """
-  @type get_reference_store_response() :: %{(String.t() | atom()) => any()}
+  @type create_reference_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      read_set_upload_part_list_item() :: %{
-        "checksum" => [String.t() | atom()],
-        "creationTime" => [non_neg_integer()],
-        "lastUpdatedTime" => [non_neg_integer()],
-        "partNumber" => [integer()],
-        "partSize" => [float()],
-        "partSource" => String.t() | atom()
+      delete_annotation_store_versions_response() :: %{
+        "errors" => list(version_delete_error())
       }
 
   """
-  @type read_set_upload_part_list_item() :: %{(String.t() | atom()) => any()}
+  @type delete_annotation_store_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vpc_config() :: %{
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type vpc_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_s3_access_policy_response() :: %{
-        "s3AccessPointArn" => String.t() | atom(),
-        "storeId" => String.t() | atom(),
-        "storeType" => list(any())
-      }
-
-  """
-  @type put_s3_access_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_workflow_version_response() :: %{
+      get_run_group_response() :: %{
         "arn" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "uuid" => String.t() | atom(),
-        "versionName" => String.t() | atom(),
-        "workflowId" => String.t() | atom()
-      }
-
-  """
-  @type create_workflow_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("requestId") => String.t() | atom(),
-        required("runConfigurations") => run_configurations()
-      }
-
-  """
-  @type create_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      read_set_files() :: %{
-        "index" => file_information(),
-        "source1" => file_information(),
-        "source2" => file_information()
-      }
-
-  """
-  @type read_set_files() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_run_batch_response() :: %{}
-
-  """
-  @type cancel_run_batch_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "maxCpus" => [integer()],
+        "maxDuration" => [integer()],
+        "maxGpus" => [integer()],
+        "maxRuns" => [integer()],
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_details() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "uuid" => String.t() | atom()
-      }
-
-  """
-  @type configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_read_set_import_job_source_item() :: %{
-        "description" => String.t() | atom(),
-        "generatedFrom" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "referenceArn" => String.t() | atom(),
-        "sampleId" => String.t() | atom(),
-        "sourceFileType" => String.t() | atom(),
-        "sourceFiles" => source_files(),
-        "subjectId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type start_read_set_import_job_source_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_read_set_source_item() :: %{
-        "readSetId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type activate_read_set_source_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_annotation_import_jobs_response() :: %{
-        "annotationImportJobs" => list(annotation_import_job_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_annotation_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reference_files() :: %{
-        "index" => file_information(),
-        "source" => file_information()
-      }
-
-  """
-  @type reference_files() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_annotation_import_request() :: %{
-        optional("annotationFields") => map(),
-        optional("formatOptions") => list(),
-        optional("runLeftNormalization") => boolean(),
-        optional("versionName") => String.t() | atom(),
-        required("destinationName") => String.t() | atom(),
-        required("items") => list(annotation_import_item_source()),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type start_annotation_import_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_read_set_request() :: %{
-        required("ids") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_read_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_variant_store_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "reference" => list(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type create_variant_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_version_request() :: %{
-        optional("export") => list(String.t() | atom()),
-        optional("type") => String.t() | atom(),
-        optional("workflowOwnerId") => String.t() | atom()
-      }
-
-  """
-  @type get_workflow_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_run_cache_request() :: %{}
-
-  """
-  @type get_run_cache_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_runs_in_batch_request() :: %{
-        optional("maxItems") => [integer()],
-        optional("runId") => [String.t() | atom()],
-        optional("runSettingId") => [String.t() | atom()],
-        optional("startingToken") => String.t() | atom(),
-        optional("submissionStatus") => String.t() | atom()
-      }
-
-  """
-  @type list_runs_in_batch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_sets_request() :: %{
-        optional("filter") => read_set_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_read_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_run_groups_response() :: %{
-        "items" => list(run_group_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_run_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflow_versions_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("startingToken") => String.t() | atom(),
-        optional("type") => String.t() | atom(),
-        optional("workflowOwnerId") => String.t() | atom()
-      }
-
-  """
-  @type list_workflow_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      annotation_import_item_source() :: %{
-        "source" => String.t() | atom()
-      }
-
-  """
-  @type annotation_import_item_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "resourceArns" => list([String.t() | atom()]()),
-        "status" => list(String.t() | atom()),
-        "type" => list(String.t() | atom())
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "runConfigurations" => run_configurations_response(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "uuid" => String.t() | atom()
-      }
-
-  """
-  @type create_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sequence_store_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "eTagAlgorithmFamily" => String.t() | atom(),
-        "fallbackLocation" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "propagatedSetLevelTags" => list(String.t() | atom()),
-        "s3Access" => sequence_store_s3_access(),
-        "sseConfig" => sse_config(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type create_sequence_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_run_request() :: %{}
-
-  """
-  @type cancel_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_run_request() :: %{}
-
-  """
-  @type delete_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_run_group_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type create_run_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sequence_store_response() :: %{}
-
-  """
-  @type delete_sequence_store_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_read_set_export_job_response() :: %{
-        "creationTime" => [non_neg_integer()],
-        "destination" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "sequenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type start_read_set_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_list_item() :: %{
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "totalRuns" => [integer()],
-        "workflowId" => String.t() | atom()
-      }
-
-  """
-  @type batch_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflow_versions_response() :: %{
-        "items" => list(workflow_version_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_workflow_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reference_store_request() :: %{}
-
-  """
-  @type get_reference_store_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_annotation_store_version_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_annotation_store_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_run_batch_request() :: %{
-        required("batchId") => String.t() | atom()
-      }
-
-  """
-  @type delete_run_batch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reference_filter() :: %{
-        "createdAfter" => [non_neg_integer()],
-        "createdBefore" => [non_neg_integer()],
-        "md5" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type reference_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_read_set_response() :: %{
-        "payload" => binary()
-      }
-
-  """
-  @type get_read_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_run_tasks_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("startingToken") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type list_run_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_set_export_jobs_response() :: %{
-        "exportJobs" => list(export_read_set_job_detail()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_read_set_export_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sequence_store_s3_access() :: %{
-        "accessLogLocation" => String.t() | atom(),
-        "s3AccessPointArn" => String.t() | atom(),
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type sequence_store_s3_access() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_variant_store_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("sseConfig") => sse_config(),
-        optional("tags") => map(),
-        required("reference") => list()
-      }
-
-  """
-  @type create_variant_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_read_set_export_job_response() :: %{
-        "completionTime" => [non_neg_integer()],
-        "creationTime" => [non_neg_integer()],
-        "destination" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "readSets" => list(export_read_set_detail()),
-        "sequenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type get_read_set_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sequence_stores_request() :: %{
-        optional("filter") => sequence_store_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_sequence_stores_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_read_set_detail() :: %{
-        "id" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type export_read_set_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_annotation_store_versions_filter() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type list_annotation_store_versions_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multipart_read_set_uploads_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "uploads" => list(multipart_read_set_upload_list_item())
-      }
-
-  """
-  @type list_multipart_read_set_uploads_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      read_options() :: %{
-        "comment" => String.t() | atom(),
-        "encoding" => String.t() | atom(),
-        "escape" => String.t() | atom(),
-        "escapeQuotes" => boolean(),
-        "header" => boolean(),
-        "lineSep" => String.t() | atom(),
-        "quote" => String.t() | atom(),
-        "quoteAll" => boolean(),
-        "sep" => String.t() | atom()
-      }
-
-  """
-  @type read_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sse_config() :: %{
-        "keyArn" => [String.t() | atom()],
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type sse_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_variant_import_response() :: %{
-        "annotationFields" => map(),
-        "completionTime" => non_neg_integer(),
-        "creationTime" => non_neg_integer(),
-        "destinationName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "items" => list(variant_import_item_detail()),
-        "roleArn" => String.t() | atom(),
-        "runLeftNormalization" => boolean(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "updateTime" => non_neg_integer()
-      }
-
-  """
-  @type get_variant_import_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_run_group_request() :: %{
-        optional("maxCpus") => [integer()],
-        optional("maxDuration") => [integer()],
-        optional("maxGpus") => [integer()],
-        optional("maxRuns") => [integer()],
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_run_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_workflow_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "uuid" => String.t() | atom()
-      }
-
-  """
-  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_variant_store_request() :: %{}
-
-  """
-  @type get_variant_store_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_read_set_activation_job_request() :: %{}
-
-  """
-  @type get_read_set_activation_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_variant_import_request() :: %{}
-
-  """
-  @type get_variant_import_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sequence_information() :: %{
-        "alignment" => [String.t() | atom()],
-        "generatedFrom" => String.t() | atom(),
-        "totalBaseCount" => [float()],
-        "totalReadCount" => [float()]
-      }
-
-  """
-  @type sequence_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reference_stores_request() :: %{
-        optional("filter") => reference_store_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_reference_stores_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reference_import_jobs_request() :: %{
-        optional("filter") => import_reference_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_reference_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sequence_store_request() :: %{}
-
-  """
-  @type get_sequence_store_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reference_import_job_response() :: %{
-        "completionTime" => [non_neg_integer()],
-        "creationTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "referenceStoreId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "sources" => list(import_reference_source_item()),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type get_reference_import_job_response() :: %{(String.t() | atom()) => any()}
+  @type get_run_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3123,81 +1296,83 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      list_run_caches_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("startingToken") => String.t() | atom()
+      delete_variant_store_response() :: %{
+        "status" => String.t() | atom()
       }
 
   """
-  @type list_run_caches_request() :: %{(String.t() | atom()) => any()}
+  @type delete_variant_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_run_cache_response() :: %{
+      list_workflow_versions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("startingToken") => String.t() | atom(),
+        optional("type") => String.t() | atom(),
+        optional("workflowOwnerId") => String.t() | atom()
+      }
+
+  """
+  @type list_workflow_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sse_config() :: %{
+        "keyArn" => [String.t() | atom()],
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type sse_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_read_set_upload_part_list_item() :: %{
+        "checksum" => [String.t() | atom()],
+        "partNumber" => [integer()],
+        "partSource" => String.t() | atom()
+      }
+
+  """
+  @type complete_read_set_upload_part_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_variant_stores_request() :: %{
+        optional("filter") => list_variant_stores_filter(),
+        optional("ids") => list(String.t() | atom()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_variant_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_response() :: %{
         "arn" => String.t() | atom(),
-        "cacheBehavior" => String.t() | atom(),
-        "cacheBucketOwnerId" => String.t() | atom(),
-        "cacheS3Uri" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "runConfigurations" => run_configurations_response(),
         "status" => String.t() | atom(),
-        "tags" => map()
+        "tags" => map(),
+        "uuid" => String.t() | atom()
       }
 
   """
-  @type get_run_cache_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tsv_version_options() :: %{
-        "annotationType" => String.t() | atom(),
-        "formatToHeader" => map(),
-        "schema" => list(map())
-      }
-
-  """
-  @type tsv_version_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_batch_request() :: %{
-        optional("maxItems") => [integer()],
-        optional("name") => String.t() | atom(),
-        optional("runGroupId") => String.t() | atom(),
-        optional("startingToken") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type list_batch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
+  @type create_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3216,241 +1391,224 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      list_annotation_import_jobs_request() :: %{
-        optional("filter") => list_annotation_import_jobs_filter(),
-        optional("ids") => list(String.t() | atom()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
+      delete_sequence_store_request() :: %{}
 
   """
-  @type list_annotation_import_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type delete_sequence_store_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_variant_stores_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "variantStores" => list(variant_store_item())
+      get_share_response() :: %{
+        "share" => share_details()
       }
 
   """
-  @type list_variant_stores_response() :: %{(String.t() | atom()) => any()}
+  @type get_share_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_annotation_import_response() :: %{
-        "jobId" => String.t() | atom()
+      create_multipart_read_set_upload_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("generatedFrom") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("referenceArn") => String.t() | atom(),
+        required("sampleId") => String.t() | atom(),
+        required("sourceFileType") => String.t() | atom(),
+        required("subjectId") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type start_annotation_import_response() :: %{(String.t() | atom()) => any()}
+  @type create_multipart_read_set_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      configuration_list_item() :: %{
-        "arn" => String.t() | atom(),
+      update_annotation_store_version_request() :: %{
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_annotation_store_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_annotation_store_response() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "reference" => list(),
+        "status" => String.t() | atom(),
+        "storeFormat" => String.t() | atom(),
+        "storeOptions" => list(),
+        "versionName" => String.t() | atom()
+      }
+
+  """
+  @type create_annotation_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_annotation_store_versions_response() :: %{
+        "annotationStoreVersions" => list(annotation_store_version_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_annotation_store_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_variant_store_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "reference" => list(),
         "status" => String.t() | atom()
       }
 
   """
-  @type configuration_list_item() :: %{(String.t() | atom()) => any()}
+  @type create_variant_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_run_batch_response() :: %{}
+      start_read_set_activation_job_source_item() :: %{
+        "readSetId" => String.t() | atom()
+      }
 
   """
-  @type delete_run_batch_response() :: %{}
+  @type start_read_set_activation_job_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
+      update_workflow_version_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("readmeMarkdown") => String.t() | atom(),
+        optional("storageCapacity") => [integer()],
+        optional("storageType") => String.t() | atom()
+      }
+
+  """
+  @type update_workflow_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_run_group_request() :: %{
+        optional("maxCpus") => [integer()],
+        optional("maxDuration") => [integer()],
+        optional("maxGpus") => [integer()],
+        optional("maxRuns") => [integer()],
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_run_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_annotation_store_version_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("versionName") => String.t() | atom(),
+        optional("versionOptions") => list()
+      }
+
+  """
+  @type create_annotation_store_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_run_response() :: %{
+        "arn" => String.t() | atom(),
+        "configuration" => configuration_details(),
+        "id" => String.t() | atom(),
+        "networkingMode" => [String.t() | atom()],
+        "runOutputUri" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type start_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_s3_access_policy_response() :: %{}
+
+  """
+  @type delete_s3_access_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_annotation_import_response() :: %{
+        "annotationFields" => map(),
+        "completionTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "destinationName" => String.t() | atom(),
+        "formatOptions" => list(),
+        "id" => String.t() | atom(),
+        "items" => list(annotation_import_item_detail()),
+        "roleArn" => String.t() | atom(),
+        "runLeftNormalization" => boolean(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "updateTime" => non_neg_integer(),
+        "versionName" => String.t() | atom()
+      }
+
+  """
+  @type get_annotation_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_supported_operation_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type not_supported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_read_set_import_job_request() :: %{}
-
-  """
-  @type get_read_set_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_reference_store_request() :: %{}
-
-  """
-  @type delete_reference_store_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_s3_access_policy_request() :: %{}
-
-  """
-  @type delete_s3_access_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      multipart_read_set_upload_list_item() :: %{
-        "creationTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "generatedFrom" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "referenceArn" => String.t() | atom(),
-        "sampleId" => String.t() | atom(),
-        "sequenceStoreId" => String.t() | atom(),
-        "sourceFileType" => String.t() | atom(),
-        "subjectId" => String.t() | atom(),
-        "tags" => map(),
-        "uploadId" => String.t() | atom()
+      get_workflow_request() :: %{
+        optional("export") => list(String.t() | atom()),
+        optional("type") => String.t() | atom(),
+        optional("workflowOwnerId") => String.t() | atom()
       }
 
   """
-  @type multipart_read_set_upload_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_mapping() :: %{
-        "destinationImage" => String.t() | atom(),
-        "sourceImage" => String.t() | atom()
-      }
-
-  """
-  @type image_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      variant_import_item_detail() :: %{
-        "jobStatus" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type variant_import_item_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_run_task_request() :: %{}
-
-  """
-  @type get_run_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_run_task_response() :: %{
-        "cacheHit" => [boolean()],
-        "cacheS3Uri" => String.t() | atom(),
-        "cpus" => [integer()],
-        "creationTime" => non_neg_integer(),
-        "failureReason" => String.t() | atom(),
-        "gpus" => [integer()],
-        "imageDetails" => image_details(),
-        "instanceType" => String.t() | atom(),
-        "logStream" => String.t() | atom(),
-        "memory" => [integer()],
-        "name" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "stopTime" => non_neg_integer(),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type get_run_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_reference_store_response() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "sseConfig" => sse_config()
-      }
-
-  """
-  @type create_reference_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_reference_source_item() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "referenceId" => String.t() | atom(),
-        "sourceFile" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type import_reference_source_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_set_upload_parts_request() :: %{
-        optional("filter") => read_set_upload_part_list_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("partSource") => String.t() | atom()
-      }
-
-  """
-  @type list_read_set_upload_parts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_references_request() :: %{
-        optional("filter") => reference_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_references_request() :: %{(String.t() | atom()) => any()}
+  @type get_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3481,47 +1639,48 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      get_annotation_import_request() :: %{}
+      list_read_set_import_jobs_response() :: %{
+        "importJobs" => list(import_read_set_job_item()),
+        "nextToken" => String.t() | atom()
+      }
 
   """
-  @type get_annotation_import_request() :: %{}
+  @type list_read_set_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_s3_access_policy_response() :: %{
-        "s3AccessPointArn" => String.t() | atom(),
-        "s3AccessPolicy" => String.t() | atom(),
+      annotation_store_version_item() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "storeId" => String.t() | atom(),
-        "storeType" => list(any()),
-        "updateTime" => [non_neg_integer()]
+        "updateTime" => non_neg_integer(),
+        "versionArn" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "versionSizeBytes" => [float()]
       }
 
   """
-  @type get_s3_access_policy_response() :: %{(String.t() | atom()) => any()}
+  @type annotation_store_version_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_reference_response() :: %{}
-
-  """
-  @type delete_reference_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_config_response() :: %{
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
+      list_annotation_stores_request() :: %{
+        optional("filter") => list_annotation_stores_filter(),
+        optional("ids") => list(String.t() | atom()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
+  @type list_annotation_stores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3531,24 +1690,26 @@ defmodule AWS.Omics do
         optional("cacheBehavior") => String.t() | atom(),
         optional("cacheId") => String.t() | atom(),
         optional("configurationName") => String.t() | atom(),
+        optional("engineSettings") => any(),
         optional("logLevel") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("networkingMode") => String.t() | atom(),
+        required("outputUri") => String.t() | atom(),
         optional("parameters") => any(),
         optional("priority") => [integer()],
+        required("requestId") => String.t() | atom(),
         optional("retentionMode") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
         optional("runGroupId") => String.t() | atom(),
         optional("runId") => String.t() | atom(),
+        optional("scratchStorageMode") => String.t() | atom(),
         optional("storageCapacity") => [integer()],
         optional("storageType") => String.t() | atom(),
         optional("tags") => map(),
         optional("workflowId") => String.t() | atom(),
         optional("workflowOwnerId") => String.t() | atom(),
         optional("workflowType") => String.t() | atom(),
-        optional("workflowVersionName") => String.t() | atom(),
-        required("outputUri") => String.t() | atom(),
-        required("requestId") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
+        optional("workflowVersionName") => String.t() | atom()
       }
 
   """
@@ -3558,212 +1719,96 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      delete_annotation_store_versions_request() :: %{
-        optional("force") => [boolean()],
-        required("versions") => list(String.t() | atom())
+      registry_mapping() :: %{
+        "ecrAccountId" => String.t() | atom(),
+        "ecrRepositoryPrefix" => String.t() | atom(),
+        "upstreamRegistryUrl" => String.t() | atom(),
+        "upstreamRepositoryPrefix" => String.t() | atom()
       }
 
   """
-  @type delete_annotation_store_versions_request() :: %{(String.t() | atom()) => any()}
+  @type registry_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_workflow_version_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("readmeMarkdown") => String.t() | atom(),
-        optional("storageCapacity") => [integer()],
-        optional("storageType") => String.t() | atom()
-      }
-
-  """
-  @type update_workflow_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_batch_request() :: %{}
-
-  """
-  @type get_batch_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_share_request() :: %{}
-
-  """
-  @type get_share_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_read_set_activation_job_response() :: %{
+      get_reference_import_job_response() :: %{
+        "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
         "id" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "sources" => list(import_reference_source_item()),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
+      }
+
+  """
+  @type get_reference_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_variant_import_jobs_filter() :: %{
+        "status" => String.t() | atom(),
+        "storeName" => [String.t() | atom()]
+      }
+
+  """
+  @type list_variant_import_jobs_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_read_set_export_job_response() :: %{
+        "completionTime" => [non_neg_integer()],
+        "creationTime" => [non_neg_integer()],
+        "destination" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "readSets" => list(export_read_set_detail()),
         "sequenceStoreId" => String.t() | atom(),
-        "status" => String.t() | atom()
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type start_read_set_activation_job_response() :: %{(String.t() | atom()) => any()}
+  @type get_read_set_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_annotation_store_version_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("versionOptions") => list(),
-        required("versionName") => String.t() | atom()
+      list_read_set_upload_parts_request() :: %{
+        optional("filter") => read_set_upload_part_list_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("partSource") => String.t() | atom()
       }
 
   """
-  @type create_annotation_store_version_request() :: %{(String.t() | atom()) => any()}
+  @type list_read_set_upload_parts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_share_response() :: %{
-        "share" => share_details()
+      variant_import_job_item() :: %{
+        "annotationFields" => map(),
+        "completionTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "destinationName" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "roleArn" => String.t() | atom(),
+        "runLeftNormalization" => boolean(),
+        "status" => String.t() | atom(),
+        "updateTime" => non_neg_integer()
       }
 
   """
-  @type get_share_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_variant_import_response() :: %{}
-
-  """
-  @type cancel_variant_import_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_read_set_upload_parts_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "parts" => list(read_set_upload_part_list_item())
-      }
-
-  """
-  @type list_read_set_upload_parts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_batch_response() :: %{
-        "items" => list(batch_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_batch_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_reference_store_response() :: %{}
-
-  """
-  @type delete_reference_store_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_share_response() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type delete_share_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_read_set_activation_job_source_item() :: %{
-        "readSetId" => String.t() | atom()
-      }
-
-  """
-  @type start_read_set_activation_job_source_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_variant_import_request() :: %{
-        optional("annotationFields") => map(),
-        optional("runLeftNormalization") => boolean(),
-        required("destinationName") => String.t() | atom(),
-        required("items") => list(variant_import_item_source()),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type start_variant_import_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_files() :: %{
-        "source1" => String.t() | atom(),
-        "source2" => String.t() | atom()
-      }
-
-  """
-  @type source_files() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_reference_import_job_request() :: %{}
-
-  """
-  @type get_reference_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      file_information() :: %{
-        "contentLength" => [float()],
-        "partSize" => [float()],
-        "s3Access" => read_set_s3_access(),
-        "totalParts" => [integer()]
-      }
-
-  """
-  @type file_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_read_set_export_job_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("destination") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("sources") => list(export_read_set())
-      }
-
-  """
-  @type start_read_set_export_job_request() :: %{(String.t() | atom()) => any()}
+  @type variant_import_job_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3780,102 +1825,81 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      tsv_store_options() :: %{
-        "annotationType" => String.t() | atom(),
-        "formatToHeader" => map(),
-        "schema" => list(map())
-      }
-
-  """
-  @type tsv_store_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_annotation_store_versions_request() :: %{
-        optional("filter") => list_annotation_store_versions_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_annotation_store_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_registry_map() :: %{
-        "imageMappings" => list(image_mapping()),
-        "registryMappings" => list(registry_mapping())
-      }
-
-  """
-  @type container_registry_map() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_run_response() :: %{
-        "priority" => [integer()],
-        "id" => String.t() | atom(),
-        "accelerators" => String.t() | atom(),
-        "workflowVersionName" => String.t() | atom(),
-        "networkingMode" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "runGroupId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "logLevel" => String.t() | atom(),
-        "workflowType" => String.t() | atom(),
-        "startedBy" => String.t() | atom(),
-        "configuration" => configuration_details(),
-        "roleArn" => String.t() | atom(),
-        "digest" => String.t() | atom(),
-        "runOutputUri" => String.t() | atom(),
-        "retentionMode" => String.t() | atom(),
-        "uuid" => String.t() | atom(),
-        "storageCapacity" => [integer()],
-        "workflowId" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "workflowUuid" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "runId" => String.t() | atom(),
-        "engineVersion" => String.t() | atom(),
-        "cacheId" => String.t() | atom(),
-        "tags" => map(),
-        "failureReason" => String.t() | atom(),
-        "logLocation" => run_log_location(),
-        "outputUri" => String.t() | atom(),
-        "definition" => String.t() | atom(),
+      get_configuration_response() :: %{
         "arn" => String.t() | atom(),
-        "parameters" => any(),
-        "cacheBehavior" => String.t() | atom(),
-        "storageType" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "runConfigurations" => run_configurations_response(),
         "status" => String.t() | atom(),
-        "vpcConfig" => vpc_config_response(),
-        "stopTime" => non_neg_integer(),
-        "batchId" => String.t() | atom(),
-        "resourceDigests" => map(),
-        "workflowOwnerId" => String.t() | atom()
+        "tags" => map(),
+        "uuid" => String.t() | atom()
       }
 
   """
-  @type get_run_response() :: %{(String.t() | atom()) => any()}
+  @type get_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_run_groups_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("name") => String.t() | atom(),
-        optional("startingToken") => String.t() | atom()
+      list_annotation_import_jobs_filter() :: %{
+        "status" => String.t() | atom(),
+        "storeName" => [String.t() | atom()]
       }
 
   """
-  @type list_run_groups_request() :: %{(String.t() | atom()) => any()}
+  @type list_annotation_import_jobs_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_version_request() :: %{
+        optional("export") => list(String.t() | atom()),
+        optional("type") => String.t() | atom(),
+        optional("workflowOwnerId") => String.t() | atom()
+      }
+
+  """
+  @type get_workflow_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_run_task_request() :: %{}
+
+  """
+  @type get_run_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_annotation_import_request() :: %{
+        optional("annotationFields") => map(),
+        required("destinationName") => String.t() | atom(),
+        optional("formatOptions") => list(),
+        required("items") => list(annotation_import_item_source()),
+        required("roleArn") => String.t() | atom(),
+        optional("runLeftNormalization") => boolean(),
+        optional("versionName") => String.t() | atom()
+      }
+
+  """
+  @type start_annotation_import_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3893,6 +1917,111 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      upload_read_set_part_request() :: %{
+        required("partNumber") => [integer()],
+        required("partSource") => String.t() | atom(),
+        required("payload") => binary()
+      }
+
+  """
+  @type upload_read_set_part_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_read_set_activation_job_request() :: %{}
+
+  """
+  @type get_read_set_activation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_run_tasks_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("startingToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type list_run_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_annotation_store_versions_request() :: %{
+        optional("force") => [boolean()],
+        required("versions") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_annotation_store_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflows_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("name") => String.t() | atom(),
+        optional("startingToken") => String.t() | atom(),
+        optional("type") => String.t() | atom()
+      }
+
+  """
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_read_set_import_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("sources") => list(start_read_set_import_job_source_item())
+      }
+
+  """
+  @type start_read_set_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sequence_store_request() :: %{}
+
+  """
+  @type get_sequence_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_annotation_stores_filter() :: %{
         "status" => String.t() | atom()
       }
@@ -3904,81 +2033,73 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      range_not_satisfiable_exception() :: %{
-        "message" => [String.t() | atom()]
+      list_annotation_stores_response() :: %{
+        "annotationStores" => list(annotation_store_item()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type range_not_satisfiable_exception() :: %{(String.t() | atom()) => any()}
+  @type list_annotation_stores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      complete_multipart_read_set_upload_request() :: %{
-        required("parts") => list(complete_read_set_upload_part_list_item())
+      start_run_batch_request() :: %{
+        optional("batchName") => String.t() | atom(),
+        required("batchRunSettings") => list(),
+        required("defaultRunSetting") => default_run_setting(),
+        required("requestId") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type complete_multipart_read_set_upload_request() :: %{(String.t() | atom()) => any()}
+  @type start_run_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      read_set_batch_error() :: %{
-        "code" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "message" => [String.t() | atom()]
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type read_set_batch_error() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_run_response() :: %{
-        "arn" => String.t() | atom(),
-        "configuration" => configuration_details(),
-        "id" => String.t() | atom(),
-        "networkingMode" => [String.t() | atom()],
-        "runOutputUri" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "uuid" => String.t() | atom()
-      }
+      abort_multipart_read_set_upload_response() :: %{}
 
   """
-  @type start_run_response() :: %{(String.t() | atom()) => any()}
+  @type abort_multipart_read_set_upload_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_runs_request() :: %{
-        optional("batchId") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("name") => String.t() | atom(),
-        optional("runGroupId") => String.t() | atom(),
-        optional("startingToken") => String.t() | atom(),
-        optional("status") => String.t() | atom()
+      workflow_parameter() :: %{
+        "description" => String.t() | atom(),
+        "optional" => [boolean()]
       }
 
   """
-  @type list_runs_request() :: %{(String.t() | atom()) => any()}
+  @type workflow_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      run_configurations() :: %{
-        "vpcConfig" => vpc_config()
+      sequence_store_s3_access() :: %{
+        "accessLogLocation" => String.t() | atom(),
+        "s3AccessPointArn" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type run_configurations() :: %{(String.t() | atom()) => any()}
+  @type sequence_store_s3_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4006,138 +2127,762 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      run_batch_list_item() :: %{
-        "runArn" => String.t() | atom(),
-        "runId" => String.t() | atom(),
-        "runInternalUuid" => String.t() | atom(),
-        "runSettingId" => String.t() | atom(),
-        "submissionFailureMessage" => String.t() | atom(),
-        "submissionFailureReason" => String.t() | atom(),
-        "submissionStatus" => String.t() | atom()
-      }
-
-  """
-  @type run_batch_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_share_request() :: %{}
-
-  """
-  @type delete_share_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_annotation_import_jobs_filter() :: %{
+      get_read_set_activation_job_response() :: %{
+        "completionTime" => [non_neg_integer()],
+        "creationTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "sources" => list(activate_read_set_source_item()),
         "status" => String.t() | atom(),
-        "storeName" => [String.t() | atom()]
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type list_annotation_import_jobs_filter() :: %{(String.t() | atom()) => any()}
+  @type get_read_set_activation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_reference_import_jobs_response() :: %{
-        "importJobs" => list(import_reference_job_item()),
-        "nextToken" => String.t() | atom()
+      e_tag() :: %{
+        "algorithm" => String.t() | atom(),
+        "source1" => [String.t() | atom()],
+        "source2" => [String.t() | atom()]
       }
 
   """
-  @type list_reference_import_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type e_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_annotation_import_response() :: %{
+      vpc_config_response() :: %{
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_response() :: %{
+        "accelerators" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "containerRegistryMap" => container_registry_map(),
+        "creationTime" => non_neg_integer(),
+        "definition" => String.t() | atom(),
+        "definitionRepositoryDetails" => definition_repository_details(),
+        "description" => String.t() | atom(),
+        "digest" => String.t() | atom(),
+        "engine" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "main" => String.t() | atom(),
+        "metadata" => map(),
+        "name" => String.t() | atom(),
+        "parameterTemplate" => map(),
+        "profileParameterTemplates" => map(),
+        "profiles" => list(String.t() | atom()),
+        "readme" => String.t() | atom(),
+        "readmePath" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storageCapacity" => [integer()],
+        "storageType" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("requestId") => String.t() | atom(),
+        required("runConfigurations") => run_configurations(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_read_sets_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "readSets" => list(read_set_list_item())
+      }
+
+  """
+  @type list_read_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_annotation_import_jobs_request() :: %{
+        optional("filter") => list_annotation_import_jobs_filter(),
+        optional("ids") => list(String.t() | atom()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_annotation_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_variant_import_response() :: %{
         "annotationFields" => map(),
         "completionTime" => non_neg_integer(),
         "creationTime" => non_neg_integer(),
         "destinationName" => String.t() | atom(),
-        "formatOptions" => list(),
         "id" => String.t() | atom(),
-        "items" => list(annotation_import_item_detail()),
+        "items" => list(variant_import_item_detail()),
         "roleArn" => String.t() | atom(),
         "runLeftNormalization" => boolean(),
         "status" => String.t() | atom(),
         "statusMessage" => String.t() | atom(),
-        "updateTime" => non_neg_integer(),
-        "versionName" => String.t() | atom()
+        "updateTime" => non_neg_integer()
       }
 
   """
-  @type get_annotation_import_response() :: %{(String.t() | atom()) => any()}
+  @type get_variant_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_run_batch_request() :: %{
-        optional("batchName") => String.t() | atom(),
-        optional("tags") => map(),
-        required("batchRunSettings") => list(),
-        required("defaultRunSetting") => default_run_setting(),
-        required("requestId") => String.t() | atom()
+      list_annotation_store_versions_request() :: %{
+        optional("filter") => list_annotation_store_versions_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type start_run_batch_request() :: %{(String.t() | atom()) => any()}
+  @type list_annotation_store_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      read_set_s3_access() :: %{
-        "s3Uri" => String.t() | atom()
+      update_annotation_store_request() :: %{
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type read_set_s3_access() :: %{(String.t() | atom()) => any()}
+  @type update_annotation_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_run_group_request() :: %{
-        optional("maxCpus") => [integer()],
-        optional("maxDuration") => [integer()],
-        optional("maxGpus") => [integer()],
-        optional("maxRuns") => [integer()],
-        optional("name") => String.t() | atom(),
-        optional("tags") => map(),
-        required("requestId") => String.t() | atom()
+      inline_setting() :: %{
+        "engineSettings" => any(),
+        "name" => String.t() | atom(),
+        "outputBucketOwnerId" => String.t() | atom(),
+        "outputUri" => String.t() | atom(),
+        "parameters" => any(),
+        "priority" => [integer()],
+        "runSettingId" => String.t() | atom(),
+        "runTags" => map()
       }
 
   """
-  @type create_run_group_request() :: %{(String.t() | atom()) => any()}
+  @type inline_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      abort_multipart_read_set_upload_response() :: %{}
+      start_read_set_import_job_source_item() :: %{
+        "description" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "sourceFileType" => String.t() | atom(),
+        "sourceFiles" => source_files(),
+        "subjectId" => String.t() | atom(),
+        "tags" => map()
+      }
 
   """
-  @type abort_multipart_read_set_upload_response() :: %{}
+  @type start_read_set_import_job_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_variant_import_jobs_filter() :: %{
+      create_share_request() :: %{
+        required("principalSubscriber") => [String.t() | atom()],
+        required("resourceArn") => [String.t() | atom()],
+        optional("shareName") => String.t() | atom()
+      }
+
+  """
+  @type create_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_read_set_import_job_request() :: %{}
+
+  """
+  @type get_read_set_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_run_batch_request() :: %{
+        required("batchId") => String.t() | atom()
+      }
+
+  """
+  @type delete_run_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_mapping() :: %{
+        "destinationImage" => String.t() | atom(),
+        "sourceImage" => String.t() | atom()
+      }
+
+  """
+  @type image_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_s3_access_policy_response() :: %{
+        "s3AccessPointArn" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
+        "storeType" => list(any())
+      }
+
+  """
+  @type put_s3_access_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_list_item() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type configuration_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_variant_import_request() :: %{}
+
+  """
+  @type get_variant_import_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation_import_item_source() :: %{
+        "source" => String.t() | atom()
+      }
+
+  """
+  @type annotation_import_item_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_runs_in_batch_request() :: %{
+        optional("maxItems") => [integer()],
+        optional("runId") => [String.t() | atom()],
+        optional("runSettingId") => [String.t() | atom()],
+        optional("startingToken") => String.t() | atom(),
+        optional("submissionStatus") => String.t() | atom()
+      }
+
+  """
+  @type list_runs_in_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      definition_repository() :: %{
+        "connectionArn" => String.t() | atom(),
+        "excludeFilePatterns" => list([String.t() | atom()]()),
+        "fullRepositoryId" => String.t() | atom(),
+        "sourceReference" => source_reference()
+      }
+
+  """
+  @type definition_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_read_set_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type get_read_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_multipart_read_set_upload_request() :: %{
+        required("parts") => list(complete_read_set_upload_part_list_item())
+      }
+
+  """
+  @type complete_multipart_read_set_upload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      definition_repository_details() :: %{
+        "connectionArn" => String.t() | atom(),
+        "fullRepositoryId" => String.t() | atom(),
+        "providerEndpoint" => [String.t() | atom()],
+        "providerType" => [String.t() | atom()],
+        "sourceReference" => source_reference()
+      }
+
+  """
+  @type definition_repository_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      task_list_item() :: %{
+        "cacheHit" => [boolean()],
+        "cacheS3Uri" => String.t() | atom(),
+        "cpus" => [integer()],
+        "creationTime" => non_neg_integer(),
+        "gpus" => [integer()],
+        "instanceType" => String.t() | atom(),
+        "memory" => [integer()],
+        "name" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
         "status" => String.t() | atom(),
-        "storeName" => [String.t() | atom()]
+        "stopTime" => non_neg_integer(),
+        "taskId" => String.t() | atom(),
+        "uuid" => String.t() | atom()
       }
 
   """
-  @type list_variant_import_jobs_filter() :: %{(String.t() | atom()) => any()}
+  @type task_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_run_batch_response() :: %{}
+
+  """
+  @type delete_run_batch_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_list_item() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "digest" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "metadata" => map(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type workflow_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_read_set_upload_parts_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "parts" => list(read_set_upload_part_list_item())
+      }
+
+  """
+  @type list_read_set_upload_parts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_log_location() :: %{
+        "engineLogStream" => String.t() | atom(),
+        "runLogStream" => String.t() | atom()
+      }
+
+  """
+  @type run_log_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_variant_store_request() :: %{
+        optional("force") => [boolean()]
+      }
+
+  """
+  @type delete_variant_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_references_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "references" => list(reference_list_item())
+      }
+
+  """
+  @type list_references_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_run_request() :: %{}
+
+  """
+  @type cancel_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_s3_access_policy_request() :: %{}
+
+  """
+  @type delete_s3_access_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_s3_access_policy_request() :: %{
+        required("s3AccessPolicy") => String.t() | atom()
+      }
+
+  """
+  @type put_s3_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_set_files() :: %{
+        "index" => file_information(),
+        "source1" => file_information(),
+        "source2" => file_information()
+      }
+
+  """
+  @type read_set_files() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variant_import_item_detail() :: %{
+        "jobStatus" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
+      }
+
+  """
+  @type variant_import_item_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sequence_store_filter() :: %{
+        "createdAfter" => [non_neg_integer()],
+        "createdBefore" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updatedAfter" => [non_neg_integer()],
+        "updatedBefore" => [non_neg_integer()]
+      }
+
+  """
+  @type sequence_store_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_group_list_item() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "maxCpus" => [integer()],
+        "maxDuration" => [integer()],
+        "maxGpus" => [integer()],
+        "maxRuns" => [integer()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type run_group_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_read_set_detail() :: %{
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
+      }
+
+  """
+  @type export_read_set_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_run_group_request() :: %{}
+
+  """
+  @type get_run_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reference_stores_request() :: %{
+        optional("filter") => reference_store_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_reference_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_version_response() :: %{
+        "accelerators" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "containerRegistryMap" => container_registry_map(),
+        "creationTime" => non_neg_integer(),
+        "definition" => String.t() | atom(),
+        "definitionRepositoryDetails" => definition_repository_details(),
+        "description" => String.t() | atom(),
+        "digest" => String.t() | atom(),
+        "engine" => String.t() | atom(),
+        "main" => String.t() | atom(),
+        "metadata" => map(),
+        "parameterTemplate" => map(),
+        "profileParameterTemplates" => map(),
+        "profiles" => list(String.t() | atom()),
+        "readme" => String.t() | atom(),
+        "readmePath" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storageCapacity" => [integer()],
+        "storageType" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom(),
+        "uuid" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "workflowBucketOwnerId" => String.t() | atom(),
+        "workflowId" => String.t() | atom()
+      }
+
+  """
+  @type get_workflow_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workflow_request() :: %{}
+
+  """
+  @type delete_workflow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_annotation_import_request() :: %{}
+
+  """
+  @type get_annotation_import_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sequence_store_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "eTagAlgorithmFamily" => String.t() | atom(),
+        "fallbackLocation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "propagatedSetLevelTags" => list(String.t() | atom()),
+        "s3Access" => sequence_store_s3_access(),
+        "sseConfig" => sse_config(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type update_sequence_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_files() :: %{
+        "source1" => String.t() | atom(),
+        "source2" => String.t() | atom()
+      }
+
+  """
+  @type source_files() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_run_task_response() :: %{
+        "cacheHit" => [boolean()],
+        "cacheS3Uri" => String.t() | atom(),
+        "cpus" => [integer()],
+        "creationTime" => non_neg_integer(),
+        "failureReason" => String.t() | atom(),
+        "gpus" => [integer()],
+        "imageDetails" => image_details(),
+        "instanceType" => String.t() | atom(),
+        "logStream" => String.t() | atom(),
+        "memory" => [integer()],
+        "name" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "stopTime" => non_neg_integer(),
+        "taskId" => String.t() | atom(),
+        "uuid" => String.t() | atom()
+      }
+
+  """
+  @type get_run_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multipart_read_set_uploads_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "uploads" => list(multipart_read_set_upload_list_item())
+      }
+
+  """
+  @type list_multipart_read_set_uploads_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_request() :: %{}
+
+  """
+  @type get_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      import_read_set_filter() :: %{
+        "createdAfter" => [non_neg_integer()],
+        "createdBefore" => [non_neg_integer()],
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type import_read_set_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_run_tasks_response() :: %{
+        "items" => list(task_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_run_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_reference_store_response() :: %{}
+
+  """
+  @type delete_reference_store_response() :: %{}
 
   @typedoc """
 
@@ -4151,6 +2896,81 @@ defmodule AWS.Omics do
 
   """
   @type export_read_set_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_set_filter() :: %{
+        "createdAfter" => [non_neg_integer()],
+        "createdBefore" => [non_neg_integer()],
+        "creationType" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "subjectId" => String.t() | atom()
+      }
+
+  """
+  @type read_set_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_read_set_job_item() :: %{
+        "completionTime" => [non_neg_integer()],
+        "creationTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type import_read_set_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_reference_store_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("sseConfig") => sse_config(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_reference_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_read_set_activation_job_response() :: %{
+        "creationTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type start_read_set_activation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_set_s3_access() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type read_set_s3_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4177,34 +2997,433 @@ defmodule AWS.Omics do
 
   ## Example:
 
-      get_workflow_response() :: %{
-        "accelerators" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "containerRegistryMap" => container_registry_map(),
-        "creationTime" => non_neg_integer(),
-        "definition" => String.t() | atom(),
-        "definitionRepositoryDetails" => definition_repository_details(),
-        "description" => String.t() | atom(),
-        "digest" => String.t() | atom(),
-        "engine" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "main" => String.t() | atom(),
-        "metadata" => map(),
-        "name" => String.t() | atom(),
-        "parameterTemplate" => map(),
-        "readme" => String.t() | atom(),
-        "readmePath" => String.t() | atom(),
+      cancel_variant_import_response() :: %{}
+
+  """
+  @type cancel_variant_import_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      run_batch_list_item() :: %{
+        "runArn" => String.t() | atom(),
+        "runId" => String.t() | atom(),
+        "runInternalUuid" => String.t() | atom(),
+        "runSettingId" => String.t() | atom(),
+        "submissionFailureMessage" => String.t() | atom(),
+        "submissionFailureReason" => String.t() | atom(),
+        "submissionStatus" => String.t() | atom()
+      }
+
+  """
+  @type run_batch_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_read_set_source_item() :: %{
+        "readSetId" => String.t() | atom(),
         "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "storageCapacity" => [integer()],
-        "storageType" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
+      }
+
+  """
+  @type activate_read_set_source_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_run_cache_request() :: %{}
+
+  """
+  @type delete_run_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_multipart_read_set_upload_response() :: %{
+        "readSetId" => String.t() | atom()
+      }
+
+  """
+  @type complete_multipart_read_set_upload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sequence_information() :: %{
+        "alignment" => [String.t() | atom()],
+        "generatedFrom" => String.t() | atom(),
+        "totalBaseCount" => [float()],
+        "totalReadCount" => [float()]
+      }
+
+  """
+  @type sequence_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_share_response() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type accept_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sequence_store_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "eTagAlgorithmFamily" => String.t() | atom(),
+        "fallbackLocation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "propagatedSetLevelTags" => list(String.t() | atom()),
+        "s3Access" => sequence_store_s3_access(),
+        "sseConfig" => sse_config(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
+      }
+
+  """
+  @type create_sequence_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_run_caches_response() :: %{
+        "items" => list(run_cache_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_run_caches_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_batch_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "defaultRunSetting" => default_run_setting(),
+        "failedTime" => non_neg_integer(),
+        "failureReason" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "processedTime" => non_neg_integer(),
+        "runSummary" => run_summary(),
+        "status" => String.t() | atom(),
+        "submissionSummary" => submission_summary(),
+        "submittedTime" => non_neg_integer(),
         "tags" => map(),
-        "type" => String.t() | atom(),
+        "totalRuns" => [integer()],
         "uuid" => String.t() | atom()
       }
 
   """
-  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
+  @type get_batch_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_run_group_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type create_run_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sequence_store_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "eTagAlgorithmFamily" => String.t() | atom(),
+        "fallbackLocation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "propagatedSetLevelTags" => list(String.t() | atom()),
+        "s3Access" => sequence_store_s3_access(),
+        "sseConfig" => sse_config(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_sequence_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_reference_import_job_source_item() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceFile" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type start_reference_import_job_source_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_read_set_import_jobs_request() :: %{
+        optional("filter") => import_read_set_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_read_set_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_variant_import_jobs_request() :: %{
+        optional("filter") => list_variant_import_jobs_filter(),
+        optional("ids") => list(String.t() | atom()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_variant_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_read_set_export_job_request() :: %{}
+
+  """
+  @type get_read_set_export_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_run_request() :: %{}
+
+  """
+  @type delete_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      run_summary() :: %{
+        "cancelledRunCount" => [integer()],
+        "completedRunCount" => [integer()],
+        "deletedRunCount" => [integer()],
+        "failedRunCount" => [integer()],
+        "pendingRunCount" => [integer()],
+        "runningRunCount" => [integer()],
+        "startingRunCount" => [integer()],
+        "stoppingRunCount" => [integer()]
+      }
+
+  """
+  @type run_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reference_store_filter() :: %{
+        "createdAfter" => [non_neg_integer()],
+        "createdBefore" => [non_neg_integer()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type reference_store_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      share_details() :: %{
+        "creationTime" => non_neg_integer(),
+        "ownerId" => [String.t() | atom()],
+        "principalSubscriber" => [String.t() | atom()],
+        "resourceArn" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "shareId" => [String.t() | atom()],
+        "shareName" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "updateTime" => non_neg_integer()
+      }
+
+  """
+  @type share_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reference_metadata_request() :: %{}
+
+  """
+  @type get_reference_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reference_files() :: %{
+        "index" => file_information(),
+        "source" => file_information()
+      }
+
+  """
+  @type reference_files() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_read_set_export_job_response() :: %{
+        "creationTime" => [non_neg_integer()],
+        "destination" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type start_read_set_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reference_import_jobs_response() :: %{
+        "importJobs" => list(import_reference_job_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_reference_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reference_store_request() :: %{}
+
+  """
+  @type get_reference_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reference_filter() :: %{
+        "createdAfter" => [non_neg_integer()],
+        "createdBefore" => [non_neg_integer()],
+        "md5" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type reference_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_run_groups_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("name") => String.t() | atom(),
+        optional("startingToken") => String.t() | atom()
+      }
+
+  """
+  @type list_run_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_reference_source_item() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceId" => String.t() | atom(),
+        "sourceFile" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type import_reference_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4217,956 +3436,1751 @@ defmodule AWS.Omics do
   """
   @type export_read_set() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      version_delete_error() :: %{
+        "message" => [String.t() | atom()],
+        "versionName" => String.t() | atom()
+      }
+
+  """
+  @type version_delete_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_share_response() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type delete_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_read_set_export_jobs_response() :: %{
+        "exportJobs" => list(export_read_set_job_detail()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_read_set_export_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sequence_stores_request() :: %{
+        optional("filter") => sequence_store_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_sequence_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reference_stores_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "referenceStores" => list(reference_store_detail())
+      }
+
+  """
+  @type list_reference_stores_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_read_sets_request() :: %{
+        optional("filter") => read_set_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_read_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_read_set_import_job_response() :: %{
+        "creationTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type start_read_set_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tsv_options() :: %{
+        "readOptions" => read_options()
+      }
+
+  """
+  @type tsv_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_run_batch_request() :: %{
+        required("batchId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_run_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_annotation_store_request() :: %{
+        optional("force") => [boolean()]
+      }
+
+  """
+  @type delete_annotation_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workflow_version_request() :: %{
+        optional("accelerators") => String.t() | atom(),
+        optional("containerRegistryMap") => container_registry_map(),
+        optional("containerRegistryMapUri") => String.t() | atom(),
+        optional("definitionRepository") => definition_repository(),
+        optional("definitionUri") => String.t() | atom(),
+        optional("definitionZip") => [binary()],
+        optional("description") => String.t() | atom(),
+        optional("engine") => String.t() | atom(),
+        optional("main") => String.t() | atom(),
+        optional("parameterTemplate") => map(),
+        optional("parameterTemplatePath") => String.t() | atom(),
+        optional("readmeMarkdown") => String.t() | atom(),
+        optional("readmePath") => String.t() | atom(),
+        optional("readmeUri") => String.t() | atom(),
+        required("requestId") => String.t() | atom(),
+        optional("storageCapacity") => [integer()],
+        optional("storageType") => String.t() | atom(),
+        optional("tags") => map(),
+        required("versionName") => String.t() | atom(),
+        optional("workflowBucketOwnerId") => String.t() | atom()
+      }
+
+  """
+  @type create_workflow_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_list_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "totalRuns" => [integer()],
+        "workflowId" => String.t() | atom()
+      }
+
+  """
+  @type batch_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_run_groups_response() :: %{
+        "items" => list(run_group_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_run_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_run_group_request() :: %{}
+
+  """
+  @type delete_run_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workflow_version_request() :: %{}
+
+  """
+  @type delete_workflow_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_share_response() :: %{
+        "shareId" => [String.t() | atom()],
+        "shareName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type create_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_read_set_request() :: %{
+        optional("file") => String.t() | atom(),
+        required("partNumber") => [integer()]
+      }
+
+  """
+  @type get_read_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_annotation_store_response() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type delete_annotation_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_references_request() :: %{
+        optional("filter") => reference_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_references_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_reference_import_job_response() :: %{
+        "creationTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type start_reference_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_annotation_store_version_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
+        "tags" => map(),
+        "updateTime" => non_neg_integer(),
+        "versionArn" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "versionOptions" => list(),
+        "versionSizeBytes" => [float()]
+      }
+
+  """
+  @type get_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_run_cache_request() :: %{
+        optional("cacheBehavior") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_run_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      submission_summary() :: %{
+        "failedCancelSubmissionCount" => [integer()],
+        "failedDeleteSubmissionCount" => [integer()],
+        "failedStartSubmissionCount" => [integer()],
+        "pendingStartSubmissionCount" => [integer()],
+        "successfulCancelSubmissionCount" => [integer()],
+        "successfulDeleteSubmissionCount" => [integer()],
+        "successfulStartSubmissionCount" => [integer()]
+      }
+
+  """
+  @type submission_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_run_cache_request() :: %{}
+
+  """
+  @type get_run_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sequence_store_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("eTagAlgorithmFamily") => String.t() | atom(),
+        optional("fallbackLocation") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("propagatedSetLevelTags") => list(String.t() | atom()),
+        optional("s3AccessConfig") => s3_access_config(),
+        optional("sseConfig") => sse_config(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_sequence_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_variant_store_request() :: %{}
+
+  """
+  @type get_variant_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_run_response() :: %{
+        "scratchStorageMode" => String.t() | atom(),
+        "runId" => String.t() | atom(),
+        "logLevel" => String.t() | atom(),
+        "runGroupId" => String.t() | atom(),
+        "definition" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "startedBy" => String.t() | atom(),
+        "retentionMode" => String.t() | atom(),
+        "networkingMode" => String.t() | atom(),
+        "cacheId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "engineSettings" => any(),
+        "configuration" => configuration_details(),
+        "runOutputUri" => String.t() | atom(),
+        "workflowType" => String.t() | atom(),
+        "tags" => map(),
+        "stopTime" => non_neg_integer(),
+        "workflowVersionName" => String.t() | atom(),
+        "workflowId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "accelerators" => String.t() | atom(),
+        "priority" => [integer()],
+        "outputUri" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "workflowOwnerId" => String.t() | atom(),
+        "failureReason" => String.t() | atom(),
+        "storageType" => String.t() | atom(),
+        "batchId" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "engineVersion" => String.t() | atom(),
+        "vpcConfig" => vpc_config_response(),
+        "logLocation" => run_log_location(),
+        "uuid" => String.t() | atom(),
+        "storageCapacity" => [integer()],
+        "statusMessage" => String.t() | atom(),
+        "resourceDigests" => map(),
+        "workflowUuid" => String.t() | atom(),
+        "cacheBehavior" => String.t() | atom(),
+        "parameters" => any(),
+        "digest" => String.t() | atom()
+      }
+
+  """
+  @type get_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_multipart_read_set_upload_request() :: %{}
+
+  """
+  @type abort_multipart_read_set_upload_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_run_cache_request() :: %{
+        optional("cacheBehavior") => String.t() | atom(),
+        optional("cacheBucketOwnerId") => String.t() | atom(),
+        required("cacheS3Location") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("requestId") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_run_cache_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reference_metadata_response() :: %{
+        "arn" => String.t() | atom(),
+        "creationJobId" => String.t() | atom(),
+        "creationTime" => [non_neg_integer()],
+        "creationType" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "files" => reference_files(),
+        "id" => String.t() | atom(),
+        "md5" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_reference_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_run_cache_response() :: %{
+        "arn" => String.t() | atom(),
+        "cacheBehavior" => String.t() | atom(),
+        "cacheBucketOwnerId" => String.t() | atom(),
+        "cacheS3Uri" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type get_run_cache_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variant_store_item() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "reference" => list(),
+        "sseConfig" => sse_config(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeArn" => String.t() | atom(),
+        "storeSizeBytes" => [float()],
+        "updateTime" => non_neg_integer()
+      }
+
+  """
+  @type variant_store_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_read_set_export_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("destination") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("sources") => list(export_read_set())
+      }
+
+  """
+  @type start_read_set_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reference_import_job_request() :: %{}
+
+  """
+  @type get_reference_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      image_details() :: %{
+        "image" => String.t() | atom(),
+        "imageDigest" => String.t() | atom(),
+        "sourceImage" => String.t() | atom()
+      }
+
+  """
+  @type image_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_variant_import_request() :: %{}
+
+  """
+  @type cancel_variant_import_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_read_set_activation_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("sources") => list(start_read_set_activation_job_source_item())
+      }
+
+  """
+  @type start_read_set_activation_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      read_options() :: %{
+        "comment" => String.t() | atom(),
+        "encoding" => String.t() | atom(),
+        "escape" => String.t() | atom(),
+        "escapeQuotes" => boolean(),
+        "header" => boolean(),
+        "lineSep" => String.t() | atom(),
+        "quote" => String.t() | atom(),
+        "quoteAll" => boolean(),
+        "sep" => String.t() | atom()
+      }
+
+  """
+  @type read_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multipart_read_set_upload_response() :: %{
+        "creationTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "sourceFileType" => String.t() | atom(),
+        "subjectId" => String.t() | atom(),
+        "tags" => map(),
+        "uploadId" => String.t() | atom()
+      }
+
+  """
+  @type create_multipart_read_set_upload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reference_import_jobs_request() :: %{
+        optional("filter") => import_reference_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_reference_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_annotation_import_response() :: %{}
+
+  """
+  @type cancel_annotation_import_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_variant_store_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "reference" => list(),
+        "status" => String.t() | atom(),
+        "updateTime" => non_neg_integer()
+      }
+
+  """
+  @type update_variant_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_variant_import_jobs_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "variantImportJobs" => list(variant_import_job_item())
+      }
+
+  """
+  @type list_variant_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_read_set_job_item() :: %{
+        "completionTime" => [non_neg_integer()],
+        "creationTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type activate_read_set_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation_import_item_detail() :: %{
+        "jobStatus" => String.t() | atom(),
+        "source" => String.t() | atom()
+      }
+
+  """
+  @type annotation_import_item_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reference_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type get_reference_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_configurations_response() :: %{
+        "vpcConfig" => vpc_config_response()
+      }
+
+  """
+  @type run_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_share_request() :: %{}
+
+  """
+  @type delete_share_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_annotation_store_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "numVersions" => [integer()],
+        "reference" => list(),
+        "sseConfig" => sse_config(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeArn" => String.t() | atom(),
+        "storeFormat" => String.t() | atom(),
+        "storeOptions" => list(),
+        "storeSizeBytes" => [float()],
+        "tags" => map(),
+        "updateTime" => non_neg_integer()
+      }
+
+  """
+  @type get_annotation_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation_store_item() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "reference" => list(),
+        "sseConfig" => sse_config(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeArn" => String.t() | atom(),
+        "storeFormat" => String.t() | atom(),
+        "storeSizeBytes" => [float()],
+        "updateTime" => non_neg_integer()
+      }
+
+  """
+  @type annotation_store_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_annotation_store_version_request() :: %{}
+
+  """
+  @type get_annotation_store_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_annotation_store_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "reference" => list(),
+        "status" => String.t() | atom(),
+        "storeFormat" => String.t() | atom(),
+        "storeOptions" => list(),
+        "updateTime" => non_neg_integer()
+      }
+
+  """
+  @type update_annotation_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_run_request() :: %{
+        optional("export") => list(String.t() | atom())
+      }
+
+  """
+  @type get_run_request() :: %{(String.t() | atom()) => any()}
+
   @type abort_multipart_read_set_upload_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type accept_share_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type batch_delete_read_set_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type cancel_annotation_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type cancel_run_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type cancel_run_batch_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type cancel_variant_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type complete_multipart_read_set_upload_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_annotation_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_annotation_store_version_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_configuration_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_multipart_read_set_upload_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_reference_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_run_cache_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_run_group_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_sequence_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_share_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_variant_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_workflow_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type create_workflow_version_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_annotation_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_annotation_store_versions_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_batch_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_configuration_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_reference_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_reference_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_run_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_run_batch_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_run_cache_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_run_group_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_s3_access_policy_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_sequence_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_share_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_variant_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_workflow_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type delete_workflow_version_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_annotation_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_annotation_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_annotation_store_version_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_batch_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_configuration_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_read_set_errors() ::
-          range_not_satisfiable_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          throttling_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | range_not_satisfiable_exception()
 
   @type get_read_set_activation_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_read_set_export_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_read_set_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_read_set_metadata_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_reference_errors() ::
-          range_not_satisfiable_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | range_not_satisfiable_exception()
 
   @type get_reference_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_reference_metadata_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_reference_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_run_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_run_cache_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_run_group_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_run_task_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_s3_access_policy_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_sequence_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_share_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_variant_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_variant_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_workflow_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type get_workflow_version_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_annotation_import_jobs_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_annotation_store_versions_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_annotation_stores_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_batch_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_configurations_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_multipart_read_set_uploads_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_read_set_activation_jobs_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_read_set_export_jobs_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_read_set_import_jobs_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_read_set_upload_parts_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_read_sets_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_reference_import_jobs_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_reference_stores_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_references_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_run_caches_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_run_groups_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_run_tasks_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_runs_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_runs_in_batch_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_sequence_stores_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_shares_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_variant_import_jobs_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_variant_stores_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_workflow_versions_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_workflows_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type put_s3_access_policy_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type start_annotation_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type start_read_set_activation_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type start_read_set_export_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type start_read_set_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type start_reference_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type start_run_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type start_run_batch_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type start_variant_import_job_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type untag_resource_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_annotation_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_annotation_store_version_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_run_cache_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_run_group_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_sequence_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_variant_store_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_workflow_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type update_workflow_version_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type upload_read_set_part_errors() ::
           throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | service_quota_exceeded_exception()
+          | access_denied_exception()
           | not_supported_operation_exception()
           | request_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   def metadata do
     %{
@@ -5205,8 +5219,8 @@ defmodule AWS.Omics do
           | {:error, abort_multipart_read_set_upload_errors()}
   def abort_multipart_read_set_upload(
         %Client{} = client,
-        sequence_store_id,
         upload_id,
+        sequence_store_id,
         input,
         options \\ []
       ) do
@@ -5475,8 +5489,8 @@ defmodule AWS.Omics do
           | {:error, complete_multipart_read_set_upload_errors()}
   def complete_multipart_read_set_upload(
         %Client{} = client,
-        sequence_store_id,
         upload_id,
+        sequence_store_id,
         input,
         options \\ []
       ) do
@@ -6185,7 +6199,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_reference_errors()}
-  def delete_reference(%Client{} = client, id, reference_store_id, input, options \\ []) do
+  def delete_reference(%Client{} = client, reference_store_id, id, input, options \\ []) do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/reference/#{AWS.Util.encode_uri(id)}"
 
@@ -6610,7 +6624,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_workflow_version_errors()}
-  def delete_workflow_version(%Client{} = client, version_name, workflow_id, input, options \\ []) do
+  def delete_workflow_version(%Client{} = client, workflow_id, version_name, input, options \\ []) do
     url_path =
       "/workflow/#{AWS.Util.encode_uri(workflow_id)}/version/#{AWS.Util.encode_uri(version_name)}"
 
@@ -6691,7 +6705,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_annotation_store_version_errors()}
-  def get_annotation_store_version(%Client{} = client, name, version_name, options \\ []) do
+  def get_annotation_store_version(%Client{} = client, version_name, name, options \\ []) do
     url_path =
       "/annotationStore/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version_name)}"
 
@@ -6751,8 +6765,8 @@ defmodule AWS.Omics do
           map(),
           String.t() | atom(),
           String.t() | atom(),
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_read_set_response(), any()}
@@ -6761,10 +6775,10 @@ defmodule AWS.Omics do
           | {:error, get_read_set_errors()}
   def get_read_set(
         %Client{} = client,
-        id,
         sequence_store_id,
-        file \\ nil,
+        id,
         part_number,
+        file \\ nil,
         options \\ []
       ) do
     url_path =
@@ -6774,15 +6788,15 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(part_number) do
-        [{"partNumber", part_number} | query_params]
+      if !is_nil(file) do
+        [{"file", file} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(file) do
-        [{"file", file} | query_params]
+      if !is_nil(part_number) do
+        [{"partNumber", part_number} | query_params]
       else
         query_params
       end
@@ -6801,7 +6815,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_read_set_activation_job_errors()}
-  def get_read_set_activation_job(%Client{} = client, id, sequence_store_id, options \\ []) do
+  def get_read_set_activation_job(%Client{} = client, sequence_store_id, id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjob/#{AWS.Util.encode_uri(id)}"
 
@@ -6824,7 +6838,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_read_set_export_job_errors()}
-  def get_read_set_export_job(%Client{} = client, id, sequence_store_id, options \\ []) do
+  def get_read_set_export_job(%Client{} = client, sequence_store_id, id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjob/#{AWS.Util.encode_uri(id)}"
 
@@ -6845,7 +6859,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_read_set_import_job_errors()}
-  def get_read_set_import_job(%Client{} = client, id, sequence_store_id, options \\ []) do
+  def get_read_set_import_job(%Client{} = client, sequence_store_id, id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjob/#{AWS.Util.encode_uri(id)}"
 
@@ -6868,7 +6882,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_read_set_metadata_errors()}
-  def get_read_set_metadata(%Client{} = client, id, sequence_store_id, options \\ []) do
+  def get_read_set_metadata(%Client{} = client, sequence_store_id, id, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readset/#{AWS.Util.encode_uri(id)}/metadata"
 
@@ -6891,8 +6905,8 @@ defmodule AWS.Omics do
           map(),
           String.t() | atom(),
           String.t() | atom(),
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           list()
         ) ::
@@ -6902,10 +6916,10 @@ defmodule AWS.Omics do
           | {:error, get_reference_errors()}
   def get_reference(
         %Client{} = client,
-        id,
         reference_store_id,
-        file \\ nil,
+        id,
         part_number,
+        file \\ nil,
         range \\ nil,
         options \\ []
       ) do
@@ -6924,15 +6938,15 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(part_number) do
-        [{"partNumber", part_number} | query_params]
+      if !is_nil(file) do
+        [{"file", file} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(file) do
-        [{"file", file} | query_params]
+      if !is_nil(part_number) do
+        [{"partNumber", part_number} | query_params]
       else
         query_params
       end
@@ -6953,7 +6967,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_reference_import_job_errors()}
-  def get_reference_import_job(%Client{} = client, id, reference_store_id, options \\ []) do
+  def get_reference_import_job(%Client{} = client, reference_store_id, id, options \\ []) do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjob/#{AWS.Util.encode_uri(id)}"
 
@@ -6977,7 +6991,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_reference_metadata_errors()}
-  def get_reference_metadata(%Client{} = client, id, reference_store_id, options \\ []) do
+  def get_reference_metadata(%Client{} = client, reference_store_id, id, options \\ []) do
     url_path =
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/reference/#{AWS.Util.encode_uri(id)}/metadata"
 
@@ -7086,7 +7100,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_run_task_errors()}
-  def get_run_task(%Client{} = client, id, task_id, options \\ []) do
+  def get_run_task(%Client{} = client, task_id, id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/task/#{AWS.Util.encode_uri(task_id)}"
     headers = []
     query_params = []
@@ -7224,9 +7238,9 @@ defmodule AWS.Omics do
   def get_workflow(
         %Client{} = client,
         id,
-        export \\ nil,
-        type \\ nil,
         workflow_owner_id \\ nil,
+        type \\ nil,
+        export \\ nil,
         options \\ []
       ) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
@@ -7234,8 +7248,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(workflow_owner_id) do
-        [{"workflowOwnerId", workflow_owner_id} | query_params]
+      if !is_nil(export) do
+        [{"export", export} | query_params]
       else
         query_params
       end
@@ -7248,8 +7262,8 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(export) do
-        [{"export", export} | query_params]
+      if !is_nil(workflow_owner_id) do
+        [{"workflowOwnerId", workflow_owner_id} | query_params]
       else
         query_params
       end
@@ -7280,11 +7294,11 @@ defmodule AWS.Omics do
           | {:error, get_workflow_version_errors()}
   def get_workflow_version(
         %Client{} = client,
-        version_name,
         workflow_id,
-        export \\ nil,
-        type \\ nil,
+        version_name,
         workflow_owner_id \\ nil,
+        type \\ nil,
+        export \\ nil,
         options \\ []
       ) do
     url_path =
@@ -7294,8 +7308,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(workflow_owner_id) do
-        [{"workflowOwnerId", workflow_owner_id} | query_params]
+      if !is_nil(export) do
+        [{"export", export} | query_params]
       else
         query_params
       end
@@ -7308,8 +7322,8 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(export) do
-        [{"export", export} | query_params]
+      if !is_nil(workflow_owner_id) do
+        [{"workflowOwnerId", workflow_owner_id} | query_params]
       else
         query_params
       end
@@ -7341,8 +7355,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7381,8 +7395,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7423,8 +7437,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7464,11 +7478,11 @@ defmodule AWS.Omics do
           | {:error, list_batch_errors()}
   def list_batch(
         %Client{} = client,
-        max_items \\ nil,
-        name \\ nil,
-        run_group_id \\ nil,
-        starting_token \\ nil,
         status \\ nil,
+        starting_token \\ nil,
+        run_group_id \\ nil,
+        name \\ nil,
+        max_items \\ nil,
         options \\ []
       ) do
     url_path = "/runBatch"
@@ -7476,22 +7490,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(run_group_id) do
-        [{"runGroupId", run_group_id} | query_params]
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
       else
         query_params
       end
@@ -7504,8 +7504,22 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if !is_nil(run_group_id) do
+        [{"runGroupId", run_group_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -7525,8 +7539,8 @@ defmodule AWS.Omics do
           | {:error, list_configurations_errors()}
   def list_configurations(
         %Client{} = client,
-        max_results \\ nil,
         starting_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/configuration"
@@ -7534,15 +7548,15 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
       else
         query_params
       end
@@ -7577,8 +7591,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7621,8 +7635,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7664,8 +7678,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7704,8 +7718,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7741,8 +7755,8 @@ defmodule AWS.Omics do
           | {:error, list_read_set_upload_parts_errors()}
   def list_read_set_upload_parts(
         %Client{} = client,
-        sequence_store_id,
         upload_id,
+        sequence_store_id,
         input,
         options \\ []
       ) do
@@ -7754,8 +7768,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7790,8 +7804,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7831,8 +7845,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7870,8 +7884,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7908,8 +7922,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -7938,8 +7952,8 @@ defmodule AWS.Omics do
           | {:error, list_run_caches_errors()}
   def list_run_caches(
         %Client{} = client,
-        max_results \\ nil,
         starting_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/runCache"
@@ -7947,15 +7961,15 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
       else
         query_params
       end
@@ -7981,9 +7995,9 @@ defmodule AWS.Omics do
           | {:error, list_run_groups_errors()}
   def list_run_groups(
         %Client{} = client,
-        max_results \\ nil,
-        name \\ nil,
         starting_token \\ nil,
+        name \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/runGroup"
@@ -7991,8 +8005,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -8005,8 +8019,8 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
       else
         query_params
       end
@@ -8037,9 +8051,9 @@ defmodule AWS.Omics do
   def list_run_tasks(
         %Client{} = client,
         id,
-        max_results \\ nil,
-        starting_token \\ nil,
         status \\ nil,
+        starting_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/task"
@@ -8047,8 +8061,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -8061,8 +8075,8 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -8098,12 +8112,12 @@ defmodule AWS.Omics do
           | {:error, list_runs_errors()}
   def list_runs(
         %Client{} = client,
-        batch_id \\ nil,
-        max_results \\ nil,
-        name \\ nil,
-        run_group_id \\ nil,
-        starting_token \\ nil,
         status \\ nil,
+        starting_token \\ nil,
+        run_group_id \\ nil,
+        name \\ nil,
+        max_results \\ nil,
+        batch_id \\ nil,
         options \\ []
       ) do
     url_path = "/run"
@@ -8111,29 +8125,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(run_group_id) do
-        [{"runGroupId", run_group_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(name) do
-        [{"name", name} | query_params]
+      if !is_nil(batch_id) do
+        [{"batchId", batch_id} | query_params]
       else
         query_params
       end
@@ -8146,8 +8139,29 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(batch_id) do
-        [{"batchId", batch_id} | query_params]
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(run_group_id) do
+        [{"runGroupId", run_group_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -8181,11 +8195,11 @@ defmodule AWS.Omics do
   def list_runs_in_batch(
         %Client{} = client,
         batch_id,
-        max_items \\ nil,
-        run_id \\ nil,
-        run_setting_id \\ nil,
-        starting_token \\ nil,
         submission_status \\ nil,
+        starting_token \\ nil,
+        run_setting_id \\ nil,
+        run_id \\ nil,
+        max_items \\ nil,
         options \\ []
       ) do
     url_path = "/runBatch/#{AWS.Util.encode_uri(batch_id)}/run"
@@ -8193,22 +8207,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(submission_status) do
-        [{"submissionStatus", submission_status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(run_setting_id) do
-        [{"runSettingId", run_setting_id} | query_params]
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
       else
         query_params
       end
@@ -8221,8 +8221,22 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(max_items) do
-        [{"maxItems", max_items} | query_params]
+      if !is_nil(run_setting_id) do
+        [{"runSettingId", run_setting_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(submission_status) do
+        [{"submissionStatus", submission_status} | query_params]
       else
         query_params
       end
@@ -8250,8 +8264,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -8287,8 +8301,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -8347,8 +8361,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -8389,8 +8403,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
+        {"nextToken", "nextToken"},
+        {"maxResults", "maxResults"}
       ]
       |> Request.build_params(input)
 
@@ -8431,10 +8445,10 @@ defmodule AWS.Omics do
   def list_workflow_versions(
         %Client{} = client,
         workflow_id,
-        max_results \\ nil,
-        starting_token \\ nil,
-        type \\ nil,
         workflow_owner_id \\ nil,
+        type \\ nil,
+        starting_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/workflow/#{AWS.Util.encode_uri(workflow_id)}/version"
@@ -8442,15 +8456,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(workflow_owner_id) do
-        [{"workflowOwnerId", workflow_owner_id} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -8463,8 +8470,15 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(workflow_owner_id) do
+        [{"workflowOwnerId", workflow_owner_id} | query_params]
       else
         query_params
       end
@@ -8496,10 +8510,10 @@ defmodule AWS.Omics do
           | {:error, list_workflows_errors()}
   def list_workflows(
         %Client{} = client,
-        max_results \\ nil,
-        name \\ nil,
-        starting_token \\ nil,
         type \\ nil,
+        starting_token \\ nil,
+        name \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/workflow"
@@ -8507,15 +8521,8 @@ defmodule AWS.Omics do
     query_params = []
 
     query_params =
-      if !is_nil(type) do
-        [{"type", type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(starting_token) do
-        [{"startingToken", starting_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -8528,8 +8535,15 @@ defmodule AWS.Omics do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
       else
         query_params
       end
@@ -9044,8 +9058,8 @@ defmodule AWS.Omics do
           | {:error, update_annotation_store_version_errors()}
   def update_annotation_store_version(
         %Client{} = client,
-        name,
         version_name,
+        name,
         input,
         options \\ []
       ) do
@@ -9281,7 +9295,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_workflow_version_errors()}
-  def update_workflow_version(%Client{} = client, version_name, workflow_id, input, options \\ []) do
+  def update_workflow_version(%Client{} = client, workflow_id, version_name, input, options \\ []) do
     url_path =
       "/workflow/#{AWS.Util.encode_uri(workflow_id)}/version/#{AWS.Util.encode_uri(version_name)}"
 
@@ -9326,7 +9340,7 @@ defmodule AWS.Omics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, upload_read_set_part_errors()}
-  def upload_read_set_part(%Client{} = client, sequence_store_id, upload_id, input, options \\ []) do
+  def upload_read_set_part(%Client{} = client, upload_id, sequence_store_id, input, options \\ []) do
     url_path =
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/part"
 
@@ -9335,8 +9349,8 @@ defmodule AWS.Omics do
 
     {query_params, input} =
       [
-        {"partNumber", "partNumber"},
-        {"partSource", "partSource"}
+        {"partSource", "partSource"},
+        {"partNumber", "partNumber"}
       ]
       |> Request.build_params(input)
 

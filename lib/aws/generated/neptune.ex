@@ -46,121 +46,458 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      restore_db_cluster_from_snapshot_message() :: %{
-        optional("AvailabilityZones") => list(String.t() | atom()),
-        optional("CopyTagsToSnapshot") => boolean(),
-        optional("DBClusterParameterGroupName") => String.t() | atom(),
-        optional("DBSubnetGroupName") => String.t() | atom(),
-        optional("DatabaseName") => String.t() | atom(),
-        optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
-        optional("EnableIAMDatabaseAuthentication") => boolean(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("OptionGroupName") => String.t() | atom(),
-        optional("Port") => integer(),
-        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageType") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
-        required("DBClusterIdentifier") => String.t() | atom(),
-        required("Engine") => String.t() | atom(),
-        required("SnapshotIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type restore_db_cluster_from_snapshot_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_subnet_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_db_cluster_message() :: %{
-        required("DBClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type start_db_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_parameter_group_details() :: %{
+      describe_db_instances_message() :: %{
+        optional("DBInstanceIdentifier") => String.t() | atom(),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t() | atom(),
-        optional("Parameters") => list(parameter())
+        optional("MaxRecords") => integer()
       }
       
   """
-  @type db_parameter_group_details() :: %{(String.t() | atom()) => any()}
+  @type describe_db_instances_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_cluster_quota_exceeded_fault() :: %{
+      delete_db_cluster_message() :: %{
+        required("DBClusterIdentifier") => String.t() | atom(),
+        optional("FinalDBSnapshotIdentifier") => String.t() | atom(),
+        optional("SkipFinalSnapshot") => boolean()
+      }
+      
+  """
+  @type delete_db_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event() :: %{
+        "Date" => non_neg_integer(),
+        "EventCategories" => list(String.t() | atom()),
+        "Message" => String.t() | atom(),
+        "SourceArn" => String.t() | atom(),
+        "SourceIdentifier" => String.t() | atom(),
+        "SourceType" => list(any())
+      }
+      
+  """
+  @type event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_engine_default_cluster_parameters_message() :: %{
+        required("DBParameterGroupFamily") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_engine_default_cluster_parameters_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_role_to_db_cluster_message() :: %{
+        required("DBClusterIdentifier") => String.t() | atom(),
+        optional("FeatureName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type add_role_to_db_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance_already_exists_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type db_instance_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      event_subscriptions_message() :: %{
-        "EventSubscriptionsList" => list(event_subscription()),
+      delete_db_instance_result() :: %{
+        "DBInstance" => db_instance()
+      }
+      
+  """
+  @type delete_db_instance_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_db_parameter_group_result() :: %{
+        "DBParameterGroup" => db_parameter_group()
+      }
+      
+  """
+  @type copy_db_parameter_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_source_identifier_from_subscription_message() :: %{
+        required("SourceIdentifier") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
+      }
+      
+  """
+  @type remove_source_identifier_from_subscription_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_snapshot_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_db_cluster_endpoint_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_db_cluster_endpoint_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_cluster_endpoints_message() :: %{
+        optional("DBClusterEndpointIdentifier") => String.t() | atom(),
+        optional("DBClusterIdentifier") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_db_cluster_endpoints_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_cluster() :: %{
+        "DatabaseName" => String.t() | atom(),
+        "DeletionProtection" => boolean(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "FailoverState" => failover_state(),
+        "GlobalClusterArn" => String.t() | atom(),
+        "GlobalClusterIdentifier" => String.t() | atom(),
+        "GlobalClusterMembers" => list(global_cluster_member()),
+        "GlobalClusterResourceId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StorageEncrypted" => boolean(),
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type global_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type instance_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_event_subscriptions_message() :: %{
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("SubscriptionName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_event_subscriptions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_db_cluster_snapshot_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_db_cluster_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_cluster_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type global_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      switchover_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
+      }
+      
+  """
+  @type switchover_global_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_security_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_security_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_subnet_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_db_subnet_group_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_db_subnet_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_valid_db_instance_modifications_result() :: %{
+        "ValidDBInstanceModificationsMessage" => valid_db_instance_modifications_message()
+      }
+      
+  """
+  @type describe_valid_db_instance_modifications_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance_message() :: %{
+        "DBInstances" => list(db_instance()),
         "Marker" => String.t() | atom()
       }
       
   """
-  @type event_subscriptions_message() :: %{(String.t() | atom()) => any()}
+  @type db_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_db_cluster_snapshot_result() :: %{
-        "DBClusterSnapshot" => db_cluster_snapshot()
-      }
-      
-  """
-  @type delete_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      option_group_membership() :: %{
-        "OptionGroupName" => String.t() | atom(),
+      db_cluster_endpoint() :: %{
+        "CustomEndpointType" => String.t() | atom(),
+        "DBClusterEndpointArn" => String.t() | atom(),
+        "DBClusterEndpointIdentifier" => String.t() | atom(),
+        "DBClusterEndpointResourceIdentifier" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "ExcludedMembers" => list(String.t() | atom()),
+        "StaticMembers" => list(String.t() | atom()),
         "Status" => String.t() | atom()
       }
       
   """
-  @type option_group_membership() :: %{(String.t() | atom()) => any()}
+  @type db_cluster_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_global_cluster_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_global_cluster_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_cluster_result() :: %{
+        "DBCluster" => db_cluster()
+      }
+      
+  """
+  @type delete_db_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance_status_info() :: %{
+        "Message" => String.t() | atom(),
+        "Normal" => boolean(),
+        "Status" => String.t() | atom(),
+        "StatusType" => String.t() | atom()
+      }
+      
+  """
+  @type db_instance_status_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_db_parameter_group_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_db_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_instance_message() :: %{
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        optional("FinalDBSnapshotIdentifier") => String.t() | atom(),
+        optional("SkipFinalSnapshot") => boolean()
+      }
+      
+  """
+  @type delete_db_instance_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_snapshot_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_db_subnet_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_db_subnet_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_parameter_group_message() :: %{
+        required("DBParameterGroupFamily") => String.t() | atom(),
+        required("DBParameterGroupName") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_subnet_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_pending_modified_values() :: %{
+        "AllocatedStorage" => integer(),
+        "BackupRetentionPeriod" => integer(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "IAMDatabaseAuthenticationEnabled" => boolean(),
+        "Iops" => integer(),
+        "NetworkType" => String.t() | atom(),
+        "PendingCloudwatchLogsExports" => pending_cloudwatch_logs_exports(),
+        "StorageType" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_pending_modified_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_parameter_group_message() :: %{
+        required("DBParameterGroupName") => String.t() | atom(),
+        required("Parameters") => list(parameter())
+      }
+      
+  """
+  @type modify_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -182,12 +519,36 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      db_parameter_group_not_found_fault() :: %{
+      db_cluster_snapshot_attributes_result() :: %{
+        "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()),
+        "DBClusterSnapshotIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_snapshot_attributes_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorization_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type authorization_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      option_group_membership() :: %{
+        "OptionGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type option_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -206,536 +567,84 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      subnet_already_in_use() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_already_in_use() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_snapshot() :: %{
-        "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "ClusterCreateTime" => non_neg_integer(),
+      modify_db_cluster_endpoint_output() :: %{
+        "CustomEndpointType" => String.t() | atom(),
+        "DBClusterEndpointArn" => String.t() | atom(),
+        "DBClusterEndpointIdentifier" => String.t() | atom(),
+        "DBClusterEndpointResourceIdentifier" => String.t() | atom(),
         "DBClusterIdentifier" => String.t() | atom(),
-        "DBClusterSnapshotArn" => String.t() | atom(),
-        "DBClusterSnapshotIdentifier" => String.t() | atom(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "KmsKeyId" => String.t() | atom(),
-        "LicenseModel" => String.t() | atom(),
-        "MasterUsername" => String.t() | atom(),
-        "PercentProgress" => integer(),
-        "Port" => integer(),
-        "SnapshotCreateTime" => non_neg_integer(),
-        "SnapshotType" => String.t() | atom(),
-        "SourceDBClusterSnapshotArn" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StorageEncrypted" => boolean(),
-        "StorageType" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_snapshot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_db_instance_result() :: %{
-        "DBInstance" => db_instance()
-      }
-      
-  """
-  @type delete_db_instance_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_db_subnet_group_message() :: %{
-        optional("DBSubnetGroupDescription") => String.t() | atom(),
-        required("DBSubnetGroupName") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type modify_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_subnet_group_message() :: %{
-        "DBSubnetGroups" => list(db_subnet_group()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type db_subnet_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_db_cluster_parameters_message() :: %{
-        optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("Source") => String.t() | atom(),
-        required("DBClusterParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_db_cluster_parameters_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_pending_maintenance_actions() :: %{
-        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
-        "ResourceIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type resource_pending_maintenance_actions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_categories_map() :: %{
-        "EventCategories" => list(String.t() | atom()),
-        "SourceType" => String.t() | atom()
-      }
-      
-  """
-  @type event_categories_map() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      range() :: %{
-        "From" => integer(),
-        "Step" => integer(),
-        "To" => integer()
-      }
-      
-  """
-  @type range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_global_cluster_result() :: %{
-        "GlobalCluster" => global_cluster()
-      }
-      
-  """
-  @type delete_global_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_parameter_group_name_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_parameter_group_name_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      availability_zone() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type availability_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_snapshot_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_db_instances_message() :: %{
-        optional("DBInstanceIdentifier") => String.t() | atom(),
-        optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
-      }
-      
-  """
-  @type describe_db_instances_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      shared_snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type shared_snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_parameter_group_message() :: %{
-        optional("Tags") => list(tag()),
-        required("DBParameterGroupFamily") => String.t() | atom(),
-        required("DBParameterGroupName") => String.t() | atom(),
-        required("Description") => String.t() | atom()
-      }
-      
-  """
-  @type create_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()),
-        required("DBClusterParameterGroupName") => String.t() | atom(),
-        required("DBParameterGroupFamily") => String.t() | atom(),
-        required("Description") => String.t() | atom()
-      }
-      
-  """
-  @type create_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_db_cluster_parameter_group_result() :: %{
-        "DBClusterParameterGroup" => db_cluster_parameter_group()
-      }
-      
-  """
-  @type copy_db_cluster_parameter_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_event_subscription_message() :: %{
-        optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t() | atom()),
-        optional("SnsTopicArn") => String.t() | atom(),
-        optional("SourceType") => String.t() | atom(),
-        required("SubscriptionName") => String.t() | atom()
-      }
-      
-  """
-  @type modify_event_subscription_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_db_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()),
-        required("SourceDBClusterParameterGroupIdentifier") => String.t() | atom(),
-        required("TargetDBClusterParameterGroupDescription") => String.t() | atom(),
-        required("TargetDBClusterParameterGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type copy_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_pending_maintenance_actions_message() :: %{
-        optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("ResourceIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type describe_pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_orderable_db_instance_options_message() :: %{
-        optional("DBInstanceClass") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("Filters") => list(filter()),
-        optional("LicenseModel") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("Vpc") => boolean(),
-        required("Engine") => String.t() | atom()
-      }
-      
-  """
-  @type describe_orderable_db_instance_options_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pending_cloudwatch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t() | atom()),
-        "LogTypesToEnable" => list(String.t() | atom())
-      }
-      
-  """
-  @type pending_cloudwatch_logs_exports() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      double_range() :: %{
-        "From" => float(),
-        "To" => float()
-      }
-      
-  """
-  @type double_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      engine_defaults() :: %{
-        "DBParameterGroupFamily" => String.t() | atom(),
-        "Marker" => String.t() | atom(),
-        "Parameters" => list(parameter())
-      }
-      
-  """
-  @type engine_defaults() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_subnet_group_result() :: %{
-        "DBSubnetGroup" => db_subnet_group()
-      }
-      
-  """
-  @type create_db_subnet_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      switchover_global_cluster_result() :: %{
-        "GlobalCluster" => global_cluster()
-      }
-      
-  """
-  @type switchover_global_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloudwatch_logs_export_configuration() :: %{
-        "DisableLogTypes" => list(String.t() | atom()),
-        "EnableLogTypes" => list(String.t() | atom())
-      }
-      
-  """
-  @type cloudwatch_logs_export_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_instance_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_instance_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_db_instance_capacity_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_db_instance_capacity_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_role() :: %{
-        "FeatureName" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "ExcludedMembers" => list(String.t() | atom()),
+        "StaticMembers" => list(String.t() | atom()),
         "Status" => String.t() | atom()
       }
       
   """
-  @type db_cluster_role() :: %{(String.t() | atom()) => any()}
+  @type modify_db_cluster_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_db_instance_result() :: %{
-        "DBInstance" => db_instance()
+      create_db_cluster_result() :: %{
+        "DBCluster" => db_cluster()
       }
       
   """
-  @type modify_db_instance_result() :: %{(String.t() | atom()) => any()}
+  @type create_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      event_subscription() :: %{
-        "CustSubscriptionId" => String.t() | atom(),
-        "CustomerAwsId" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t() | atom()),
-        "EventSubscriptionArn" => String.t() | atom(),
-        "SnsTopicArn" => String.t() | atom(),
-        "SourceIdsList" => list(String.t() | atom()),
-        "SourceType" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "SubscriptionCreationTime" => String.t() | atom()
+      remove_tags_from_resource_message() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type event_subscription() :: %{(String.t() | atom()) => any()}
+  @type remove_tags_from_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      global_cluster_member() :: %{
-        "DBClusterArn" => String.t() | atom(),
-        "IsWriter" => boolean(),
-        "Readers" => list(String.t() | atom())
-      }
-      
-  """
-  @type global_cluster_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_db_cluster_snapshot_attribute_message() :: %{
-        optional("ValuesToAdd") => list(String.t() | atom()),
-        optional("ValuesToRemove") => list(String.t() | atom()),
-        required("AttributeName") => String.t() | atom(),
-        required("DBClusterSnapshotIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type modify_db_cluster_snapshot_attribute_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_source_identifier_to_subscription_message() :: %{
-        required("SourceIdentifier") => String.t() | atom(),
-        required("SubscriptionName") => String.t() | atom()
-      }
-      
-  """
-  @type add_source_identifier_to_subscription_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_restore_fault() :: %{
+      provisioned_iops_not_available_in_a_z_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_restore_fault() :: %{(String.t() | atom()) => any()}
+  @type provisioned_iops_not_available_in_a_z_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      restore_db_cluster_to_point_in_time_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t() | atom(),
-        optional("DBSubnetGroupName") => String.t() | atom(),
-        optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
-        optional("EnableIAMDatabaseAuthentication") => boolean(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("OptionGroupName") => String.t() | atom(),
-        optional("Port") => integer(),
-        optional("RestoreToTime") => non_neg_integer(),
-        optional("RestoreType") => String.t() | atom(),
-        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageType") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("UseLatestRestorableTime") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
-        required("DBClusterIdentifier") => String.t() | atom(),
-        required("SourceDBClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type restore_db_cluster_to_point_in_time_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_db_subnet_group_state_fault() :: %{
+      db_cluster_endpoint_already_exists_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_db_subnet_group_state_fault() :: %{(String.t() | atom()) => any()}
+  @type db_cluster_endpoint_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_cluster_snapshots_message() :: %{
+        optional("DBClusterIdentifier") => String.t() | atom(),
+        optional("DBClusterSnapshotIdentifier") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("IncludePublic") => boolean(),
+        optional("IncludeShared") => boolean(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("SnapshotType") => String.t() | atom()
+      }
+      
+  """
+  @type describe_db_cluster_snapshots_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,340 +670,57 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      subnet() :: %{
-        "SubnetAvailabilityZone" => availability_zone(),
-        "SubnetIdentifier" => String.t() | atom(),
-        "SubnetStatus" => String.t() | atom()
+      event_subscription() :: %{
+        "CustSubscriptionId" => String.t() | atom(),
+        "CustomerAwsId" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "EventCategoriesList" => list(String.t() | atom()),
+        "EventSubscriptionArn" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
+        "SourceIdsList" => list(String.t() | atom()),
+        "SourceType" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SubscriptionCreationTime" => String.t() | atom()
       }
       
   """
-  @type subnet() :: %{(String.t() | atom()) => any()}
+  @type event_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      remove_source_identifier_from_subscription_message() :: %{
-        required("SourceIdentifier") => String.t() | atom(),
-        required("SubscriptionName") => String.t() | atom()
+      db_parameter_group_status() :: %{
+        "DBParameterGroupName" => String.t() | atom(),
+        "ParameterApplyStatus" => String.t() | atom()
       }
       
   """
-  @type remove_source_identifier_from_subscription_message() :: %{(String.t() | atom()) => any()}
+  @type db_parameter_group_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_cluster_snapshot_message() :: %{
-        "DBClusterSnapshots" => list(db_cluster_snapshot()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_subnet() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_message() :: %{
-        optional("Filters") => list(filter()),
-        required("ResourceName") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_db_cluster_snapshots_message() :: %{
-        optional("DBClusterIdentifier") => String.t() | atom(),
-        optional("DBClusterSnapshotIdentifier") => String.t() | atom(),
-        optional("Filters") => list(filter()),
-        optional("IncludePublic") => boolean(),
-        optional("IncludeShared") => boolean(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("SnapshotType") => String.t() | atom()
-      }
-      
-  """
-  @type describe_db_cluster_snapshots_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_instance_message() :: %{
-        optional("StorageType") => String.t() | atom(),
-        optional("Timezone") => String.t() | atom(),
-        optional("AllocatedStorage") => integer(),
-        optional("MasterUserPassword") => String.t() | atom(),
-        optional("PreferredBackupWindow") => String.t() | atom(),
-        optional("MonitoringInterval") => integer(),
-        optional("MasterUsername") => String.t() | atom(),
-        optional("DomainIAMRoleName") => String.t() | atom(),
-        optional("Domain") => String.t() | atom(),
-        optional("EnableIAMDatabaseAuthentication") => boolean(),
-        optional("CopyTagsToSnapshot") => boolean(),
-        optional("BackupRetentionPeriod") => integer(),
-        optional("AvailabilityZone") => String.t() | atom(),
-        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
-        optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("PubliclyAccessible") => boolean(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("MonitoringRoleArn") => String.t() | atom(),
-        optional("LicenseModel") => String.t() | atom(),
-        optional("CharacterSetName") => String.t() | atom(),
-        required("DBInstanceIdentifier") => String.t() | atom(),
-        optional("Iops") => integer(),
-        required("DBClusterIdentifier") => String.t() | atom(),
-        optional("Port") => integer(),
-        optional("TdeCredentialPassword") => String.t() | atom(),
-        optional("DBSecurityGroups") => list(String.t() | atom()),
-        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
-        required("DBInstanceClass") => String.t() | atom(),
-        optional("EnablePerformanceInsights") => boolean(),
-        optional("StorageEncrypted") => boolean(),
-        optional("MultiAZ") => boolean(),
-        optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+      describe_db_parameter_groups_message() :: %{
         optional("DBParameterGroupName") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("OptionGroupName") => String.t() | atom(),
-        optional("DBName") => String.t() | atom(),
-        optional("PromotionTier") => integer(),
-        optional("DBSubnetGroupName") => String.t() | atom(),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        required("Engine") => String.t() | atom(),
-        optional("TdeCredentialArn") => String.t() | atom(),
-        optional("Tags") => list(tag())
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
       }
       
   """
-  @type create_db_instance_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_cluster_result() :: %{
-        "DBCluster" => db_cluster()
-      }
-      
-  """
-  @type create_db_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_db_cluster_to_point_in_time_result() :: %{
-        "DBCluster" => db_cluster()
-      }
-      
-  """
-  @type restore_db_cluster_to_point_in_time_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      storage_type_not_supported_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type storage_type_not_supported_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_db_cluster_snapshot_attributes_result() :: %{
-        "DBClusterSnapshotAttributesResult" => db_cluster_snapshot_attributes_result()
-      }
-      
-  """
-  @type describe_db_cluster_snapshot_attributes_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_subnet_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_instance() :: %{
-        "LatestRestorableTime" => non_neg_integer(),
-        "DBName" => String.t() | atom(),
-        "StatusInfos" => list(db_instance_status_info()),
-        "Engine" => String.t() | atom(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()),
-        "MultiAZ" => boolean(),
-        "CACertificateIdentifier" => String.t() | atom(),
-        "Timezone" => String.t() | atom(),
-        "PreferredMaintenanceWindow" => String.t() | atom(),
-        "Iops" => integer(),
-        "MonitoringInterval" => integer(),
-        "ReadReplicaDBInstanceIdentifiers" => list(String.t() | atom()),
-        "OptionGroupMemberships" => list(option_group_membership()),
-        "PreferredBackupWindow" => String.t() | atom(),
-        "PendingModifiedValues" => pending_modified_values(),
-        "PerformanceInsightsEnabled" => boolean(),
-        "PromotionTier" => integer(),
-        "ReadReplicaSourceDBInstanceIdentifier" => String.t() | atom(),
-        "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t() | atom(),
-        "AvailabilityZone" => String.t() | atom(),
-        "CopyTagsToSnapshot" => boolean(),
-        "DBInstanceClass" => String.t() | atom(),
-        "ReadReplicaDBClusterIdentifiers" => list(String.t() | atom()),
-        "EnhancedMonitoringResourceArn" => String.t() | atom(),
-        "EnabledCloudwatchLogsExports" => list(String.t() | atom()),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "DBInstanceArn" => String.t() | atom(),
-        "DbiResourceId" => String.t() | atom(),
-        "DBParameterGroups" => list(db_parameter_group_status()),
-        "DBInstanceStatus" => String.t() | atom(),
-        "TdeCredentialArn" => String.t() | atom(),
-        "PerformanceInsightsKMSKeyId" => String.t() | atom(),
-        "MasterUsername" => String.t() | atom(),
-        "LicenseModel" => String.t() | atom(),
-        "DBInstanceIdentifier" => String.t() | atom(),
-        "DBClusterIdentifier" => String.t() | atom(),
-        "DeletionProtection" => boolean(),
-        "StorageType" => String.t() | atom(),
-        "DBSubnetGroup" => db_subnet_group(),
-        "InstanceCreateTime" => non_neg_integer(),
-        "DomainMemberships" => list(domain_membership()),
-        "DbInstancePort" => integer(),
-        "SecondaryAvailabilityZone" => String.t() | atom(),
-        "PubliclyAccessible" => boolean(),
-        "EngineVersion" => String.t() | atom(),
-        "AllocatedStorage" => integer(),
-        "StorageEncrypted" => boolean(),
-        "DBSecurityGroups" => list(db_security_group_membership()),
-        "Endpoint" => endpoint(),
-        "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "CharacterSetName" => String.t() | atom(),
-        "MonitoringRoleArn" => String.t() | atom()
-      }
-      
-  """
-  @type db_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_role_to_db_cluster_message() :: %{
-        optional("FeatureName") => String.t() | atom(),
-        required("DBClusterIdentifier") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-      
-  """
-  @type add_role_to_db_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_engine_default_cluster_parameters_result() :: %{
-        "EngineDefaults" => engine_defaults()
-      }
-      
-  """
-  @type describe_engine_default_cluster_parameters_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_db_cluster_snapshot_result() :: %{
-        "DBClusterSnapshot" => db_cluster_snapshot()
-      }
-      
-  """
-  @type copy_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscription_already_exist_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subscription_already_exist_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_message() :: %{
-        "DBClusters" => list(db_cluster()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_valid_db_instance_modifications_result() :: %{
-        "ValidDBInstanceModificationsMessage" => valid_db_instance_modifications_message()
-      }
-      
-  """
-  @type describe_valid_db_instance_modifications_result() :: %{(String.t() | atom()) => any()}
+  @type describe_db_parameter_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_engine_default_parameters_message() :: %{
+        required("DBParameterGroupFamily") => String.t() | atom(),
         optional("Filters") => list(filter()),
         optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        required("DBParameterGroupFamily") => String.t() | atom()
+        optional("MaxRecords") => integer()
       }
       
   """
@@ -1104,75 +730,47 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      db_subnet_group_quota_exceeded_fault() :: %{
+      remove_from_global_cluster_message() :: %{
+        required("DbClusterIdentifier") => String.t() | atom(),
+        required("GlobalClusterIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type remove_from_global_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_db_cluster_state_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type db_subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_db_cluster_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_valid_db_instance_modifications_message() :: %{
-        required("DBInstanceIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type describe_valid_db_instance_modifications_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_global_cluster_result() :: %{
-        "GlobalCluster" => global_cluster()
-      }
-      
-  """
-  @type failover_global_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_global_cluster_state_fault() :: %{
+      option_group_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_global_cluster_state_fault() :: %{(String.t() | atom()) => any()}
+  @type option_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_db_cluster_endpoint_state_fault() :: %{
-        "message" => String.t() | atom()
+      db_parameter_groups_message() :: %{
+        "DBParameterGroups" => list(db_parameter_group()),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type invalid_db_cluster_endpoint_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_db_engine_versions_message() :: %{
-        optional("DBParameterGroupFamily") => String.t() | atom(),
-        optional("DefaultOnly") => boolean(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("Filters") => list(filter()),
-        optional("ListSupportedCharacterSets") => boolean(),
-        optional("ListSupportedTimezones") => boolean(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
-      }
-      
-  """
-  @type describe_db_engine_versions_message() :: %{(String.t() | atom()) => any()}
+  @type db_parameter_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1189,24 +787,240 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      domain_not_found_fault() :: %{
-        "message" => String.t() | atom()
+      modify_db_cluster_snapshot_attribute_result() :: %{
+        "DBClusterSnapshotAttributesResult" => db_cluster_snapshot_attributes_result()
       }
       
   """
-  @type domain_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type modify_db_cluster_snapshot_attribute_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_cluster_endpoint_message() :: %{
-        "DBClusterEndpoints" => list(db_cluster_endpoint()),
+      create_db_parameter_group_result() :: %{
+        "DBParameterGroup" => db_parameter_group()
+      }
+      
+  """
+  @type create_db_parameter_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_db_cluster_from_snapshot_result() :: %{
+        "DBCluster" => db_cluster()
+      }
+      
+  """
+  @type restore_db_cluster_from_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_subnet_group() :: %{
+        "DBSubnetGroupArn" => String.t() | atom(),
+        "DBSubnetGroupDescription" => String.t() | atom(),
+        "DBSubnetGroupName" => String.t() | atom(),
+        "SubnetGroupStatus" => String.t() | atom(),
+        "Subnets" => list(subnet()),
+        "SupportedNetworkTypes" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type db_subnet_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_db_parameter_group_message() :: %{
+        required("DBParameterGroupName") => String.t() | atom(),
+        optional("Parameters") => list(parameter()),
+        optional("ResetAllParameters") => boolean()
+      }
+      
+  """
+  @type reset_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_categories_message() :: %{
+        "EventCategoriesMapList" => list(event_categories_map())
+      }
+      
+  """
+  @type event_categories_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_role_from_db_cluster_message() :: %{
+        required("DBClusterIdentifier") => String.t() | atom(),
+        optional("FeatureName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type remove_role_from_db_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      orderable_db_instance_option() :: %{
+        "AvailabilityZones" => list(availability_zone()),
+        "DBInstanceClass" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "MaxIopsPerDbInstance" => integer(),
+        "MaxIopsPerGib" => float(),
+        "MaxStorageSize" => integer(),
+        "MinIopsPerDbInstance" => integer(),
+        "MinIopsPerGib" => float(),
+        "MinStorageSize" => integer(),
+        "MultiAZCapable" => boolean(),
+        "ReadReplicaCapable" => boolean(),
+        "StorageType" => String.t() | atom(),
+        "SupportedNetworkTypes" => list(String.t() | atom()),
+        "SupportsEnhancedMonitoring" => boolean(),
+        "SupportsGlobalDatabases" => boolean(),
+        "SupportsIAMDatabaseAuthentication" => boolean(),
+        "SupportsIops" => boolean(),
+        "SupportsPerformanceInsights" => boolean(),
+        "SupportsStorageEncryption" => boolean(),
+        "Vpc" => boolean()
+      }
+      
+  """
+  @type orderable_db_instance_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      range() :: %{
+        "From" => integer(),
+        "Step" => integer(),
+        "To" => integer()
+      }
+      
+  """
+  @type range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_subnet_group_message() :: %{
+        "DBSubnetGroups" => list(db_subnet_group()),
         "Marker" => String.t() | atom()
       }
       
   """
-  @type db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
+  @type db_subnet_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upgrade_target() :: %{
+        "AutoUpgrade" => boolean(),
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "IsMajorVersionUpgrade" => boolean(),
+        "SupportsGlobalDatabases" => boolean()
+      }
+      
+  """
+  @type upgrade_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_security_group_membership() :: %{
+        "Status" => String.t() | atom(),
+        "VpcSecurityGroupId" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_security_group_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_event_subscription_message() :: %{
+        optional("Enabled") => boolean(),
+        optional("EventCategories") => list(String.t() | atom()),
+        optional("SnsTopicArn") => String.t() | atom(),
+        optional("SourceType") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
+      }
+      
+  """
+  @type modify_event_subscription_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_state() :: %{
+        "FromDbClusterArn" => String.t() | atom(),
+        "IsDataLossAllowed" => boolean(),
+        "Status" => list(any()),
+        "ToDbClusterArn" => String.t() | atom()
+      }
+      
+  """
+  @type failover_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_source_identifier_to_subscription_message() :: %{
+        required("SourceIdentifier") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
+      }
+      
+  """
+  @type add_source_identifier_to_subscription_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_scaling_configuration() :: %{
+        "MaxCapacity" => float(),
+        "MinCapacity" => float()
+      }
+      
+  """
+  @type serverless_v2_scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_subnet_group_message() :: %{
+        required("DBSubnetGroupDescription") => String.t() | atom(),
+        required("DBSubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom()),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1224,172 +1038,241 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      delete_db_cluster_message() :: %{
-        optional("FinalDBSnapshotIdentifier") => String.t() | atom(),
-        optional("SkipFinalSnapshot") => boolean(),
+      delete_db_cluster_endpoint_message() :: %{
+        required("DBClusterEndpointIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_db_cluster_message() :: %{
         required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_message() :: %{(String.t() | atom()) => any()}
+  @type stop_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      reboot_db_instance_result() :: %{
-        "DBInstance" => db_instance()
+      create_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
       }
       
   """
-  @type reboot_db_instance_result() :: %{(String.t() | atom()) => any()}
+  @type create_global_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_db_cluster_endpoint_output() :: %{
-        "CustomEndpointType" => String.t() | atom(),
-        "DBClusterEndpointArn" => String.t() | atom(),
-        "DBClusterEndpointIdentifier" => String.t() | atom(),
-        "DBClusterEndpointResourceIdentifier" => String.t() | atom(),
-        "DBClusterIdentifier" => String.t() | atom(),
-        "Endpoint" => String.t() | atom(),
-        "EndpointType" => String.t() | atom(),
-        "ExcludedMembers" => list(String.t() | atom()),
-        "StaticMembers" => list(String.t() | atom()),
-        "Status" => String.t() | atom()
+      stop_db_cluster_result() :: %{
+        "DBCluster" => db_cluster()
       }
       
   """
-  @type delete_db_cluster_endpoint_output() :: %{(String.t() | atom()) => any()}
+  @type stop_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      add_source_identifier_to_subscription_result() :: %{
-        "EventSubscription" => event_subscription()
-      }
-      
-  """
-  @type add_source_identifier_to_subscription_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_parameter_group() :: %{
-        "DBParameterGroupArn" => String.t() | atom(),
-        "DBParameterGroupFamily" => String.t() | atom(),
-        "DBParameterGroupName" => String.t() | atom(),
-        "Description" => String.t() | atom()
-      }
-      
-  """
-  @type db_parameter_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_parameter_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_db_instance_message() :: %{
-        optional("FinalDBSnapshotIdentifier") => String.t() | atom(),
-        optional("SkipFinalSnapshot") => boolean(),
-        required("DBInstanceIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_db_instance_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_vpc_network_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reset_db_parameter_group_message() :: %{
-        optional("Parameters") => list(parameter()),
-        optional("ResetAllParameters") => boolean(),
+      delete_db_parameter_group_message() :: %{
         required("DBParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type reset_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
+  @type delete_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_event_subscription_message() :: %{
-        optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t() | atom()),
-        optional("SourceIds") => list(String.t() | atom()),
-        optional("SourceType") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("SnsTopicArn") => String.t() | atom(),
-        required("SubscriptionName") => String.t() | atom()
-      }
-      
-  """
-  @type create_event_subscription_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_security_group_not_found_fault() :: %{
+      db_cluster_quota_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type db_security_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type db_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_db_cluster_endpoints_message() :: %{
-        optional("DBClusterEndpointIdentifier") => String.t() | atom(),
-        optional("DBClusterIdentifier") => String.t() | atom(),
+      describe_db_cluster_parameter_groups_message() :: %{
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("Filters") => list(filter()),
         optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_cluster_endpoints_message() :: %{(String.t() | atom()) => any()}
+  @type describe_db_cluster_parameter_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_db_cluster_result() :: %{
-        "DBCluster" => db_cluster()
+      create_db_cluster_snapshot_message() :: %{
+        required("DBClusterIdentifier") => String.t() | atom(),
+        required("DBClusterSnapshotIdentifier") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type modify_db_cluster_result() :: %{(String.t() | atom()) => any()}
+  @type create_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_engine_version_message() :: %{
+        "DBEngineVersions" => list(db_engine_version()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type db_engine_version_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_global_cluster_message() :: %{
+        required("GlobalClusterIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_global_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_subnet_group_result() :: %{
+        "DBSubnetGroup" => db_subnet_group()
+      }
+      
+  """
+  @type modify_db_subnet_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_subnet_group_result() :: %{
+        "DBSubnetGroup" => db_subnet_group()
+      }
+      
+  """
+  @type create_db_subnet_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_instance_result() :: %{
+        "DBInstance" => db_instance()
+      }
+      
+  """
+  @type create_db_instance_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_type_not_supported_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type storage_type_not_supported_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type domain_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_cluster_parameter_group_message() :: %{
+        required("DBClusterParameterGroupName") => String.t() | atom(),
+        required("Parameters") => list(parameter())
+      }
+      
+  """
+  @type modify_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_subnet_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_db_cluster_parameter_group_message() :: %{
+        required("DBClusterParameterGroupName") => String.t() | atom(),
+        optional("Parameters") => list(parameter()),
+        optional("ResetAllParameters") => boolean()
+      }
+      
+  """
+  @type reset_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_from_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
+      }
+      
+  """
+  @type remove_from_global_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type storage_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1407,76 +1290,202 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      promote_read_replica_db_cluster_result() :: %{
-        "DBCluster" => db_cluster()
+      failover_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
       }
       
   """
-  @type promote_read_replica_db_cluster_result() :: %{(String.t() | atom()) => any()}
+  @type failover_global_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_event_subscriptions_message() :: %{
-        optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("SubscriptionName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_event_subscriptions_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_snapshot_already_exists_fault() :: %{
+      kms_key_not_accessible_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
+  @type kms_key_not_accessible_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_db_cluster_endpoint_message() :: %{
-        optional("ExcludedMembers") => list(String.t() | atom()),
-        optional("StaticMembers") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("DBClusterEndpointIdentifier") => String.t() | atom(),
-        required("DBClusterIdentifier") => String.t() | atom(),
-        required("EndpointType") => String.t() | atom()
+      restore_db_cluster_to_point_in_time_result() :: %{
+        "DBCluster" => db_cluster()
       }
       
   """
-  @type create_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
+  @type restore_db_cluster_to_point_in_time_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_db_cluster_snapshot_attribute_result() :: %{
-        "DBClusterSnapshotAttributesResult" => db_cluster_snapshot_attributes_result()
+      db_parameter_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type modify_db_cluster_snapshot_attribute_result() :: %{(String.t() | atom()) => any()}
+  @type db_parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_cluster_snapshot_attribute() :: %{
-        "AttributeName" => String.t() | atom(),
-        "AttributeValues" => list(String.t() | atom())
+      db_cluster() :: %{
+        "CrossAccountClone" => boolean(),
+        "StorageEncrypted" => boolean(),
+        "AssociatedRoles" => list(db_cluster_role()),
+        "EngineVersion" => String.t() | atom(),
+        "PercentProgress" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "AllocatedStorage" => integer(),
+        "ClusterCreateTime" => non_neg_integer(),
+        "EarliestRestorableTime" => non_neg_integer(),
+        "ReaderEndpoint" => String.t() | atom(),
+        "DBClusterMembers" => list(db_cluster_member()),
+        "DbClusterResourceId" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "GlobalClusterIdentifier" => String.t() | atom(),
+        "StorageType" => String.t() | atom(),
+        "AutomaticRestartTime" => non_neg_integer(),
+        "IOOptimizedNextAllowedModificationTime" => non_neg_integer(),
+        "DBClusterOptionGroupMemberships" => list(db_cluster_option_group_status()),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "DBSubnetGroup" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "EnabledCloudwatchLogsExports" => list(String.t() | atom()),
+        "IAMDatabaseAuthenticationEnabled" => boolean(),
+        "LatestRestorableTime" => non_neg_integer(),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()),
+        "CopyTagsToSnapshot" => boolean(),
+        "DeletionProtection" => boolean(),
+        "MultiAZ" => boolean(),
+        "CloneGroupId" => String.t() | atom(),
+        "PreferredBackupWindow" => String.t() | atom(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "PendingModifiedValues" => cluster_pending_modified_values(),
+        "BackupRetentionPeriod" => integer(),
+        "MasterUsername" => String.t() | atom(),
+        "NetworkType" => String.t() | atom(),
+        "DBClusterArn" => String.t() | atom(),
+        "Port" => integer(),
+        "HostedZoneId" => String.t() | atom(),
+        "CharacterSetName" => String.t() | atom(),
+        "ReplicationSourceIdentifier" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "DBClusterParameterGroup" => String.t() | atom(),
+        "ReadReplicaIdentifiers" => list(String.t() | atom()),
+        "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
+        "Endpoint" => String.t() | atom()
       }
       
   """
-  @type db_cluster_snapshot_attribute() :: %{(String.t() | atom()) => any()}
+  @type db_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_snapshot_message() :: %{
+        "DBClusterSnapshots" => list(db_cluster_snapshot()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_security_group_membership() :: %{
+        "DBSecurityGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type db_security_group_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_instance_message() :: %{
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("TdeCredentialPassword") => String.t() | atom(),
+        optional("AllocatedStorage") => integer(),
+        optional("CACertificateIdentifier") => String.t() | atom(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("TdeCredentialArn") => String.t() | atom(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
+        optional("StorageType") => String.t() | atom(),
+        optional("LicenseModel") => String.t() | atom(),
+        optional("EnableIAMDatabaseAuthentication") => boolean(),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("DBPortNumber") => integer(),
+        optional("MonitoringInterval") => integer(),
+        optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
+        optional("AllowMajorVersionUpgrade") => boolean(),
+        optional("DBInstanceClass") => String.t() | atom(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
+        optional("Iops") => integer(),
+        optional("CopyTagsToSnapshot") => boolean(),
+        optional("DeletionProtection") => boolean(),
+        optional("DBParameterGroupName") => String.t() | atom(),
+        optional("MultiAZ") => boolean(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("BackupRetentionPeriod") => integer(),
+        optional("DBSecurityGroups") => list(String.t() | atom()),
+        optional("NewDBInstanceIdentifier") => String.t() | atom(),
+        optional("ApplyImmediately") => boolean(),
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
+        optional("PromotionTier") => integer(),
+        optional("PubliclyAccessible") => boolean(),
+        optional("EnablePerformanceInsights") => boolean()
+      }
+      
+  """
+  @type modify_db_instance_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_pending_maintenance_actions() :: %{
+        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
+        "ResourceIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type resource_pending_maintenance_actions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_global_cluster_message() :: %{
+        optional("DatabaseName") => String.t() | atom(),
+        optional("DeletionProtection") => boolean(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        required("GlobalClusterIdentifier") => String.t() | atom(),
+        optional("SourceDBClusterIdentifier") => String.t() | atom(),
+        optional("StorageEncrypted") => boolean(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1517,321 +1526,86 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      orderable_db_instance_option() :: %{
-        "AvailabilityZones" => list(availability_zone()),
-        "DBInstanceClass" => String.t() | atom(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "LicenseModel" => String.t() | atom(),
-        "MaxIopsPerDbInstance" => integer(),
-        "MaxIopsPerGib" => float(),
-        "MaxStorageSize" => integer(),
-        "MinIopsPerDbInstance" => integer(),
-        "MinIopsPerGib" => float(),
-        "MinStorageSize" => integer(),
-        "MultiAZCapable" => boolean(),
-        "ReadReplicaCapable" => boolean(),
-        "StorageType" => String.t() | atom(),
-        "SupportsEnhancedMonitoring" => boolean(),
-        "SupportsGlobalDatabases" => boolean(),
-        "SupportsIAMDatabaseAuthentication" => boolean(),
-        "SupportsIops" => boolean(),
-        "SupportsPerformanceInsights" => boolean(),
-        "SupportsStorageEncryption" => boolean(),
-        "Vpc" => boolean()
+      create_event_subscription_message() :: %{
+        optional("Enabled") => boolean(),
+        optional("EventCategories") => list(String.t() | atom()),
+        required("SnsTopicArn") => String.t() | atom(),
+        optional("SourceIds") => list(String.t() | atom()),
+        optional("SourceType") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type orderable_db_instance_option() :: %{(String.t() | atom()) => any()}
+  @type create_event_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_db_parameter_group_message() :: %{
-        required("DBParameterGroupName") => String.t() | atom()
+      invalid_subnet() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type delete_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
+  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_cluster_parameter_groups_message() :: %{
-        "DBClusterParameterGroups" => list(db_cluster_parameter_group()),
-        "Marker" => String.t() | atom()
+      switchover_global_cluster_message() :: %{
+        required("GlobalClusterIdentifier") => String.t() | atom(),
+        required("TargetDbClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type db_cluster_parameter_groups_message() :: %{(String.t() | atom()) => any()}
+  @type switchover_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_db_cluster_parameter_groups_message() :: %{
-        optional("DBClusterParameterGroupName") => String.t() | atom(),
-        optional("Filters") => list(filter()),
+      subscription_already_exist_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subscription_already_exist_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_parameter_group_details() :: %{
         optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
+        optional("Parameters") => list(parameter())
       }
       
   """
-  @type describe_db_cluster_parameter_groups_message() :: %{(String.t() | atom()) => any()}
+  @type db_parameter_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      authorization_not_found_fault() :: %{
+      invalid_event_subscription_state_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type authorization_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_event_subscription_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_instance_not_found_fault() :: %{
-        "message" => String.t() | atom()
+      promote_read_replica_db_cluster_result() :: %{
+        "DBCluster" => db_cluster()
       }
       
   """
-  @type db_instance_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_db_cluster_snapshot_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_db_cluster_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_db_cluster_snapshot_message() :: %{
-        optional("CopyTags") => boolean(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("PreSignedUrl") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("SourceDBClusterSnapshotIdentifier") => String.t() | atom(),
-        required("TargetDBClusterSnapshotIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type copy_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_cluster() :: %{
-        "DatabaseName" => String.t() | atom(),
-        "DeletionProtection" => boolean(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "FailoverState" => failover_state(),
-        "GlobalClusterArn" => String.t() | atom(),
-        "GlobalClusterIdentifier" => String.t() | atom(),
-        "GlobalClusterMembers" => list(global_cluster_member()),
-        "GlobalClusterResourceId" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StorageEncrypted" => boolean(),
-        "TagList" => list(tag())
-      }
-      
-  """
-  @type global_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_global_cluster_result() :: %{
-        "GlobalCluster" => global_cluster()
-      }
-      
-  """
-  @type create_global_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_upgrade_dependency_failure_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_upgrade_dependency_failure_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_clusters_message() :: %{
-        "GlobalClusters" => list(global_cluster()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type global_clusters_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type certificate_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_global_cluster_result() :: %{
-        "GlobalCluster" => global_cluster()
-      }
-      
-  """
-  @type modify_global_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_from_global_cluster_message() :: %{
-        required("DbClusterIdentifier") => String.t() | atom(),
-        required("GlobalClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type remove_from_global_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_state() :: %{
-        "FromDbClusterArn" => String.t() | atom(),
-        "IsDataLossAllowed" => boolean(),
-        "Status" => list(any()),
-        "ToDbClusterArn" => String.t() | atom()
-      }
-      
-  """
-  @type failover_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reboot_db_instance_message() :: %{
-        optional("ForceFailover") => boolean(),
-        required("DBInstanceIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type reboot_db_instance_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_db_parameters_message() :: %{
-        optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("Source") => String.t() | atom(),
-        required("DBParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_db_parameters_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_role_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_role_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type source_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_engine_version_message() :: %{
-        "DBEngineVersions" => list(db_engine_version()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type db_engine_version_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_endpoint_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_endpoint_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_global_cluster_message() :: %{
-        optional("AllowMajorVersionUpgrade") => boolean(),
-        optional("DeletionProtection") => boolean(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("NewGlobalClusterIdentifier") => String.t() | atom(),
-        required("GlobalClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type modify_global_cluster_message() :: %{(String.t() | atom()) => any()}
+  @type promote_read_replica_db_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1860,6 +1634,271 @@ defmodule AWS.Neptune do
 
   ## Example:
       
+      db_cluster_parameter_group_name_message() :: %{
+        optional("DBClusterParameterGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_parameter_group_name_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_parameter_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_cluster_snapshot_attributes_result() :: %{
+        "DBClusterSnapshotAttributesResult" => db_cluster_snapshot_attributes_result()
+      }
+      
+  """
+  @type describe_db_cluster_snapshot_attributes_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_snapshot_attribute() :: %{
+        "AttributeName" => String.t() | atom(),
+        "AttributeValues" => list(String.t() | atom())
+      }
+      
+  """
+  @type db_cluster_snapshot_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s_n_s_invalid_topic_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type s_n_s_invalid_topic_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subscription_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subscription_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type source_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_db_cluster_result() :: %{
+        "DBCluster" => db_cluster()
+      }
+      
+  """
+  @type failover_db_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_cluster_snapshot_message() :: %{
+        required("DBClusterSnapshotIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_event_subscription_result() :: %{
+        "EventSubscription" => event_subscription()
+      }
+      
+  """
+  @type delete_event_subscription_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_instance_message() :: %{
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("StorageEncrypted") => boolean(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("TdeCredentialPassword") => String.t() | atom(),
+        optional("AllocatedStorage") => integer(),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        optional("DomainIAMRoleName") => String.t() | atom(),
+        optional("DBName") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("TdeCredentialArn") => String.t() | atom(),
+        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
+        optional("StorageType") => String.t() | atom(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        optional("LicenseModel") => String.t() | atom(),
+        optional("EnableIAMDatabaseAuthentication") => boolean(),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("MonitoringInterval") => integer(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
+        required("DBInstanceClass") => String.t() | atom(),
+        optional("MonitoringRoleArn") => String.t() | atom(),
+        optional("Iops") => integer(),
+        optional("CopyTagsToSnapshot") => boolean(),
+        optional("DeletionProtection") => boolean(),
+        optional("DBParameterGroupName") => String.t() | atom(),
+        optional("MultiAZ") => boolean(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
+        optional("Timezone") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("BackupRetentionPeriod") => integer(),
+        optional("MasterUsername") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("Port") => integer(),
+        optional("DBSecurityGroups") => list(String.t() | atom()),
+        optional("CharacterSetName") => String.t() | atom(),
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
+        required("Engine") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
+        optional("PromotionTier") => integer(),
+        optional("PubliclyAccessible") => boolean(),
+        optional("EnablePerformanceInsights") => boolean()
+      }
+      
+  """
+  @type create_db_instance_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_cluster_endpoint_message() :: %{
+        required("DBClusterEndpointIdentifier") => String.t() | atom(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        required("EndpointType") => String.t() | atom(),
+        optional("ExcludedMembers") => list(String.t() | atom()),
+        optional("StaticMembers") => list(String.t() | atom()),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type create_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_parameter_group() :: %{
+        "DBClusterParameterGroupArn" => String.t() | atom(),
+        "DBClusterParameterGroupName" => String.t() | atom(),
+        "DBParameterGroupFamily" => String.t() | atom(),
+        "Description" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_parameter_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_cluster_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type global_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_clusters_message() :: %{
+        optional("DBClusterIdentifier") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_db_clusters_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_endpoint_message() :: %{
+        "DBClusterEndpoints" => list(db_cluster_endpoint()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_instance_result() :: %{
+        "DBInstance" => db_instance()
+      }
+      
+  """
+  @type modify_db_instance_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       parameter() :: %{
         "AllowedValues" => String.t() | atom(),
         "ApplyMethod" => list(any()),
@@ -1880,183 +1919,301 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      db_subnet_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
+      describe_orderable_db_instance_options_message() :: %{
+        optional("DBInstanceClass") => String.t() | atom(),
+        required("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("LicenseModel") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("Vpc") => boolean()
       }
       
   """
-  @type db_subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type describe_orderable_db_instance_options_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_event_subscription_state_fault() :: %{
+      invalid_vpc_network_state_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_event_subscription_state_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_db_cluster_snapshot_message() :: %{
-        optional("Tags") => list(tag()),
+      db_parameter_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_source_identifier_from_subscription_result() :: %{
+        "EventSubscription" => event_subscription()
+      }
+      
+  """
+  @type remove_source_identifier_from_subscription_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_cluster_snapshot_attribute_message() :: %{
+        required("AttributeName") => String.t() | atom(),
+        required("DBClusterSnapshotIdentifier") => String.t() | atom(),
+        optional("ValuesToAdd") => list(String.t() | atom()),
+        optional("ValuesToRemove") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_db_cluster_snapshot_attribute_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_engine_default_parameters_result() :: %{
+        "EngineDefaults" => engine_defaults()
+      }
+      
+  """
+  @type describe_engine_default_parameters_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_cluster_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type global_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_snapshot_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_message() :: %{
+        "DBClusters" => list(db_cluster()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_db_instance_capacity_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_db_instance_capacity_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_parameter_group() :: %{
+        "DBParameterGroupArn" => String.t() | atom(),
+        "DBParameterGroupFamily" => String.t() | atom(),
+        "DBParameterGroupName" => String.t() | atom(),
+        "Description" => String.t() | atom()
+      }
+      
+  """
+  @type db_parameter_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_instance_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_cluster_snapshot_result() :: %{
+        "DBClusterSnapshot" => db_cluster_snapshot()
+      }
+      
+  """
+  @type delete_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
+      }
+      
+  """
+  @type delete_global_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_storage_cluster_capacity_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_storage_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_cluster_endpoint_message() :: %{
+        required("DBClusterEndpointIdentifier") => String.t() | atom(),
+        optional("EndpointType") => String.t() | atom(),
+        optional("ExcludedMembers") => list(String.t() | atom()),
+        optional("StaticMembers") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pending_cloudwatch_logs_exports() :: %{
+        "LogTypesToDisable" => list(String.t() | atom()),
+        "LogTypesToEnable" => list(String.t() | atom())
+      }
+      
+  """
+  @type pending_cloudwatch_logs_exports() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_db_cluster_to_point_in_time_message() :: %{
         required("DBClusterIdentifier") => String.t() | atom(),
-        required("DBClusterSnapshotIdentifier") => String.t() | atom()
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
+        optional("DeletionProtection") => boolean(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
+        optional("EnableIAMDatabaseAuthentication") => boolean(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("Port") => integer(),
+        optional("RestoreToTime") => non_neg_integer(),
+        optional("RestoreType") => String.t() | atom(),
+        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
+        required("SourceDBClusterIdentifier") => String.t() | atom(),
+        optional("StorageType") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("UseLatestRestorableTime") => boolean(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom())
       }
       
   """
-  @type create_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
+  @type restore_db_cluster_to_point_in_time_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_security_group_membership() :: %{
-        "DBSecurityGroupName" => String.t() | atom(),
-        "Status" => String.t() | atom()
+      create_event_subscription_result() :: %{
+        "EventSubscription" => event_subscription()
       }
       
   """
-  @type db_security_group_membership() :: %{(String.t() | atom()) => any()}
+  @type create_event_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_db_cluster_parameter_group_message() :: %{
-        required("DBClusterParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_db_clusters_message() :: %{
-        optional("DBClusterIdentifier") => String.t() | atom(),
-        optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
-      }
-      
-  """
-  @type describe_db_clusters_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_pending_modified_values() :: %{
-        "AllocatedStorage" => integer(),
-        "BackupRetentionPeriod" => integer(),
-        "DBClusterIdentifier" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "Iops" => integer(),
-        "PendingCloudwatchLogsExports" => pending_cloudwatch_logs_exports(),
-        "StorageType" => String.t() | atom()
-      }
-      
-  """
-  @type cluster_pending_modified_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_endpoint() :: %{
-        "CustomEndpointType" => String.t() | atom(),
-        "DBClusterEndpointArn" => String.t() | atom(),
-        "DBClusterEndpointIdentifier" => String.t() | atom(),
-        "DBClusterEndpointResourceIdentifier" => String.t() | atom(),
-        "DBClusterIdentifier" => String.t() | atom(),
-        "Endpoint" => String.t() | atom(),
-        "EndpointType" => String.t() | atom(),
-        "ExcludedMembers" => list(String.t() | atom()),
-        "StaticMembers" => list(String.t() | atom()),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_endpoint_not_found_fault() :: %{
+      db_cluster_role_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_endpoint_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type db_cluster_role_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_db_parameter_groups_message() :: %{
-        optional("DBParameterGroupName") => String.t() | atom(),
-        optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
+      db_cluster_parameter_groups_message() :: %{
+        "DBClusterParameterGroups" => list(db_cluster_parameter_group()),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_db_parameter_groups_message() :: %{(String.t() | atom()) => any()}
+  @type db_cluster_parameter_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_db_parameter_group_message() :: %{
-        required("DBParameterGroupName") => String.t() | atom(),
-        required("Parameters") => list(parameter())
-      }
-      
-  """
-  @type modify_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      switchover_global_cluster_message() :: %{
-        required("GlobalClusterIdentifier") => String.t() | atom(),
-        required("TargetDbClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type switchover_global_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_db_cluster_parameter_group_message() :: %{
-        required("DBClusterParameterGroupName") => String.t() | atom(),
-        required("Parameters") => list(parameter())
-      }
-      
-  """
-  @type modify_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscription_not_found_fault() :: %{
+      s_n_s_no_authorization_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type subscription_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type s_n_s_no_authorization_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_upgrade_dependency_failure_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_upgrade_dependency_failure_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2076,50 +2233,252 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      delete_db_cluster_endpoint_message() :: %{
-        required("DBClusterEndpointIdentifier") => String.t() | atom()
+      db_cluster_role() :: %{
+        "FeatureName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
+  @type db_cluster_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_db_cluster_message() :: %{
+      global_cluster_member() :: %{
+        "DBClusterArn" => String.t() | atom(),
+        "IsWriter" => boolean(),
+        "Readers" => list(String.t() | atom())
+      }
+      
+  """
+  @type global_cluster_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_to_resource_message() :: %{
+        required("ResourceName") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type add_tags_to_resource_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_parameter_group_details() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("Parameters") => list(parameter())
+      }
+      
+  """
+  @type db_cluster_parameter_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_db_snapshot_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_db_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_role_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_role_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_list_message() :: %{
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type tag_list_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_db_cluster_from_snapshot_message() :: %{
         optional("AvailabilityZones") => list(String.t() | atom()),
-        optional("BackupRetentionPeriod") => integer(),
-        optional("CharacterSetName") => String.t() | atom(),
         optional("CopyTagsToSnapshot") => boolean(),
+        required("DBClusterIdentifier") => String.t() | atom(),
         optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("DBSubnetGroupName") => String.t() | atom(),
         optional("DatabaseName") => String.t() | atom(),
         optional("DeletionProtection") => boolean(),
         optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
+        required("Engine") => String.t() | atom(),
         optional("EngineVersion") => String.t() | atom(),
-        optional("GlobalClusterIdentifier") => String.t() | atom(),
         optional("KmsKeyId") => String.t() | atom(),
-        optional("MasterUserPassword") => String.t() | atom(),
-        optional("MasterUsername") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("OptionGroupName") => String.t() | atom(),
         optional("Port") => integer(),
-        optional("PreSignedUrl") => String.t() | atom(),
-        optional("PreferredBackupWindow") => String.t() | atom(),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("ReplicationSourceIdentifier") => String.t() | atom(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageEncrypted") => boolean(),
+        required("SnapshotIdentifier") => String.t() | atom(),
         optional("StorageType") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
-        required("DBClusterIdentifier") => String.t() | atom(),
-        required("Engine") => String.t() | atom()
+        optional("VpcSecurityGroupIds") => list(String.t() | atom())
       }
       
   """
-  @type create_db_cluster_message() :: %{(String.t() | atom()) => any()}
+  @type restore_db_cluster_from_snapshot_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_parameter_group_name_message() :: %{
+        optional("DBParameterGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type db_parameter_group_name_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet() :: %{
+        "SubnetAvailabilityZone" => availability_zone(),
+        "SubnetIdentifier" => String.t() | atom(),
+        "SubnetStatus" => String.t() | atom()
+      }
+      
+  """
+  @type subnet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      double_range() :: %{
+        "From" => float(),
+        "To" => float()
+      }
+      
+  """
+  @type double_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_restore_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_restore_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_db_cluster_result() :: %{
+        "DBCluster" => db_cluster()
+      }
+      
+  """
+  @type start_db_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_cluster_result() :: %{
+        "DBCluster" => db_cluster()
+      }
+      
+  """
+  @type modify_db_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_member() :: %{
+        "DBClusterParameterGroupStatus" => String.t() | atom(),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "IsClusterWriter" => boolean(),
+        "PromotionTier" => integer()
+      }
+      
+  """
+  @type db_cluster_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_cluster_endpoint_output() :: %{
+        "CustomEndpointType" => String.t() | atom(),
+        "DBClusterEndpointArn" => String.t() | atom(),
+        "DBClusterEndpointIdentifier" => String.t() | atom(),
+        "DBClusterEndpointResourceIdentifier" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "ExcludedMembers" => list(String.t() | atom()),
+        "StaticMembers" => list(String.t() | atom()),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type delete_db_cluster_endpoint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      events_message() :: %{
+        "Events" => list(event()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type events_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2139,270 +2498,85 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      db_parameter_groups_message() :: %{
-        "DBParameterGroups" => list(db_parameter_group()),
-        "Marker" => String.t() | atom()
+      failover_db_cluster_message() :: %{
+        optional("DBClusterIdentifier") => String.t() | atom(),
+        optional("TargetDBInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type db_parameter_groups_message() :: %{(String.t() | atom()) => any()}
+  @type failover_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
+      describe_db_subnet_groups_message() :: %{
+        optional("DBSubnetGroupName") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
       }
       
   """
-  @type filter() :: %{(String.t() | atom()) => any()}
+  @type describe_db_subnet_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      instance_quota_exceeded_fault() :: %{
+      certificate_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type instance_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type certificate_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      valid_db_instance_modifications_message() :: %{
-        "Storage" => list(valid_storage_options())
-      }
-      
-  """
-  @type valid_db_instance_modifications_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_global_cluster_message() :: %{
-        optional("DatabaseName") => String.t() | atom(),
-        optional("DeletionProtection") => boolean(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("SourceDBClusterIdentifier") => String.t() | atom(),
-        optional("StorageEncrypted") => boolean(),
-        optional("Tags") => list(tag()),
-        required("GlobalClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type create_global_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      storage_quota_exceeded_fault() :: %{
+      subnet_already_in_use() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type storage_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type subnet_already_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_db_snapshot_state_fault() :: %{
-        "message" => String.t() | atom()
+      describe_pending_maintenance_actions_message() :: %{
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ResourceIdentifier") => String.t() | atom()
       }
       
   """
-  @type invalid_db_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
+  @type describe_pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_db_cluster_snapshot_result() :: %{
-        "DBClusterSnapshot" => db_cluster_snapshot()
+      reboot_db_instance_result() :: %{
+        "DBInstance" => db_instance()
       }
       
   """
-  @type create_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
+  @type reboot_db_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_db_parameter_group_result() :: %{
-        "DBParameterGroup" => db_parameter_group()
+      add_source_identifier_to_subscription_result() :: %{
+        "EventSubscription" => event_subscription()
       }
       
   """
-  @type create_db_parameter_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint() :: %{
-        "Address" => String.t() | atom(),
-        "HostedZoneId" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      events_message() :: %{
-        "Events" => list(event()),
-        "Marker" => String.t() | atom()
-      }
-      
-  """
-  @type events_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_snapshot_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_parameter_group_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reset_db_cluster_parameter_group_message() :: %{
-        optional("Parameters") => list(parameter()),
-        optional("ResetAllParameters") => boolean(),
-        required("DBClusterParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type reset_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_global_cluster_message() :: %{
-        required("GlobalClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type delete_global_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_event_subscription_message() :: %{
-        required("SubscriptionName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_event_subscription_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscription_category_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subscription_category_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_key_not_accessible_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_key_not_accessible_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_db_parameter_group_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_db_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s_n_s_invalid_topic_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type s_n_s_invalid_topic_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_role_from_db_cluster_message() :: %{
-        optional("FeatureName") => String.t() | atom(),
-        required("DBClusterIdentifier") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-      
-  """
-  @type remove_role_from_db_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_engine_default_parameters_result() :: %{
-        "EngineDefaults" => engine_defaults()
-      }
-      
-  """
-  @type describe_engine_default_parameters_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_db_cluster_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_db_cluster_state_fault() :: %{(String.t() | atom()) => any()}
+  @type add_source_identifier_to_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2419,283 +2593,39 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      event() :: %{
-        "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t() | atom()),
-        "Message" => String.t() | atom(),
-        "SourceArn" => String.t() | atom(),
-        "SourceIdentifier" => String.t() | atom(),
-        "SourceType" => list(any())
-      }
-      
-  """
-  @type event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_event_subscription_result() :: %{
-        "EventSubscription" => event_subscription()
-      }
-      
-  """
-  @type create_event_subscription_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_instance_message() :: %{
-        "DBInstances" => list(db_instance()),
+      global_clusters_message() :: %{
+        "GlobalClusters" => list(global_cluster()),
         "Marker" => String.t() | atom()
       }
       
   """
-  @type db_instance_message() :: %{(String.t() | atom()) => any()}
+  @type global_clusters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_engine_default_cluster_parameters_message() :: %{
-        optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        required("DBParameterGroupFamily") => String.t() | atom()
+      create_db_cluster_parameter_group_message() :: %{
+        required("DBClusterParameterGroupName") => String.t() | atom(),
+        required("DBParameterGroupFamily") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
       
   """
-  @type describe_engine_default_cluster_parameters_message() :: %{(String.t() | atom()) => any()}
+  @type create_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_list_message() :: %{
-        "TagList" => list(tag())
+      pending_maintenance_actions_message() :: %{
+        "Marker" => String.t() | atom(),
+        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
       }
       
   """
-  @type tag_list_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster() :: %{
-        "Status" => String.t() | atom(),
-        "DBClusterParameterGroup" => String.t() | atom(),
-        "LatestRestorableTime" => non_neg_integer(),
-        "Engine" => String.t() | atom(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()),
-        "MultiAZ" => boolean(),
-        "EarliestRestorableTime" => non_neg_integer(),
-        "DatabaseName" => String.t() | atom(),
-        "PreferredMaintenanceWindow" => String.t() | atom(),
-        "CloneGroupId" => String.t() | atom(),
-        "PreferredBackupWindow" => String.t() | atom(),
-        "PendingModifiedValues" => cluster_pending_modified_values(),
-        "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t() | atom(),
-        "ReadReplicaIdentifiers" => list(String.t() | atom()),
-        "CopyTagsToSnapshot" => boolean(),
-        "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
-        "EnabledCloudwatchLogsExports" => list(String.t() | atom()),
-        "ClusterCreateTime" => non_neg_integer(),
-        "PercentProgress" => String.t() | atom(),
-        "ReplicationSourceIdentifier" => String.t() | atom(),
-        "Port" => integer(),
-        "DBClusterArn" => String.t() | atom(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "CrossAccountClone" => boolean(),
-        "MasterUsername" => String.t() | atom(),
-        "DbClusterResourceId" => String.t() | atom(),
-        "DBClusterMembers" => list(db_cluster_member()),
-        "ReaderEndpoint" => String.t() | atom(),
-        "AutomaticRestartTime" => non_neg_integer(),
-        "DBClusterIdentifier" => String.t() | atom(),
-        "DeletionProtection" => boolean(),
-        "StorageType" => String.t() | atom(),
-        "DBSubnetGroup" => String.t() | atom(),
-        "DBClusterOptionGroupMemberships" => list(db_cluster_option_group_status()),
-        "EngineVersion" => String.t() | atom(),
-        "AllocatedStorage" => integer(),
-        "HostedZoneId" => String.t() | atom(),
-        "AssociatedRoles" => list(db_cluster_role()),
-        "GlobalClusterIdentifier" => String.t() | atom(),
-        "IOOptimizedNextAllowedModificationTime" => non_neg_integer(),
-        "StorageEncrypted" => boolean(),
-        "Endpoint" => String.t() | atom(),
-        "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "CharacterSetName" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s_n_s_topic_arn_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type s_n_s_topic_arn_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_source_identifier_from_subscription_result() :: %{
-        "EventSubscription" => event_subscription()
-      }
-      
-  """
-  @type remove_source_identifier_from_subscription_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_db_security_group_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_db_security_group_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_to_resource_message() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type add_tags_to_resource_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_categories_message() :: %{
-        "EventCategoriesMapList" => list(event_categories_map())
-      }
-      
-  """
-  @type event_categories_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_db_cluster_result() :: %{
-        "DBCluster" => db_cluster()
-      }
-      
-  """
-  @type delete_db_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_subnet_group_message() :: %{
-        optional("Tags") => list(tag()),
-        required("DBSubnetGroupDescription") => String.t() | atom(),
-        required("DBSubnetGroupName") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_db_cluster_from_snapshot_result() :: %{
-        "DBCluster" => db_cluster()
-      }
-      
-  """
-  @type restore_db_cluster_from_snapshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_db_cluster_capacity_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_db_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_instance_status_info() :: %{
-        "Message" => String.t() | atom(),
-        "Normal" => boolean(),
-        "Status" => String.t() | atom(),
-        "StatusType" => String.t() | atom()
-      }
-      
-  """
-  @type db_instance_status_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_global_clusters_message() :: %{
-        optional("GlobalClusterIdentifier") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
-      }
-      
-  """
-  @type describe_global_clusters_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_cluster_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type global_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2720,128 +2650,144 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      describe_db_cluster_snapshot_attributes_message() :: %{
-        required("DBClusterSnapshotIdentifier") => String.t() | atom()
+      describe_global_clusters_message() :: %{
+        optional("GlobalClusterIdentifier") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_db_cluster_snapshot_attributes_message() :: %{(String.t() | atom()) => any()}
+  @type describe_global_clusters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_db_cluster_result() :: %{
-        "DBCluster" => db_cluster()
+      describe_engine_default_cluster_parameters_result() :: %{
+        "EngineDefaults" => engine_defaults()
       }
       
   """
-  @type start_db_cluster_result() :: %{(String.t() | atom()) => any()}
+  @type describe_engine_default_cluster_parameters_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      option_group_not_found_fault() :: %{
+      s_n_s_topic_arn_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type option_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type s_n_s_topic_arn_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      global_cluster_not_found_fault() :: %{
+      modify_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
+      }
+      
+  """
+  @type modify_global_cluster_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_subnet_group_message() :: %{
+        optional("DBSubnetGroupDescription") => String.t() | atom(),
+        required("DBSubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_db_cluster_message() :: %{
+        optional("AllowMajorVersionUpgrade") => boolean(),
+        optional("ApplyImmediately") => boolean(),
+        optional("BackupRetentionPeriod") => integer(),
+        optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
+        optional("CopyTagsToSnapshot") => boolean(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
+        optional("DBInstanceParameterGroupName") => String.t() | atom(),
+        optional("DeletionProtection") => boolean(),
+        optional("EnableIAMDatabaseAuthentication") => boolean(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("NewDBClusterIdentifier") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("Port") => integer(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
+        optional("StorageType") => String.t() | atom(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_db_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_db_instance_state_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type global_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_db_instance_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_cluster_snapshot_attributes_result() :: %{
-        "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()),
-        "DBClusterSnapshotIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_snapshot_attributes_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_event_subscription_result() :: %{
-        "EventSubscription" => event_subscription()
-      }
-      
-  """
-  @type modify_event_subscription_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_cluster_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type global_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      apply_pending_maintenance_action_result() :: %{
-        "ResourcePendingMaintenanceActions" => resource_pending_maintenance_actions()
-      }
-      
-  """
-  @type apply_pending_maintenance_action_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      upgrade_target() :: %{
-        "AutoUpgrade" => boolean(),
-        "Description" => String.t() | atom(),
+      db_cluster_snapshot() :: %{
+        "AllocatedStorage" => integer(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "ClusterCreateTime" => non_neg_integer(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "DBClusterSnapshotArn" => String.t() | atom(),
+        "DBClusterSnapshotIdentifier" => String.t() | atom(),
         "Engine" => String.t() | atom(),
         "EngineVersion" => String.t() | atom(),
-        "IsMajorVersionUpgrade" => boolean(),
-        "SupportsGlobalDatabases" => boolean()
+        "IAMDatabaseAuthenticationEnabled" => boolean(),
+        "KmsKeyId" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "PercentProgress" => integer(),
+        "Port" => integer(),
+        "SnapshotCreateTime" => non_neg_integer(),
+        "SnapshotType" => String.t() | atom(),
+        "SourceDBClusterSnapshotArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StorageEncrypted" => boolean(),
+        "StorageType" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type upgrade_target() :: %{(String.t() | atom()) => any()}
+  @type db_cluster_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      copy_db_parameter_group_result() :: %{
-        "DBParameterGroup" => db_parameter_group()
+      delete_db_cluster_parameter_group_message() :: %{
+        required("DBClusterParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type copy_db_parameter_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_event_subscription_result() :: %{
-        "EventSubscription" => event_subscription()
-      }
-      
-  """
-  @type delete_event_subscription_result() :: %{(String.t() | atom()) => any()}
+  @type delete_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2859,136 +2805,134 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      provisioned_iops_not_available_in_a_z_fault() :: %{
-        "message" => String.t() | atom()
+      start_db_cluster_message() :: %{
+        required("DBClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type provisioned_iops_not_available_in_a_z_fault() :: %{(String.t() | atom()) => any()}
+  @type start_db_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_db_subnet_groups_message() :: %{
-        optional("DBSubnetGroupName") => String.t() | atom(),
+      timezone() :: %{
+        "TimezoneName" => String.t() | atom()
+      }
+      
+  """
+  @type timezone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_subscriptions_message() :: %{
+        "EventSubscriptionsList" => list(event_subscription()),
+        "Marker" => String.t() | atom()
+      }
+      
+  """
+  @type event_subscriptions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_subnet_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      apply_pending_maintenance_action_result() :: %{
+        "ResourcePendingMaintenanceActions" => resource_pending_maintenance_actions()
+      }
+      
+  """
+  @type apply_pending_maintenance_action_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_db_cluster_parameter_group_message() :: %{
+        required("SourceDBClusterParameterGroupIdentifier") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("TargetDBClusterParameterGroupDescription") => String.t() | atom(),
+        required("TargetDBClusterParameterGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type copy_db_cluster_parameter_group_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subscription_category_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subscription_category_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      shared_snapshot_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type shared_snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_endpoint_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_endpoint_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_cluster_parameters_message() :: %{
+        required("DBClusterParameterGroupName") => String.t() | atom(),
         optional("Filters") => list(filter()),
         optional("Marker") => String.t() | atom(),
-        optional("MaxRecords") => integer()
+        optional("MaxRecords") => integer(),
+        optional("Source") => String.t() | atom()
       }
       
   """
-  @type describe_db_subnet_groups_message() :: %{(String.t() | atom()) => any()}
+  @type describe_db_cluster_parameters_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_db_subnet_group_result() :: %{
-        "DBSubnetGroup" => db_subnet_group()
+      modify_global_cluster_message() :: %{
+        optional("AllowMajorVersionUpgrade") => boolean(),
+        optional("DeletionProtection") => boolean(),
+        optional("EngineVersion") => String.t() | atom(),
+        required("GlobalClusterIdentifier") => String.t() | atom(),
+        optional("NewGlobalClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_subnet_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_v2_scaling_configuration_info() :: %{
-        "MaxCapacity" => float(),
-        "MinCapacity" => float()
-      }
-      
-  """
-  @type serverless_v2_scaling_configuration_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_subnet_group() :: %{
-        "DBSubnetGroupArn" => String.t() | atom(),
-        "DBSubnetGroupDescription" => String.t() | atom(),
-        "DBSubnetGroupName" => String.t() | atom(),
-        "SubnetGroupStatus" => String.t() | atom(),
-        "Subnets" => list(subnet()),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type db_subnet_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_db_subnet_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_db_subnet_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_db_cluster_message() :: %{
-        optional("DBClusterIdentifier") => String.t() | atom(),
-        optional("TargetDBInstanceIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type failover_db_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_db_subnet_group_message() :: %{
-        required("DBSubnetGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_from_global_cluster_result() :: %{
-        "GlobalCluster" => global_cluster()
-      }
-      
-  """
-  @type remove_from_global_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_member() :: %{
-        "DBClusterParameterGroupStatus" => String.t() | atom(),
-        "DBInstanceIdentifier" => String.t() | atom(),
-        "IsClusterWriter" => boolean(),
-        "PromotionTier" => integer()
-      }
-      
-  """
-  @type db_cluster_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_from_resource_message() :: %{
-        required("ResourceName") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type remove_tags_from_resource_message() :: %{(String.t() | atom()) => any()}
+  @type modify_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3005,31 +2949,15 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      modify_db_cluster_message() :: %{
-        optional("AllowMajorVersionUpgrade") => boolean(),
-        optional("ApplyImmediately") => boolean(),
-        optional("BackupRetentionPeriod") => integer(),
-        optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
-        optional("CopyTagsToSnapshot") => boolean(),
-        optional("DBClusterParameterGroupName") => String.t() | atom(),
-        optional("DBInstanceParameterGroupName") => String.t() | atom(),
-        optional("DeletionProtection") => boolean(),
-        optional("EnableIAMDatabaseAuthentication") => boolean(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("MasterUserPassword") => String.t() | atom(),
-        optional("NewDBClusterIdentifier") => String.t() | atom(),
-        optional("OptionGroupName") => String.t() | atom(),
-        optional("Port") => integer(),
-        optional("PreferredBackupWindow") => String.t() | atom(),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
-        optional("StorageType") => String.t() | atom(),
-        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
-        required("DBClusterIdentifier") => String.t() | atom()
+      failover_global_cluster_message() :: %{
+        optional("AllowDataLoss") => boolean(),
+        required("GlobalClusterIdentifier") => String.t() | atom(),
+        optional("Switchover") => boolean(),
+        required("TargetDbClusterIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_cluster_message() :: %{(String.t() | atom()) => any()}
+  @type failover_global_cluster_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3047,234 +2975,342 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      db_cluster_parameter_group() :: %{
-        "DBClusterParameterGroupArn" => String.t() | atom(),
-        "DBClusterParameterGroupName" => String.t() | atom(),
-        "DBParameterGroupFamily" => String.t() | atom(),
-        "Description" => String.t() | atom()
+      modify_event_subscription_result() :: %{
+        "EventSubscription" => event_subscription()
       }
       
   """
-  @type db_cluster_parameter_group() :: %{(String.t() | atom()) => any()}
+  @type modify_event_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stop_db_cluster_message() :: %{
-        required("DBClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type stop_db_cluster_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_snapshot_not_found_fault() :: %{
+      db_snapshot_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type db_snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_parameter_group_status() :: %{
-        "DBParameterGroupName" => String.t() | atom(),
-        "ParameterApplyStatus" => String.t() | atom()
+      delete_db_subnet_group_message() :: %{
+        required("DBSubnetGroupName") => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_status() :: %{(String.t() | atom()) => any()}
+  @type delete_db_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_parameter_group_name_message() :: %{
-        optional("DBParameterGroupName") => String.t() | atom()
+      event_categories_map() :: %{
+        "EventCategories" => list(String.t() | atom()),
+        "SourceType" => String.t() | atom()
       }
       
   """
-  @type db_parameter_group_name_message() :: %{(String.t() | atom()) => any()}
+  @type event_categories_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s_n_s_no_authorization_fault() :: %{
+      invalid_db_security_group_state_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type s_n_s_no_authorization_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_db_security_group_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_db_cluster_endpoint_message() :: %{
-        optional("EndpointType") => String.t() | atom(),
-        optional("ExcludedMembers") => list(String.t() | atom()),
-        optional("StaticMembers") => list(String.t() | atom()),
-        required("DBClusterEndpointIdentifier") => String.t() | atom()
+      copy_db_cluster_parameter_group_result() :: %{
+        "DBClusterParameterGroup" => db_cluster_parameter_group()
       }
       
   """
-  @type modify_db_cluster_endpoint_message() :: %{(String.t() | atom()) => any()}
+  @type copy_db_cluster_parameter_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      vpc_security_group_membership() :: %{
-        "Status" => String.t() | atom(),
-        "VpcSecurityGroupId" => String.t() | atom()
+      db_cluster_parameter_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type vpc_security_group_membership() :: %{(String.t() | atom()) => any()}
+  @type db_cluster_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_db_cluster_endpoint_output() :: %{
-        "CustomEndpointType" => String.t() | atom(),
-        "DBClusterEndpointArn" => String.t() | atom(),
-        "DBClusterEndpointIdentifier" => String.t() | atom(),
-        "DBClusterEndpointResourceIdentifier" => String.t() | atom(),
-        "DBClusterIdentifier" => String.t() | atom(),
-        "Endpoint" => String.t() | atom(),
-        "EndpointType" => String.t() | atom(),
-        "ExcludedMembers" => list(String.t() | atom()),
-        "StaticMembers" => list(String.t() | atom()),
-        "Status" => String.t() | atom()
+      copy_db_parameter_group_message() :: %{
+        required("SourceDBParameterGroupIdentifier") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("TargetDBParameterGroupDescription") => String.t() | atom(),
+        required("TargetDBParameterGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_cluster_endpoint_output() :: %{(String.t() | atom()) => any()}
+  @type copy_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_db_cluster_snapshot_message() :: %{
+      describe_db_parameters_message() :: %{
+        required("DBParameterGroupName") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("Source") => String.t() | atom()
+      }
+      
+  """
+  @type describe_db_parameters_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_cluster_message() :: %{
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("BackupRetentionPeriod") => integer(),
+        optional("CharacterSetName") => String.t() | atom(),
+        optional("CopyTagsToSnapshot") => boolean(),
+        required("DBClusterIdentifier") => String.t() | atom(),
+        optional("DBClusterParameterGroupName") => String.t() | atom(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
+        optional("DatabaseName") => String.t() | atom(),
+        optional("DeletionProtection") => boolean(),
+        optional("EnableCloudwatchLogsExports") => list(String.t() | atom()),
+        optional("EnableIAMDatabaseAuthentication") => boolean(),
+        required("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("GlobalClusterIdentifier") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("MasterUserPassword") => String.t() | atom(),
+        optional("MasterUsername") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("OptionGroupName") => String.t() | atom(),
+        optional("Port") => integer(),
+        optional("PreSignedUrl") => String.t() | atom(),
+        optional("PreferredBackupWindow") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("ReplicationSourceIdentifier") => String.t() | atom(),
+        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
+        optional("StorageEncrypted") => boolean(),
+        optional("StorageType") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_db_cluster_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_endpoint_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type db_cluster_endpoint_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloudwatch_logs_export_configuration() :: %{
+        "DisableLogTypes" => list(String.t() | atom()),
+        "EnableLogTypes" => list(String.t() | atom())
+      }
+      
+  """
+  @type cloudwatch_logs_export_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_valid_db_instance_modifications_message() :: %{
+        required("DBInstanceIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type describe_valid_db_instance_modifications_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_db_cluster_snapshot_result() :: %{
+        "DBClusterSnapshot" => db_cluster_snapshot()
+      }
+      
+  """
+  @type copy_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_cluster_snapshot_attributes_message() :: %{
         required("DBClusterSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
+  @type describe_db_cluster_snapshot_attributes_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      failover_db_cluster_result() :: %{
-        "DBCluster" => db_cluster()
+      endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
+        "Port" => integer()
       }
       
   """
-  @type failover_db_cluster_result() :: %{(String.t() | atom()) => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_db_instance_message() :: %{
-        optional("StorageType") => String.t() | atom(),
-        optional("AllowMajorVersionUpgrade") => boolean(),
-        optional("AllocatedStorage") => integer(),
-        optional("MasterUserPassword") => String.t() | atom(),
-        optional("PreferredBackupWindow") => String.t() | atom(),
-        optional("MonitoringInterval") => integer(),
-        optional("DBPortNumber") => integer(),
-        optional("DomainIAMRoleName") => String.t() | atom(),
-        optional("Domain") => String.t() | atom(),
-        optional("EnableIAMDatabaseAuthentication") => boolean(),
-        optional("CopyTagsToSnapshot") => boolean(),
-        optional("BackupRetentionPeriod") => integer(),
-        optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("PubliclyAccessible") => boolean(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("MonitoringRoleArn") => String.t() | atom(),
-        optional("DBInstanceClass") => String.t() | atom(),
-        optional("LicenseModel") => String.t() | atom(),
-        required("DBInstanceIdentifier") => String.t() | atom(),
-        optional("NewDBInstanceIdentifier") => String.t() | atom(),
-        optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
-        optional("Iops") => integer(),
-        optional("TdeCredentialPassword") => String.t() | atom(),
-        optional("DBSecurityGroups") => list(String.t() | atom()),
-        optional("PerformanceInsightsKMSKeyId") => String.t() | atom(),
-        optional("EnablePerformanceInsights") => boolean(),
-        optional("MultiAZ") => boolean(),
-        optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
-        optional("CACertificateIdentifier") => String.t() | atom(),
-        optional("ApplyImmediately") => boolean(),
-        optional("DBParameterGroupName") => String.t() | atom(),
-        optional("OptionGroupName") => String.t() | atom(),
-        optional("PromotionTier") => integer(),
-        optional("DBSubnetGroupName") => String.t() | atom(),
-        optional("PreferredMaintenanceWindow") => String.t() | atom(),
-        optional("TdeCredentialArn") => String.t() | atom()
+      copy_db_cluster_snapshot_message() :: %{
+        optional("CopyTags") => boolean(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PreSignedUrl") => String.t() | atom(),
+        required("SourceDBClusterSnapshotIdentifier") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("TargetDBClusterSnapshotIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_db_instance_message() :: %{(String.t() | atom()) => any()}
+  @type copy_db_cluster_snapshot_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      db_cluster_endpoint_already_exists_fault() :: %{
+      valid_db_instance_modifications_message() :: %{
+        "Storage" => list(valid_storage_options())
+      }
+      
+  """
+  @type valid_db_instance_modifications_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance() :: %{
+        "StatusInfos" => list(db_instance_status_info()),
+        "ReadReplicaDBInstanceIdentifiers" => list(String.t() | atom()),
+        "StorageEncrypted" => boolean(),
+        "EngineVersion" => String.t() | atom(),
+        "DBInstanceStatus" => String.t() | atom(),
+        "AllocatedStorage" => integer(),
+        "AvailabilityZone" => String.t() | atom(),
+        "CACertificateIdentifier" => String.t() | atom(),
+        "SecondaryAvailabilityZone" => String.t() | atom(),
+        "PerformanceInsightsEnabled" => boolean(),
+        "DBName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "TdeCredentialArn" => String.t() | atom(),
+        "PerformanceInsightsKMSKeyId" => String.t() | atom(),
+        "StorageType" => String.t() | atom(),
+        "DbInstancePort" => integer(),
+        "DBInstanceArn" => String.t() | atom(),
+        "DomainMemberships" => list(domain_membership()),
+        "ReadReplicaDBClusterIdentifiers" => list(String.t() | atom()),
+        "EnhancedMonitoringResourceArn" => String.t() | atom(),
+        "DBSubnetGroup" => db_subnet_group(),
+        "DbiResourceId" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "OptionGroupMemberships" => list(option_group_membership()),
+        "ReadReplicaSourceDBInstanceIdentifier" => String.t() | atom(),
+        "EnabledCloudwatchLogsExports" => list(String.t() | atom()),
+        "IAMDatabaseAuthenticationEnabled" => boolean(),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "MonitoringInterval" => integer(),
+        "LatestRestorableTime" => non_neg_integer(),
+        "DBInstanceClass" => String.t() | atom(),
+        "MonitoringRoleArn" => String.t() | atom(),
+        "Iops" => integer(),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()),
+        "InstanceCreateTime" => non_neg_integer(),
+        "CopyTagsToSnapshot" => boolean(),
+        "DeletionProtection" => boolean(),
+        "MultiAZ" => boolean(),
+        "PreferredBackupWindow" => String.t() | atom(),
+        "Timezone" => String.t() | atom(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "PendingModifiedValues" => pending_modified_values(),
+        "BackupRetentionPeriod" => integer(),
+        "MasterUsername" => String.t() | atom(),
+        "NetworkType" => String.t() | atom(),
+        "DBSecurityGroups" => list(db_security_group_membership()),
+        "CharacterSetName" => String.t() | atom(),
+        "DBParameterGroups" => list(db_parameter_group_status()),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "PromotionTier" => integer(),
+        "PubliclyAccessible" => boolean(),
+        "Endpoint" => endpoint()
+      }
+      
+  """
+  @type db_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      engine_defaults() :: %{
+        "DBParameterGroupFamily" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "Parameters" => list(parameter())
+      }
+      
+  """
+  @type engine_defaults() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_cluster_snapshot_result() :: %{
+        "DBClusterSnapshot" => db_cluster_snapshot()
+      }
+      
+  """
+  @type create_db_cluster_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_type_not_supported_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type db_cluster_endpoint_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serverless_v2_scaling_configuration() :: %{
-        "MaxCapacity" => float(),
-        "MinCapacity" => float()
-      }
-      
-  """
-  @type serverless_v2_scaling_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_instance_result() :: %{
-        "DBInstance" => db_instance()
-      }
-      
-  """
-  @type create_db_instance_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_global_cluster_message() :: %{
-        optional("AllowDataLoss") => boolean(),
-        optional("Switchover") => boolean(),
-        required("GlobalClusterIdentifier") => String.t() | atom(),
-        required("TargetDbClusterIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type failover_global_cluster_message() :: %{(String.t() | atom()) => any()}
+  @type network_type_not_supported_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3291,249 +3327,234 @@ defmodule AWS.Neptune do
 
   ## Example:
       
-      db_cluster_parameter_group_details() :: %{
+      delete_event_subscription_message() :: %{
+        required("SubscriptionName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_event_subscription_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_message() :: %{
+        optional("Filters") => list(filter()),
+        required("ResourceName") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_db_instance_message() :: %{
+        required("DBInstanceIdentifier") => String.t() | atom(),
+        optional("ForceFailover") => boolean()
+      }
+      
+  """
+  @type reboot_db_instance_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_scaling_configuration_info() :: %{
+        "MaxCapacity" => float(),
+        "MinCapacity" => float()
+      }
+      
+  """
+  @type serverless_v2_scaling_configuration_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_db_cluster_capacity_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_db_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_engine_versions_message() :: %{
+        optional("DBParameterGroupFamily") => String.t() | atom(),
+        optional("DefaultOnly") => boolean(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("ListSupportedCharacterSets") => boolean(),
+        optional("ListSupportedTimezones") => boolean(),
         optional("Marker") => String.t() | atom(),
-        optional("Parameters") => list(parameter())
+        optional("MaxRecords") => integer()
       }
       
   """
-  @type db_cluster_parameter_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_db_cluster_result() :: %{
-        "DBCluster" => db_cluster()
-      }
-      
-  """
-  @type stop_db_cluster_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pending_maintenance_actions_message() :: %{
-        "Marker" => String.t() | atom(),
-        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
-      }
-      
-  """
-  @type pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      timezone() :: %{
-        "TimezoneName" => String.t() | atom()
-      }
-      
-  """
-  @type timezone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_db_instance_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_db_instance_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_cluster_role_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type db_cluster_role_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_db_parameter_group_message() :: %{
-        optional("Tags") => list(tag()),
-        required("SourceDBParameterGroupIdentifier") => String.t() | atom(),
-        required("TargetDBParameterGroupDescription") => String.t() | atom(),
-        required("TargetDBParameterGroupIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type copy_db_parameter_group_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_storage_cluster_capacity_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_storage_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
+  @type describe_db_engine_versions_message() :: %{(String.t() | atom()) => any()}
 
   @type add_role_to_db_cluster_errors() ::
           db_cluster_role_quota_exceeded_fault()
+          | db_cluster_role_already_exists_fault()
           | db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
-          | db_cluster_role_already_exists_fault()
 
   @type add_source_identifier_to_subscription_errors() ::
-          subscription_not_found_fault() | source_not_found_fault()
+          source_not_found_fault() | subscription_not_found_fault()
 
   @type add_tags_to_resource_errors() ::
-          db_cluster_not_found_fault()
-          | db_snapshot_not_found_fault()
+          db_snapshot_not_found_fault()
           | db_instance_not_found_fault()
+          | db_cluster_not_found_fault()
 
   @type apply_pending_maintenance_action_errors() :: resource_not_found_fault()
 
   @type copy_db_cluster_parameter_group_errors() ::
-          db_parameter_group_already_exists_fault()
-          | db_parameter_group_quota_exceeded_fault()
+          db_parameter_group_quota_exceeded_fault()
           | db_parameter_group_not_found_fault()
+          | db_parameter_group_already_exists_fault()
 
   @type copy_db_cluster_snapshot_errors() ::
           db_cluster_snapshot_not_found_fault()
-          | invalid_db_cluster_state_fault()
           | kms_key_not_accessible_fault()
-          | invalid_db_cluster_snapshot_state_fault()
-          | db_cluster_snapshot_already_exists_fault()
           | snapshot_quota_exceeded_fault()
+          | invalid_db_cluster_state_fault()
+          | db_cluster_snapshot_already_exists_fault()
+          | invalid_db_cluster_snapshot_state_fault()
 
   @type copy_db_parameter_group_errors() ::
-          db_parameter_group_already_exists_fault()
-          | db_parameter_group_quota_exceeded_fault()
+          db_parameter_group_quota_exceeded_fault()
           | db_parameter_group_not_found_fault()
+          | db_parameter_group_already_exists_fault()
 
   @type create_db_cluster_errors() ::
-          insufficient_storage_cluster_capacity_fault()
-          | invalid_db_instance_state_fault()
-          | global_cluster_not_found_fault()
-          | db_cluster_not_found_fault()
-          | db_cluster_already_exists_fault()
-          | invalid_db_cluster_state_fault()
-          | kms_key_not_accessible_fault()
+          network_type_not_supported_fault()
           | db_cluster_parameter_group_not_found_fault()
-          | storage_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
+          | invalid_db_instance_state_fault()
+          | db_cluster_already_exists_fault()
+          | insufficient_storage_cluster_capacity_fault()
           | db_instance_not_found_fault()
-          | db_subnet_group_does_not_cover_enough_a_zs()
+          | db_cluster_not_found_fault()
           | invalid_vpc_network_state_fault()
-          | invalid_global_cluster_state_fault()
           | invalid_subnet()
-          | invalid_db_subnet_group_state_fault()
+          | db_subnet_group_does_not_cover_enough_a_zs()
+          | kms_key_not_accessible_fault()
+          | storage_quota_exceeded_fault()
           | db_cluster_quota_exceeded_fault()
+          | invalid_db_cluster_state_fault()
+          | invalid_global_cluster_state_fault()
+          | invalid_db_subnet_group_state_fault()
+          | global_cluster_not_found_fault()
 
   @type create_db_cluster_endpoint_errors() ::
-          invalid_db_instance_state_fault()
-          | db_cluster_endpoint_already_exists_fault()
+          db_cluster_endpoint_quota_exceeded_fault()
+          | invalid_db_instance_state_fault()
+          | db_instance_not_found_fault()
           | db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
-          | db_cluster_endpoint_quota_exceeded_fault()
-          | db_instance_not_found_fault()
+          | db_cluster_endpoint_already_exists_fault()
 
   @type create_db_cluster_parameter_group_errors() ::
-          db_parameter_group_already_exists_fault() | db_parameter_group_quota_exceeded_fault()
+          db_parameter_group_quota_exceeded_fault() | db_parameter_group_already_exists_fault()
 
   @type create_db_cluster_snapshot_errors() ::
           db_cluster_not_found_fault()
-          | invalid_db_cluster_state_fault()
-          | invalid_db_cluster_snapshot_state_fault()
-          | db_cluster_snapshot_already_exists_fault()
           | snapshot_quota_exceeded_fault()
+          | invalid_db_cluster_state_fault()
+          | db_cluster_snapshot_already_exists_fault()
+          | invalid_db_cluster_snapshot_state_fault()
 
   @type create_db_instance_errors() ::
-          provisioned_iops_not_available_in_a_z_fault()
-          | option_group_not_found_fault()
+          db_subnet_group_not_found_fault()
+          | insufficient_db_instance_capacity_fault()
           | db_cluster_not_found_fault()
-          | invalid_db_cluster_state_fault()
+          | invalid_vpc_network_state_fault()
+          | db_parameter_group_not_found_fault()
+          | invalid_subnet()
+          | db_subnet_group_does_not_cover_enough_a_zs()
           | kms_key_not_accessible_fault()
           | storage_quota_exceeded_fault()
-          | instance_quota_exceeded_fault()
-          | db_subnet_group_not_found_fault()
-          | authorization_not_found_fault()
-          | db_subnet_group_does_not_cover_enough_a_zs()
-          | db_security_group_not_found_fault()
-          | invalid_vpc_network_state_fault()
           | domain_not_found_fault()
           | storage_type_not_supported_fault()
-          | invalid_subnet()
-          | insufficient_db_instance_capacity_fault()
+          | option_group_not_found_fault()
+          | invalid_db_cluster_state_fault()
+          | provisioned_iops_not_available_in_a_z_fault()
+          | authorization_not_found_fault()
+          | db_security_group_not_found_fault()
+          | instance_quota_exceeded_fault()
           | db_instance_already_exists_fault()
-          | db_parameter_group_not_found_fault()
 
   @type create_db_parameter_group_errors() ::
-          db_parameter_group_already_exists_fault() | db_parameter_group_quota_exceeded_fault()
+          db_parameter_group_quota_exceeded_fault() | db_parameter_group_already_exists_fault()
 
   @type create_db_subnet_group_errors() ::
-          db_subnet_group_does_not_cover_enough_a_zs()
-          | db_subnet_group_quota_exceeded_fault()
-          | db_subnet_quota_exceeded_fault()
-          | invalid_subnet()
+          invalid_subnet()
+          | db_subnet_group_does_not_cover_enough_a_zs()
           | db_subnet_group_already_exists_fault()
+          | db_subnet_quota_exceeded_fault()
+          | db_subnet_group_quota_exceeded_fault()
 
   @type create_event_subscription_errors() ::
-          s_n_s_no_authorization_fault()
-          | event_subscription_quota_exceeded_fault()
-          | s_n_s_topic_arn_not_found_fault()
-          | s_n_s_invalid_topic_fault()
+          event_subscription_quota_exceeded_fault()
           | subscription_category_not_found_fault()
+          | s_n_s_topic_arn_not_found_fault()
+          | s_n_s_no_authorization_fault()
           | source_not_found_fault()
+          | s_n_s_invalid_topic_fault()
           | subscription_already_exist_fault()
 
   @type create_global_cluster_errors() ::
-          global_cluster_already_exists_fault()
+          db_cluster_not_found_fault()
+          | global_cluster_already_exists_fault()
           | global_cluster_quota_exceeded_fault()
-          | db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
 
   @type delete_db_cluster_errors() ::
           db_cluster_not_found_fault()
-          | invalid_db_cluster_state_fault()
-          | invalid_db_cluster_snapshot_state_fault()
-          | db_cluster_snapshot_already_exists_fault()
           | snapshot_quota_exceeded_fault()
+          | invalid_db_cluster_state_fault()
+          | db_cluster_snapshot_already_exists_fault()
+          | invalid_db_cluster_snapshot_state_fault()
 
   @type delete_db_cluster_endpoint_errors() ::
-          invalid_db_cluster_state_fault()
-          | db_cluster_endpoint_not_found_fault()
+          db_cluster_endpoint_not_found_fault()
+          | invalid_db_cluster_state_fault()
           | invalid_db_cluster_endpoint_state_fault()
 
   @type delete_db_cluster_parameter_group_errors() ::
-          invalid_db_parameter_group_state_fault() | db_parameter_group_not_found_fault()
+          db_parameter_group_not_found_fault() | invalid_db_parameter_group_state_fault()
 
   @type delete_db_cluster_snapshot_errors() ::
           db_cluster_snapshot_not_found_fault() | invalid_db_cluster_snapshot_state_fault()
 
   @type delete_db_instance_errors() ::
           invalid_db_instance_state_fault()
-          | invalid_db_cluster_state_fault()
           | db_instance_not_found_fault()
-          | db_snapshot_already_exists_fault()
           | snapshot_quota_exceeded_fault()
+          | invalid_db_cluster_state_fault()
+          | db_snapshot_already_exists_fault()
 
   @type delete_db_parameter_group_errors() ::
-          invalid_db_parameter_group_state_fault() | db_parameter_group_not_found_fault()
+          db_parameter_group_not_found_fault() | invalid_db_parameter_group_state_fault()
 
   @type delete_db_subnet_group_errors() ::
-          invalid_db_subnet_state_fault()
-          | db_subnet_group_not_found_fault()
+          db_subnet_group_not_found_fault()
+          | invalid_db_subnet_state_fault()
           | invalid_db_subnet_group_state_fault()
 
   @type delete_event_subscription_errors() ::
           subscription_not_found_fault() | invalid_event_subscription_state_fault()
 
   @type delete_global_cluster_errors() ::
-          global_cluster_not_found_fault() | invalid_global_cluster_state_fault()
+          invalid_global_cluster_state_fault() | global_cluster_not_found_fault()
 
   @type describe_db_cluster_endpoints_errors() :: db_cluster_not_found_fault()
 
@@ -3570,87 +3591,88 @@ defmodule AWS.Neptune do
           | invalid_db_cluster_state_fault()
 
   @type failover_global_cluster_errors() ::
-          global_cluster_not_found_fault()
-          | db_cluster_not_found_fault()
+          db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
           | invalid_global_cluster_state_fault()
+          | global_cluster_not_found_fault()
 
   @type list_tags_for_resource_errors() ::
-          db_cluster_not_found_fault()
-          | db_snapshot_not_found_fault()
+          db_snapshot_not_found_fault()
           | db_instance_not_found_fault()
+          | db_cluster_not_found_fault()
 
   @type modify_db_cluster_errors() ::
-          invalid_db_instance_state_fault()
-          | db_cluster_not_found_fault()
-          | db_cluster_already_exists_fault()
-          | invalid_db_security_group_state_fault()
-          | invalid_db_cluster_state_fault()
+          network_type_not_supported_fault()
           | db_cluster_parameter_group_not_found_fault()
-          | storage_quota_exceeded_fault()
+          | invalid_db_security_group_state_fault()
           | db_subnet_group_not_found_fault()
+          | invalid_db_instance_state_fault()
+          | db_cluster_already_exists_fault()
+          | db_cluster_not_found_fault()
           | invalid_vpc_network_state_fault()
-          | storage_type_not_supported_fault()
           | invalid_subnet()
+          | storage_quota_exceeded_fault()
+          | storage_type_not_supported_fault()
+          | invalid_db_cluster_state_fault()
           | invalid_db_subnet_group_state_fault()
 
   @type modify_db_cluster_endpoint_errors() ::
-          invalid_db_instance_state_fault()
-          | invalid_db_cluster_state_fault()
-          | db_cluster_endpoint_not_found_fault()
+          db_cluster_endpoint_not_found_fault()
+          | invalid_db_instance_state_fault()
           | db_instance_not_found_fault()
+          | invalid_db_cluster_state_fault()
           | invalid_db_cluster_endpoint_state_fault()
 
   @type modify_db_cluster_parameter_group_errors() ::
-          invalid_db_parameter_group_state_fault() | db_parameter_group_not_found_fault()
+          db_parameter_group_not_found_fault() | invalid_db_parameter_group_state_fault()
 
   @type modify_db_cluster_snapshot_attribute_errors() ::
-          db_cluster_snapshot_not_found_fault()
+          shared_snapshot_quota_exceeded_fault()
+          | db_cluster_snapshot_not_found_fault()
           | invalid_db_cluster_snapshot_state_fault()
-          | shared_snapshot_quota_exceeded_fault()
 
   @type modify_db_instance_errors() ::
-          invalid_db_instance_state_fault()
-          | provisioned_iops_not_available_in_a_z_fault()
-          | option_group_not_found_fault()
-          | invalid_db_security_group_state_fault()
-          | storage_quota_exceeded_fault()
+          invalid_db_security_group_state_fault()
+          | invalid_db_instance_state_fault()
           | certificate_not_found_fault()
           | db_upgrade_dependency_failure_fault()
           | db_instance_not_found_fault()
-          | authorization_not_found_fault()
-          | db_security_group_not_found_fault()
+          | insufficient_db_instance_capacity_fault()
           | invalid_vpc_network_state_fault()
+          | db_parameter_group_not_found_fault()
+          | storage_quota_exceeded_fault()
           | domain_not_found_fault()
           | storage_type_not_supported_fault()
-          | insufficient_db_instance_capacity_fault()
+          | option_group_not_found_fault()
+          | provisioned_iops_not_available_in_a_z_fault()
+          | authorization_not_found_fault()
+          | db_security_group_not_found_fault()
           | db_instance_already_exists_fault()
-          | db_parameter_group_not_found_fault()
 
   @type modify_db_parameter_group_errors() ::
-          invalid_db_parameter_group_state_fault() | db_parameter_group_not_found_fault()
+          db_parameter_group_not_found_fault() | invalid_db_parameter_group_state_fault()
 
   @type modify_db_subnet_group_errors() ::
           db_subnet_group_not_found_fault()
+          | subnet_already_in_use()
+          | invalid_subnet()
           | db_subnet_group_does_not_cover_enough_a_zs()
           | db_subnet_quota_exceeded_fault()
-          | invalid_subnet()
-          | subnet_already_in_use()
 
   @type modify_event_subscription_errors() ::
-          s_n_s_no_authorization_fault()
-          | event_subscription_quota_exceeded_fault()
-          | s_n_s_topic_arn_not_found_fault()
-          | s_n_s_invalid_topic_fault()
+          event_subscription_quota_exceeded_fault()
           | subscription_category_not_found_fault()
+          | s_n_s_topic_arn_not_found_fault()
+          | s_n_s_no_authorization_fault()
           | subscription_not_found_fault()
+          | s_n_s_invalid_topic_fault()
 
   @type modify_global_cluster_errors() ::
           invalid_db_instance_state_fault()
           | global_cluster_already_exists_fault()
-          | global_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
           | invalid_global_cluster_state_fault()
+          | global_cluster_not_found_fault()
 
   @type promote_read_replica_db_cluster_errors() ::
           db_cluster_not_found_fault() | invalid_db_cluster_state_fault()
@@ -3659,9 +3681,9 @@ defmodule AWS.Neptune do
           invalid_db_instance_state_fault() | db_instance_not_found_fault()
 
   @type remove_from_global_cluster_errors() ::
-          global_cluster_not_found_fault()
-          | db_cluster_not_found_fault()
+          db_cluster_not_found_fault()
           | invalid_global_cluster_state_fault()
+          | global_cluster_not_found_fault()
 
   @type remove_role_from_db_cluster_errors() ::
           db_cluster_role_not_found_fault()
@@ -3669,55 +3691,57 @@ defmodule AWS.Neptune do
           | invalid_db_cluster_state_fault()
 
   @type remove_source_identifier_from_subscription_errors() ::
-          subscription_not_found_fault() | source_not_found_fault()
+          source_not_found_fault() | subscription_not_found_fault()
 
   @type remove_tags_from_resource_errors() ::
-          db_cluster_not_found_fault()
-          | db_snapshot_not_found_fault()
+          db_snapshot_not_found_fault()
           | db_instance_not_found_fault()
+          | db_cluster_not_found_fault()
 
   @type reset_db_cluster_parameter_group_errors() ::
-          invalid_db_parameter_group_state_fault() | db_parameter_group_not_found_fault()
+          db_parameter_group_not_found_fault() | invalid_db_parameter_group_state_fault()
 
   @type reset_db_parameter_group_errors() ::
-          invalid_db_parameter_group_state_fault() | db_parameter_group_not_found_fault()
+          db_parameter_group_not_found_fault() | invalid_db_parameter_group_state_fault()
 
   @type restore_db_cluster_from_snapshot_errors() ::
-          insufficient_storage_cluster_capacity_fault()
-          | db_cluster_snapshot_not_found_fault()
-          | option_group_not_found_fault()
-          | insufficient_db_cluster_capacity_fault()
-          | db_cluster_already_exists_fault()
-          | kms_key_not_accessible_fault()
+          insufficient_db_cluster_capacity_fault()
+          | network_type_not_supported_fault()
           | db_cluster_parameter_group_not_found_fault()
           | db_snapshot_not_found_fault()
-          | invalid_db_snapshot_state_fault()
-          | storage_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
-          | invalid_db_cluster_snapshot_state_fault()
+          | invalid_restore_fault()
+          | invalid_db_snapshot_state_fault()
+          | db_cluster_already_exists_fault()
+          | insufficient_storage_cluster_capacity_fault()
+          | db_cluster_snapshot_not_found_fault()
           | invalid_vpc_network_state_fault()
           | invalid_subnet()
-          | invalid_restore_fault()
+          | kms_key_not_accessible_fault()
+          | storage_quota_exceeded_fault()
           | db_cluster_quota_exceeded_fault()
+          | option_group_not_found_fault()
+          | invalid_db_cluster_snapshot_state_fault()
 
   @type restore_db_cluster_to_point_in_time_errors() ::
-          insufficient_storage_cluster_capacity_fault()
-          | db_cluster_snapshot_not_found_fault()
-          | option_group_not_found_fault()
-          | insufficient_db_cluster_capacity_fault()
-          | db_cluster_not_found_fault()
-          | db_cluster_already_exists_fault()
-          | invalid_db_cluster_state_fault()
-          | kms_key_not_accessible_fault()
+          insufficient_db_cluster_capacity_fault()
+          | network_type_not_supported_fault()
           | db_cluster_parameter_group_not_found_fault()
-          | invalid_db_snapshot_state_fault()
-          | storage_quota_exceeded_fault()
           | db_subnet_group_not_found_fault()
-          | invalid_db_cluster_snapshot_state_fault()
+          | invalid_restore_fault()
+          | invalid_db_snapshot_state_fault()
+          | db_cluster_already_exists_fault()
+          | insufficient_storage_cluster_capacity_fault()
+          | db_cluster_snapshot_not_found_fault()
+          | db_cluster_not_found_fault()
           | invalid_vpc_network_state_fault()
           | invalid_subnet()
-          | invalid_restore_fault()
+          | kms_key_not_accessible_fault()
+          | storage_quota_exceeded_fault()
           | db_cluster_quota_exceeded_fault()
+          | option_group_not_found_fault()
+          | invalid_db_cluster_state_fault()
+          | invalid_db_cluster_snapshot_state_fault()
 
   @type start_db_cluster_errors() ::
           invalid_db_instance_state_fault()
@@ -3730,10 +3754,10 @@ defmodule AWS.Neptune do
           | invalid_db_cluster_state_fault()
 
   @type switchover_global_cluster_errors() ::
-          global_cluster_not_found_fault()
-          | db_cluster_not_found_fault()
+          db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
           | invalid_global_cluster_state_fault()
+          | global_cluster_not_found_fault()
 
   def metadata do
     %{
@@ -3761,7 +3785,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, add_role_to_db_cluster_errors()}
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRoleToDBCluster", input, options)
   end
@@ -3779,7 +3804,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddSourceIdentifierToSubscription", input, options)
   end
@@ -3798,7 +3824,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -3817,7 +3844,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
@@ -3831,7 +3859,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterParameterGroup", input, options)
   end
@@ -3850,7 +3879,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterSnapshot", input, options)
   end
@@ -3864,7 +3894,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, copy_db_parameter_group_errors()}
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBParameterGroup", input, options)
   end
@@ -3888,7 +3919,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBCluster", input, options)
   end
@@ -3903,7 +3935,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_cluster_endpoint_errors()}
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterEndpoint", input, options)
   end
@@ -3947,7 +3980,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterParameterGroup", input, options)
   end
@@ -3961,7 +3995,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterSnapshot", input, options)
   end
@@ -3975,7 +4010,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBInstance", input, options)
   end
@@ -4016,7 +4052,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBParameterGroup", input, options)
   end
@@ -4033,7 +4070,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSubnetGroup", input, options)
   end
@@ -4076,7 +4114,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -4100,7 +4139,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalCluster", input, options)
   end
@@ -4123,7 +4163,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBCluster", input, options)
   end
@@ -4137,7 +4178,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_cluster_endpoint_errors()}
   def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterEndpoint", input, options)
   end
@@ -4158,7 +4200,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterParameterGroup", input, options)
   end
@@ -4178,7 +4221,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterSnapshot", input, options)
   end
@@ -4213,7 +4257,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBInstance", input, options)
   end
@@ -4230,7 +4275,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_parameter_group_errors()}
   def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBParameterGroup", input, options)
   end
@@ -4247,7 +4293,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSubnetGroup", input, options)
   end
@@ -4261,7 +4308,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -4278,7 +4326,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGlobalCluster", input, options)
   end
@@ -4295,7 +4344,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_endpoints_errors()}
   def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterEndpoints", input, options)
   end
@@ -4317,7 +4367,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameterGroups", input, options)
   end
@@ -4331,7 +4382,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameters", input, options)
   end
@@ -4364,7 +4416,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshotAttributes", input, options)
   end
@@ -4381,7 +4434,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshots", input, options)
   end
@@ -4399,7 +4453,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusters", input, options)
   end
@@ -4412,7 +4467,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBEngineVersions", input, options)
   end
@@ -4429,7 +4485,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBInstances", input, options)
   end
@@ -4448,7 +4505,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_parameter_groups_errors()}
   def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBParameterGroups", input, options)
   end
@@ -4462,7 +4520,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_parameters_errors()}
   def describe_db_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBParameters", input, options)
   end
@@ -4481,7 +4540,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSubnetGroups", input, options)
   end
@@ -4500,7 +4560,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultClusterParameters", input, options)
   end
@@ -4519,7 +4580,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
@@ -4534,7 +4596,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -4555,7 +4618,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -4575,7 +4639,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -4592,7 +4657,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalClusters", input, options)
   end
@@ -4609,7 +4675,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableDBInstanceOptions", input, options)
   end
@@ -4629,7 +4696,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
@@ -4651,7 +4719,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_valid_db_instance_modifications_errors()}
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeValidDBInstanceModifications", input, options)
   end
@@ -4679,7 +4748,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverDBCluster", input, options)
   end
@@ -4706,7 +4776,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, failover_global_cluster_errors()}
   def failover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverGlobalCluster", input, options)
   end
@@ -4720,7 +4791,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4737,7 +4809,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBCluster", input, options)
   end
@@ -4751,7 +4824,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_cluster_endpoint_errors()}
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterEndpoint", input, options)
   end
@@ -4796,7 +4870,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterParameterGroup", input, options)
   end
@@ -4836,7 +4911,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterSnapshotAttribute", input, options)
   end
@@ -4856,7 +4932,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBInstance", input, options)
   end
@@ -4895,7 +4972,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_parameter_group_errors()}
   def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBParameterGroup", input, options)
   end
@@ -4912,7 +4990,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSubnetGroup", input, options)
   end
@@ -4935,7 +5014,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -4953,7 +5033,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyGlobalCluster", input, options)
   end
@@ -4967,7 +5048,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, promote_read_replica_db_cluster_errors()}
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PromoteReadReplicaDBCluster", input, options)
   end
@@ -4991,7 +5073,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBInstance", input, options)
   end
@@ -5010,7 +5093,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveFromGlobalCluster", input, options)
   end
@@ -5024,7 +5108,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, remove_role_from_db_cluster_errors()}
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromDBCluster", input, options)
   end
@@ -5042,7 +5127,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSourceIdentifierFromSubscription", input, options)
   end
@@ -5056,7 +5142,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -5086,7 +5173,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBClusterParameterGroup", input, options)
   end
@@ -5110,7 +5198,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, reset_db_parameter_group_errors()}
   def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBParameterGroup", input, options)
   end
@@ -5138,7 +5227,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromSnapshot", input, options)
   end
@@ -5172,7 +5262,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterToPointInTime", input, options)
   end
@@ -5187,7 +5278,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDBCluster", input, options)
   end
@@ -5208,7 +5300,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
   end
@@ -5240,7 +5333,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, switchover_global_cluster_errors()}
   def switchover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end

@@ -22,46 +22,6 @@ defmodule AWS.ApplicationCostProfiler do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_report_definition_request() :: %{}
-
-  """
-  @type delete_report_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_report_definition_result() :: %{
-        "reportId" => String.t() | atom()
-      }
-
-  """
-  @type delete_report_definition_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_report_definition_request() :: %{}
-
-  """
-  @type get_report_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       get_report_definition_result() :: %{
         "createdAt" => non_neg_integer(),
         "destinationS3Location" => s3_location(),
@@ -79,73 +39,18 @@ defmodule AWS.ApplicationCostProfiler do
 
   ## Example:
 
-      import_application_usage_request() :: %{
-        required("sourceS3Location") => source_s3_location()
+      report_definition() :: %{
+        "createdAt" => non_neg_integer(),
+        "destinationS3Location" => s3_location(),
+        "format" => list(any()),
+        "lastUpdatedAt" => non_neg_integer(),
+        "reportDescription" => String.t() | atom(),
+        "reportFrequency" => list(any()),
+        "reportId" => String.t() | atom()
       }
 
   """
-  @type import_application_usage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_application_usage_result() :: %{
-        "importId" => String.t() | atom()
-      }
-
-  """
-  @type import_application_usage_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_report_definitions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_report_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_report_definitions_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "reportDefinitions" => list(report_definition())
-      }
-
-  """
-  @type list_report_definitions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_report_definition_request() :: %{
-        required("destinationS3Location") => s3_location(),
-        required("format") => list(any()),
-        required("reportDescription") => String.t() | atom(),
-        required("reportFrequency") => list(any()),
-        required("reportId") => String.t() | atom()
-      }
-
-  """
-  @type put_report_definition_request() :: %{(String.t() | atom()) => any()}
+  @type report_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,18 +67,54 @@ defmodule AWS.ApplicationCostProfiler do
 
   ## Example:
 
-      report_definition() :: %{
-        "createdAt" => non_neg_integer(),
-        "destinationS3Location" => s3_location(),
-        "format" => list(any()),
-        "lastUpdatedAt" => non_neg_integer(),
-        "reportDescription" => String.t() | atom(),
-        "reportFrequency" => list(any()),
+      delete_report_definition_result() :: %{
         "reportId" => String.t() | atom()
       }
 
   """
-  @type report_definition() :: %{(String.t() | atom()) => any()}
+  @type delete_report_definition_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_report_definition_request() :: %{}
+
+  """
+  @type delete_report_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      source_s3_location() :: %{
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "region" => list(any())
+      }
+
+  """
+  @type source_s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_report_definition_request() :: %{}
+
+  """
+  @type get_report_definition_request() :: %{}
 
   @typedoc """
 
@@ -202,25 +143,35 @@ defmodule AWS.ApplicationCostProfiler do
 
   ## Example:
 
-      source_s3_location() :: %{
-        "bucket" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "region" => list(any())
+      import_application_usage_request() :: %{
+        required("sourceS3Location") => source_s3_location()
       }
 
   """
-  @type source_s3_location() :: %{(String.t() | atom()) => any()}
+  @type import_application_usage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
+      list_report_definitions_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "reportDefinitions" => list(report_definition())
+      }
+
+  """
+  @type list_report_definitions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -240,6 +191,66 @@ defmodule AWS.ApplicationCostProfiler do
 
   ## Example:
 
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_report_definition_request() :: %{
+        required("destinationS3Location") => s3_location(),
+        required("format") => list(any()),
+        required("reportDescription") => String.t() | atom(),
+        required("reportFrequency") => list(any()),
+        required("reportId") => String.t() | atom()
+      }
+
+  """
+  @type put_report_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_application_usage_result() :: %{
+        "importId" => String.t() | atom()
+      }
+
+  """
+  @type import_application_usage_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_report_definitions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_report_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_report_definition_result() :: %{
         "reportId" => String.t() | atom()
       }
@@ -247,53 +258,42 @@ defmodule AWS.ApplicationCostProfiler do
   """
   @type update_report_definition_result() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
   @type delete_report_definition_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_report_definition_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type import_application_usage_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_report_definitions_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type put_report_definition_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
+          access_denied_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | validation_exception()
+          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type update_report_definition_errors() ::
-          validation_exception()
-          | throttling_exception()
+          access_denied_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | validation_exception()
+          | throttling_exception()
 
   def metadata do
     %{
@@ -419,8 +419,8 @@ defmodule AWS.ApplicationCostProfiler do
           | {:error, list_report_definitions_errors()}
   def list_report_definitions(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/reportDefinition"
@@ -428,15 +428,15 @@ defmodule AWS.ApplicationCostProfiler do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end

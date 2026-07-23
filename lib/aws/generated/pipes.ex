@@ -23,35 +23,214 @@ defmodule AWS.Pipes do
 
   ## Example:
 
-      pipe_source_rabbit_mq_broker_parameters() :: %{
+      delete_pipe_request() :: %{}
+
+  """
+  @type delete_pipe_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cloudwatch_logs_log_destination() :: %{
+        "LogGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type cloudwatch_logs_log_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_http_parameters() :: %{
+        "HeaderParameters" => map(),
+        "PathParameterValues" => list(String.t() | atom()),
+        "QueryStringParameters" => map()
+      }
+
+  """
+  @type pipe_target_http_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_enrichment_parameters() :: %{
+        "HttpParameters" => pipe_enrichment_http_parameters(),
+        "InputTemplate" => String.t() | atom()
+      }
+
+  """
+  @type pipe_enrichment_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_lambda_function_parameters() :: %{
+        "InvocationType" => String.t() | atom()
+      }
+
+  """
+  @type pipe_target_lambda_function_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      single_measure_mapping() :: %{
+        "MeasureName" => String.t() | atom(),
+        "MeasureValue" => String.t() | atom(),
+        "MeasureValueType" => String.t() | atom()
+      }
+
+  """
+  @type single_measure_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_measure_mapping() :: %{
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
+        "MultiMeasureName" => String.t() | atom()
+      }
+
+  """
+  @type multi_measure_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sage_maker_pipeline_parameter() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type sage_maker_pipeline_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_managed_kafka_access_configuration_vpc() :: %{
+        "SecurityGroup" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
+      }
+
+  """
+  @type self_managed_kafka_access_configuration_vpc() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecs_environment_variable() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type ecs_environment_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      placement_constraint() :: %{
+        "expression" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type placement_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dimension_mapping() :: %{
+        "DimensionName" => String.t() | atom(),
+        "DimensionValue" => String.t() | atom(),
+        "DimensionValueType" => String.t() | atom()
+      }
+
+  """
+  @type dimension_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecs_ephemeral_storage() :: %{
+        "sizeInGiB" => integer()
+      }
+
+  """
+  @type ecs_ephemeral_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_state_machine_parameters() :: %{
+        "InvocationType" => String.t() | atom()
+      }
+
+  """
+  @type pipe_target_state_machine_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_source_self_managed_kafka_parameters() :: %{
+        "AdditionalBootstrapServers" => list(String.t() | atom()),
         "BatchSize" => integer(),
+        "ConsumerGroupID" => String.t() | atom(),
         "Credentials" => list(),
         "MaximumBatchingWindowInSeconds" => integer(),
-        "QueueName" => String.t() | atom(),
-        "VirtualHost" => String.t() | atom()
+        "ServerRootCaCertificate" => String.t() | atom(),
+        "StartingPosition" => String.t() | atom(),
+        "TopicName" => String.t() | atom(),
+        "Vpc" => self_managed_kafka_access_configuration_vpc()
       }
 
   """
-  @type pipe_source_rabbit_mq_broker_parameters() :: %{(String.t() | atom()) => any()}
+  @type pipe_source_self_managed_kafka_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_pipe_source_active_mq_broker_parameters() :: %{
-        "BatchSize" => integer(),
-        "Credentials" => list(),
-        "MaximumBatchingWindowInSeconds" => integer()
-      }
-
-  """
-  @type update_pipe_source_active_mq_broker_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_pipe_response() :: %{
+      create_pipe_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "CurrentState" => String.t() | atom(),
@@ -61,29 +240,85 @@ defmodule AWS.Pipes do
       }
 
   """
-  @type delete_pipe_response() :: %{(String.t() | atom()) => any()}
+  @type create_pipe_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        "tags" => map()
+      pipe_target_sqs_queue_parameters() :: %{
+        "MessageDeduplicationId" => String.t() | atom(),
+        "MessageGroupId" => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type pipe_target_sqs_queue_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      pipe_target_sage_maker_pipeline_parameters() :: %{
-        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
+      pipe_target_batch_job_parameters() :: %{
+        "ArrayProperties" => batch_array_properties(),
+        "ContainerOverrides" => batch_container_overrides(),
+        "DependsOn" => list(batch_job_dependency()),
+        "JobDefinition" => [String.t() | atom()],
+        "JobName" => [String.t() | atom()],
+        "Parameters" => map(),
+        "RetryStrategy" => batch_retry_strategy()
       }
 
   """
-  @type pipe_target_sage_maker_pipeline_parameters() :: %{(String.t() | atom()) => any()}
+  @type pipe_target_batch_job_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_pipe_request() :: %{}
+
+  """
+  @type describe_pipe_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipe_source_managed_streaming_kafka_parameters() :: %{
+        "BatchSize" => integer(),
+        "Credentials" => list(),
+        "MaximumBatchingWindowInSeconds" => integer()
+      }
+
+  """
+  @type update_pipe_source_managed_streaming_kafka_parameters() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipe_source_rabbit_mq_broker_parameters() :: %{
+        "BatchSize" => integer(),
+        "Credentials" => list(),
+        "MaximumBatchingWindowInSeconds" => integer()
+      }
+
+  """
+  @type update_pipe_source_rabbit_mq_broker_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_resource_requirement() :: %{
+        "Type" => String.t() | atom(),
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_resource_requirement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,266 +350,27 @@ defmodule AWS.Pipes do
 
   ## Example:
 
-      batch_retry_strategy() :: %{
-        "Attempts" => integer()
+      firehose_log_destination() :: %{
+        "DeliveryStreamArn" => String.t() | atom()
       }
 
   """
-  @type batch_retry_strategy() :: %{(String.t() | atom()) => any()}
+  @type firehose_log_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_pipe_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "CurrentState" => String.t() | atom(),
-        "DesiredState" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type update_pipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecs_environment_variable() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type ecs_environment_variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pipe_source_self_managed_kafka_parameters() :: %{
+      pipe_source_rabbit_mq_broker_parameters() :: %{
         "BatchSize" => integer(),
         "Credentials" => list(),
         "MaximumBatchingWindowInSeconds" => integer(),
-        "ServerRootCaCertificate" => String.t() | atom(),
-        "Vpc" => self_managed_kafka_access_configuration_vpc()
+        "QueueName" => String.t() | atom(),
+        "VirtualHost" => String.t() | atom()
       }
 
   """
-  @type update_pipe_source_self_managed_kafka_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pipe_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("DesiredState") => String.t() | atom(),
-        optional("Enrichment") => String.t() | atom(),
-        optional("EnrichmentParameters") => pipe_enrichment_parameters(),
-        optional("KmsKeyIdentifier") => String.t() | atom(),
-        optional("LogConfiguration") => pipe_log_configuration_parameters(),
-        optional("SourceParameters") => update_pipe_source_parameters(),
-        optional("Target") => String.t() | atom(),
-        optional("TargetParameters") => pipe_target_parameters(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_pipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_criteria() :: %{
-        "Filters" => list(filter())
-      }
-
-  """
-  @type filter_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pipes_request() :: %{
-        optional("CurrentState") => String.t() | atom(),
-        optional("DesiredState") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SourcePrefix") => String.t() | atom(),
-        optional("TargetPrefix") => String.t() | atom()
-      }
-
-  """
-  @type list_pipes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecs_inference_accelerator_override() :: %{
-        "deviceName" => String.t() | atom(),
-        "deviceType" => String.t() | atom()
-      }
-
-  """
-  @type ecs_inference_accelerator_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_pipe_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "CurrentState" => String.t() | atom(),
-        "DesiredState" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type start_pipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_array_properties() :: %{
-        "Size" => integer()
-      }
-
-  """
-  @type batch_array_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_measure_attribute_mapping() :: %{
-        "MeasureValue" => String.t() | atom(),
-        "MeasureValueType" => String.t() | atom(),
-        "MultiMeasureAttributeName" => String.t() | atom()
-      }
-
-  """
-  @type multi_measure_attribute_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_state_machine_parameters() :: %{
-        "InvocationType" => String.t() | atom()
-      }
-
-  """
-  @type pipe_target_state_machine_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_event_bridge_event_bus_parameters() :: %{
-        "DetailType" => String.t() | atom(),
-        "EndpointId" => String.t() | atom(),
-        "Resources" => list(String.t() | atom()),
-        "Source" => String.t() | atom(),
-        "Time" => String.t() | atom()
-      }
-
-  """
-  @type pipe_target_event_bridge_event_bus_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sage_maker_pipeline_parameter() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type sage_maker_pipeline_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_resource_requirement() :: %{
-        "Type" => String.t() | atom(),
-        "Value" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_resource_requirement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_pipe_request() :: %{}
-
-  """
-  @type describe_pipe_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_log_destination() :: %{
-        "BucketName" => String.t() | atom(),
-        "BucketOwner" => String.t() | atom(),
-        "OutputFormat" => String.t() | atom(),
-        "Prefix" => String.t() | atom()
-      }
-
-  """
-  @type s3_log_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pipe_source_rabbit_mq_broker_parameters() :: %{
-        "BatchSize" => integer(),
-        "Credentials" => list(),
-        "MaximumBatchingWindowInSeconds" => integer()
-      }
-
-  """
-  @type update_pipe_source_rabbit_mq_broker_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_source_managed_streaming_kafka_parameters() :: %{
-        "BatchSize" => integer(),
-        "ConsumerGroupID" => String.t() | atom(),
-        "Credentials" => list(),
-        "MaximumBatchingWindowInSeconds" => integer(),
-        "StartingPosition" => String.t() | atom(),
-        "TopicName" => String.t() | atom()
-      }
-
-  """
-  @type pipe_source_managed_streaming_kafka_parameters() :: %{(String.t() | atom()) => any()}
+  @type pipe_source_rabbit_mq_broker_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -386,98 +382,6 @@ defmodule AWS.Pipes do
 
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firehose_log_destination_parameters() :: %{
-        "DeliveryStreamArn" => String.t() | atom()
-      }
-
-  """
-  @type firehose_log_destination_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_pipe_request() :: %{}
-
-  """
-  @type start_pipe_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloudwatch_logs_log_destination() :: %{
-        "LogGroupArn" => String.t() | atom()
-      }
-
-  """
-  @type cloudwatch_logs_log_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "CurrentState" => String.t() | atom(),
-        "DesiredState" => String.t() | atom(),
-        "Enrichment" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "StateReason" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
-
-  """
-  @type pipe() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_parameters() :: %{
-        "BatchJobParameters" => pipe_target_batch_job_parameters(),
-        "CloudWatchLogsParameters" => pipe_target_cloud_watch_logs_parameters(),
-        "EcsTaskParameters" => pipe_target_ecs_task_parameters(),
-        "EventBridgeEventBusParameters" => pipe_target_event_bridge_event_bus_parameters(),
-        "HttpParameters" => pipe_target_http_parameters(),
-        "InputTemplate" => String.t() | atom(),
-        "KinesisStreamParameters" => pipe_target_kinesis_stream_parameters(),
-        "LambdaFunctionParameters" => pipe_target_lambda_function_parameters(),
-        "RedshiftDataParameters" => pipe_target_redshift_data_parameters(),
-        "SageMakerPipelineParameters" => pipe_target_sage_maker_pipeline_parameters(),
-        "SqsQueueParameters" => pipe_target_sqs_queue_parameters(),
-        "StepFunctionStateMachineParameters" => pipe_target_state_machine_parameters(),
-        "TimestreamParameters" => pipe_target_timestream_parameters()
-      }
-
-  """
-  @type pipe_target_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_source_parameters() :: %{
-        "ActiveMQBrokerParameters" => pipe_source_active_mq_broker_parameters(),
-        "DynamoDBStreamParameters" => pipe_source_dynamo_db_stream_parameters(),
-        "FilterCriteria" => filter_criteria(),
-        "KinesisStreamParameters" => pipe_source_kinesis_stream_parameters(),
-        "ManagedStreamingKafkaParameters" => pipe_source_managed_streaming_kafka_parameters(),
-        "RabbitMQBrokerParameters" => pipe_source_rabbit_mq_broker_parameters(),
-        "SelfManagedKafkaParameters" => pipe_source_self_managed_kafka_parameters(),
-        "SqsQueueParameters" => pipe_source_sqs_queue_parameters()
-      }
-
-  """
-  @type pipe_source_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -496,117 +400,29 @@ defmodule AWS.Pipes do
 
   ## Example:
 
-      single_measure_mapping() :: %{
-        "MeasureName" => String.t() | atom(),
-        "MeasureValue" => String.t() | atom(),
-        "MeasureValueType" => String.t() | atom()
-      }
-
-  """
-  @type single_measure_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_batch_job_parameters() :: %{
-        "ArrayProperties" => batch_array_properties(),
-        "ContainerOverrides" => batch_container_overrides(),
-        "DependsOn" => list(batch_job_dependency()),
-        "JobDefinition" => [String.t() | atom()],
-        "JobName" => [String.t() | atom()],
-        "Parameters" => map(),
-        "RetryStrategy" => batch_retry_strategy()
-      }
-
-  """
-  @type pipe_target_batch_job_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_source_sqs_queue_parameters() :: %{
+      update_pipe_source_kinesis_stream_parameters() :: %{
         "BatchSize" => integer(),
-        "MaximumBatchingWindowInSeconds" => integer()
+        "DeadLetterConfig" => dead_letter_config(),
+        "MaximumBatchingWindowInSeconds" => integer(),
+        "MaximumRecordAgeInSeconds" => integer(),
+        "MaximumRetryAttempts" => integer(),
+        "OnPartialBatchItemFailure" => String.t() | atom(),
+        "ParallelizationFactor" => integer()
       }
 
   """
-  @type pipe_source_sqs_queue_parameters() :: %{(String.t() | atom()) => any()}
+  @type update_pipe_source_kinesis_stream_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
+      dead_letter_config() :: %{
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_http_parameters() :: %{
-        "HeaderParameters" => map(),
-        "PathParameterValues" => list(String.t() | atom()),
-        "QueryStringParameters" => map()
-      }
-
-  """
-  @type pipe_target_http_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_sqs_queue_parameters() :: %{
-        "MessageDeduplicationId" => String.t() | atom(),
-        "MessageGroupId" => String.t() | atom()
-      }
-
-  """
-  @type pipe_target_sqs_queue_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_kinesis_stream_parameters() :: %{
-        "PartitionKey" => String.t() | atom()
-      }
-
-  """
-  @type pipe_target_kinesis_stream_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,24 +440,34 @@ defmodule AWS.Pipes do
 
   ## Example:
 
-      pipe_target_cloud_watch_logs_parameters() :: %{
-        "LogStreamName" => String.t() | atom(),
-        "Timestamp" => String.t() | atom()
+      ecs_resource_requirement() :: %{
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type pipe_target_cloud_watch_logs_parameters() :: %{(String.t() | atom()) => any()}
+  @type ecs_resource_requirement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
+      pipe_source_sqs_queue_parameters() :: %{
+        "BatchSize" => integer(),
+        "MaximumBatchingWindowInSeconds" => integer()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type pipe_source_sqs_queue_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -661,188 +487,18 @@ defmodule AWS.Pipes do
 
   ## Example:
 
-      create_pipe_request() :: %{
-        optional("Description") => String.t() | atom(),
+      list_pipes_request() :: %{
+        optional("CurrentState") => String.t() | atom(),
         optional("DesiredState") => String.t() | atom(),
-        optional("Enrichment") => String.t() | atom(),
-        optional("EnrichmentParameters") => pipe_enrichment_parameters(),
-        optional("KmsKeyIdentifier") => String.t() | atom(),
-        optional("LogConfiguration") => pipe_log_configuration_parameters(),
-        optional("SourceParameters") => pipe_source_parameters(),
-        optional("Tags") => map(),
-        optional("TargetParameters") => pipe_target_parameters(),
-        required("RoleArn") => String.t() | atom(),
-        required("Source") => String.t() | atom(),
-        required("Target") => String.t() | atom()
+        optional("Limit") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SourcePrefix") => String.t() | atom(),
+        optional("TargetPrefix") => String.t() | atom()
       }
 
   """
-  @type create_pipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_measure_mapping() :: %{
-        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
-        "MultiMeasureName" => String.t() | atom()
-      }
-
-  """
-  @type multi_measure_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "Pattern" => String.t() | atom()
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecs_container_override() :: %{
-        "Command" => list(String.t() | atom()),
-        "Cpu" => [integer()],
-        "Environment" => list(ecs_environment_variable()),
-        "EnvironmentFiles" => list(ecs_environment_file()),
-        "Memory" => [integer()],
-        "MemoryReservation" => [integer()],
-        "Name" => String.t() | atom(),
-        "ResourceRequirements" => list(ecs_resource_requirement())
-      }
-
-  """
-  @type ecs_container_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecs_environment_file() :: %{
-        "type" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type ecs_environment_file() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_pipe_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "CurrentState" => String.t() | atom(),
-        "DesiredState" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type stop_pipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecs_task_override() :: %{
-        "ContainerOverrides" => list(ecs_container_override()),
-        "Cpu" => String.t() | atom(),
-        "EphemeralStorage" => ecs_ephemeral_storage(),
-        "ExecutionRoleArn" => String.t() | atom(),
-        "InferenceAcceleratorOverrides" => list(ecs_inference_accelerator_override()),
-        "Memory" => String.t() | atom(),
-        "TaskRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type ecs_task_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_provider_strategy_item() :: %{
-        "base" => integer(),
-        "capacityProvider" => String.t() | atom(),
-        "weight" => integer()
-      }
-
-  """
-  @type capacity_provider_strategy_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      placement_constraint() :: %{
-        "expression" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type placement_constraint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_configuration() :: %{
-        "awsvpcConfiguration" => aws_vpc_configuration()
-      }
-
-  """
-  @type network_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_source_kinesis_stream_parameters() :: %{
-        "BatchSize" => integer(),
-        "DeadLetterConfig" => dead_letter_config(),
-        "MaximumBatchingWindowInSeconds" => integer(),
-        "MaximumRecordAgeInSeconds" => integer(),
-        "MaximumRetryAttempts" => integer(),
-        "OnPartialBatchItemFailure" => String.t() | atom(),
-        "ParallelizationFactor" => integer(),
-        "StartingPosition" => String.t() | atom(),
-        "StartingPositionTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type pipe_source_kinesis_stream_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_exception() :: %{(String.t() | atom()) => any()}
+  @type list_pipes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -873,171 +529,12 @@ defmodule AWS.Pipes do
 
   ## Example:
 
-      delete_pipe_request() :: %{}
-
-  """
-  @type delete_pipe_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_pipe_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "CurrentState" => String.t() | atom(),
-        "DesiredState" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom()
+      pipe_target_kinesis_stream_parameters() :: %{
+        "PartitionKey" => String.t() | atom()
       }
 
   """
-  @type create_pipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_timestream_parameters() :: %{
-        "DimensionMappings" => list(dimension_mapping()),
-        "EpochTimeUnit" => String.t() | atom(),
-        "MultiMeasureMappings" => list(multi_measure_mapping()),
-        "SingleMeasureMappings" => list(single_measure_mapping()),
-        "TimeFieldType" => String.t() | atom(),
-        "TimeValue" => String.t() | atom(),
-        "TimestampFormat" => String.t() | atom(),
-        "VersionValue" => String.t() | atom()
-      }
-
-  """
-  @type pipe_target_timestream_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dead_letter_config() :: %{
-        "Arn" => String.t() | atom()
-      }
-
-  """
-  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_lambda_function_parameters() :: %{
-        "InvocationType" => String.t() | atom()
-      }
-
-  """
-  @type pipe_target_lambda_function_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_target_redshift_data_parameters() :: %{
-        "Database" => String.t() | atom(),
-        "DbUser" => String.t() | atom(),
-        "SecretManagerArn" => String.t() | atom(),
-        "Sqls" => list(String.t() | atom()),
-        "StatementName" => String.t() | atom(),
-        "WithEvent" => boolean()
-      }
-
-  """
-  @type pipe_target_redshift_data_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_source_dynamo_db_stream_parameters() :: %{
-        "BatchSize" => integer(),
-        "DeadLetterConfig" => dead_letter_config(),
-        "MaximumBatchingWindowInSeconds" => integer(),
-        "MaximumRecordAgeInSeconds" => integer(),
-        "MaximumRetryAttempts" => integer(),
-        "OnPartialBatchItemFailure" => String.t() | atom(),
-        "ParallelizationFactor" => integer(),
-        "StartingPosition" => String.t() | atom()
-      }
-
-  """
-  @type pipe_source_dynamo_db_stream_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pipe_source_managed_streaming_kafka_parameters() :: %{
-        "BatchSize" => integer(),
-        "Credentials" => list(),
-        "MaximumBatchingWindowInSeconds" => integer()
-      }
-
-  """
-  @type update_pipe_source_managed_streaming_kafka_parameters() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      batch_job_dependency() :: %{
-        "JobId" => [String.t() | atom()],
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type batch_job_dependency() :: %{(String.t() | atom()) => any()}
+  @type pipe_target_kinesis_stream_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1047,6 +544,60 @@ defmodule AWS.Pipes do
 
   """
   @type stop_pipe_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_environment_variable() :: %{
+        "Name" => [String.t() | atom()],
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_environment_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipe_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DesiredState") => String.t() | atom(),
+        optional("Enrichment") => String.t() | atom(),
+        optional("EnrichmentParameters") => pipe_enrichment_parameters(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
+        optional("LogConfiguration") => pipe_log_configuration_parameters(),
+        required("RoleArn") => String.t() | atom(),
+        optional("SourceParameters") => update_pipe_source_parameters(),
+        optional("Target") => String.t() | atom(),
+        optional("TargetParameters") => pipe_target_parameters()
+      }
+
+  """
+  @type update_pipe_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "Pattern" => String.t() | atom()
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1065,192 +616,19 @@ defmodule AWS.Pipes do
 
   ## Example:
 
-      pipe_log_configuration_parameters() :: %{
-        "CloudwatchLogsLogDestination" => cloudwatch_logs_log_destination_parameters(),
-        "FirehoseLogDestination" => firehose_log_destination_parameters(),
-        "IncludeExecutionData" => list(String.t() | atom()),
-        "Level" => String.t() | atom(),
-        "S3LogDestination" => s3_log_destination_parameters()
-      }
-
-  """
-  @type pipe_log_configuration_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecs_ephemeral_storage() :: %{
-        "sizeInGiB" => integer()
-      }
-
-  """
-  @type ecs_ephemeral_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecs_resource_requirement() :: %{
-        "type" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type ecs_resource_requirement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pipe_source_kinesis_stream_parameters() :: %{
-        "BatchSize" => integer(),
-        "DeadLetterConfig" => dead_letter_config(),
-        "MaximumBatchingWindowInSeconds" => integer(),
-        "MaximumRecordAgeInSeconds" => integer(),
-        "MaximumRetryAttempts" => integer(),
-        "OnPartialBatchItemFailure" => String.t() | atom(),
-        "ParallelizationFactor" => integer()
-      }
-
-  """
-  @type update_pipe_source_kinesis_stream_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_source_self_managed_kafka_parameters() :: %{
-        "AdditionalBootstrapServers" => list(String.t() | atom()),
-        "BatchSize" => integer(),
-        "ConsumerGroupID" => String.t() | atom(),
-        "Credentials" => list(),
-        "MaximumBatchingWindowInSeconds" => integer(),
-        "ServerRootCaCertificate" => String.t() | atom(),
-        "StartingPosition" => String.t() | atom(),
-        "TopicName" => String.t() | atom(),
-        "Vpc" => self_managed_kafka_access_configuration_vpc()
-      }
-
-  """
-  @type pipe_source_self_managed_kafka_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_container_overrides() :: %{
+      ecs_container_override() :: %{
         "Command" => list(String.t() | atom()),
-        "Environment" => list(batch_environment_variable()),
-        "InstanceType" => [String.t() | atom()],
-        "ResourceRequirements" => list(batch_resource_requirement())
+        "Cpu" => [integer()],
+        "Environment" => list(ecs_environment_variable()),
+        "EnvironmentFiles" => list(ecs_environment_file()),
+        "Memory" => [integer()],
+        "MemoryReservation" => [integer()],
+        "Name" => String.t() | atom(),
+        "ResourceRequirements" => list(ecs_resource_requirement())
       }
 
   """
-  @type batch_container_overrides() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_environment_variable() :: %{
-        "Name" => [String.t() | atom()],
-        "Value" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_environment_variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_enrichment_http_parameters() :: %{
-        "HeaderParameters" => map(),
-        "PathParameterValues" => list(String.t() | atom()),
-        "QueryStringParameters" => map()
-      }
-
-  """
-  @type pipe_enrichment_http_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dimension_mapping() :: %{
-        "DimensionName" => String.t() | atom(),
-        "DimensionValue" => String.t() | atom(),
-        "DimensionValueType" => String.t() | atom()
-      }
-
-  """
-  @type dimension_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pipe_source_sqs_queue_parameters() :: %{
-        "BatchSize" => integer(),
-        "MaximumBatchingWindowInSeconds" => integer()
-      }
-
-  """
-  @type update_pipe_source_sqs_queue_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firehose_log_destination() :: %{
-        "DeliveryStreamArn" => String.t() | atom()
-      }
-
-  """
-  @type firehose_log_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipe_enrichment_parameters() :: %{
-        "HttpParameters" => pipe_enrichment_http_parameters(),
-        "InputTemplate" => String.t() | atom()
-      }
-
-  """
-  @type pipe_enrichment_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pipe_source_parameters() :: %{
-        "ActiveMQBrokerParameters" => update_pipe_source_active_mq_broker_parameters(),
-        "DynamoDBStreamParameters" => update_pipe_source_dynamo_db_stream_parameters(),
-        "FilterCriteria" => filter_criteria(),
-        "KinesisStreamParameters" => update_pipe_source_kinesis_stream_parameters(),
-        "ManagedStreamingKafkaParameters" => update_pipe_source_managed_streaming_kafka_parameters(),
-        "RabbitMQBrokerParameters" => update_pipe_source_rabbit_mq_broker_parameters(),
-        "SelfManagedKafkaParameters" => update_pipe_source_self_managed_kafka_parameters(),
-        "SqsQueueParameters" => update_pipe_source_sqs_queue_parameters()
-      }
-
-  """
-  @type update_pipe_source_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      self_managed_kafka_access_configuration_vpc() :: %{
-        "SecurityGroup" => list(String.t() | atom()),
-        "Subnets" => list(String.t() | atom())
-      }
-
-  """
-  @type self_managed_kafka_access_configuration_vpc() :: %{(String.t() | atom()) => any()}
+  @type ecs_container_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1284,6 +662,429 @@ defmodule AWS.Pipes do
 
   ## Example:
 
+      ecs_inference_accelerator_override() :: %{
+        "deviceName" => String.t() | atom(),
+        "deviceType" => String.t() | atom()
+      }
+
+  """
+  @type ecs_inference_accelerator_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_source_active_mq_broker_parameters() :: %{
+        "BatchSize" => integer(),
+        "Credentials" => list(),
+        "MaximumBatchingWindowInSeconds" => integer(),
+        "QueueName" => String.t() | atom()
+      }
+
+  """
+  @type pipe_source_active_mq_broker_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_pipe_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DesiredState") => String.t() | atom(),
+        optional("Enrichment") => String.t() | atom(),
+        optional("EnrichmentParameters") => pipe_enrichment_parameters(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
+        optional("LogConfiguration") => pipe_log_configuration_parameters(),
+        required("RoleArn") => String.t() | atom(),
+        required("Source") => String.t() | atom(),
+        optional("SourceParameters") => pipe_source_parameters(),
+        optional("Tags") => map(),
+        required("Target") => String.t() | atom(),
+        optional("TargetParameters") => pipe_target_parameters()
+      }
+
+  """
+  @type create_pipe_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_timestream_parameters() :: %{
+        "DimensionMappings" => list(dimension_mapping()),
+        "EpochTimeUnit" => String.t() | atom(),
+        "MultiMeasureMappings" => list(multi_measure_mapping()),
+        "SingleMeasureMappings" => list(single_measure_mapping()),
+        "TimeFieldType" => String.t() | atom(),
+        "TimeValue" => String.t() | atom(),
+        "TimestampFormat" => String.t() | atom(),
+        "VersionValue" => String.t() | atom()
+      }
+
+  """
+  @type pipe_target_timestream_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_source_managed_streaming_kafka_parameters() :: %{
+        "BatchSize" => integer(),
+        "ConsumerGroupID" => String.t() | atom(),
+        "Credentials" => list(),
+        "MaximumBatchingWindowInSeconds" => integer(),
+        "StartingPosition" => String.t() | atom(),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type pipe_source_managed_streaming_kafka_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_event_bridge_event_bus_parameters() :: %{
+        "DetailType" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
+        "Resources" => list(String.t() | atom()),
+        "Source" => String.t() | atom(),
+        "Time" => String.t() | atom()
+      }
+
+  """
+  @type pipe_target_event_bridge_event_bus_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_array_properties() :: %{
+        "Size" => integer()
+      }
+
+  """
+  @type batch_array_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_source_kinesis_stream_parameters() :: %{
+        "BatchSize" => integer(),
+        "DeadLetterConfig" => dead_letter_config(),
+        "MaximumBatchingWindowInSeconds" => integer(),
+        "MaximumRecordAgeInSeconds" => integer(),
+        "MaximumRetryAttempts" => integer(),
+        "OnPartialBatchItemFailure" => String.t() | atom(),
+        "ParallelizationFactor" => integer(),
+        "StartingPosition" => String.t() | atom(),
+        "StartingPositionTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type pipe_source_kinesis_stream_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_enrichment_http_parameters() :: %{
+        "HeaderParameters" => map(),
+        "PathParameterValues" => list(String.t() | atom()),
+        "QueryStringParameters" => map()
+      }
+
+  """
+  @type pipe_enrichment_http_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_pipe_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CurrentState" => String.t() | atom(),
+        "DesiredState" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type delete_pipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_redshift_data_parameters() :: %{
+        "Database" => String.t() | atom(),
+        "DbUser" => String.t() | atom(),
+        "SecretManagerArn" => String.t() | atom(),
+        "Sqls" => list(String.t() | atom()),
+        "StatementName" => String.t() | atom(),
+        "WithEvent" => boolean()
+      }
+
+  """
+  @type pipe_target_redshift_data_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_pipe_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CurrentState" => String.t() | atom(),
+        "DesiredState" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type stop_pipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      firehose_log_destination_parameters() :: %{
+        "DeliveryStreamArn" => String.t() | atom()
+      }
+
+  """
+  @type firehose_log_destination_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_log_destination() :: %{
+        "BucketName" => String.t() | atom(),
+        "BucketOwner" => String.t() | atom(),
+        "OutputFormat" => String.t() | atom(),
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_log_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_log_configuration_parameters() :: %{
+        "CloudwatchLogsLogDestination" => cloudwatch_logs_log_destination_parameters(),
+        "FirehoseLogDestination" => firehose_log_destination_parameters(),
+        "IncludeExecutionData" => list(String.t() | atom()),
+        "Level" => String.t() | atom(),
+        "S3LogDestination" => s3_log_destination_parameters()
+      }
+
+  """
+  @type pipe_log_configuration_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_pipe_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CurrentState" => String.t() | atom(),
+        "DesiredState" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type start_pipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipe_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CurrentState" => String.t() | atom(),
+        "DesiredState" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type update_pipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_job_dependency() :: %{
+        "JobId" => [String.t() | atom()],
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type batch_job_dependency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipe_source_parameters() :: %{
+        "ActiveMQBrokerParameters" => update_pipe_source_active_mq_broker_parameters(),
+        "DynamoDBStreamParameters" => update_pipe_source_dynamo_db_stream_parameters(),
+        "FilterCriteria" => filter_criteria(),
+        "KinesisStreamParameters" => update_pipe_source_kinesis_stream_parameters(),
+        "ManagedStreamingKafkaParameters" => update_pipe_source_managed_streaming_kafka_parameters(),
+        "RabbitMQBrokerParameters" => update_pipe_source_rabbit_mq_broker_parameters(),
+        "SelfManagedKafkaParameters" => update_pipe_source_self_managed_kafka_parameters(),
+        "SqsQueueParameters" => update_pipe_source_sqs_queue_parameters()
+      }
+
+  """
+  @type update_pipe_source_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CurrentState" => String.t() | atom(),
+        "DesiredState" => String.t() | atom(),
+        "Enrichment" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "StateReason" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type pipe() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_configuration() :: %{
+        "awsvpcConfiguration" => aws_vpc_configuration()
+      }
+
+  """
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipe_source_sqs_queue_parameters() :: %{
+        "BatchSize" => integer(),
+        "MaximumBatchingWindowInSeconds" => integer()
+      }
+
+  """
+  @type update_pipe_source_sqs_queue_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_parameters() :: %{
+        "BatchJobParameters" => pipe_target_batch_job_parameters(),
+        "CloudWatchLogsParameters" => pipe_target_cloud_watch_logs_parameters(),
+        "EcsTaskParameters" => pipe_target_ecs_task_parameters(),
+        "EventBridgeEventBusParameters" => pipe_target_event_bridge_event_bus_parameters(),
+        "HttpParameters" => pipe_target_http_parameters(),
+        "InputTemplate" => String.t() | atom(),
+        "KinesisStreamParameters" => pipe_target_kinesis_stream_parameters(),
+        "LambdaFunctionParameters" => pipe_target_lambda_function_parameters(),
+        "RedshiftDataParameters" => pipe_target_redshift_data_parameters(),
+        "SageMakerPipelineParameters" => pipe_target_sage_maker_pipeline_parameters(),
+        "SqsQueueParameters" => pipe_target_sqs_queue_parameters(),
+        "StepFunctionStateMachineParameters" => pipe_target_state_machine_parameters(),
+        "TimestreamParameters" => pipe_target_timestream_parameters()
+      }
+
+  """
+  @type pipe_target_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       placement_strategy() :: %{
         "field" => String.t() | atom(),
         "type" => String.t() | atom()
@@ -1291,6 +1092,94 @@ defmodule AWS.Pipes do
 
   """
   @type placement_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_source_parameters() :: %{
+        "ActiveMQBrokerParameters" => pipe_source_active_mq_broker_parameters(),
+        "DynamoDBStreamParameters" => pipe_source_dynamo_db_stream_parameters(),
+        "FilterCriteria" => filter_criteria(),
+        "KinesisStreamParameters" => pipe_source_kinesis_stream_parameters(),
+        "ManagedStreamingKafkaParameters" => pipe_source_managed_streaming_kafka_parameters(),
+        "RabbitMQBrokerParameters" => pipe_source_rabbit_mq_broker_parameters(),
+        "SelfManagedKafkaParameters" => pipe_source_self_managed_kafka_parameters(),
+        "SqsQueueParameters" => pipe_source_sqs_queue_parameters()
+      }
+
+  """
+  @type pipe_source_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_measure_attribute_mapping() :: %{
+        "MeasureValue" => String.t() | atom(),
+        "MeasureValueType" => String.t() | atom(),
+        "MultiMeasureAttributeName" => String.t() | atom()
+      }
+
+  """
+  @type multi_measure_attribute_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipe_source_self_managed_kafka_parameters() :: %{
+        "BatchSize" => integer(),
+        "Credentials" => list(),
+        "MaximumBatchingWindowInSeconds" => integer(),
+        "ServerRootCaCertificate" => String.t() | atom(),
+        "Vpc" => self_managed_kafka_access_configuration_vpc()
+      }
+
+  """
+  @type update_pipe_source_self_managed_kafka_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_source_dynamo_db_stream_parameters() :: %{
+        "BatchSize" => integer(),
+        "DeadLetterConfig" => dead_letter_config(),
+        "MaximumBatchingWindowInSeconds" => integer(),
+        "MaximumRecordAgeInSeconds" => integer(),
+        "MaximumRetryAttempts" => integer(),
+        "OnPartialBatchItemFailure" => String.t() | atom(),
+        "ParallelizationFactor" => integer(),
+        "StartingPosition" => String.t() | atom()
+      }
+
+  """
+  @type pipe_source_dynamo_db_stream_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_retry_strategy() :: %{
+        "Attempts" => integer()
+      }
+
+  """
+  @type batch_retry_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_strategy_item() :: %{
+        "base" => integer(),
+        "capacityProvider" => String.t() | atom(),
+        "weight" => integer()
+      }
+
+  """
+  @type capacity_provider_strategy_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,69 +1202,180 @@ defmodule AWS.Pipes do
 
   ## Example:
 
-      pipe_source_active_mq_broker_parameters() :: %{
-        "BatchSize" => integer(),
-        "Credentials" => list(),
-        "MaximumBatchingWindowInSeconds" => integer(),
-        "QueueName" => String.t() | atom()
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom()
       }
 
   """
-  @type pipe_source_active_mq_broker_parameters() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_criteria() :: %{
+        "Filters" => list(filter())
+      }
+
+  """
+  @type filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecs_task_override() :: %{
+        "ContainerOverrides" => list(ecs_container_override()),
+        "Cpu" => String.t() | atom(),
+        "EphemeralStorage" => ecs_ephemeral_storage(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "InferenceAcceleratorOverrides" => list(ecs_inference_accelerator_override()),
+        "Memory" => String.t() | atom(),
+        "TaskRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type ecs_task_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_sage_maker_pipeline_parameters() :: %{
+        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
+      }
+
+  """
+  @type pipe_target_sage_maker_pipeline_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pipe_source_active_mq_broker_parameters() :: %{
+        "BatchSize" => integer(),
+        "Credentials" => list(),
+        "MaximumBatchingWindowInSeconds" => integer()
+      }
+
+  """
+  @type update_pipe_source_active_mq_broker_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_container_overrides() :: %{
+        "Command" => list(String.t() | atom()),
+        "Environment" => list(batch_environment_variable()),
+        "InstanceType" => [String.t() | atom()],
+        "ResourceRequirements" => list(batch_resource_requirement())
+      }
+
+  """
+  @type batch_container_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipe_target_cloud_watch_logs_parameters() :: %{
+        "LogStreamName" => String.t() | atom(),
+        "Timestamp" => String.t() | atom()
+      }
+
+  """
+  @type pipe_target_cloud_watch_logs_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_pipe_request() :: %{}
+
+  """
+  @type start_pipe_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      ecs_environment_file() :: %{
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type ecs_environment_file() :: %{(String.t() | atom()) => any()}
 
   @type create_pipe_errors() ::
           throttling_exception()
           | validation_exception()
-          | internal_exception()
           | not_found_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_exception()
 
   @type delete_pipe_errors() ::
           throttling_exception()
           | validation_exception()
-          | internal_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_exception()
 
   @type describe_pipe_errors() ::
           throttling_exception()
           | validation_exception()
-          | internal_exception()
           | not_found_exception()
+          | internal_exception()
 
   @type list_pipes_errors() ::
           throttling_exception() | validation_exception() | internal_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_exception() | not_found_exception()
+          validation_exception() | not_found_exception() | internal_exception()
 
   @type start_pipe_errors() ::
           throttling_exception()
           | validation_exception()
-          | internal_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_exception()
 
   @type stop_pipe_errors() ::
           throttling_exception()
           | validation_exception()
-          | internal_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_exception() | not_found_exception()
+          validation_exception() | not_found_exception() | internal_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_exception() | not_found_exception()
+          validation_exception() | not_found_exception() | internal_exception()
 
   @type update_pipe_errors() ::
           throttling_exception()
           | validation_exception()
-          | internal_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_exception()
 
   def metadata do
     %{
@@ -1501,13 +1501,13 @@ defmodule AWS.Pipes do
           | {:error, list_pipes_errors()}
   def list_pipes(
         %Client{} = client,
-        current_state \\ nil,
-        desired_state \\ nil,
-        limit \\ nil,
-        name_prefix \\ nil,
-        next_token \\ nil,
-        source_prefix \\ nil,
         target_prefix \\ nil,
+        source_prefix \\ nil,
+        next_token \\ nil,
+        name_prefix \\ nil,
+        limit \\ nil,
+        desired_state \\ nil,
+        current_state \\ nil,
         options \\ []
       ) do
     url_path = "/v1/pipes"
@@ -1515,36 +1515,8 @@ defmodule AWS.Pipes do
     query_params = []
 
     query_params =
-      if !is_nil(target_prefix) do
-        [{"TargetPrefix", target_prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(source_prefix) do
-        [{"SourcePrefix", source_prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(name_prefix) do
-        [{"NamePrefix", name_prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(limit) do
-        [{"Limit", limit} | query_params]
+      if !is_nil(current_state) do
+        [{"CurrentState", current_state} | query_params]
       else
         query_params
       end
@@ -1557,8 +1529,36 @@ defmodule AWS.Pipes do
       end
 
     query_params =
-      if !is_nil(current_state) do
-        [{"CurrentState", current_state} | query_params]
+      if !is_nil(limit) do
+        [{"Limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_prefix) do
+        [{"NamePrefix", name_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source_prefix) do
+        [{"SourcePrefix", source_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_prefix) do
+        [{"TargetPrefix", target_prefix} | query_params]
       else
         query_params
       end

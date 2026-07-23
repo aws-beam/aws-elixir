@@ -33,127 +33,222 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      create_virtual_gateway_output() :: %{
-        required("virtualGateway") => virtual_gateway_data()
+      virtual_service_status() :: %{
+        "status" => String.t() | atom()
       }
 
   """
-  @type create_virtual_gateway_output() :: %{(String.t() | atom()) => any()}
+  @type virtual_service_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      http_timeout() :: %{
-        "idle" => duration(),
-        "perRequest" => duration()
+      listener_tls_validation_context() :: %{
+        "subjectAlternativeNames" => subject_alternative_names(),
+        "trust" => list()
       }
 
   """
-  @type http_timeout() :: %{(String.t() | atom()) => any()}
+  @type listener_tls_validation_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      subject_alternative_names() :: %{
-        "match" => subject_alternative_name_matchers()
+      not_found_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type subject_alternative_names() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      virtual_gateway_ref() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "lastUpdatedAt" => [non_neg_integer()],
+      virtual_gateway_port_mapping() :: %{
+        "port" => integer(),
+        "protocol" => String.t() | atom()
+      }
+
+  """
+  @type virtual_gateway_port_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_retry_policy() :: %{
+        "grpcRetryEvents" => list(String.t() | atom()),
+        "httpRetryEvents" => list(String.t() | atom()),
+        "maxRetries" => float(),
+        "perRetryTimeout" => duration(),
+        "tcpRetryEvents" => list(String.t() | atom())
+      }
+
+  """
+  @type grpc_retry_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging() :: %{
+        "accessLog" => list()
+      }
+
+  """
+  @type logging() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_route_action() :: %{
+        "weightedTargets" => list(weighted_target())
+      }
+
+  """
+  @type grpc_route_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mesh_data() :: %{
         "meshName" => String.t() | atom(),
+        "metadata" => resource_metadata(),
+        "spec" => mesh_spec(),
+        "status" => mesh_status()
+      }
+
+  """
+  @type mesh_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      outlier_detection() :: %{
+        "baseEjectionDuration" => duration(),
+        "interval" => duration(),
+        "maxEjectionPercent" => integer(),
+        "maxServerErrors" => float()
+      }
+
+  """
+  @type outlier_detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_gateway_route_prefix_rewrite() :: %{
+        "defaultPrefix" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type http_gateway_route_prefix_rewrite() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_node_http_connection_pool() :: %{
+        "maxConnections" => integer(),
+        "maxPendingRequests" => integer()
+      }
+
+  """
+  @type virtual_node_http_connection_pool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_http_connection_pool() :: %{
+        "maxConnections" => integer(),
+        "maxPendingRequests" => integer()
+      }
+
+  """
+  @type virtual_gateway_http_connection_pool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_node_input() :: %{
+        "clientToken" => [String.t() | atom()],
         "meshOwner" => String.t() | atom(),
-        "resourceOwner" => String.t() | atom(),
-        "version" => [float()],
+        "spec" => virtual_node_spec(),
+        "tags" => list(tag_ref()),
+        "virtualNodeName" => String.t() | atom()
+      }
+
+  """
+  @type create_virtual_node_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_data() :: %{
+        "meshName" => String.t() | atom(),
+        "metadata" => resource_metadata(),
+        "spec" => virtual_gateway_spec(),
+        "status" => virtual_gateway_status(),
         "virtualGatewayName" => String.t() | atom()
       }
 
   """
-  @type virtual_gateway_ref() :: %{(String.t() | atom()) => any()}
+  @type virtual_gateway_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_route_input() :: %{
-        "clientToken" => [String.t() | atom()],
-        "meshOwner" => String.t() | atom(),
-        "spec" => route_spec()
-      }
-
-  """
-  @type update_route_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_virtual_router_output() :: %{
-        "virtualRouter" => virtual_router_data()
-      }
-
-  """
-  @type describe_virtual_router_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_virtual_service_output() :: %{
-        "virtualService" => virtual_service_data()
-      }
-
-  """
-  @type create_virtual_service_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_virtual_service_input() :: %{
+      describe_virtual_router_input() :: %{
         "meshOwner" => String.t() | atom()
       }
 
   """
-  @type delete_virtual_service_input() :: %{(String.t() | atom()) => any()}
+  @type describe_virtual_router_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tls_validation_context_sds_trust() :: %{
-        "secretName" => String.t() | atom()
+      service_unavailable_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type tls_validation_context_sds_trust() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_metadata() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "lastUpdatedAt" => [non_neg_integer()],
-        "meshOwner" => String.t() | atom(),
-        "resourceOwner" => String.t() | atom(),
-        "uid" => [String.t() | atom()],
-        "version" => [float()]
+      delete_route_output() :: %{
+        "route" => route_data()
       }
 
   """
-  @type resource_metadata() :: %{(String.t() | atom()) => any()}
+  @type delete_route_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_virtual_gateway_output() :: %{
+        required("virtualGateway") => virtual_gateway_data()
+      }
+
+  """
+  @type delete_virtual_gateway_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,49 +271,378 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      outlier_detection() :: %{
-        "baseEjectionDuration" => duration(),
-        "interval" => duration(),
-        "maxEjectionPercent" => integer(),
-        "maxServerErrors" => float()
+      delete_mesh_output() :: %{
+        "mesh" => mesh_data()
       }
 
   """
-  @type outlier_detection() :: %{(String.t() | atom()) => any()}
+  @type delete_mesh_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      grpc_gateway_route_rewrite() :: %{
-        "hostname" => gateway_route_hostname_rewrite()
+      forbidden_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type grpc_gateway_route_rewrite() :: %{(String.t() | atom()) => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      http_gateway_route_prefix_rewrite() :: %{
-        "defaultPrefix" => String.t() | atom(),
+      virtual_router_data() :: %{
+        "meshName" => String.t() | atom(),
+        "metadata" => resource_metadata(),
+        "spec" => virtual_router_spec(),
+        "status" => virtual_router_status(),
+        "virtualRouterName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_router_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_virtual_services_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "virtualServices" => list(virtual_service_ref())
+      }
+
+  """
+  @type list_virtual_services_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_virtual_services_input() :: %{
+        "limit" => integer(),
+        "meshOwner" => String.t() | atom(),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_virtual_services_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_access_log() :: %{
+        "format" => list(),
+        "path" => String.t() | atom()
+      }
+
+  """
+  @type file_access_log() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_virtual_gateway_input() :: %{
+        optional("meshOwner") => String.t() | atom()
+      }
+
+  """
+  @type describe_virtual_gateway_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_route_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("gatewayRouteName") => String.t() | atom(),
+        optional("meshOwner") => String.t() | atom(),
+        required("spec") => gateway_route_spec(),
+        optional("tags") => list(tag_ref())
+      }
+
+  """
+  @type create_gateway_route_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_service_backend() :: %{
+        "clientPolicy" => client_policy(),
+        "virtualServiceName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_service_backend() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_route_input() :: %{
+        "meshOwner" => String.t() | atom()
+      }
+
+  """
+  @type describe_route_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        "resourceArn" => String.t() | atom(),
+        "tags" => list(tag_ref())
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_routes_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "routes" => list(route_ref())
+      }
+
+  """
+  @type list_routes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tcp_route_action() :: %{
+        "weightedTargets" => list(weighted_target())
+      }
+
+  """
+  @type tcp_route_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_virtual_router_output() :: %{
+        "virtualRouter" => virtual_router_data()
+      }
+
+  """
+  @type delete_virtual_router_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_ref() :: %{
+        "key" => String.t() | atom(),
         "value" => String.t() | atom()
       }
 
   """
-  @type http_gateway_route_prefix_rewrite() :: %{(String.t() | atom()) => any()}
+  @type tag_ref() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      virtual_node_grpc_connection_pool() :: %{
-        "maxRequests" => integer()
+      http_gateway_route_action() :: %{
+        "rewrite" => http_gateway_route_rewrite(),
+        "target" => gateway_route_target()
       }
 
   """
-  @type virtual_node_grpc_connection_pool() :: %{(String.t() | atom()) => any()}
+  @type http_gateway_route_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_virtual_routers_input() :: %{
+        "limit" => integer(),
+        "meshOwner" => String.t() | atom(),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_virtual_routers_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_route_data() :: %{
+        "gatewayRouteName" => String.t() | atom(),
+        "meshName" => String.t() | atom(),
+        "metadata" => resource_metadata(),
+        "spec" => gateway_route_spec(),
+        "status" => gateway_route_status(),
+        "virtualGatewayName" => String.t() | atom()
+      }
+
+  """
+  @type gateway_route_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_gateway_route_action() :: %{
+        "rewrite" => grpc_gateway_route_rewrite(),
+        "target" => gateway_route_target()
+      }
+
+  """
+  @type grpc_gateway_route_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_route_action() :: %{
+        "weightedTargets" => list(weighted_target())
+      }
+
+  """
+  @type http_route_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_service_data() :: %{
+        "meshName" => String.t() | atom(),
+        "metadata" => resource_metadata(),
+        "spec" => virtual_service_spec(),
+        "status" => virtual_service_status(),
+        "virtualServiceName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_service_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_mesh_output() :: %{
+        "mesh" => mesh_data()
+      }
+
+  """
+  @type create_mesh_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_virtual_node_output() :: %{
+        "virtualNode" => virtual_node_data()
+      }
+
+  """
+  @type update_virtual_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_tls_validation_context_acm_trust() :: %{
+        "certificateAuthorityArns" => list(String.t() | atom())
+      }
+
+  """
+  @type virtual_gateway_tls_validation_context_acm_trust() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_node_output() :: %{
+        "virtualNode" => virtual_node_data()
+      }
+
+  """
+  @type create_virtual_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_route_virtual_service() :: %{
+        "virtualServiceName" => String.t() | atom()
+      }
+
+  """
+  @type gateway_route_virtual_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_input() :: %{
+        "clientToken" => [String.t() | atom()],
+        "meshOwner" => String.t() | atom(),
+        "spec" => route_spec()
+      }
+
+  """
+  @type update_route_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backend_defaults() :: %{
+        "clientPolicy" => client_policy()
+      }
+
+  """
+  @type backend_defaults() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_policy_tls() :: %{
+        "certificate" => list(),
+        "enforce" => [boolean()],
+        "ports" => list(integer()),
+        "validation" => tls_validation_context()
+      }
+
+  """
+  @type client_policy_tls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_routes_input() :: %{
+        "limit" => integer(),
+        "meshOwner" => String.t() | atom(),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_routes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -236,106 +660,125 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      list_virtual_gateways_input() :: %{
+      mesh_service_discovery() :: %{
+        "ipPreference" => String.t() | atom()
+      }
+
+  """
+  @type mesh_service_discovery() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_route_output() :: %{
+        required("gatewayRoute") => gateway_route_data()
+      }
+
+  """
+  @type delete_gateway_route_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_metadata() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "meshOwner" => String.t() | atom(),
+        "resourceOwner" => String.t() | atom(),
+        "uid" => [String.t() | atom()],
+        "version" => [float()]
+      }
+
+  """
+  @type resource_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_routes_input() :: %{
         optional("limit") => integer(),
         optional("meshOwner") => String.t() | atom(),
         optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_virtual_gateways_input() :: %{(String.t() | atom()) => any()}
+  @type list_gateway_routes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      gateway_route_hostname_match() :: %{
-        "exact" => String.t() | atom(),
-        "suffix" => String.t() | atom()
+      list_meshes_input() :: %{
+        "limit" => integer(),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type gateway_route_hostname_match() :: %{(String.t() | atom()) => any()}
+  @type list_meshes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_virtual_router_output() :: %{
-        "virtualRouter" => virtual_router_data()
+      virtual_gateway_listener_tls_file_certificate() :: %{
+        "certificateChain" => String.t() | atom(),
+        "privateKey" => String.t() | atom()
       }
 
   """
-  @type update_virtual_router_output() :: %{(String.t() | atom()) => any()}
+  @type virtual_gateway_listener_tls_file_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_virtual_router_output() :: %{
-        "virtualRouter" => virtual_router_data()
-      }
-
-  """
-  @type create_virtual_router_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_route_output() :: %{
-        "route" => route_data()
-      }
-
-  """
-  @type create_route_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_virtual_gateway_output() :: %{
-        required("virtualGateway") => virtual_gateway_data()
-      }
-
-  """
-  @type delete_virtual_gateway_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_mesh_output() :: %{
+      update_mesh_output() :: %{
         "mesh" => mesh_data()
       }
 
   """
-  @type create_mesh_output() :: %{(String.t() | atom()) => any()}
+  @type update_mesh_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      grpc_route_match() :: %{
-        "metadata" => list(grpc_route_metadata()),
-        "methodName" => String.t() | atom(),
-        "port" => integer(),
-        "serviceName" => String.t() | atom()
+      update_virtual_router_input() :: %{
+        "clientToken" => [String.t() | atom()],
+        "meshOwner" => String.t() | atom(),
+        "spec" => virtual_router_spec()
       }
 
   """
-  @type grpc_route_match() :: %{(String.t() | atom()) => any()}
+  @type update_virtual_router_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_route_input() :: %{
-        "meshOwner" => String.t() | atom()
+      mesh_spec() :: %{
+        "egressFilter" => egress_filter(),
+        "serviceDiscovery" => mesh_service_discovery()
       }
 
   """
-  @type describe_route_input() :: %{(String.t() | atom()) => any()}
+  @type mesh_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_virtual_routers_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "virtualRouters" => list(virtual_router_ref())
+      }
+
+  """
+  @type list_virtual_routers_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,463 +800,25 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      tls_validation_context_acm_trust() :: %{
-        "certificateAuthorityArns" => list(String.t() | atom())
-      }
-
-  """
-  @type tls_validation_context_acm_trust() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      match_range() :: %{
-        "end" => [float()],
-        "start" => [float()]
-      }
-
-  """
-  @type match_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_route_input() :: %{
-        "clientToken" => [String.t() | atom()],
-        "meshOwner" => String.t() | atom(),
-        "routeName" => String.t() | atom(),
-        "spec" => route_spec(),
-        "tags" => list(tag_ref())
-      }
-
-  """
-  @type create_route_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_in_use_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_virtual_node_output() :: %{
-        "virtualNode" => virtual_node_data()
-      }
-
-  """
-  @type update_virtual_node_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_virtual_service_output() :: %{
-        "virtualService" => virtual_service_data()
-      }
-
-  """
-  @type delete_virtual_service_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tcp_route_action() :: %{
-        "weightedTargets" => list(weighted_target())
-      }
-
-  """
-  @type tcp_route_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      weighted_target() :: %{
-        "port" => integer(),
-        "virtualNode" => String.t() | atom(),
-        "weight" => integer()
-      }
-
-  """
-  @type weighted_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_ref() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag_ref() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_client_policy() :: %{
-        "tls" => virtual_gateway_client_policy_tls()
-      }
-
-  """
-  @type virtual_gateway_client_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_service_status() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type virtual_service_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_virtual_gateway_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("meshOwner") => String.t() | atom(),
-        required("spec") => virtual_gateway_spec()
-      }
-
-  """
-  @type update_virtual_gateway_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_gateway_route_input() :: %{
-        optional("meshOwner") => String.t() | atom()
-      }
-
-  """
-  @type describe_gateway_route_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_routes_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "routes" => list(route_ref())
-      }
-
-  """
-  @type list_routes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mesh_spec() :: %{
-        "egressFilter" => egress_filter(),
-        "serviceDiscovery" => mesh_service_discovery()
-      }
-
-  """
-  @type mesh_spec() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_node_http2_connection_pool() :: %{
-        "maxRequests" => integer()
-      }
-
-  """
-  @type virtual_node_http2_connection_pool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_retry_policy() :: %{
-        "httpRetryEvents" => list(String.t() | atom()),
-        "maxRetries" => float(),
-        "perRetryTimeout" => duration(),
-        "tcpRetryEvents" => list(String.t() | atom())
-      }
-
-  """
-  @type http_retry_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_spec() :: %{
-        "backendDefaults" => virtual_gateway_backend_defaults(),
-        "listeners" => list(virtual_gateway_listener()),
-        "logging" => virtual_gateway_logging()
-      }
-
-  """
-  @type virtual_gateway_spec() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_virtual_gateway_input() :: %{
-        optional("meshOwner") => String.t() | atom()
-      }
-
-  """
-  @type describe_virtual_gateway_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listener_tls_validation_context() :: %{
-        "subjectAlternativeNames" => subject_alternative_names(),
-        "trust" => list()
-      }
-
-  """
-  @type listener_tls_validation_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_router_listener() :: %{
-        "portMapping" => port_mapping()
-      }
-
-  """
-  @type virtual_router_listener() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mesh_status() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type mesh_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_map_service_discovery() :: %{
-        "attributes" => list(aws_cloud_map_instance_attribute()),
-        "ipPreference" => String.t() | atom(),
-        "namespaceName" => String.t() | atom(),
-        "serviceName" => String.t() | atom()
-      }
-
-  """
-  @type aws_cloud_map_service_discovery() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_virtual_router_input() :: %{
-        "clientToken" => [String.t() | atom()],
-        "meshOwner" => String.t() | atom(),
-        "spec" => virtual_router_spec()
-      }
-
-  """
-  @type update_virtual_router_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mesh_service_discovery() :: %{
-        "ipPreference" => String.t() | atom()
-      }
-
-  """
-  @type mesh_service_discovery() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_meshes_input() :: %{
-        "limit" => integer(),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_meshes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "tags" => list(tag_ref())
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_service_spec() :: %{
-        "provider" => list()
-      }
-
-  """
-  @type virtual_service_spec() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mesh_data() :: %{
-        "meshName" => String.t() | atom(),
-        "metadata" => resource_metadata(),
-        "spec" => mesh_spec(),
-        "status" => mesh_status()
-      }
-
-  """
-  @type mesh_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_grpc_connection_pool() :: %{
-        "maxRequests" => integer()
-      }
-
-  """
-  @type virtual_gateway_grpc_connection_pool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_gateway_route_rewrite() :: %{
-        "hostname" => gateway_route_hostname_rewrite(),
-        "path" => http_gateway_route_path_rewrite(),
-        "prefix" => http_gateway_route_prefix_rewrite()
-      }
-
-  """
-  @type http_gateway_route_rewrite() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_route_output() :: %{
-        "route" => route_data()
-      }
-
-  """
-  @type delete_route_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_virtual_nodes_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "virtualNodes" => list(virtual_node_ref())
-      }
-
-  """
-  @type list_virtual_nodes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_status() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type route_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_listener_tls_validation_context() :: %{
-        "subjectAlternativeNames" => subject_alternative_names(),
-        "trust" => list()
-      }
-
-  """
-  @type virtual_gateway_listener_tls_validation_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_virtual_router_input() :: %{
+      delete_virtual_service_input() :: %{
         "meshOwner" => String.t() | atom()
       }
 
   """
-  @type describe_virtual_router_input() :: %{(String.t() | atom()) => any()}
+  @type delete_virtual_service_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_meshes_output() :: %{
-        "meshes" => list(mesh_ref()),
-        "nextToken" => [String.t() | atom()]
+      listener_tls() :: %{
+        "certificate" => list(),
+        "mode" => String.t() | atom(),
+        "validation" => listener_tls_validation_context()
       }
 
   """
-  @type list_meshes_output() :: %{(String.t() | atom()) => any()}
+  @type listener_tls() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -830,130 +835,48 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      list_virtual_routers_input() :: %{
-        "limit" => integer(),
-        "meshOwner" => String.t() | atom(),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_virtual_routers_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_route_target() :: %{
-        "port" => integer(),
-        "virtualService" => gateway_route_virtual_service()
-      }
-
-  """
-  @type gateway_route_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_node_tcp_connection_pool() :: %{
-        "maxConnections" => integer()
-      }
-
-  """
-  @type virtual_node_tcp_connection_pool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_route_spec() :: %{
-        "grpcRoute" => grpc_gateway_route(),
-        "http2Route" => http_gateway_route(),
-        "httpRoute" => http_gateway_route(),
-        "priority" => integer()
-      }
-
-  """
-  @type gateway_route_spec() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_virtual_nodes_input() :: %{
-        "limit" => integer(),
-        "meshOwner" => String.t() | atom(),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_virtual_nodes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_router_service_provider() :: %{
-        "virtualRouterName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_router_service_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grpc_route_metadata() :: %{
-        "invert" => [boolean()],
-        "match" => list(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type grpc_route_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_node_ref() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "lastUpdatedAt" => [non_neg_integer()],
-        "meshName" => String.t() | atom(),
-        "meshOwner" => String.t() | atom(),
-        "resourceOwner" => String.t() | atom(),
-        "version" => [float()],
-        "virtualNodeName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_node_ref() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_route_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("meshOwner") => String.t() | atom(),
-        required("spec") => gateway_route_spec()
-      }
-
-  """
-  @type update_gateway_route_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_route_input() :: %{
+      delete_virtual_gateway_input() :: %{
         optional("meshOwner") => String.t() | atom()
       }
 
   """
-  @type delete_gateway_route_input() :: %{(String.t() | atom()) => any()}
+  @type delete_virtual_gateway_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_validation_context() :: %{
+        "subjectAlternativeNames" => subject_alternative_names(),
+        "trust" => list()
+      }
+
+  """
+  @type tls_validation_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_listener_tls() :: %{
+        "certificate" => list(),
+        "mode" => String.t() | atom(),
+        "validation" => virtual_gateway_listener_tls_validation_context()
+      }
+
+  """
+  @type virtual_gateway_listener_tls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_virtual_service_output() :: %{
+        "virtualService" => virtual_service_data()
+      }
+
+  """
+  @type delete_virtual_service_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,222 +901,58 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      conflict_exception() :: %{
+      dns_service_discovery() :: %{
+        "hostname" => String.t() | atom(),
+        "ipPreference" => String.t() | atom(),
+        "responseType" => String.t() | atom()
+      }
+
+  """
+  @type dns_service_discovery() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_virtual_router_input() :: %{
+        "meshOwner" => String.t() | atom()
+      }
+
+  """
+  @type delete_virtual_router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_gateway_route_path_rewrite() :: %{
+        "exact" => String.t() | atom()
+      }
+
+  """
+  @type http_gateway_route_path_rewrite() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listener_tls_sds_certificate() :: %{
+        "secretName" => String.t() | atom()
+      }
+
+  """
+  @type listener_tls_sds_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tls_validation_context() :: %{
-        "subjectAlternativeNames" => subject_alternative_names(),
-        "trust" => list()
-      }
-
-  """
-  @type tls_validation_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_gateway_route_header() :: %{
-        "invert" => [boolean()],
-        "match" => list(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type http_gateway_route_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_route_output() :: %{
-        "route" => route_data()
-      }
-
-  """
-  @type describe_route_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grpc_timeout() :: %{
-        "idle" => duration(),
-        "perRequest" => duration()
-      }
-
-  """
-  @type grpc_timeout() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      client_policy() :: %{
-        "tls" => client_policy_tls()
-      }
-
-  """
-  @type client_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_virtual_router_input() :: %{
-        "clientToken" => [String.t() | atom()],
-        "meshOwner" => String.t() | atom(),
-        "spec" => virtual_router_spec(),
-        "tags" => list(tag_ref()),
-        "virtualRouterName" => String.t() | atom()
-      }
-
-  """
-  @type create_virtual_router_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tcp_route_match() :: %{
-        "port" => integer()
-      }
-
-  """
-  @type tcp_route_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_virtual_service_output() :: %{
-        "virtualService" => virtual_service_data()
-      }
-
-  """
-  @type update_virtual_service_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subject_alternative_name_matchers() :: %{
-        "exact" => list(String.t() | atom())
-      }
-
-  """
-  @type subject_alternative_name_matchers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_backend_defaults() :: %{
-        "clientPolicy" => virtual_gateway_client_policy()
-      }
-
-  """
-  @type virtual_gateway_backend_defaults() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_virtual_gateways_output() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        required("virtualGateways") => list(virtual_gateway_ref())
-      }
-
-  """
-  @type list_virtual_gateways_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_virtual_node_output() :: %{
-        "virtualNode" => virtual_node_data()
-      }
-
-  """
-  @type describe_virtual_node_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_file_access_log() :: %{
-        "format" => list(),
-        "path" => String.t() | atom()
-      }
-
-  """
-  @type virtual_gateway_file_access_log() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_logging() :: %{
-        "accessLog" => list()
-      }
-
-  """
-  @type virtual_gateway_logging() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateway_routes_input() :: %{
-        optional("limit") => integer(),
-        optional("meshOwner") => String.t() | atom(),
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_gateway_routes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_node_status() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type virtual_node_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_route_virtual_service() :: %{
-        "virtualServiceName" => String.t() | atom()
-      }
-
-  """
-  @type gateway_route_virtual_service() :: %{(String.t() | atom()) => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1210,27 +969,15 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      delete_route_input() :: %{
-        "meshOwner" => String.t() | atom()
+      http_route() :: %{
+        "action" => http_route_action(),
+        "match" => http_route_match(),
+        "retryPolicy" => http_retry_policy(),
+        "timeout" => http_timeout()
       }
 
   """
-  @type delete_route_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_node_data() :: %{
-        "meshName" => String.t() | atom(),
-        "metadata" => resource_metadata(),
-        "spec" => virtual_node_spec(),
-        "status" => virtual_node_status(),
-        "virtualNodeName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_node_data() :: %{(String.t() | atom()) => any()}
+  @type http_route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1254,114 +1001,36 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      listener_tls_file_certificate() :: %{
-        "certificateChain" => String.t() | atom(),
-        "privateKey" => String.t() | atom()
+      virtual_service_spec() :: %{
+        "provider" => list()
       }
 
   """
-  @type listener_tls_file_certificate() :: %{(String.t() | atom()) => any()}
+  @type virtual_service_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_status() :: %{
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type virtual_gateway_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_mesh_input() :: %{}
-
-  """
-  @type delete_mesh_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_node_service_provider() :: %{
-        "virtualNodeName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_node_service_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_virtual_router_input() :: %{
-        "meshOwner" => String.t() | atom()
-      }
-
-  """
-  @type delete_virtual_router_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_listener_tls_acm_certificate() :: %{
+      listener_tls_acm_certificate() :: %{
         "certificateArn" => String.t() | atom()
       }
 
   """
-  @type virtual_gateway_listener_tls_acm_certificate() :: %{(String.t() | atom()) => any()}
+  @type listener_tls_acm_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_gateway_route_output() :: %{
-        required("gatewayRoute") => gateway_route_data()
+      list_tags_for_resource_input() :: %{
+        "limit" => integer(),
+        "nextToken" => [String.t() | atom()],
+        "resourceArn" => String.t() | atom()
       }
 
   """
-  @type describe_gateway_route_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_virtual_node_input() :: %{
-        "clientToken" => [String.t() | atom()],
-        "meshOwner" => String.t() | atom(),
-        "spec" => virtual_node_spec(),
-        "tags" => list(tag_ref()),
-        "virtualNodeName" => String.t() | atom()
-      }
-
-  """
-  @type create_virtual_node_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_router_spec() :: %{
-        "listeners" => list(virtual_router_listener())
-      }
-
-  """
-  @type virtual_router_spec() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1376,52 +1045,6 @@ defmodule AWS.AppMesh do
 
   """
   @type virtual_gateway_listener() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      json_format_ref() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type json_format_ref() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        "resourceArn" => String.t() | atom(),
-        "tags" => list(tag_ref())
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_tls_validation_context_sds_trust() :: %{
-        "secretName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_gateway_tls_validation_context_sds_trust() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listener_tls_acm_certificate() :: %{
-        "certificateArn" => String.t() | atom()
-      }
-
-  """
-  @type listener_tls_acm_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1442,47 +1065,602 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      list_virtual_routers_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "virtualRouters" => list(virtual_router_ref())
+      virtual_router_spec() :: %{
+        "listeners" => list(virtual_router_listener())
       }
 
   """
-  @type list_virtual_routers_output() :: %{(String.t() | atom()) => any()}
+  @type virtual_router_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      grpc_route_action() :: %{
-        "weightedTargets" => list(weighted_target())
+      virtual_gateway_spec() :: %{
+        "backendDefaults" => virtual_gateway_backend_defaults(),
+        "listeners" => list(virtual_gateway_listener()),
+        "logging" => virtual_gateway_logging()
       }
 
   """
-  @type grpc_route_action() :: %{(String.t() | atom()) => any()}
+  @type virtual_gateway_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_virtual_router_output() :: %{
+      virtual_router_listener() :: %{
+        "portMapping" => port_mapping()
+      }
+
+  """
+  @type virtual_router_listener() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_route_output() :: %{
+        required("gatewayRoute") => gateway_route_data()
+      }
+
+  """
+  @type create_gateway_route_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_node_spec() :: %{
+        "backendDefaults" => backend_defaults(),
+        "backends" => list(list()),
+        "listeners" => list(listener()),
+        "logging" => logging(),
+        "serviceDiscovery" => list()
+      }
+
+  """
+  @type virtual_node_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_virtual_router_output() :: %{
         "virtualRouter" => virtual_router_data()
       }
 
   """
-  @type delete_virtual_router_output() :: %{(String.t() | atom()) => any()}
+  @type update_virtual_router_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_virtual_services_output() :: %{
-        "nextToken" => [String.t() | atom()],
-        "virtualServices" => list(virtual_service_ref())
+      describe_mesh_input() :: %{
+        "meshOwner" => String.t() | atom()
       }
 
   """
-  @type list_virtual_services_output() :: %{(String.t() | atom()) => any()}
+  @type describe_mesh_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        "resourceArn" => String.t() | atom(),
+        "tagKeys" => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subject_alternative_name_matchers() :: %{
+        "exact" => list(String.t() | atom())
+      }
+
+  """
+  @type subject_alternative_name_matchers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_node_status() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type virtual_node_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_virtual_service_output() :: %{
+        "virtualService" => virtual_service_data()
+      }
+
+  """
+  @type update_virtual_service_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_data() :: %{
+        "meshName" => String.t() | atom(),
+        "metadata" => resource_metadata(),
+        "routeName" => String.t() | atom(),
+        "spec" => route_spec(),
+        "status" => route_status(),
+        "virtualRouterName" => String.t() | atom()
+      }
+
+  """
+  @type route_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_node_tcp_connection_pool() :: %{
+        "maxConnections" => integer()
+      }
+
+  """
+  @type virtual_node_tcp_connection_pool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_validation_context_file_trust() :: %{
+        "certificateChain" => String.t() | atom()
+      }
+
+  """
+  @type tls_validation_context_file_trust() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_gateway_route_output() :: %{
+        required("gatewayRoute") => gateway_route_data()
+      }
+
+  """
+  @type describe_gateway_route_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_virtual_nodes_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "virtualNodes" => list(virtual_node_ref())
+      }
+
+  """
+  @type list_virtual_nodes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_route_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("meshOwner") => String.t() | atom(),
+        required("spec") => gateway_route_spec()
+      }
+
+  """
+  @type update_gateway_route_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_route_match() :: %{
+        "headers" => list(http_route_header()),
+        "method" => String.t() | atom(),
+        "path" => http_path_match(),
+        "port" => integer(),
+        "prefix" => [String.t() | atom()],
+        "queryParameters" => list(http_query_parameter()),
+        "scheme" => String.t() | atom()
+      }
+
+  """
+  @type http_route_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_virtual_node_output() :: %{
+        "virtualNode" => virtual_node_data()
+      }
+
+  """
+  @type delete_virtual_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_client_policy_tls() :: %{
+        "certificate" => list(),
+        "enforce" => [boolean()],
+        "ports" => list(integer()),
+        "validation" => virtual_gateway_tls_validation_context()
+      }
+
+  """
+  @type virtual_gateway_client_policy_tls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_map_instance_attribute() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_map_instance_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_output() :: %{
+        "route" => route_data()
+      }
+
+  """
+  @type update_route_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_tls_validation_context_sds_trust() :: %{
+        "secretName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_gateway_tls_validation_context_sds_trust() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_timeout() :: %{
+        "idle" => duration(),
+        "perRequest" => duration()
+      }
+
+  """
+  @type grpc_timeout() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_route() :: %{
+        "action" => grpc_route_action(),
+        "match" => grpc_route_match(),
+        "retryPolicy" => grpc_retry_policy(),
+        "timeout" => grpc_timeout()
+      }
+
+  """
+  @type grpc_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_node_data() :: %{
+        "meshName" => String.t() | atom(),
+        "metadata" => resource_metadata(),
+        "spec" => virtual_node_spec(),
+        "status" => virtual_node_status(),
+        "virtualNodeName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_node_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_route_status() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type gateway_route_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_router_ref() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "meshName" => String.t() | atom(),
+        "meshOwner" => String.t() | atom(),
+        "resourceOwner" => String.t() | atom(),
+        "version" => [float()],
+        "virtualRouterName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_router_ref() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_tls_validation_context_file_trust() :: %{
+        "certificateChain" => String.t() | atom()
+      }
+
+  """
+  @type virtual_gateway_tls_validation_context_file_trust() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_router_output() :: %{
+        "virtualRouter" => virtual_router_data()
+      }
+
+  """
+  @type create_virtual_router_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_query_parameter() :: %{
+        "match" => query_parameter_match(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type http_query_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_status() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type route_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      json_format_ref() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type json_format_ref() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_routes_output() :: %{
+        required("gatewayRoutes") => list(gateway_route_ref()),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_gateway_routes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_path_match() :: %{
+        "exact" => String.t() | atom(),
+        "regex" => String.t() | atom()
+      }
+
+  """
+  @type http_path_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_retry_policy() :: %{
+        "httpRetryEvents" => list(String.t() | atom()),
+        "maxRetries" => float(),
+        "perRetryTimeout" => duration(),
+        "tcpRetryEvents" => list(String.t() | atom())
+      }
+
+  """
+  @type http_retry_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_timeout() :: %{
+        "idle" => duration(),
+        "perRequest" => duration()
+      }
+
+  """
+  @type http_timeout() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_listener_tls_validation_context() :: %{
+        "subjectAlternativeNames" => subject_alternative_names(),
+        "trust" => list()
+      }
+
+  """
+  @type virtual_gateway_listener_tls_validation_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_in_use_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_router_status() :: %{
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type virtual_router_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subject_alternative_names() :: %{
+        "match" => subject_alternative_name_matchers()
+      }
+
+  """
+  @type subject_alternative_names() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mesh_output() :: %{
+        "mesh" => mesh_data()
+      }
+
+  """
+  @type describe_mesh_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_virtual_gateways_input() :: %{
+        optional("limit") => integer(),
+        optional("meshOwner") => String.t() | atom(),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_virtual_gateways_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_gateway_route() :: %{
+        "action" => grpc_gateway_route_action(),
+        "match" => grpc_gateway_route_match()
+      }
+
+  """
+  @type grpc_gateway_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_virtual_gateway_output() :: %{
+        required("virtualGateway") => virtual_gateway_data()
+      }
+
+  """
+  @type update_virtual_gateway_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      port_mapping() :: %{
+        "port" => integer(),
+        "protocol" => String.t() | atom()
+      }
+
+  """
+  @type port_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_client_policy() :: %{
+        "tls" => virtual_gateway_client_policy_tls()
+      }
+
+  """
+  @type virtual_gateway_client_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_input() :: %{
+        "meshOwner" => String.t() | atom()
+      }
+
+  """
+  @type delete_route_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1492,6 +1670,261 @@ defmodule AWS.AppMesh do
 
   """
   @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_gateway_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("meshOwner") => String.t() | atom(),
+        required("spec") => virtual_gateway_spec(),
+        optional("tags") => list(tag_ref()),
+        required("virtualGatewayName") => String.t() | atom()
+      }
+
+  """
+  @type create_virtual_gateway_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_virtual_node_input() :: %{
+        "meshOwner" => String.t() | atom()
+      }
+
+  """
+  @type delete_virtual_node_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_route_spec() :: %{
+        "grpcRoute" => grpc_gateway_route(),
+        "http2Route" => http_gateway_route(),
+        "httpRoute" => http_gateway_route(),
+        "priority" => integer()
+      }
+
+  """
+  @type gateway_route_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "nextToken" => [String.t() | atom()],
+        "tags" => list(tag_ref())
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tcp_route() :: %{
+        "action" => tcp_route_action(),
+        "match" => tcp_route_match(),
+        "timeout" => tcp_timeout()
+      }
+
+  """
+  @type tcp_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_virtual_service_input() :: %{
+        "meshOwner" => String.t() | atom()
+      }
+
+  """
+  @type describe_virtual_service_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_gateway_route_rewrite() :: %{
+        "hostname" => gateway_route_hostname_rewrite()
+      }
+
+  """
+  @type grpc_gateway_route_rewrite() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      match_range() :: %{
+        "end" => [float()],
+        "start" => [float()]
+      }
+
+  """
+  @type match_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_mesh_input() :: %{}
+
+  """
+  @type delete_mesh_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_map_service_discovery() :: %{
+        "attributes" => list(aws_cloud_map_instance_attribute()),
+        "ipPreference" => String.t() | atom(),
+        "namespaceName" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_map_service_discovery() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tcp_route_match() :: %{
+        "port" => integer()
+      }
+
+  """
+  @type tcp_route_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_router_input() :: %{
+        "clientToken" => [String.t() | atom()],
+        "meshOwner" => String.t() | atom(),
+        "spec" => virtual_router_spec(),
+        "tags" => list(tag_ref()),
+        "virtualRouterName" => String.t() | atom()
+      }
+
+  """
+  @type create_virtual_router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_gateway_output() :: %{
+        required("virtualGateway") => virtual_gateway_data()
+      }
+
+  """
+  @type create_virtual_gateway_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_meshes_output() :: %{
+        "meshes" => list(mesh_ref()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_meshes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_virtual_nodes_input() :: %{
+        "limit" => integer(),
+        "meshOwner" => String.t() | atom(),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_virtual_nodes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_route_metadata() :: %{
+        "invert" => [boolean()],
+        "match" => list(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type grpc_route_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      weighted_target() :: %{
+        "port" => integer(),
+        "virtualNode" => String.t() | atom(),
+        "weight" => integer()
+      }
+
+  """
+  @type weighted_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_virtual_service_output() :: %{
+        "virtualService" => virtual_service_data()
+      }
+
+  """
+  @type create_virtual_service_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_validation_context_sds_trust() :: %{
+        "secretName" => String.t() | atom()
+      }
+
+  """
+  @type tls_validation_context_sds_trust() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_gateway_route() :: %{
+        "action" => http_gateway_route_action(),
+        "match" => http_gateway_route_match()
+      }
+
+  """
+  @type http_gateway_route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1514,115 +1947,35 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      virtual_gateway_port_mapping() :: %{
-        "port" => integer(),
-        "protocol" => String.t() | atom()
+      bad_request_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type virtual_gateway_port_mapping() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_routes_input() :: %{
-        "limit" => integer(),
-        "meshOwner" => String.t() | atom(),
-        "nextToken" => [String.t() | atom()]
+      query_parameter_match() :: %{
+        "exact" => [String.t() | atom()]
       }
 
   """
-  @type list_routes_input() :: %{(String.t() | atom()) => any()}
+  @type query_parameter_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_virtual_node_input() :: %{
-        "meshOwner" => String.t() | atom()
+      list_virtual_gateways_output() :: %{
+        optional("nextToken") => [String.t() | atom()],
+        required("virtualGateways") => list(virtual_gateway_ref())
       }
 
   """
-  @type describe_virtual_node_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_gateway_route_output() :: %{
-        required("gatewayRoute") => gateway_route_data()
-      }
-
-  """
-  @type create_gateway_route_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_route_action() :: %{
-        "weightedTargets" => list(weighted_target())
-      }
-
-  """
-  @type http_route_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tcp_timeout() :: %{
-        "idle" => duration()
-      }
-
-  """
-  @type tcp_timeout() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_route_output() :: %{
-        required("gatewayRoute") => gateway_route_data()
-      }
-
-  """
-  @type update_gateway_route_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_route_output() :: %{
-        "route" => route_data()
-      }
-
-  """
-  @type update_route_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tls_validation_context_file_trust() :: %{
-        "certificateChain" => String.t() | atom()
-      }
-
-  """
-  @type tls_validation_context_file_trust() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_http_connection_pool() :: %{
-        "maxConnections" => integer(),
-        "maxPendingRequests" => integer()
-      }
-
-  """
-  @type virtual_gateway_http_connection_pool() :: %{(String.t() | atom()) => any()}
+  @type list_virtual_gateways_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1640,154 +1993,6 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      route_data() :: %{
-        "meshName" => String.t() | atom(),
-        "metadata" => resource_metadata(),
-        "routeName" => String.t() | atom(),
-        "spec" => route_spec(),
-        "status" => route_status(),
-        "virtualRouterName" => String.t() | atom()
-      }
-
-  """
-  @type route_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_route_output() :: %{
-        required("gatewayRoute") => gateway_route_data()
-      }
-
-  """
-  @type delete_gateway_route_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_node_http_connection_pool() :: %{
-        "maxConnections" => integer(),
-        "maxPendingRequests" => integer()
-      }
-
-  """
-  @type virtual_node_http_connection_pool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_client_policy_tls() :: %{
-        "certificate" => list(),
-        "enforce" => [boolean()],
-        "ports" => list(integer()),
-        "validation" => virtual_gateway_tls_validation_context()
-      }
-
-  """
-  @type virtual_gateway_client_policy_tls() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tcp_route() :: %{
-        "action" => tcp_route_action(),
-        "match" => tcp_route_match(),
-        "timeout" => tcp_timeout()
-      }
-
-  """
-  @type tcp_route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grpc_gateway_route() :: %{
-        "action" => grpc_gateway_route_action(),
-        "match" => grpc_gateway_route_match()
-      }
-
-  """
-  @type grpc_gateway_route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grpc_gateway_route_metadata() :: %{
-        "invert" => [boolean()],
-        "match" => list(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type grpc_gateway_route_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        "resourceArn" => String.t() | atom(),
-        "tagKeys" => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_mesh_output() :: %{
-        "mesh" => mesh_data()
-      }
-
-  """
-  @type describe_mesh_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_tls_validation_context_file_trust() :: %{
-        "certificateChain" => String.t() | atom()
-      }
-
-  """
-  @type virtual_gateway_tls_validation_context_file_trust() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      backend_defaults() :: %{
-        "clientPolicy" => client_policy()
-      }
-
-  """
-  @type backend_defaults() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      port_mapping() :: %{
-        "port" => integer(),
-        "protocol" => String.t() | atom()
-      }
-
-  """
-  @type port_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       duration() :: %{
         "unit" => String.t() | atom(),
         "value" => float()
@@ -1795,6 +2000,100 @@ defmodule AWS.AppMesh do
 
   """
   @type duration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_file_access_log() :: %{
+        "format" => list(),
+        "path" => String.t() | atom()
+      }
+
+  """
+  @type virtual_gateway_file_access_log() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_virtual_service_input() :: %{
+        "clientToken" => [String.t() | atom()],
+        "meshOwner" => String.t() | atom(),
+        "spec" => virtual_service_spec()
+      }
+
+  """
+  @type update_virtual_service_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_node_service_provider() :: %{
+        "virtualNodeName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_node_service_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_spec() :: %{
+        "grpcRoute" => grpc_route(),
+        "http2Route" => http_route(),
+        "httpRoute" => http_route(),
+        "priority" => integer(),
+        "tcpRoute" => tcp_route()
+      }
+
+  """
+  @type route_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_route_match() :: %{
+        "metadata" => list(grpc_route_metadata()),
+        "methodName" => String.t() | atom(),
+        "port" => integer(),
+        "serviceName" => String.t() | atom()
+      }
+
+  """
+  @type grpc_route_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_virtual_node_input() :: %{
+        "meshOwner" => String.t() | atom()
+      }
+
+  """
+  @type describe_virtual_node_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_ref() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "meshName" => String.t() | atom(),
+        "meshOwner" => String.t() | atom(),
+        "resourceOwner" => String.t() | atom(),
+        "version" => [float()],
+        "virtualGatewayName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_gateway_ref() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1819,21 +2118,6 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      virtual_node_spec() :: %{
-        "backendDefaults" => backend_defaults(),
-        "backends" => list(list()),
-        "listeners" => list(listener()),
-        "logging" => logging(),
-        "serviceDiscovery" => list()
-      }
-
-  """
-  @type virtual_node_spec() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       gateway_route_hostname_rewrite() :: %{
         "defaultTargetHostname" => String.t() | atom()
       }
@@ -1845,121 +2129,24 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      delete_mesh_output() :: %{
-        "mesh" => mesh_data()
+      gateway_route_hostname_match() :: %{
+        "exact" => String.t() | atom(),
+        "suffix" => String.t() | atom()
       }
 
   """
-  @type delete_mesh_output() :: %{(String.t() | atom()) => any()}
+  @type gateway_route_hostname_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      route_spec() :: %{
-        "grpcRoute" => grpc_route(),
-        "http2Route" => http_route(),
-        "httpRoute" => http_route(),
-        "priority" => integer(),
-        "tcpRoute" => tcp_route()
+      describe_virtual_node_output() :: %{
+        "virtualNode" => virtual_node_data()
       }
 
   """
-  @type route_spec() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_service_backend() :: %{
-        "clientPolicy" => client_policy(),
-        "virtualServiceName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_service_backend() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{
-        "limit" => integer(),
-        "nextToken" => [String.t() | atom()],
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dns_service_discovery() :: %{
-        "hostname" => String.t() | atom(),
-        "ipPreference" => String.t() | atom(),
-        "responseType" => String.t() | atom()
-      }
-
-  """
-  @type dns_service_discovery() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grpc_gateway_route_action() :: %{
-        "rewrite" => grpc_gateway_route_rewrite(),
-        "target" => gateway_route_target()
-      }
-
-  """
-  @type grpc_gateway_route_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_virtual_gateway_input() :: %{
-        optional("meshOwner") => String.t() | atom()
-      }
-
-  """
-  @type delete_virtual_gateway_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_virtual_node_input() :: %{
-        "clientToken" => [String.t() | atom()],
-        "meshOwner" => String.t() | atom(),
-        "spec" => virtual_node_spec()
-      }
-
-  """
-  @type update_virtual_node_input() :: %{(String.t() | atom()) => any()}
+  @type describe_virtual_node_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1979,111 +2166,229 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      http_gateway_route_path_rewrite() :: %{
-        "exact" => String.t() | atom()
+      http_route_header() :: %{
+        "invert" => [boolean()],
+        "match" => list(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type http_gateway_route_path_rewrite() :: %{(String.t() | atom()) => any()}
+  @type http_route_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      client_policy_tls() :: %{
-        "certificate" => list(),
-        "enforce" => [boolean()],
-        "ports" => list(integer()),
-        "validation" => tls_validation_context()
+      virtual_router_service_provider() :: %{
+        "virtualRouterName" => String.t() | atom()
       }
 
   """
-  @type client_policy_tls() :: %{(String.t() | atom()) => any()}
+  @type virtual_router_service_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_virtual_service_input() :: %{
+      update_virtual_node_input() :: %{
         "clientToken" => [String.t() | atom()],
         "meshOwner" => String.t() | atom(),
-        "spec" => virtual_service_spec()
+        "spec" => virtual_node_spec()
       }
 
   """
-  @type update_virtual_service_input() :: %{(String.t() | atom()) => any()}
+  @type update_virtual_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_gateway_route_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("meshOwner") => String.t() | atom(),
-        optional("tags") => list(tag_ref()),
-        required("gatewayRouteName") => String.t() | atom(),
-        required("spec") => gateway_route_spec()
+      http_gateway_route_rewrite() :: %{
+        "hostname" => gateway_route_hostname_rewrite(),
+        "path" => http_gateway_route_path_rewrite(),
+        "prefix" => http_gateway_route_prefix_rewrite()
       }
 
   """
-  @type create_gateway_route_input() :: %{(String.t() | atom()) => any()}
+  @type http_gateway_route_rewrite() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_virtual_node_input() :: %{
-        "meshOwner" => String.t() | atom()
+      grpc_gateway_route_metadata() :: %{
+        "invert" => [boolean()],
+        "match" => list(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type delete_virtual_node_input() :: %{(String.t() | atom()) => any()}
+  @type grpc_gateway_route_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
+      egress_filter() :: %{
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type egress_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_node_http2_connection_pool() :: %{
+        "maxRequests" => integer()
+      }
+
+  """
+  @type virtual_node_http2_connection_pool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_route_input() :: %{
+        optional("meshOwner") => String.t() | atom()
+      }
+
+  """
+  @type delete_gateway_route_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      virtual_node_ref() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "meshName" => String.t() | atom(),
+        "meshOwner" => String.t() | atom(),
+        "resourceOwner" => String.t() | atom(),
+        "version" => [float()],
+        "virtualNodeName" => String.t() | atom()
+      }
+
+  """
+  @type virtual_node_ref() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_route_output() :: %{
+        required("gatewayRoute") => gateway_route_data()
+      }
+
+  """
+  @type update_gateway_route_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_route_output() :: %{
+        "route" => route_data()
+      }
+
+  """
+  @type describe_route_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_virtual_service_output() :: %{
+        "virtualService" => virtual_service_data()
+      }
+
+  """
+  @type describe_virtual_service_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      virtual_router_status() :: %{
-        "status" => String.t() | atom()
+      create_route_output() :: %{
+        "route" => route_data()
       }
 
   """
-  @type virtual_router_status() :: %{(String.t() | atom()) => any()}
+  @type create_route_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_cloud_map_instance_attribute() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      gateway_route_target() :: %{
+        "port" => integer(),
+        "virtualService" => gateway_route_virtual_service()
       }
 
   """
-  @type aws_cloud_map_instance_attribute() :: %{(String.t() | atom()) => any()}
+  @type gateway_route_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_gateway_routes_output() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        required("gatewayRoutes") => list(gateway_route_ref())
+      virtual_gateway_grpc_connection_pool() :: %{
+        "maxRequests" => integer()
       }
 
   """
-  @type list_gateway_routes_output() :: %{(String.t() | atom()) => any()}
+  @type virtual_gateway_grpc_connection_pool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_gateway_route_header() :: %{
+        "invert" => [boolean()],
+        "match" => list(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type http_gateway_route_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listener_tls_file_certificate() :: %{
+        "certificateChain" => String.t() | atom(),
+        "privateKey" => String.t() | atom()
+      }
+
+  """
+  @type listener_tls_file_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tcp_timeout() :: %{
+        "idle" => duration()
+      }
+
+  """
+  @type tcp_timeout() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2106,62 +2411,25 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      listener_tls_sds_certificate() :: %{
-        "secretName" => String.t() | atom()
+      describe_virtual_router_output() :: %{
+        "virtualRouter" => virtual_router_data()
       }
 
   """
-  @type listener_tls_sds_certificate() :: %{(String.t() | atom()) => any()}
+  @type describe_virtual_router_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      http_gateway_route_action() :: %{
-        "rewrite" => http_gateway_route_rewrite(),
-        "target" => gateway_route_target()
-      }
-
-  """
-  @type http_gateway_route_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_path_match() :: %{
-        "exact" => String.t() | atom(),
-        "regex" => String.t() | atom()
-      }
-
-  """
-  @type http_path_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_virtual_gateway_input() :: %{
+      update_virtual_gateway_input() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("meshOwner") => String.t() | atom(),
-        optional("tags") => list(tag_ref()),
-        required("spec") => virtual_gateway_spec(),
-        required("virtualGatewayName") => String.t() | atom()
+        required("spec") => virtual_gateway_spec()
       }
 
   """
-  @type create_virtual_gateway_input() :: %{(String.t() | atom()) => any()}
+  @type update_virtual_gateway_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2178,293 +2446,56 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      http_route_header() :: %{
-        "invert" => [boolean()],
-        "match" => list(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type http_route_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_access_log() :: %{
-        "format" => list(),
-        "path" => String.t() | atom()
-      }
-
-  """
-  @type file_access_log() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_mesh_input() :: %{
-        "meshOwner" => String.t() | atom()
-      }
-
-  """
-  @type describe_mesh_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_route_data() :: %{
-        "gatewayRouteName" => String.t() | atom(),
-        "meshName" => String.t() | atom(),
-        "metadata" => resource_metadata(),
-        "spec" => gateway_route_spec(),
-        "status" => gateway_route_status(),
-        "virtualGatewayName" => String.t() | atom()
-      }
-
-  """
-  @type gateway_route_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_tls_validation_context_acm_trust() :: %{
+      tls_validation_context_acm_trust() :: %{
         "certificateAuthorityArns" => list(String.t() | atom())
       }
 
   """
-  @type virtual_gateway_tls_validation_context_acm_trust() :: %{(String.t() | atom()) => any()}
+  @type tls_validation_context_acm_trust() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      virtual_gateway_listener_tls_file_certificate() :: %{
-        "certificateChain" => String.t() | atom(),
-        "privateKey" => String.t() | atom()
-      }
-
-  """
-  @type virtual_gateway_listener_tls_file_certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_virtual_service_output() :: %{
-        "virtualService" => virtual_service_data()
-      }
-
-  """
-  @type describe_virtual_service_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grpc_retry_policy() :: %{
-        "grpcRetryEvents" => list(String.t() | atom()),
-        "httpRetryEvents" => list(String.t() | atom()),
-        "maxRetries" => float(),
-        "perRetryTimeout" => duration(),
-        "tcpRetryEvents" => list(String.t() | atom())
-      }
-
-  """
-  @type grpc_retry_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_virtual_services_input() :: %{
-        "limit" => integer(),
-        "meshOwner" => String.t() | atom(),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_virtual_services_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_listener_tls() :: %{
-        "certificate" => list(),
-        "mode" => String.t() | atom(),
-        "validation" => virtual_gateway_listener_tls_validation_context()
-      }
-
-  """
-  @type virtual_gateway_listener_tls() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_route_match() :: %{
-        "headers" => list(http_route_header()),
-        "method" => String.t() | atom(),
-        "path" => http_path_match(),
-        "port" => integer(),
-        "prefix" => [String.t() | atom()],
-        "queryParameters" => list(http_query_parameter()),
-        "scheme" => String.t() | atom()
-      }
-
-  """
-  @type http_route_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_mesh_output() :: %{
-        "mesh" => mesh_data()
-      }
-
-  """
-  @type update_mesh_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_virtual_service_input() :: %{
-        "meshOwner" => String.t() | atom()
-      }
-
-  """
-  @type describe_virtual_service_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_virtual_gateway_output() :: %{
-        required("virtualGateway") => virtual_gateway_data()
-      }
-
-  """
-  @type update_virtual_gateway_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      egress_filter() :: %{
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type egress_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_parameter_match() :: %{
-        "exact" => [String.t() | atom()]
-      }
-
-  """
-  @type query_parameter_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_virtual_node_output() :: %{
-        "virtualNode" => virtual_node_data()
-      }
-
-  """
-  @type create_virtual_node_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_service_data() :: %{
-        "meshName" => String.t() | atom(),
-        "metadata" => resource_metadata(),
-        "spec" => virtual_service_spec(),
-        "status" => virtual_service_status(),
-        "virtualServiceName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_service_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_gateway_route() :: %{
-        "action" => http_gateway_route_action(),
-        "match" => http_gateway_route_match()
-      }
-
-  """
-  @type http_gateway_route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_route_status() :: %{
+      mesh_status() :: %{
         "status" => String.t() | atom()
       }
 
   """
-  @type gateway_route_status() :: %{(String.t() | atom()) => any()}
+  @type mesh_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      http_query_parameter() :: %{
-        "match" => query_parameter_match(),
-        "name" => String.t() | atom()
+      virtual_gateway_listener_tls_acm_certificate() :: %{
+        "certificateArn" => String.t() | atom()
       }
 
   """
-  @type http_query_parameter() :: %{(String.t() | atom()) => any()}
+  @type virtual_gateway_listener_tls_acm_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      http_route() :: %{
-        "action" => http_route_action(),
-        "match" => http_route_match(),
-        "retryPolicy" => http_retry_policy(),
-        "timeout" => http_timeout()
+      virtual_node_grpc_connection_pool() :: %{
+        "maxRequests" => integer()
       }
 
   """
-  @type http_route() :: %{(String.t() | atom()) => any()}
+  @type virtual_node_grpc_connection_pool() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      virtual_router_ref() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "lastUpdatedAt" => [non_neg_integer()],
-        "meshName" => String.t() | atom(),
-        "meshOwner" => String.t() | atom(),
-        "resourceOwner" => String.t() | atom(),
-        "version" => [float()],
-        "virtualRouterName" => String.t() | atom()
+      virtual_gateway_status() :: %{
+        "status" => String.t() | atom()
       }
 
   """
-  @type virtual_router_ref() :: %{(String.t() | atom()) => any()}
+  @type virtual_gateway_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2487,91 +2518,34 @@ defmodule AWS.AppMesh do
 
   ## Example:
 
-      listener_tls() :: %{
-        "certificate" => list(),
-        "mode" => String.t() | atom(),
-        "validation" => listener_tls_validation_context()
+      client_policy() :: %{
+        "tls" => client_policy_tls()
       }
 
   """
-  @type listener_tls() :: %{(String.t() | atom()) => any()}
+  @type client_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_virtual_node_output() :: %{
-        "virtualNode" => virtual_node_data()
+      describe_gateway_route_input() :: %{
+        optional("meshOwner") => String.t() | atom()
       }
 
   """
-  @type delete_virtual_node_output() :: %{(String.t() | atom()) => any()}
+  @type describe_gateway_route_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      logging() :: %{
-        "accessLog" => list()
+      virtual_gateway_backend_defaults() :: %{
+        "clientPolicy" => virtual_gateway_client_policy()
       }
 
   """
-  @type logging() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grpc_route() :: %{
-        "action" => grpc_route_action(),
-        "match" => grpc_route_match(),
-        "retryPolicy" => grpc_retry_policy(),
-        "timeout" => grpc_timeout()
-      }
-
-  """
-  @type grpc_route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_gateway_data() :: %{
-        "meshName" => String.t() | atom(),
-        "metadata" => resource_metadata(),
-        "spec" => virtual_gateway_spec(),
-        "status" => virtual_gateway_status(),
-        "virtualGatewayName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_gateway_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      virtual_router_data() :: %{
-        "meshName" => String.t() | atom(),
-        "metadata" => resource_metadata(),
-        "spec" => virtual_router_spec(),
-        "status" => virtual_router_status(),
-        "virtualRouterName" => String.t() | atom()
-      }
-
-  """
-  @type virtual_router_data() :: %{(String.t() | atom()) => any()}
+  @type virtual_gateway_backend_defaults() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2587,344 +2561,370 @@ defmodule AWS.AppMesh do
   """
   @type create_mesh_input() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      virtual_gateway_logging() :: %{
+        "accessLog" => list()
+      }
+
+  """
+  @type virtual_gateway_logging() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_route_input() :: %{
+        "clientToken" => [String.t() | atom()],
+        "meshOwner" => String.t() | atom(),
+        "routeName" => String.t() | atom(),
+        "spec" => route_spec(),
+        "tags" => list(tag_ref())
+      }
+
+  """
+  @type create_route_input() :: %{(String.t() | atom()) => any()}
+
   @type create_gateway_route_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type create_mesh_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type create_route_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type create_virtual_gateway_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type create_virtual_node_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type create_virtual_router_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type create_virtual_service_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type delete_gateway_route_errors() ::
           bad_request_exception()
+          | resource_in_use_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type delete_mesh_errors() ::
           bad_request_exception()
+          | resource_in_use_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type delete_route_errors() ::
           bad_request_exception()
+          | resource_in_use_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type delete_virtual_gateway_errors() ::
           bad_request_exception()
+          | resource_in_use_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type delete_virtual_node_errors() ::
           bad_request_exception()
+          | resource_in_use_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type delete_virtual_router_errors() ::
           bad_request_exception()
+          | resource_in_use_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type delete_virtual_service_errors() ::
           bad_request_exception()
+          | resource_in_use_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type describe_gateway_route_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type describe_mesh_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type describe_route_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type describe_virtual_gateway_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type describe_virtual_node_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type describe_virtual_router_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type describe_virtual_service_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_gateway_routes_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_meshes_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_routes_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_virtual_gateways_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_virtual_nodes_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_virtual_routers_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_virtual_services_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception()
-          | bad_request_exception()
+          bad_request_exception()
+          | too_many_tags_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type update_gateway_route_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type update_mesh_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type update_route_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type update_virtual_gateway_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type update_virtual_node_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type update_virtual_router_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type update_virtual_service_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | bad_request_exception()
           | limit_exceeded_exception()
           | internal_server_error_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   def metadata do
     %{
@@ -2966,8 +2966,8 @@ defmodule AWS.AppMesh do
           | {:error, create_gateway_route_errors()}
   def create_gateway_route(
         %Client{} = client,
-        mesh_name,
         virtual_gateway_name,
+        mesh_name,
         input,
         options \\ []
       ) do
@@ -3057,7 +3057,7 @@ defmodule AWS.AppMesh do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, create_route_errors()}
-  def create_route(%Client{} = client, mesh_name, virtual_router_name, input, options \\ []) do
+  def create_route(%Client{} = client, virtual_router_name, mesh_name, input, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouter/#{AWS.Util.encode_uri(virtual_router_name)}/routes"
 
@@ -3302,9 +3302,9 @@ defmodule AWS.AppMesh do
           | {:error, delete_gateway_route_errors()}
   def delete_gateway_route(
         %Client{} = client,
-        gateway_route_name,
-        mesh_name,
         virtual_gateway_name,
+        mesh_name,
+        gateway_route_name,
         input,
         options \\ []
       ) do
@@ -3385,9 +3385,9 @@ defmodule AWS.AppMesh do
           | {:error, delete_route_errors()}
   def delete_route(
         %Client{} = client,
-        mesh_name,
-        route_name,
         virtual_router_name,
+        route_name,
+        mesh_name,
         input,
         options \\ []
       ) do
@@ -3437,8 +3437,8 @@ defmodule AWS.AppMesh do
           | {:error, delete_virtual_gateway_errors()}
   def delete_virtual_gateway(
         %Client{} = client,
-        mesh_name,
         virtual_gateway_name,
+        mesh_name,
         input,
         options \\ []
       ) do
@@ -3487,7 +3487,7 @@ defmodule AWS.AppMesh do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_virtual_node_errors()}
-  def delete_virtual_node(%Client{} = client, mesh_name, virtual_node_name, input, options \\ []) do
+  def delete_virtual_node(%Client{} = client, virtual_node_name, mesh_name, input, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes/#{AWS.Util.encode_uri(virtual_node_name)}"
 
@@ -3535,8 +3535,8 @@ defmodule AWS.AppMesh do
           | {:error, delete_virtual_router_errors()}
   def delete_virtual_router(
         %Client{} = client,
-        mesh_name,
         virtual_router_name,
+        mesh_name,
         input,
         options \\ []
       ) do
@@ -3583,8 +3583,8 @@ defmodule AWS.AppMesh do
           | {:error, delete_virtual_service_errors()}
   def delete_virtual_service(
         %Client{} = client,
-        mesh_name,
         virtual_service_name,
+        mesh_name,
         input,
         options \\ []
       ) do
@@ -3632,9 +3632,9 @@ defmodule AWS.AppMesh do
           | {:error, describe_gateway_route_errors()}
   def describe_gateway_route(
         %Client{} = client,
-        gateway_route_name,
-        mesh_name,
         virtual_gateway_name,
+        mesh_name,
+        gateway_route_name,
         mesh_owner \\ nil,
         options \\ []
       ) do
@@ -3698,9 +3698,9 @@ defmodule AWS.AppMesh do
           | {:error, describe_route_errors()}
   def describe_route(
         %Client{} = client,
-        mesh_name,
-        route_name,
         virtual_router_name,
+        route_name,
+        mesh_name,
         mesh_owner \\ nil,
         options \\ []
       ) do
@@ -3738,8 +3738,8 @@ defmodule AWS.AppMesh do
           | {:error, describe_virtual_gateway_errors()}
   def describe_virtual_gateway(
         %Client{} = client,
-        mesh_name,
         virtual_gateway_name,
+        mesh_name,
         mesh_owner \\ nil,
         options \\ []
       ) do
@@ -3777,8 +3777,8 @@ defmodule AWS.AppMesh do
           | {:error, describe_virtual_node_errors()}
   def describe_virtual_node(
         %Client{} = client,
-        mesh_name,
         virtual_node_name,
+        mesh_name,
         mesh_owner \\ nil,
         options \\ []
       ) do
@@ -3816,8 +3816,8 @@ defmodule AWS.AppMesh do
           | {:error, describe_virtual_router_errors()}
   def describe_virtual_router(
         %Client{} = client,
-        mesh_name,
         virtual_router_name,
+        mesh_name,
         mesh_owner \\ nil,
         options \\ []
       ) do
@@ -3855,8 +3855,8 @@ defmodule AWS.AppMesh do
           | {:error, describe_virtual_service_errors()}
   def describe_virtual_service(
         %Client{} = client,
-        mesh_name,
         virtual_service_name,
+        mesh_name,
         mesh_owner \\ nil,
         options \\ []
       ) do
@@ -3897,11 +3897,11 @@ defmodule AWS.AppMesh do
           | {:error, list_gateway_routes_errors()}
   def list_gateway_routes(
         %Client{} = client,
-        mesh_name,
         virtual_gateway_name,
-        limit \\ nil,
-        mesh_owner \\ nil,
+        mesh_name,
         next_token \\ nil,
+        mesh_owner \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path =
@@ -3911,8 +3911,8 @@ defmodule AWS.AppMesh do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -3925,8 +3925,8 @@ defmodule AWS.AppMesh do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3944,21 +3944,21 @@ defmodule AWS.AppMesh do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_meshes_errors()}
-  def list_meshes(%Client{} = client, limit \\ nil, next_token \\ nil, options \\ []) do
+  def list_meshes(%Client{} = client, next_token \\ nil, limit \\ nil, options \\ []) do
     url_path = "/v20190125/meshes"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -3986,11 +3986,11 @@ defmodule AWS.AppMesh do
           | {:error, list_routes_errors()}
   def list_routes(
         %Client{} = client,
-        mesh_name,
         virtual_router_name,
-        limit \\ nil,
-        mesh_owner \\ nil,
+        mesh_name,
         next_token \\ nil,
+        mesh_owner \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path =
@@ -4000,8 +4000,8 @@ defmodule AWS.AppMesh do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -4014,8 +4014,8 @@ defmodule AWS.AppMesh do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4030,9 +4030,9 @@ defmodule AWS.AppMesh do
   """
   @spec list_tags_for_resource(
           map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -4041,9 +4041,9 @@ defmodule AWS.AppMesh do
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(
         %Client{} = client,
-        limit \\ nil,
-        next_token \\ nil,
         resource_arn,
+        next_token \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path = "/v20190125/tags"
@@ -4051,8 +4051,8 @@ defmodule AWS.AppMesh do
     query_params = []
 
     query_params =
-      if !is_nil(resource_arn) do
-        [{"resourceArn", resource_arn} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -4065,8 +4065,8 @@ defmodule AWS.AppMesh do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
       else
         query_params
       end
@@ -4094,9 +4094,9 @@ defmodule AWS.AppMesh do
   def list_virtual_gateways(
         %Client{} = client,
         mesh_name,
-        limit \\ nil,
-        mesh_owner \\ nil,
         next_token \\ nil,
+        mesh_owner \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways"
@@ -4104,8 +4104,8 @@ defmodule AWS.AppMesh do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -4118,8 +4118,8 @@ defmodule AWS.AppMesh do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4147,9 +4147,9 @@ defmodule AWS.AppMesh do
   def list_virtual_nodes(
         %Client{} = client,
         mesh_name,
-        limit \\ nil,
-        mesh_owner \\ nil,
         next_token \\ nil,
+        mesh_owner \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes"
@@ -4157,8 +4157,8 @@ defmodule AWS.AppMesh do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -4171,8 +4171,8 @@ defmodule AWS.AppMesh do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4200,9 +4200,9 @@ defmodule AWS.AppMesh do
   def list_virtual_routers(
         %Client{} = client,
         mesh_name,
-        limit \\ nil,
-        mesh_owner \\ nil,
         next_token \\ nil,
+        mesh_owner \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters"
@@ -4210,8 +4210,8 @@ defmodule AWS.AppMesh do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -4224,8 +4224,8 @@ defmodule AWS.AppMesh do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4253,9 +4253,9 @@ defmodule AWS.AppMesh do
   def list_virtual_services(
         %Client{} = client,
         mesh_name,
-        limit \\ nil,
-        mesh_owner \\ nil,
         next_token \\ nil,
+        mesh_owner \\ nil,
+        limit \\ nil,
         options \\ []
       ) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices"
@@ -4263,8 +4263,8 @@ defmodule AWS.AppMesh do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
       else
         query_params
       end
@@ -4277,8 +4277,8 @@ defmodule AWS.AppMesh do
       end
 
     query_params =
-      if !is_nil(limit) do
-        [{"limit", limit} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -4381,9 +4381,9 @@ defmodule AWS.AppMesh do
           | {:error, update_gateway_route_errors()}
   def update_gateway_route(
         %Client{} = client,
-        gateway_route_name,
-        mesh_name,
         virtual_gateway_name,
+        mesh_name,
+        gateway_route_name,
         input,
         options \\ []
       ) do
@@ -4460,9 +4460,9 @@ defmodule AWS.AppMesh do
           | {:error, update_route_errors()}
   def update_route(
         %Client{} = client,
-        mesh_name,
-        route_name,
         virtual_router_name,
+        route_name,
+        mesh_name,
         input,
         options \\ []
       ) do
@@ -4509,8 +4509,8 @@ defmodule AWS.AppMesh do
           | {:error, update_virtual_gateway_errors()}
   def update_virtual_gateway(
         %Client{} = client,
-        mesh_name,
         virtual_gateway_name,
+        mesh_name,
         input,
         options \\ []
       ) do
@@ -4555,7 +4555,7 @@ defmodule AWS.AppMesh do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, update_virtual_node_errors()}
-  def update_virtual_node(%Client{} = client, mesh_name, virtual_node_name, input, options \\ []) do
+  def update_virtual_node(%Client{} = client, virtual_node_name, mesh_name, input, options \\ []) do
     url_path =
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes/#{AWS.Util.encode_uri(virtual_node_name)}"
 
@@ -4599,8 +4599,8 @@ defmodule AWS.AppMesh do
           | {:error, update_virtual_router_errors()}
   def update_virtual_router(
         %Client{} = client,
-        mesh_name,
         virtual_router_name,
+        mesh_name,
         input,
         options \\ []
       ) do
@@ -4647,8 +4647,8 @@ defmodule AWS.AppMesh do
           | {:error, update_virtual_service_errors()}
   def update_virtual_service(
         %Client{} = client,
-        mesh_name,
         virtual_service_name,
+        mesh_name,
         input,
         options \\ []
       ) do

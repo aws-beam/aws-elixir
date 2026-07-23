@@ -15,12 +15,67 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
-      deregister_subscription_provider_request() :: %{
-        required("SubscriptionProviderArn") => String.t() | atom()
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type deregister_subscription_provider_request() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linux_subscription_instances_request() :: %{
+        "Filters" => list(filter()),
+        "MaxResults" => integer(),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_linux_subscription_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -35,14 +90,76 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
-      filter() :: %{
-        "Name" => [String.t() | atom()],
-        "Operator" => String.t() | atom(),
-        "Values" => list([String.t() | atom()]())
+      get_service_settings_request() :: %{}
+
+  """
+  @type get_service_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linux_subscriptions_request() :: %{
+        "Filters" => list(filter()),
+        "MaxResults" => integer(),
+        "NextToken" => [String.t() | atom()]
       }
 
   """
-  @type filter() :: %{(String.t() | atom()) => any()}
+  @type list_linux_subscriptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registered_subscription_provider() :: %{
+        "LastSuccessfulDataRetrievalTime" => [String.t() | atom()],
+        "SecretArn" => String.t() | atom(),
+        "SubscriptionProviderArn" => String.t() | atom(),
+        "SubscriptionProviderSource" => String.t() | atom(),
+        "SubscriptionProviderStatus" => String.t() | atom(),
+        "SubscriptionProviderStatusMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type registered_subscription_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linux_subscriptions_response() :: %{
+        optional("NextToken") => [String.t() | atom()],
+        optional("Subscriptions") => list(subscription())
+      }
+
+  """
+  @type list_linux_subscriptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linux_subscriptions_discovery_settings() :: %{
+        "OrganizationIntegration" => String.t() | atom(),
+        "SourceRegions" => list([String.t() | atom()]())
+      }
+
+  """
+  @type linux_subscriptions_discovery_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_settings_request() :: %{
+        optional("AllowUpdate") => [boolean()],
+        required("LinuxSubscriptionsDiscovery") => String.t() | atom(),
+        required("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings()
+      }
+
+  """
+  @type update_service_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,6 +171,43 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   """
   @type get_registered_subscription_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_settings_response() :: %{
+        optional("HomeRegions") => list([String.t() | atom()]()),
+        optional("LinuxSubscriptionsDiscovery") => String.t() | atom(),
+        optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
+        optional("Status") => String.t() | atom(),
+        optional("StatusMessage") => map()
+      }
+
+  """
+  @type get_service_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,16 +229,20 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
-      get_service_settings_request() :: %{}
+      filter() :: %{
+        "Name" => [String.t() | atom()],
+        "Operator" => String.t() | atom(),
+        "Values" => list([String.t() | atom()]())
+      }
 
   """
-  @type get_service_settings_request() :: %{}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_service_settings_response() :: %{
+      update_service_settings_response() :: %{
         optional("HomeRegions") => list([String.t() | atom()]()),
         optional("LinuxSubscriptionsDiscovery") => String.t() | atom(),
         optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
@@ -93,7 +251,74 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       }
 
   """
-  @type get_service_settings_response() :: %{(String.t() | atom()) => any()}
+  @type update_service_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_subscription_provider_request() :: %{
+        required("SecretArn") => String.t() | atom(),
+        required("SubscriptionProviderSource") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type register_subscription_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_registered_subscription_providers_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "RegisteredSubscriptionProviders" => list(registered_subscription_provider())
+      }
+
+  """
+  @type list_registered_subscription_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_subscription_provider_request() :: %{
+        required("SubscriptionProviderArn") => String.t() | atom()
+      }
+
+  """
+  @type deregister_subscription_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription() :: %{
+        "InstanceCount" => float(),
+        "Name" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
+      }
+
+  """
+  @type subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -124,42 +349,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      linux_subscriptions_discovery_settings() :: %{
-        "OrganizationIntegration" => String.t() | atom(),
-        "SourceRegions" => list([String.t() | atom()]())
-      }
-
-  """
-  @type linux_subscriptions_discovery_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_linux_subscription_instances_request() :: %{
-        "Filters" => list(filter()),
-        "MaxResults" => integer(),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_linux_subscription_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_linux_subscription_instances_response() :: %{
         optional("Instances") => list(instance()),
         optional("NextToken") => [String.t() | atom()]
@@ -167,31 +356,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   """
   @type list_linux_subscription_instances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_linux_subscriptions_request() :: %{
-        "Filters" => list(filter()),
-        "MaxResults" => integer(),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_linux_subscriptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_linux_subscriptions_response() :: %{
-        optional("NextToken") => [String.t() | atom()],
-        optional("Subscriptions") => list(subscription())
-      }
-
-  """
-  @type list_linux_subscriptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,51 +374,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
-      list_registered_subscription_providers_response() :: %{
-        "NextToken" => [String.t() | atom()],
-        "RegisteredSubscriptionProviders" => list(registered_subscription_provider())
-      }
-
-  """
-  @type list_registered_subscription_providers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_subscription_provider_request() :: %{
-        optional("Tags") => map(),
-        required("SecretArn") => String.t() | atom(),
-        required("SubscriptionProviderSource") => String.t() | atom()
-      }
-
-  """
-  @type register_subscription_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       register_subscription_provider_response() :: %{
         "SubscriptionProviderArn" => [String.t() | atom()],
         "SubscriptionProviderSource" => String.t() | atom(),
@@ -268,66 +387,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
-      registered_subscription_provider() :: %{
-        "LastSuccessfulDataRetrievalTime" => [String.t() | atom()],
-        "SecretArn" => String.t() | atom(),
-        "SubscriptionProviderArn" => String.t() | atom(),
-        "SubscriptionProviderSource" => String.t() | atom(),
-        "SubscriptionProviderStatus" => String.t() | atom(),
-        "SubscriptionProviderStatusMessage" => [String.t() | atom()]
-      }
-
-  """
-  @type registered_subscription_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscription() :: %{
-        "InstanceCount" => float(),
-        "Name" => [String.t() | atom()],
-        "Type" => [String.t() | atom()]
-      }
-
-  """
-  @type subscription() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       throttling_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -335,102 +394,43 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_settings_request() :: %{
-        optional("AllowUpdate") => [boolean()],
-        required("LinuxSubscriptionsDiscovery") => String.t() | atom(),
-        required("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings()
-      }
-
-  """
-  @type update_service_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_settings_response() :: %{
-        optional("HomeRegions") => list([String.t() | atom()]()),
-        optional("LinuxSubscriptionsDiscovery") => String.t() | atom(),
-        optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
-        optional("Status") => String.t() | atom(),
-        optional("StatusMessage") => map()
-      }
-
-  """
-  @type update_service_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
   @type deregister_subscription_provider_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          throttling_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type get_registered_subscription_provider_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
+          throttling_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type get_service_settings_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type list_linux_subscription_instances_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type list_linux_subscriptions_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type list_registered_subscription_providers_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_server_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
   @type register_subscription_provider_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_server_exception()
+          internal_server_exception() | resource_not_found_exception() | validation_exception()
 
-  @type untag_resource_errors() :: resource_not_found_exception() | internal_server_exception()
+  @type untag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
 
   @type update_service_settings_errors() ::
-          validation_exception() | throttling_exception() | internal_server_exception()
+          throttling_exception() | internal_server_exception() | validation_exception()
 
   def metadata do
     %{

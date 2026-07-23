@@ -35,35 +35,21 @@ defmodule AWS.CostandUsageReport do
 
   ## Example:
       
-      delete_report_definition_request() :: %{
-        required("ReportName") => String.t() | atom()
-      }
+      put_report_definition_response() :: %{}
       
   """
-  @type delete_report_definition_request() :: %{(String.t() | atom()) => any()}
+  @type put_report_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      delete_report_definition_response() :: %{
-        "ResponseMessage" => String.t() | atom()
+      internal_error_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type delete_report_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_report_definitions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_report_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -81,6 +67,30 @@ defmodule AWS.CostandUsageReport do
 
   ## Example:
       
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_report_definition_request() :: %{
+        required("ReportDefinition") => report_definition(),
+        optional("Tags") => list(tag())
+      }
+      
+  """
+  @type put_report_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       duplicate_report_name_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -92,12 +102,10 @@ defmodule AWS.CostandUsageReport do
 
   ## Example:
       
-      internal_error_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      modify_report_definition_response() :: %{}
       
   """
-  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
+  @type modify_report_definition_response() :: %{}
 
   @typedoc """
 
@@ -114,54 +122,35 @@ defmodule AWS.CostandUsageReport do
 
   ## Example:
       
+      report_status() :: %{
+        "lastDelivery" => String.t() | atom(),
+        "lastStatus" => list(any())
+      }
+      
+  """
+  @type report_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_limit_reached_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type report_limit_reached_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag())
       }
       
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_report_definition_request() :: %{
-        required("ReportDefinition") => report_definition(),
-        required("ReportName") => String.t() | atom()
-      }
-      
-  """
-  @type modify_report_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_report_definition_response() :: %{}
-      
-  """
-  @type modify_report_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_report_definition_request() :: %{
-        optional("Tags") => list(tag()),
-        required("ReportDefinition") => report_definition()
-      }
-      
-  """
-  @type put_report_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_report_definition_response() :: %{}
-      
-  """
-  @type put_report_definition_response() :: %{}
 
   @typedoc """
 
@@ -190,24 +179,23 @@ defmodule AWS.CostandUsageReport do
 
   ## Example:
       
-      report_limit_reached_exception() :: %{
-        "Message" => String.t() | atom()
+      delete_report_definition_response() :: %{
+        "ResponseMessage" => String.t() | atom()
       }
       
   """
-  @type report_limit_reached_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_report_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      report_status() :: %{
-        "lastDelivery" => String.t() | atom(),
-        "lastStatus" => list(any())
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type report_status() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,34 +212,13 @@ defmodule AWS.CostandUsageReport do
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      describe_report_definitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ReportName") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
+  @type describe_report_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,6 +236,15 @@ defmodule AWS.CostandUsageReport do
 
   ## Example:
       
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_response() :: %{}
       
   """
@@ -278,34 +254,58 @@ defmodule AWS.CostandUsageReport do
 
   ## Example:
       
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
+      delete_report_definition_request() :: %{
+        required("ReportName") => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_report_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ReportName") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_report_definition_request() :: %{
+        required("ReportDefinition") => report_definition(),
+        required("ReportName") => String.t() | atom()
+      }
+      
+  """
+  @type modify_report_definition_request() :: %{(String.t() | atom()) => any()}
 
   @type delete_report_definition_errors() :: validation_exception() | internal_error_exception()
 
   @type describe_report_definitions_errors() :: internal_error_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_error_exception()
+          resource_not_found_exception() | validation_exception() | internal_error_exception()
 
   @type modify_report_definition_errors() :: validation_exception() | internal_error_exception()
 
   @type put_report_definition_errors() ::
-          validation_exception()
-          | resource_not_found_exception()
+          resource_not_found_exception()
+          | validation_exception()
           | report_limit_reached_exception()
-          | internal_error_exception()
           | duplicate_report_name_exception()
+          | internal_error_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_error_exception()
+          resource_not_found_exception() | validation_exception() | internal_error_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_error_exception()
+          resource_not_found_exception() | validation_exception() | internal_error_exception()
 
   def metadata do
     %{
@@ -335,7 +335,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, delete_report_definition_errors()}
   def delete_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReportDefinition", input, options)
   end
@@ -349,7 +350,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, describe_report_definitions_errors()}
   def describe_report_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReportDefinitions", input, options)
   end
@@ -363,7 +365,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -377,7 +380,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, modify_report_definition_errors()}
   def modify_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReportDefinition", input, options)
   end
@@ -391,7 +395,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, put_report_definition_errors()}
   def put_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutReportDefinition", input, options)
   end
@@ -405,7 +410,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -419,7 +425,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

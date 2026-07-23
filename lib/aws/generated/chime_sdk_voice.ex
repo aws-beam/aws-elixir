@@ -19,82 +19,120 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      put_voice_connector_external_systems_configuration_request() :: %{
-        optional("ContactCenterSystemTypes") => list(list(any())()),
-        optional("SessionBorderControllerTypes") => list(list(any())())
-      }
+      delete_voice_connector_proxy_request() :: %{}
 
   """
-  @type put_voice_connector_external_systems_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type delete_voice_connector_proxy_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      streaming_configuration() :: %{
-        "DataRetentionInHours" => integer(),
-        "Disabled" => boolean(),
-        "MediaInsightsConfiguration" => media_insights_configuration(),
-        "StreamingNotificationTargets" => list(streaming_notification_target())
+      media_insights_configuration() :: %{
+        "ConfigurationArn" => String.t() | atom(),
+        "Disabled" => boolean()
       }
 
   """
-  @type streaming_configuration() :: %{(String.t() | atom()) => any()}
+  @type media_insights_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_delete_phone_number_request() :: %{
-        required("PhoneNumberIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_phone_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_termination_credentials_request() :: %{
-        optional("Credentials") => list(credential())
-      }
-
-  """
-  @type put_voice_connector_termination_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sip_rule_request() :: %{
-        optional("Disabled") => boolean(),
-        optional("TargetApplications") => list(sip_rule_target_application()),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_sip_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sip_rule() :: %{
+      voice_profile_summary() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Disabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "SipRuleId" => String.t() | atom(),
-        "TargetApplications" => list(sip_rule_target_application()),
-        "TriggerType" => list(any()),
-        "TriggerValue" => String.t() | atom(),
-        "UpdatedTimestamp" => non_neg_integer()
+        "ExpirationTimestamp" => non_neg_integer(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceProfileArn" => String.t() | atom(),
+        "VoiceProfileDomainId" => String.t() | atom(),
+        "VoiceProfileId" => String.t() | atom()
       }
 
   """
-  @type sip_rule() :: %{(String.t() | atom()) => any()}
+  @type voice_profile_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sip_media_application_call() :: %{
+        "TransactionId" => String.t() | atom()
+      }
+
+  """
+  @type sip_media_application_call() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_profile_domain_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_voice_profile_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      termination_health() :: %{
+        "Source" => String.t() | atom(),
+        "Timestamp" => non_neg_integer()
+      }
+
+  """
+  @type termination_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_profile_request() :: %{}
+
+  """
+  @type get_voice_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_proxy_response() :: %{
+        "Proxy" => proxy()
+      }
+
+  """
+  @type put_voice_connector_proxy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,266 +151,23 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      create_phone_number_order_response() :: %{
-        "PhoneNumberOrder" => phone_number_order()
+      get_voice_tone_analysis_task_request() :: %{
+        required("IsCaller") => boolean()
       }
 
   """
-  @type create_phone_number_order_response() :: %{(String.t() | atom()) => any()}
+  @type get_voice_tone_analysis_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_sip_media_application_request() :: %{
-        optional("Tags") => list(tag()),
-        required("AwsRegion") => String.t() | atom(),
-        required("Endpoints") => list(sip_media_application_endpoint()),
-        required("Name") => String.t() | atom()
+      put_voice_connector_termination_request() :: %{
+        required("Termination") => termination()
       }
 
   """
-  @type create_sip_media_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sip_media_application_call_response() :: %{
-        "SipMediaApplicationCall" => sip_media_application_call()
-      }
-
-  """
-  @type update_sip_media_application_call_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_sip_media_application_logging_configuration_request() :: %{
-        optional("SipMediaApplicationLoggingConfiguration") => sip_media_application_logging_configuration()
-      }
-
-  """
-  @type put_sip_media_application_logging_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      proxy() :: %{
-        "DefaultSessionExpiryMinutes" => integer(),
-        "Disabled" => boolean(),
-        "FallBackPhoneNumber" => String.t() | atom(),
-        "PhoneNumberCountries" => list(String.t() | atom())
-      }
-
-  """
-  @type proxy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_proxy_session_request() :: %{
-        optional("ExpiryMinutes") => integer(),
-        required("Capabilities") => list(list(any())())
-      }
-
-  """
-  @type update_proxy_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_phone_number_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error())
-      }
-
-  """
-  @type batch_update_phone_number_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_termination_health_request() :: %{}
-
-  """
-  @type get_voice_connector_termination_health_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_e911_address_response() :: %{
-        "Address" => address(),
-        "AddressExternalId" => String.t() | atom(),
-        "CandidateAddressList" => list(candidate_address()),
-        "ValidationResult" => integer()
-      }
-
-  """
-  @type validate_e911_address_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_voice_connector_response() :: %{
-        "VoiceConnector" => voice_connector()
-      }
-
-  """
-  @type update_voice_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_phone_number_orders_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PhoneNumberOrders" => list(phone_number_order())
-      }
-
-  """
-  @type list_phone_number_orders_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_voice_tone_analysis_task_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("LanguageCode") => list(any()),
-        required("TransactionId") => String.t() | atom()
-      }
-
-  """
-  @type start_voice_tone_analysis_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      speaker_search_result() :: %{
-        "ConfidenceScore" => float(),
-        "VoiceProfileId" => String.t() | atom()
-      }
-
-  """
-  @type speaker_search_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      termination_health() :: %{
-        "Source" => String.t() | atom(),
-        "Timestamp" => non_neg_integer()
-      }
-
-  """
-  @type termination_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      participant() :: %{
-        "PhoneNumber" => String.t() | atom(),
-        "ProxyPhoneNumber" => String.t() | atom()
-      }
-
-  """
-  @type participant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sip_media_application_request() :: %{
-        optional("Endpoints") => list(sip_media_application_endpoint()),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_sip_media_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_profile_domain_summary() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceProfileDomainArn" => String.t() | atom(),
-        "VoiceProfileDomainId" => String.t() | atom()
-      }
-
-  """
-  @type voice_profile_domain_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_group_request() :: %{}
-
-  """
-  @type delete_voice_connector_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      origination() :: %{
-        "Disabled" => boolean(),
-        "Routes" => list(origination_route())
-      }
-
-  """
-  @type origination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_speaker_search_task_response() :: %{
-        "SpeakerSearchTask" => speaker_search_task()
-      }
-
-  """
-  @type start_speaker_search_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_voice_connectors_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_voice_connectors_request() :: %{(String.t() | atom()) => any()}
+  @type put_voice_connector_termination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,64 +185,84 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      geo_match_params() :: %{
-        "AreaCode" => String.t() | atom(),
-        "Country" => String.t() | atom()
+      associate_phone_numbers_with_voice_connector_request() :: %{
+        required("E164PhoneNumbers") => list(String.t() | atom()),
+        optional("ForceAssociate") => boolean()
       }
 
   """
-  @type geo_match_params() :: %{(String.t() | atom()) => any()}
+  @type associate_phone_numbers_with_voice_connector_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      search_available_phone_numbers_response() :: %{
-        "E164PhoneNumbers" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
+      update_proxy_session_request() :: %{
+        required("Capabilities") => list(list(any())()),
+        optional("ExpiryMinutes") => integer()
       }
 
   """
-  @type search_available_phone_numbers_response() :: %{(String.t() | atom()) => any()}
+  @type update_proxy_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_voice_connector_request() :: %{}
+      address() :: %{
+        "city" => String.t() | atom(),
+        "country" => String.t() | atom(),
+        "postDirectional" => String.t() | atom(),
+        "postalCode" => String.t() | atom(),
+        "postalCodePlus4" => String.t() | atom(),
+        "preDirectional" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "streetName" => String.t() | atom(),
+        "streetNumber" => String.t() | atom(),
+        "streetSuffix" => String.t() | atom()
+      }
 
   """
-  @type get_voice_connector_request() :: %{}
+  @type address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_voice_connector_origination_response() :: %{
-        "Origination" => origination()
+      participant() :: %{
+        "PhoneNumber" => String.t() | atom(),
+        "ProxyPhoneNumber" => String.t() | atom()
       }
 
   """
-  @type put_voice_connector_origination_response() :: %{(String.t() | atom()) => any()}
+  @type participant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_sip_rule_response() :: %{
-        "SipRule" => sip_rule()
+      voice_connector_group() :: %{
+        "CallDistributionType" => list(any()),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceConnectorGroupArn" => String.t() | atom(),
+        "VoiceConnectorGroupId" => String.t() | atom(),
+        "VoiceConnectorItems" => list(voice_connector_item())
       }
 
   """
-  @type create_sip_rule_response() :: %{(String.t() | atom()) => any()}
+  @type voice_connector_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_phone_numbers_with_voice_connector_group_request() :: %{
-        optional("ForceAssociate") => boolean(),
-        required("E164PhoneNumbers") => list(String.t() | atom())
+        required("E164PhoneNumbers") => list(String.t() | atom()),
+        optional("ForceAssociate") => boolean()
       }
 
   """
@@ -459,12 +274,10 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      create_voice_connector_group_response() :: %{
-        "VoiceConnectorGroup" => voice_connector_group()
-      }
+      delete_phone_number_request() :: %{}
 
   """
-  @type create_voice_connector_group_response() :: %{(String.t() | atom()) => any()}
+  @type delete_phone_number_request() :: %{}
 
   @typedoc """
 
@@ -482,228 +295,99 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      list_voice_connector_termination_credentials_request() :: %{}
-
-  """
-  @type list_voice_connector_termination_credentials_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_phone_number_settings_request() :: %{
-        required("CallingName") => String.t() | atom()
-      }
-
-  """
-  @type update_phone_number_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_proxy_response() :: %{
-        "Proxy" => proxy()
-      }
-
-  """
-  @type get_voice_connector_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_logging_configuration_request() :: %{}
-
-  """
-  @type get_voice_connector_logging_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_failure_exception() :: %{
+      unprocessable_entity_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t() | atom()
       }
 
   """
-  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
+  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_sip_rule_request() :: %{}
-
-  """
-  @type delete_sip_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_emergency_calling_configuration_request() :: %{}
-
-  """
-  @type get_voice_connector_emergency_calling_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_phone_number_request() :: %{}
-
-  """
-  @type restore_phone_number_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_emergency_calling_configuration_request() :: %{
-        required("EmergencyCallingConfiguration") => emergency_calling_configuration()
+      batch_update_phone_number_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
-  @type put_voice_connector_emergency_calling_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type batch_update_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_voice_profile_response() :: %{
-        "VoiceProfile" => voice_profile()
+      emergency_calling_configuration() :: %{
+        "DNIS" => list(d_n_i_s_emergency_calling_configuration())
       }
 
   """
-  @type create_voice_profile_response() :: %{(String.t() | atom()) => any()}
+  @type emergency_calling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      forbidden_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
+      restore_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
       }
 
   """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+  @type restore_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_voice_connector_response() :: %{
-        "VoiceConnector" => voice_connector()
+      get_voice_connector_termination_response() :: %{
+        "Termination" => termination()
       }
 
   """
-  @type get_voice_connector_response() :: %{(String.t() | atom()) => any()}
+  @type get_voice_connector_termination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_voice_profile_response() :: %{
-        "VoiceProfile" => voice_profile()
+      delete_proxy_session_request() :: %{}
+
+  """
+  @type delete_proxy_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_logging_configuration_request() :: %{
+        required("LoggingConfiguration") => logging_configuration()
       }
 
   """
-  @type update_voice_profile_response() :: %{(String.t() | atom()) => any()}
+  @type put_voice_connector_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_proxy_session_response() :: %{
-        "ProxySession" => proxy_session()
+      list_supported_phone_number_countries_request() :: %{
+        required("ProductType") => list(any())
       }
 
   """
-  @type create_proxy_session_response() :: %{(String.t() | atom()) => any()}
+  @type list_supported_phone_number_countries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_voice_profile_domain_request() :: %{}
-
-  """
-  @type get_voice_profile_domain_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_termination_request() :: %{
-        required("Termination") => termination()
+      put_voice_connector_origination_response() :: %{
+        "Origination" => origination()
       }
 
   """
-  @type put_voice_connector_termination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_association() :: %{
-        "AssociatedTimestamp" => non_neg_integer(),
-        "Name" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type phone_number_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_client_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_streaming_configuration_request() :: %{}
-
-  """
-  @type get_voice_connector_streaming_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number() :: %{
-        "Associations" => list(phone_number_association()),
-        "CallingName" => String.t() | atom(),
-        "CallingNameStatus" => list(any()),
-        "Capabilities" => phone_number_capabilities(),
-        "Country" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "DeletionTimestamp" => non_neg_integer(),
-        "E164PhoneNumber" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OrderId" => String.t() | atom(),
-        "PhoneNumberId" => String.t() | atom(),
-        "ProductType" => list(any()),
-        "Status" => list(any()),
-        "Type" => list(any()),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type phone_number() :: %{(String.t() | atom()) => any()}
+  @type put_voice_connector_origination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -724,176 +408,86 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      get_phone_number_order_request() :: %{}
-
-  """
-  @type get_phone_number_order_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_voice_profile_domain_response() :: %{
-        "VoiceProfileDomain" => voice_profile_domain()
+      create_voice_connector_group_response() :: %{
+        "VoiceConnectorGroup" => voice_connector_group()
       }
 
   """
-  @type create_voice_profile_domain_response() :: %{(String.t() | atom()) => any()}
+  @type create_voice_connector_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      speaker_search_task() :: %{
-        "CallDetails" => call_details(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "SpeakerSearchDetails" => speaker_search_details(),
-        "SpeakerSearchTaskId" => String.t() | atom(),
-        "SpeakerSearchTaskStatus" => String.t() | atom(),
-        "StartedTimestamp" => non_neg_integer(),
-        "StatusMessage" => String.t() | atom(),
-        "UpdatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type speaker_search_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_phone_number_response() :: %{
-        "PhoneNumber" => phone_number()
-      }
-
-  """
-  @type update_phone_number_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_speaker_search_task_response() :: %{
-        "SpeakerSearchTask" => speaker_search_task()
-      }
-
-  """
-  @type get_speaker_search_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_speaker_search_task_request() :: %{}
-
-  """
-  @type stop_speaker_search_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttled_client_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttled_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gone_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type gone_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_voice_profile_request() :: %{
-        required("SpeakerSearchTaskId") => String.t() | atom()
-      }
-
-  """
-  @type update_voice_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_insights_configuration() :: %{
-        "ConfigurationArn" => String.t() | atom(),
-        "Disabled" => boolean()
-      }
-
-  """
-  @type media_insights_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_termination_health_response() :: %{
-        "TerminationHealth" => termination_health()
-      }
-
-  """
-  @type get_voice_connector_termination_health_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_phone_numbers_with_voice_connector_request() :: %{
-        optional("ForceAssociate") => boolean(),
-        required("E164PhoneNumbers") => list(String.t() | atom())
-      }
-
-  """
-  @type associate_phone_numbers_with_voice_connector_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_origination_request() :: %{}
-
-  """
-  @type delete_voice_connector_origination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sip_media_applications_request() :: %{
+      list_phone_numbers_request() :: %{
+        optional("FilterName") => list(any()),
+        optional("FilterValue") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+        optional("NextToken") => String.t() | atom(),
+        optional("ProductType") => list(any()),
+        optional("Status") => String.t() | atom()
       }
 
   """
-  @type list_sip_media_applications_request() :: %{(String.t() | atom()) => any()}
+  @type list_phone_numbers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_voice_connector_external_systems_configuration_response() :: %{
-        "ExternalSystemsConfiguration" => external_systems_configuration()
+      delete_voice_profile_domain_request() :: %{}
+
+  """
+  @type delete_voice_profile_domain_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_connector_request() :: %{}
+
+  """
+  @type delete_voice_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_voice_connector_termination_credentials_request() :: %{}
+
+  """
+  @type list_voice_connector_termination_credentials_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_request() :: %{}
+
+  """
+  @type get_voice_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_phone_number_request() :: %{
+        optional("CallingName") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("ProductType") => list(any())
       }
 
   """
-  @type get_voice_connector_external_systems_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type update_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_proxy_request() :: %{}
+
+  """
+  @type get_voice_connector_proxy_request() :: %{}
 
   @typedoc """
 
@@ -911,24 +505,74 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      ordered_phone_number() :: %{
-        "E164PhoneNumber" => String.t() | atom(),
-        "Status" => list(any())
+      voice_tone_analysis_task() :: %{
+        "CallDetails" => call_details(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "StartedTimestamp" => non_neg_integer(),
+        "StatusMessage" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceToneAnalysisTaskId" => String.t() | atom(),
+        "VoiceToneAnalysisTaskStatus" => String.t() | atom()
       }
 
   """
-  @type ordered_phone_number() :: %{(String.t() | atom()) => any()}
+  @type voice_tone_analysis_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sip_media_application_logging_configuration_response() :: %{
-        "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
+      get_voice_connector_termination_request() :: %{}
+
+  """
+  @type get_voice_connector_termination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_proxy_sessions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
       }
 
   """
-  @type get_sip_media_application_logging_configuration_response() :: %{
+  @type list_proxy_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_proxy_request() :: %{
+        required("DefaultSessionExpiryMinutes") => integer(),
+        optional("Disabled") => boolean(),
+        optional("FallBackPhoneNumber") => String.t() | atom(),
+        required("PhoneNumberPoolCountries") => list(String.t() | atom())
+      }
+
+  """
+  @type put_voice_connector_proxy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_termination_health_request() :: %{}
+
+  """
+  @type get_voice_connector_termination_health_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_phone_numbers_from_voice_connector_group_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error())
+      }
+
+  """
+  @type disassociate_phone_numbers_from_voice_connector_group_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -936,135 +580,65 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      update_proxy_session_response() :: %{
-        "ProxySession" => proxy_session()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type update_proxy_session_response() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_phone_number_order_request() :: %{
-        optional("Name") => String.t() | atom(),
-        required("E164PhoneNumbers") => list(String.t() | atom()),
-        required("ProductType") => list(any())
+      put_voice_connector_emergency_calling_configuration_request() :: %{
+        required("EmergencyCallingConfiguration") => emergency_calling_configuration()
       }
 
   """
-  @type create_phone_number_order_request() :: %{(String.t() | atom()) => any()}
+  @type put_voice_connector_emergency_calling_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      external_systems_configuration() :: %{
-        "ContactCenterSystemTypes" => list(list(any())()),
-        "SessionBorderControllerTypes" => list(list(any())())
-      }
-
-  """
-  @type external_systems_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sip_media_application_request() :: %{}
-
-  """
-  @type delete_sip_media_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sip_media_application_response() :: %{
-        "SipMediaApplication" => sip_media_application()
-      }
-
-  """
-  @type get_sip_media_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sip_rule_response() :: %{
+      create_sip_rule_response() :: %{
         "SipRule" => sip_rule()
       }
 
   """
-  @type get_sip_rule_response() :: %{(String.t() | atom()) => any()}
+  @type create_sip_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_voice_profile_domain_response() :: %{
-        "VoiceProfileDomain" => voice_profile_domain()
+      put_voice_connector_external_systems_configuration_request() :: %{
+        optional("ContactCenterSystemTypes") => list(list(any())()),
+        optional("SessionBorderControllerTypes") => list(list(any())())
       }
 
   """
-  @type update_voice_profile_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_connector_settings() :: %{
-        "CdrBucket" => String.t() | atom()
-      }
-
-  """
-  @type voice_connector_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_tone_analysis_task_response() :: %{
-        "VoiceToneAnalysisTask" => voice_tone_analysis_task()
-      }
-
-  """
-  @type get_voice_tone_analysis_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_proxy_session_request() :: %{}
-
-  """
-  @type delete_proxy_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_configuration() :: %{
-        "EnableMediaMetricLogs" => boolean(),
-        "EnableSIPLogs" => boolean()
-      }
-
-  """
-  @type logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_external_systems_configuration_response() :: %{
-        "ExternalSystemsConfiguration" => external_systems_configuration()
-      }
-
-  """
-  @type put_voice_connector_external_systems_configuration_response() :: %{
+  @type put_voice_connector_external_systems_configuration_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      validate_e911_address_response() :: %{
+        "Address" => address(),
+        "AddressExternalId" => String.t() | atom(),
+        "CandidateAddressList" => list(candidate_address()),
+        "ValidationResult" => integer()
+      }
+
+  """
+  @type validate_e911_address_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1087,196 +661,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      restore_phone_number_response() :: %{
-        "PhoneNumber" => phone_number()
+      batch_delete_phone_number_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
-  @type restore_phone_number_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      speaker_search_details() :: %{
-        "Results" => list(speaker_search_result()),
-        "VoiceprintGenerationStatus" => String.t() | atom()
-      }
-
-  """
-  @type speaker_search_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_phone_number_orders_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_phone_number_orders_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_termination_response() :: %{
-        "Termination" => termination()
-      }
-
-  """
-  @type put_voice_connector_termination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_voice_connector_group_request() :: %{
-        required("Name") => String.t() | atom(),
-        required("VoiceConnectorItems") => list(voice_connector_item())
-      }
-
-  """
-  @type update_voice_connector_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_supported_phone_number_countries_response() :: %{
-        "PhoneNumberCountries" => list(phone_number_country())
-      }
-
-  """
-  @type list_supported_phone_number_countries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_voice_tone_analysis_task_response() :: %{
-        "VoiceToneAnalysisTask" => voice_tone_analysis_task()
-      }
-
-  """
-  @type start_voice_tone_analysis_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sip_media_application_response() :: %{
-        "SipMediaApplication" => sip_media_application()
-      }
-
-  """
-  @type update_sip_media_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      d_n_i_s_emergency_calling_configuration() :: %{
-        "CallingCountry" => String.t() | atom(),
-        "EmergencyPhoneNumber" => String.t() | atom(),
-        "TestPhoneNumber" => String.t() | atom()
-      }
-
-  """
-  @type d_n_i_s_emergency_calling_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_logging_configuration_response() :: %{
-        "LoggingConfiguration" => logging_configuration()
-      }
-
-  """
-  @type get_voice_connector_logging_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_phone_numbers_from_voice_connector_request() :: %{
-        required("E164PhoneNumbers") => list(String.t() | atom())
-      }
-
-  """
-  @type disassociate_phone_numbers_from_voice_connector_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_proxy_request() :: %{}
-
-  """
-  @type delete_voice_connector_proxy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_voice_connector_groups_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "VoiceConnectorGroups" => list(voice_connector_group())
-      }
-
-  """
-  @type list_voice_connector_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sip_rules_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SipMediaApplicationId") => String.t() | atom()
-      }
-
-  """
-  @type list_sip_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_profile_request() :: %{}
-
-  """
-  @type get_voice_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_proxy_sessions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProxySessions" => list(proxy_session())
-      }
-
-  """
-  @type list_proxy_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_phone_number_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1295,12 +685,46 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      put_voice_connector_streaming_configuration_response() :: %{
-        "StreamingConfiguration" => streaming_configuration()
+      list_sip_rules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SipMediaApplicationId") => String.t() | atom()
       }
 
   """
-  @type put_voice_connector_streaming_configuration_response() :: %{
+  @type list_sip_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_connector_request() :: %{
+        required("Name") => String.t() | atom(),
+        required("RequireEncryption") => boolean()
+      }
+
+  """
+  @type update_voice_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_emergency_calling_configuration_request() :: %{}
+
+  """
+  @type get_voice_connector_emergency_calling_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_voice_connector_termination_credentials_response() :: %{
+        "Usernames" => list(String.t() | atom())
+      }
+
+  """
+  @type list_voice_connector_termination_credentials_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -1325,152 +749,243 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      list_voice_connector_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      batch_delete_phone_number_request() :: %{
+        required("PhoneNumberIds") => list(String.t() | atom())
       }
 
   """
-  @type list_voice_connector_groups_request() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_phone_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_phone_numbers_from_voice_connector_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error())
-      }
-
-  """
-  @type disassociate_phone_numbers_from_voice_connector_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_termination_request() :: %{}
-
-  """
-  @type get_voice_connector_termination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sip_rules_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SipRules" => list(sip_rule())
-      }
-
-  """
-  @type list_sip_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_phone_numbers_from_voice_connector_group_request() :: %{
-        required("E164PhoneNumbers") => list(String.t() | atom())
-      }
-
-  """
-  @type disassociate_phone_numbers_from_voice_connector_group_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
+      phone_number_association() :: %{
+        "AssociatedTimestamp" => non_neg_integer(),
+        "Name" => list(any()),
         "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type phone_number_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_sip_rule_request() :: %{
-        optional("Disabled") => boolean(),
-        optional("TargetApplications") => list(sip_rule_target_application()),
-        required("Name") => String.t() | atom(),
-        required("TriggerType") => list(any()),
-        required("TriggerValue") => String.t() | atom()
+      get_voice_connector_origination_response() :: %{
+        "Origination" => origination()
       }
 
   """
-  @type create_sip_rule_request() :: %{(String.t() | atom()) => any()}
+  @type get_voice_connector_origination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      voice_profile() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "ExpirationTimestamp" => non_neg_integer(),
-        "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceProfileArn" => String.t() | atom(),
-        "VoiceProfileDomainId" => String.t() | atom(),
-        "VoiceProfileId" => String.t() | atom()
+      list_voice_profiles_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "VoiceProfiles" => list(voice_profile_summary())
       }
 
   """
-  @type voice_profile() :: %{(String.t() | atom()) => any()}
+  @type list_voice_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_voice_connector_streaming_configuration_request() :: %{
-        required("StreamingConfiguration") => streaming_configuration()
+      list_available_voice_connector_regions_response() :: %{
+        "VoiceConnectorRegions" => list(list(any())())
       }
 
   """
-  @type put_voice_connector_streaming_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type list_available_voice_connector_regions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_speaker_search_task_request() :: %{
-        optional("CallLeg") => list(any()),
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("TransactionId") => String.t() | atom(),
-        required("VoiceProfileDomainId") => String.t() | atom()
+      update_voice_connector_response() :: %{
+        "VoiceConnector" => voice_connector()
       }
 
   """
-  @type start_speaker_search_task_request() :: %{(String.t() | atom()) => any()}
+  @type update_voice_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_delete_phone_number_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error())
+      service_unavailable_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type batch_delete_phone_number_response() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_voice_connector_streaming_configuration_response() :: %{
-        "StreamingConfiguration" => streaming_configuration()
+      voice_connector_settings() :: %{
+        "CdrBucket" => String.t() | atom()
       }
 
   """
-  @type get_voice_connector_streaming_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type voice_connector_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_origination_request() :: %{}
+
+  """
+  @type get_voice_connector_origination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_phone_number_settings_request() :: %{
+        required("CallingName") => String.t() | atom()
+      }
+
+  """
+  @type update_phone_number_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_termination_credentials_request() :: %{
+        optional("Credentials") => list(credential())
+      }
+
+  """
+  @type put_voice_connector_termination_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gone_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type gone_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_proxy_session_response() :: %{
+        "ProxySession" => proxy_session()
+      }
+
+  """
+  @type get_proxy_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_profile_response() :: %{
+        "VoiceProfile" => voice_profile()
+      }
+
+  """
+  @type create_voice_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_profile_request() :: %{
+        required("SpeakerSearchTaskId") => String.t() | atom()
+      }
+
+  """
+  @type update_voice_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_available_phone_numbers_request() :: %{
+        optional("AreaCode") => String.t() | atom(),
+        optional("City") => String.t() | atom(),
+        optional("Country") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PhoneNumberType") => list(any()),
+        optional("State") => String.t() | atom(),
+        optional("TollFreePrefix") => String.t() | atom()
+      }
+
+  """
+  @type search_available_phone_numbers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      geo_match_params() :: %{
+        "AreaCode" => String.t() | atom(),
+        "Country" => String.t() | atom()
+      }
+
+  """
+  @type geo_match_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_profile_request() :: %{}
+
+  """
+  @type delete_voice_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sip_media_application_alexa_skill_configuration() :: %{
+        "AlexaSkillIds" => list(String.t() | atom()),
+        "AlexaSkillStatus" => list(any())
+      }
+
+  """
+  @type sip_media_application_alexa_skill_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttled_client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sip_media_application_call_request() :: %{
+        required("Arguments") => map()
+      }
+
+  """
+  @type update_sip_media_application_call_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1499,6 +1014,185 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
+      list_phone_number_orders_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_phone_number_orders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
+      }
+
+  """
+  @type update_phone_number_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_voice_tone_analysis_task_request() :: %{}
+
+  """
+  @type stop_voice_tone_analysis_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sip_rule_request() :: %{
+        optional("Disabled") => boolean(),
+        required("Name") => String.t() | atom(),
+        required("TargetApplications") => list(sip_rule_target_application()),
+        required("TriggerType") => list(any()),
+        required("TriggerValue") => String.t() | atom()
+      }
+
+  """
+  @type create_sip_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sip_media_application_logging_configuration_request() :: %{}
+
+  """
+  @type get_sip_media_application_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      streaming_configuration() :: %{
+        "DataRetentionInHours" => integer(),
+        "Disabled" => boolean(),
+        "MediaInsightsConfiguration" => media_insights_configuration(),
+        "StreamingNotificationTargets" => list(streaming_notification_target())
+      }
+
+  """
+  @type streaming_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_profile_domain_response() :: %{
+        "VoiceProfileDomain" => voice_profile_domain()
+      }
+
+  """
+  @type create_voice_profile_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_voice_profile_domains_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_voice_profile_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sip_media_applications_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SipMediaApplications" => list(sip_media_application())
+      }
+
+  """
+  @type list_sip_media_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ordered_phone_number() :: %{
+        "E164PhoneNumber" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type ordered_phone_number() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sip_rules_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SipRules" => list(sip_rule())
+      }
+
+  """
+  @type list_sip_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sip_media_application_response() :: %{
+        "SipMediaApplication" => sip_media_application()
+      }
+
+  """
+  @type get_sip_media_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voice_profile() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "ExpirationTimestamp" => non_neg_integer(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceProfileArn" => String.t() | atom(),
+        "VoiceProfileDomainId" => String.t() | atom(),
+        "VoiceProfileId" => String.t() | atom()
+      }
+
+  """
+  @type voice_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_voice_tone_analysis_task_response() :: %{
+        "VoiceToneAnalysisTask" => voice_tone_analysis_task()
+      }
+
+  """
+  @type start_voice_tone_analysis_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_failure_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_phone_number_order_response() :: %{
         "PhoneNumberOrder" => phone_number_order()
       }
@@ -1510,41 +1204,13 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      list_phone_numbers_request() :: %{
-        optional("FilterName") => list(any()),
-        optional("FilterValue") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProductType") => list(any()),
-        optional("Status") => String.t() | atom()
-      }
-
-  """
-  @type list_phone_numbers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_limit_exceeded_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_voice_connector_request() :: %{
         optional("AwsRegion") => list(any()),
         optional("IntegrationType") => list(any()),
-        optional("NetworkType") => list(any()),
-        optional("Tags") => list(tag()),
         required("Name") => String.t() | atom(),
-        required("RequireEncryption") => boolean()
+        optional("NetworkType") => list(any()),
+        required("RequireEncryption") => boolean(),
+        optional("Tags") => list(tag())
       }
 
   """
@@ -1554,47 +1220,109 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      get_phone_number_request() :: %{}
-
-  """
-  @type get_phone_number_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_voice_profile_request() :: %{
-        required("SpeakerSearchTaskId") => String.t() | atom()
+      put_voice_connector_origination_request() :: %{
+        required("Origination") => origination()
       }
 
   """
-  @type create_voice_profile_request() :: %{(String.t() | atom()) => any()}
+  @type put_voice_connector_origination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      not_found_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
+      get_voice_connector_response() :: %{
+        "VoiceConnector" => voice_connector()
       }
 
   """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type get_voice_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_voice_connector_proxy_request() :: %{
+      update_sip_media_application_request() :: %{
+        optional("Endpoints") => list(sip_media_application_endpoint()),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_sip_media_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_connector_termination_credentials_request() :: %{
+        required("Usernames") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_voice_connector_termination_credentials_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_profile_domain_response() :: %{
+        "VoiceProfileDomain" => voice_profile_domain()
+      }
+
+  """
+  @type update_voice_profile_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_connector_group_request() :: %{}
+
+  """
+  @type delete_voice_connector_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
-        optional("FallBackPhoneNumber") => String.t() | atom(),
-        required("DefaultSessionExpiryMinutes") => integer(),
-        required("PhoneNumberPoolCountries") => list(String.t() | atom())
+        required("Name") => String.t() | atom(),
+        optional("TargetApplications") => list(sip_rule_target_application())
       }
 
   """
-  @type put_voice_connector_proxy_request() :: %{(String.t() | atom()) => any()}
+  @type update_sip_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sip_media_application_call_request() :: %{
+        optional("ArgumentsMap") => map(),
+        required("FromPhoneNumber") => String.t() | atom(),
+        optional("SipHeaders") => map(),
+        required("ToPhoneNumber") => String.t() | atom()
+      }
+
+  """
+  @type create_sip_media_application_call_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_phone_number_request_item() :: %{
+        "CallingName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PhoneNumberId" => String.t() | atom(),
+        "ProductType" => list(any())
+      }
+
+  """
+  @type update_phone_number_request_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1613,39 +1341,211 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      put_voice_connector_logging_configuration_request() :: %{
-        required("LoggingConfiguration") => logging_configuration()
+      get_voice_profile_response() :: %{
+        "VoiceProfile" => voice_profile()
       }
 
   """
-  @type put_voice_connector_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type get_voice_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      phone_number_order() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "FocDate" => non_neg_integer(),
-        "OrderType" => list(any()),
-        "OrderedPhoneNumbers" => list(ordered_phone_number()),
-        "PhoneNumberOrderId" => String.t() | atom(),
-        "ProductType" => list(any()),
-        "Status" => list(any()),
-        "UpdatedTimestamp" => non_neg_integer()
+      bad_request_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type phone_number_order() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_phone_number_request() :: %{}
+      credential() :: %{
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
 
   """
-  @type delete_phone_number_request() :: %{}
+  @type credential() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_phone_number_orders_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PhoneNumberOrders" => list(phone_number_order())
+      }
+
+  """
+  @type list_phone_number_orders_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_voice_connector_groups_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "VoiceConnectorGroups" => list(voice_connector_group())
+      }
+
+  """
+  @type list_voice_connector_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_streaming_configuration_request() :: %{
+        required("StreamingConfiguration") => streaming_configuration()
+      }
+
+  """
+  @type put_voice_connector_streaming_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      origination() :: %{
+        "Disabled" => boolean(),
+        "Routes" => list(origination_route())
+      }
+
+  """
+  @type origination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sip_media_applications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_sip_media_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_global_settings_request() :: %{
+        required("VoiceConnector") => voice_connector_settings()
+      }
+
+  """
+  @type update_global_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_request() :: %{}
+
+  """
+  @type get_phone_number_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_voice_connector_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_voice_connector_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sip_rule_request() :: %{}
+
+  """
+  @type delete_sip_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_configuration() :: %{
+        "EnableMediaMetricLogs" => boolean(),
+        "EnableSIPLogs" => boolean()
+      }
+
+  """
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_phone_number_request() :: %{}
+
+  """
+  @type restore_phone_number_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_response() :: %{
+        "PhoneNumber" => phone_number()
+      }
+
+  """
+  @type get_phone_number_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sip_media_application_logging_configuration_response() :: %{
+        "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
+      }
+
+  """
+  @type get_sip_media_application_logging_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_connector_origination_request() :: %{}
+
+  """
+  @type delete_voice_connector_origination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sip_media_application_request() :: %{}
+
+  """
+  @type delete_sip_media_application_request() :: %{}
 
   @typedoc """
 
@@ -1662,25 +1562,387 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      sip_media_application_endpoint() :: %{
-        "LambdaArn" => String.t() | atom()
+      list_supported_phone_number_countries_response() :: %{
+        "PhoneNumberCountries" => list(phone_number_country())
       }
 
   """
-  @type sip_media_application_endpoint() :: %{(String.t() | atom()) => any()}
+  @type list_supported_phone_number_countries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_phone_numbers_from_voice_connector_group_response() :: %{
+      get_voice_connector_logging_configuration_response() :: %{
+        "LoggingConfiguration" => logging_configuration()
+      }
+
+  """
+  @type get_voice_connector_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      phone_number_capabilities() :: %{
+        "InboundCall" => boolean(),
+        "InboundMMS" => boolean(),
+        "InboundSMS" => boolean(),
+        "OutboundCall" => boolean(),
+        "OutboundMMS" => boolean(),
+        "OutboundSMS" => boolean()
+      }
+
+  """
+  @type phone_number_capabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_profile_request() :: %{
+        required("SpeakerSearchTaskId") => String.t() | atom()
+      }
+
+  """
+  @type create_voice_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sip_media_application_alexa_skill_configuration_request() :: %{}
+
+  """
+  @type get_sip_media_application_alexa_skill_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_profile_domain_request() :: %{}
+
+  """
+  @type get_voice_profile_domain_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      server_side_encryption_configuration() :: %{
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_external_systems_configuration_response() :: %{
+        "ExternalSystemsConfiguration" => external_systems_configuration()
+      }
+
+  """
+  @type get_voice_connector_external_systems_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_sip_media_application_response() :: %{
+        "SipMediaApplication" => sip_media_application()
+      }
+
+  """
+  @type create_sip_media_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_speaker_search_task_response() :: %{
+        "SpeakerSearchTask" => speaker_search_task()
+      }
+
+  """
+  @type get_speaker_search_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_proxy_session_response() :: %{
+        "ProxySession" => proxy_session()
+      }
+
+  """
+  @type create_proxy_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      speaker_search_task() :: %{
+        "CallDetails" => call_details(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "SpeakerSearchDetails" => speaker_search_details(),
+        "SpeakerSearchTaskId" => String.t() | atom(),
+        "SpeakerSearchTaskStatus" => String.t() | atom(),
+        "StartedTimestamp" => non_neg_integer(),
+        "StatusMessage" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type speaker_search_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_profile_domain_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_voice_profile_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_phone_number_order_request() :: %{
+        required("E164PhoneNumbers") => list(String.t() | atom()),
+        optional("Name") => String.t() | atom(),
+        required("ProductType") => list(any())
+      }
+
+  """
+  @type create_phone_number_order_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      origination_route() :: %{
+        "Host" => String.t() | atom(),
+        "Port" => integer(),
+        "Priority" => integer(),
+        "Protocol" => list(any()),
+        "Weight" => integer()
+      }
+
+  """
+  @type origination_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_group_response() :: %{
+        "VoiceConnectorGroup" => voice_connector_group()
+      }
+
+  """
+  @type get_voice_connector_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sip_media_application_response() :: %{
+        "SipMediaApplication" => sip_media_application()
+      }
+
+  """
+  @type update_sip_media_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_phone_numbers_from_voice_connector_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
-  @type disassociate_phone_numbers_from_voice_connector_group_response() :: %{
+  @type disassociate_phone_numbers_from_voice_connector_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      sip_media_application() :: %{
+        "AwsRegion" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Endpoints" => list(sip_media_application_endpoint()),
+        "Name" => String.t() | atom(),
+        "SipMediaApplicationArn" => String.t() | atom(),
+        "SipMediaApplicationId" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type sip_media_application() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_connector_group_request() :: %{
+        optional("CallDistributionType") => list(any()),
+        required("Name") => String.t() | atom(),
+        required("VoiceConnectorItems") => list(voice_connector_item())
+      }
+
+  """
+  @type update_voice_connector_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_phone_numbers_from_voice_connector_group_request() :: %{
+        required("E164PhoneNumbers") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_phone_numbers_from_voice_connector_group_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_connector_external_systems_configuration_request() :: %{}
+
+  """
+  @type delete_voice_connector_external_systems_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sip_media_application_call_response() :: %{
+        "SipMediaApplicationCall" => sip_media_application_call()
+      }
+
+  """
+  @type update_sip_media_application_call_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_phone_number_request() :: %{
+        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item())
+      }
+
+  """
+  @type batch_update_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_voice_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_voice_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      proxy() :: %{
+        "DefaultSessionExpiryMinutes" => integer(),
+        "Disabled" => boolean(),
+        "FallBackPhoneNumber" => String.t() | atom(),
+        "PhoneNumberCountries" => list(String.t() | atom())
+      }
+
+  """
+  @type proxy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_connector_streaming_configuration_request() :: %{}
+
+  """
+  @type delete_voice_connector_streaming_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_proxy_session_response() :: %{
+        "ProxySession" => proxy_session()
+      }
+
+  """
+  @type update_proxy_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sip_rule_response() :: %{
+        "SipRule" => sip_rule()
+      }
+
+  """
+  @type get_sip_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_streaming_configuration_response() :: %{
+        "StreamingConfiguration" => streaming_configuration()
+      }
+
+  """
+  @type put_voice_connector_streaming_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_connector_group_response() :: %{
+        "VoiceConnectorGroup" => voice_connector_group()
+      }
+
+  """
+  @type update_voice_connector_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_speaker_search_task_request() :: %{
+        optional("CallLeg") => list(any()),
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("TransactionId") => String.t() | atom(),
+        required("VoiceProfileDomainId") => String.t() | atom()
+      }
+
+  """
+  @type start_speaker_search_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1692,6 +1954,80 @@ defmodule AWS.ChimeSDKVoice do
 
   """
   @type get_global_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_proxy_session_request() :: %{
+        required("Capabilities") => list(list(any())()),
+        optional("ExpiryMinutes") => integer(),
+        optional("GeoMatchLevel") => list(any()),
+        optional("GeoMatchParams") => geo_match_params(),
+        optional("Name") => String.t() | atom(),
+        optional("NumberSelectionBehavior") => list(any()),
+        required("ParticipantPhoneNumbers") => list(String.t() | atom())
+      }
+
+  """
+  @type create_proxy_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      phone_number_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "PhoneNumberId" => String.t() | atom()
+      }
+
+  """
+  @type phone_number_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_connector_response() :: %{
+        "VoiceConnector" => voice_connector()
+      }
+
+  """
+  @type create_voice_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_logging_configuration_request() :: %{}
+
+  """
+  @type get_voice_connector_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      external_systems_configuration() :: %{
+        "ContactCenterSystemTypes" => list(list(any())()),
+        "SessionBorderControllerTypes" => list(list(any())())
+      }
+
+  """
+  @type external_systems_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1717,70 +2053,57 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      list_proxy_sessions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
+      speaker_search_result() :: %{
+        "ConfidenceScore" => float(),
+        "VoiceProfileId" => String.t() | atom()
       }
 
   """
-  @type list_proxy_sessions_request() :: %{(String.t() | atom()) => any()}
+  @type speaker_search_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      origination_route() :: %{
-        "Host" => String.t() | atom(),
-        "Port" => integer(),
-        "Priority" => integer(),
-        "Protocol" => list(any()),
-        "Weight" => integer()
+      associate_phone_numbers_with_voice_connector_group_response() :: %{
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
-  @type origination_route() :: %{(String.t() | atom()) => any()}
+  @type associate_phone_numbers_with_voice_connector_group_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      list_voice_profile_domains_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      delete_voice_connector_termination_request() :: %{}
 
   """
-  @type list_voice_profile_domains_request() :: %{(String.t() | atom()) => any()}
+  @type delete_voice_connector_termination_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
+      sip_media_application_endpoint() :: %{
+        "LambdaArn" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type sip_media_application_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      voice_tone_analysis_task() :: %{
-        "CallDetails" => call_details(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "StartedTimestamp" => non_neg_integer(),
-        "StatusMessage" => String.t() | atom(),
-        "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceToneAnalysisTaskId" => String.t() | atom(),
-        "VoiceToneAnalysisTaskStatus" => String.t() | atom()
+      get_voice_connector_termination_health_response() :: %{
+        "TerminationHealth" => termination_health()
       }
 
   """
-  @type voice_tone_analysis_task() :: %{(String.t() | atom()) => any()}
+  @type get_voice_connector_termination_health_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1792,156 +2115,6 @@ defmodule AWS.ChimeSDKVoice do
 
   """
   @type streaming_notification_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_voice_profile_domain_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
-      }
-
-  """
-  @type create_voice_profile_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_connector_item() :: %{
-        "Priority" => integer(),
-        "VoiceConnectorId" => String.t() | atom()
-      }
-
-  """
-  @type voice_connector_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_available_voice_connector_regions_response() :: %{
-        "VoiceConnectorRegions" => list(list(any())())
-      }
-
-  """
-  @type list_available_voice_connector_regions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_sip_media_application_logging_configuration_response() :: %{
-        "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
-      }
-
-  """
-  @type put_sip_media_application_logging_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_voice_connector_group_response() :: %{
-        "VoiceConnectorGroup" => voice_connector_group()
-      }
-
-  """
-  @type update_voice_connector_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_phone_number_response() :: %{
-        "PhoneNumber" => phone_number()
-      }
-
-  """
-  @type get_phone_number_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_voice_profiles_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("VoiceProfileDomainId") => String.t() | atom()
-      }
-
-  """
-  @type list_voice_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_voice_connector_termination_credentials_response() :: %{
-        "Usernames" => list(String.t() | atom())
-      }
-
-  """
-  @type list_voice_connector_termination_credentials_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      server_side_encryption_configuration() :: %{
-        "KmsKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_global_settings_request() :: %{
-        optional("VoiceConnector") => voice_connector_settings()
-      }
-
-  """
-  @type update_global_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sip_media_application_alexa_skill_configuration() :: %{
-        "AlexaSkillIds" => list(String.t() | atom()),
-        "AlexaSkillStatus" => list(any())
-      }
-
-  """
-  @type sip_media_application_alexa_skill_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_proxy_session_request() :: %{
-        optional("ExpiryMinutes") => integer(),
-        optional("GeoMatchLevel") => list(any()),
-        optional("GeoMatchParams") => geo_match_params(),
-        optional("Name") => String.t() | atom(),
-        optional("NumberSelectionBehavior") => list(any()),
-        required("Capabilities") => list(list(any())()),
-        required("ParticipantPhoneNumbers") => list(String.t() | atom())
-      }
-
-  """
-  @type create_proxy_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1964,266 +2137,6 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      get_sip_rule_request() :: %{}
-
-  """
-  @type get_sip_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_external_systems_configuration_request() :: %{}
-
-  """
-  @type get_voice_connector_external_systems_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_proxy_request() :: %{}
-
-  """
-  @type get_voice_connector_proxy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sip_media_applications_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SipMediaApplications" => list(sip_media_application())
-      }
-
-  """
-  @type list_sip_media_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sip_media_application_logging_configuration_request() :: %{}
-
-  """
-  @type get_sip_media_application_logging_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_external_systems_configuration_request() :: %{}
-
-  """
-  @type delete_voice_connector_external_systems_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_voice_tone_analysis_task_request() :: %{}
-
-  """
-  @type stop_voice_tone_analysis_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sip_media_application_logging_configuration() :: %{
-        "EnableSipMediaApplicationMessageLogs" => boolean()
-      }
-
-  """
-  @type sip_media_application_logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_proxy_session_response() :: %{
-        "ProxySession" => proxy_session()
-      }
-
-  """
-  @type get_proxy_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_voice_profiles_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "VoiceProfiles" => list(voice_profile_summary())
-      }
-
-  """
-  @type list_voice_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sip_rule_response() :: %{
-        "SipRule" => sip_rule()
-      }
-
-  """
-  @type update_sip_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_profile_summary() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "ExpirationTimestamp" => non_neg_integer(),
-        "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceProfileArn" => String.t() | atom(),
-        "VoiceProfileDomainId" => String.t() | atom(),
-        "VoiceProfileId" => String.t() | atom()
-      }
-
-  """
-  @type voice_profile_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessable_entity_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_voice_connector_group_request() :: %{
-        optional("VoiceConnectorItems") => list(voice_connector_item()),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_voice_connector_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_profile_response() :: %{
-        "VoiceProfile" => voice_profile()
-      }
-
-  """
-  @type get_voice_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sip_media_application_call_response() :: %{
-        "SipMediaApplicationCall" => sip_media_application_call()
-      }
-
-  """
-  @type create_sip_media_application_call_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_error() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "PhoneNumberId" => String.t() | atom()
-      }
-
-  """
-  @type phone_number_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_phone_number_request_item() :: %{
-        "CallingName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PhoneNumberId" => String.t() | atom(),
-        "ProductType" => list(any())
-      }
-
-  """
-  @type update_phone_number_request_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_phone_numbers_with_voice_connector_group_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error())
-      }
-
-  """
-  @type associate_phone_numbers_with_voice_connector_group_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_origination_request() :: %{
-        required("Origination") => origination()
-      }
-
-  """
-  @type put_voice_connector_origination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_termination_credentials_request() :: %{
-        required("Usernames") => list(String.t() | atom())
-      }
-
-  """
-  @type delete_voice_connector_termination_credentials_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
       list_voice_connectors_response() :: %{
         "NextToken" => String.t() | atom(),
         "VoiceConnectors" => list(voice_connector())
@@ -2231,184 +2144,6 @@ defmodule AWS.ChimeSDKVoice do
 
   """
   @type list_voice_connectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_sip_media_application_alexa_skill_configuration_response() :: %{
-        "SipMediaApplicationAlexaSkillConfiguration" => sip_media_application_alexa_skill_configuration()
-      }
-
-  """
-  @type put_sip_media_application_alexa_skill_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_group_request() :: %{}
-
-  """
-  @type get_voice_connector_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_connector_group() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "UpdatedTimestamp" => non_neg_integer(),
-        "VoiceConnectorGroupArn" => String.t() | atom(),
-        "VoiceConnectorGroupId" => String.t() | atom(),
-        "VoiceConnectorItems" => list(voice_connector_item())
-      }
-
-  """
-  @type voice_connector_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_origination_response() :: %{
-        "Origination" => origination()
-      }
-
-  """
-  @type get_voice_connector_origination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_profile_request() :: %{}
-
-  """
-  @type delete_voice_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_profile_domain_request() :: %{}
-
-  """
-  @type delete_voice_profile_domain_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_phone_number_settings_response() :: %{
-        "CallingName" => String.t() | atom(),
-        "CallingNameUpdatedTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type get_phone_number_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sip_media_application_call_request() :: %{
-        optional("ArgumentsMap") => map(),
-        optional("SipHeaders") => map(),
-        required("FromPhoneNumber") => String.t() | atom(),
-        required("ToPhoneNumber") => String.t() | atom()
-      }
-
-  """
-  @type create_sip_media_application_call_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sip_media_application_call_request() :: %{
-        required("Arguments") => map()
-      }
-
-  """
-  @type update_sip_media_application_call_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_termination_request() :: %{}
-
-  """
-  @type delete_voice_connector_termination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_group_response() :: %{
-        "VoiceConnectorGroup" => voice_connector_group()
-      }
-
-  """
-  @type get_voice_connector_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_logging_configuration_response() :: %{
-        "LoggingConfiguration" => logging_configuration()
-      }
-
-  """
-  @type put_voice_connector_logging_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_voice_connector_response() :: %{
-        "VoiceConnector" => voice_connector()
-      }
-
-  """
-  @type create_voice_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_proxy_session_request() :: %{}
-
-  """
-  @type get_proxy_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sip_media_application_call() :: %{
-        "TransactionId" => String.t() | atom()
-      }
-
-  """
-  @type sip_media_application_call() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2426,254 +2161,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      update_voice_connector_request() :: %{
-        required("Name") => String.t() | atom(),
-        required("RequireEncryption") => boolean()
+      start_speaker_search_task_response() :: %{
+        "SpeakerSearchTask" => speaker_search_task()
       }
 
   """
-  @type update_voice_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_tone_analysis_task_request() :: %{
-        required("IsCaller") => boolean()
-      }
-
-  """
-  @type get_voice_tone_analysis_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_voice_profile_domain_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_voice_profile_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      credential() :: %{
-        "Password" => String.t() | atom(),
-        "Username" => String.t() | atom()
-      }
-
-  """
-  @type credential() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_capabilities() :: %{
-        "InboundCall" => boolean(),
-        "InboundMMS" => boolean(),
-        "InboundSMS" => boolean(),
-        "OutboundCall" => boolean(),
-        "OutboundMMS" => boolean(),
-        "OutboundSMS" => boolean()
-      }
-
-  """
-  @type phone_number_capabilities() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_streaming_configuration_request() :: %{}
-
-  """
-  @type delete_voice_connector_streaming_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_emergency_calling_configuration_request() :: %{}
-
-  """
-  @type delete_voice_connector_emergency_calling_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sip_media_application_request() :: %{}
-
-  """
-  @type get_sip_media_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sip_media_application_response() :: %{
-        "SipMediaApplication" => sip_media_application()
-      }
-
-  """
-  @type create_sip_media_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_proxy_response() :: %{
-        "Proxy" => proxy()
-      }
-
-  """
-  @type put_voice_connector_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      address() :: %{
-        "city" => String.t() | atom(),
-        "country" => String.t() | atom(),
-        "postDirectional" => String.t() | atom(),
-        "postalCode" => String.t() | atom(),
-        "postalCodePlus4" => String.t() | atom(),
-        "preDirectional" => String.t() | atom(),
-        "state" => String.t() | atom(),
-        "streetName" => String.t() | atom(),
-        "streetNumber" => String.t() | atom(),
-        "streetSuffix" => String.t() | atom()
-      }
-
-  """
-  @type address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sip_rule_target_application() :: %{
-        "AwsRegion" => String.t() | atom(),
-        "Priority" => integer(),
-        "SipMediaApplicationId" => String.t() | atom()
-      }
-
-  """
-  @type sip_rule_target_application() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_emergency_calling_configuration_response() :: %{
-        "EmergencyCallingConfiguration" => emergency_calling_configuration()
-      }
-
-  """
-  @type get_voice_connector_emergency_calling_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_speaker_search_task_request() :: %{}
-
-  """
-  @type get_speaker_search_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_connector_request() :: %{}
-
-  """
-  @type delete_voice_connector_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_phone_number_request() :: %{
-        optional("CallingName") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("ProductType") => list(any())
-      }
-
-  """
-  @type update_phone_number_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_profile_domain_response() :: %{
-        "VoiceProfileDomain" => voice_profile_domain()
-      }
-
-  """
-  @type get_voice_profile_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_origination_request() :: %{}
-
-  """
-  @type get_voice_connector_origination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_voice_connector_emergency_calling_configuration_response() :: %{
-        "EmergencyCallingConfiguration" => emergency_calling_configuration()
-      }
-
-  """
-  @type put_voice_connector_emergency_calling_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_connector_termination_response() :: %{
-        "Termination" => termination()
-      }
-
-  """
-  @type get_voice_connector_termination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sip_media_application_alexa_skill_configuration_request() :: %{}
-
-  """
-  @type get_sip_media_application_alexa_skill_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_phone_number_request() :: %{
-        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item())
-      }
-
-  """
-  @type batch_update_phone_number_request() :: %{(String.t() | atom()) => any()}
+  @type start_speaker_search_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2692,971 +2185,1487 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
-      sip_media_application() :: %{
-        "AwsRegion" => String.t() | atom(),
+      speaker_search_details() :: %{
+        "Results" => list(speaker_search_result()),
+        "VoiceprintGenerationStatus" => String.t() | atom()
+      }
+
+  """
+  @type speaker_search_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_emergency_calling_configuration_response() :: %{
+        "EmergencyCallingConfiguration" => emergency_calling_configuration()
+      }
+
+  """
+  @type put_voice_connector_emergency_calling_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_profile_domain_response() :: %{
+        "VoiceProfileDomain" => voice_profile_domain()
+      }
+
+  """
+  @type get_voice_profile_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_streaming_configuration_request() :: %{}
+
+  """
+  @type get_voice_connector_streaming_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      phone_number() :: %{
+        "Associations" => list(phone_number_association()),
+        "CallingName" => String.t() | atom(),
+        "CallingNameStatus" => list(any()),
+        "Capabilities" => phone_number_capabilities(),
+        "Country" => String.t() | atom(),
         "CreatedTimestamp" => non_neg_integer(),
-        "Endpoints" => list(sip_media_application_endpoint()),
+        "DeletionTimestamp" => non_neg_integer(),
+        "E164PhoneNumber" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "SipMediaApplicationArn" => String.t() | atom(),
-        "SipMediaApplicationId" => String.t() | atom(),
+        "OrderId" => String.t() | atom(),
+        "PhoneNumberArn" => String.t() | atom(),
+        "PhoneNumberId" => String.t() | atom(),
+        "ProductType" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
 
   """
-  @type sip_media_application() :: %{(String.t() | atom()) => any()}
+  @type phone_number() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_available_phone_numbers_request() :: %{
-        optional("AreaCode") => String.t() | atom(),
-        optional("City") => String.t() | atom(),
-        optional("Country") => String.t() | atom(),
+      start_voice_tone_analysis_task_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("LanguageCode") => list(any()),
+        required("TransactionId") => String.t() | atom()
+      }
+
+  """
+  @type start_voice_tone_analysis_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voice_connector_item() :: %{
+        "Priority" => integer(),
+        "VoiceConnectorId" => String.t() | atom()
+      }
+
+  """
+  @type voice_connector_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_tone_analysis_task_response() :: %{
+        "VoiceToneAnalysisTask" => voice_tone_analysis_task()
+      }
+
+  """
+  @type get_voice_tone_analysis_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voice_profile_domain_summary() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "VoiceProfileDomainArn" => String.t() | atom(),
+        "VoiceProfileDomainId" => String.t() | atom()
+      }
+
+  """
+  @type voice_profile_domain_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_sip_media_application_alexa_skill_configuration_response() :: %{
+        "SipMediaApplicationAlexaSkillConfiguration" => sip_media_application_alexa_skill_configuration()
+      }
+
+  """
+  @type put_sip_media_application_alexa_skill_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_speaker_search_task_request() :: %{}
+
+  """
+  @type get_speaker_search_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sip_media_application_request() :: %{
+        required("AwsRegion") => String.t() | atom(),
+        required("Endpoints") => list(sip_media_application_endpoint()),
+        required("Name") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_sip_media_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_connector_group_request() :: %{
+        optional("CallDistributionType") => list(any()),
+        required("Name") => String.t() | atom(),
+        optional("VoiceConnectorItems") => list(voice_connector_item())
+      }
+
+  """
+  @type create_voice_connector_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_limit_exceeded_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sip_media_application_call_response() :: %{
+        "SipMediaApplicationCall" => sip_media_application_call()
+      }
+
+  """
+  @type create_sip_media_application_call_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_proxy_response() :: %{
+        "Proxy" => proxy()
+      }
+
+  """
+  @type get_voice_connector_proxy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_phone_number_order_response() :: %{
+        "PhoneNumberOrder" => phone_number_order()
+      }
+
+  """
+  @type create_phone_number_order_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_settings_response() :: %{
+        "CallingName" => String.t() | atom(),
+        "CallingNameUpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type get_phone_number_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sip_media_application_logging_configuration() :: %{
+        "EnableSipMediaApplicationMessageLogs" => boolean()
+      }
+
+  """
+  @type sip_media_application_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sip_media_application_request() :: %{}
+
+  """
+  @type get_sip_media_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_sip_media_application_logging_configuration_response() :: %{
+        "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
+      }
+
+  """
+  @type put_sip_media_application_logging_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      put_sip_media_application_logging_configuration_request() :: %{
+        optional("SipMediaApplicationLoggingConfiguration") => sip_media_application_logging_configuration()
+      }
+
+  """
+  @type put_sip_media_application_logging_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_phone_numbers_from_voice_connector_request() :: %{
+        required("E164PhoneNumbers") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_phone_numbers_from_voice_connector_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_phone_number_order_request() :: %{}
+
+  """
+  @type get_phone_number_order_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      phone_number_order() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "FocDate" => String.t() | atom(),
+        "OrderType" => list(any()),
+        "OrderedPhoneNumbers" => list(ordered_phone_number()),
+        "PhoneNumberOrderId" => String.t() | atom(),
+        "ProductType" => list(any()),
+        "Status" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type phone_number_order() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_external_systems_configuration_request() :: %{}
+
+  """
+  @type get_voice_connector_external_systems_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_available_phone_numbers_response() :: %{
+        "E164PhoneNumbers" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_available_phone_numbers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_profile_response() :: %{
+        "VoiceProfile" => voice_profile()
+      }
+
+  """
+  @type update_voice_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_emergency_calling_configuration_response() :: %{
+        "EmergencyCallingConfiguration" => emergency_calling_configuration()
+      }
+
+  """
+  @type get_voice_connector_emergency_calling_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_streaming_configuration_response() :: %{
+        "StreamingConfiguration" => streaming_configuration()
+      }
+
+  """
+  @type get_voice_connector_streaming_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      stop_speaker_search_task_request() :: %{}
+
+  """
+  @type stop_speaker_search_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sip_rule() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Disabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "SipRuleId" => String.t() | atom(),
+        "TargetApplications" => list(sip_rule_target_application()),
+        "TriggerType" => list(any()),
+        "TriggerValue" => String.t() | atom(),
+        "UpdatedTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type sip_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_proxy_sessions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProxySessions" => list(proxy_session())
+      }
+
+  """
+  @type list_proxy_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_connector_group_request() :: %{}
+
+  """
+  @type get_voice_connector_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_proxy_session_request() :: %{}
+
+  """
+  @type get_proxy_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sip_rule_target_application() :: %{
+        "AwsRegion" => String.t() | atom(),
+        "Priority" => integer(),
+        "SipMediaApplicationId" => String.t() | atom()
+      }
+
+  """
+  @type sip_rule_target_application() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_termination_response() :: %{
+        "Termination" => termination()
+      }
+
+  """
+  @type put_voice_connector_termination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_connector_emergency_calling_configuration_request() :: %{}
+
+  """
+  @type delete_voice_connector_emergency_calling_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_external_systems_configuration_response() :: %{
+        "ExternalSystemsConfiguration" => external_systems_configuration()
+      }
+
+  """
+  @type put_voice_connector_external_systems_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      d_n_i_s_emergency_calling_configuration() :: %{
+        "CallingCountry" => String.t() | atom(),
+        "EmergencyPhoneNumber" => String.t() | atom(),
+        "TestPhoneNumber" => String.t() | atom()
+      }
+
+  """
+  @type d_n_i_s_emergency_calling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_logging_configuration_response() :: %{
+        "LoggingConfiguration" => logging_configuration()
+      }
+
+  """
+  @type put_voice_connector_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sip_rule_request() :: %{}
+
+  """
+  @type get_sip_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_voice_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("PhoneNumberType") => list(any()),
-        optional("State") => String.t() | atom(),
-        optional("TollFreePrefix") => String.t() | atom()
+        required("VoiceProfileDomainId") => String.t() | atom()
       }
 
   """
-  @type search_available_phone_numbers_request() :: %{(String.t() | atom()) => any()}
+  @type list_voice_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_supported_phone_number_countries_request() :: %{
-        required("ProductType") => list(any())
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
       }
 
   """
-  @type list_supported_phone_number_countries_request() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      emergency_calling_configuration() :: %{
-        "DNIS" => list(d_n_i_s_emergency_calling_configuration())
+      update_sip_rule_response() :: %{
+        "SipRule" => sip_rule()
       }
 
   """
-  @type emergency_calling_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_sip_rule_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_phone_numbers_with_voice_connector_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type associate_phone_numbers_with_voice_connector_group_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type batch_delete_phone_number_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type batch_update_phone_number_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type create_phone_number_order_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          resource_limit_exceeded_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
 
   @type create_proxy_session_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type create_sip_media_application_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
+          conflict_exception()
           | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
 
   @type create_sip_media_application_call_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          resource_limit_exceeded_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
 
   @type create_sip_rule_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
+          conflict_exception()
           | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
 
   @type create_voice_connector_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          resource_limit_exceeded_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
 
   @type create_voice_connector_group_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          resource_limit_exceeded_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type create_voice_profile_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          conflict_exception()
           | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | gone_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | gone_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type create_voice_profile_domain_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
+          conflict_exception()
           | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
 
   @type delete_phone_number_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_proxy_session_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_sip_media_application_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_sip_rule_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_emergency_calling_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_external_systems_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_group_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_origination_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_proxy_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_streaming_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_termination_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_connector_termination_credentials_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type delete_voice_profile_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          conflict_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type delete_voice_profile_domain_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          conflict_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type disassociate_phone_numbers_from_voice_connector_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type disassociate_phone_numbers_from_voice_connector_group_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_global_settings_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type get_phone_number_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_phone_number_order_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_phone_number_settings_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type get_proxy_session_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_sip_media_application_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_sip_media_application_alexa_skill_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
+          | gone_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_sip_media_application_logging_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_sip_rule_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_speaker_search_task_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          conflict_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type get_voice_connector_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_emergency_calling_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_external_systems_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_group_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_logging_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_origination_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_proxy_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_streaming_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_termination_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_connector_termination_health_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type get_voice_profile_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type get_voice_profile_domain_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type get_voice_tone_analysis_task_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          conflict_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type list_available_voice_connector_regions_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type list_phone_number_orders_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type list_phone_numbers_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type list_proxy_sessions_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type list_sip_media_applications_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type list_sip_rules_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
 
   @type list_supported_phone_number_countries_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type list_voice_connector_groups_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type list_voice_connector_termination_credentials_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type list_voice_connectors_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type list_voice_profile_domains_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type list_voice_profiles_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type put_sip_media_application_alexa_skill_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
+          | gone_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type put_sip_media_application_logging_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type put_voice_connector_emergency_calling_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type put_voice_connector_external_systems_configuration_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type put_voice_connector_logging_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type put_voice_connector_origination_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type put_voice_connector_proxy_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type put_voice_connector_streaming_configuration_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type put_voice_connector_termination_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type put_voice_connector_termination_credentials_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type restore_phone_number_errors() ::
-          bad_request_exception()
+          resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type search_available_phone_numbers_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
 
   @type start_speaker_search_task_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          conflict_exception()
           | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | gone_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | gone_exception()
+          | service_unavailable_exception()
+          | unprocessable_entity_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type start_voice_tone_analysis_task_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
+          conflict_exception()
           | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | gone_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | gone_exception()
+          | service_unavailable_exception()
+          | unprocessable_entity_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type stop_speaker_search_task_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          conflict_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | unprocessable_entity_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type stop_voice_tone_analysis_task_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | unprocessable_entity_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          conflict_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | unprocessable_entity_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
+          resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | resource_limit_exceeded_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type update_global_settings_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type update_phone_number_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type update_phone_number_settings_errors() ::
-          bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
 
   @type update_proxy_session_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type update_sip_media_application_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type update_sip_media_application_call_errors() ::
-          bad_request_exception()
+          resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type update_sip_rule_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | resource_limit_exceeded_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type update_voice_connector_errors() ::
-          bad_request_exception()
+          forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type update_voice_connector_group_errors() ::
-          bad_request_exception()
+          conflict_exception()
+          | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
+          | service_failure_exception()
+          | throttled_client_exception()
           | service_unavailable_exception()
           | not_found_exception()
-          | conflict_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
 
   @type update_voice_profile_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | gone_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
+          conflict_exception()
           | forbidden_exception()
+          | unauthorized_client_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | gone_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type update_voice_profile_domain_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   @type validate_e911_address_errors() ::
-          bad_request_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | throttled_client_exception()
+          forbidden_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
+          | bad_request_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | service_unavailable_exception()
+          | access_denied_exception()
+          | not_found_exception()
 
   def metadata do
     %{
@@ -3864,6 +3873,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Creates a proxy session for the specified Amazon Chime SDK Voice Connector for
   the specified participant phone numbers.
+
+  End of support notice: On April 7, 2026, AWS will end support for Amazon Chime
+  SDK proxy sessions.
   """
   @spec create_proxy_session(map(), String.t() | atom(), create_proxy_session_request(), list()) ::
           {:ok, create_proxy_session_response(), any()}
@@ -4195,6 +4207,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes the specified proxy session from the specified Amazon Chime SDK Voice
   Connector.
+
+  End of support notice: On April 7, 2026, AWS will end support for Amazon Chime
+  SDK proxy sessions.
   """
   @spec delete_proxy_session(
           map(),
@@ -4209,8 +4224,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, delete_proxy_session_errors()}
   def delete_proxy_session(
         %Client{} = client,
-        proxy_session_id,
         voice_connector_id,
+        proxy_session_id,
         input,
         options \\ []
       ) do
@@ -4515,6 +4530,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes the proxy configuration from the specified Amazon Chime SDK Voice
   Connector.
+
+  End of support notice: On April 7, 2026, AWS will end support for Amazon Chime
+  SDK proxy sessions.
   """
   @spec delete_voice_connector_proxy(
           map(),
@@ -4912,13 +4930,16 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the specified proxy session details for the specified Amazon Chime SDK
   Voice Connector.
+
+  End of support notice: On April 7, 2026, AWS will end support for Amazon Chime
+  SDK proxy sessions.
   """
   @spec get_proxy_session(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_proxy_session_errors()}
-  def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
+  def get_proxy_session(%Client{} = client, voice_connector_id, proxy_session_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
@@ -5030,8 +5051,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, get_speaker_search_task_errors()}
   def get_speaker_search_task(
         %Client{} = client,
-        speaker_search_task_id,
         voice_connector_id,
+        speaker_search_task_id,
         options \\ []
       ) do
     url_path =
@@ -5182,6 +5203,9 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the proxy configuration details for the specified Amazon Chime SDK
   Voice
   Connector.
+
+  End of support notice: On April 7, 2026, AWS will end support for Amazon Chime
+  SDK proxy sessions.
   """
   @spec get_voice_connector_proxy(map(), String.t() | atom(), list()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
@@ -5324,8 +5348,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, get_voice_tone_analysis_task_errors()}
   def get_voice_tone_analysis_task(
         %Client{} = client,
-        voice_connector_id,
         voice_tone_analysis_task_id,
+        voice_connector_id,
         is_caller,
         options \\ []
       ) do
@@ -5381,8 +5405,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, list_phone_number_orders_errors()}
   def list_phone_number_orders(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/phone-number-orders"
@@ -5390,15 +5414,15 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -5430,12 +5454,12 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, list_phone_numbers_errors()}
   def list_phone_numbers(
         %Client{} = client,
-        filter_name \\ nil,
-        filter_value \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        product_type \\ nil,
         status \\ nil,
+        product_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        filter_value \\ nil,
+        filter_name \\ nil,
         options \\ []
       ) do
     url_path = "/phone-numbers"
@@ -5443,29 +5467,8 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(product_type) do
-        [{"product-type", product_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(filter_name) do
+        [{"filter-name", filter_name} | query_params]
       else
         query_params
       end
@@ -5478,8 +5481,29 @@ defmodule AWS.ChimeSDKVoice do
       end
 
     query_params =
-      if !is_nil(filter_name) do
-        [{"filter-name", filter_name} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(product_type) do
+        [{"product-type", product_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -5491,6 +5515,9 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Lists the proxy sessions for the specified Amazon Chime SDK Voice Connector.
+
+  End of support notice: On April 7, 2026, AWS will end support for Amazon Chime
+  SDK proxy sessions.
   """
   @spec list_proxy_sessions(
           map(),
@@ -5507,9 +5534,9 @@ defmodule AWS.ChimeSDKVoice do
   def list_proxy_sessions(
         %Client{} = client,
         voice_connector_id,
-        max_results \\ nil,
-        next_token \\ nil,
         status \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
@@ -5517,8 +5544,8 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
@@ -5531,8 +5558,8 @@ defmodule AWS.ChimeSDKVoice do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -5557,8 +5584,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, list_sip_media_applications_errors()}
   def list_sip_media_applications(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/sip-media-applications"
@@ -5566,15 +5593,15 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -5600,9 +5627,9 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, list_sip_rules_errors()}
   def list_sip_rules(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         sip_media_application_id \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/sip-rules"
@@ -5610,8 +5637,8 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(sip_media_application_id) do
-        [{"sip-media-application", sip_media_application_id} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
@@ -5624,8 +5651,8 @@ defmodule AWS.ChimeSDKVoice do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(sip_media_application_id) do
+        [{"sip-media-application", sip_media_application_id} | query_params]
       else
         query_params
       end
@@ -5701,8 +5728,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, list_voice_connector_groups_errors()}
   def list_voice_connector_groups(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/voice-connector-groups"
@@ -5710,15 +5737,15 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -5763,8 +5790,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, list_voice_connectors_errors()}
   def list_voice_connectors(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/voice-connectors"
@@ -5772,15 +5799,15 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -5805,8 +5832,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, list_voice_profile_domains_errors()}
   def list_voice_profile_domains(
         %Client{} = client,
-        max_results \\ nil,
         next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/voice-profile-domains"
@@ -5814,15 +5841,15 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -5837,9 +5864,9 @@ defmodule AWS.ChimeSDKVoice do
   """
   @spec list_voice_profiles(
           map(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
           String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_voice_profiles_response(), any()}
@@ -5848,9 +5875,9 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, list_voice_profiles_errors()}
   def list_voice_profiles(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
         voice_profile_domain_id,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/voice-profiles"
@@ -5858,8 +5885,8 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(voice_profile_domain_id) do
-        [{"voice-profile-domain-id", voice_profile_domain_id} | query_params]
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
       else
         query_params
       end
@@ -5872,8 +5899,8 @@ defmodule AWS.ChimeSDKVoice do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
+      if !is_nil(voice_profile_domain_id) do
+        [{"voice-profile-domain-id", voice_profile_domain_id} | query_params]
       else
         query_params
       end
@@ -6134,6 +6161,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Puts the specified proxy configuration to the specified Amazon Chime SDK Voice
   Connector.
+
+  End of support notice: On April 7, 2026, AWS will end support for Amazon Chime
+  SDK proxy sessions.
   """
   @spec put_voice_connector_proxy(
           map(),
@@ -6339,14 +6369,14 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, search_available_phone_numbers_errors()}
   def search_available_phone_numbers(
         %Client{} = client,
-        area_code \\ nil,
-        city \\ nil,
-        country \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        phone_number_type \\ nil,
-        state \\ nil,
         toll_free_prefix \\ nil,
+        state \\ nil,
+        phone_number_type \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        country \\ nil,
+        city \\ nil,
+        area_code \\ nil,
         options \\ []
       ) do
     url_path = "/search?type=phone-numbers"
@@ -6354,43 +6384,8 @@ defmodule AWS.ChimeSDKVoice do
     query_params = []
 
     query_params =
-      if !is_nil(toll_free_prefix) do
-        [{"toll-free-prefix", toll_free_prefix} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(state) do
-        [{"state", state} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(phone_number_type) do
-        [{"phone-number-type", phone_number_type} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"next-token", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"max-results", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(country) do
-        [{"country", country} | query_params]
+      if !is_nil(area_code) do
+        [{"area-code", area_code} | query_params]
       else
         query_params
       end
@@ -6403,8 +6398,43 @@ defmodule AWS.ChimeSDKVoice do
       end
 
     query_params =
-      if !is_nil(area_code) do
-        [{"area-code", area_code} | query_params]
+      if !is_nil(country) do
+        [{"country", country} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(phone_number_type) do
+        [{"phone-number-type", phone_number_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(toll_free_prefix) do
+        [{"toll-free-prefix", toll_free_prefix} | query_params]
       else
         query_params
       end
@@ -6516,8 +6546,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, stop_speaker_search_task_errors()}
   def stop_speaker_search_task(
         %Client{} = client,
-        speaker_search_task_id,
         voice_connector_id,
+        speaker_search_task_id,
         input,
         options \\ []
       ) do
@@ -6559,8 +6589,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, stop_voice_tone_analysis_task_errors()}
   def stop_voice_tone_analysis_task(
         %Client{} = client,
-        voice_connector_id,
         voice_tone_analysis_task_id,
+        voice_connector_id,
         input,
         options \\ []
       ) do
@@ -6753,6 +6783,9 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Updates the specified proxy session details, such as voice or SMS capabilities.
+
+  End of support notice: On April 7, 2026, AWS will end support for Amazon Chime
+  SDK proxy sessions.
   """
   @spec update_proxy_session(
           map(),
@@ -6767,8 +6800,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, update_proxy_session_errors()}
   def update_proxy_session(
         %Client{} = client,
-        proxy_session_id,
         voice_connector_id,
+        proxy_session_id,
         input,
         options \\ []
       ) do
@@ -6853,8 +6886,8 @@ defmodule AWS.ChimeSDKVoice do
           | {:error, update_sip_media_application_call_errors()}
   def update_sip_media_application_call(
         %Client{} = client,
-        sip_media_application_id,
         transaction_id,
+        sip_media_application_id,
         input,
         options \\ []
       ) do

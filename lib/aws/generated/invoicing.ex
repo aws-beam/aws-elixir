@@ -75,61 +75,15 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      purchase_order_data_source() :: %{
-        "EinvoiceDeliveryDocumentType" => list(any()),
-        "PurchaseOrderDataSourceType" => list(any())
+      invoice_p_d_f() :: %{
+        "DocumentUrl" => String.t() | atom(),
+        "DocumentUrlExpirationDate" => [non_neg_integer()],
+        "InvoiceId" => String.t() | atom(),
+        "SupplementalDocuments" => list(supplemental_document())
       }
       
   """
-  @type purchase_order_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("ResourceTags") => list(resource_tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_procurement_portal_preference_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
-        optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
-        optional("ProcurementPortalSharedSecret") => String.t() | atom(),
-        optional("ResourceTags") => list(resource_tag()),
-        optional("Selector") => procurement_portal_preference_selector(),
-        optional("TestEnvPreference") => test_env_preference_input(),
-        required("BuyerDomain") => list(any()),
-        required("BuyerIdentifier") => String.t() | atom(),
-        required("Contacts") => list(contact()),
-        required("EinvoiceDeliveryEnabled") => [boolean()],
-        required("ProcurementPortalName") => list(any()),
-        required("PurchaseOrderRetrievalEnabled") => [boolean()],
-        required("SupplierDomain") => list(any()),
-        required("SupplierIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type create_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_invoice_unit_response() :: %{
-        "InvoiceUnitArn" => String.t() | atom()
-      }
-      
-  """
-  @type delete_invoice_unit_response() :: %{(String.t() | atom()) => any()}
+  @type invoice_p_d_f() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -152,10 +106,106 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      untag_resource_response() :: %{}
+      batch_get_invoice_profile_request() :: %{
+        required("AccountIds") => list(String.t() | atom())
+      }
       
   """
-  @type untag_resource_response() :: %{}
+  @type batch_get_invoice_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_invoice_summaries_request() :: %{
+        optional("Filter") => invoice_summaries_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Selector") => invoice_summaries_selector()
+      }
+      
+  """
+  @type list_invoice_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_summaries_filter() :: %{
+        "BillingPeriod" => billing_period(),
+        "InvoicingEntity" => String.t() | atom(),
+        "ReceiverRole" => list(any()),
+        "TimeInterval" => date_interval()
+      }
+      
+  """
+  @type invoice_summaries_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_procurement_portal_preferences_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProcurementPortalPreferences" => list(procurement_portal_preference_summary())
+      }
+      
+  """
+  @type list_procurement_portal_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_summaries_selector() :: %{
+        "ResourceType" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type invoice_summaries_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_procurement_portal_preferences_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_procurement_portal_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "BaseCurrencyAmount" => invoice_currency_amount(),
+        "BillSourceAccounts" => list(String.t() | atom()),
+        "BillSourceAccountsTotalCount" => [integer()],
+        "BillType" => list(any()),
+        "BillingPeriod" => billing_period(),
+        "CommercialInvoiceId" => String.t() | atom(),
+        "DueDate" => [non_neg_integer()],
+        "EinvoiceDeliveryStatus" => list(any()),
+        "Entity" => entity(),
+        "InvoiceFrequency" => list(any()),
+        "InvoiceId" => String.t() | atom(),
+        "InvoiceType" => list(any()),
+        "IssuedDate" => [non_neg_integer()],
+        "OriginalInvoiceId" => String.t() | atom(),
+        "PaymentCurrencyAmount" => invoice_currency_amount(),
+        "PurchaseOrderNumber" => String.t() | atom(),
+        "ReceiverRole" => list(any()),
+        "TaxAuthorityStatus" => list(any()),
+        "TaxCurrencyAmount" => invoice_currency_amount()
+      }
+      
+  """
+  @type invoice_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -173,20 +223,668 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      discounts_breakdown_amount() :: %{
+        "Amount" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Rate" => String.t() | atom()
+      }
+      
+  """
+  @type discounts_breakdown_amount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filters() :: %{
+        "Accounts" => list(String.t() | atom()),
+        "BillSourceAccounts" => list(String.t() | atom()),
+        "InvoiceReceivers" => list(String.t() | atom()),
+        "Names" => list(String.t() | atom())
+      }
+      
+  """
+  @type filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amount_breakdown() :: %{
+        "Discounts" => discounts_breakdown(),
+        "Fees" => fees_breakdown(),
+        "SubTotalAmount" => String.t() | atom(),
+        "Taxes" => taxes_breakdown()
+      }
+      
+  """
+  @type amount_breakdown() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_procurement_portal_validation_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type verify_procurement_portal_validation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_invoice_unit_response() :: %{
+        "InvoiceUnitArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_invoice_unit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      fees_breakdown() :: %{
+        "Breakdown" => list(fees_breakdown_amount()),
+        "TotalAmount" => String.t() | atom()
+      }
+      
+  """
+  @type fees_breakdown() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      purchase_order_data_source() :: %{
+        "EinvoiceDeliveryDocumentType" => list(any()),
+        "PurchaseOrderDataSourceType" => list(any())
+      }
+      
+  """
+  @type purchase_order_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_invoice_unit_response() :: %{
+        "InvoiceUnitArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_invoice_unit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receiver_address() :: %{
+        "AddressLine1" => String.t() | atom(),
+        "AddressLine2" => String.t() | atom(),
+        "AddressLine3" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "CompanyName" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "DistrictOrCounty" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "StateOrRegion" => String.t() | atom()
+      }
+      
+  """
+  @type receiver_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_procurement_portal_preference_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_invoice_unit_request() :: %{
+        optional("AsOf") => non_neg_integer(),
+        required("InvoiceUnitArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_invoice_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      procurement_portal_preference_selector() :: %{
+        "InvoiceUnitArns" => list(String.t() | atom()),
+        "SellerOfRecords" => list(String.t() | atom())
+      }
+      
+  """
+  @type procurement_portal_preference_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_currency_amount() :: %{
+        "AmountBreakdown" => amount_breakdown(),
+        "CurrencyCode" => String.t() | atom(),
+        "CurrencyExchangeDetails" => currency_exchange_details(),
+        "TotalAmount" => String.t() | atom(),
+        "TotalAmountBeforeTax" => String.t() | atom()
+      }
+      
+  """
+  @type invoice_currency_amount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_procurement_portal_preference_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_invoice_unit_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("InvoiceUnitArn") => String.t() | atom(),
+        optional("Rule") => invoice_unit_rule(),
+        optional("TaxInheritanceDisabled") => boolean()
+      }
+      
+  """
+  @type update_invoice_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_invoice_p_d_f_response() :: %{
+        "InvoicePDF" => invoice_p_d_f()
+      }
+      
+  """
+  @type get_invoice_p_d_f_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_procurement_portal_preference_request() :: %{
+        required("ProcurementPortalPreferenceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_procurement_portal_preference_status_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_procurement_portal_preference_status_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      send_procurement_portal_validation_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type send_procurement_portal_validation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      taxes_breakdown_amount() :: %{
+        "Amount" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Rate" => String.t() | atom()
+      }
+      
+  """
+  @type taxes_breakdown_amount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_invoice_units_request() :: %{
+        optional("AsOf") => non_neg_integer(),
+        optional("Filters") => filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_invoice_units_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      taxes_breakdown() :: %{
+        "Breakdown" => list(taxes_breakdown_amount()),
+        "TotalAmount" => String.t() | atom()
+      }
+      
+  """
+  @type taxes_breakdown() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      currency_exchange_details() :: %{
+        "Rate" => String.t() | atom(),
+        "SourceCurrencyCode" => String.t() | atom(),
+        "TargetCurrencyCode" => String.t() | atom()
+      }
+      
+  """
+  @type currency_exchange_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("ResourceTags") => list(resource_tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_invoice_units_response() :: %{
+        "InvoiceUnits" => list(invoice_unit()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_invoice_units_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_procurement_portal_preference_status_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("EinvoiceDeliveryPreferenceStatus") => list(any()),
+        optional("EinvoiceDeliveryPreferenceStatusReason") => String.t() | atom(),
+        required("ProcurementPortalPreferenceArn") => String.t() | atom(),
+        optional("PurchaseOrderRetrievalPreferenceStatus") => list(any()),
+        optional("PurchaseOrderRetrievalPreferenceStatusReason") => String.t() | atom()
+      }
+      
+  """
+  @type update_procurement_portal_preference_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      date_interval() :: %{
+        "EndDate" => [non_neg_integer()],
+        "StartDate" => [non_neg_integer()]
+      }
+      
+  """
+  @type date_interval() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_invoice_unit_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("InvoiceReceiver") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("ResourceTags") => list(resource_tag()),
+        required("Rule") => invoice_unit_rule(),
+        optional("TaxInheritanceDisabled") => boolean()
+      }
+      
+  """
+  @type create_invoice_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_env_preference_input() :: %{
+        "BuyerDomain" => list(any()),
+        "BuyerIdentifier" => String.t() | atom(),
+        "ProcurementPortalInstanceEndpoint" => String.t() | atom(),
+        "ProcurementPortalSharedSecret" => String.t() | atom(),
+        "SupplierDomain" => list(any()),
+        "SupplierIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type test_env_preference_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fees_breakdown_amount() :: %{
+        "Amount" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Rate" => String.t() | atom()
+      }
+      
+  """
+  @type fees_breakdown_amount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_procurement_portal_preference_request() :: %{
-        optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
-        optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
-        optional("ProcurementPortalSharedSecret") => String.t() | atom(),
-        optional("Selector") => procurement_portal_preference_selector(),
-        optional("TestEnvPreference") => test_env_preference_input(),
+        optional("ClientToken") => String.t() | atom(),
         required("Contacts") => list(contact()),
         required("EinvoiceDeliveryEnabled") => [boolean()],
+        optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
+        optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
         required("ProcurementPortalPreferenceArn") => String.t() | atom(),
-        required("PurchaseOrderRetrievalEnabled") => [boolean()]
+        optional("ProcurementPortalSharedSecret") => String.t() | atom(),
+        required("PurchaseOrderRetrievalEnabled") => [boolean()],
+        optional("Selector") => procurement_portal_preference_selector(),
+        optional("TestEnvPreference") => test_env_preference_input()
       }
       
   """
   @type put_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_procurement_portal_preference_response() :: %{
+        "ProcurementPortalPreferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_env_preference() :: %{
+        "BuyerDomain" => list(any()),
+        "BuyerIdentifier" => String.t() | atom(),
+        "ProcurementPortalInstanceEndpoint" => String.t() | atom(),
+        "ProcurementPortalSharedSecret" => String.t() | atom(),
+        "PurchaseOrderRetrievalEndpoint" => String.t() | atom(),
+        "SupplierDomain" => list(any()),
+        "SupplierIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type test_env_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_invoice_unit_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("InvoiceUnitArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_invoice_unit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_profile() :: %{
+        "AccountId" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
+        "ReceiverAddress" => receiver_address(),
+        "ReceiverEmail" => String.t() | atom(),
+        "ReceiverName" => String.t() | atom(),
+        "TaxRegistrationNumber" => String.t() | atom()
+      }
+      
+  """
+  @type invoice_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "ResourceTags" => list(resource_tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_invoice_profile_response() :: %{
+        "Profiles" => list(invoice_profile())
+      }
+      
+  """
+  @type batch_get_invoice_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      supplemental_document() :: %{
+        "DocumentId" => String.t() | atom(),
+        "DocumentType" => list(any()),
+        "DocumentUrl" => String.t() | atom(),
+        "DocumentUrlExpirationDate" => [non_neg_integer()]
+      }
+      
+  """
+  @type supplemental_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_procurement_portal_validation_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("Code") => String.t() | atom(),
+        required("ProcurementPortalPreferenceArn") => String.t() | atom()
+      }
+      
+  """
+  @type verify_procurement_portal_validation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_procurement_portal_validation_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("ProcurementPortalPreferenceArn") => String.t() | atom()
+      }
+      
+  """
+  @type send_procurement_portal_validation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any()),
+        "resourceName" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("ResourceTagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_invoice_p_d_f_request() :: %{
+        required("InvoiceId") => String.t() | atom()
+      }
+      
+  """
+  @type get_invoice_p_d_f_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_procurement_portal_preference_response() :: %{
+        "ProcurementPortalPreference" => procurement_portal_preference()
+      }
+      
+  """
+  @type get_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discounts_breakdown() :: %{
+        "Breakdown" => list(discounts_breakdown_amount()),
+        "TotalAmount" => String.t() | atom()
+      }
+      
+  """
+  @type discounts_breakdown() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_period() :: %{
+        "Month" => integer(),
+        "Year" => integer()
+      }
+      
+  """
+  @type billing_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,599 +923,10 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      discounts_breakdown_amount() :: %{
-        "Amount" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Rate" => String.t() | atom()
-      }
-      
-  """
-  @type discounts_breakdown_amount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      date_interval() :: %{
-        "EndDate" => [non_neg_integer()],
-        "StartDate" => [non_neg_integer()]
-      }
-      
-  """
-  @type date_interval() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_procurement_portal_preference_status_response() :: %{
-        "ProcurementPortalPreferenceArn" => String.t() | atom()
-      }
-      
-  """
-  @type update_procurement_portal_preference_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      invoice_summaries_filter() :: %{
-        "BillingPeriod" => billing_period(),
-        "InvoicingEntity" => String.t() | atom(),
-        "ReceiverRole" => list(any()),
-        "TimeInterval" => date_interval()
-      }
-      
-  """
-  @type invoice_summaries_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoice_p_d_f() :: %{
-        "DocumentUrl" => String.t() | atom(),
-        "DocumentUrlExpirationDate" => [non_neg_integer()],
-        "InvoiceId" => String.t() | atom(),
-        "SupplementalDocuments" => list(supplemental_document())
-      }
-      
-  """
-  @type invoice_p_d_f() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoice_profile() :: %{
-        "AccountId" => String.t() | atom(),
-        "Issuer" => String.t() | atom(),
-        "ReceiverAddress" => receiver_address(),
-        "ReceiverEmail" => String.t() | atom(),
-        "ReceiverName" => String.t() | atom(),
-        "TaxRegistrationNumber" => String.t() | atom()
-      }
-      
-  """
-  @type invoice_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("ResourceTagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_invoice_unit_response() :: %{
-        "InvoiceUnitArn" => String.t() | atom()
-      }
-      
-  """
-  @type update_invoice_unit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      receiver_address() :: %{
-        "AddressLine1" => String.t() | atom(),
-        "AddressLine2" => String.t() | atom(),
-        "AddressLine3" => String.t() | atom(),
-        "City" => String.t() | atom(),
-        "CompanyName" => String.t() | atom(),
-        "CountryCode" => String.t() | atom(),
-        "DistrictOrCounty" => String.t() | atom(),
-        "PostalCode" => String.t() | atom(),
-        "StateOrRegion" => String.t() | atom()
-      }
-      
-  """
-  @type receiver_address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_invoice_units_response() :: %{
-        "InvoiceUnits" => list(invoice_unit()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_invoice_units_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_procurement_portal_preference_response() :: %{
-        "ProcurementPortalPreferenceArn" => String.t() | atom()
-      }
-      
-  """
-  @type delete_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceName" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_invoice_unit_request() :: %{
-        required("InvoiceUnitArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_invoice_unit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_invoice_p_d_f_request() :: %{
-        required("InvoiceId") => String.t() | atom()
-      }
-      
-  """
-  @type get_invoice_p_d_f_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      taxes_breakdown_amount() :: %{
-        "Amount" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Rate" => String.t() | atom()
-      }
-      
-  """
-  @type taxes_breakdown_amount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoice_summary() :: %{
-        "AccountId" => String.t() | atom(),
-        "BaseCurrencyAmount" => invoice_currency_amount(),
-        "BillSourceAccounts" => list(String.t() | atom()),
-        "BillSourceAccountsTotalCount" => [integer()],
-        "BillType" => list(any()),
-        "BillingPeriod" => billing_period(),
-        "CommercialInvoiceId" => String.t() | atom(),
-        "DueDate" => [non_neg_integer()],
-        "EinvoiceDeliveryStatus" => list(any()),
-        "Entity" => entity(),
-        "InvoiceFrequency" => list(any()),
-        "InvoiceId" => String.t() | atom(),
-        "InvoiceType" => list(any()),
-        "IssuedDate" => [non_neg_integer()],
-        "OriginalInvoiceId" => String.t() | atom(),
-        "PaymentCurrencyAmount" => invoice_currency_amount(),
-        "PurchaseOrderNumber" => String.t() | atom(),
-        "ReceiverRole" => list(any()),
-        "TaxAuthorityStatus" => list(any()),
-        "TaxCurrencyAmount" => invoice_currency_amount()
-      }
-      
-  """
-  @type invoice_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_procurement_portal_preferences_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_procurement_portal_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "ResourceTags" => list(resource_tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      currency_exchange_details() :: %{
-        "Rate" => String.t() | atom(),
-        "SourceCurrencyCode" => String.t() | atom(),
-        "TargetCurrencyCode" => String.t() | atom()
-      }
-      
-  """
-  @type currency_exchange_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_invoice_profile_request() :: %{
-        required("AccountIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_invoice_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      einvoice_delivery_preference() :: %{
-        "ConnectionTestingMethod" => list(any()),
-        "EinvoiceDeliveryActivationDate" => [non_neg_integer()],
-        "EinvoiceDeliveryAttachmentTypes" => list(list(any())()),
-        "EinvoiceDeliveryDocumentTypes" => list(list(any())()),
-        "Protocol" => list(any()),
-        "PurchaseOrderDataSources" => list(purchase_order_data_source())
-      }
-      
-  """
-  @type einvoice_delivery_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_procurement_portal_preference_status_request() :: %{
-        optional("EinvoiceDeliveryPreferenceStatus") => list(any()),
-        optional("EinvoiceDeliveryPreferenceStatusReason") => String.t() | atom(),
-        optional("PurchaseOrderRetrievalPreferenceStatus") => list(any()),
-        optional("PurchaseOrderRetrievalPreferenceStatusReason") => String.t() | atom(),
-        required("ProcurementPortalPreferenceArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_procurement_portal_preference_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoice_currency_amount() :: %{
-        "AmountBreakdown" => amount_breakdown(),
-        "CurrencyCode" => String.t() | atom(),
-        "CurrencyExchangeDetails" => currency_exchange_details(),
-        "TotalAmount" => String.t() | atom(),
-        "TotalAmountBeforeTax" => String.t() | atom()
-      }
-      
-  """
-  @type invoice_currency_amount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      discounts_breakdown() :: %{
-        "Breakdown" => list(discounts_breakdown_amount()),
-        "TotalAmount" => String.t() | atom()
-      }
-      
-  """
-  @type discounts_breakdown() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      contact() :: %{
-        "Email" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type contact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      billing_period() :: %{
-        "Month" => integer(),
-        "Year" => integer()
-      }
-      
-  """
-  @type billing_period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fees_breakdown_amount() :: %{
-        "Amount" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Rate" => String.t() | atom()
-      }
-      
-  """
-  @type fees_breakdown_amount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_env_preference_input() :: %{
-        "BuyerDomain" => list(any()),
-        "BuyerIdentifier" => String.t() | atom(),
-        "ProcurementPortalInstanceEndpoint" => String.t() | atom(),
-        "ProcurementPortalSharedSecret" => String.t() | atom(),
-        "SupplierDomain" => list(any()),
-        "SupplierIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type test_env_preference_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_procurement_portal_preference_request() :: %{
-        required("ProcurementPortalPreferenceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => [integer()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_invoice_units_request() :: %{
-        optional("AsOf") => non_neg_integer(),
-        optional("Filters") => filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_invoice_units_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_procurement_portal_preference_response() :: %{
-        "ProcurementPortalPreferenceArn" => String.t() | atom()
-      }
-      
-  """
-  @type put_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_invoice_p_d_f_response() :: %{
-        "InvoicePDF" => invoice_p_d_f()
-      }
-      
-  """
-  @type get_invoice_p_d_f_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_procurement_portal_preference_response() :: %{
-        "ProcurementPortalPreferenceArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceName" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       tag_resource_response() :: %{}
       
   """
   @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_procurement_portal_preference_response() :: %{
-        "ProcurementPortalPreference" => procurement_portal_preference()
-      }
-      
-  """
-  @type get_procurement_portal_preference_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_env_preference() :: %{
-        "BuyerDomain" => list(any()),
-        "BuyerIdentifier" => String.t() | atom(),
-        "ProcurementPortalInstanceEndpoint" => String.t() | atom(),
-        "ProcurementPortalSharedSecret" => String.t() | atom(),
-        "PurchaseOrderRetrievalEndpoint" => String.t() | atom(),
-        "SupplierDomain" => list(any()),
-        "SupplierIdentifier" => String.t() | atom()
-      }
-      
-  """
-  @type test_env_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoice_unit_rule() :: %{
-        "BillSourceAccounts" => list(String.t() | atom()),
-        "LinkedAccounts" => list(String.t() | atom())
-      }
-      
-  """
-  @type invoice_unit_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_invoice_profile_response() :: %{
-        "Profiles" => list(invoice_profile())
-      }
-      
-  """
-  @type batch_get_invoice_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoice_summaries_selector() :: %{
-        "ResourceType" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type invoice_summaries_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any()),
-        "resourceName" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -829,159 +938,6 @@ defmodule AWS.Invoicing do
       
   """
   @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      supplemental_document() :: %{
-        "DocumentId" => String.t() | atom(),
-        "DocumentType" => list(any()),
-        "DocumentUrl" => String.t() | atom(),
-        "DocumentUrlExpirationDate" => [non_neg_integer()]
-      }
-      
-  """
-  @type supplemental_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_invoice_unit_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("ResourceTags") => list(resource_tag()),
-        optional("TaxInheritanceDisabled") => boolean(),
-        required("InvoiceReceiver") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Rule") => invoice_unit_rule()
-      }
-      
-  """
-  @type create_invoice_unit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_invoice_unit_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Rule") => invoice_unit_rule(),
-        optional("TaxInheritanceDisabled") => boolean(),
-        required("InvoiceUnitArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_invoice_unit_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amount_breakdown() :: %{
-        "Discounts" => discounts_breakdown(),
-        "Fees" => fees_breakdown(),
-        "SubTotalAmount" => String.t() | atom(),
-        "Taxes" => taxes_breakdown()
-      }
-      
-  """
-  @type amount_breakdown() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_procurement_portal_preferences_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProcurementPortalPreferences" => list(procurement_portal_preference_summary())
-      }
-      
-  """
-  @type list_procurement_portal_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filters() :: %{
-        "Accounts" => list(String.t() | atom()),
-        "BillSourceAccounts" => list(String.t() | atom()),
-        "InvoiceReceivers" => list(String.t() | atom()),
-        "Names" => list(String.t() | atom())
-      }
-      
-  """
-  @type filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_invoice_summaries_response() :: %{
-        "InvoiceSummaries" => list(invoice_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_invoice_summaries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_invoice_unit_response() :: %{
-        "InvoiceUnitArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_invoice_unit_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_procurement_portal_preference_request() :: %{
-        required("ProcurementPortalPreferenceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fees_breakdown() :: %{
-        "Breakdown" => list(fees_breakdown_amount()),
-        "TotalAmount" => String.t() | atom()
-      }
-      
-  """
-  @type fees_breakdown() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_invoice_unit_request() :: %{
-        optional("AsOf") => non_neg_integer(),
-        required("InvoiceUnitArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_invoice_unit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1031,166 +987,277 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      list_invoice_summaries_request() :: %{
-        optional("Filter") => invoice_summaries_filter(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Selector") => invoice_summaries_selector()
+      access_denied_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type list_invoice_summaries_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      procurement_portal_preference_selector() :: %{
-        "InvoiceUnitArns" => list(String.t() | atom()),
-        "SellerOfRecords" => list(String.t() | atom())
+      invoice_unit_rule() :: %{
+        "BillSourceAccounts" => list(String.t() | atom()),
+        "LinkedAccounts" => list(String.t() | atom())
       }
       
   """
-  @type procurement_portal_preference_selector() :: %{(String.t() | atom()) => any()}
+  @type invoice_unit_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      taxes_breakdown() :: %{
-        "Breakdown" => list(taxes_breakdown_amount()),
-        "TotalAmount" => String.t() | atom()
+      resource_tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type taxes_breakdown() :: %{(String.t() | atom()) => any()}
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_invoice_unit_response() :: %{
+        "InvoiceUnitArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_invoice_unit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_procurement_portal_preference_request() :: %{
+        required("BuyerDomain") => list(any()),
+        required("BuyerIdentifier") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        required("Contacts") => list(contact()),
+        required("EinvoiceDeliveryEnabled") => [boolean()],
+        optional("EinvoiceDeliveryPreference") => einvoice_delivery_preference(),
+        optional("ProcurementPortalInstanceEndpoint") => String.t() | atom(),
+        required("ProcurementPortalName") => list(any()),
+        optional("ProcurementPortalSharedSecret") => String.t() | atom(),
+        required("PurchaseOrderRetrievalEnabled") => [boolean()],
+        optional("ResourceTags") => list(resource_tag()),
+        optional("Selector") => procurement_portal_preference_selector(),
+        required("SupplierDomain") => list(any()),
+        required("SupplierIdentifier") => String.t() | atom(),
+        optional("TestEnvPreference") => test_env_preference_input()
+      }
+      
+  """
+  @type create_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contact() :: %{
+        "Email" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      einvoice_delivery_preference() :: %{
+        "ConnectionTestingMethod" => list(any()),
+        "EinvoiceDeliveryActivationDate" => [non_neg_integer()],
+        "EinvoiceDeliveryAttachmentTypes" => list(list(any())()),
+        "EinvoiceDeliveryDocumentTypes" => list(list(any())()),
+        "Protocol" => list(any()),
+        "PurchaseOrderDataSources" => list(purchase_order_data_source())
+      }
+      
+  """
+  @type einvoice_delivery_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_procurement_portal_preference_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("ProcurementPortalPreferenceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_procurement_portal_preference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_invoice_summaries_response() :: %{
+        "InvoiceSummaries" => list(invoice_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_invoice_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_invoice_profile_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type create_invoice_unit_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
 
   @type create_procurement_portal_preference_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
           | conflict_exception()
 
   @type delete_invoice_unit_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type delete_procurement_portal_preference_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type get_invoice_p_d_f_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type get_invoice_unit_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type get_procurement_portal_preference_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | internal_server_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type list_invoice_summaries_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type list_invoice_units_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
 
   @type list_procurement_portal_preferences_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
           | conflict_exception()
 
   @type list_tags_for_resource_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type put_procurement_portal_preference_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | internal_server_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+
+  @type send_procurement_portal_validation_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type untag_resource_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type update_invoice_unit_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
   @type update_procurement_portal_preference_status_errors() ::
           throttling_exception()
-          | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | internal_server_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+
+  @type verify_procurement_portal_validation_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -1220,7 +1287,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, batch_get_invoice_profile_errors()}
   def batch_get_invoice_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetInvoiceProfile", input, options)
   end
@@ -1234,7 +1302,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, create_invoice_unit_errors()}
   def create_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInvoiceUnit", input, options)
   end
@@ -1258,7 +1327,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, create_procurement_portal_preference_errors()}
   def create_procurement_portal_preference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProcurementPortalPreference", input, options)
   end
@@ -1272,7 +1342,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, delete_invoice_unit_errors()}
   def delete_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInvoiceUnit", input, options)
   end
@@ -1295,7 +1366,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, delete_procurement_portal_preference_errors()}
   def delete_procurement_portal_preference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProcurementPortalPreference", input, options)
   end
@@ -1316,7 +1388,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, get_invoice_p_d_f_errors()}
   def get_invoice_p_d_f(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInvoicePDF", input, options)
   end
@@ -1330,7 +1403,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, get_invoice_unit_errors()}
   def get_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInvoiceUnit", input, options)
   end
@@ -1352,7 +1426,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, get_procurement_portal_preference_errors()}
   def get_procurement_portal_preference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProcurementPortalPreference", input, options)
   end
@@ -1366,7 +1441,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_invoice_summaries_errors()}
   def list_invoice_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInvoiceSummaries", input, options)
   end
@@ -1381,7 +1457,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_invoice_units_errors()}
   def list_invoice_units(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInvoiceUnits", input, options)
   end
@@ -1404,7 +1481,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_procurement_portal_preferences_errors()}
   def list_procurement_portal_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProcurementPortalPreferences", input, options)
   end
@@ -1418,7 +1496,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1441,9 +1520,37 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, put_procurement_portal_preference_errors()}
   def put_procurement_portal_preference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutProcurementPortalPreference", input, options)
+  end
+
+  @doc """
+  * **This feature API is subject to changing at any time.
+
+  For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).** *
+
+  Sends a validation request for a procurement portal preference. This operation
+  initiates the validation process by issuing a validation code that confirms
+  ownership and connectivity of the configured procurement portal endpoint. Use
+  `VerifyProcurementPortalValidation` to submit the received code and complete
+  validation.
+  """
+  @spec send_procurement_portal_validation(
+          map(),
+          send_procurement_portal_validation_request(),
+          list()
+        ) ::
+          {:ok, send_procurement_portal_validation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_procurement_portal_validation_errors()}
+  def send_procurement_portal_validation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SendProcurementPortalValidation", input, options)
   end
 
   @doc """
@@ -1455,7 +1562,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1469,7 +1577,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1484,7 +1593,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, update_invoice_unit_errors()}
   def update_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInvoiceUnit", input, options)
   end
@@ -1507,8 +1617,35 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, update_procurement_portal_preference_status_errors()}
   def update_procurement_portal_preference_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProcurementPortalPreferenceStatus", input, options)
+  end
+
+  @doc """
+  * **This feature API is subject to changing at any time.
+
+  For more information, see the [Amazon Web Services Service Terms](https://aws.amazon.com/service-terms/) (Betas and Previews).** *
+
+  Submits a validation code to complete the validation of a procurement portal
+  preference. Use this operation after calling `SendProcurementPortalValidation`
+  to confirm ownership and connectivity of the configured procurement portal
+  endpoint.
+  """
+  @spec verify_procurement_portal_validation(
+          map(),
+          verify_procurement_portal_validation_request(),
+          list()
+        ) ::
+          {:ok, verify_procurement_portal_validation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, verify_procurement_portal_validation_errors()}
+  def verify_procurement_portal_validation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "VerifyProcurementPortalValidation", input, options)
   end
 end

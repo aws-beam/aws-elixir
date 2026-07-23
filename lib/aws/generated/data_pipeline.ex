@@ -44,302 +44,14 @@ defmodule AWS.DataPipeline do
 
   ## Example:
       
-      set_status_input() :: %{
-        required("objectIds") => list(String.t() | atom()),
-        required("pipelineId") => String.t() | atom(),
-        required("status") => String.t() | atom()
-      }
-      
-  """
-  @type set_status_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deactivate_pipeline_input() :: %{
-        optional("cancelActive") => boolean(),
-        required("pipelineId") => String.t() | atom()
-      }
-      
-  """
-  @type deactivate_pipeline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_objects_input() :: %{
-        optional("limit") => integer(),
-        optional("marker") => String.t() | atom(),
-        optional("query") => query(),
-        required("pipelineId") => String.t() | atom(),
-        required("sphere") => String.t() | atom()
-      }
-      
-  """
-  @type query_objects_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_deleted_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type pipeline_deleted_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_pipeline_output() :: %{
-        "pipelineId" => String.t() | atom()
-      }
-      
-  """
-  @type create_pipeline_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_pipeline_definition_output() :: %{
-        "errored" => boolean(),
-        "validationErrors" => list(validation_error()),
-        "validationWarnings" => list(validation_warning())
-      }
-      
-  """
-  @type validate_pipeline_definition_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_object() :: %{
-        "fields" => list(field()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type pipeline_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluate_expression_input() :: %{
-        required("expression") => String.t() | atom(),
-        required("objectId") => String.t() | atom(),
-        required("pipelineId") => String.t() | atom()
-      }
-      
-  """
-  @type evaluate_expression_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_pipeline_definition_input() :: %{
-        optional("parameterObjects") => list(parameter_object()),
-        optional("parameterValues") => list(parameter_value()),
-        required("pipelineId") => String.t() | atom(),
-        required("pipelineObjects") => list(pipeline_object())
-      }
-      
-  """
-  @type validate_pipeline_definition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      poll_for_task_input() :: %{
-        optional("hostname") => String.t() | atom(),
-        optional("instanceIdentity") => instance_identity(),
-        required("workerGroup") => String.t() | atom()
-      }
-      
-  """
-  @type poll_for_task_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_output() :: %{}
-      
-  """
-  @type add_tags_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      selector() :: %{
-        "fieldName" => String.t() | atom(),
-        "operator" => operator()
-      }
-      
-  """
-  @type selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_task_progress_output() :: %{
-        "canceled" => boolean()
-      }
-      
-  """
-  @type report_task_progress_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_task_status_input() :: %{
-        optional("errorId") => String.t() | atom(),
-        optional("errorMessage") => String.t() | atom(),
-        optional("errorStackTrace") => String.t() | atom(),
-        required("taskId") => String.t() | atom(),
-        required("taskStatus") => list(any())
-      }
-      
-  """
-  @type set_task_status_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_input() :: %{
-        required("pipelineId") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type add_tags_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_pipeline_definition_output() :: %{
-        "parameterObjects" => list(parameter_object()),
-        "parameterValues" => list(parameter_value()),
+      describe_objects_output() :: %{
+        "hasMoreResults" => boolean(),
+        "marker" => String.t() | atom(),
         "pipelineObjects" => list(pipeline_object())
       }
       
   """
-  @type get_pipeline_definition_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_pipelines_input() :: %{
-        required("pipelineIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_pipelines_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_output() :: %{}
-      
-  """
-  @type remove_tags_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      operator() :: %{
-        "type" => list(any()),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type operator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_pipeline_input() :: %{
-        required("pipelineId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_pipeline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_value() :: %{
-        "id" => String.t() | atom(),
-        "stringValue" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_pipeline_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom(),
-        required("uniqueId") => String.t() | atom()
-      }
-      
-  """
-  @type create_pipeline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_task_status_output() :: %{}
-      
-  """
-  @type set_task_status_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_objects_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,136 +68,13 @@ defmodule AWS.DataPipeline do
 
   ## Example:
       
-      report_task_runner_heartbeat_output() :: %{
-        "terminate" => boolean()
+      add_tags_input() :: %{
+        required("pipelineId") => String.t() | atom(),
+        required("tags") => list(tag())
       }
       
   """
-  @type report_task_runner_heartbeat_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_pipelines_output() :: %{
-        "pipelineDescriptionList" => list(pipeline_description())
-      }
-      
-  """
-  @type describe_pipelines_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      field() :: %{
-        "key" => String.t() | atom(),
-        "refValue" => String.t() | atom(),
-        "stringValue" => String.t() | atom()
-      }
-      
-  """
-  @type field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_error() :: %{
-        "errors" => list(String.t() | atom()),
-        "id" => String.t() | atom()
-      }
-      
-  """
-  @type validation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_task_runner_heartbeat_input() :: %{
-        optional("hostname") => String.t() | atom(),
-        optional("workerGroup") => String.t() | atom(),
-        required("taskrunnerId") => String.t() | atom()
-      }
-      
-  """
-  @type report_task_runner_heartbeat_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluate_expression_output() :: %{
-        "evaluatedExpression" => String.t() | atom()
-      }
-      
-  """
-  @type evaluate_expression_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_object() :: %{
-        "attemptId" => String.t() | atom(),
-        "objects" => map(),
-        "pipelineId" => String.t() | atom(),
-        "taskId" => String.t() | atom()
-      }
-      
-  """
-  @type task_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_objects_output() :: %{
-        "hasMoreResults" => boolean(),
-        "marker" => String.t() | atom(),
-        "pipelineObjects" => list(pipeline_object())
-      }
-      
-  """
-  @type describe_objects_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_pipeline_definition_input() :: %{
-        optional("version") => String.t() | atom(),
-        required("pipelineId") => String.t() | atom()
-      }
-      
-  """
-  @type get_pipeline_definition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_objects_output() :: %{
-        "hasMoreResults" => boolean(),
-        "ids" => list(String.t() | atom()),
-        "marker" => String.t() | atom()
-      }
-      
-  """
-  @type query_objects_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_warning() :: %{
-        "id" => String.t() | atom(),
-        "warnings" => list(String.t() | atom())
-      }
-      
-  """
-  @type validation_warning() :: %{(String.t() | atom()) => any()}
+  @type add_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -506,6 +95,33 @@ defmodule AWS.DataPipeline do
 
   ## Example:
       
+      validate_pipeline_definition_input() :: %{
+        optional("parameterObjects") => list(parameter_object()),
+        optional("parameterValues") => list(parameter_value()),
+        required("pipelineId") => String.t() | atom(),
+        required("pipelineObjects") => list(pipeline_object())
+      }
+      
+  """
+  @type validate_pipeline_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_objects_output() :: %{
+        "hasMoreResults" => boolean(),
+        "ids" => list(String.t() | atom()),
+        "marker" => String.t() | atom()
+      }
+      
+  """
+  @type query_objects_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       internal_service_error() :: %{
         "message" => String.t() | atom()
       }
@@ -517,82 +133,142 @@ defmodule AWS.DataPipeline do
 
   ## Example:
       
-      deactivate_pipeline_output() :: %{}
-      
-  """
-  @type deactivate_pipeline_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      poll_for_task_output() :: %{
-        "taskObject" => task_object()
+      parameter_value() :: %{
+        "id" => String.t() | atom(),
+        "stringValue" => String.t() | atom()
       }
       
   """
-  @type poll_for_task_output() :: %{(String.t() | atom()) => any()}
+  @type parameter_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      activate_pipeline_input() :: %{
-        optional("parameterValues") => list(parameter_value()),
-        optional("startTimestamp") => non_neg_integer(),
-        required("pipelineId") => String.t() | atom()
+      parameter_object() :: %{
+        "attributes" => list(parameter_attribute()),
+        "id" => String.t() | atom()
       }
       
   """
-  @type activate_pipeline_input() :: %{(String.t() | atom()) => any()}
+  @type parameter_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      pipeline_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      get_pipeline_definition_output() :: %{
+        "parameterObjects" => list(parameter_object()),
+        "parameterValues" => list(parameter_value()),
+        "pipelineObjects" => list(pipeline_object())
       }
       
   """
-  @type pipeline_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type get_pipeline_definition_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_pipelines_output() :: %{
-        "hasMoreResults" => boolean(),
-        "marker" => String.t() | atom(),
-        "pipelineIdList" => list(pipeline_id_name())
+      remove_tags_output() :: %{}
+      
+  """
+  @type remove_tags_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      query() :: %{
+        "selectors" => list(selector())
       }
       
   """
-  @type list_pipelines_output() :: %{(String.t() | atom()) => any()}
+  @type query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      task_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      pipeline_object() :: %{
+        "fields" => list(field()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type task_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type pipeline_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_pipeline_definition_output() :: %{
+      activate_pipeline_output() :: %{}
+      
+  """
+  @type activate_pipeline_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_pipeline_definition_output() :: %{
         "errored" => boolean(),
         "validationErrors" => list(validation_error()),
         "validationWarnings" => list(validation_warning())
       }
       
   """
-  @type put_pipeline_definition_output() :: %{(String.t() | atom()) => any()}
+  @type validate_pipeline_definition_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_pipelines_input() :: %{
+        required("pipelineIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_pipelines_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      poll_for_task_input() :: %{
+        optional("hostname") => String.t() | atom(),
+        optional("instanceIdentity") => instance_identity(),
+        required("workerGroup") => String.t() | atom()
+      }
+      
+  """
+  @type poll_for_task_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluate_expression_input() :: %{
+        required("expression") => String.t() | atom(),
+        required("objectId") => String.t() | atom(),
+        required("pipelineId") => String.t() | atom()
+      }
+      
+  """
+  @type evaluate_expression_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operator() :: %{
+        "type" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -612,24 +288,68 @@ defmodule AWS.DataPipeline do
 
   ## Example:
       
-      query() :: %{
-        "selectors" => list(selector())
+      list_pipelines_output() :: %{
+        "hasMoreResults" => boolean(),
+        "marker" => String.t() | atom(),
+        "pipelineIdList" => list(pipeline_id_name())
       }
       
   """
-  @type query() :: %{(String.t() | atom()) => any()}
+  @type list_pipelines_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      remove_tags_input() :: %{
-        required("pipelineId") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
+      poll_for_task_output() :: %{
+        "taskObject" => task_object()
       }
       
   """
-  @type remove_tags_input() :: %{(String.t() | atom()) => any()}
+  @type poll_for_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deactivate_pipeline_output() :: %{}
+      
+  """
+  @type deactivate_pipeline_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type task_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_warning() :: %{
+        "id" => String.t() | atom(),
+        "warnings" => list(String.t() | atom())
+      }
+      
+  """
+  @type validation_warning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_task_progress_output() :: %{
+        "canceled" => boolean()
+      }
+      
+  """
+  @type report_task_progress_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -649,25 +369,165 @@ defmodule AWS.DataPipeline do
 
   ## Example:
       
-      report_task_progress_input() :: %{
-        optional("fields") => list(field()),
-        required("taskId") => String.t() | atom()
+      validation_error() :: %{
+        "errors" => list(String.t() | atom()),
+        "id" => String.t() | atom()
       }
       
   """
-  @type report_task_progress_input() :: %{(String.t() | atom()) => any()}
+  @type validation_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      instance_identity() :: %{
-        "document" => String.t() | atom(),
-        "signature" => String.t() | atom()
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type instance_identity() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_pipeline_input() :: %{
+        required("pipelineId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_deleted_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type pipeline_deleted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_task_status_output() :: %{}
+      
+  """
+  @type set_task_status_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_pipelines_output() :: %{
+        "pipelineDescriptionList" => list(pipeline_description())
+      }
+      
+  """
+  @type describe_pipelines_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_pipeline_input() :: %{
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("uniqueId") => String.t() | atom()
+      }
+      
+  """
+  @type create_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluate_expression_output() :: %{
+        "evaluatedExpression" => String.t() | atom()
+      }
+      
+  """
+  @type evaluate_expression_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      selector() :: %{
+        "fieldName" => String.t() | atom(),
+        "operator" => operator()
+      }
+      
+  """
+  @type selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_objects_input() :: %{
+        optional("limit") => integer(),
+        optional("marker") => String.t() | atom(),
+        required("pipelineId") => String.t() | atom(),
+        optional("query") => query(),
+        required("sphere") => String.t() | atom()
+      }
+      
+  """
+  @type query_objects_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_status_input() :: %{
+        required("objectIds") => list(String.t() | atom()),
+        required("pipelineId") => String.t() | atom(),
+        required("status") => String.t() | atom()
+      }
+      
+  """
+  @type set_status_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_pipeline_output() :: %{
+        "pipelineId" => String.t() | atom()
+      }
+      
+  """
+  @type create_pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_task_runner_heartbeat_output() :: %{
+        "terminate" => boolean()
+      }
+      
+  """
+  @type report_task_runner_heartbeat_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,22 +545,116 @@ defmodule AWS.DataPipeline do
 
   ## Example:
       
-      activate_pipeline_output() :: %{}
+      field() :: %{
+        "key" => String.t() | atom(),
+        "refValue" => String.t() | atom(),
+        "stringValue" => String.t() | atom()
+      }
       
   """
-  @type activate_pipeline_output() :: %{}
+  @type field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      parameter_object() :: %{
-        "attributes" => list(parameter_attribute()),
-        "id" => String.t() | atom()
+      report_task_runner_heartbeat_input() :: %{
+        optional("hostname") => String.t() | atom(),
+        required("taskrunnerId") => String.t() | atom(),
+        optional("workerGroup") => String.t() | atom()
       }
       
   """
-  @type parameter_object() :: %{(String.t() | atom()) => any()}
+  @type report_task_runner_heartbeat_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_pipeline_definition_input() :: %{
+        required("pipelineId") => String.t() | atom(),
+        optional("version") => String.t() | atom()
+      }
+      
+  """
+  @type get_pipeline_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_task_status_input() :: %{
+        optional("errorId") => String.t() | atom(),
+        optional("errorMessage") => String.t() | atom(),
+        optional("errorStackTrace") => String.t() | atom(),
+        required("taskId") => String.t() | atom(),
+        required("taskStatus") => list(any())
+      }
+      
+  """
+  @type set_task_status_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type pipeline_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deactivate_pipeline_input() :: %{
+        optional("cancelActive") => boolean(),
+        required("pipelineId") => String.t() | atom()
+      }
+      
+  """
+  @type deactivate_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_object() :: %{
+        "attemptId" => String.t() | atom(),
+        "objects" => map(),
+        "pipelineId" => String.t() | atom(),
+        "taskId" => String.t() | atom()
+      }
+      
+  """
+  @type task_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activate_pipeline_input() :: %{
+        optional("parameterValues") => list(parameter_value()),
+        required("pipelineId") => String.t() | atom(),
+        optional("startTimestamp") => non_neg_integer()
+      }
+      
+  """
+  @type activate_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_identity() :: %{
+        "document" => String.t() | atom(),
+        "signature" => String.t() | atom()
+      }
+      
+  """
+  @type instance_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,105 +668,151 @@ defmodule AWS.DataPipeline do
   """
   @type pipeline_id_name() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      report_task_progress_input() :: %{
+        optional("fields") => list(field()),
+        required("taskId") => String.t() | atom()
+      }
+      
+  """
+  @type report_task_progress_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_input() :: %{
+        required("pipelineId") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type remove_tags_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_output() :: %{}
+      
+  """
+  @type add_tags_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_pipeline_definition_output() :: %{
+        "errored" => boolean(),
+        "validationErrors" => list(validation_error()),
+        "validationWarnings" => list(validation_warning())
+      }
+      
+  """
+  @type put_pipeline_definition_output() :: %{(String.t() | atom()) => any()}
+
   @type activate_pipeline_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   @type add_tags_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
-  @type create_pipeline_errors() :: internal_service_error() | invalid_request_exception()
+  @type create_pipeline_errors() :: invalid_request_exception() | internal_service_error()
 
   @type deactivate_pipeline_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   @type delete_pipeline_errors() ::
-          pipeline_not_found_exception() | internal_service_error() | invalid_request_exception()
+          pipeline_not_found_exception() | invalid_request_exception() | internal_service_error()
 
   @type describe_objects_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   @type describe_pipelines_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   @type evaluate_expression_errors() ::
-          task_not_found_exception()
-          | pipeline_not_found_exception()
-          | internal_service_error()
+          pipeline_not_found_exception()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | task_not_found_exception()
+          | internal_service_error()
 
   @type get_pipeline_definition_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
-  @type list_pipelines_errors() :: internal_service_error() | invalid_request_exception()
+  @type list_pipelines_errors() :: invalid_request_exception() | internal_service_error()
 
   @type poll_for_task_errors() ::
-          task_not_found_exception() | internal_service_error() | invalid_request_exception()
+          invalid_request_exception() | task_not_found_exception() | internal_service_error()
 
   @type put_pipeline_definition_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   @type query_objects_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   @type remove_tags_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   @type report_task_progress_errors() ::
-          task_not_found_exception()
-          | pipeline_not_found_exception()
-          | internal_service_error()
+          pipeline_not_found_exception()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | task_not_found_exception()
+          | internal_service_error()
 
   @type report_task_runner_heartbeat_errors() ::
-          internal_service_error() | invalid_request_exception()
+          invalid_request_exception() | internal_service_error()
 
   @type set_status_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   @type set_task_status_errors() ::
-          task_not_found_exception()
-          | pipeline_not_found_exception()
-          | internal_service_error()
+          pipeline_not_found_exception()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | task_not_found_exception()
+          | internal_service_error()
 
   @type validate_pipeline_definition_errors() ::
           pipeline_not_found_exception()
-          | internal_service_error()
           | invalid_request_exception()
           | pipeline_deleted_exception()
+          | internal_service_error()
 
   def metadata do
     %{
@@ -876,7 +876,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, activate_pipeline_errors()}
   def activate_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ActivatePipeline", input, options)
   end
@@ -890,7 +891,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -936,7 +938,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
@@ -957,7 +960,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, deactivate_pipeline_errors()}
   def deactivate_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeactivatePipeline", input, options)
   end
@@ -1007,7 +1011,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -1080,7 +1085,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, describe_objects_errors()}
   def describe_objects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeObjects", input, options)
   end
@@ -1161,7 +1167,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, describe_pipelines_errors()}
   def describe_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipelines", input, options)
   end
@@ -1208,7 +1215,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, evaluate_expression_errors()}
   def evaluate_expression(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EvaluateExpression", input, options)
   end
@@ -1287,7 +1295,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, get_pipeline_definition_errors()}
   def get_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPipelineDefinition", input, options)
   end
@@ -1333,7 +1342,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -1435,7 +1445,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, poll_for_task_errors()}
   def poll_for_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PollForTask", input, options)
   end
@@ -1616,7 +1627,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, put_pipeline_definition_errors()}
   def put_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPipelineDefinition", input, options)
   end
@@ -1668,7 +1680,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, query_objects_errors()}
   def query_objects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QueryObjects", input, options)
   end
@@ -1682,7 +1695,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -1743,7 +1757,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, report_task_progress_errors()}
   def report_task_progress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReportTaskProgress", input, options)
   end
@@ -1793,7 +1808,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, report_task_runner_heartbeat_errors()}
   def report_task_runner_heartbeat(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReportTaskRunnerHeartbeat", input, options)
   end
@@ -1844,7 +1860,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, set_status_errors()}
   def set_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetStatus", input, options)
   end
@@ -1893,7 +1910,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, set_task_status_errors()}
   def set_task_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTaskStatus", input, options)
   end
@@ -2060,7 +2078,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, validate_pipeline_definition_errors()}
   def validate_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidatePipelineDefinition", input, options)
   end

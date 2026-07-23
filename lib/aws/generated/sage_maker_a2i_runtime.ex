@@ -57,21 +57,32 @@ defmodule AWS.SageMakerA2IRuntime do
 
   ## Example:
 
-      conflict_exception() :: %{
+      service_quota_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_human_loop_request() :: %{}
+      describe_human_loop_request() :: %{}
 
   """
-  @type delete_human_loop_request() :: %{}
+  @type describe_human_loop_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -86,10 +97,12 @@ defmodule AWS.SageMakerA2IRuntime do
 
   ## Example:
 
-      describe_human_loop_request() :: %{}
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
 
   """
-  @type describe_human_loop_request() :: %{}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,12 +137,62 @@ defmodule AWS.SageMakerA2IRuntime do
 
   ## Example:
 
-      human_loop_input() :: %{
-        "InputContent" => String.t() | atom()
+      stop_human_loop_response() :: %{}
+
+  """
+  @type stop_human_loop_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_human_loop_request() :: %{
+        optional("DataAttributes") => human_loop_data_attributes(),
+        required("FlowDefinitionArn") => String.t() | atom(),
+        required("HumanLoopInput") => human_loop_input(),
+        required("HumanLoopName") => String.t() | atom()
       }
 
   """
-  @type human_loop_input() :: %{(String.t() | atom()) => any()}
+  @type start_human_loop_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_human_loops_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        required("FlowDefinitionArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortOrder") => list(any())
+      }
+
+  """
+  @type list_human_loops_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_human_loop_request() :: %{
+        required("HumanLoopName") => String.t() | atom()
+      }
+
+  """
+  @type stop_human_loop_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,6 +204,27 @@ defmodule AWS.SageMakerA2IRuntime do
 
   """
   @type human_loop_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_human_loops_response() :: %{
+        "HumanLoopSummaries" => list(human_loop_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_human_loops_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_human_loop_request() :: %{}
+
+  """
+  @type delete_human_loop_request() :: %{}
 
   @typedoc """
 
@@ -161,6 +245,17 @@ defmodule AWS.SageMakerA2IRuntime do
 
   ## Example:
 
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -172,65 +267,12 @@ defmodule AWS.SageMakerA2IRuntime do
 
   ## Example:
 
-      list_human_loops_request() :: %{
-        optional("CreationTimeAfter") => non_neg_integer(),
-        optional("CreationTimeBefore") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortOrder") => list(any()),
-        required("FlowDefinitionArn") => String.t() | atom()
+      human_loop_input() :: %{
+        "InputContent" => String.t() | atom()
       }
 
   """
-  @type list_human_loops_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_human_loops_response() :: %{
-        "HumanLoopSummaries" => list(human_loop_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_human_loops_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_human_loop_request() :: %{
-        optional("DataAttributes") => human_loop_data_attributes(),
-        required("FlowDefinitionArn") => String.t() | atom(),
-        required("HumanLoopInput") => human_loop_input(),
-        required("HumanLoopName") => String.t() | atom()
-      }
-
-  """
-  @type start_human_loop_request() :: %{(String.t() | atom()) => any()}
+  @type human_loop_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -243,78 +285,36 @@ defmodule AWS.SageMakerA2IRuntime do
   """
   @type start_human_loop_response() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      stop_human_loop_request() :: %{
-        required("HumanLoopName") => String.t() | atom()
-      }
-
-  """
-  @type stop_human_loop_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_human_loop_response() :: %{}
-
-  """
-  @type stop_human_loop_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
   @type delete_human_loop_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type describe_human_loop_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type list_human_loops_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   @type start_human_loop_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
-          | internal_server_exception()
+          internal_server_exception()
           | conflict_exception()
+          | throttling_exception()
+          | validation_exception()
+          | service_quota_exceeded_exception()
 
   @type stop_human_loop_errors() ::
-          validation_exception()
-          | throttling_exception()
+          internal_server_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
+          | throttling_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -394,8 +394,8 @@ defmodule AWS.SageMakerA2IRuntime do
           map(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
-          String.t() | atom(),
           String.t() | atom() | nil,
+          String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           list()
@@ -406,12 +406,12 @@ defmodule AWS.SageMakerA2IRuntime do
           | {:error, list_human_loops_errors()}
   def list_human_loops(
         %Client{} = client,
-        creation_time_after \\ nil,
-        creation_time_before \\ nil,
-        flow_definition_arn,
-        max_results \\ nil,
-        next_token \\ nil,
         sort_order \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        flow_definition_arn,
+        creation_time_before \\ nil,
+        creation_time_after \\ nil,
         options \\ []
       ) do
     url_path = "/human-loops"
@@ -419,29 +419,8 @@ defmodule AWS.SageMakerA2IRuntime do
     query_params = []
 
     query_params =
-      if !is_nil(sort_order) do
-        [{"SortOrder", sort_order} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"MaxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(flow_definition_arn) do
-        [{"FlowDefinitionArn", flow_definition_arn} | query_params]
+      if !is_nil(creation_time_after) do
+        [{"CreationTimeAfter", creation_time_after} | query_params]
       else
         query_params
       end
@@ -454,8 +433,29 @@ defmodule AWS.SageMakerA2IRuntime do
       end
 
     query_params =
-      if !is_nil(creation_time_after) do
-        [{"CreationTimeAfter", creation_time_after} | query_params]
+      if !is_nil(flow_definition_arn) do
+        [{"FlowDefinitionArn", flow_definition_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"SortOrder", sort_order} | query_params]
       else
         query_params
       end

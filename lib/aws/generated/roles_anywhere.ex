@@ -31,20 +31,220 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      subject_detail() :: %{
-        "createdAt" => [non_neg_integer()],
-        "credentials" => list(credential_summary()),
-        "enabled" => [boolean()],
-        "instanceProperties" => list(instance_property()),
-        "lastSeenAt" => [non_neg_integer()],
-        "subjectArn" => [String.t() | atom()],
-        "subjectId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()],
-        "x509Subject" => [String.t() | atom()]
+      mapping_rule() :: %{
+        "specifier" => [String.t() | atom()]
       }
 
   """
-  @type subject_detail() :: %{(String.t() | atom()) => any()}
+  @type mapping_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source() :: %{
+        "sourceData" => list(),
+        "sourceType" => String.t() | atom()
+      }
+
+  """
+  @type source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_notification_settings_response() :: %{
+        "trustAnchor" => trust_anchor_detail()
+      }
+
+  """
+  @type reset_notification_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      crl_detail_response() :: %{
+        required("crl") => crl_detail()
+      }
+
+  """
+  @type crl_detail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subjects_response() :: %{
+        optional("nextToken") => [String.t() | atom()],
+        optional("subjects") => list(subject_summary())
+      }
+
+  """
+  @type list_subjects_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_detail() :: %{
+        "acceptRoleSessionName" => [boolean()],
+        "attributeMappings" => list(attribute_mapping()),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "durationSeconds" => [integer()],
+        "enabled" => [boolean()],
+        "managedPolicyArns" => list([String.t() | atom()]()),
+        "name" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "requireInstanceProperties" => [boolean()],
+        "roleArns" => list(String.t() | atom()),
+        "sessionPolicy" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type profile_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trust_anchor_request() :: %{
+        optional("enabled") => [boolean()],
+        required("name") => String.t() | atom(),
+        optional("notificationSettings") => list(notification_setting()),
+        required("source") => source(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_trust_anchor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_crls_response() :: %{
+        optional("crls") => list(crl_detail()),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_crls_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_notification_settings_request() :: %{
+        required("notificationSettings") => list(notification_setting()),
+        required("trustAnchorId") => String.t() | atom()
+      }
+
+  """
+  @type put_notification_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_attribute_mapping_response() :: %{
+        "profile" => profile_detail()
+      }
+
+  """
+  @type delete_attribute_mapping_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subject_detail_response() :: %{
+        optional("subject") => subject_detail()
+      }
+
+  """
+  @type subject_detail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_notification_settings_response() :: %{
+        "trustAnchor" => trust_anchor_detail()
+      }
+
+  """
+  @type put_notification_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_request() :: %{
+        optional("nextToken") => [String.t() | atom()],
+        optional("pageSize") => [integer()]
+      }
+
+  """
+  @type list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,45 +266,16 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
+      import_crl_request() :: %{
+        required("crlData") => [binary()],
+        optional("enabled") => [boolean()],
+        required("name") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("trustAnchorArn") => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_detail_response() :: %{
-        optional("profile") => profile_detail()
-      }
-
-  """
-  @type profile_detail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_notification_settings_request() :: %{
-        required("notificationSettings") => list(notification_setting()),
-        required("trustAnchorId") => String.t() | atom()
-      }
-
-  """
-  @type put_notification_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
+  @type import_crl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,22 +290,19 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      scalar_crl_request() :: %{}
+      tag_resource_response() :: %{}
 
   """
-  @type scalar_crl_request() :: %{}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      notification_setting_key() :: %{
-        "channel" => String.t() | atom(),
-        "event" => String.t() | atom()
-      }
+      scalar_trust_anchor_request() :: %{}
 
   """
-  @type notification_setting_key() :: %{(String.t() | atom()) => any()}
+  @type scalar_trust_anchor_request() :: %{}
 
   @typedoc """
 
@@ -157,24 +325,48 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      subject_detail_response() :: %{
-        optional("subject") => subject_detail()
-      }
+      scalar_subject_request() :: %{}
 
   """
-  @type subject_detail_response() :: %{(String.t() | atom()) => any()}
+  @type scalar_subject_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
+      list_tags_for_resource_response() :: %{
+        optional("tags") => list(tag())
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_setting_detail() :: %{
+        "channel" => String.t() | atom(),
+        "configuredBy" => [String.t() | atom()],
+        "enabled" => [boolean()],
+        "event" => String.t() | atom(),
+        "threshold" => [integer()]
+      }
+
+  """
+  @type notification_setting_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -192,66 +384,33 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      list_subjects_response() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        optional("subjects") => list(subject_summary())
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type list_subjects_response() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_crls_response() :: %{
-        optional("crls") => list(crl_detail()),
-        optional("nextToken") => [String.t() | atom()]
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
       }
 
   """
-  @type list_crls_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      crl_detail() :: %{
-        "createdAt" => [non_neg_integer()],
-        "crlArn" => [String.t() | atom()],
-        "crlData" => [binary()],
-        "crlId" => String.t() | atom(),
-        "enabled" => [boolean()],
-        "name" => [String.t() | atom()],
-        "trustAnchorArn" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
+      scalar_crl_request() :: %{}
 
   """
-  @type crl_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_trust_anchor_request() :: %{
-        optional("name") => String.t() | atom(),
-        optional("source") => source()
-      }
-
-  """
-  @type update_trust_anchor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_attribute_mapping_response() :: %{
-        "profile" => profile_detail()
-      }
-
-  """
-  @type delete_attribute_mapping_response() :: %{(String.t() | atom()) => any()}
+  @type scalar_crl_request() :: %{}
 
   @typedoc """
 
@@ -262,11 +421,11 @@ defmodule AWS.RolesAnywhere do
         optional("durationSeconds") => [integer()],
         optional("enabled") => [boolean()],
         optional("managedPolicyArns") => list([String.t() | atom()]()),
-        optional("requireInstanceProperties") => [boolean()],
-        optional("sessionPolicy") => [String.t() | atom()],
-        optional("tags") => list(tag()),
         required("name") => String.t() | atom(),
-        required("roleArns") => list(String.t() | atom())
+        optional("requireInstanceProperties") => [boolean()],
+        required("roleArns") => list(String.t() | atom()),
+        optional("sessionPolicy") => [String.t() | atom()],
+        optional("tags") => list(tag())
       }
 
   """
@@ -276,23 +435,42 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
+      subject_detail() :: %{
+        "createdAt" => [non_neg_integer()],
+        "credentials" => list(credential_summary()),
+        "enabled" => [boolean()],
+        "instanceProperties" => list(instance_property()),
+        "lastSeenAt" => [non_neg_integer()],
+        "subjectArn" => [String.t() | atom()],
+        "subjectId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "x509Subject" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type subject_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      mapping_rule() :: %{
-        "specifier" => [String.t() | atom()]
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type mapping_rule() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_detail_response() :: %{
+        optional("profile") => profile_detail()
+      }
+
+  """
+  @type profile_detail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,13 +510,49 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      delete_attribute_mapping_request() :: %{
+        required("certificateField") => String.t() | atom(),
+        optional("specifiers") => list([String.t() | atom()]())
       }
 
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type delete_attribute_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_trust_anchor_request() :: %{
+        optional("name") => String.t() | atom(),
+        optional("source") => source()
+      }
+
+  """
+  @type update_trust_anchor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_notification_settings_request() :: %{
+        required("notificationSettingKeys") => list(notification_setting_key()),
+        required("trustAnchorId") => String.t() | atom()
+      }
+
+  """
+  @type reset_notification_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_setting_key() :: %{
+        "channel" => String.t() | atom(),
+        "event" => String.t() | atom()
+      }
+
+  """
+  @type notification_setting_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,113 +570,24 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        optional("tags") => list(tag())
+      trust_anchor_detail_response() :: %{
+        required("trustAnchor") => trust_anchor_detail()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type trust_anchor_detail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      profile_detail() :: %{
-        "acceptRoleSessionName" => [boolean()],
-        "attributeMappings" => list(attribute_mapping()),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "durationSeconds" => [integer()],
-        "enabled" => [boolean()],
-        "managedPolicyArns" => list([String.t() | atom()]()),
-        "name" => String.t() | atom(),
-        "profileArn" => String.t() | atom(),
-        "profileId" => String.t() | atom(),
-        "requireInstanceProperties" => [boolean()],
-        "roleArns" => list(String.t() | atom()),
-        "sessionPolicy" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
+      list_trust_anchors_response() :: %{
+        optional("nextToken") => [String.t() | atom()],
+        optional("trustAnchors") => list(trust_anchor_detail())
       }
 
   """
-  @type profile_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_attribute_mapping_request() :: %{
-        optional("specifiers") => list([String.t() | atom()]()),
-        required("certificateField") => String.t() | atom()
-      }
-
-  """
-  @type delete_attribute_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scalar_subject_request() :: %{}
-
-  """
-  @type scalar_subject_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source() :: %{
-        "sourceData" => list(),
-        "sourceType" => String.t() | atom()
-      }
-
-  """
-  @type source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_attribute_mapping_response() :: %{
-        "profile" => profile_detail()
-      }
-
-  """
-  @type put_attribute_mapping_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_property() :: %{
-        "failed" => [boolean()],
-        "properties" => map(),
-        "seenAt" => [non_neg_integer()]
-      }
-
-  """
-  @type instance_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
+  @type list_trust_anchors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,104 +605,42 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      put_notification_settings_response() :: %{
-        "trustAnchor" => trust_anchor_detail()
+      crl_detail() :: %{
+        "createdAt" => [non_neg_integer()],
+        "crlArn" => [String.t() | atom()],
+        "crlData" => [binary()],
+        "crlId" => String.t() | atom(),
+        "enabled" => [boolean()],
+        "name" => [String.t() | atom()],
+        "trustAnchorArn" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type put_notification_settings_response() :: %{(String.t() | atom()) => any()}
+  @type crl_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
+      put_attribute_mapping_response() :: %{
+        "profile" => profile_detail()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type put_attribute_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
+      put_attribute_mapping_request() :: %{
+        required("certificateField") => String.t() | atom(),
+        required("mappingRules") => list(mapping_rule())
       }
 
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_notification_settings_response() :: %{
-        "trustAnchor" => trust_anchor_detail()
-      }
-
-  """
-  @type reset_notification_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trust_anchor_detail_response() :: %{
-        required("trustAnchor") => trust_anchor_detail()
-      }
-
-  """
-  @type trust_anchor_detail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_crl_request() :: %{
-        optional("enabled") => [boolean()],
-        optional("tags") => list(tag()),
-        required("crlData") => [binary()],
-        required("name") => String.t() | atom(),
-        required("trustAnchorArn") => String.t() | atom()
-      }
-
-  """
-  @type import_crl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_request() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        optional("pageSize") => [integer()]
-      }
-
-  """
-  @type list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scalar_trust_anchor_request() :: %{}
-
-  """
-  @type scalar_trust_anchor_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trust_anchors_response() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        optional("trustAnchors") => list(trust_anchor_detail())
-      }
-
-  """
-  @type list_trust_anchors_response() :: %{(String.t() | atom()) => any()}
+  @type put_attribute_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -597,77 +660,14 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
-      reset_notification_settings_request() :: %{
-        required("notificationSettingKeys") => list(notification_setting_key()),
-        required("trustAnchorId") => String.t() | atom()
+      instance_property() :: %{
+        "failed" => [boolean()],
+        "properties" => map(),
+        "seenAt" => [non_neg_integer()]
       }
 
   """
-  @type reset_notification_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_trust_anchor_request() :: %{
-        optional("enabled") => [boolean()],
-        optional("notificationSettings") => list(notification_setting()),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom(),
-        required("source") => source()
-      }
-
-  """
-  @type create_trust_anchor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      crl_detail_response() :: %{
-        required("crl") => crl_detail()
-      }
-
-  """
-  @type crl_detail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_setting_detail() :: %{
-        "channel" => String.t() | atom(),
-        "configuredBy" => [String.t() | atom()],
-        "enabled" => [boolean()],
-        "event" => String.t() | atom(),
-        "threshold" => [integer()]
-      }
-
-  """
-  @type notification_setting_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_attribute_mapping_request() :: %{
-        required("certificateField") => String.t() | atom(),
-        required("mappingRules") => list(mapping_rule())
-      }
-
-  """
-  @type put_attribute_mapping_request() :: %{(String.t() | atom()) => any()}
+  @type instance_property() :: %{(String.t() | atom()) => any()}
 
   @type create_profile_errors() :: validation_exception() | access_denied_exception()
 
@@ -727,10 +727,10 @@ defmodule AWS.RolesAnywhere do
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception()
-          | validation_exception()
+          validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | too_many_tags_exception()
 
   @type untag_resource_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -851,8 +851,8 @@ defmodule AWS.RolesAnywhere do
 
     {query_params, input} =
       [
-        {"certificateField", "certificateField"},
-        {"specifiers", "specifiers"}
+        {"specifiers", "specifiers"},
+        {"certificateField", "certificateField"}
       ]
       |> Request.build_params(input)
 
@@ -1293,21 +1293,21 @@ defmodule AWS.RolesAnywhere do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_crls_errors()}
-  def list_crls(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_crls(%Client{} = client, page_size \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/crls"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -1327,21 +1327,21 @@ defmodule AWS.RolesAnywhere do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_profiles_errors()}
-  def list_profiles(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_profiles(%Client{} = client, page_size \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/profiles"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -1361,21 +1361,21 @@ defmodule AWS.RolesAnywhere do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_subjects_errors()}
-  def list_subjects(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_subjects(%Client{} = client, page_size \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/subjects"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end
@@ -1423,21 +1423,21 @@ defmodule AWS.RolesAnywhere do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_trust_anchors_errors()}
-  def list_trust_anchors(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
+  def list_trust_anchors(%Client{} = client, page_size \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/trustanchors"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(page_size) do
-        [{"pageSize", page_size} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
       else
         query_params
       end

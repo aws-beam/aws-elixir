@@ -13,302 +13,183 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      cancel_job_request() :: %{}
-
-  """
-  @type cancel_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      video_overlay() :: %{
-        "Crop" => video_overlay_crop(),
-        "EndTimecode" => String.t() | atom(),
-        "InitialPosition" => video_overlay_position(),
-        "Input" => video_overlay_input(),
-        "Playback" => list(any()),
-        "StartTimecode" => String.t() | atom(),
-        "Transitions" => list(video_overlay_transition())
+      job() :: %{
+        "AccelerationSettings" => acceleration_settings(),
+        "AccelerationStatus" => list(any()),
+        "Arn" => String.t() | atom(),
+        "BillingTagsSource" => list(any()),
+        "ClientRequestToken" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "CurrentPhase" => list(any()),
+        "ElementalInferenceConfiguration" => elemental_inference_configuration(),
+        "ErrorCode" => integer(),
+        "ErrorMessage" => String.t() | atom(),
+        "HopDestinations" => list(hop_destination()),
+        "Id" => String.t() | atom(),
+        "JobEngineVersionRequested" => String.t() | atom(),
+        "JobEngineVersionUsed" => String.t() | atom(),
+        "JobPercentComplete" => integer(),
+        "JobTemplate" => String.t() | atom(),
+        "LastShareDetails" => String.t() | atom(),
+        "Messages" => job_messages(),
+        "OutputGroupDetails" => list(output_group_detail()),
+        "Priority" => integer(),
+        "Queue" => String.t() | atom(),
+        "QueueTransitions" => list(queue_transition()),
+        "RetryCount" => integer(),
+        "Role" => String.t() | atom(),
+        "Settings" => job_settings(),
+        "ShareStatus" => list(any()),
+        "SimulateReservedQueue" => list(any()),
+        "Status" => list(any()),
+        "StatusUpdateInterval" => list(any()),
+        "Timing" => timing(),
+        "UserMetadata" => map(),
+        "Warnings" => list(warning_group())
       }
 
   """
-  @type video_overlay() :: %{(String.t() | atom()) => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deinterlacer() :: %{
-        "Algorithm" => list(any()),
-        "Control" => list(any()),
-        "Mode" => list(any())
+      disassociate_certificate_request() :: %{}
+
+  """
+  @type disassociate_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      track_source_settings() :: %{
+        "StreamNumber" => integer(),
+        "TrackNumber" => integer()
       }
 
   """
-  @type deinterlacer() :: %{(String.t() | atom()) => any()}
+  @type track_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      xavc4k_intra_vbr_profile_settings() :: %{
-        "XavcClass" => list(any())
+      dvb_sub_source_settings() :: %{
+        "Pid" => integer()
       }
 
   """
-  @type xavc4k_intra_vbr_profile_settings() :: %{(String.t() | atom()) => any()}
+  @type dvb_sub_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_resource_share_response() :: %{}
-
-  """
-  @type create_resource_share_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      output_detail() :: %{
-        "DurationInMs" => integer(),
-        "VideoDetails" => video_detail()
+      probe_request() :: %{
+        optional("InputFiles") => list(probe_input_file())
       }
 
   """
-  @type output_detail() :: %{(String.t() | atom()) => any()}
+  @type probe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      mp4_settings() :: %{
-        "AudioDuration" => list(any()),
-        "C2paManifest" => list(any()),
-        "CertificateSecret" => String.t() | atom(),
-        "CslgAtom" => list(any()),
-        "CttsVersion" => integer(),
-        "FreeSpaceBox" => list(any()),
-        "MoovPlacement" => list(any()),
-        "Mp4MajorBrand" => String.t() | atom(),
-        "SigningKmsKey" => String.t() | atom()
+      s3_destination_settings() :: %{
+        "AccessControl" => s3_destination_access_control(),
+        "Encryption" => s3_encryption_settings(),
+        "StorageClass" => list(any())
       }
 
   """
-  @type mp4_settings() :: %{(String.t() | atom()) => any()}
+  @type s3_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      acceleration_settings() :: %{
-        "Mode" => list(any())
+      frame_rate() :: %{
+        "Denominator" => integer(),
+        "Numerator" => integer()
       }
 
   """
-  @type acceleration_settings() :: %{(String.t() | atom()) => any()}
+  @type frame_rate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      file_group_settings() :: %{
-        "Destination" => String.t() | atom(),
-        "DestinationSettings" => destination_settings()
+      delete_queue_request() :: %{}
+
+  """
+  @type delete_queue_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      caption_source_settings() :: %{
+        "AncillarySourceSettings" => ancillary_source_settings(),
+        "DvbSubSourceSettings" => dvb_sub_source_settings(),
+        "EmbeddedSourceSettings" => embedded_source_settings(),
+        "FileSourceSettings" => file_source_settings(),
+        "SourceType" => list(any()),
+        "TeletextSourceSettings" => teletext_source_settings(),
+        "TrackSourceSettings" => track_source_settings(),
+        "WebvttHlsSourceSettings" => webvtt_hls_source_settings()
       }
 
   """
-  @type file_group_settings() :: %{(String.t() | atom()) => any()}
+  @type caption_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_preset_response() :: %{}
-
-  """
-  @type delete_preset_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      motion_image_insertion_framerate() :: %{
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer()
-      }
-
-  """
-  @type motion_image_insertion_framerate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mxf_settings() :: %{
-        "AfdSignaling" => list(any()),
-        "Profile" => list(any()),
-        "UncompressedAudioWrapping" => list(any()),
-        "XavcProfileSettings" => mxf_xavc_profile_settings()
-      }
-
-  """
-  @type mxf_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_queue_response() :: %{
-        "Queue" => queue()
-      }
-
-  """
-  @type get_queue_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Arn") => String.t() | atom(),
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_job_template_request() :: %{
-        optional("AccelerationSettings") => acceleration_settings(),
-        optional("Category") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("HopDestinations") => list(hop_destination()),
-        optional("Priority") => integer(),
-        optional("Queue") => String.t() | atom(),
-        optional("Settings") => job_template_settings(),
-        optional("StatusUpdateInterval") => list(any())
-      }
-
-  """
-  @type update_job_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prores_settings() :: %{
-        "ChromaSampling" => list(any()),
-        "CodecProfile" => list(any()),
+      xavc_settings() :: %{
+        "AdaptiveQuantization" => list(any()),
+        "EntropyEncoding" => list(any()),
         "FramerateControl" => list(any()),
         "FramerateConversionAlgorithm" => list(any()),
         "FramerateDenominator" => integer(),
         "FramerateNumerator" => integer(),
-        "InterlaceMode" => list(any()),
-        "ParControl" => list(any()),
-        "ParDenominator" => integer(),
-        "ParNumerator" => integer(),
         "PerFrameMetrics" => list(list(any())()),
-        "ScanTypeConversionMode" => list(any()),
+        "Profile" => list(any()),
         "SlowPal" => list(any()),
-        "Telecine" => list(any())
+        "Softness" => integer(),
+        "SpatialAdaptiveQuantization" => list(any()),
+        "TemporalAdaptiveQuantization" => list(any()),
+        "Xavc4kIntraCbgProfileSettings" => xavc4k_intra_cbg_profile_settings(),
+        "Xavc4kIntraVbrProfileSettings" => xavc4k_intra_vbr_profile_settings(),
+        "Xavc4kProfileSettings" => xavc4k_profile_settings(),
+        "XavcHdIntraCbgProfileSettings" => xavc_hd_intra_cbg_profile_settings(),
+        "XavcHdProfileSettings" => xavc_hd_profile_settings()
       }
 
   """
-  @type prores_settings() :: %{(String.t() | atom()) => any()}
+  @type xavc_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_job_template_response() :: %{
-        "JobTemplate" => job_template()
+      output() :: %{
+        "AudioDescriptions" => list(audio_description()),
+        "CaptionDescriptions" => list(caption_description()),
+        "ContainerSettings" => container_settings(),
+        "Extension" => String.t() | atom(),
+        "NameModifier" => String.t() | atom(),
+        "OutputSettings" => output_settings(),
+        "Preset" => String.t() | atom(),
+        "VideoDescription" => video_description()
       }
 
   """
-  @type create_job_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      advanced_input_filter_settings() :: %{
-        "AddTexture" => list(any()),
-        "Sharpening" => list(any())
-      }
-
-  """
-  @type advanced_input_filter_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_queues_request() :: %{
-        optional("ListBy") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Order") => list(any())
-      }
-
-  """
-  @type list_queues_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      partner_watermarking() :: %{
-        "NexguardFileMarkerSettings" => nex_guard_file_marker_settings()
-      }
-
-  """
-  @type partner_watermarking() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container() :: %{
-        "Duration" => float(),
-        "Format" => list(any()),
-        "StartTimecode" => String.t() | atom(),
-        "Tracks" => list(track())
-      }
-
-  """
-  @type container() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rectangle() :: %{
-        "Height" => integer(),
-        "Width" => integer(),
-        "X" => integer(),
-        "Y" => integer()
-      }
-
-  """
-  @type rectangle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      force_include_rendition_size() :: %{
-        "Height" => integer(),
-        "Width" => integer()
-      }
-
-  """
-  @type force_include_rendition_size() :: %{(String.t() | atom()) => any()}
+  @type output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -329,669 +210,64 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      create_job_response() :: %{
-        "Job" => job()
+      track() :: %{
+        "AudioProperties" => audio_properties(),
+        "Codec" => list(any()),
+        "DataProperties" => data_properties(),
+        "Duration" => float(),
+        "Index" => integer(),
+        "TrackType" => list(any()),
+        "VideoProperties" => video_properties()
       }
 
   """
-  @type create_job_response() :: %{(String.t() | atom()) => any()}
+  @type track() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_job_template_response() :: %{}
-
-  """
-  @type delete_job_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_caption_language_mapping() :: %{
-        "CaptionChannel" => integer(),
-        "CustomLanguageCode" => String.t() | atom(),
-        "LanguageCode" => list(any()),
-        "LanguageDescription" => String.t() | atom()
+      data_properties() :: %{
+        "LanguageCode" => String.t() | atom()
       }
 
   """
-  @type hls_caption_language_mapping() :: %{(String.t() | atom()) => any()}
+  @type data_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_preset_request() :: %{
-        optional("Category") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom(),
-        required("Settings") => preset_settings()
-      }
-
-  """
-  @type create_preset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_encryption_settings() :: %{
-        "EncryptionType" => list(any()),
-        "KmsEncryptionContext" => String.t() | atom(),
-        "KmsKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type s3_encryption_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resource_share_request() :: %{
-        required("JobId") => String.t() | atom(),
-        required("SupportCaseId") => String.t() | atom()
-      }
-
-  """
-  @type create_resource_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_jobs_query_request() :: %{
-        optional("FilterList") => list(jobs_query_filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Order") => list(any())
-      }
-
-  """
-  @type start_jobs_query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mp2_settings() :: %{
-        "AudioDescriptionMix" => list(any()),
-        "Bitrate" => integer(),
-        "Channels" => integer(),
-        "SampleRate" => integer()
-      }
-
-  """
-  @type mp2_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      jobs_query_filter() :: %{
-        "Key" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type jobs_query_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extended_data_services() :: %{
-        "CopyProtectionAction" => list(any()),
-        "VchipAction" => list(any())
-      }
-
-  """
-  @type extended_data_services() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_presets_request() :: %{
-        optional("Category") => String.t() | atom(),
-        optional("ListBy") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Order") => list(any())
-      }
-
-  """
-  @type list_presets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_channel_tagging_settings() :: %{
-        "ChannelTag" => list(any()),
-        "ChannelTags" => list(list(any())())
-      }
-
-  """
-  @type audio_channel_tagging_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      nielsen_configuration() :: %{
-        "BreakoutCode" => integer(),
-        "DistributorId" => String.t() | atom()
-      }
-
-  """
-  @type nielsen_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_selector() :: %{
-        "CustomLanguageCode" => String.t() | atom(),
-        "LanguageCode" => list(any()),
-        "SourceSettings" => caption_source_settings()
-      }
-
-  """
-  @type caption_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timecode_burnin() :: %{
-        "FontSize" => integer(),
-        "Position" => list(any()),
-        "Prefix" => String.t() | atom()
-      }
-
-  """
-  @type timecode_burnin() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Order") => list(any()),
-        optional("Queue") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-
-  """
-  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_jobs_query_results_response() :: %{
-        "Jobs" => list(job()),
-        "NextToken" => String.t() | atom(),
+      reservation_plan() :: %{
+        "Commitment" => list(any()),
+        "ExpiresAt" => non_neg_integer(),
+        "PurchasedAt" => non_neg_integer(),
+        "RenewalType" => list(any()),
+        "ReservedSlots" => integer(),
         "Status" => list(any())
       }
 
   """
-  @type get_jobs_query_results_response() :: %{(String.t() | atom()) => any()}
+  @type reservation_plan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_policy_request() :: %{}
-
-  """
-  @type get_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_settings() :: %{
-        "S3Settings" => s3_destination_settings()
-      }
-
-  """
-  @type destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_codec_settings() :: %{
-        "AacSettings" => aac_settings(),
-        "Ac3Settings" => ac3_settings(),
-        "Ac4Settings" => ac4_settings(),
-        "AiffSettings" => aiff_settings(),
-        "Codec" => list(any()),
-        "Eac3AtmosSettings" => eac3_atmos_settings(),
-        "Eac3Settings" => eac3_settings(),
-        "FlacSettings" => flac_settings(),
-        "Mp2Settings" => mp2_settings(),
-        "Mp3Settings" => mp3_settings(),
-        "OpusSettings" => opus_settings(),
-        "VorbisSettings" => vorbis_settings(),
-        "WavSettings" => wav_settings()
-      }
-
-  """
-  @type audio_codec_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_tags() :: %{
-        "Arn" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type resource_tags() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aiff_settings() :: %{
-        "BitDepth" => integer(),
-        "Channels" => integer(),
-        "SampleRate" => integer()
-      }
-
-  """
-  @type aiff_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      esam_settings() :: %{
-        "ManifestConfirmConditionNotification" => esam_manifest_confirm_condition_notification(),
-        "ResponseSignalPreroll" => integer(),
-        "SignalProcessingNotification" => esam_signal_processing_notification()
-      }
-
-  """
-  @type esam_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      burnin_destination_settings() :: %{
-        "Alignment" => list(any()),
-        "ApplyFontColor" => list(any()),
-        "BackgroundColor" => list(any()),
-        "BackgroundOpacity" => integer(),
-        "FallbackFont" => list(any()),
-        "FontColor" => list(any()),
-        "FontFileBold" => String.t() | atom(),
-        "FontFileBoldItalic" => String.t() | atom(),
-        "FontFileItalic" => String.t() | atom(),
-        "FontFileRegular" => String.t() | atom(),
-        "FontOpacity" => integer(),
-        "FontResolution" => integer(),
-        "FontScript" => list(any()),
-        "FontSize" => integer(),
-        "HexFontColor" => String.t() | atom(),
-        "OutlineColor" => list(any()),
-        "OutlineSize" => integer(),
-        "RemoveRubyReserveAttributes" => list(any()),
-        "ShadowColor" => list(any()),
-        "ShadowOpacity" => integer(),
-        "ShadowXOffset" => integer(),
-        "ShadowYOffset" => integer(),
-        "StylePassthrough" => list(any()),
-        "TeletextSpacing" => list(any()),
-        "XPosition" => integer(),
-        "YPosition" => integer()
-      }
-
-  """
-  @type burnin_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_rendition_group_settings() :: %{
-        "RenditionGroupId" => String.t() | atom(),
-        "RenditionLanguageCode" => list(any()),
-        "RenditionName" => String.t() | atom()
-      }
-
-  """
-  @type hls_rendition_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      xavc4k_profile_settings() :: %{
+      xavc_hd_profile_settings() :: %{
         "BitrateClass" => list(any()),
-        "CodecProfile" => list(any()),
         "FlickerAdaptiveQuantization" => list(any()),
         "GopBReference" => list(any()),
         "GopClosedCadence" => integer(),
         "HrdBufferSize" => integer(),
+        "InterlaceMode" => list(any()),
         "QualityTuningLevel" => list(any()),
-        "Slices" => integer()
+        "Slices" => integer(),
+        "Telecine" => list(any())
       }
 
   """
-  @type xavc4k_profile_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      color_corrector() :: %{
-        "Brightness" => integer(),
-        "ClipLimits" => clip_limits(),
-        "ColorSpaceConversion" => list(any()),
-        "Contrast" => integer(),
-        "Hdr10Metadata" => hdr10_metadata(),
-        "HdrToSdrToneMapper" => list(any()),
-        "Hue" => integer(),
-        "MaxLuminance" => integer(),
-        "SampleRangeConversion" => list(any()),
-        "Saturation" => integer(),
-        "SdrReferenceWhiteLevel" => integer()
-      }
-
-  """
-  @type color_corrector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aac_settings() :: %{
-        "AudioDescriptionBroadcasterMix" => list(any()),
-        "Bitrate" => integer(),
-        "CodecProfile" => list(any()),
-        "CodingMode" => list(any()),
-        "LoudnessMeasurementMode" => list(any()),
-        "RapInterval" => integer(),
-        "RateControlMode" => list(any()),
-        "RawFormat" => list(any()),
-        "SampleRate" => integer(),
-        "Specification" => list(any()),
-        "TargetLoudnessRange" => integer(),
-        "VbrQuality" => list(any())
-      }
-
-  """
-  @type aac_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bandwidth_reduction_filter() :: %{
-        "Sharpening" => list(any()),
-        "Strength" => list(any())
-      }
-
-  """
-  @type bandwidth_reduction_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata() :: %{
-        "ETag" => String.t() | atom(),
-        "FileSize" => float(),
-        "LastModified" => non_neg_integer(),
-        "MimeType" => String.t() | atom()
-      }
-
-  """
-  @type metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_video_generator() :: %{
-        "Channels" => integer(),
-        "Duration" => integer(),
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer(),
-        "Height" => integer(),
-        "ImageInput" => String.t() | atom(),
-        "SampleRate" => integer(),
-        "Width" => integer()
-      }
-
-  """
-  @type input_video_generator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_endpoints_response() :: %{
-        "Endpoints" => list(endpoint()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_overlay_position() :: %{
-        "Height" => integer(),
-        "Opacity" => integer(),
-        "Unit" => list(any()),
-        "Width" => integer(),
-        "XPosition" => integer(),
-        "YPosition" => integer()
-      }
-
-  """
-  @type video_overlay_position() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_template() :: %{
-        "AccelerationSettings" => acceleration_settings(),
-        "Arn" => String.t() | atom(),
-        "Category" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "HopDestinations" => list(hop_destination()),
-        "LastUpdated" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Priority" => integer(),
-        "Queue" => String.t() | atom(),
-        "Settings" => job_template_settings(),
-        "StatusUpdateInterval" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type job_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_abr_rule() :: %{
-        "AllowedRenditions" => list(allowed_rendition_size()),
-        "ForceIncludeRenditions" => list(force_include_rendition_size()),
-        "MinBottomRenditionSize" => min_bottom_rendition_size(),
-        "MinTopRenditionSize" => min_top_rendition_size(),
-        "Type" => list(any())
-      }
-
-  """
-  @type automated_abr_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      m3u8_settings() :: %{
-        "AudioDuration" => list(any()),
-        "AudioFramesPerPes" => integer(),
-        "AudioPids" => list(integer()),
-        "AudioPtsOffsetDelta" => integer(),
-        "DataPTSControl" => list(any()),
-        "MaxPcrInterval" => integer(),
-        "NielsenId3" => list(any()),
-        "PatInterval" => integer(),
-        "PcrControl" => list(any()),
-        "PcrPid" => integer(),
-        "PmtInterval" => integer(),
-        "PmtPid" => integer(),
-        "PrivateMetadataPid" => integer(),
-        "ProgramNumber" => integer(),
-        "PtsOffset" => integer(),
-        "PtsOffsetMode" => list(any()),
-        "Scte35Pid" => integer(),
-        "Scte35Source" => list(any()),
-        "TimedMetadata" => list(any()),
-        "TimedMetadataPid" => integer(),
-        "TransportStreamId" => integer(),
-        "VideoPid" => integer()
-      }
-
-  """
-  @type m3u8_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_response() :: %{
-        "Jobs" => list(job()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_job_request() :: %{
-        optional("AccelerationSettings") => acceleration_settings(),
-        optional("BillingTagsSource") => list(any()),
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("HopDestinations") => list(hop_destination()),
-        optional("JobEngineVersion") => String.t() | atom(),
-        optional("JobTemplate") => String.t() | atom(),
-        optional("Priority") => integer(),
-        optional("Queue") => String.t() | atom(),
-        optional("SimulateReservedQueue") => list(any()),
-        optional("StatusUpdateInterval") => list(any()),
-        optional("Tags") => map(),
-        optional("UserMetadata") => map(),
-        required("Role") => String.t() | atom(),
-        required("Settings") => job_settings()
-      }
-
-  """
-  @type create_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      nex_guard_file_marker_settings() :: %{
-        "License" => String.t() | atom(),
-        "Payload" => integer(),
-        "Preset" => String.t() | atom(),
-        "Strength" => list(any())
-      }
-
-  """
-  @type nex_guard_file_marker_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ms_smooth_encryption_settings() :: %{
-        "SpekeKeyProvider" => speke_key_provider()
-      }
-
-  """
-  @type ms_smooth_encryption_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_pitch_correction_settings() :: %{
-        "SlowPalPitchCorrection" => list(any())
-      }
-
-  """
-  @type audio_pitch_correction_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dvb_sub_source_settings() :: %{
-        "Pid" => integer()
-      }
-
-  """
-  @type dvb_sub_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reservation_plan_settings() :: %{
-        "Commitment" => list(any()),
-        "RenewalType" => list(any()),
-        "ReservedSlots" => integer()
-      }
-
-  """
-  @type reservation_plan_settings() :: %{(String.t() | atom()) => any()}
+  @type xavc_hd_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1021,139 +297,320 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      delete_policy_response() :: %{}
-
-  """
-  @type delete_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        optional("TagKeys") => list(String.t() | atom())
+      remix_settings() :: %{
+        "AudioDescriptionAudioChannel" => integer(),
+        "AudioDescriptionDataChannel" => integer(),
+        "ChannelMapping" => channel_mapping(),
+        "ChannelsIn" => integer(),
+        "ChannelsOut" => integer()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type remix_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_queue_request() :: %{
-        optional("ConcurrentJobs") => integer(),
-        optional("Description") => String.t() | atom(),
-        optional("MaximumConcurrentFeeds") => integer(),
-        optional("ReservationPlanSettings") => reservation_plan_settings(),
-        optional("Status") => list(any())
+      job_template() :: %{
+        "AccelerationSettings" => acceleration_settings(),
+        "Arn" => String.t() | atom(),
+        "Category" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "HopDestinations" => list(hop_destination()),
+        "LastUpdated" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Priority" => integer(),
+        "Queue" => String.t() | atom(),
+        "Settings" => job_template_settings(),
+        "StatusUpdateInterval" => list(any()),
+        "Type" => list(any())
       }
 
   """
-  @type update_queue_request() :: %{(String.t() | atom()) => any()}
+  @type job_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      too_many_requests_exception() :: %{
-        "Message" => String.t() | atom()
+      cancel_job_response() :: %{}
+
+  """
+  @type cancel_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      esam_signal_processing_notification() :: %{
+        "SccXml" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type esam_signal_processing_notification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      flac_settings() :: %{
-        "BitDepth" => integer(),
-        "Channels" => integer(),
-        "SampleRate" => integer()
-      }
-
-  """
-  @type flac_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_destination_access_control() :: %{
-        "CannedAcl" => list(any())
-      }
-
-  """
-  @type s3_destination_access_control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      static_key_provider() :: %{
-        "KeyFormat" => String.t() | atom(),
-        "KeyFormatVersions" => String.t() | atom(),
-        "StaticKeyValue" => String.t() | atom(),
+      endpoint() :: %{
         "Url" => String.t() | atom()
       }
 
   """
-  @type static_key_provider() :: %{(String.t() | atom()) => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      job_template_settings() :: %{
-        "AdAvailOffset" => integer(),
-        "AvailBlanking" => avail_blanking(),
-        "ColorConversion3DLUTSettings" => list(color_conversion3_d_l_u_t_setting()),
-        "Esam" => esam_settings(),
-        "ExtendedDataServices" => extended_data_services(),
-        "FollowSource" => integer(),
-        "Inputs" => list(input_template()),
-        "KantarWatermark" => kantar_watermark_settings(),
-        "MotionImageInserter" => motion_image_inserter(),
-        "NielsenConfiguration" => nielsen_configuration(),
-        "NielsenNonLinearWatermark" => nielsen_non_linear_watermark_settings(),
-        "OutputGroups" => list(output_group()),
-        "TimecodeConfig" => timecode_config(),
-        "TimedMetadataInsertion" => timed_metadata_insertion()
+      xavc4k_profile_settings() :: %{
+        "BitrateClass" => list(any()),
+        "CodecProfile" => list(any()),
+        "FlickerAdaptiveQuantization" => list(any()),
+        "GopBReference" => list(any()),
+        "GopClosedCadence" => integer(),
+        "HrdBufferSize" => integer(),
+        "QualityTuningLevel" => list(any()),
+        "Slices" => integer()
       }
 
   """
-  @type job_template_settings() :: %{(String.t() | atom()) => any()}
+  @type xavc4k_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      track() :: %{
-        "AudioProperties" => audio_properties(),
-        "Codec" => list(any()),
-        "DataProperties" => data_properties(),
-        "Duration" => float(),
-        "Index" => integer(),
-        "TrackType" => list(any()),
-        "VideoProperties" => video_properties()
-      }
+      create_resource_share_response() :: %{}
 
   """
-  @type track() :: %{(String.t() | atom()) => any()}
+  @type create_resource_share_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      track_mapping() :: %{
-        "AudioTrackIndexes" => list(integer()),
-        "DataTrackIndexes" => list(integer()),
-        "VideoTrackIndexes" => list(integer())
+      reservation_plan_settings() :: %{
+        "Commitment" => list(any()),
+        "RenewalType" => list(any()),
+        "ReservedSlots" => integer()
       }
 
   """
-  @type track_mapping() :: %{(String.t() | atom()) => any()}
+  @type reservation_plan_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      webvtt_hls_source_settings() :: %{
+        "RenditionGroupId" => String.t() | atom(),
+        "RenditionLanguageCode" => list(any()),
+        "RenditionName" => String.t() | atom()
+      }
+
+  """
+  @type webvtt_hls_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mpeg2_settings() :: %{
+        "ScanTypeConversionMode" => list(any()),
+        "Bitrate" => integer(),
+        "ParNumerator" => integer(),
+        "RateControlMode" => list(any()),
+        "GopSize" => float(),
+        "MinIInterval" => integer(),
+        "CodecLevel" => list(any()),
+        "HrdBufferSize" => integer(),
+        "HrdBufferInitialFillPercentage" => integer(),
+        "GopClosedCadence" => integer(),
+        "CodecProfile" => list(any()),
+        "FramerateDenominator" => integer(),
+        "TemporalAdaptiveQuantization" => list(any()),
+        "Softness" => integer(),
+        "IntraDcPrecision" => list(any()),
+        "NumberBFramesBetweenReferenceFrames" => integer(),
+        "FramerateControl" => list(any()),
+        "PerFrameMetrics" => list(list(any())()),
+        "Syntax" => list(any()),
+        "HrdBufferFinalFillPercentage" => integer(),
+        "InterlaceMode" => list(any()),
+        "DynamicSubGop" => list(any()),
+        "AdaptiveQuantization" => list(any()),
+        "GopSizeUnits" => list(any()),
+        "MaxBitrate" => integer(),
+        "SpatialAdaptiveQuantization" => list(any()),
+        "Telecine" => list(any()),
+        "FramerateNumerator" => integer(),
+        "FramerateConversionAlgorithm" => list(any()),
+        "ParDenominator" => integer(),
+        "SceneChangeDetect" => list(any()),
+        "SlowPal" => list(any()),
+        "QualityTuningLevel" => list(any()),
+        "ParControl" => list(any())
+      }
+
+  """
+  @type mpeg2_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_response() :: %{
+        "Policy" => policy()
+      }
+
+  """
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      motion_image_inserter() :: %{
+        "Framerate" => motion_image_insertion_framerate(),
+        "Input" => String.t() | atom(),
+        "InsertionMode" => list(any()),
+        "Offset" => motion_image_insertion_offset(),
+        "Playback" => list(any()),
+        "StartTime" => String.t() | atom()
+      }
+
+  """
+  @type motion_image_inserter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      h264_settings() :: %{
+        "ScanTypeConversionMode" => list(any()),
+        "Bitrate" => integer(),
+        "ParNumerator" => integer(),
+        "RateControlMode" => list(any()),
+        "GopBReference" => list(any()),
+        "GopSize" => float(),
+        "MinIInterval" => integer(),
+        "WriteMp4PackagingType" => list(any()),
+        "FlickerAdaptiveQuantization" => list(any()),
+        "CodecLevel" => list(any()),
+        "HrdBufferSize" => integer(),
+        "HrdBufferInitialFillPercentage" => integer(),
+        "GopClosedCadence" => integer(),
+        "CodecProfile" => list(any()),
+        "FramerateDenominator" => integer(),
+        "RepeatPps" => list(any()),
+        "TemporalAdaptiveQuantization" => list(any()),
+        "Softness" => integer(),
+        "SaliencyAwareEncoding" => list(any()),
+        "QvbrSettings" => h264_qvbr_settings(),
+        "NumberReferenceFrames" => integer(),
+        "NumberBFramesBetweenReferenceFrames" => integer(),
+        "FramerateControl" => list(any()),
+        "PerFrameMetrics" => list(list(any())()),
+        "EndOfStreamMarkers" => list(any()),
+        "Syntax" => list(any()),
+        "HrdBufferFinalFillPercentage" => integer(),
+        "FieldEncoding" => list(any()),
+        "UnregisteredSeiTimecode" => list(any()),
+        "InterlaceMode" => list(any()),
+        "DynamicSubGop" => list(any()),
+        "AdaptiveQuantization" => list(any()),
+        "GopSizeUnits" => list(any()),
+        "MaxBitrate" => integer(),
+        "SpatialAdaptiveQuantization" => list(any()),
+        "Telecine" => list(any()),
+        "FramerateNumerator" => integer(),
+        "FramerateConversionAlgorithm" => list(any()),
+        "ParDenominator" => integer(),
+        "ExplicitWeightedPrediction" => list(any()),
+        "SceneChangeDetect" => list(any()),
+        "EntropyEncoding" => list(any()),
+        "SlowPal" => list(any()),
+        "BandwidthReductionFilter" => bandwidth_reduction_filter(),
+        "QualityTuningLevel" => list(any()),
+        "Slices" => integer(),
+        "ParControl" => list(any())
+      }
+
+  """
+  @type h264_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_preset_request() :: %{}
+
+  """
+  @type delete_preset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_preset_response() :: %{
+        "Preset" => preset()
+      }
+
+  """
+  @type create_preset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_job_template_response() :: %{
+        "JobTemplate" => job_template()
+      }
+
+  """
+  @type update_job_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_properties() :: %{
+        "BitDepth" => integer(),
+        "BitRate" => float(),
+        "Channels" => integer(),
+        "FrameRate" => frame_rate(),
+        "LanguageCode" => String.t() | atom(),
+        "ObjectCount" => integer(),
+        "SampleRate" => integer()
+      }
+
+  """
+  @type audio_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_additional_manifest() :: %{
+        "ManifestNameModifier" => String.t() | atom(),
+        "SelectedOutputs" => list(String.t() | atom())
+      }
+
+  """
+  @type cmaf_additional_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1170,6 +627,476 @@ defmodule AWS.MediaConvert do
 
   """
   @type speke_key_provider_cmaf() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_jobs_query_results_request() :: %{}
+
+  """
+  @type get_jobs_query_results_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_preset_response() :: %{
+        "Preset" => preset()
+      }
+
+  """
+  @type get_preset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_overlay_position() :: %{
+        "Height" => integer(),
+        "Opacity" => integer(),
+        "Unit" => list(any()),
+        "Width" => integer(),
+        "XPosition" => integer(),
+        "YPosition" => integer()
+      }
+
+  """
+  @type video_overlay_position() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_abr_rule() :: %{
+        "AllowedRenditions" => list(allowed_rendition_size()),
+        "ForceIncludeRenditions" => list(force_include_rendition_size()),
+        "MinBottomRenditionSize" => min_bottom_rendition_size(),
+        "MinTopRenditionSize" => min_top_rendition_size(),
+        "Type" => list(any())
+      }
+
+  """
+  @type automated_abr_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_settings() :: %{
+        "HlsSettings" => hls_settings()
+      }
+
+  """
+  @type output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_template_response() :: %{
+        "JobTemplate" => job_template()
+      }
+
+  """
+  @type create_job_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_detail() :: %{
+        "HeightInPx" => integer(),
+        "WidthInPx" => integer()
+      }
+
+  """
+  @type video_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      noise_reducer_temporal_filter_settings() :: %{
+        "AggressiveMode" => integer(),
+        "PostTemporalSharpening" => list(any()),
+        "PostTemporalSharpeningStrength" => list(any()),
+        "Speed" => integer(),
+        "Strength" => integer()
+      }
+
+  """
+  @type noise_reducer_temporal_filter_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extended_data_services() :: %{
+        "CopyProtectionAction" => list(any()),
+        "VchipAction" => list(any())
+      }
+
+  """
+  @type extended_data_services() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_group_settings() :: %{
+        "AdditionalManifests" => list(cmaf_additional_manifest()),
+        "BaseUrl" => String.t() | atom(),
+        "ClientCache" => list(any()),
+        "CodecSpecification" => list(any()),
+        "DashIFrameTrickPlayNameModifier" => String.t() | atom(),
+        "DashManifestStyle" => list(any()),
+        "Destination" => String.t() | atom(),
+        "DestinationSettings" => destination_settings(),
+        "Encryption" => cmaf_encryption_settings(),
+        "FragmentLength" => integer(),
+        "ImageBasedTrickPlay" => list(any()),
+        "ImageBasedTrickPlaySettings" => cmaf_image_based_trick_play_settings(),
+        "ImageBasedTrickPlayVariants" => list(cmaf_image_based_trick_play_variant()),
+        "ManifestCompression" => list(any()),
+        "ManifestDurationFormat" => list(any()),
+        "MinBufferTime" => integer(),
+        "MinFinalSegmentLength" => float(),
+        "MpdManifestBandwidthType" => list(any()),
+        "MpdProfile" => list(any()),
+        "PtsOffsetHandlingForBFrames" => list(any()),
+        "SegmentControl" => list(any()),
+        "SegmentLength" => integer(),
+        "SegmentLengthControl" => list(any()),
+        "StreamInfResolution" => list(any()),
+        "TargetDurationCompatibilityMode" => list(any()),
+        "VideoCompositionOffsets" => list(any()),
+        "WriteDashManifest" => list(any()),
+        "WriteHlsManifest" => list(any()),
+        "WriteSegmentTimelineInRepresentation" => list(any())
+      }
+
+  """
+  @type cmaf_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_mapping() :: %{
+        "OutputChannels" => list(output_channel_mapping())
+      }
+
+  """
+  @type channel_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      color_conversion3_d_l_u_t_setting() :: %{
+        "FileInput" => String.t() | atom(),
+        "InputColorSpace" => list(any()),
+        "InputMasteringLuminance" => integer(),
+        "OutputColorSpace" => list(any()),
+        "OutputMasteringLuminance" => integer()
+      }
+
+  """
+  @type color_conversion3_d_l_u_t_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_selector_group() :: %{
+        "AudioSelectorNames" => list(String.t() | atom())
+      }
+
+  """
+  @type audio_selector_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_group() :: %{
+        "AutomatedEncodingSettings" => automated_encoding_settings(),
+        "CustomName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutputGroupSettings" => output_group_settings(),
+        "Outputs" => list(output())
+      }
+
+  """
+  @type output_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      acceleration_settings() :: %{
+        "Mode" => list(any())
+      }
+
+  """
+  @type acceleration_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_decryption_settings() :: %{
+        "DecryptionMode" => list(any()),
+        "EncryptedDecryptionKey" => String.t() | atom(),
+        "InitializationVector" => String.t() | atom(),
+        "KmsKeyRegion" => String.t() | atom()
+      }
+
+  """
+  @type input_decryption_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_pitch_correction_settings() :: %{
+        "SlowPalPitchCorrection" => list(any())
+      }
+
+  """
+  @type audio_pitch_correction_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_encryption_settings() :: %{
+        "ClearLeadSegments" => integer(),
+        "ConstantInitializationVector" => String.t() | atom(),
+        "EncryptionMethod" => list(any()),
+        "InitializationVectorInManifest" => list(any()),
+        "SpekeKeyProvider" => speke_key_provider_cmaf(),
+        "StaticKeyProvider" => static_key_provider(),
+        "Type" => list(any())
+      }
+
+  """
+  @type cmaf_encryption_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_settings() :: %{
+        "CmfcSettings" => cmfc_settings(),
+        "Container" => list(any()),
+        "F4vSettings" => f4v_settings(),
+        "M2tsSettings" => m2ts_settings(),
+        "M3u8Settings" => m3u8_settings(),
+        "MovSettings" => mov_settings(),
+        "Mp4Settings" => mp4_settings(),
+        "MpdSettings" => mpd_settings(),
+        "MxfSettings" => mxf_settings()
+      }
+
+  """
+  @type container_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      caption_description() :: %{
+        "CaptionSelectorName" => String.t() | atom(),
+        "CustomLanguageCode" => String.t() | atom(),
+        "DestinationSettings" => caption_destination_settings(),
+        "LanguageCode" => list(any()),
+        "LanguageDescription" => String.t() | atom()
+      }
+
+  """
+  @type caption_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_encryption_settings() :: %{
+        "EncryptionType" => list(any()),
+        "KmsEncryptionContext" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_encryption_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Arn") => String.t() | atom(),
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_image_based_trick_play_settings() :: %{
+        "IntervalCadence" => list(any()),
+        "ThumbnailHeight" => integer(),
+        "ThumbnailInterval" => float(),
+        "ThumbnailWidth" => integer(),
+        "TileHeight" => integer(),
+        "TileWidth" => integer()
+      }
+
+  """
+  @type hls_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_queue_response() :: %{
+        "Queue" => queue()
+      }
+
+  """
+  @type get_queue_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_inserter() :: %{
+        "InsertableImages" => list(insertable_image()),
+        "SdrReferenceWhiteLevel" => integer()
+      }
+
+  """
+  @type image_inserter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_preprocessor() :: %{
+        "ColorCorrector" => color_corrector(),
+        "Deinterlacer" => deinterlacer(),
+        "DolbyVision" => dolby_vision(),
+        "DurationControl" => duration_control(),
+        "Hdr10Plus" => hdr10_plus(),
+        "ImageInserter" => image_inserter(),
+        "NoiseReducer" => noise_reducer(),
+        "PartnerWatermarking" => partner_watermarking(),
+        "TimecodeBurnin" => timecode_burnin()
+      }
+
+  """
+  @type video_preprocessor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_selector() :: %{
+        "AlphaBehavior" => list(any()),
+        "ColorSpace" => list(any()),
+        "ColorSpaceUsage" => list(any()),
+        "EmbeddedTimecodeOverride" => list(any()),
+        "Hdr10Metadata" => hdr10_metadata(),
+        "MaxLuminance" => integer(),
+        "PadVideo" => list(any()),
+        "Pid" => integer(),
+        "ProgramNumber" => integer(),
+        "Rotate" => list(any()),
+        "SampleRange" => list(any()),
+        "SelectorType" => list(any()),
+        "Streams" => list(integer())
+      }
+
+  """
+  @type video_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hdr_metadata() :: %{
+        "ContentLightLevel" => content_light_level(),
+        "MasteringDisplayColorVolume" => mastering_display_color_volume()
+      }
+
+  """
+  @type hdr_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mp3_settings() :: %{
+        "Bitrate" => integer(),
+        "Channels" => integer(),
+        "RateControlMode" => list(any()),
+        "SampleRate" => integer(),
+        "VbrQuality" => integer()
+      }
+
+  """
+  @type mp3_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ms_smooth_additional_manifest() :: %{
+        "ManifestNameModifier" => String.t() | atom(),
+        "SelectedOutputs" => list(String.t() | atom())
+      }
+
+  """
+  @type ms_smooth_additional_manifest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id3_insertion() :: %{
+        "Id3" => String.t() | atom(),
+        "Timecode" => String.t() | atom()
+      }
+
+  """
+  @type id3_insertion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_presets_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Presets" => list(preset())
+      }
+
+  """
+  @type list_presets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1202,225 +1129,90 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      input_template() :: %{
-        "AdvancedInputFilter" => list(any()),
-        "AdvancedInputFilterSettings" => advanced_input_filter_settings(),
-        "AudioSelectorGroups" => map(),
-        "AudioSelectors" => map(),
-        "CaptionSelectors" => map(),
-        "Crop" => rectangle(),
-        "DeblockFilter" => list(any()),
-        "DenoiseFilter" => list(any()),
-        "DolbyVisionMetadataXml" => String.t() | atom(),
-        "DynamicAudioSelectors" => map(),
-        "FilterEnable" => list(any()),
-        "FilterStrength" => integer(),
-        "ImageInserter" => image_inserter(),
-        "InputClippings" => list(input_clipping()),
-        "InputScanType" => list(any()),
-        "MultiViewSettings" => list(multi_view_settings()),
-        "Position" => rectangle(),
-        "ProgramNumber" => integer(),
-        "PsiControl" => list(any()),
-        "TimecodeSource" => list(any()),
-        "TimecodeStart" => String.t() | atom(),
-        "VideoOverlays" => list(video_overlay()),
-        "VideoSelector" => video_selector()
+      preset_settings() :: %{
+        "AudioDescriptions" => list(audio_description()),
+        "CaptionDescriptions" => list(caption_description_preset()),
+        "ContainerSettings" => container_settings(),
+        "VideoDescription" => video_description()
       }
 
   """
-  @type input_template() :: %{(String.t() | atom()) => any()}
+  @type preset_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hls_encryption_settings() :: %{
-        "ConstantInitializationVector" => String.t() | atom(),
-        "EncryptionMethod" => list(any()),
-        "InitializationVectorInManifest" => list(any()),
-        "OfflineEncrypted" => list(any()),
-        "SpekeKeyProvider" => speke_key_provider(),
-        "StaticKeyProvider" => static_key_provider(),
-        "Type" => list(any())
+      allowed_rendition_size() :: %{
+        "Height" => integer(),
+        "Required" => list(any()),
+        "Width" => integer()
       }
 
   """
-  @type hls_encryption_settings() :: %{(String.t() | atom()) => any()}
+  @type allowed_rendition_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ttml_destination_settings() :: %{
-        "StylePassthrough" => list(any())
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      input_video_generator() :: %{
+        "Channels" => integer(),
+        "Duration" => integer(),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "Height" => integer(),
+        "ImageInput" => String.t() | atom(),
+        "SampleRate" => integer(),
+        "Width" => integer()
       }
 
   """
-  @type ttml_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type input_video_generator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      noise_reducer() :: %{
-        "Filter" => list(any()),
-        "FilterSettings" => noise_reducer_filter_settings(),
-        "SpatialFilterSettings" => noise_reducer_spatial_filter_settings(),
-        "TemporalFilterSettings" => noise_reducer_temporal_filter_settings()
+      force_include_rendition_size() :: %{
+        "Height" => integer(),
+        "Width" => integer()
       }
 
   """
-  @type noise_reducer() :: %{(String.t() | atom()) => any()}
+  @type force_include_rendition_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_job_template_request() :: %{}
-
-  """
-  @type delete_job_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_certificate_response() :: %{}
-
-  """
-  @type associate_certificate_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      timecode_config() :: %{
-        "Anchor" => String.t() | atom(),
-        "Source" => list(any()),
-        "Start" => String.t() | atom(),
-        "TimestampOffset" => String.t() | atom()
+      nielsen_configuration() :: %{
+        "BreakoutCode" => integer(),
+        "DistributorId" => String.t() | atom()
       }
 
   """
-  @type timecode_config() :: %{(String.t() | atom()) => any()}
+  @type nielsen_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audio_selector_group() :: %{
-        "AudioSelectorNames" => list(String.t() | atom())
+      create_queue_response() :: %{
+        "Queue" => queue()
       }
 
   """
-  @type audio_selector_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_overlay_transition() :: %{
-        "EndPosition" => video_overlay_position(),
-        "EndTimecode" => String.t() | atom(),
-        "StartTimecode" => String.t() | atom()
-      }
-
-  """
-  @type video_overlay_transition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_group_settings() :: %{
-        "CmafGroupSettings" => cmaf_group_settings(),
-        "DashIsoGroupSettings" => dash_iso_group_settings(),
-        "FileGroupSettings" => file_group_settings(),
-        "HlsGroupSettings" => hls_group_settings(),
-        "MsSmoothGroupSettings" => ms_smooth_group_settings(),
-        "PerFrameMetrics" => list(list(any())()),
-        "Type" => list(any())
-      }
-
-  """
-  @type output_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cmaf_group_settings() :: %{
-        "AdditionalManifests" => list(cmaf_additional_manifest()),
-        "BaseUrl" => String.t() | atom(),
-        "ClientCache" => list(any()),
-        "CodecSpecification" => list(any()),
-        "DashIFrameTrickPlayNameModifier" => String.t() | atom(),
-        "DashManifestStyle" => list(any()),
-        "Destination" => String.t() | atom(),
-        "DestinationSettings" => destination_settings(),
-        "Encryption" => cmaf_encryption_settings(),
-        "FragmentLength" => integer(),
-        "ImageBasedTrickPlay" => list(any()),
-        "ImageBasedTrickPlaySettings" => cmaf_image_based_trick_play_settings(),
-        "ManifestCompression" => list(any()),
-        "ManifestDurationFormat" => list(any()),
-        "MinBufferTime" => integer(),
-        "MinFinalSegmentLength" => float(),
-        "MpdManifestBandwidthType" => list(any()),
-        "MpdProfile" => list(any()),
-        "PtsOffsetHandlingForBFrames" => list(any()),
-        "SegmentControl" => list(any()),
-        "SegmentLength" => integer(),
-        "SegmentLengthControl" => list(any()),
-        "StreamInfResolution" => list(any()),
-        "TargetDurationCompatibilityMode" => list(any()),
-        "VideoCompositionOffsets" => list(any()),
-        "WriteDashManifest" => list(any()),
-        "WriteHlsManifest" => list(any()),
-        "WriteSegmentTimelineInRepresentation" => list(any())
-      }
-
-  """
-  @type cmaf_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynamic_audio_selector() :: %{
-        "AudioDurationCorrection" => list(any()),
-        "ExternalAudioFileInput" => String.t() | atom(),
-        "LanguageCode" => list(any()),
-        "Offset" => integer(),
-        "SelectorType" => list(any())
-      }
-
-  """
-  @type dynamic_audio_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_inserter() :: %{
-        "InsertableImages" => list(insertable_image()),
-        "SdrReferenceWhiteLevel" => integer()
-      }
-
-  """
-  @type image_inserter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      esam_manifest_confirm_condition_notification() :: %{
-        "MccXml" => String.t() | atom()
-      }
-
-  """
-  @type esam_manifest_confirm_condition_notification() :: %{(String.t() | atom()) => any()}
+  @type create_queue_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1450,49 +1242,71 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      timed_metadata_insertion() :: %{
-        "Id3Insertions" => list(id3_insertion())
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type timed_metadata_insertion() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ms_smooth_group_settings() :: %{
-        "AdditionalManifests" => list(ms_smooth_additional_manifest()),
-        "AudioDeduplication" => list(any()),
-        "Destination" => String.t() | atom(),
-        "DestinationSettings" => destination_settings(),
-        "Encryption" => ms_smooth_encryption_settings(),
-        "FragmentLength" => integer(),
-        "FragmentLengthControl" => list(any()),
-        "ManifestEncoding" => list(any())
+      warning_group() :: %{
+        "Code" => integer(),
+        "Count" => integer()
       }
 
   """
-  @type ms_smooth_group_settings() :: %{(String.t() | atom()) => any()}
+  @type warning_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      min_top_rendition_size() :: %{
-        "Height" => integer(),
-        "Width" => integer()
-      }
+      cancel_job_request() :: %{}
 
   """
-  @type min_top_rendition_size() :: %{(String.t() | atom()) => any()}
+  @type cancel_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      search_jobs_request() :: %{
-        optional("InputFile") => String.t() | atom(),
+      teletext_destination_settings() :: %{
+        "PageNumber" => String.t() | atom(),
+        "PageTypes" => list(list(any())())
+      }
+
+  """
+  @type teletext_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_template_response() :: %{}
+
+  """
+  @type delete_job_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_template_response() :: %{
+        "JobTemplate" => job_template()
+      }
+
+  """
+  @type get_job_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("Order") => list(any()),
@@ -1501,36 +1315,555 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type search_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hls_settings() :: %{
+      dvb_sdt_settings() :: %{
+        "OutputSdt" => list(any()),
+        "SdtInterval" => integer(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceProviderName" => String.t() | atom()
+      }
+
+  """
+  @type dvb_sdt_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ancillary_source_settings() :: %{
+        "Convert608To708" => list(any()),
+        "SourceAncillaryChannelNumber" => integer(),
+        "TerminateCaptions" => list(any())
+      }
+
+  """
+  @type ancillary_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_normalization_settings() :: %{
+        "Algorithm" => list(any()),
+        "AlgorithmControl" => list(any()),
+        "CorrectionGateLevel" => integer(),
+        "LoudnessLogging" => list(any()),
+        "PeakCalculation" => list(any()),
+        "TargetLkfs" => float(),
+        "TruePeakLimiterThreshold" => float()
+      }
+
+  """
+  @type audio_normalization_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      passthrough_settings() :: %{
+        "FrameControl" => list(any()),
+        "VideoSelectorMode" => list(any())
+      }
+
+  """
+  @type passthrough_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_group_settings() :: %{
+        "CodecSpecification" => list(any()),
+        "Encryption" => hls_encryption_settings(),
+        "BaseUrl" => String.t() | atom(),
+        "Destination" => String.t() | atom(),
+        "SegmentsPerSubdirectory" => integer(),
+        "TimestampDeltaMilliseconds" => integer(),
+        "ProgressiveWriteHlsManifest" => list(any()),
+        "TimedMetadataId3Frame" => list(any()),
+        "ClientCache" => list(any()),
+        "CaptionLanguageMappings" => list(hls_caption_language_mapping()),
+        "ProgramDateTime" => list(any()),
+        "TargetDurationCompatibilityMode" => list(any()),
+        "DestinationSettings" => destination_settings(),
+        "CaptionSegmentLengthControl" => list(any()),
+        "SegmentLength" => integer(),
+        "SegmentLengthControl" => list(any()),
+        "DirectoryStructure" => list(any()),
+        "TimedMetadataId3Period" => integer(),
+        "AdMarkers" => list(list(any())()),
+        "ImageBasedTrickPlayVariants" => list(hls_image_based_trick_play_variant()),
+        "ManifestCompression" => list(any()),
+        "StreamInfResolution" => list(any()),
+        "ImageBasedTrickPlaySettings" => hls_image_based_trick_play_settings(),
+        "MinFinalSegmentLength" => float(),
+        "ProgramDateTimePeriod" => integer(),
+        "ManifestDurationFormat" => list(any()),
+        "MinSegmentLength" => integer(),
+        "AudioOnlyHeader" => list(any()),
+        "OutputSelection" => list(any()),
+        "CaptionLanguageSetting" => list(any()),
+        "AdditionalManifests" => list(hls_additional_manifest()),
+        "ImageBasedTrickPlay" => list(any()),
+        "SegmentControl" => list(any())
+      }
+
+  """
+  @type hls_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_queue_response() :: %{}
+
+  """
+  @type delete_queue_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      h264_qvbr_settings() :: %{
+        "MaxAverageBitrate" => integer(),
+        "QvbrQualityLevel" => integer(),
+        "QvbrQualityLevelFineTune" => float()
+      }
+
+  """
+  @type h264_qvbr_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clip_limits() :: %{
+        "MaximumRGBTolerance" => integer(),
+        "MaximumYUV" => integer(),
+        "MinimumRGBTolerance" => integer(),
+        "MinimumYUV" => integer()
+      }
+
+  """
+  @type clip_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      speke_key_provider() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "EncryptionContractConfiguration" => encryption_contract_configuration(),
+        "ResourceId" => String.t() | atom(),
+        "SystemIds" => list(String.t() | atom()),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type speke_key_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_abr_settings() :: %{
+        "MaxAbrBitrate" => integer(),
+        "MaxQualityLevel" => float(),
+        "MaxRenditions" => integer(),
+        "MinAbrBitrate" => integer(),
+        "Rules" => list(automated_abr_rule())
+      }
+
+  """
+  @type automated_abr_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      uncompressed_settings() :: %{
+        "Fourcc" => list(any()),
+        "FramerateControl" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "InterlaceMode" => list(any()),
+        "ScanTypeConversionMode" => list(any()),
+        "SlowPal" => list(any()),
+        "Telecine" => list(any())
+      }
+
+  """
+  @type uncompressed_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dolby_vision_level6_metadata() :: %{
+        "MaxCll" => integer(),
+        "MaxFall" => integer()
+      }
+
+  """
+  @type dolby_vision_level6_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_certificate_response() :: %{}
+
+  """
+  @type associate_certificate_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_response() :: %{
+        "Jobs" => list(job()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insertable_image() :: %{
+        "Duration" => integer(),
+        "FadeIn" => integer(),
+        "FadeOut" => integer(),
+        "Height" => integer(),
+        "ImageInserterInput" => String.t() | atom(),
+        "ImageX" => integer(),
+        "ImageY" => integer(),
+        "Layer" => integer(),
+        "Opacity" => integer(),
+        "StartTime" => String.t() | atom(),
+        "Width" => integer()
+      }
+
+  """
+  @type insertable_image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_request() :: %{}
+
+  """
+  @type get_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      embedded_source_settings() :: %{
+        "Convert608To708" => list(any()),
+        "Source608ChannelNumber" => integer(),
+        "Source608TrackNumber" => integer(),
+        "TerminateCaptions" => list(any())
+      }
+
+  """
+  @type embedded_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_override() :: %{
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OverrideValue" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type service_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_view_settings() :: %{
+        "Input" => multi_view_input()
+      }
+
+  """
+  @type multi_view_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_image_based_trick_play_variant() :: %{
+        "IntervalCadence" => list(any()),
+        "ThumbnailHeight" => integer(),
+        "ThumbnailInterval" => float(),
+        "ThumbnailWidth" => integer(),
+        "TileHeight" => integer(),
+        "TileWidth" => integer()
+      }
+
+  """
+  @type hls_image_based_trick_play_variant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      embedded_destination_settings() :: %{
+        "Destination608ChannelNumber" => integer(),
+        "Destination708ServiceNumber" => integer()
+      }
+
+  """
+  @type embedded_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      h265_settings() :: %{
+        "ScanTypeConversionMode" => list(any()),
+        "Bitrate" => integer(),
+        "ParNumerator" => integer(),
+        "TileHeight" => integer(),
+        "MvOverPictureBoundaries" => list(any()),
+        "RateControlMode" => list(any()),
+        "GopBReference" => list(any()),
+        "GopSize" => float(),
+        "MinIInterval" => integer(),
+        "WriteMp4PackagingType" => list(any()),
+        "FlickerAdaptiveQuantization" => list(any()),
+        "CodecLevel" => list(any()),
+        "HrdBufferSize" => integer(),
+        "Tiles" => list(any()),
+        "HrdBufferInitialFillPercentage" => integer(),
+        "GopClosedCadence" => integer(),
+        "CodecProfile" => list(any()),
+        "FramerateDenominator" => integer(),
+        "TreeBlockSize" => list(any()),
+        "TemporalAdaptiveQuantization" => list(any()),
+        "QvbrSettings" => h265_qvbr_settings(),
+        "MvTemporalPredictor" => list(any()),
+        "NumberReferenceFrames" => integer(),
+        "NumberBFramesBetweenReferenceFrames" => integer(),
+        "FramerateControl" => list(any()),
+        "TilePadding" => list(any()),
+        "PerFrameMetrics" => list(list(any())()),
+        "AlternateTransferFunctionSei" => list(any()),
+        "EndOfStreamMarkers" => list(any()),
+        "Deblocking" => list(any()),
+        "HrdBufferFinalFillPercentage" => integer(),
+        "UnregisteredSeiTimecode" => list(any()),
+        "InterlaceMode" => list(any()),
+        "DynamicSubGop" => list(any()),
+        "AdaptiveQuantization" => list(any()),
+        "TileWidth" => integer(),
+        "GopSizeUnits" => list(any()),
+        "MaxBitrate" => integer(),
+        "SpatialAdaptiveQuantization" => list(any()),
+        "Telecine" => list(any()),
+        "FramerateNumerator" => integer(),
+        "TemporalIds" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
+        "ParDenominator" => integer(),
+        "SceneChangeDetect" => list(any()),
+        "SampleAdaptiveOffsetFilterMode" => list(any()),
+        "SlowPal" => list(any()),
+        "BandwidthReductionFilter" => bandwidth_reduction_filter(),
+        "QualityTuningLevel" => list(any()),
+        "Slices" => integer(),
+        "ParControl" => list(any())
+      }
+
+  """
+  @type h265_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_jobs_response() :: %{
+        "Jobs" => list(job()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dvb_nit_settings() :: %{
+        "NetworkId" => integer(),
+        "NetworkName" => String.t() | atom(),
+        "NitInterval" => integer()
+      }
+
+  """
+  @type dvb_nit_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      xavc_hd_intra_cbg_profile_settings() :: %{
+        "XavcClass" => list(any())
+      }
+
+  """
+  @type xavc_hd_intra_cbg_profile_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      h265_qvbr_settings() :: %{
+        "MaxAverageBitrate" => integer(),
+        "QvbrQualityLevel" => integer(),
+        "QvbrQualityLevelFineTune" => float()
+      }
+
+  """
+  @type h265_qvbr_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container() :: %{
+        "Duration" => float(),
+        "Format" => list(any()),
+        "StartTimecode" => String.t() | atom(),
+        "Tracks" => list(track())
+      }
+
+  """
+  @type container() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      queue_transition() :: %{
+        "DestinationQueue" => String.t() | atom(),
+        "SourceQueue" => String.t() | atom(),
+        "Timestamp" => non_neg_integer()
+      }
+
+  """
+  @type queue_transition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmfc_settings() :: %{
+        "AudioDuration" => list(any()),
         "AudioGroupId" => String.t() | atom(),
-        "AudioOnlyContainer" => list(any()),
         "AudioRenditionSets" => String.t() | atom(),
         "AudioTrackType" => list(any()),
+        "C2paManifest" => list(any()),
+        "CertificateSecret" => String.t() | atom(),
         "DescriptiveVideoServiceFlag" => list(any()),
         "IFrameOnlyManifest" => list(any()),
-        "SegmentModifier" => String.t() | atom()
+        "KlvMetadata" => list(any()),
+        "ManifestMetadataSignaling" => list(any()),
+        "Scte35Esam" => list(any()),
+        "Scte35Source" => list(any()),
+        "SigningKmsKey" => String.t() | atom(),
+        "TimedMetadata" => list(any()),
+        "TimedMetadataBoxVersion" => list(any()),
+        "TimedMetadataSchemeIdUri" => String.t() | atom(),
+        "TimedMetadataValue" => String.t() | atom()
       }
 
   """
-  @type hls_settings() :: %{(String.t() | atom()) => any()}
+  @type cmfc_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      video_overlay_input_clipping() :: %{
-        "EndTimecode" => String.t() | atom(),
-        "StartTimecode" => String.t() | atom()
+      delete_policy_response() :: %{}
+
+  """
+  @type delete_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_encryption_settings() :: %{
+        "ConstantInitializationVector" => String.t() | atom(),
+        "EncryptionMethod" => list(any()),
+        "InitializationVectorInManifest" => list(any()),
+        "OfflineEncrypted" => list(any()),
+        "SpekeKeyProvider" => speke_key_provider(),
+        "StaticKeyProvider" => static_key_provider(),
+        "Type" => list(any())
       }
 
   """
-  @type video_overlay_input_clipping() :: %{(String.t() | atom()) => any()}
+  @type hls_encryption_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flac_settings() :: %{
+        "BitDepth" => integer(),
+        "Channels" => integer(),
+        "SampleRate" => integer()
+      }
+
+  """
+  @type flac_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ms_smooth_encryption_settings() :: %{
+        "SpekeKeyProvider" => speke_key_provider()
+      }
+
+  """
+  @type ms_smooth_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1574,349 +1907,179 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      describe_endpoints_request() :: %{
+      internal_server_error_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      imsc_destination_settings() :: %{
+        "Accessibility" => list(any()),
+        "StylePassthrough" => list(any())
+      }
+
+  """
+  @type imsc_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_preset_request() :: %{
+        optional("Category") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Settings") => preset_settings()
+      }
+
+  """
+  @type update_preset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      burnin_destination_settings() :: %{
+        "Alignment" => list(any()),
+        "ApplyFontColor" => list(any()),
+        "BackgroundColor" => list(any()),
+        "BackgroundOpacity" => integer(),
+        "FallbackFont" => list(any()),
+        "FontColor" => list(any()),
+        "FontFileBold" => String.t() | atom(),
+        "FontFileBoldItalic" => String.t() | atom(),
+        "FontFileItalic" => String.t() | atom(),
+        "FontFileRegular" => String.t() | atom(),
+        "FontOpacity" => integer(),
+        "FontResolution" => integer(),
+        "FontScript" => list(any()),
+        "FontSize" => integer(),
+        "HexFontColor" => String.t() | atom(),
+        "OutlineColor" => list(any()),
+        "OutlineSize" => integer(),
+        "RemoveRubyReserveAttributes" => list(any()),
+        "ShadowColor" => list(any()),
+        "ShadowOpacity" => integer(),
+        "ShadowXOffset" => integer(),
+        "ShadowYOffset" => integer(),
+        "StylePassthrough" => list(any()),
+        "TeletextSpacing" => list(any()),
+        "XPosition" => integer(),
+        "YPosition" => integer()
+      }
+
+  """
+  @type burnin_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dolby_vision() :: %{
+        "Compatibility" => list(any()),
+        "L6Metadata" => dolby_vision_level6_metadata(),
+        "L6Mode" => list(any()),
+        "Mapping" => list(any()),
+        "Profile" => list(any())
+      }
+
+  """
+  @type dolby_vision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_presets_request() :: %{
+        optional("Category") => String.t() | atom(),
+        optional("ListBy") => list(any()),
         optional("MaxResults") => integer(),
-        optional("Mode") => list(any()),
-        optional("NextToken") => String.t() | atom()
+        optional("NextToken") => String.t() | atom(),
+        optional("Order") => list(any())
       }
 
   """
-  @type describe_endpoints_request() :: %{(String.t() | atom()) => any()}
+  @type list_presets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      color_conversion3_d_l_u_t_setting() :: %{
-        "FileInput" => String.t() | atom(),
-        "InputColorSpace" => list(any()),
-        "InputMasteringLuminance" => integer(),
-        "OutputColorSpace" => list(any()),
-        "OutputMasteringLuminance" => integer()
-      }
-
-  """
-  @type color_conversion3_d_l_u_t_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_template_response() :: %{
-        "JobTemplate" => job_template()
-      }
-
-  """
-  @type get_job_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reservation_plan() :: %{
-        "Commitment" => list(any()),
-        "ExpiresAt" => non_neg_integer(),
-        "PurchasedAt" => non_neg_integer(),
-        "RenewalType" => list(any()),
-        "ReservedSlots" => integer(),
-        "Status" => list(any())
-      }
-
-  """
-  @type reservation_plan() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_group() :: %{
-        "AutomatedEncodingSettings" => automated_encoding_settings(),
-        "CustomName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OutputGroupSettings" => output_group_settings(),
-        "Outputs" => list(output())
-      }
-
-  """
-  @type output_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_queue_request() :: %{}
-
-  """
-  @type get_queue_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_description() :: %{
-        "AudioChannelTaggingSettings" => audio_channel_tagging_settings(),
-        "AudioNormalizationSettings" => audio_normalization_settings(),
-        "AudioPitchCorrectionSettings" => audio_pitch_correction_settings(),
-        "AudioSourceName" => String.t() | atom(),
-        "AudioType" => integer(),
-        "AudioTypeControl" => list(any()),
-        "CodecSettings" => audio_codec_settings(),
-        "CustomLanguageCode" => String.t() | atom(),
-        "LanguageCode" => list(any()),
-        "LanguageCodeControl" => list(any()),
-        "RemixSettings" => remix_settings(),
-        "StreamName" => String.t() | atom()
-      }
-
-  """
-  @type audio_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      xavc_settings() :: %{
-        "AdaptiveQuantization" => list(any()),
-        "EntropyEncoding" => list(any()),
-        "FramerateControl" => list(any()),
-        "FramerateConversionAlgorithm" => list(any()),
+      frame_capture_settings() :: %{
         "FramerateDenominator" => integer(),
         "FramerateNumerator" => integer(),
-        "PerFrameMetrics" => list(list(any())()),
-        "Profile" => list(any()),
-        "SlowPal" => list(any()),
-        "Softness" => integer(),
-        "SpatialAdaptiveQuantization" => list(any()),
-        "TemporalAdaptiveQuantization" => list(any()),
-        "Xavc4kIntraCbgProfileSettings" => xavc4k_intra_cbg_profile_settings(),
-        "Xavc4kIntraVbrProfileSettings" => xavc4k_intra_vbr_profile_settings(),
-        "Xavc4kProfileSettings" => xavc4k_profile_settings(),
-        "XavcHdIntraCbgProfileSettings" => xavc_hd_intra_cbg_profile_settings(),
-        "XavcHdProfileSettings" => xavc_hd_profile_settings()
+        "MaxCaptures" => integer(),
+        "Quality" => integer()
       }
 
   """
-  @type xavc_settings() :: %{(String.t() | atom()) => any()}
+  @type frame_capture_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      preset_settings() :: %{
-        "AudioDescriptions" => list(audio_description()),
-        "CaptionDescriptions" => list(caption_description_preset()),
-        "ContainerSettings" => container_settings(),
-        "VideoDescription" => video_description()
+      dash_iso_image_based_trick_play_settings() :: %{
+        "IntervalCadence" => list(any()),
+        "ThumbnailHeight" => integer(),
+        "ThumbnailInterval" => float(),
+        "ThumbnailWidth" => integer(),
+        "TileHeight" => integer(),
+        "TileWidth" => integer()
       }
 
   """
-  @type preset_settings() :: %{(String.t() | atom()) => any()}
+  @type dash_iso_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      scc_destination_settings() :: %{
-        "Framerate" => list(any())
-      }
+      get_preset_request() :: %{}
 
   """
-  @type scc_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type get_preset_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      video_codec_settings() :: %{
-        "Av1Settings" => av1_settings(),
-        "AvcIntraSettings" => avc_intra_settings(),
-        "Codec" => list(any()),
-        "FrameCaptureSettings" => frame_capture_settings(),
-        "GifSettings" => gif_settings(),
-        "H264Settings" => h264_settings(),
-        "H265Settings" => h265_settings(),
-        "Mpeg2Settings" => mpeg2_settings(),
-        "PassthroughSettings" => passthrough_settings(),
-        "ProresSettings" => prores_settings(),
-        "UncompressedSettings" => uncompressed_settings(),
-        "Vc3Settings" => vc3_settings(),
-        "Vp8Settings" => vp8_settings(),
-        "Vp9Settings" => vp9_settings(),
-        "XavcSettings" => xavc_settings()
+      output_detail() :: %{
+        "DurationInMs" => integer(),
+        "VideoDetails" => video_detail()
       }
 
   """
-  @type video_codec_settings() :: %{(String.t() | atom()) => any()}
+  @type output_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      encryption_contract_configuration() :: %{
+        "SpekeAudioPreset" => list(any()),
+        "SpekeVideoPreset" => list(any())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type encryption_contract_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      motion_image_insertion_offset() :: %{
-        "ImageX" => integer(),
-        "ImageY" => integer()
+      policy() :: %{
+        "HttpInputs" => list(any()),
+        "HttpsInputs" => list(any()),
+        "S3Inputs" => list(any())
       }
 
   """
-  @type motion_image_insertion_offset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_properties() :: %{
-        "BitDepth" => integer(),
-        "BitRate" => float(),
-        "Channels" => integer(),
-        "FrameRate" => frame_rate(),
-        "LanguageCode" => String.t() | atom(),
-        "SampleRate" => integer()
-      }
-
-  """
-  @type audio_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_policy_response() :: %{
-        "Policy" => policy()
-      }
-
-  """
-  @type put_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_engine_version() :: %{
-        "ExpirationDate" => non_neg_integer(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type job_engine_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      avc_intra_settings() :: %{
-        "AvcIntraClass" => list(any()),
-        "AvcIntraUhdSettings" => avc_intra_uhd_settings(),
-        "FramerateControl" => list(any()),
-        "FramerateConversionAlgorithm" => list(any()),
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer(),
-        "InterlaceMode" => list(any()),
-        "PerFrameMetrics" => list(list(any())()),
-        "ScanTypeConversionMode" => list(any()),
-        "SlowPal" => list(any()),
-        "Telecine" => list(any())
-      }
-
-  """
-  @type avc_intra_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      eac3_settings() :: %{
-        "AttenuationControl" => list(any()),
-        "Bitrate" => integer(),
-        "BitstreamMode" => list(any()),
-        "CodingMode" => list(any()),
-        "DcFilter" => list(any()),
-        "Dialnorm" => integer(),
-        "DynamicRangeCompressionLine" => list(any()),
-        "DynamicRangeCompressionRf" => list(any()),
-        "LfeControl" => list(any()),
-        "LfeFilter" => list(any()),
-        "LoRoCenterMixLevel" => float(),
-        "LoRoSurroundMixLevel" => float(),
-        "LtRtCenterMixLevel" => float(),
-        "LtRtSurroundMixLevel" => float(),
-        "MetadataControl" => list(any()),
-        "PassthroughControl" => list(any()),
-        "PhaseControl" => list(any()),
-        "SampleRate" => integer(),
-        "StereoDownmix" => list(any()),
-        "SurroundExMode" => list(any()),
-        "SurroundMode" => list(any())
-      }
-
-  """
-  @type eac3_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vp9_settings() :: %{
-        "Bitrate" => integer(),
-        "FramerateControl" => list(any()),
-        "FramerateConversionAlgorithm" => list(any()),
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer(),
-        "GopSize" => float(),
-        "HrdBufferSize" => integer(),
-        "MaxBitrate" => integer(),
-        "ParControl" => list(any()),
-        "ParDenominator" => integer(),
-        "ParNumerator" => integer(),
-        "QualityTuningLevel" => list(any()),
-        "RateControlMode" => list(any())
-      }
-
-  """
-  @type vp9_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_group_detail() :: %{
-        "OutputDetails" => list(output_detail())
-      }
-
-  """
-  @type output_group_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1942,28 +2105,394 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      speke_key_provider() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "EncryptionContractConfiguration" => encryption_contract_configuration(),
-        "ResourceId" => String.t() | atom(),
-        "SystemIds" => list(String.t() | atom()),
-        "Url" => String.t() | atom()
+      forbidden_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type speke_key_provider() :: %{(String.t() | atom()) => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      frame_rate() :: %{
-        "Denominator" => integer(),
-        "Numerator" => integer()
+      mp2_settings() :: %{
+        "AudioDescriptionMix" => list(any()),
+        "Bitrate" => integer(),
+        "Channels" => integer(),
+        "SampleRate" => integer()
       }
 
   """
-  @type frame_rate() :: %{(String.t() | atom()) => any()}
+  @type mp2_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_template() :: %{
+        "AdvancedInputFilter" => list(any()),
+        "AdvancedInputFilterSettings" => advanced_input_filter_settings(),
+        "AudioSelectorGroups" => map(),
+        "AudioSelectors" => map(),
+        "CaptionSelectors" => map(),
+        "Crop" => rectangle(),
+        "DeblockFilter" => list(any()),
+        "DenoiseFilter" => list(any()),
+        "DolbyVisionMetadataXml" => String.t() | atom(),
+        "DynamicAudioSelectors" => map(),
+        "FilterEnable" => list(any()),
+        "FilterStrength" => integer(),
+        "ImageInserter" => image_inserter(),
+        "InputClippings" => list(input_clipping()),
+        "InputScanType" => list(any()),
+        "MultiViewSettings" => list(multi_view_settings()),
+        "Position" => rectangle(),
+        "ProgramNumber" => integer(),
+        "PsiControl" => list(any()),
+        "TimecodeSource" => list(any()),
+        "TimecodeStart" => String.t() | atom(),
+        "VideoOverlays" => list(video_overlay()),
+        "VideoSelector" => video_selector()
+      }
+
+  """
+  @type input_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        optional("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dvb_tdt_settings() :: %{
+        "TdtInterval" => integer()
+      }
+
+  """
+  @type dvb_tdt_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timing() :: %{
+        "FinishTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "SubmitTime" => non_neg_integer()
+      }
+
+  """
+  @type timing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aiff_settings() :: %{
+        "BitDepth" => integer(),
+        "Channels" => integer(),
+        "SampleRate" => integer()
+      }
+
+  """
+  @type aiff_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_preset_response() :: %{
+        "Preset" => preset()
+      }
+
+  """
+  @type update_preset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_request() :: %{}
+
+  """
+  @type delete_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      min_top_rendition_size() :: %{
+        "Height" => integer(),
+        "Width" => integer()
+      }
+
+  """
+  @type min_top_rendition_size() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ac4_settings() :: %{
+        "Bitrate" => integer(),
+        "BitstreamMode" => list(any()),
+        "CodingMode" => list(any()),
+        "DynamicRangeCompressionFlatPanelTv" => list(any()),
+        "DynamicRangeCompressionHomeTheater" => list(any()),
+        "DynamicRangeCompressionPortableHeadphones" => list(any()),
+        "DynamicRangeCompressionPortableSpeakers" => list(any()),
+        "LoRoCenterMixLevel" => float(),
+        "LoRoSurroundMixLevel" => float(),
+        "LtRtCenterMixLevel" => float(),
+        "LtRtSurroundMixLevel" => float(),
+        "SampleRate" => integer(),
+        "StereoDownmix" => list(any())
+      }
+
+  """
+  @type ac4_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      color_corrector() :: %{
+        "Brightness" => integer(),
+        "ClipLimits" => clip_limits(),
+        "ColorSpaceConversion" => list(any()),
+        "Contrast" => integer(),
+        "Hdr10Metadata" => hdr10_metadata(),
+        "HdrToSdrToneMapper" => list(any()),
+        "Hue" => integer(),
+        "MaxLuminance" => integer(),
+        "SampleRangeConversion" => list(any()),
+        "Saturation" => integer(),
+        "SdrReferenceWhiteLevel" => integer()
+      }
+
+  """
+  @type color_corrector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_jobs_query_request() :: %{
+        optional("FilterList") => list(jobs_query_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Order") => list(any())
+      }
+
+  """
+  @type start_jobs_query_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mpd_settings() :: %{
+        "AccessibilityCaptionHints" => list(any()),
+        "AudioDuration" => list(any()),
+        "C2paManifest" => list(any()),
+        "CaptionContainerType" => list(any()),
+        "CertificateSecret" => String.t() | atom(),
+        "KlvMetadata" => list(any()),
+        "ManifestMetadataSignaling" => list(any()),
+        "Scte35Esam" => list(any()),
+        "Scte35Source" => list(any()),
+        "SigningKmsKey" => String.t() | atom(),
+        "TimedMetadata" => list(any()),
+        "TimedMetadataBoxVersion" => list(any()),
+        "TimedMetadataSchemeIdUri" => String.t() | atom(),
+        "TimedMetadataValue" => String.t() | atom()
+      }
+
+  """
+  @type mpd_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_template_request() :: %{}
+
+  """
+  @type get_job_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_image_based_trick_play_variant() :: %{
+        "IntervalCadence" => list(any()),
+        "ThumbnailHeight" => integer(),
+        "ThumbnailInterval" => float(),
+        "ThumbnailWidth" => integer(),
+        "TileHeight" => integer(),
+        "TileWidth" => integer()
+      }
+
+  """
+  @type cmaf_image_based_trick_play_variant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      noise_reducer_filter_settings() :: %{
+        "Strength" => integer()
+      }
+
+  """
+  @type noise_reducer_filter_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_templates_response() :: %{
+        "JobTemplates" => list(job_template()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_job_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_group_detail() :: %{
+        "OutputDetails" => list(output_detail())
+      }
+
+  """
+  @type output_group_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_properties() :: %{
+        "BitDepth" => integer(),
+        "BitRate" => float(),
+        "CodecMetadata" => codec_metadata(),
+        "ColorPrimaries" => list(any()),
+        "FrameRate" => frame_rate(),
+        "HdrMetadata" => hdr_metadata(),
+        "Height" => integer(),
+        "MatrixCoefficients" => list(any()),
+        "Rotation" => integer(),
+        "TransferCharacteristics" => list(any()),
+        "Width" => integer()
+      }
+
+  """
+  @type video_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_tams_settings() :: %{
+        "AuthConnectionArn" => String.t() | atom(),
+        "GapHandling" => list(any()),
+        "SourceId" => String.t() | atom(),
+        "Timerange" => String.t() | atom()
+      }
+
+  """
+  @type input_tams_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination_access_control() :: %{
+        "CannedAcl" => list(any())
+      }
+
+  """
+  @type s3_destination_access_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gif_settings() :: %{
+        "FramerateControl" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer()
+      }
+
+  """
+  @type gif_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_request() :: %{}
+
+  """
+  @type get_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vp8_settings() :: %{
+        "Bitrate" => integer(),
+        "FramerateControl" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "GopSize" => float(),
+        "HrdBufferSize" => integer(),
+        "MaxBitrate" => integer(),
+        "ParControl" => list(any()),
+        "ParDenominator" => integer(),
+        "ParNumerator" => integer(),
+        "QualityTuningLevel" => list(any()),
+        "RateControlMode" => list(any())
+      }
+
+  """
+  @type vp8_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1981,99 +2510,48 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      s3_destination_settings() :: %{
-        "AccessControl" => s3_destination_access_control(),
-        "Encryption" => s3_encryption_settings(),
-        "StorageClass" => list(any())
+      hdr10_metadata() :: %{
+        "BluePrimaryX" => integer(),
+        "BluePrimaryY" => integer(),
+        "GreenPrimaryX" => integer(),
+        "GreenPrimaryY" => integer(),
+        "MaxContentLightLevel" => integer(),
+        "MaxFrameAverageLightLevel" => integer(),
+        "MaxLuminance" => integer(),
+        "MinLuminance" => integer(),
+        "RedPrimaryX" => integer(),
+        "RedPrimaryY" => integer(),
+        "WhitePointX" => integer(),
+        "WhitePointY" => integer()
       }
 
   """
-  @type s3_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type hdr10_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      h265_settings() :: %{
-        "PerFrameMetrics" => list(list(any())()),
-        "MvTemporalPredictor" => list(any()),
-        "ParControl" => list(any()),
-        "TileWidth" => integer(),
-        "TemporalAdaptiveQuantization" => list(any()),
-        "DynamicSubGop" => list(any()),
-        "HrdBufferSize" => integer(),
-        "FramerateConversionAlgorithm" => list(any()),
-        "CodecProfile" => list(any()),
-        "NumberBFramesBetweenReferenceFrames" => integer(),
-        "TreeBlockSize" => list(any()),
-        "EndOfStreamMarkers" => list(any()),
-        "TileHeight" => integer(),
-        "NumberReferenceFrames" => integer(),
-        "Bitrate" => integer(),
-        "SlowPal" => list(any()),
-        "BandwidthReductionFilter" => bandwidth_reduction_filter(),
-        "RateControlMode" => list(any()),
-        "GopSizeUnits" => list(any()),
-        "MinIInterval" => integer(),
-        "QvbrSettings" => h265_qvbr_settings(),
-        "FlickerAdaptiveQuantization" => list(any()),
-        "AdaptiveQuantization" => list(any()),
-        "CodecLevel" => list(any()),
-        "HrdBufferFinalFillPercentage" => integer(),
-        "MvOverPictureBoundaries" => list(any()),
-        "FramerateControl" => list(any()),
-        "SpatialAdaptiveQuantization" => list(any()),
-        "FramerateDenominator" => integer(),
-        "Telecine" => list(any()),
-        "Tiles" => list(any()),
-        "TemporalIds" => list(any()),
-        "UnregisteredSeiTimecode" => list(any()),
-        "ScanTypeConversionMode" => list(any()),
-        "Deblocking" => list(any()),
-        "TilePadding" => list(any()),
-        "ParNumerator" => integer(),
-        "GopClosedCadence" => integer(),
-        "FramerateNumerator" => integer(),
-        "InterlaceMode" => list(any()),
-        "HrdBufferInitialFillPercentage" => integer(),
-        "AlternateTransferFunctionSei" => list(any()),
-        "ParDenominator" => integer(),
-        "WriteMp4PackagingType" => list(any()),
-        "GopSize" => float(),
-        "SampleAdaptiveOffsetFilterMode" => list(any()),
-        "GopBReference" => list(any()),
-        "SceneChangeDetect" => list(any()),
-        "Slices" => integer(),
-        "QualityTuningLevel" => list(any()),
-        "MaxBitrate" => integer()
+      caption_description_preset() :: %{
+        "CustomLanguageCode" => String.t() | atom(),
+        "DestinationSettings" => caption_destination_settings(),
+        "LanguageCode" => list(any()),
+        "LanguageDescription" => String.t() | atom()
       }
 
   """
-  @type h265_settings() :: %{(String.t() | atom()) => any()}
+  @type caption_description_preset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      av1_qvbr_settings() :: %{
-        "QvbrQualityLevel" => integer(),
-        "QvbrQualityLevelFineTune" => float()
+      destination_settings() :: %{
+        "S3Settings" => s3_destination_settings()
       }
 
   """
-  @type av1_qvbr_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      teletext_destination_settings() :: %{
-        "PageNumber" => String.t() | atom(),
-        "PageTypes" => list(list(any())())
-      }
-
-  """
-  @type teletext_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2097,24 +2575,25 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      noise_reducer_spatial_filter_settings() :: %{
+        "PostFilterSharpenStrength" => integer(),
+        "Speed" => integer(),
+        "Strength" => integer()
+      }
+
+  """
+  @type noise_reducer_spatial_filter_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         "ResourceTags" => resource_tags()
       }
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_additional_manifest() :: %{
-        "ManifestNameModifier" => String.t() | atom(),
-        "SelectedOutputs" => list(String.t() | atom())
-      }
-
-  """
-  @type hls_additional_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2132,161 +2611,87 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      dash_iso_encryption_settings() :: %{
-        "PlaybackDeviceCompatibility" => list(any()),
-        "SpekeKeyProvider" => speke_key_provider()
+      caption_source_framerate() :: %{
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer()
       }
 
   """
-  @type dash_iso_encryption_settings() :: %{(String.t() | atom()) => any()}
+  @type caption_source_framerate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dolby_vision() :: %{
-        "Compatibility" => list(any()),
-        "L6Metadata" => dolby_vision_level6_metadata(),
-        "L6Mode" => list(any()),
-        "Mapping" => list(any()),
-        "Profile" => list(any())
+      audio_codec_settings() :: %{
+        "AacSettings" => aac_settings(),
+        "Ac3Settings" => ac3_settings(),
+        "Ac4Settings" => ac4_settings(),
+        "AiffSettings" => aiff_settings(),
+        "Codec" => list(any()),
+        "Eac3AtmosSettings" => eac3_atmos_settings(),
+        "Eac3Settings" => eac3_settings(),
+        "FlacSettings" => flac_settings(),
+        "Mp2Settings" => mp2_settings(),
+        "Mp3Settings" => mp3_settings(),
+        "OpusSettings" => opus_settings(),
+        "VorbisSettings" => vorbis_settings(),
+        "WavSettings" => wav_settings()
       }
 
   """
-  @type dolby_vision() :: %{(String.t() | atom()) => any()}
+  @type audio_codec_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_jobs_response() :: %{
-        "Jobs" => list(job()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type search_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_description_preset() :: %{
-        "CustomLanguageCode" => String.t() | atom(),
-        "DestinationSettings" => caption_destination_settings(),
-        "LanguageCode" => list(any()),
-        "LanguageDescription" => String.t() | atom()
-      }
-
-  """
-  @type caption_description_preset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_presets_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Presets" => list(preset())
-      }
-
-  """
-  @type list_presets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      noise_reducer_temporal_filter_settings() :: %{
-        "AggressiveMode" => integer(),
-        "PostTemporalSharpening" => list(any()),
-        "PostTemporalSharpeningStrength" => list(any()),
-        "Speed" => integer(),
-        "Strength" => integer()
-      }
-
-  """
-  @type noise_reducer_temporal_filter_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(job_engine_version())
-      }
-
-  """
-  @type list_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_queue_request() :: %{
+      update_queue_request() :: %{
         optional("ConcurrentJobs") => integer(),
         optional("Description") => String.t() | atom(),
         optional("MaximumConcurrentFeeds") => integer(),
-        optional("PricingPlan") => list(any()),
         optional("ReservationPlanSettings") => reservation_plan_settings(),
-        optional("Status") => list(any()),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
+        optional("Status") => list(any())
       }
 
   """
-  @type create_queue_request() :: %{(String.t() | atom()) => any()}
+  @type update_queue_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ancillary_source_settings() :: %{
-        "Convert608To708" => list(any()),
-        "SourceAncillaryChannelNumber" => integer(),
-        "TerminateCaptions" => list(any())
+      job_engine_version() :: %{
+        "ExpirationDate" => non_neg_integer(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type ancillary_source_settings() :: %{(String.t() | atom()) => any()}
+  @type job_engine_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      job_messages() :: %{
-        "Info" => list(String.t() | atom()),
-        "Warning" => list(String.t() | atom())
+      motion_image_insertion_offset() :: %{
+        "ImageX" => integer(),
+        "ImageY" => integer()
       }
 
   """
-  @type job_messages() :: %{(String.t() | atom()) => any()}
+  @type motion_image_insertion_offset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_preset_request() :: %{}
-
-  """
-  @type delete_preset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_image_based_trick_play_settings() :: %{
-        "IntervalCadence" => list(any()),
-        "ThumbnailHeight" => integer(),
-        "ThumbnailInterval" => float(),
-        "ThumbnailWidth" => integer(),
-        "TileHeight" => integer(),
-        "TileWidth" => integer()
+      hls_additional_manifest() :: %{
+        "ManifestNameModifier" => String.t() | atom(),
+        "SelectedOutputs" => list(String.t() | atom())
       }
 
   """
-  @type hls_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
+  @type hls_additional_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2333,35 +2738,10 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      esam_signal_processing_notification() :: %{
-        "SccXml" => String.t() | atom()
-      }
+      get_queue_request() :: %{}
 
   """
-  @type esam_signal_processing_notification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_selector() :: %{
-        "AlphaBehavior" => list(any()),
-        "ColorSpace" => list(any()),
-        "ColorSpaceUsage" => list(any()),
-        "EmbeddedTimecodeOverride" => list(any()),
-        "Hdr10Metadata" => hdr10_metadata(),
-        "MaxLuminance" => integer(),
-        "PadVideo" => list(any()),
-        "Pid" => integer(),
-        "ProgramNumber" => integer(),
-        "Rotate" => list(any()),
-        "SampleRange" => list(any()),
-        "SelectorType" => list(any()),
-        "Streams" => list(integer())
-      }
-
-  """
-  @type video_selector() :: %{(String.t() | atom()) => any()}
+  @type get_queue_request() :: %{}
 
   @typedoc """
 
@@ -2379,445 +2759,6 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      opus_settings() :: %{
-        "Bitrate" => integer(),
-        "Channels" => integer(),
-        "SampleRate" => integer()
-      }
-
-  """
-  @type opus_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_certificate_request() :: %{}
-
-  """
-  @type disassociate_certificate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_group_settings() :: %{
-        "AdMarkers" => list(list(any())()),
-        "AdditionalManifests" => list(hls_additional_manifest()),
-        "AudioOnlyHeader" => list(any()),
-        "BaseUrl" => String.t() | atom(),
-        "CaptionLanguageMappings" => list(hls_caption_language_mapping()),
-        "CaptionLanguageSetting" => list(any()),
-        "CaptionSegmentLengthControl" => list(any()),
-        "ClientCache" => list(any()),
-        "CodecSpecification" => list(any()),
-        "Destination" => String.t() | atom(),
-        "DestinationSettings" => destination_settings(),
-        "DirectoryStructure" => list(any()),
-        "Encryption" => hls_encryption_settings(),
-        "ImageBasedTrickPlay" => list(any()),
-        "ImageBasedTrickPlaySettings" => hls_image_based_trick_play_settings(),
-        "ManifestCompression" => list(any()),
-        "ManifestDurationFormat" => list(any()),
-        "MinFinalSegmentLength" => float(),
-        "MinSegmentLength" => integer(),
-        "OutputSelection" => list(any()),
-        "ProgramDateTime" => list(any()),
-        "ProgramDateTimePeriod" => integer(),
-        "ProgressiveWriteHlsManifest" => list(any()),
-        "SegmentControl" => list(any()),
-        "SegmentLength" => integer(),
-        "SegmentLengthControl" => list(any()),
-        "SegmentsPerSubdirectory" => integer(),
-        "StreamInfResolution" => list(any()),
-        "TargetDurationCompatibilityMode" => list(any()),
-        "TimedMetadataId3Frame" => list(any()),
-        "TimedMetadataId3Period" => integer(),
-        "TimestampDeltaMilliseconds" => integer()
-      }
-
-  """
-  @type hls_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_settings() :: %{
-        "HlsSettings" => hls_settings()
-      }
-
-  """
-  @type output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_selector() :: %{
-        "AudioDurationCorrection" => list(any()),
-        "CustomLanguageCode" => String.t() | atom(),
-        "DefaultSelection" => list(any()),
-        "ExternalAudioFileInput" => String.t() | atom(),
-        "HlsRenditionGroupSettings" => hls_rendition_group_settings(),
-        "LanguageCode" => list(any()),
-        "Offset" => integer(),
-        "Pids" => list(integer()),
-        "ProgramSelection" => integer(),
-        "RemixSettings" => remix_settings(),
-        "SelectorType" => list(any()),
-        "Streams" => list(integer()),
-        "Tracks" => list(integer())
-      }
-
-  """
-  @type audio_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      av1_settings() :: %{
-        "AdaptiveQuantization" => list(any()),
-        "BitDepth" => list(any()),
-        "FilmGrainSynthesis" => list(any()),
-        "FramerateControl" => list(any()),
-        "FramerateConversionAlgorithm" => list(any()),
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer(),
-        "GopSize" => float(),
-        "MaxBitrate" => integer(),
-        "NumberBFramesBetweenReferenceFrames" => integer(),
-        "PerFrameMetrics" => list(list(any())()),
-        "QvbrSettings" => av1_qvbr_settings(),
-        "RateControlMode" => list(any()),
-        "Slices" => integer(),
-        "SpatialAdaptiveQuantization" => list(any())
-      }
-
-  """
-  @type av1_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_override() :: %{
-        "Message" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OverrideValue" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type service_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      xavc_hd_profile_settings() :: %{
-        "BitrateClass" => list(any()),
-        "FlickerAdaptiveQuantization" => list(any()),
-        "GopBReference" => list(any()),
-        "GopClosedCadence" => integer(),
-        "HrdBufferSize" => integer(),
-        "InterlaceMode" => list(any()),
-        "QualityTuningLevel" => list(any()),
-        "Slices" => integer(),
-        "Telecine" => list(any())
-      }
-
-  """
-  @type xavc_hd_profile_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_response() :: %{
-        "Policy" => policy()
-      }
-
-  """
-  @type get_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_detail() :: %{
-        "HeightInPx" => integer(),
-        "WidthInPx" => integer()
-      }
-
-  """
-  @type video_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint() :: %{
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_preprocessor() :: %{
-        "ColorCorrector" => color_corrector(),
-        "Deinterlacer" => deinterlacer(),
-        "DolbyVision" => dolby_vision(),
-        "Hdr10Plus" => hdr10_plus(),
-        "ImageInserter" => image_inserter(),
-        "NoiseReducer" => noise_reducer(),
-        "PartnerWatermarking" => partner_watermarking(),
-        "TimecodeBurnin" => timecode_burnin()
-      }
-
-  """
-  @type video_preprocessor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_certificate_request() :: %{
-        required("Arn") => String.t() | atom()
-      }
-
-  """
-  @type associate_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      avail_blanking() :: %{
-        "AvailBlankingImage" => String.t() | atom()
-      }
-
-  """
-  @type avail_blanking() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dash_additional_manifest() :: %{
-        "ManifestNameModifier" => String.t() | atom(),
-        "SelectedOutputs" => list(String.t() | atom())
-      }
-
-  """
-  @type dash_additional_manifest() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_template_request() :: %{}
-
-  """
-  @type get_job_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_contract_configuration() :: %{
-        "SpekeAudioPreset" => list(any()),
-        "SpekeVideoPreset" => list(any())
-      }
-
-  """
-  @type encryption_contract_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_preset_request() :: %{
-        optional("Category") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Settings") => preset_settings()
-      }
-
-  """
-  @type update_preset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      avc_intra_uhd_settings() :: %{
-        "QualityTuningLevel" => list(any())
-      }
-
-  """
-  @type avc_intra_uhd_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      motion_image_inserter() :: %{
-        "Framerate" => motion_image_insertion_framerate(),
-        "Input" => String.t() | atom(),
-        "InsertionMode" => list(any()),
-        "Offset" => motion_image_insertion_offset(),
-        "Playback" => list(any()),
-        "StartTime" => String.t() | atom()
-      }
-
-  """
-  @type motion_image_inserter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timing() :: %{
-        "FinishTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer(),
-        "SubmitTime" => non_neg_integer()
-      }
-
-  """
-  @type timing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_policy_request() :: %{}
-
-  """
-  @type delete_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      video_properties() :: %{
-        "BitDepth" => integer(),
-        "BitRate" => float(),
-        "CodecMetadata" => codec_metadata(),
-        "ColorPrimaries" => list(any()),
-        "FrameRate" => frame_rate(),
-        "Height" => integer(),
-        "MatrixCoefficients" => list(any()),
-        "TransferCharacteristics" => list(any()),
-        "Width" => integer()
-      }
-
-  """
-  @type video_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_preset_request() :: %{}
-
-  """
-  @type get_preset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      teletext_source_settings() :: %{
-        "PageNumber" => String.t() | atom()
-      }
-
-  """
-  @type teletext_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      queue_transition() :: %{
-        "DestinationQueue" => String.t() | atom(),
-        "SourceQueue" => String.t() | atom(),
-        "Timestamp" => non_neg_integer()
-      }
-
-  """
-  @type queue_transition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      codec_metadata() :: %{
-        "BitDepth" => integer(),
-        "ChromaSubsampling" => String.t() | atom(),
-        "CodedFrameRate" => frame_rate(),
-        "ColorPrimaries" => list(any()),
-        "Height" => integer(),
-        "Level" => String.t() | atom(),
-        "MatrixCoefficients" => list(any()),
-        "Profile" => String.t() | atom(),
-        "ScanType" => String.t() | atom(),
-        "TransferCharacteristics" => list(any()),
-        "Width" => integer()
-      }
-
-  """
-  @type codec_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_templates_request() :: %{
-        optional("Category") => String.t() | atom(),
-        optional("ListBy") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Order") => list(any())
-      }
-
-  """
-  @type list_job_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy() :: %{
-        "HttpInputs" => list(any()),
-        "HttpsInputs" => list(any()),
-        "S3Inputs" => list(any())
-      }
-
-  """
-  @type policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      probe_result() :: %{
-        "Container" => container(),
-        "Metadata" => metadata(),
-        "TrackMappings" => list(track_mapping())
-      }
-
-  """
-  @type probe_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       elemental_inference_configuration() :: %{
         "Features" => list(list(any())()),
         "Feeds" => list(elemental_inference_feed())
@@ -2830,471 +2771,113 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      cmaf_additional_manifest() :: %{
-        "ManifestNameModifier" => String.t() | atom(),
-        "SelectedOutputs" => list(String.t() | atom())
+      hls_settings() :: %{
+        "AudioGroupId" => String.t() | atom(),
+        "AudioOnlyContainer" => list(any()),
+        "AudioRenditionSets" => String.t() | atom(),
+        "AudioTrackType" => list(any()),
+        "DescriptiveVideoServiceFlag" => list(any()),
+        "IFrameOnlyManifest" => list(any()),
+        "SegmentModifier" => String.t() | atom()
       }
 
   """
-  @type cmaf_additional_manifest() :: %{(String.t() | atom()) => any()}
+  @type hls_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_job_template_request() :: %{
-        optional("AccelerationSettings") => acceleration_settings(),
-        optional("Category") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("HopDestinations") => list(hop_destination()),
-        optional("Priority") => integer(),
-        optional("Queue") => String.t() | atom(),
-        optional("StatusUpdateInterval") => list(any()),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom(),
-        required("Settings") => job_template_settings()
+      mp4_settings() :: %{
+        "AudioDuration" => list(any()),
+        "C2paManifest" => list(any()),
+        "CertificateSecret" => String.t() | atom(),
+        "CslgAtom" => list(any()),
+        "CttsVersion" => integer(),
+        "FreeSpaceBox" => list(any()),
+        "MoovPlacement" => list(any()),
+        "Mp4MajorBrand" => String.t() | atom(),
+        "SigningKmsKey" => String.t() | atom()
       }
 
   """
-  @type create_job_template_request() :: %{(String.t() | atom()) => any()}
+  @type mp4_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_encoding_settings() :: %{
-        "AbrSettings" => automated_abr_settings()
-      }
-
-  """
-  @type automated_encoding_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dvb_tdt_settings() :: %{
-        "TdtInterval" => integer()
-      }
-
-  """
-  @type dvb_tdt_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id3_insertion() :: %{
-        "Id3" => String.t() | atom(),
-        "Timecode" => String.t() | atom()
-      }
-
-  """
-  @type id3_insertion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hdr10_metadata() :: %{
-        "BluePrimaryX" => integer(),
-        "BluePrimaryY" => integer(),
-        "GreenPrimaryX" => integer(),
-        "GreenPrimaryY" => integer(),
-        "MaxContentLightLevel" => integer(),
-        "MaxFrameAverageLightLevel" => integer(),
-        "MaxLuminance" => integer(),
-        "MinLuminance" => integer(),
-        "RedPrimaryX" => integer(),
-        "RedPrimaryY" => integer(),
-        "WhitePointX" => integer(),
-        "WhitePointY" => integer()
-      }
-
-  """
-  @type hdr10_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mp3_settings() :: %{
-        "Bitrate" => integer(),
-        "Channels" => integer(),
-        "RateControlMode" => list(any()),
-        "SampleRate" => integer(),
-        "VbrQuality" => integer()
-      }
-
-  """
-  @type mp3_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      webvtt_destination_settings() :: %{
-        "Accessibility" => list(any()),
+      srt_destination_settings() :: %{
         "StylePassthrough" => list(any())
       }
 
   """
-  @type webvtt_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type srt_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multi_view_settings() :: %{
-        "Input" => multi_view_input()
+      m3u8_settings() :: %{
+        "AudioDuration" => list(any()),
+        "AudioFramesPerPes" => integer(),
+        "AudioPids" => list(integer()),
+        "AudioPtsOffsetDelta" => integer(),
+        "DataPTSControl" => list(any()),
+        "MaxPcrInterval" => integer(),
+        "NielsenId3" => list(any()),
+        "PatInterval" => integer(),
+        "PcrControl" => list(any()),
+        "PcrPid" => integer(),
+        "PmtInterval" => integer(),
+        "PmtPid" => integer(),
+        "PrivateMetadataPid" => integer(),
+        "ProgramNumber" => integer(),
+        "PtsOffset" => integer(),
+        "PtsOffsetMode" => list(any()),
+        "Scte35Pid" => integer(),
+        "Scte35Source" => list(any()),
+        "TimedMetadata" => list(any()),
+        "TimedMetadataPid" => integer(),
+        "TransportStreamId" => integer(),
+        "VideoPid" => integer()
       }
 
   """
-  @type multi_view_settings() :: %{(String.t() | atom()) => any()}
+  @type m3u8_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_job_template_response() :: %{
-        "JobTemplate" => job_template()
+      search_jobs_request() :: %{
+        optional("InputFile") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Order") => list(any()),
+        optional("Queue") => String.t() | atom(),
+        optional("Status") => list(any())
       }
 
   """
-  @type update_job_template_response() :: %{(String.t() | atom()) => any()}
+  @type search_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      uncompressed_settings() :: %{
-        "Fourcc" => list(any()),
-        "FramerateControl" => list(any()),
-        "FramerateConversionAlgorithm" => list(any()),
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer(),
-        "InterlaceMode" => list(any()),
-        "ScanTypeConversionMode" => list(any()),
-        "SlowPal" => list(any()),
-        "Telecine" => list(any())
+      xavc4k_intra_cbg_profile_settings() :: %{
+        "XavcClass" => list(any())
       }
 
   """
-  @type uncompressed_settings() :: %{(String.t() | atom()) => any()}
+  @type xavc4k_intra_cbg_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_certificate_response() :: %{}
-
-  """
-  @type disassociate_certificate_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remix_settings() :: %{
-        "AudioDescriptionAudioChannel" => integer(),
-        "AudioDescriptionDataChannel" => integer(),
-        "ChannelMapping" => channel_mapping(),
-        "ChannelsIn" => integer(),
-        "ChannelsOut" => integer()
-      }
-
-  """
-  @type remix_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mpeg2_settings() :: %{
-        "PerFrameMetrics" => list(list(any())()),
-        "ParControl" => list(any()),
-        "TemporalAdaptiveQuantization" => list(any()),
-        "DynamicSubGop" => list(any()),
-        "HrdBufferSize" => integer(),
-        "FramerateConversionAlgorithm" => list(any()),
-        "IntraDcPrecision" => list(any()),
-        "CodecProfile" => list(any()),
-        "NumberBFramesBetweenReferenceFrames" => integer(),
-        "Bitrate" => integer(),
-        "SlowPal" => list(any()),
-        "RateControlMode" => list(any()),
-        "GopSizeUnits" => list(any()),
-        "MinIInterval" => integer(),
-        "Softness" => integer(),
-        "AdaptiveQuantization" => list(any()),
-        "CodecLevel" => list(any()),
-        "HrdBufferFinalFillPercentage" => integer(),
-        "FramerateControl" => list(any()),
-        "SpatialAdaptiveQuantization" => list(any()),
-        "FramerateDenominator" => integer(),
-        "Telecine" => list(any()),
-        "ScanTypeConversionMode" => list(any()),
-        "ParNumerator" => integer(),
-        "GopClosedCadence" => integer(),
-        "FramerateNumerator" => integer(),
-        "InterlaceMode" => list(any()),
-        "HrdBufferInitialFillPercentage" => integer(),
-        "ParDenominator" => integer(),
-        "Syntax" => list(any()),
-        "GopSize" => float(),
-        "SceneChangeDetect" => list(any()),
-        "QualityTuningLevel" => list(any()),
-        "MaxBitrate" => integer()
-      }
-
-  """
-  @type mpeg2_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_source_settings() :: %{
-        "AncillarySourceSettings" => ancillary_source_settings(),
-        "DvbSubSourceSettings" => dvb_sub_source_settings(),
-        "EmbeddedSourceSettings" => embedded_source_settings(),
-        "FileSourceSettings" => file_source_settings(),
-        "SourceType" => list(any()),
-        "TeletextSourceSettings" => teletext_source_settings(),
-        "TrackSourceSettings" => track_source_settings(),
-        "WebvttHlsSourceSettings" => webvtt_hls_source_settings()
-      }
-
-  """
-  @type caption_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kantar_watermark_settings() :: %{
-        "ChannelName" => String.t() | atom(),
-        "ContentReference" => String.t() | atom(),
-        "CredentialsSecretName" => String.t() | atom(),
-        "FileOffset" => float(),
-        "KantarLicenseId" => integer(),
-        "KantarServerUrl" => String.t() | atom(),
-        "LogDestination" => String.t() | atom(),
-        "Metadata3" => String.t() | atom(),
-        "Metadata4" => String.t() | atom(),
-        "Metadata5" => String.t() | atom(),
-        "Metadata6" => String.t() | atom(),
-        "Metadata7" => String.t() | atom(),
-        "Metadata8" => String.t() | atom()
-      }
-
-  """
-  @type kantar_watermark_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hop_destination() :: %{
-        "Priority" => integer(),
-        "Queue" => String.t() | atom(),
-        "WaitMinutes" => integer()
-      }
-
-  """
-  @type hop_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_response() :: %{
-        "Job" => job()
-      }
-
-  """
-  @type get_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_preset_response() :: %{
-        "Preset" => preset()
-      }
-
-  """
-  @type update_preset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ms_smooth_additional_manifest() :: %{
-        "ManifestNameModifier" => String.t() | atom(),
-        "SelectedOutputs" => list(String.t() | atom())
-      }
-
-  """
-  @type ms_smooth_additional_manifest() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_view_input() :: %{
-        "FileInput" => String.t() | atom()
-      }
-
-  """
-  @type multi_view_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vorbis_settings() :: %{
-        "Channels" => integer(),
-        "SampleRate" => integer(),
-        "VbrQuality" => integer()
-      }
-
-  """
-  @type vorbis_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      probe_response() :: %{
-        "ProbeResults" => list(probe_result())
-      }
-
-  """
-  @type probe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ac3_settings() :: %{
-        "Bitrate" => integer(),
-        "BitstreamMode" => list(any()),
-        "CodingMode" => list(any()),
-        "Dialnorm" => integer(),
-        "DynamicRangeCompressionLine" => list(any()),
-        "DynamicRangeCompressionProfile" => list(any()),
-        "DynamicRangeCompressionRf" => list(any()),
-        "LfeFilter" => list(any()),
-        "MetadataControl" => list(any()),
-        "SampleRate" => integer()
-      }
-
-  """
-  @type ac3_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job() :: %{
-        "AccelerationSettings" => acceleration_settings(),
-        "AccelerationStatus" => list(any()),
-        "Arn" => String.t() | atom(),
-        "BillingTagsSource" => list(any()),
-        "ClientRequestToken" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "CurrentPhase" => list(any()),
-        "ElementalInferenceConfiguration" => elemental_inference_configuration(),
-        "ErrorCode" => integer(),
-        "ErrorMessage" => String.t() | atom(),
-        "HopDestinations" => list(hop_destination()),
-        "Id" => String.t() | atom(),
-        "JobEngineVersionRequested" => String.t() | atom(),
-        "JobEngineVersionUsed" => String.t() | atom(),
-        "JobPercentComplete" => integer(),
-        "JobTemplate" => String.t() | atom(),
-        "LastShareDetails" => String.t() | atom(),
-        "Messages" => job_messages(),
-        "OutputGroupDetails" => list(output_group_detail()),
-        "Priority" => integer(),
-        "Queue" => String.t() | atom(),
-        "QueueTransitions" => list(queue_transition()),
-        "RetryCount" => integer(),
-        "Role" => String.t() | atom(),
-        "Settings" => job_settings(),
-        "ShareStatus" => list(any()),
-        "SimulateReservedQueue" => list(any()),
-        "Status" => list(any()),
-        "StatusUpdateInterval" => list(any()),
-        "Timing" => timing(),
-        "UserMetadata" => map(),
-        "Warnings" => list(warning_group())
-      }
-
-  """
-  @type job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      passthrough_settings() :: %{
-        "FrameControl" => list(any()),
-        "VideoSelectorMode" => list(any())
-      }
-
-  """
-  @type passthrough_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      embedded_source_settings() :: %{
-        "Convert608To708" => list(any()),
-        "Source608ChannelNumber" => integer(),
-        "Source608TrackNumber" => integer(),
-        "TerminateCaptions" => list(any())
-      }
-
-  """
-  @type embedded_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dash_iso_image_based_trick_play_settings() :: %{
+      dash_iso_image_based_trick_play_variant() :: %{
         "IntervalCadence" => list(any()),
         "ThumbnailHeight" => integer(),
         "ThumbnailInterval" => float(),
@@ -3304,41 +2887,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dash_iso_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_settings() :: %{
-        "CmfcSettings" => cmfc_settings(),
-        "Container" => list(any()),
-        "F4vSettings" => f4v_settings(),
-        "M2tsSettings" => m2ts_settings(),
-        "M3u8Settings" => m3u8_settings(),
-        "MovSettings" => mov_settings(),
-        "Mp4Settings" => mp4_settings(),
-        "MpdSettings" => mpd_settings(),
-        "MxfSettings" => mxf_settings()
-      }
-
-  """
-  @type container_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_overlay_input() :: %{
-        "AudioSelectors" => map(),
-        "FileInput" => String.t() | atom(),
-        "InputClippings" => list(video_overlay_input_clipping()),
-        "TimecodeSource" => list(any()),
-        "TimecodeStart" => String.t() | atom()
-      }
-
-  """
-  @type video_overlay_input() :: %{(String.t() | atom()) => any()}
+  @type dash_iso_image_based_trick_play_variant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3350,81 +2899,6 @@ defmodule AWS.MediaConvert do
 
   """
   @type probe_input_file() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_request() :: %{}
-
-  """
-  @type get_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cmaf_encryption_settings() :: %{
-        "ClearLead" => list(any()),
-        "ConstantInitializationVector" => String.t() | atom(),
-        "EncryptionMethod" => list(any()),
-        "InitializationVectorInManifest" => list(any()),
-        "SpekeKeyProvider" => speke_key_provider_cmaf(),
-        "StaticKeyProvider" => static_key_provider(),
-        "Type" => list(any())
-      }
-
-  """
-  @type cmaf_encryption_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_preset_response() :: %{
-        "Preset" => preset()
-      }
-
-  """
-  @type get_preset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_jobs_query_response() :: %{
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type start_jobs_query_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_versions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_description() :: %{
-        "CaptionSelectorName" => String.t() | atom(),
-        "CustomLanguageCode" => String.t() | atom(),
-        "DestinationSettings" => caption_destination_settings(),
-        "LanguageCode" => list(any()),
-        "LanguageDescription" => String.t() | atom()
-      }
-
-  """
-  @type caption_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3445,119 +2919,18 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      nielsen_non_linear_watermark_settings() :: %{
-        "ActiveWatermarkProcess" => list(any()),
-        "AdiFilename" => String.t() | atom(),
-        "AssetId" => String.t() | atom(),
-        "AssetName" => String.t() | atom(),
-        "CbetSourceId" => String.t() | atom(),
-        "EpisodeId" => String.t() | atom(),
-        "MetadataDestination" => String.t() | atom(),
-        "SourceId" => integer(),
-        "SourceWatermarkStatus" => list(any()),
-        "TicServerUrl" => String.t() | atom(),
-        "UniqueTicPerAudioTrack" => list(any())
+      video_overlay() :: %{
+        "Crop" => video_overlay_crop(),
+        "EndTimecode" => String.t() | atom(),
+        "InitialPosition" => video_overlay_position(),
+        "Input" => video_overlay_input(),
+        "Playback" => list(any()),
+        "StartTimecode" => String.t() | atom(),
+        "Transitions" => list(video_overlay_transition())
       }
 
   """
-  @type nielsen_non_linear_watermark_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cmaf_image_based_trick_play_settings() :: %{
-        "IntervalCadence" => list(any()),
-        "ThumbnailHeight" => integer(),
-        "ThumbnailInterval" => float(),
-        "ThumbnailWidth" => integer(),
-        "TileHeight" => integer(),
-        "TileWidth" => integer()
-      }
-
-  """
-  @type cmaf_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      frame_capture_settings() :: %{
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer(),
-        "MaxCaptures" => integer(),
-        "Quality" => integer()
-      }
-
-  """
-  @type frame_capture_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      m2ts_settings() :: %{
-        "TimedMetadataPid" => integer(),
-        "KlvMetadata" => list(any()),
-        "NullPacketBitrate" => float(),
-        "PcrPid" => integer(),
-        "DvbTeletextPid" => integer(),
-        "AudioBufferModel" => list(any()),
-        "DvbSdtSettings" => dvb_sdt_settings(),
-        "TransportStreamId" => integer(),
-        "PatInterval" => integer(),
-        "Bitrate" => integer(),
-        "PmtPid" => integer(),
-        "MaxPcrInterval" => integer(),
-        "EbpPlacement" => list(any()),
-        "Scte35Esam" => m2ts_scte35_esam(),
-        "Scte35Pid" => integer(),
-        "FragmentTime" => float(),
-        "AudioFramesPerPes" => integer(),
-        "SegmentationMarkers" => list(any()),
-        "DataPTSControl" => list(any()),
-        "Scte35Source" => list(any()),
-        "SegmentationTime" => float(),
-        "PrivateMetadataPid" => integer(),
-        "PcrControl" => list(any()),
-        "MinEbpInterval" => integer(),
-        "ForceTsVideoEbpOrder" => list(any()),
-        "AudioDuration" => list(any()),
-        "VideoPid" => integer(),
-        "PreventBufferUnderflow" => list(any()),
-        "DvbTdtSettings" => dvb_tdt_settings(),
-        "DvbSubPids" => list(integer()),
-        "AudioPids" => list(integer()),
-        "PtsOffsetMode" => list(any()),
-        "PtsOffset" => integer(),
-        "AudioPtsOffsetDelta" => integer(),
-        "BufferModel" => list(any()),
-        "DvbNitSettings" => dvb_nit_settings(),
-        "RateMode" => list(any()),
-        "EbpAudioInterval" => list(any()),
-        "NielsenId3" => list(any()),
-        "ProgramNumber" => integer(),
-        "EsRateInPes" => list(any()),
-        "PmtInterval" => integer(),
-        "SegmentationStyle" => list(any())
-      }
-
-  """
-  @type m2ts_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dvb_sdt_settings() :: %{
-        "OutputSdt" => list(any()),
-        "SdtInterval" => integer(),
-        "ServiceName" => String.t() | atom(),
-        "ServiceProviderName" => String.t() | atom()
-      }
-
-  """
-  @type dvb_sdt_settings() :: %{(String.t() | atom()) => any()}
+  @type video_overlay() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3577,69 +2950,21 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      data_properties() :: %{
-        "LanguageCode" => String.t() | atom()
-      }
-
-  """
-  @type data_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      m2ts_scte35_esam() :: %{
-        "Scte35EsamPid" => integer()
-      }
-
-  """
-  @type m2ts_scte35_esam() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      warning_group() :: %{
-        "Code" => integer(),
-        "Count" => integer()
-      }
-
-  """
-  @type warning_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ac4_settings() :: %{
-        "Bitrate" => integer(),
-        "BitstreamMode" => list(any()),
-        "CodingMode" => list(any()),
-        "DynamicRangeCompressionFlatPanelTv" => list(any()),
-        "DynamicRangeCompressionHomeTheater" => list(any()),
-        "DynamicRangeCompressionPortableHeadphones" => list(any()),
-        "DynamicRangeCompressionPortableSpeakers" => list(any()),
-        "LoRoCenterMixLevel" => float(),
-        "LoRoSurroundMixLevel" => float(),
-        "LtRtCenterMixLevel" => float(),
-        "LtRtSurroundMixLevel" => float(),
-        "SampleRate" => integer(),
-        "StereoDownmix" => list(any())
-      }
-
-  """
-  @type ac4_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_destination_settings() :: %{
+      ttml_destination_settings() :: %{
         "StylePassthrough" => list(any())
       }
 
   """
-  @type srt_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type ttml_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_preset_response() :: %{}
+
+  """
+  @type delete_preset_response() :: %{}
 
   @typedoc """
 
@@ -3652,6 +2977,131 @@ defmodule AWS.MediaConvert do
 
   """
   @type min_bottom_rendition_size() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_input_filter_settings() :: %{
+        "AddTexture" => list(any()),
+        "Sharpening" => list(any())
+      }
+
+  """
+  @type advanced_input_filter_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_request() :: %{
+        optional("AccelerationSettings") => acceleration_settings(),
+        optional("BillingTagsSource") => list(any()),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("HopDestinations") => list(hop_destination()),
+        optional("JobEngineVersion") => String.t() | atom(),
+        optional("JobTemplate") => String.t() | atom(),
+        optional("Priority") => integer(),
+        optional("Queue") => String.t() | atom(),
+        required("Role") => String.t() | atom(),
+        required("Settings") => job_settings(),
+        optional("SimulateReservedQueue") => list(any()),
+        optional("StatusUpdateInterval") => list(any()),
+        optional("Tags") => map(),
+        optional("UserMetadata") => map()
+      }
+
+  """
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      webvtt_destination_settings() :: %{
+        "Accessibility" => list(any()),
+        "StylePassthrough" => list(any())
+      }
+
+  """
+  @type webvtt_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      esam_settings() :: %{
+        "ManifestConfirmConditionNotification" => esam_manifest_confirm_condition_notification(),
+        "ResponseSignalPreroll" => integer(),
+        "SignalProcessingNotification" => esam_signal_processing_notification()
+      }
+
+  """
+  @type esam_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      m2ts_settings() :: %{
+        "PtsOffsetMode" => list(any()),
+        "Bitrate" => integer(),
+        "Scte35Esam" => m2ts_scte35_esam(),
+        "DvbTdtSettings" => dvb_tdt_settings(),
+        "DataPTSControl" => list(any()),
+        "AudioBufferModel" => list(any()),
+        "DvbSubPids" => list(integer()),
+        "BufferModel" => list(any()),
+        "AudioDuration" => list(any()),
+        "EsRateInPes" => list(any()),
+        "DvbTeletextPid" => integer(),
+        "RateMode" => list(any()),
+        "ProgramNumber" => integer(),
+        "TransportStreamId" => integer(),
+        "PmtPid" => integer(),
+        "SegmentationStyle" => list(any()),
+        "Scte35Pid" => integer(),
+        "TimedMetadataPid" => integer(),
+        "SegmentationTime" => float(),
+        "PcrPid" => integer(),
+        "EbpAudioInterval" => list(any()),
+        "Scte35Source" => list(any()),
+        "AudioFramesPerPes" => integer(),
+        "MinEbpInterval" => integer(),
+        "PcrControl" => list(any()),
+        "DvbSdtSettings" => dvb_sdt_settings(),
+        "NielsenId3" => list(any()),
+        "PreventBufferUnderflow" => list(any()),
+        "FragmentTime" => float(),
+        "AudioPtsOffsetDelta" => integer(),
+        "MaxPcrInterval" => integer(),
+        "AudioPids" => list(integer()),
+        "EbpPlacement" => list(any()),
+        "ForceTsVideoEbpOrder" => list(any()),
+        "NullPacketBitrate" => float(),
+        "PatInterval" => integer(),
+        "VideoPid" => integer(),
+        "PtsOffset" => integer(),
+        "DvbNitSettings" => dvb_nit_settings(),
+        "SegmentationMarkers" => list(any()),
+        "PrivateMetadataPid" => integer(),
+        "KlvMetadata" => list(any()),
+        "PmtInterval" => integer()
+      }
+
+  """
+  @type m2ts_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_response() :: %{
+        "Job" => job()
+      }
+
+  """
+  @type get_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3684,13 +3134,127 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      dolby_vision_level6_metadata() :: %{
-        "MaxCll" => integer(),
-        "MaxFall" => integer()
+      metadata() :: %{
+        "ETag" => String.t() | atom(),
+        "FileSize" => float(),
+        "LastModified" => non_neg_integer(),
+        "MimeType" => String.t() | atom()
       }
 
   """
-  @type dolby_vision_level6_metadata() :: %{(String.t() | atom()) => any()}
+  @type metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_caption_language_mapping() :: %{
+        "CaptionChannel" => integer(),
+        "CustomLanguageCode" => String.t() | atom(),
+        "LanguageCode" => list(any()),
+        "LanguageDescription" => String.t() | atom()
+      }
+
+  """
+  @type hls_caption_language_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_response() :: %{
+        "Job" => job()
+      }
+
+  """
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_template_request() :: %{
+        optional("AccelerationSettings") => acceleration_settings(),
+        optional("Category") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("HopDestinations") => list(hop_destination()),
+        required("Name") => String.t() | atom(),
+        optional("Priority") => integer(),
+        optional("Queue") => String.t() | atom(),
+        required("Settings") => job_template_settings(),
+        optional("StatusUpdateInterval") => list(any()),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_job_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_codec_settings() :: %{
+        "Av1Settings" => av1_settings(),
+        "AvcIntraSettings" => avc_intra_settings(),
+        "Codec" => list(any()),
+        "FrameCaptureSettings" => frame_capture_settings(),
+        "GifSettings" => gif_settings(),
+        "H264Settings" => h264_settings(),
+        "H265Settings" => h265_settings(),
+        "Mpeg2Settings" => mpeg2_settings(),
+        "PassthroughSettings" => passthrough_settings(),
+        "ProresSettings" => prores_settings(),
+        "UncompressedSettings" => uncompressed_settings(),
+        "Vc3Settings" => vc3_settings(),
+        "Vp8Settings" => vp8_settings(),
+        "Vp9Settings" => vp9_settings(),
+        "XavcSettings" => xavc_settings()
+      }
+
+  """
+  @type video_codec_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nex_guard_file_marker_settings() :: %{
+        "License" => String.t() | atom(),
+        "Payload" => integer(),
+        "Preset" => String.t() | atom(),
+        "Strength" => list(any())
+      }
+
+  """
+  @type nex_guard_file_marker_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vorbis_settings() :: %{
+        "Channels" => integer(),
+        "SampleRate" => integer(),
+        "VbrQuality" => integer()
+      }
+
+  """
+  @type vorbis_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_preset_request() :: %{
+        optional("Category") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Settings") => preset_settings(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_preset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3707,26 +3271,23 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      input_decryption_settings() :: %{
-        "DecryptionMode" => list(any()),
-        "EncryptedDecryptionKey" => String.t() | atom(),
-        "InitializationVector" => String.t() | atom(),
-        "KmsKeyRegion" => String.t() | atom()
+      start_jobs_query_response() :: %{
+        "Id" => String.t() | atom()
       }
 
   """
-  @type input_decryption_settings() :: %{(String.t() | atom()) => any()}
+  @type start_jobs_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      channel_mapping() :: %{
-        "OutputChannels" => list(output_channel_mapping())
+      put_policy_response() :: %{
+        "Policy" => policy()
       }
 
   """
-  @type channel_mapping() :: %{(String.t() | atom()) => any()}
+  @type put_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3746,196 +3307,124 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      input_clipping() :: %{
+      video_overlay_input_clipping() :: %{
         "EndTimecode" => String.t() | atom(),
         "StartTimecode" => String.t() | atom()
       }
 
   """
-  @type input_clipping() :: %{(String.t() | atom()) => any()}
+  @type video_overlay_input_clipping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bad_request_exception() :: %{
-        "Message" => String.t() | atom()
+      file_group_settings() :: %{
+        "Destination" => String.t() | atom(),
+        "DestinationSettings" => destination_settings()
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type file_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_queue_response() :: %{
-        "Queue" => queue()
+      timed_metadata_insertion() :: %{
+        "Id3Insertions" => list(id3_insertion())
       }
 
   """
-  @type update_queue_response() :: %{(String.t() | atom()) => any()}
+  @type timed_metadata_insertion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_queue_request() :: %{}
-
-  """
-  @type delete_queue_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_abr_settings() :: %{
-        "MaxAbrBitrate" => integer(),
-        "MaxQualityLevel" => float(),
-        "MaxRenditions" => integer(),
-        "MinAbrBitrate" => integer(),
-        "Rules" => list(automated_abr_rule())
+      aac_settings() :: %{
+        "AudioDescriptionBroadcasterMix" => list(any()),
+        "Bitrate" => integer(),
+        "CodecProfile" => list(any()),
+        "CodingMode" => list(any()),
+        "LoudnessMeasurementMode" => list(any()),
+        "RapInterval" => integer(),
+        "RateControlMode" => list(any()),
+        "RawFormat" => list(any()),
+        "SampleRate" => integer(),
+        "Specification" => list(any()),
+        "TargetLoudnessRange" => integer(),
+        "VbrQuality" => list(any())
       }
 
   """
-  @type automated_abr_settings() :: %{(String.t() | atom()) => any()}
+  @type aac_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      xavc_hd_intra_cbg_profile_settings() :: %{
+      audio_channel_tagging_settings() :: %{
+        "ChannelTag" => list(any()),
+        "ChannelTags" => list(list(any())())
+      }
+
+  """
+  @type audio_channel_tagging_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      xavc4k_intra_vbr_profile_settings() :: %{
         "XavcClass" => list(any())
       }
 
   """
-  @type xavc_hd_intra_cbg_profile_settings() :: %{(String.t() | atom()) => any()}
+  @type xavc4k_intra_vbr_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      embedded_destination_settings() :: %{
-        "Destination608ChannelNumber" => integer(),
-        "Destination708ServiceNumber" => integer()
+      ac3_settings() :: %{
+        "Bitrate" => integer(),
+        "BitstreamMode" => list(any()),
+        "CodingMode" => list(any()),
+        "Dialnorm" => integer(),
+        "DynamicRangeCompressionLine" => list(any()),
+        "DynamicRangeCompressionProfile" => list(any()),
+        "DynamicRangeCompressionRf" => list(any()),
+        "LfeFilter" => list(any()),
+        "MetadataControl" => list(any()),
+        "SampleRate" => integer()
       }
 
   """
-  @type embedded_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type ac3_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_policy_request() :: %{
-        required("Policy") => policy()
+      bandwidth_reduction_filter() :: %{
+        "Sharpening" => list(any()),
+        "Strength" => list(any())
       }
 
   """
-  @type put_policy_request() :: %{(String.t() | atom()) => any()}
+  @type bandwidth_reduction_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_job_templates_response() :: %{
-        "JobTemplates" => list(job_template()),
-        "NextToken" => String.t() | atom()
+      partner_watermarking() :: %{
+        "NexguardFileMarkerSettings" => nex_guard_file_marker_settings()
       }
 
   """
-  @type list_job_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mpd_settings() :: %{
-        "AccessibilityCaptionHints" => list(any()),
-        "AudioDuration" => list(any()),
-        "C2paManifest" => list(any()),
-        "CaptionContainerType" => list(any()),
-        "CertificateSecret" => String.t() | atom(),
-        "KlvMetadata" => list(any()),
-        "ManifestMetadataSignaling" => list(any()),
-        "Scte35Esam" => list(any()),
-        "Scte35Source" => list(any()),
-        "SigningKmsKey" => String.t() | atom(),
-        "TimedMetadata" => list(any()),
-        "TimedMetadataBoxVersion" => list(any()),
-        "TimedMetadataSchemeIdUri" => String.t() | atom(),
-        "TimedMetadataValue" => String.t() | atom()
-      }
-
-  """
-  @type mpd_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_preset_response() :: %{
-        "Preset" => preset()
-      }
-
-  """
-  @type create_preset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gif_settings() :: %{
-        "FramerateControl" => list(any()),
-        "FramerateConversionAlgorithm" => list(any()),
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer()
-      }
-
-  """
-  @type gif_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_source_framerate() :: %{
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer()
-      }
-
-  """
-  @type caption_source_framerate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      h265_qvbr_settings() :: %{
-        "MaxAverageBitrate" => integer(),
-        "QvbrQualityLevel" => integer(),
-        "QvbrQualityLevelFineTune" => float()
-      }
-
-  """
-  @type h265_qvbr_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_normalization_settings() :: %{
-        "Algorithm" => list(any()),
-        "AlgorithmControl" => list(any()),
-        "CorrectionGateLevel" => integer(),
-        "LoudnessLogging" => list(any()),
-        "PeakCalculation" => list(any()),
-        "TargetLkfs" => float(),
-        "TruePeakLimiterThreshold" => float()
-      }
-
-  """
-  @type audio_normalization_settings() :: %{(String.t() | atom()) => any()}
+  @type partner_watermarking() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3953,102 +3442,109 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      probe_request() :: %{
-        optional("InputFiles") => list(probe_input_file())
+      motion_image_insertion_framerate() :: %{
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer()
       }
 
   """
-  @type probe_request() :: %{(String.t() | atom()) => any()}
+  @type motion_image_insertion_framerate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dash_iso_group_settings() :: %{
-        "AdditionalManifests" => list(dash_additional_manifest()),
-        "AudioChannelConfigSchemeIdUri" => list(any()),
-        "BaseUrl" => String.t() | atom(),
-        "DashIFrameTrickPlayNameModifier" => String.t() | atom(),
-        "DashManifestStyle" => list(any()),
+      dash_iso_encryption_settings() :: %{
+        "PlaybackDeviceCompatibility" => list(any()),
+        "SpekeKeyProvider" => speke_key_provider()
+      }
+
+  """
+  @type dash_iso_encryption_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      av1_settings() :: %{
+        "AdaptiveQuantization" => list(any()),
+        "BitDepth" => list(any()),
+        "FilmGrainSynthesis" => list(any()),
+        "FramerateControl" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "GopSize" => float(),
+        "MaxBitrate" => integer(),
+        "NumberBFramesBetweenReferenceFrames" => integer(),
+        "PerFrameMetrics" => list(list(any())()),
+        "QvbrSettings" => av1_qvbr_settings(),
+        "RateControlMode" => list(any()),
+        "Slices" => integer(),
+        "SpatialAdaptiveQuantization" => list(any())
+      }
+
+  """
+  @type av1_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(job_engine_version())
+      }
+
+  """
+  @type list_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ms_smooth_group_settings() :: %{
+        "AdditionalManifests" => list(ms_smooth_additional_manifest()),
+        "AudioDeduplication" => list(any()),
         "Destination" => String.t() | atom(),
         "DestinationSettings" => destination_settings(),
-        "Encryption" => dash_iso_encryption_settings(),
+        "Encryption" => ms_smooth_encryption_settings(),
         "FragmentLength" => integer(),
-        "HbbtvCompliance" => list(any()),
-        "ImageBasedTrickPlay" => list(any()),
-        "ImageBasedTrickPlaySettings" => dash_iso_image_based_trick_play_settings(),
-        "MinBufferTime" => integer(),
-        "MinFinalSegmentLength" => float(),
-        "MpdManifestBandwidthType" => list(any()),
-        "MpdProfile" => list(any()),
-        "PtsOffsetHandlingForBFrames" => list(any()),
-        "SegmentControl" => list(any()),
-        "SegmentLength" => integer(),
-        "SegmentLengthControl" => list(any()),
-        "VideoCompositionOffsets" => list(any()),
-        "WriteSegmentTimelineInRepresentation" => list(any())
+        "FragmentLengthControl" => list(any()),
+        "ManifestEncoding" => list(any())
       }
 
   """
-  @type dash_iso_group_settings() :: %{(String.t() | atom()) => any()}
+  @type ms_smooth_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      imsc_destination_settings() :: %{
-        "Accessibility" => list(any()),
-        "StylePassthrough" => list(any())
+      update_job_template_request() :: %{
+        optional("AccelerationSettings") => acceleration_settings(),
+        optional("Category") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("HopDestinations") => list(hop_destination()),
+        optional("Priority") => integer(),
+        optional("Queue") => String.t() | atom(),
+        optional("Settings") => job_template_settings(),
+        optional("StatusUpdateInterval") => list(any())
       }
 
   """
-  @type imsc_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type update_job_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      input_tams_settings() :: %{
-        "AuthConnectionArn" => String.t() | atom(),
-        "GapHandling" => list(any()),
-        "SourceId" => String.t() | atom(),
-        "Timerange" => String.t() | atom()
+      multi_view_input() :: %{
+        "FileInput" => String.t() | atom()
       }
 
   """
-  @type input_tams_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_queue_response() :: %{}
-
-  """
-  @type delete_queue_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_job_response() :: %{}
-
-  """
-  @type cancel_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      clip_limits() :: %{
-        "MaximumRGBTolerance" => integer(),
-        "MaximumYUV" => integer(),
-        "MinimumRGBTolerance" => integer(),
-        "MinimumYUV" => integer()
-      }
-
-  """
-  @type clip_limits() :: %{(String.t() | atom()) => any()}
+  @type multi_view_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4072,63 +3568,13 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      noise_reducer_spatial_filter_settings() :: %{
-        "PostFilterSharpenStrength" => integer(),
-        "Speed" => integer(),
-        "Strength" => integer()
+      content_light_level() :: %{
+        "MaxContentLightLevel" => integer(),
+        "MaxFrameAverageLightLevel" => integer()
       }
 
   """
-  @type noise_reducer_spatial_filter_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vp8_settings() :: %{
-        "Bitrate" => integer(),
-        "FramerateControl" => list(any()),
-        "FramerateConversionAlgorithm" => list(any()),
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer(),
-        "GopSize" => float(),
-        "HrdBufferSize" => integer(),
-        "MaxBitrate" => integer(),
-        "ParControl" => list(any()),
-        "ParDenominator" => integer(),
-        "ParNumerator" => integer(),
-        "QualityTuningLevel" => list(any()),
-        "RateControlMode" => list(any())
-      }
-
-  """
-  @type vp8_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      h264_qvbr_settings() :: %{
-        "MaxAverageBitrate" => integer(),
-        "QvbrQualityLevel" => integer(),
-        "QvbrQualityLevelFineTune" => float()
-      }
-
-  """
-  @type h264_qvbr_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dvb_nit_settings() :: %{
-        "NetworkId" => integer(),
-        "NetworkName" => String.t() | atom(),
-        "NitInterval" => integer()
-      }
-
-  """
-  @type dvb_nit_settings() :: %{(String.t() | atom()) => any()}
+  @type content_light_level() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4153,509 +3599,1178 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
-      track_source_settings() :: %{
-        "StreamNumber" => integer(),
-        "TrackNumber" => integer()
+      noise_reducer() :: %{
+        "Filter" => list(any()),
+        "FilterSettings" => noise_reducer_filter_settings(),
+        "SpatialFilterSettings" => noise_reducer_spatial_filter_settings(),
+        "TemporalFilterSettings" => noise_reducer_temporal_filter_settings()
       }
 
   """
-  @type track_source_settings() :: %{(String.t() | atom()) => any()}
+  @type noise_reducer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cmfc_settings() :: %{
-        "AudioDuration" => list(any()),
-        "AudioGroupId" => String.t() | atom(),
-        "AudioRenditionSets" => String.t() | atom(),
-        "AudioTrackType" => list(any()),
-        "C2paManifest" => list(any()),
-        "CertificateSecret" => String.t() | atom(),
-        "DescriptiveVideoServiceFlag" => list(any()),
-        "IFrameOnlyManifest" => list(any()),
-        "KlvMetadata" => list(any()),
-        "ManifestMetadataSignaling" => list(any()),
-        "Scte35Esam" => list(any()),
-        "Scte35Source" => list(any()),
-        "SigningKmsKey" => String.t() | atom(),
-        "TimedMetadata" => list(any()),
-        "TimedMetadataBoxVersion" => list(any()),
-        "TimedMetadataSchemeIdUri" => String.t() | atom(),
-        "TimedMetadataValue" => String.t() | atom()
+      list_job_templates_request() :: %{
+        optional("Category") => String.t() | atom(),
+        optional("ListBy") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Order") => list(any())
       }
 
   """
-  @type cmfc_settings() :: %{(String.t() | atom()) => any()}
+  @type list_job_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_jobs_query_results_request() :: %{}
+      resource_tags() :: %{
+        "Arn" => String.t() | atom(),
+        "Tags" => map()
+      }
 
   """
-  @type get_jobs_query_results_request() :: %{}
+  @type resource_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_queue_response() :: %{
+      deinterlacer() :: %{
+        "Algorithm" => list(any()),
+        "Control" => list(any()),
+        "Mode" => list(any())
+      }
+
+  """
+  @type deinterlacer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vp9_settings() :: %{
+        "Bitrate" => integer(),
+        "FramerateControl" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "GopSize" => float(),
+        "HrdBufferSize" => integer(),
+        "MaxBitrate" => integer(),
+        "ParControl" => list(any()),
+        "ParDenominator" => integer(),
+        "ParNumerator" => integer(),
+        "QualityTuningLevel" => list(any()),
+        "RateControlMode" => list(any())
+      }
+
+  """
+  @type vp9_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jobs_query_filter() :: %{
+        "Key" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type jobs_query_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nielsen_non_linear_watermark_settings() :: %{
+        "ActiveWatermarkProcess" => list(any()),
+        "AdiFilename" => String.t() | atom(),
+        "AssetId" => String.t() | atom(),
+        "AssetName" => String.t() | atom(),
+        "CbetSourceId" => String.t() | atom(),
+        "EpisodeId" => String.t() | atom(),
+        "MetadataDestination" => String.t() | atom(),
+        "SourceId" => integer(),
+        "SourceWatermarkStatus" => list(any()),
+        "TicServerUrl" => String.t() | atom(),
+        "UniqueTicPerAudioTrack" => list(any())
+      }
+
+  """
+  @type nielsen_non_linear_watermark_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_queue_response() :: %{
         "Queue" => queue()
       }
 
   """
-  @type create_queue_response() :: %{(String.t() | atom()) => any()}
+  @type update_queue_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      output() :: %{
-        "AudioDescriptions" => list(audio_description()),
-        "CaptionDescriptions" => list(caption_description()),
-        "ContainerSettings" => container_settings(),
-        "Extension" => String.t() | atom(),
-        "NameModifier" => String.t() | atom(),
-        "OutputSettings" => output_settings(),
-        "Preset" => String.t() | atom(),
-        "VideoDescription" => video_description()
+      dynamic_audio_selector() :: %{
+        "AudioDurationCorrection" => list(any()),
+        "ExternalAudioFileInput" => String.t() | atom(),
+        "LanguageCode" => list(any()),
+        "Offset" => integer(),
+        "SelectorType" => list(any())
       }
 
   """
-  @type output() :: %{(String.t() | atom()) => any()}
+  @type dynamic_audio_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      insertable_image() :: %{
-        "Duration" => integer(),
-        "FadeIn" => integer(),
-        "FadeOut" => integer(),
-        "Height" => integer(),
-        "ImageInserterInput" => String.t() | atom(),
-        "ImageX" => integer(),
-        "ImageY" => integer(),
-        "Layer" => integer(),
-        "Opacity" => integer(),
-        "StartTime" => String.t() | atom(),
-        "Width" => integer()
+      associate_certificate_request() :: %{
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type insertable_image() :: %{(String.t() | atom()) => any()}
+  @type associate_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      h264_settings() :: %{
-        "PerFrameMetrics" => list(list(any())()),
-        "ParControl" => list(any()),
-        "TemporalAdaptiveQuantization" => list(any()),
-        "DynamicSubGop" => list(any()),
-        "HrdBufferSize" => integer(),
-        "FramerateConversionAlgorithm" => list(any()),
+      scc_destination_settings() :: %{
+        "Framerate" => list(any())
+      }
+
+  """
+  @type scc_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kantar_watermark_settings() :: %{
+        "ChannelName" => String.t() | atom(),
+        "ContentReference" => String.t() | atom(),
+        "CredentialsSecretName" => String.t() | atom(),
+        "FileOffset" => float(),
+        "KantarLicenseId" => integer(),
+        "KantarServerUrl" => String.t() | atom(),
+        "LogDestination" => String.t() | atom(),
+        "Metadata3" => String.t() | atom(),
+        "Metadata4" => String.t() | atom(),
+        "Metadata5" => String.t() | atom(),
+        "Metadata6" => String.t() | atom(),
+        "Metadata7" => String.t() | atom(),
+        "Metadata8" => String.t() | atom()
+      }
+
+  """
+  @type kantar_watermark_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mxf_settings() :: %{
+        "AfdSignaling" => list(any()),
+        "Profile" => list(any()),
+        "UncompressedAudioWrapping" => list(any()),
+        "XavcProfileSettings" => mxf_xavc_profile_settings()
+      }
+
+  """
+  @type mxf_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hop_destination() :: %{
+        "Priority" => integer(),
+        "Queue" => String.t() | atom(),
+        "WaitMinutes" => integer()
+      }
+
+  """
+  @type hop_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      duration_control() :: %{
+        "IntegerDurationMaximumCompressionDenominator" => integer(),
+        "IntegerDurationMaximumCompressionNumerator" => integer(),
+        "IntegerDurationTrimThresholdMilliseconds" => integer()
+      }
+
+  """
+  @type duration_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_selector() :: %{
+        "AudioDurationCorrection" => list(any()),
+        "CustomLanguageCode" => String.t() | atom(),
+        "DefaultSelection" => list(any()),
+        "ExternalAudioFileInput" => String.t() | atom(),
+        "HlsRenditionGroupSettings" => hls_rendition_group_settings(),
+        "LanguageCode" => list(any()),
+        "Offset" => integer(),
+        "Pids" => list(integer()),
+        "ProgramSelection" => integer(),
+        "RemixSettings" => remix_settings(),
+        "SelectorType" => list(any()),
+        "Streams" => list(integer()),
+        "Tracks" => list(integer())
+      }
+
+  """
+  @type audio_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_policy_request() :: %{
+        required("Policy") => policy()
+      }
+
+  """
+  @type put_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_template_request() :: %{}
+
+  """
+  @type delete_job_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_encoding_settings() :: %{
+        "AbrSettings" => automated_abr_settings()
+      }
+
+  """
+  @type automated_encoding_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prores_settings() :: %{
+        "ChromaSampling" => list(any()),
         "CodecProfile" => list(any()),
-        "NumberBFramesBetweenReferenceFrames" => integer(),
-        "EndOfStreamMarkers" => list(any()),
-        "NumberReferenceFrames" => integer(),
-        "Bitrate" => integer(),
-        "SlowPal" => list(any()),
-        "BandwidthReductionFilter" => bandwidth_reduction_filter(),
-        "RateControlMode" => list(any()),
-        "GopSizeUnits" => list(any()),
-        "MinIInterval" => integer(),
-        "QvbrSettings" => h264_qvbr_settings(),
-        "EntropyEncoding" => list(any()),
-        "FieldEncoding" => list(any()),
-        "FlickerAdaptiveQuantization" => list(any()),
-        "SaliencyAwareEncoding" => list(any()),
-        "Softness" => integer(),
-        "AdaptiveQuantization" => list(any()),
-        "CodecLevel" => list(any()),
-        "HrdBufferFinalFillPercentage" => integer(),
         "FramerateControl" => list(any()),
-        "SpatialAdaptiveQuantization" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
         "FramerateDenominator" => integer(),
-        "Telecine" => list(any()),
-        "RepeatPps" => list(any()),
-        "UnregisteredSeiTimecode" => list(any()),
-        "ScanTypeConversionMode" => list(any()),
-        "ParNumerator" => integer(),
-        "GopClosedCadence" => integer(),
         "FramerateNumerator" => integer(),
         "InterlaceMode" => list(any()),
-        "HrdBufferInitialFillPercentage" => integer(),
+        "ParControl" => list(any()),
         "ParDenominator" => integer(),
-        "WriteMp4PackagingType" => list(any()),
-        "Syntax" => list(any()),
-        "GopSize" => float(),
-        "GopBReference" => list(any()),
-        "SceneChangeDetect" => list(any()),
-        "Slices" => integer(),
-        "QualityTuningLevel" => list(any()),
-        "MaxBitrate" => integer()
+        "ParNumerator" => integer(),
+        "PerFrameMetrics" => list(list(any())()),
+        "ScanTypeConversionMode" => list(any()),
+        "SlowPal" => list(any()),
+        "Telecine" => list(any())
       }
 
   """
-  @type h264_settings() :: %{(String.t() | atom()) => any()}
+  @type prores_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      allowed_rendition_size() :: %{
-        "Height" => integer(),
-        "Required" => list(any()),
-        "Width" => integer()
+      avc_intra_settings() :: %{
+        "AvcIntraClass" => list(any()),
+        "AvcIntraUhdSettings" => avc_intra_uhd_settings(),
+        "FramerateControl" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "InterlaceMode" => list(any()),
+        "PerFrameMetrics" => list(list(any())()),
+        "ScanTypeConversionMode" => list(any()),
+        "SlowPal" => list(any()),
+        "Telecine" => list(any())
       }
 
   """
-  @type allowed_rendition_size() :: %{(String.t() | atom()) => any()}
+  @type avc_intra_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      noise_reducer_filter_settings() :: %{
-        "Strength" => integer()
+      probe_result() :: %{
+        "Container" => container(),
+        "Metadata" => metadata(),
+        "TrackMappings" => list(track_mapping())
       }
 
   """
-  @type noise_reducer_filter_settings() :: %{(String.t() | atom()) => any()}
+  @type probe_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      webvtt_hls_source_settings() :: %{
+      list_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      static_key_provider() :: %{
+        "KeyFormat" => String.t() | atom(),
+        "KeyFormatVersions" => String.t() | atom(),
+        "StaticKeyValue" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type static_key_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      track_mapping() :: %{
+        "AudioTrackIndexes" => list(integer()),
+        "DataTrackIndexes" => list(integer()),
+        "VideoTrackIndexes" => list(integer())
+      }
+
+  """
+  @type track_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_overlay_transition() :: %{
+        "EndPosition" => video_overlay_position(),
+        "EndTimecode" => String.t() | atom(),
+        "StartTimecode" => String.t() | atom()
+      }
+
+  """
+  @type video_overlay_transition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_queue_request() :: %{
+        optional("ConcurrentJobs") => integer(),
+        optional("Description") => String.t() | atom(),
+        optional("MaximumConcurrentFeeds") => integer(),
+        required("Name") => String.t() | atom(),
+        optional("PricingPlan") => list(any()),
+        optional("ReservationPlanSettings") => reservation_plan_settings(),
+        optional("Status") => list(any()),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_queue_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_clipping() :: %{
+        "EndTimecode" => String.t() | atom(),
+        "StartTimecode" => String.t() | atom()
+      }
+
+  """
+  @type input_clipping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_jobs_query_results_response() :: %{
+        "Jobs" => list(job()),
+        "NextToken" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_jobs_query_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_share_request() :: %{
+        required("JobId") => String.t() | atom(),
+        required("SupportCaseId") => String.t() | atom()
+      }
+
+  """
+  @type create_resource_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_endpoints_response() :: %{
+        "Endpoints" => list(endpoint()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_description() :: %{
+        "AudioChannelTaggingSettings" => audio_channel_tagging_settings(),
+        "AudioNormalizationSettings" => audio_normalization_settings(),
+        "AudioPitchCorrectionSettings" => audio_pitch_correction_settings(),
+        "AudioSourceName" => String.t() | atom(),
+        "AudioType" => integer(),
+        "AudioTypeControl" => list(any()),
+        "CodecSettings" => audio_codec_settings(),
+        "CustomLanguageCode" => String.t() | atom(),
+        "LanguageCode" => list(any()),
+        "LanguageCodeControl" => list(any()),
+        "RemixSettings" => remix_settings(),
+        "StreamName" => String.t() | atom()
+      }
+
+  """
+  @type audio_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_rendition_group_settings() :: %{
         "RenditionGroupId" => String.t() | atom(),
         "RenditionLanguageCode" => list(any()),
         "RenditionName" => String.t() | atom()
       }
 
   """
-  @type webvtt_hls_source_settings() :: %{(String.t() | atom()) => any()}
+  @type hls_rendition_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      xavc4k_intra_cbg_profile_settings() :: %{
-        "XavcClass" => list(any())
+      job_messages() :: %{
+        "Info" => list(String.t() | atom()),
+        "Warning" => list(String.t() | atom())
       }
 
   """
-  @type xavc4k_intra_cbg_profile_settings() :: %{(String.t() | atom()) => any()}
+  @type job_messages() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_iso_group_settings() :: %{
+        "AdditionalManifests" => list(dash_additional_manifest()),
+        "AudioChannelConfigSchemeIdUri" => list(any()),
+        "BaseUrl" => String.t() | atom(),
+        "DashIFrameTrickPlayNameModifier" => String.t() | atom(),
+        "DashManifestStyle" => list(any()),
+        "Destination" => String.t() | atom(),
+        "DestinationSettings" => destination_settings(),
+        "Encryption" => dash_iso_encryption_settings(),
+        "FragmentLength" => integer(),
+        "HbbtvCompliance" => list(any()),
+        "ImageBasedTrickPlay" => list(any()),
+        "ImageBasedTrickPlaySettings" => dash_iso_image_based_trick_play_settings(),
+        "ImageBasedTrickPlayVariants" => list(dash_iso_image_based_trick_play_variant()),
+        "MinBufferTime" => integer(),
+        "MinFinalSegmentLength" => float(),
+        "MpdManifestBandwidthType" => list(any()),
+        "MpdProfile" => list(any()),
+        "PtsOffsetHandlingForBFrames" => list(any()),
+        "SegmentControl" => list(any()),
+        "SegmentLength" => integer(),
+        "SegmentLengthControl" => list(any()),
+        "VideoCompositionOffsets" => list(any()),
+        "WriteSegmentTimelineInRepresentation" => list(any())
+      }
+
+  """
+  @type dash_iso_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eac3_settings() :: %{
+        "AttenuationControl" => list(any()),
+        "Bitrate" => integer(),
+        "BitstreamMode" => list(any()),
+        "CodingMode" => list(any()),
+        "DcFilter" => list(any()),
+        "Dialnorm" => integer(),
+        "DynamicRangeCompressionLine" => list(any()),
+        "DynamicRangeCompressionRf" => list(any()),
+        "LfeControl" => list(any()),
+        "LfeFilter" => list(any()),
+        "LoRoCenterMixLevel" => float(),
+        "LoRoSurroundMixLevel" => float(),
+        "LtRtCenterMixLevel" => float(),
+        "LtRtSurroundMixLevel" => float(),
+        "MetadataControl" => list(any()),
+        "PassthroughControl" => list(any()),
+        "PhaseControl" => list(any()),
+        "SampleRate" => integer(),
+        "StereoDownmix" => list(any()),
+        "SurroundExMode" => list(any()),
+        "SurroundMode" => list(any())
+      }
+
+  """
+  @type eac3_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_overlay_input() :: %{
+        "AudioSelectors" => map(),
+        "FileInput" => String.t() | atom(),
+        "InputClippings" => list(video_overlay_input_clipping()),
+        "TimecodeSource" => list(any()),
+        "TimecodeStart" => String.t() | atom()
+      }
+
+  """
+  @type video_overlay_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mastering_display_color_volume() :: %{
+        "BluePrimaryX" => integer(),
+        "BluePrimaryY" => integer(),
+        "GreenPrimaryX" => integer(),
+        "GreenPrimaryY" => integer(),
+        "MaxLuminance" => float(),
+        "MinLuminance" => float(),
+        "RedPrimaryX" => integer(),
+        "RedPrimaryY" => integer(),
+        "WhitePointX" => integer(),
+        "WhitePointY" => integer()
+      }
+
+  """
+  @type mastering_display_color_volume() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      avc_intra_uhd_settings() :: %{
+        "QualityTuningLevel" => list(any())
+      }
+
+  """
+  @type avc_intra_uhd_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      avail_blanking() :: %{
+        "AvailBlankingImage" => String.t() | atom()
+      }
+
+  """
+  @type avail_blanking() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_certificate_response() :: %{}
+
+  """
+  @type disassociate_certificate_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_additional_manifest() :: %{
+        "ManifestNameModifier" => String.t() | atom(),
+        "SelectedOutputs" => list(String.t() | atom())
+      }
+
+  """
+  @type dash_additional_manifest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timecode_burnin() :: %{
+        "FontSize" => integer(),
+        "Position" => list(any()),
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type timecode_burnin() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_group_settings() :: %{
+        "CmafGroupSettings" => cmaf_group_settings(),
+        "DashIsoGroupSettings" => dash_iso_group_settings(),
+        "FileGroupSettings" => file_group_settings(),
+        "HlsGroupSettings" => hls_group_settings(),
+        "MsSmoothGroupSettings" => ms_smooth_group_settings(),
+        "PerFrameMetrics" => list(list(any())()),
+        "Type" => list(any())
+      }
+
+  """
+  @type output_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_queues_request() :: %{
+        optional("ListBy") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Order") => list(any())
+      }
+
+  """
+  @type list_queues_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_image_based_trick_play_settings() :: %{
+        "IntervalCadence" => list(any()),
+        "ThumbnailHeight" => integer(),
+        "ThumbnailInterval" => float(),
+        "ThumbnailWidth" => integer(),
+        "TileHeight" => integer(),
+        "TileWidth" => integer()
+      }
+
+  """
+  @type cmaf_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      opus_settings() :: %{
+        "Bitrate" => integer(),
+        "Channels" => integer(),
+        "SampleRate" => integer()
+      }
+
+  """
+  @type opus_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      av1_qvbr_settings() :: %{
+        "QvbrQualityLevel" => integer(),
+        "QvbrQualityLevelFineTune" => float()
+      }
+
+  """
+  @type av1_qvbr_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      codec_metadata() :: %{
+        "BitDepth" => integer(),
+        "ChromaSubsampling" => String.t() | atom(),
+        "CodedFrameRate" => frame_rate(),
+        "ColorPrimaries" => list(any()),
+        "ContentLightLevel" => content_light_level(),
+        "Height" => integer(),
+        "Level" => String.t() | atom(),
+        "MatrixCoefficients" => list(any()),
+        "Profile" => String.t() | atom(),
+        "Rotation" => integer(),
+        "ScanType" => String.t() | atom(),
+        "TransferCharacteristics" => list(any()),
+        "Width" => integer()
+      }
+
+  """
+  @type codec_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      teletext_source_settings() :: %{
+        "PageNumber" => String.t() | atom()
+      }
+
+  """
+  @type teletext_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      caption_selector() :: %{
+        "CustomLanguageCode" => String.t() | atom(),
+        "LanguageCode" => list(any()),
+        "SourceSettings" => caption_source_settings()
+      }
+
+  """
+  @type caption_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_template_settings() :: %{
+        "AdAvailOffset" => integer(),
+        "AvailBlanking" => avail_blanking(),
+        "ColorConversion3DLUTSettings" => list(color_conversion3_d_l_u_t_setting()),
+        "Esam" => esam_settings(),
+        "ExtendedDataServices" => extended_data_services(),
+        "FollowSource" => integer(),
+        "Inputs" => list(input_template()),
+        "KantarWatermark" => kantar_watermark_settings(),
+        "MotionImageInserter" => motion_image_inserter(),
+        "NielsenConfiguration" => nielsen_configuration(),
+        "NielsenNonLinearWatermark" => nielsen_non_linear_watermark_settings(),
+        "OutputGroups" => list(output_group()),
+        "TimecodeConfig" => timecode_config(),
+        "TimedMetadataInsertion" => timed_metadata_insertion()
+      }
+
+  """
+  @type job_template_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Mode") => list(any()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rectangle() :: %{
+        "Height" => integer(),
+        "Width" => integer(),
+        "X" => integer(),
+        "Y" => integer()
+      }
+
+  """
+  @type rectangle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      m2ts_scte35_esam() :: %{
+        "Scte35EsamPid" => integer()
+      }
+
+  """
+  @type m2ts_scte35_esam() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      probe_response() :: %{
+        "ProbeResults" => list(probe_result())
+      }
+
+  """
+  @type probe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      esam_manifest_confirm_condition_notification() :: %{
+        "MccXml" => String.t() | atom()
+      }
+
+  """
+  @type esam_manifest_confirm_condition_notification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timecode_config() :: %{
+        "Anchor" => String.t() | atom(),
+        "Source" => list(any()),
+        "Start" => String.t() | atom(),
+        "TimestampOffset" => String.t() | atom()
+      }
+
+  """
+  @type timecode_config() :: %{(String.t() | atom()) => any()}
 
   @type associate_certificate_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type cancel_job_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type create_job_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type create_job_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type create_preset_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type create_queue_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type create_resource_share_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type delete_job_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type delete_policy_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type delete_preset_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type delete_queue_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type describe_endpoints_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type disassociate_certificate_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type get_job_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type get_job_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type get_jobs_query_results_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type get_policy_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type get_preset_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type get_queue_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type list_job_templates_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type list_jobs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type list_presets_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type list_queues_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type list_versions_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type probe_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type put_policy_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type search_jobs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type start_jobs_query_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type update_job_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type update_preset_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   @type update_queue_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          conflict_exception()
           | not_found_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | bad_request_exception()
+          | service_quota_exceeded_exception()
 
   def metadata do
     %{
@@ -5206,11 +5321,11 @@ defmodule AWS.MediaConvert do
           | {:error, list_job_templates_errors()}
   def list_job_templates(
         %Client{} = client,
-        category \\ nil,
-        list_by \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         order \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        list_by \\ nil,
+        category \\ nil,
         options \\ []
       ) do
     url_path = "/2017-08-29/jobTemplates"
@@ -5218,22 +5333,8 @@ defmodule AWS.MediaConvert do
     query_params = []
 
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(category) do
+        [{"category", category} | query_params]
       else
         query_params
       end
@@ -5246,8 +5347,22 @@ defmodule AWS.MediaConvert do
       end
 
     query_params =
-      if !is_nil(category) do
-        [{"category", category} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order) do
+        [{"order", order} | query_params]
       else
         query_params
       end
@@ -5279,11 +5394,11 @@ defmodule AWS.MediaConvert do
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        order \\ nil,
-        queue \\ nil,
         status \\ nil,
+        queue \\ nil,
+        order \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
         options \\ []
       ) do
     url_path = "/2017-08-29/jobs"
@@ -5291,22 +5406,8 @@ defmodule AWS.MediaConvert do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(queue) do
-        [{"queue", queue} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -5319,8 +5420,22 @@ defmodule AWS.MediaConvert do
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(order) do
+        [{"order", order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(queue) do
+        [{"queue", queue} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -5351,11 +5466,11 @@ defmodule AWS.MediaConvert do
           | {:error, list_presets_errors()}
   def list_presets(
         %Client{} = client,
-        category \\ nil,
-        list_by \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         order \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        list_by \\ nil,
+        category \\ nil,
         options \\ []
       ) do
     url_path = "/2017-08-29/presets"
@@ -5363,22 +5478,8 @@ defmodule AWS.MediaConvert do
     query_params = []
 
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(category) do
+        [{"category", category} | query_params]
       else
         query_params
       end
@@ -5391,8 +5492,22 @@ defmodule AWS.MediaConvert do
       end
 
     query_params =
-      if !is_nil(category) do
-        [{"category", category} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order) do
+        [{"order", order} | query_params]
       else
         query_params
       end
@@ -5422,10 +5537,10 @@ defmodule AWS.MediaConvert do
           | {:error, list_queues_errors()}
   def list_queues(
         %Client{} = client,
-        list_by \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         order \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        list_by \\ nil,
         options \\ []
       ) do
     url_path = "/2017-08-29/queues"
@@ -5433,15 +5548,8 @@ defmodule AWS.MediaConvert do
     query_params = []
 
     query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(list_by) do
+        [{"listBy", list_by} | query_params]
       else
         query_params
       end
@@ -5454,8 +5562,15 @@ defmodule AWS.MediaConvert do
       end
 
     query_params =
-      if !is_nil(list_by) do
-        [{"listBy", list_by} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order) do
+        [{"order", order} | query_params]
       else
         query_params
       end
@@ -5492,21 +5607,21 @@ defmodule AWS.MediaConvert do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_versions_errors()}
-  def list_versions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_versions(%Client{} = client, next_token \\ nil, max_results \\ nil, options \\ []) do
     url_path = "/2017-08-29/versions"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5606,12 +5721,12 @@ defmodule AWS.MediaConvert do
           | {:error, search_jobs_errors()}
   def search_jobs(
         %Client{} = client,
-        input_file \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        order \\ nil,
-        queue \\ nil,
         status \\ nil,
+        queue \\ nil,
+        order \\ nil,
+        next_token \\ nil,
+        max_results \\ nil,
+        input_file \\ nil,
         options \\ []
       ) do
     url_path = "/2017-08-29/search"
@@ -5619,29 +5734,8 @@ defmodule AWS.MediaConvert do
     query_params = []
 
     query_params =
-      if !is_nil(status) do
-        [{"status", status} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(queue) do
-        [{"queue", queue} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(order) do
-        [{"order", order} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
+      if !is_nil(input_file) do
+        [{"inputFile", input_file} | query_params]
       else
         query_params
       end
@@ -5654,8 +5748,29 @@ defmodule AWS.MediaConvert do
       end
 
     query_params =
-      if !is_nil(input_file) do
-        [{"inputFile", input_file} | query_params]
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order) do
+        [{"order", order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(queue) do
+        [{"queue", queue} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end
@@ -5698,10 +5813,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Add tags to a MediaConvert queue, preset, or job template.
+  Add tags to a MediaConvert queue, preset, job, or job template.
 
   For information about tagging, see the User Guide at
-  https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+  https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -5730,10 +5845,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Remove tags from a MediaConvert queue, preset, or job template.
+  Remove tags from a MediaConvert queue, preset, job, or job template.
 
   For information about tagging, see the User Guide at
-  https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+  https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

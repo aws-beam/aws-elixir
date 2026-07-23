@@ -29,389 +29,9 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      get_resource_policies_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("resourcePolicies") => list(resource_policy())
-      }
-
-  """
-  @type get_resource_policies_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_response_plan_output() :: %{}
-
-  """
-  @type update_response_plan_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_timeline_events_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("eventSummaries") => list(event_summary())
-      }
-
-  """
-  @type list_timeline_events_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_incident_findings_error() :: %{
-        "code" => [String.t() | atom()],
-        "findingId" => String.t() | atom(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_get_incident_findings_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_replication_set_output() :: %{}
-
-  """
-  @type delete_replication_set_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_related_items_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("incidentRecordArn") => String.t() | atom()
-      }
-
-  """
-  @type list_related_items_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_timeline_event_output() :: %{}
-
-  """
-  @type delete_timeline_event_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_replication_sets_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_replication_sets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      related_item() :: %{
-        "generatedId" => String.t() | atom(),
-        "identifier" => item_identifier(),
-        "title" => [String.t() | atom()]
-      }
-
-  """
-  @type related_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      incident_record_source() :: %{
-        "createdBy" => String.t() | atom(),
-        "invokedBy" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "source" => String.t() | atom()
-      }
-
-  """
-  @type incident_record_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_incident_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("impact") => integer(),
-        optional("relatedItems") => list(related_item()),
-        optional("title") => String.t() | atom(),
-        optional("triggerDetails") => trigger_details(),
-        required("responsePlanArn") => String.t() | atom()
-      }
-
-  """
-  @type start_incident_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_incident_record_input() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type delete_incident_record_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_deletion_protection_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("arn") => String.t() | atom(),
-        required("deletionProtected") => [boolean()]
-      }
-
-  """
-  @type update_deletion_protection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_incident_findings_output() :: %{
-        "errors" => list(batch_get_incident_findings_error()),
-        "findings" => list(finding())
-      }
-
-  """
-  @type batch_get_incident_findings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_region_action() :: %{
-        "regionName" => String.t() | atom()
-      }
-
-  """
-  @type delete_region_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_summary() :: %{
-        "id" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()]
-      }
-
-  """
-  @type finding_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_response_plan_output() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type create_response_plan_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_incident_findings_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("incidentRecordArn") => String.t() | atom()
-      }
-
-  """
-  @type list_incident_findings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_response_plan_input() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type delete_response_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_incident_output() :: %{
-        required("incidentRecordArn") => String.t() | atom()
-      }
-
-  """
-  @type start_incident_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_output() :: %{
-        required("policyId") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timeline_event() :: %{
-        "eventData" => String.t() | atom(),
-        "eventId" => String.t() | atom(),
-        "eventReferences" => list(list()),
-        "eventTime" => [non_neg_integer()],
-        "eventType" => String.t() | atom(),
-        "eventUpdatedTime" => [non_neg_integer()],
-        "incidentRecordArn" => String.t() | atom()
-      }
-
-  """
-  @type timeline_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_replication_set_input() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type get_replication_set_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_input() :: %{
-        required("policyId") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_resource_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_deletion_protection_output() :: %{}
-
-  """
-  @type update_deletion_protection_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pager_duty_incident_detail() :: %{
-        "autoResolve" => [boolean()],
-        "id" => [String.t() | atom()],
-        "secretId" => [String.t() | atom()]
-      }
-
-  """
-  @type pager_duty_incident_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_replication_set_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("actions") => list(list()),
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type update_replication_set_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_incident_findings_input() :: %{
-        required("findingIds") => list(String.t() | atom()),
-        required("incidentRecordArn") => String.t() | atom()
-      }
-
-  """
-  @type batch_get_incident_findings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_deploy_deployment() :: %{
-        "deploymentGroupArn" => String.t() | atom(),
-        "deploymentId" => [String.t() | atom()],
-        "endTime" => [non_neg_integer()],
-        "startTime" => [non_neg_integer()]
-      }
-
-  """
-  @type code_deploy_deployment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_incident_records_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("incidentRecordSummaries") => list(incident_record_summary())
+        required("incidentRecordSummaries") => list(incident_record_summary()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
@@ -421,114 +41,28 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      update_incident_record_output() :: %{}
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
 
   """
-  @type update_incident_record_output() :: %{}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_response_plan_input() :: %{
-        optional("actions") => list(list()),
-        optional("chatChannel") => list(),
-        optional("clientToken") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("engagements") => list(String.t() | atom()),
-        optional("incidentTemplateDedupeString") => String.t() | atom(),
-        optional("incidentTemplateImpact") => integer(),
-        optional("incidentTemplateNotificationTargets") => list(list()),
-        optional("incidentTemplateSummary") => String.t() | atom(),
-        optional("incidentTemplateTags") => map(),
-        optional("incidentTemplateTitle") => String.t() | atom(),
-        optional("integrations") => list(list()),
-        required("arn") => String.t() | atom()
+      ssm_automation() :: %{
+        "documentName" => [String.t() | atom()],
+        "documentVersion" => [String.t() | atom()],
+        "dynamicParameters" => map(),
+        "parameters" => map(),
+        "roleArn" => String.t() | atom(),
+        "targetAccount" => String.t() | atom()
       }
 
   """
-  @type update_response_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_set() :: %{
-        "arn" => String.t() | atom(),
-        "createdBy" => String.t() | atom(),
-        "createdTime" => [non_neg_integer()],
-        "deletionProtected" => [boolean()],
-        "lastModifiedBy" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "regionMap" => map(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type replication_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceIdentifier" => [String.t() | atom()],
-        "resourceType" => String.t() | atom(),
-        "retryAfter" => [non_neg_integer()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceIdentifier" => [String.t() | atom()],
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_incident_record_output() :: %{
-        required("incidentRecord") => incident_record()
-      }
-
-  """
-  @type get_incident_record_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_input() :: %{
-        required("policy") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policies_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policies_input() :: %{(String.t() | atom()) => any()}
+  @type ssm_automation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,40 +80,24 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      list_replication_sets_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("replicationSetArns") => list(String.t() | atom())
-      }
+      tag_resource_response() :: %{}
 
   """
-  @type list_replication_sets_output() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => [String.t() | atom()],
-        "resourceIdentifier" => [String.t() | atom()],
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
+      region_info() :: %{
+        "sseKmsKeyId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => [String.t() | atom()],
+        "statusUpdateDateTime" => [non_neg_integer()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_incident_findings_output() :: %{
-        "findings" => list(finding_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_incident_findings_output() :: %{(String.t() | atom()) => any()}
+  @type region_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -605,51 +123,6 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      update_incident_record_input() :: %{
-        optional("chatChannel") => list(),
-        optional("clientToken") => String.t() | atom(),
-        optional("impact") => integer(),
-        optional("notificationTargets") => list(list()),
-        optional("status") => String.t() | atom(),
-        optional("summary") => String.t() | atom(),
-        optional("title") => String.t() | atom(),
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type update_incident_record_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding() :: %{
-        "creationTime" => [non_neg_integer()],
-        "details" => list(),
-        "id" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()]
-      }
-
-  """
-  @type finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_related_items_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("incidentRecordArn") => String.t() | atom(),
-        required("relatedItemsUpdate") => list()
-      }
-
-  """
-  @type update_related_items_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_tags_for_resource_response() :: %{
         required("tags") => map()
       }
@@ -661,40 +134,42 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      pager_duty_configuration() :: %{
-        "name" => [String.t() | atom()],
-        "pagerDutyIncidentConfiguration" => pager_duty_incident_configuration(),
-        "secretId" => [String.t() | atom()]
-      }
+      update_incident_record_output() :: %{}
 
   """
-  @type pager_duty_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_incident_record_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      trigger_details() :: %{
-        "rawData" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "triggerArn" => String.t() | atom()
-      }
+      delete_timeline_event_output() :: %{}
 
   """
-  @type trigger_details() :: %{(String.t() | atom()) => any()}
+  @type delete_timeline_event_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_timeline_event_input() :: %{
-        required("eventId") => String.t() | atom(),
-        required("incidentRecordArn") => String.t() | atom()
+      put_resource_policy_input() :: %{
+        required("policy") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
       }
 
   """
-  @type get_timeline_event_input() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_response_plan_output() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type create_response_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,205 +187,49 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      filter() :: %{
-        "condition" => list(),
-        "key" => [String.t() | atom()]
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_summary() :: %{
-        "eventId" => String.t() | atom(),
-        "eventReferences" => list(list()),
-        "eventTime" => [non_neg_integer()],
-        "eventType" => String.t() | atom(),
-        "eventUpdatedTime" => [non_neg_integer()],
-        "incidentRecordArn" => String.t() | atom()
-      }
-
-  """
-  @type event_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_policy() :: %{
-        "policyDocument" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
-        "ramResourceShareRegion" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_timeline_event_output() :: %{
-        required("event") => timeline_event()
-      }
-
-  """
-  @type get_timeline_event_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_output() :: %{}
-
-  """
-  @type delete_resource_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_response_plan_output() :: %{
-        optional("actions") => list(list()),
-        optional("chatChannel") => list(),
-        optional("displayName") => String.t() | atom(),
-        optional("engagements") => list(String.t() | atom()),
-        optional("integrations") => list(list()),
+      update_replication_set_input() :: %{
+        required("actions") => list(list()),
         required("arn") => String.t() | atom(),
-        required("incidentTemplate") => incident_template(),
-        required("name") => String.t() | atom()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type get_response_plan_output() :: %{(String.t() | atom()) => any()}
+  @type update_replication_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_timeline_events_input() :: %{
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
+      get_resource_policies_output() :: %{
         optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => String.t() | atom(),
-        optional("sortOrder") => String.t() | atom(),
-        required("incidentRecordArn") => String.t() | atom()
+        required("resourcePolicies") => list(resource_policy())
       }
 
   """
-  @type list_timeline_events_input() :: %{(String.t() | atom()) => any()}
+  @type get_resource_policies_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      incident_record_summary() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => [non_neg_integer()],
-        "impact" => integer(),
-        "incidentRecordSource" => incident_record_source(),
-        "resolvedTime" => [non_neg_integer()],
-        "status" => String.t() | atom(),
-        "title" => String.t() | atom()
+      batch_get_incident_findings_output() :: %{
+        "errors" => list(batch_get_incident_findings_error()),
+        "findings" => list(finding())
       }
 
   """
-  @type incident_record_summary() :: %{(String.t() | atom()) => any()}
+  @type batch_get_incident_findings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      delete_incident_record_input() :: %{
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_related_items_output() :: %{}
-
-  """
-  @type update_related_items_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      region_info() :: %{
-        "sseKmsKeyId" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusMessage" => [String.t() | atom()],
-        "statusUpdateDateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type region_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ssm_automation() :: %{
-        "documentName" => [String.t() | atom()],
-        "documentVersion" => [String.t() | atom()],
-        "dynamicParameters" => map(),
-        "parameters" => map(),
-        "roleArn" => String.t() | atom(),
-        "targetAccount" => String.t() | atom()
-      }
-
-  """
-  @type ssm_automation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      region_map_input_value() :: %{
-        "sseKmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type region_map_input_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_incident_record_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -925,55 +244,33 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      create_replication_set_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("regions") => map()
-      }
+      update_deletion_protection_output() :: %{}
 
   """
-  @type create_replication_set_input() :: %{(String.t() | atom()) => any()}
+  @type update_deletion_protection_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_timeline_event_output() :: %{
-        required("eventId") => String.t() | atom(),
-        required("incidentRecordArn") => String.t() | atom()
-      }
+      untag_resource_response() :: %{}
 
   """
-  @type create_timeline_event_output() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => [String.t() | atom()],
-        "serviceCode" => String.t() | atom()
+      incident_record_source() :: %{
+        "createdBy" => String.t() | atom(),
+        "invokedBy" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "source" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      incident_template() :: %{
-        "dedupeString" => String.t() | atom(),
-        "impact" => integer(),
-        "incidentTags" => map(),
-        "notificationTargets" => list(list()),
-        "summary" => String.t() | atom(),
-        "title" => String.t() | atom()
-      }
-
-  """
-  @type incident_template() :: %{(String.t() | atom()) => any()}
+  @type incident_record_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,14 +289,53 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      response_plan_summary() :: %{
-        "arn" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "name" => String.t() | atom()
+      create_response_plan_input() :: %{
+        optional("actions") => list(list()),
+        optional("chatChannel") => list(),
+        optional("clientToken") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("engagements") => list(String.t() | atom()),
+        required("incidentTemplate") => incident_template(),
+        optional("integrations") => list(list()),
+        required("name") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type response_plan_summary() :: %{(String.t() | atom()) => any()}
+  @type create_response_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_response_plan_input() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_response_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_incident_record_input() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_incident_record_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_incident_output() :: %{
+        required("incidentRecordArn") => String.t() | atom()
+      }
+
+  """
+  @type start_incident_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1017,50 +353,134 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      delete_response_plan_output() :: %{}
-
-  """
-  @type delete_response_plan_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_response_plans_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("responsePlanSummaries") => list(response_plan_summary())
-      }
-
-  """
-  @type list_response_plans_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_response_plan_input() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type get_response_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_timeline_event_input() :: %{
+      update_incident_record_input() :: %{
+        required("arn") => String.t() | atom(),
+        optional("chatChannel") => list(),
         optional("clientToken") => String.t() | atom(),
-        optional("eventData") => String.t() | atom(),
-        optional("eventReferences") => list(list()),
-        optional("eventTime") => [non_neg_integer()],
-        optional("eventType") => String.t() | atom(),
+        optional("impact") => integer(),
+        optional("notificationTargets") => list(list()),
+        optional("status") => String.t() | atom(),
+        optional("summary") => String.t() | atom(),
+        optional("title") => String.t() | atom()
+      }
+
+  """
+  @type update_incident_record_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_replication_sets_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_replication_sets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timeline_event() :: %{
+        "eventData" => String.t() | atom(),
+        "eventId" => String.t() | atom(),
+        "eventReferences" => list(list()),
+        "eventTime" => [non_neg_integer()],
+        "eventType" => String.t() | atom(),
+        "eventUpdatedTime" => [non_neg_integer()],
+        "incidentRecordArn" => String.t() | atom()
+      }
+
+  """
+  @type timeline_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_timeline_event_input() :: %{
         required("eventId") => String.t() | atom(),
         required("incidentRecordArn") => String.t() | atom()
       }
 
   """
-  @type update_timeline_event_input() :: %{(String.t() | atom()) => any()}
+  @type delete_timeline_event_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_incident_findings_error() :: %{
+        "code" => [String.t() | atom()],
+        "findingId" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_incident_findings_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_set() :: %{
+        "arn" => String.t() | atom(),
+        "createdBy" => String.t() | atom(),
+        "createdTime" => [non_neg_integer()],
+        "deletionProtected" => [boolean()],
+        "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "regionMap" => map(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type replication_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_timeline_event_output() :: %{
+        required("eventId") => String.t() | atom(),
+        required("incidentRecordArn") => String.t() | atom()
+      }
+
+  """
+  @type create_timeline_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_incident_record_output() :: %{}
+
+  """
+  @type delete_incident_record_output() :: %{}
 
   @typedoc """
 
@@ -1077,112 +497,38 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      list_related_items_output() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("relatedItems") => list(related_item())
+      update_related_items_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("incidentRecordArn") => String.t() | atom(),
+        required("relatedItemsUpdate") => list()
       }
 
   """
-  @type list_related_items_output() :: %{(String.t() | atom()) => any()}
+  @type update_related_items_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_replication_set_output() :: %{}
+      list_replication_sets_output() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("replicationSetArns") => list(String.t() | atom())
+      }
 
   """
-  @type update_replication_set_output() :: %{}
+  @type list_replication_sets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_timeline_event_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("eventReferences") => list(list()),
-        required("eventData") => String.t() | atom(),
-        required("eventTime") => [non_neg_integer()],
-        required("eventType") => String.t() | atom(),
+      batch_get_incident_findings_input() :: %{
+        required("findingIds") => list(String.t() | atom()),
         required("incidentRecordArn") => String.t() | atom()
       }
 
   """
-  @type create_timeline_event_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_replication_set_output() :: %{
-        required("replicationSet") => replication_set()
-      }
-
-  """
-  @type get_replication_set_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_incident_record_input() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type get_incident_record_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_response_plan_input() :: %{
-        optional("actions") => list(list()),
-        optional("chatChannel") => list(),
-        optional("clientToken") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("engagements") => list(String.t() | atom()),
-        optional("integrations") => list(list()),
-        optional("tags") => map(),
-        required("incidentTemplate") => incident_template(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_response_plan_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      empty_chat_channel() :: %{}
-
-  """
-  @type empty_chat_channel() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_formation_stack_update() :: %{
-        "endTime" => [non_neg_integer()],
-        "stackArn" => String.t() | atom(),
-        "startTime" => [non_neg_integer()]
-      }
-
-  """
-  @type cloud_formation_stack_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_replication_set_output() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type create_replication_set_output() :: %{(String.t() | atom()) => any()}
+  @type batch_get_incident_findings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1212,243 +558,897 @@ defmodule AWS.SSMIncidents do
 
   ## Example:
 
-      delete_incident_record_output() :: %{}
+      update_response_plan_output() :: %{}
 
   """
-  @type delete_incident_record_output() :: %{}
+  @type update_response_plan_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_timeline_event_input() :: %{
+      resource_policy() :: %{
+        "policyDocument" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "ramResourceShareRegion" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceIdentifier" => [String.t() | atom()],
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_timeline_event_input() :: %{
         required("eventId") => String.t() | atom(),
         required("incidentRecordArn") => String.t() | atom()
       }
 
   """
-  @type delete_timeline_event_input() :: %{(String.t() | atom()) => any()}
+  @type get_timeline_event_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_summary() :: %{
+        "eventId" => String.t() | atom(),
+        "eventReferences" => list(list()),
+        "eventTime" => [non_neg_integer()],
+        "eventType" => String.t() | atom(),
+        "eventUpdatedTime" => [non_neg_integer()],
+        "incidentRecordArn" => String.t() | atom()
+      }
+
+  """
+  @type event_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      related_item() :: %{
+        "generatedId" => String.t() | atom(),
+        "identifier" => item_identifier(),
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type related_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pager_duty_incident_detail() :: %{
+        "autoResolve" => [boolean()],
+        "id" => [String.t() | atom()],
+        "secretId" => [String.t() | atom()]
+      }
+
+  """
+  @type pager_duty_incident_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_deploy_deployment() :: %{
+        "deploymentGroupArn" => String.t() | atom(),
+        "deploymentId" => [String.t() | atom()],
+        "endTime" => [non_neg_integer()],
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type code_deploy_deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_set_output() :: %{}
+
+  """
+  @type delete_replication_set_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_replication_set_output() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type create_replication_set_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_summary() :: %{
+        "id" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()]
+      }
+
+  """
+  @type finding_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_output() :: %{
+        required("policyId") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_response_plan_output() :: %{
+        optional("actions") => list(list()),
+        required("arn") => String.t() | atom(),
+        optional("chatChannel") => list(),
+        optional("displayName") => String.t() | atom(),
+        optional("engagements") => list(String.t() | atom()),
+        required("incidentTemplate") => incident_template(),
+        optional("integrations") => list(list()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type get_response_plan_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_incident_findings_output() :: %{
+        "findings" => list(finding_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_incident_findings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => [String.t() | atom()],
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      region_map_input_value() :: %{
+        "sseKmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type region_map_input_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_details() :: %{
+        "rawData" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "triggerArn" => String.t() | atom()
+      }
+
+  """
+  @type trigger_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding() :: %{
+        "creationTime" => [non_neg_integer()],
+        "details" => list(),
+        "id" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()]
+      }
+
+  """
+  @type finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incident_template() :: %{
+        "dedupeString" => String.t() | atom(),
+        "impact" => integer(),
+        "incidentTags" => map(),
+        "notificationTargets" => list(list()),
+        "summary" => String.t() | atom(),
+        "title" => String.t() | atom()
+      }
+
+  """
+  @type incident_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => [String.t() | atom()],
+        "resourceIdentifier" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_related_items_output() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("relatedItems") => list(related_item())
+      }
+
+  """
+  @type list_related_items_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_formation_stack_update() :: %{
+        "endTime" => [non_neg_integer()],
+        "stackArn" => String.t() | atom(),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type cloud_formation_stack_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_deletion_protection_input() :: %{
+        required("arn") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("deletionProtected") => [boolean()]
+      }
+
+  """
+  @type update_deletion_protection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_related_items_input() :: %{
+        required("incidentRecordArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_related_items_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_incident_record_output() :: %{
+        required("incidentRecord") => incident_record()
+      }
+
+  """
+  @type get_incident_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_response_plans_output() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("responsePlanSummaries") => list(response_plan_summary())
+      }
+
+  """
+  @type list_response_plans_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_response_plan_input() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_response_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_timeline_event_output() :: %{
+        required("event") => timeline_event()
+      }
+
+  """
+  @type get_timeline_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_input() :: %{
+        required("policyId") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_replication_set_output() :: %{
+        required("replicationSet") => replication_set()
+      }
+
+  """
+  @type get_replication_set_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_output() :: %{}
+
+  """
+  @type delete_resource_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pager_duty_configuration() :: %{
+        "name" => [String.t() | atom()],
+        "pagerDutyIncidentConfiguration" => pager_duty_incident_configuration(),
+        "secretId" => [String.t() | atom()]
+      }
+
+  """
+  @type pager_duty_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_timeline_events_output() :: %{
+        required("eventSummaries") => list(event_summary()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_timeline_events_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      empty_chat_channel() :: %{}
+
+  """
+  @type empty_chat_channel() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "condition" => list(),
+        "key" => [String.t() | atom()]
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_timeline_events_input() :: %{
+        optional("filters") => list(filter()),
+        required("incidentRecordArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => String.t() | atom(),
+        optional("sortOrder") => String.t() | atom()
+      }
+
+  """
+  @type list_timeline_events_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_incident_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("impact") => integer(),
+        optional("relatedItems") => list(related_item()),
+        required("responsePlanArn") => String.t() | atom(),
+        optional("title") => String.t() | atom(),
+        optional("triggerDetails") => trigger_details()
+      }
+
+  """
+  @type start_incident_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_timeline_event_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("eventData") => String.t() | atom(),
+        required("eventId") => String.t() | atom(),
+        optional("eventReferences") => list(list()),
+        optional("eventTime") => [non_neg_integer()],
+        optional("eventType") => String.t() | atom(),
+        required("incidentRecordArn") => String.t() | atom()
+      }
+
+  """
+  @type update_timeline_event_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_replication_set_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("regions") => map(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_replication_set_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_response_plan_output() :: %{}
+
+  """
+  @type delete_response_plan_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_related_items_output() :: %{}
+
+  """
+  @type update_related_items_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_replication_set_input() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_replication_set_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_response_plan_input() :: %{
+        optional("actions") => list(list()),
+        required("arn") => String.t() | atom(),
+        optional("chatChannel") => list(),
+        optional("clientToken") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("engagements") => list(String.t() | atom()),
+        optional("incidentTemplateDedupeString") => String.t() | atom(),
+        optional("incidentTemplateImpact") => integer(),
+        optional("incidentTemplateNotificationTargets") => list(list()),
+        optional("incidentTemplateSummary") => String.t() | atom(),
+        optional("incidentTemplateTags") => map(),
+        optional("incidentTemplateTitle") => String.t() | atom(),
+        optional("integrations") => list(list())
+      }
+
+  """
+  @type update_response_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_replication_set_output() :: %{}
+
+  """
+  @type update_replication_set_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceIdentifier" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
+        "retryAfter" => [non_neg_integer()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incident_record_summary() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => [non_neg_integer()],
+        "impact" => integer(),
+        "incidentRecordSource" => incident_record_source(),
+        "resolvedTime" => [non_neg_integer()],
+        "status" => String.t() | atom(),
+        "title" => String.t() | atom()
+      }
+
+  """
+  @type incident_record_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      response_plan_summary() :: %{
+        "arn" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type response_plan_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policies_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policies_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_region_action() :: %{
+        "regionName" => String.t() | atom()
+      }
+
+  """
+  @type delete_region_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_incident_findings_input() :: %{
+        required("incidentRecordArn") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_incident_findings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_timeline_event_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("eventData") => String.t() | atom(),
+        optional("eventReferences") => list(list()),
+        required("eventTime") => [non_neg_integer()],
+        required("eventType") => String.t() | atom(),
+        required("incidentRecordArn") => String.t() | atom()
+      }
+
+  """
+  @type create_timeline_event_input() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_incident_findings_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type create_replication_set_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type create_response_plan_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type create_timeline_event_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type delete_incident_record_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type delete_replication_set_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type delete_resource_policy_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type delete_response_plan_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type delete_timeline_event_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type get_incident_record_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type get_replication_set_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type get_resource_policies_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type get_response_plan_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type get_timeline_event_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type list_incident_findings_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type list_incident_records_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type list_related_items_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type list_replication_sets_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type list_response_plans_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type list_timeline_events_errors() ::
-          throttling_exception()
-          | validation_exception()
+          internal_server_exception()
+          | throttling_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | validation_exception()
 
   @type put_resource_policy_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type start_incident_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type update_deletion_protection_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type update_incident_record_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type update_related_items_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type update_replication_set_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type update_response_plan_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   @type update_timeline_event_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
+          | throttling_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | access_denied_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -1879,21 +1879,21 @@ defmodule AWS.SSMIncidents do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_timeline_event_errors()}
-  def get_timeline_event(%Client{} = client, event_id, incident_record_arn, options \\ []) do
+  def get_timeline_event(%Client{} = client, incident_record_arn, event_id, options \\ []) do
     url_path = "/getTimelineEvent"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(incident_record_arn) do
-        [{"incidentRecordArn", incident_record_arn} | query_params]
+      if !is_nil(event_id) do
+        [{"eventId", event_id} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(event_id) do
-        [{"eventId", event_id} | query_params]
+      if !is_nil(incident_record_arn) do
+        [{"incidentRecordArn", incident_record_arn} | query_params]
       else
         query_params
       end

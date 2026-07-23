@@ -105,9 +105,9 @@ defmodule AWS.CloudTrailData do
   ## Example:
 
       put_audit_events_request() :: %{
-        optional("externalId") => String.t() | atom(),
         required("auditEvents") => list(audit_event()),
-        required("channelArn") => String.t() | atom()
+        required("channelArn") => String.t() | atom(),
+        optional("externalId") => String.t() | atom()
       }
 
   """
@@ -194,8 +194,8 @@ defmodule AWS.CloudTrailData do
 
     {query_params, input} =
       [
-        {"channelArn", "channelArn"},
-        {"externalId", "externalId"}
+        {"externalId", "externalId"},
+        {"channelArn", "channelArn"}
       ]
       |> Request.build_params(input)
 

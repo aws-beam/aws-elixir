@@ -36,26 +36,82 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      get_canary_runs_request() :: %{
-        optional("DryRunId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RunType") => list(any())
+      canary_schedule_input() :: %{
+        "DurationInSeconds" => float(),
+        "Expression" => String.t() | atom(),
+        "RetryConfig" => retry_config_input()
       }
 
   """
-  @type get_canary_runs_request() :: %{(String.t() | atom()) => any()}
+  @type canary_schedule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("Tags") => map()
+      too_many_requests_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_run_timeline() :: %{
+        "Completed" => non_neg_integer(),
+        "MetricTimestampForRunAndRetries" => non_neg_integer(),
+        "Started" => non_neg_integer()
+      }
+
+  """
+  @type canary_run_timeline() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_run() :: %{
+        "ArtifactS3Location" => String.t() | atom(),
+        "BrowserType" => list(any()),
+        "DryRunConfig" => canary_dry_run_config_output(),
+        "Id" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RetryAttempt" => integer(),
+        "ScheduledRunId" => String.t() | atom(),
+        "Status" => canary_run_status(),
+        "Timeline" => canary_run_timeline()
+      }
+
+  """
+  @type canary_run() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_canary_dry_run_response() :: %{
+        "DryRunConfig" => dry_run_config_output()
+      }
+
+  """
+  @type start_canary_dry_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_schedule_output() :: %{
+        "DurationInSeconds" => float(),
+        "Expression" => String.t() | atom(),
+        "RetryConfig" => retry_config_output()
+      }
+
+  """
+  @type canary_schedule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -72,31 +128,247 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      stop_canary_request() :: %{}
-
-  """
-  @type stop_canary_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dependency() :: %{
-        "Reference" => String.t() | atom(),
-        "Type" => list(any())
+      request_entity_too_large_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type dependency() :: %{(String.t() | atom()) => any()}
+  @type request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_resource_response() :: %{}
+
+  """
+  @type associate_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_request() :: %{}
+
+  """
+  @type get_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      group_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_config_output() :: %{
+        "MaxRetries" => integer()
+      }
+
+  """
+  @type retry_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_request() :: %{
+        required("Name") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_config_input() :: %{
+        "MaxRetries" => integer()
+      }
+
+  """
+  @type retry_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visual_reference_input() :: %{
+        "BaseCanaryRunId" => String.t() | atom(),
+        "BaseScreenshots" => list(base_screenshot()),
+        "BrowserType" => list(any())
+      }
+
+  """
+  @type visual_reference_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_canary_request() :: %{}
+
+  """
+  @type start_canary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_config_output() :: %{
+        "Ipv6AllowedForDualStack" => boolean(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_canary_request() :: %{
+        optional("AddReplicaLocations") => list(add_replica_location_input()),
+        optional("ArtifactConfig") => artifact_config_input(),
+        required("ArtifactS3Location") => String.t() | atom(),
+        optional("BrowserConfigs") => list(browser_config()),
+        required("Code") => canary_code_input(),
+        required("ExecutionRoleArn") => String.t() | atom(),
+        optional("FailureRetentionPeriodInDays") => integer(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        optional("ProvisionedResourceCleanup") => list(any()),
+        optional("ResourcesToReplicateTags") => list(list(any())()),
+        optional("RunConfig") => canary_run_config_input(),
+        required("RuntimeVersion") => String.t() | atom(),
+        required("Schedule") => canary_schedule_input(),
+        optional("SuccessRetentionPeriodInDays") => integer(),
+        optional("Tags") => map(),
+        optional("VpcConfig") => vpc_config_input()
+      }
+
+  """
+  @type create_canary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_group_resources_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Resources" => list(String.t() | atom())
+      }
+
+  """
+  @type list_group_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visual_reference_output() :: %{
+        "BaseCanaryRunId" => String.t() | atom(),
+        "BaseScreenshots" => list(base_screenshot()),
+        "BrowserType" => list(any())
+      }
+
+  """
+  @type visual_reference_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_code_input() :: %{
+        "BlueprintTypes" => list(String.t() | atom()),
+        "Dependencies" => list(dependency()),
+        "Handler" => String.t() | atom(),
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3Version" => String.t() | atom(),
+        "ZipFile" => binary()
+      }
+
+  """
+  @type canary_code_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,25 +386,35 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      describe_canaries_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("Names") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom()
+      s3_encryption_config() :: %{
+        "EncryptionMode" => list(any()),
+        "KmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type describe_canaries_request() :: %{(String.t() | atom()) => any()}
+  @type s3_encryption_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      canary_dry_run_config_output() :: %{
-        "DryRunId" => String.t() | atom()
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type canary_dry_run_config_output() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,39 +429,40 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      create_canary_request() :: %{
-        optional("ArtifactConfig") => artifact_config_input(),
-        optional("BrowserConfigs") => list(browser_config()),
-        optional("FailureRetentionPeriodInDays") => integer(),
-        optional("ProvisionedResourceCleanup") => list(any()),
-        optional("ResourcesToReplicateTags") => list(list(any())()),
-        optional("RunConfig") => canary_run_config_input(),
-        optional("SuccessRetentionPeriodInDays") => integer(),
-        optional("Tags") => map(),
-        optional("VpcConfig") => vpc_config_input(),
-        required("ArtifactS3Location") => String.t() | atom(),
-        required("Code") => canary_code_input(),
-        required("ExecutionRoleArn") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("RuntimeVersion") => String.t() | atom(),
-        required("Schedule") => canary_schedule_input()
+      browser_config() :: %{
+        "BrowserType" => list(any())
       }
 
   """
-  @type create_canary_request() :: %{(String.t() | atom()) => any()}
+  @type browser_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      visual_reference_output() :: %{
-        "BaseCanaryRunId" => String.t() | atom(),
-        "BaseScreenshots" => list(base_screenshot()),
-        "BrowserType" => list(any())
+      group() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
       }
 
   """
-  @type visual_reference_output() :: %{(String.t() | atom()) => any()}
+  @type group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_runtime_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_runtime_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -208,40 +491,56 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      canary_status() :: %{
-        "State" => list(any()),
-        "StateReason" => String.t() | atom(),
-        "StateReasonCode" => list(any())
-      }
+      delete_group_request() :: %{}
 
   """
-  @type canary_status() :: %{(String.t() | atom()) => any()}
+  @type delete_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      describe_runtime_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RuntimeVersions" => list(runtime_version())
-      }
+      untag_resource_response() :: %{}
 
   """
-  @type describe_runtime_versions_response() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      canary_run_config_output() :: %{
-        "ActiveTracing" => boolean(),
-        "EphemeralStorage" => integer(),
-        "MemoryInMB" => integer(),
-        "TimeoutInSeconds" => integer()
+      add_replica_location_input() :: %{
+        "KmsKeyArn" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "VpcConfig" => vpc_config_input()
       }
 
   """
-  @type canary_run_config_output() :: %{(String.t() | atom()) => any()}
+  @type add_replica_location_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_response() :: %{
+        "Group" => group()
+      }
+
+  """
+  @type get_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_config_input() :: %{
+        "Ipv6AllowedForDualStack" => boolean(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,462 +558,13 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_canary_response() :: %{}
-
-  """
-  @type stop_canary_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_resources_response() :: %{
+      describe_runtime_versions_response() :: %{
         "NextToken" => String.t() | atom(),
-        "Resources" => list(String.t() | atom())
+        "RuntimeVersions" => list(runtime_version())
       }
 
   """
-  @type list_group_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_encryption_config() :: %{
-        "EncryptionMode" => list(any()),
-        "KmsKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type s3_encryption_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_canary_response() :: %{}
-
-  """
-  @type start_canary_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_run() :: %{
-        "ArtifactS3Location" => String.t() | atom(),
-        "BrowserType" => list(any()),
-        "DryRunConfig" => canary_dry_run_config_output(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RetryAttempt" => integer(),
-        "ScheduledRunId" => String.t() | atom(),
-        "Status" => canary_run_status(),
-        "Timeline" => canary_run_timeline()
-      }
-
-  """
-  @type canary_run() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_schedule_input() :: %{
-        "DurationInSeconds" => float(),
-        "Expression" => String.t() | atom(),
-        "RetryConfig" => retry_config_input()
-      }
-
-  """
-  @type canary_schedule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_resource_response() :: %{}
-
-  """
-  @type associate_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_canary_response() :: %{
-        "Canary" => canary()
-      }
-
-  """
-  @type get_canary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_run_config_input() :: %{
-        "ActiveTracing" => boolean(),
-        "EnvironmentVariables" => map(),
-        "EphemeralStorage" => integer(),
-        "MemoryInMB" => integer(),
-        "TimeoutInSeconds" => integer()
-      }
-
-  """
-  @type canary_run_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_canary_request() :: %{
-        optional("ArtifactConfig") => artifact_config_input(),
-        optional("ArtifactS3Location") => String.t() | atom(),
-        optional("BrowserConfigs") => list(browser_config()),
-        optional("Code") => canary_code_input(),
-        optional("DryRunId") => String.t() | atom(),
-        optional("ExecutionRoleArn") => String.t() | atom(),
-        optional("FailureRetentionPeriodInDays") => integer(),
-        optional("ProvisionedResourceCleanup") => list(any()),
-        optional("RunConfig") => canary_run_config_input(),
-        optional("RuntimeVersion") => String.t() | atom(),
-        optional("Schedule") => canary_schedule_input(),
-        optional("SuccessRetentionPeriodInDays") => integer(),
-        optional("VisualReference") => visual_reference_input(),
-        optional("VisualReferences") => list(visual_reference_input()),
-        optional("VpcConfig") => vpc_config_input()
-      }
-
-  """
-  @type update_canary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_run_timeline() :: %{
-        "Completed" => non_neg_integer(),
-        "MetricTimestampForRunAndRetries" => non_neg_integer(),
-        "Started" => non_neg_integer()
-      }
-
-  """
-  @type canary_run_timeline() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_canary_response() :: %{}
-
-  """
-  @type update_canary_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_run_status() :: %{
-        "State" => list(any()),
-        "StateReason" => String.t() | atom(),
-        "StateReasonCode" => list(any()),
-        "TestResult" => list(any())
-      }
-
-  """
-  @type canary_run_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_last_run() :: %{
-        "CanaryName" => String.t() | atom(),
-        "LastRun" => canary_run()
-      }
-
-  """
-  @type canary_last_run() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      artifact_config_output() :: %{
-        "S3Encryption" => s3_encryption_config()
-      }
-
-  """
-  @type artifact_config_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      base_screenshot() :: %{
-        "IgnoreCoordinates" => list(String.t() | atom()),
-        "ScreenshotName" => String.t() | atom()
-      }
-
-  """
-  @type base_screenshot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_config_output() :: %{
-        "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_config_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_request() :: %{
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_response() :: %{}
-
-  """
-  @type disassociate_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_timeline() :: %{
-        "Created" => non_neg_integer(),
-        "LastModified" => non_neg_integer(),
-        "LastStarted" => non_neg_integer(),
-        "LastStopped" => non_neg_integer()
-      }
-
-  """
-  @type canary_timeline() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_canary_runs_response() :: %{
-        "CanaryRuns" => list(canary_run()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_canary_runs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_code_output() :: %{
-        "BlueprintTypes" => list(String.t() | atom()),
-        "Dependencies" => list(dependency()),
-        "Handler" => String.t() | atom(),
-        "SourceLocationArn" => String.t() | atom()
-      }
-
-  """
-  @type canary_code_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_canaries_last_run_request() :: %{
-        optional("BrowserType") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("Names") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_canaries_last_run_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_runtime_versions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_runtime_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dry_run_config_output() :: %{
-        "DryRunId" => String.t() | atom(),
-        "LastDryRunExecutionStatus" => String.t() | atom()
-      }
-
-  """
-  @type dry_run_config_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      visual_reference_input() :: %{
-        "BaseCanaryRunId" => String.t() | atom(),
-        "BaseScreenshots" => list(base_screenshot()),
-        "BrowserType" => list(any())
-      }
-
-  """
-  @type visual_reference_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_entity_too_large_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_canary_request() :: %{}
-
-  """
-  @type start_canary_request() :: %{}
+  @type describe_runtime_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -729,47 +579,14 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_canaries_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      engine_config() :: %{
-        "BrowserType" => list(any()),
-        "EngineArn" => String.t() | atom()
-      }
-
-  """
-  @type engine_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_version() :: %{
-        "DeprecationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ReleaseDate" => non_neg_integer(),
-        "VersionName" => String.t() | atom()
-      }
-
-  """
-  @type runtime_version() :: %{(String.t() | atom()) => any()}
+  @type describe_canaries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,6 +603,8 @@ defmodule AWS.Synthetics do
         "ExecutionRoleArn" => String.t() | atom(),
         "FailureRetentionPeriodInDays" => integer(),
         "Id" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "MultiLocationConfig" => multi_location_config(),
         "Name" => String.t() | atom(),
         "ProvisionedResourceCleanup" => list(any()),
         "RunConfig" => canary_run_config_output(),
@@ -807,59 +626,67 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      vpc_config_input() :: %{
-        "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type vpc_config_input() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_canary_request() :: %{
-        optional("DeleteLambda") => boolean()
-      }
+      start_canary_response() :: %{}
 
   """
-  @type delete_canary_request() :: %{(String.t() | atom()) => any()}
+  @type start_canary_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      start_canary_dry_run_response() :: %{
-        "DryRunConfig" => dry_run_config_output()
-      }
+      stop_canary_response() :: %{}
 
   """
-  @type start_canary_dry_run_response() :: %{(String.t() | atom()) => any()}
+  @type stop_canary_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_associated_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_associated_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
+      access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_canary_response() :: %{
+        "Canary" => canary()
+      }
+
+  """
+  @type create_canary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_run_config_input() :: %{
+        "ActiveTracing" => boolean(),
+        "EnvironmentVariables" => map(),
+        "EphemeralStorage" => integer(),
+        "MemoryInMB" => integer(),
+        "TimeoutInSeconds" => integer()
+      }
+
+  """
+  @type canary_run_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -869,6 +696,45 @@ defmodule AWS.Synthetics do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_status() :: %{
+        "State" => list(any()),
+        "StateReason" => String.t() | atom(),
+        "StateReasonCode" => list(any())
+      }
+
+  """
+  @type canary_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_canary_runs_response() :: %{
+        "CanaryRuns" => list(canary_run()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_canary_runs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_timeline() :: %{
+        "Created" => non_neg_integer(),
+        "LastModified" => non_neg_integer(),
+        "LastStarted" => non_neg_integer(),
+        "LastStopped" => non_neg_integer()
+      }
+
+  """
+  @type canary_timeline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -886,37 +752,56 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      group() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
+      runtime_version() :: %{
+        "DeprecationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ReleaseDate" => non_neg_integer(),
+        "VersionName" => String.t() | atom()
       }
 
   """
-  @type group() :: %{(String.t() | atom()) => any()}
+  @type runtime_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_group_response() :: %{
-        "Group" => group()
+      multi_location_config() :: %{
+        "LocationType" => list(any()),
+        "PrimaryLocation" => String.t() | atom(),
+        "Replicas" => list(replica()),
+        "ReplicationState" => list(any())
       }
 
   """
-  @type get_group_response() :: %{(String.t() | atom()) => any()}
+  @type multi_location_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_group_request() :: %{}
+      replication_status() :: %{
+        "State" => list(any()),
+        "StateReason" => String.t() | atom(),
+        "StateReasonCode" => String.t() | atom()
+      }
 
   """
-  @type delete_group_request() :: %{}
+  @type replication_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_run_config_output() :: %{
+        "ActiveTracing" => boolean(),
+        "EphemeralStorage" => integer(),
+        "MemoryInMB" => integer(),
+        "TimeoutInSeconds" => integer()
+      }
+
+  """
+  @type canary_run_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -933,25 +818,136 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      bad_request_exception() :: %{
-        "Message" => String.t() | atom()
+      dependency() :: %{
+        "Reference" => String.t() | atom(),
+        "Type" => list(any())
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type dependency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      group_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      replica() :: %{
+        "CanaryState" => list(any()),
+        "LastModified" => non_neg_integer(),
+        "Location" => String.t() | atom(),
+        "ReplicationStatus" => replication_status(),
+        "VpcConfig" => vpc_config_output()
       }
 
   """
-  @type group_summary() :: %{(String.t() | atom()) => any()}
+  @type replica() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      base_screenshot() :: %{
+        "IgnoreCoordinates" => list(String.t() | atom()),
+        "ScreenshotName" => String.t() | atom()
+      }
+
+  """
+  @type base_screenshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_canaries_last_run_request() :: %{
+        optional("BrowserType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_canaries_last_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_dry_run_config_output() :: %{
+        "DryRunId" => String.t() | atom()
+      }
+
+  """
+  @type canary_dry_run_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      artifact_config_input() :: %{
+        "S3Encryption" => s3_encryption_config()
+      }
+
+  """
+  @type artifact_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_code_output() :: %{
+        "BlueprintTypes" => list(String.t() | atom()),
+        "Dependencies" => list(dependency()),
+        "Handler" => String.t() | atom(),
+        "SourceLocationArn" => String.t() | atom()
+      }
+
+  """
+  @type canary_code_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_canary_request() :: %{}
+
+  """
+  @type stop_canary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_canary_runs_request() :: %{
+        optional("DryRunId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RunType") => list(any())
+      }
+
+  """
+  @type get_canary_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_last_run() :: %{
+        "CanaryName" => String.t() | atom(),
+        "LastRun" => canary_run()
+      }
+
+  """
+  @type canary_last_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -969,12 +965,174 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      browser_config() :: %{
-        "BrowserType" => list(any())
+      dry_run_config_output() :: %{
+        "DryRunId" => String.t() | atom(),
+        "LastDryRunExecutionStatus" => String.t() | atom()
       }
 
   """
-  @type browser_config() :: %{(String.t() | atom()) => any()}
+  @type dry_run_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_run_status() :: %{
+        "State" => list(any()),
+        "StateReason" => String.t() | atom(),
+        "StateReasonCode" => list(any()),
+        "TestResult" => list(any())
+      }
+
+  """
+  @type canary_run_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_response() :: %{}
+
+  """
+  @type disassociate_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associated_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_associated_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_canary_request() :: %{
+        optional("DeleteLambda") => boolean()
+      }
+
+  """
+  @type delete_canary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_response() :: %{
+        "Group" => group()
+      }
+
+  """
+  @type create_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_canary_response() :: %{
+        "Canary" => canary()
+      }
+
+  """
+  @type get_canary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_canary_request() :: %{
+        optional("AddReplicaLocations") => list(add_replica_location_input()),
+        optional("ArtifactConfig") => artifact_config_input(),
+        optional("ArtifactS3Location") => String.t() | atom(),
+        optional("BrowserConfigs") => list(browser_config()),
+        optional("Code") => canary_code_input(),
+        optional("DryRunId") => String.t() | atom(),
+        optional("ExecutionRoleArn") => String.t() | atom(),
+        optional("FailureRetentionPeriodInDays") => integer(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("ProvisionedResourceCleanup") => list(any()),
+        optional("RemoveReplicaLocations") => list(String.t() | atom()),
+        optional("RunConfig") => canary_run_config_input(),
+        optional("RuntimeVersion") => String.t() | atom(),
+        optional("Schedule") => canary_schedule_input(),
+        optional("SuccessRetentionPeriodInDays") => integer(),
+        optional("VisualReference") => visual_reference_input(),
+        optional("VisualReferences") => list(visual_reference_input()),
+        optional("VpcConfig") => vpc_config_input()
+      }
+
+  """
+  @type update_canary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      artifact_config_output() :: %{
+        "S3Encryption" => s3_encryption_config()
+      }
+
+  """
+  @type artifact_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_canary_response() :: %{}
+
+  """
+  @type update_canary_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_config() :: %{
+        "BrowserType" => list(any()),
+        "EngineArn" => String.t() | atom()
+      }
+
+  """
+  @type engine_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,220 +1150,125 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      get_group_request() :: %{}
-
-  """
-  @type get_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_schedule_output() :: %{
-        "DurationInSeconds" => float(),
-        "Expression" => String.t() | atom(),
-        "RetryConfig" => retry_config_output()
+      associate_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
       }
 
   """
-  @type canary_schedule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retry_config_input() :: %{
-        "MaxRetries" => integer()
-      }
-
-  """
-  @type retry_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_canary_response() :: %{
-        "Canary" => canary()
-      }
-
-  """
-  @type create_canary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_code_input() :: %{
-        "BlueprintTypes" => list(String.t() | atom()),
-        "Dependencies" => list(dependency()),
-        "Handler" => String.t() | atom(),
-        "S3Bucket" => String.t() | atom(),
-        "S3Key" => String.t() | atom(),
-        "S3Version" => String.t() | atom(),
-        "ZipFile" => binary()
-      }
-
-  """
-  @type canary_code_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      artifact_config_input() :: %{
-        "S3Encryption" => s3_encryption_config()
-      }
-
-  """
-  @type artifact_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_response() :: %{
-        "Group" => group()
-      }
-
-  """
-  @type create_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retry_config_output() :: %{
-        "MaxRetries" => integer()
-      }
-
-  """
-  @type retry_config_output() :: %{(String.t() | atom()) => any()}
+  @type associate_resource_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_resource_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          resource_not_found_exception()
           | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type create_canary_errors() ::
-          validation_exception()
+          internal_server_exception()
+          | validation_exception()
           | request_entity_too_large_exception()
-          | internal_server_exception()
 
   @type create_group_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_canary_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type delete_group_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
 
-  @type describe_canaries_errors() :: validation_exception() | internal_server_exception()
+  @type describe_canaries_errors() :: internal_server_exception() | validation_exception()
 
   @type describe_canaries_last_run_errors() ::
-          validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception()
 
-  @type describe_runtime_versions_errors() :: validation_exception() | internal_server_exception()
+  @type describe_runtime_versions_errors() :: internal_server_exception() | validation_exception()
 
   @type disassociate_resource_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
 
-  @type get_canary_errors() :: validation_exception() | internal_server_exception()
+  @type get_canary_errors() :: internal_server_exception() | validation_exception()
 
   @type get_canary_runs_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type get_group_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type list_associated_groups_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type list_group_resources_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
 
-  @type list_groups_errors() :: validation_exception() | internal_server_exception()
+  @type list_groups_errors() :: internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | internal_failure_exception()
+          | too_many_requests_exception()
 
   @type start_canary_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type start_canary_dry_run_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type stop_canary_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | internal_failure_exception()
+          | too_many_requests_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | internal_failure_exception()
+          | too_many_requests_exception()
 
   @type update_canary_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | access_denied_exception()
-          | request_entity_too_large_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | conflict_exception()
+          | request_entity_too_large_exception()
 
   def metadata do
     %{
